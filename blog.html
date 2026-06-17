@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles | Kristian Sokol — Life & Longevity Coach</title>
+  <meta name="description" content="Evidence-based articles on life coaching, longevity, ADHD-aware strategies, and breaking the restart loop. By Kristian Sokol." />
+  <meta name="keywords" content="life coaching articles, longevity tips, ADHD strategies, break the loop, Kristian Sokol blog, coaching insights" />
+  <meta name="author" content="Kristian Sokol" />
+  <meta property="og:title" content="Articles | Kristian Sokol — Life & Longevity Coach" />
+  <meta property="og:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.coachkris.co.uk/blog" />
+  <link rel="canonical" href="https://www.coachkris.co.uk/blog" />
+
+  <!-- Google Fonts — same as main site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <!-- Umami Analytics — same as main site -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
+
+  <style>
+    /* ─── DESIGN TOKENS — identical to main site ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment:   #F5F1EA;
+      --deep-forest: #1C2823;
+      --warm-gold:   #C69E48;
+      --slate-mist:  #7A8A85;
+      --sand:        #EBE6DA;
+      --sea-glass:   #C1CEC9;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-brand:   'Bebas Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--parchment);
+      color: var(--deep-forest);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+
+    /* ─── NAVIGATION — exact copy from index.html ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(28,40,35,0.08);
+    }
+    .nav-brand {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--deep-forest); }
+    .nav-links a.active { color: var(--deep-forest); border-bottom: 2px solid var(--warm-gold); padding-bottom: 2px; }
+    .nav-cta {
+      background: var(--warm-gold) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+      border-bottom: none !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--deep-forest);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── PAGE HERO ─── */
+    .blog-hero {
+      min-height: 38vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 130px 2rem 60px;
+      background: linear-gradient(180deg, var(--sand) 0%, var(--parchment) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 1px; height: 80px;
+      background: linear-gradient(180deg, transparent, var(--warm-gold));
+      transform: translateX(-50%);
+    }
+    .blog-hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 1rem;
+    }
+    .blog-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--deep-forest);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .blog-hero h1 em { font-style: italic; color: var(--warm-gold); }
+    .blog-hero p {
+      font-size: 1rem;
+      color: var(--slate-mist);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ─── CLUSTER INTRO BANNER ─── */
+    .cluster-intro {
+      background: var(--deep-forest);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .cluster-intro h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      margin-bottom: 0.6rem;
+    }
+    .cluster-intro h2 em { font-style: italic; color: var(--warm-gold); }
+    .cluster-intro p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .blog-main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* ─── TOPIC CLUSTER TABS ─── */
+    .cluster-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid var(--sea-glass);
+      padding-bottom: 1.5rem;
+    }
+    .cluster-tab {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      border: 1.5px solid var(--sea-glass);
+      background: transparent;
+      color: var(--slate-mist);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cluster-tab:hover { border-color: var(--deep-forest); color: var(--deep-forest); }
+    .cluster-tab.active {
+      background: var(--deep-forest);
+      border-color: var(--deep-forest);
+      color: white;
+    }
+    .cluster-tab.gold-tab.active {
+      background: var(--warm-gold);
+      border-color: var(--warm-gold);
+    }
+
+    /* ─── FEATURED / PILLAR ARTICLE ─── */
+    .featured-article {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--sea-glass);
+      margin-bottom: 3.5rem;
+      background: white;
+      transition: box-shadow 0.3s, transform 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .featured-article:hover {
+      box-shadow: 0 12px 48px rgba(28,40,35,0.1);
+      transform: translateY(-3px);
+    }
+    .featured-img {
+      background: var(--sand);
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute; inset: 0;
+    }
+    .featured-img .img-placeholder {
+      position: relative;
+      z-index: 1;
+      font-size: 3.5rem;
+      opacity: 0.5;
+    }
+    .featured-body {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .article-cluster-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      background: rgba(198,158,72,0.1);
+      padding: 0.25rem 0.7rem;
+      border-radius: 9999px;
+    }
+    .article-cluster-tag.life { color: var(--deep-forest); background: rgba(28,40,35,0.07); }
+    .article-cluster-tag.longevity { color: #4A7C6F; background: rgba(74,124,111,0.1); }
+    .article-cluster-tag.mindset { color: #8B6914; background: rgba(198,158,72,0.12); }
+    .article-cluster-tag.adhd { color: #6B4E9A; background: rgba(107,78,154,0.1); }
+    .article-read-time {
+      font-size: 0.75rem;
+      color: var(--slate-mist);
+    }
+    .pillar-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--warm-gold);
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+    .featured-body h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+    .featured-body h2 em { font-style: italic; color: var(--warm-gold); }
+    .featured-body p {
+      font-size: 0.95rem;
+      color: var(--slate-mist);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .read-more-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--deep-forest);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .read-more-link:hover { gap: 0.7rem; color: var(--warm-gold); }
+
+    /* ─── CLUSTER SECTION HEADING ─── */
+    .cluster-section {
+      margin-bottom: 4rem;
+    }
+    .cluster-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--sea-glass);
+    }
+    .cluster-section-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .cluster-section-icon.dark { background: var(--deep-forest); }
+    .cluster-section-icon.gold { background: var(--warm-gold); }
+    .cluster-section-icon.teal { background: #4A7C6F; }
+    .cluster-section-icon.purple { background: #6B4E9A; }
+    .cluster-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate-mist);
+    }
+    .cluster-section-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--deep-forest);
+    }
+    .cluster-section-desc {
+      font-size: 0.8rem;
+      color: var(--slate-mist);
+      max-width: 500px;
+    }
+    .cluster-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--sea-glass);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ─── ARTICLE GRID ─── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ─── ARTICLE CARD ─── */
+    .article-card {
+      background: white;
+      border: 1px solid var(--sea-glass);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .article-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(28,40,35,0.09);
+    }
+    .card-img {
+      height: 180px;
+      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      opacity: 0.6;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute; inset: 0;
+      opacity: 1;
+    }
+    .card-body {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-body .article-meta { margin-bottom: 0.6rem; }
+    .card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 300;
+      line-height: 1.3;
+      color: var(--deep-forest);
+      margin-bottom: 0.6rem;
+      flex: 1;
+    }
+    .card-body p {
+      font-size: 0.82rem;
+      color: var(--slate-mist);
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.4rem;
+      border-top: 1px solid var(--sand);
+      background: rgba(235,230,218,0.3);
+    }
+    .card-date {
+      font-size: 0.72rem;
+      color: var(--sea-glass);
+    }
+    .card-arrow {
+      font-size: 0.85rem;
+      color: var(--warm-gold);
+      font-weight: 600;
+    }
+
+    /* ─── COMING SOON CARD ─── */
+    .article-card.coming-soon {
+      opacity: 0.6;
+      cursor: default;
+      pointer-events: none;
+    }
+    .coming-soon-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--sand);
+      color: var(--slate-mist);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--sea-glass);
+    }
+
+    /* ─── NEWSLETTER CTA ─── */
+    .newsletter-section {
+      background: var(--deep-forest);
+      border-radius: 16px;
+      padding: 3.5rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .newsletter-section .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.75rem;
+    }
+    .newsletter-section h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      color: white;
+      margin-bottom: 0.75rem;
+    }
+    .newsletter-section h2 em { font-style: italic; color: var(--warm-gold); }
+    .newsletter-section p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1.1rem;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-form input:focus { border-color: var(--warm-gold); }
+    .newsletter-form button {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: var(--warm-gold);
+      color: white;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .newsletter-form button:hover { opacity: 0.85; }
+    .newsletter-note {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.75rem;
+    }
+
+    /* ─── FOOTER — same as index ─── */
+    footer {
+      background: rgba(235,230,218,0.5);
+      border-top: 1px solid var(--sea-glass);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline { font-size: 0.825rem; color: var(--slate-mist); line-height: 1.6; }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--slate-mist); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--deep-forest); }
+    .footer-col p { font-size: 0.875rem; color: var(--slate-mist); line-height: 1.7; }
+    .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sea-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--slate-mist);
+      display: none;
+    }
+    .empty-state h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+    .empty-state.show { display: block; }
+
+    /* ─── LOADING STATE ─── */
+    .loading-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--slate-mist);
+      font-size: 0.875rem;
+    }
+    .loading-dots::after {
+      content: '...';
+      animation: dots 1.5s infinite;
+    }
+    @keyframes dots {
+      0%,20%  { content: '.'; }
+      40%,60% { content: '..'; }
+      80%,100%{ content: '...'; }
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      .featured-article { grid-template-columns: 1fr; }
+      .featured-img { min-height: 220px; }
+      .articles-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-section { padding: 2.5rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.25rem; }
+      .blog-main { padding: 3rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#story" onclick="closeMenu()">About</a></li>
+      <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="blog.html" class="active" onclick="closeMenu()">Articles</a></li>
+      <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="index.html#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── PAGE HERO ─── -->
+  <div class="blog-hero">
+    <p class="blog-hero-eyebrow reveal">Knowledge & Perspective</p>
+    <h1 class="reveal reveal-delay-1">Articles on <em>Life,<br />Longevity &amp; Breaking the Loop</em></h1>
+    <p class="reveal reveal-delay-2">Evidence-based insights, honest reflections, and practical strategies — structured so each article connects to a bigger picture.</p>
+  </div>
+
+  <!-- ─── CLUSTER INTRO BANNER ─── -->
+  <div class="cluster-intro">
+    <h2>Built as a <em>content ecosystem</em>, not a blog.</h2>
+    <p>Every article belongs to a topic cluster — interconnected pieces that build understanding layer by layer. Start anywhere. Go deeper at your own pace.</p>
+  </div>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main class="blog-main">
+
+    <!-- FEATURED PILLAR ARTICLE -->
+    <a class="featured-article reveal" id="featured-article" href="#" data-sanity-id="featured">
+      <div class="featured-img">
+        <div class="img-placeholder" id="featured-emoji">🔄</div>
+      </div>
+      <div class="featured-body">
+        <div class="article-meta">
+          <span class="pillar-badge">Pillar Article</span>
+          <span class="article-cluster-tag" id="featured-tag">Life Coaching</span>
+          <span class="article-read-time" id="featured-read-time">12 min read</span>
+        </div>
+        <h2 id="featured-title">Why Smart People Keep <em>Starting Over</em> — and How to Finally Stop</h2>
+        <p id="featured-excerpt">The restart loop isn't a discipline problem. It's an architecture problem. Understanding the real mechanics behind why driven people self-sabotage is the first step to building something that actually holds.</p>
+        <span class="read-more-link">Read the full article <span>→</span></span>
+      </div>
+    </a>
+
+    <!-- CLUSTER FILTER TABS -->
+    <div class="cluster-nav" id="clusterNav">
+      <button class="cluster-tab active" data-filter="all">All Articles</button>
+      <button class="cluster-tab" data-filter="life">🤍 Life Coaching</button>
+      <button class="cluster-tab" data-filter="longevity">🧬 Longevity</button>
+      <button class="cluster-tab" data-filter="mindset">🧠 Mindset</button>
+      <button class="cluster-tab" data-filter="adhd">⚡ ADHD-Aware</button>
+    </div>
+
+    <!-- ─── CLUSTER 1: LIFE COACHING ─── -->
+    <div class="cluster-section" id="cluster-life" data-cluster="life">
+      <div class="cluster-section-header">
+        <div class="cluster-section-icon dark">🤍</div>
+        <div>
+          <p class="cluster-section-label">Topic Cluster</p>
+          <h2 class="cluster-section-title">Life Coaching</h2>
+          <p class="cluster-section-desc">Direction, clarity, and dismantling the patterns that keep you starting over.</p>
+        </div>
+        <span class="cluster-count" id="count-life"></span>
+      </div>
+      <div class="articles-grid" id="grid-life">
+        <!-- Populated by JS / Sanity -->
+        <div class="loading-state"><span class="loading-dots">Loading articles</span></div>
+      </div>
+    </div>
+
+    <!-- ─── CLUSTER 2: LONGEVITY ─── -->
+    <div class="cluster-section" id="cluster-longevity" data-cluster="longevity">
+      <div class="cluster-section-header">
+        <div class="cluster-section-icon teal">🧬</div>
+        <div>
+          <p class="cluster-section-label">Topic Cluster</p>
+          <h2 class="cluster-section-title">Longevity & Body</h2>
+          <p class="cluster-section-desc">Evidence-based strategies for energy, recovery, and performing at your best long-term.</p>
+        </div>
+        <span class="cluster-count" id="count-longevity"></span>
+      </div>
+      <div class="articles-grid" id="grid-longevity">
+        <div class="loading-state"><span class="loading-dots">Loading articles</span></div>
+      </div>
+    </div>
+
+    <!-- ─── CLUSTER 3: MINDSET ─── -->
+    <div class="cluster-section" id="cluster-mindset" data-cluster="mindset">
+      <div class="cluster-section-header">
+        <div class="cluster-section-icon gold">🧠</div>
+        <div>
+          <p class="cluster-section-label">Topic Cluster</p>
+          <h2 class="cluster-section-title">Mindset & Identity</h2>
+          <p class="cluster-section-desc">The inner architecture of change — who you need to become before you can do what you want to do.</p>
+        </div>
+        <span class="cluster-count" id="count-mindset"></span>
+      </div>
+      <div class="articles-grid" id="grid-mindset">
+        <div class="loading-state"><span class="loading-dots">Loading articles</span></div>
+      </div>
+    </div>
+
+    <!-- ─── CLUSTER 4: ADHD ─── -->
+    <div class="cluster-section" id="cluster-adhd" data-cluster="adhd">
+      <div class="cluster-section-header">
+        <div class="cluster-section-icon purple">⚡</div>
+        <div>
+          <p class="cluster-section-label">Topic Cluster</p>
+          <h2 class="cluster-section-title">ADHD-Aware Strategies</h2>
+          <p class="cluster-section-desc">Real-world tools for neurodivergent minds — systems that work with your brain, not against it.</p>
+        </div>
+        <span class="cluster-count" id="count-adhd"></span>
+      </div>
+      <div class="articles-grid" id="grid-adhd">
+        <div class="loading-state"><span class="loading-dots">Loading articles</span></div>
+      </div>
+    </div>
+
+    <!-- ─── NEWSLETTER CTA ─── -->
+    <div class="newsletter-section reveal">
+      <p class="eyebrow">Stay in the loop</p>
+      <h2>New articles, <em>no noise.</em></h2>
+      <p>One email when a new article drops. Evidence-based, honest, and always worth your time.</p>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+        <input type="email" id="newsletter-email" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-note">No spam. Unsubscribe any time.</p>
+    </div>
+
+    <div class="empty-state" id="emptyState">
+      <h3>No articles here yet.</h3>
+      <p>Check back soon — new pieces are on the way.</p>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Kristian Sokol</p>
+        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#story">About</a></li>
+          <li><a href="index.html#pillars">How I Help</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Find Me</h4>
+        <p><span class="footer-icon">📍</span>Based in Europe<br /><span style="margin-left:1.4rem">Sessions worldwide</span></p>
+        <p style="margin-top:0.75rem"><span class="footer-icon">🌐</span>coachkris.co.uk</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware · LGBTQ+ friendly · Zero judgment, always</p>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script>
+    // ─── NAV ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+    function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
+
+    // ─── SCROLL REVEAL ───
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── CLUSTER FILTER TABS ───
+    document.querySelectorAll('.cluster-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.cluster-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.cluster-section').forEach(section => {
+          if (filter === 'all' || section.dataset.cluster === filter) {
+            section.style.display = '';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ─── SANITY.IO INTEGRATION ───
+    // ═══════════════════════════════════════════════════════════
+    // HOW TO CONNECT SANITY:
+    // 1. Create a project at sanity.io
+    // 2. Replace these values with your own:
+    const SANITY_PROJECT_ID = 'YOUR_PROJECT_ID';   // e.g. 'abc123de'
+    const SANITY_DATASET    = 'production';
+    const SANITY_API_VERSION = '2024-01-01';
+    // 3. In your Sanity schema, create a document type called 'post' with:
+    //    - title (string)
+    //    - slug (slug, required)
+    //    - excerpt (text)
+    //    - cluster (string: 'life' | 'longevity' | 'mindset' | 'adhd')
+    //    - readTime (number, in minutes)
+    //    - publishedAt (datetime)
+    //    - featured (boolean)
+    //    - mainImage (image with alt)
+    //    - body (block content / portable text)
+    //    - emoji (string — fallback icon when no image)
+    // ═══════════════════════════════════════════════════════════
+
+    const SANITY_QUERY = encodeURIComponent(`*[_type == "post"] | order(publishedAt desc) {
+      _id, title, slug, excerpt, cluster, readTime,
+      publishedAt, featured, emoji,
+      "imageUrl": mainImage.asset->url
+    }`);
+
+    const SANITY_URL = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}?query=${SANITY_QUERY}`;
+
+    // Fallback articles shown while Sanity is not connected
+    const FALLBACK_ARTICLES = [
+      {
+        _id: 'f1',
+        title: 'The Restart Loop: Why You Keep Beginning Again (And How to Stop)',
+        slug: { current: 'restart-loop-why-you-keep-beginning-again' },
+        excerpt: 'Most people treat starting over as a personal failure. It\'s not. It\'s a system failure — and systems can be redesigned.',
+        cluster: 'life',
+        readTime: 9,
+        publishedAt: '2026-06-01',
+        featured: true,
+        emoji: '🔄',
+        imageUrl: null
+      },
+      {
+        _id: 'f2',
+        title: 'Five Longevity Habits Backed by Science (That Don\'t Require a Bio-Hacking Budget)',
+        slug: { current: 'five-longevity-habits-science-backed' },
+        excerpt: 'The gap between the longevity research and what you actually need to do is much smaller than the supplement industry wants you to believe.',
+        cluster: 'longevity',
+        readTime: 7,
+        publishedAt: '2026-05-20',
+        featured: false,
+        emoji: '🧬',
+        imageUrl: null
+      },
+      {
+        _id: 'f3',
+        title: 'Identity Before Action: Why Habits Fail Without This First',
+        slug: { current: 'identity-before-action-habits' },
+        excerpt: 'You can\'t build a life that contradicts your self-concept. Before strategy, there is identity. This is where most coaching skips a step.',
+        cluster: 'mindset',
+        readTime: 6,
+        publishedAt: '2026-05-10',
+        featured: false,
+        emoji: '🧠',
+        imageUrl: null
+      },
+      {
+        _id: 'f4',
+        title: 'ADHD and the Restart Loop: A Different Diagnosis',
+        slug: { current: 'adhd-restart-loop-different-diagnosis' },
+        excerpt: 'ADHD doesn\'t cause failure. Mismatched systems cause failure. Here\'s how to build a life that fits the way your brain actually works.',
+        cluster: 'adhd',
+        readTime: 10,
+        publishedAt: '2026-05-01',
+        featured: false,
+        emoji: '⚡',
+        imageUrl: null
+      },
+      {
+        _id: 'f5',
+        title: 'What Longevity Coaching Actually Is (And Isn\'t)',
+        slug: { current: 'what-longevity-coaching-actually-is' },
+        excerpt: 'It\'s not about living to 120. It\'s about having the energy, clarity and physical capacity to fully inhabit the years you have.',
+        cluster: 'longevity',
+        readTime: 5,
+        publishedAt: '2026-04-22',
+        featured: false,
+        emoji: '🌿',
+        imageUrl: null
+      },
+      {
+        _id: 'f6',
+        title: 'The One Question That Changed How I Coach',
+        slug: { current: 'one-question-that-changed-how-i-coach' },
+        excerpt: '"What would a person who already has this do right now?" — simple on the surface, profoundly disruptive underneath.',
+        cluster: 'mindset',
+        readTime: 4,
+        publishedAt: '2026-04-10',
+        featured: false,
+        emoji: '💡',
+        imageUrl: null
+      },
+      {
+        _id: 'f7',
+        title: 'Sleep as a Performance Tool: What the Research Actually Says',
+        slug: { current: 'sleep-as-performance-tool' },
+        excerpt: 'Sleep optimisation is one area where the science is remarkably clear and the application is completely free. Here\'s the honest picture.',
+        cluster: 'longevity',
+        readTime: 8,
+        publishedAt: '2026-04-01',
+        featured: false,
+        emoji: '😴',
+        imageUrl: null
+      },
+      {
+        _id: 'f8',
+        title: 'Time-Blindness, Deadlines, and the ADHD Tax',
+        slug: { current: 'time-blindness-adhd-tax' },
+        excerpt: 'ADHD time-blindness isn\'t laziness or bad planning. It\'s a neurological difference — and there are specific tools that actually help.',
+        cluster: 'adhd',
+        readTime: 7,
+        publishedAt: '2026-03-20',
+        featured: false,
+        emoji: '⏱️',
+        imageUrl: null
+      },
+      {
+        _id: 'f9',
+        title: 'How to Stop Reinventing Yourself and Start Becoming Yourself',
+        slug: { current: 'stop-reinventing-start-becoming' },
+        excerpt: 'There\'s a meaningful difference between reinvention and evolution. One is exhausting and unsustainable. The other is quiet and permanent.',
+        cluster: 'life',
+        readTime: 6,
+        publishedAt: '2026-03-10',
+        featured: false,
+        emoji: '🌱',
+        imageUrl: null
+      }
+    ];
+
+    // ─── RENDER FUNCTIONS ───
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function getClusterClass(cluster) {
+      const map = { life: 'life', longevity: 'longevity', mindset: 'mindset', adhd: 'adhd' };
+      return map[cluster] || '';
+    }
+
+    function getClusterLabel(cluster) {
+      const map = { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware' };
+      return map[cluster] || cluster;
+    }
+
+    function buildArticleCard(article) {
+      const slug = article.slug?.current || '#';
+      const url = `article.html?slug=${slug}`;
+      const img = article.imageUrl
+        ? `<img src="${article.imageUrl}" alt="${article.title}" loading="lazy" />`
+        : ``;
+      const emoji = article.emoji || '📝';
+      return `
+        <a class="article-card" href="${url}">
+          <div class="card-img">
+            ${img}
+            <span ${article.imageUrl ? 'style="display:none"' : ''}>${emoji}</span>
+          </div>
+          <div class="card-body">
+            <div class="article-meta">
+              <span class="article-cluster-tag ${getClusterClass(article.cluster)}">${getClusterLabel(article.cluster)}</span>
+              <span class="article-read-time">${article.readTime || '?'} min read</span>
+            </div>
+            <h3>${article.title}</h3>
+            <p>${article.excerpt || ''}</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-date">${formatDate(article.publishedAt)}</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderArticles(articles) {
+      const clusters = ['life', 'longevity', 'mindset', 'adhd'];
+      let featured = articles.find(a => a.featured);
+
+      // Render featured
+      if (featured) {
+        const fa = document.getElementById('featured-article');
+        fa.href = `article.html?slug=${featured.slug?.current}`;
+        document.getElementById('featured-title').innerHTML = featured.title;
+        document.getElementById('featured-excerpt').textContent = featured.excerpt || '';
+        document.getElementById('featured-tag').textContent = getClusterLabel(featured.cluster);
+        document.getElementById('featured-tag').className = `article-cluster-tag ${getClusterClass(featured.cluster)}`;
+        document.getElementById('featured-read-time').textContent = `${featured.readTime || '?'} min read`;
+        document.getElementById('featured-emoji').textContent = featured.emoji || '🔄';
+      }
+
+      // Render cluster grids
+      clusters.forEach(cluster => {
+        const clusterArticles = articles.filter(a => a.cluster === cluster && !a.featured);
+        const grid = document.getElementById(`grid-${cluster}`);
+        const count = document.getElementById(`count-${cluster}`);
+        if (count) count.textContent = `${clusterArticles.length} article${clusterArticles.length !== 1 ? 's' : ''}`;
+        if (grid) {
+          if (clusterArticles.length === 0) {
+            grid.innerHTML = `<div class="empty-state show"><h3>Coming soon</h3><p>Articles in this cluster are on their way.</p></div>`;
+          } else {
+            grid.innerHTML = clusterArticles.map(buildArticleCard).join('');
+          }
+        }
+      });
+    }
+
+    // ─── FETCH FROM SANITY OR USE FALLBACK ───
+    async function loadArticles() {
+      if (SANITY_PROJECT_ID === 'YOUR_PROJECT_ID') {
+        // Sanity not connected yet — use fallback placeholder articles
+        renderArticles(FALLBACK_ARTICLES);
+        return;
+      }
+      try {
+        const res = await fetch(SANITY_URL);
+        if (!res.ok) throw new Error('Sanity fetch failed');
+        const data = await res.json();
+        const articles = data.result || [];
+        if (articles.length === 0) {
+          renderArticles(FALLBACK_ARTICLES);
+        } else {
+          renderArticles(articles);
+        }
+      } catch (err) {
+        console.warn('Sanity not connected, using fallback articles:', err.message);
+        renderArticles(FALLBACK_ARTICLES);
+      }
+    }
+
+    loadArticles();
+
+    // ─── NEWSLETTER ───
+    function subscribeNewsletter(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value;
+      // Connect to your email service here (Mailchimp, ConvertKit, etc.)
+      // For now shows a confirmation
+      alert(`You're subscribed! We'll send new articles to ${email}`);
+      document.getElementById('newsletter-email').value = '';
+    }
+  </script>
+
+</body>
+</html>

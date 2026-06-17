@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Dynamic meta — filled by JS from Sanity data -->
+  <title id="page-title">Article | Kristian Sokol — Life & Longevity Coach</title>
+  <meta name="description" id="meta-description" content="An article by Kristian Sokol — Life & Longevity Coach." />
+  <meta name="author" content="Kristian Sokol" />
+  <meta property="og:title" id="og-title" content="Article | Kristian Sokol" />
+  <meta property="og:description" id="og-description" content="An article by Kristian Sokol." />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" id="og-image" content="" />
+  <meta property="og:url" id="og-url" content="https://www.coachkris.co.uk/article" />
+  <link rel="canonical" id="canonical-url" href="https://www.coachkris.co.uk/article" />
+
+  <!-- Schema.org Article markup for Google -->
+  <script type="application/ld+json" id="schema-article">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "author": { "@type": "Person", "name": "Kristian Sokol", "url": "https://www.coachkris.co.uk" },
+    "publisher": { "@type": "Organization", "name": "Kristian Sokol Coaching", "url": "https://www.coachkris.co.uk" }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <!-- Umami Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
+
+  <style>
+    /* ─── DESIGN TOKENS ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment:    #F5F1EA;
+      --deep-forest:  #1C2823;
+      --warm-gold:    #C69E48;
+      --slate-mist:   #7A8A85;
+      --sand:         #EBE6DA;
+      --sea-glass:    #C1CEC9;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-brand:   'Bebas Neue', sans-serif;
+      --content-width: 720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--parchment);
+      color: var(--deep-forest);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+
+    /* ─── READING PROGRESS BAR ─── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--warm-gold);
+      z-index: 2000;
+      transition: width 0.1s linear;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(28,40,35,0.08);
+    }
+    .nav-brand {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--deep-forest); }
+    .nav-links a.active { color: var(--deep-forest); border-bottom: 2px solid var(--warm-gold); padding-bottom: 2px; }
+    .nav-cta {
+      background: var(--warm-gold) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+      border-bottom: none !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--deep-forest);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      padding: 100px 2rem 0;
+      max-width: var(--content-width);
+      margin: 0 auto;
+    }
+    .breadcrumb-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--slate-mist);
+    }
+    .breadcrumb-inner a {
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb-inner a:hover { color: var(--warm-gold); }
+    .breadcrumb-sep { color: var(--sea-glass); }
+    .breadcrumb-current { color: var(--deep-forest); font-weight: 500; }
+
+    /* ─── ARTICLE HEADER ─── */
+    .article-header {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 2.5rem 2rem 0;
+    }
+
+    .article-meta-top {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cluster-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+    }
+    .cluster-tag.life     { color: var(--deep-forest); background: rgba(28,40,35,0.07); }
+    .cluster-tag.longevity{ color: #4A7C6F; background: rgba(74,124,111,0.1); }
+    .cluster-tag.mindset  { color: #8B6914; background: rgba(198,158,72,0.12); }
+    .cluster-tag.adhd     { color: #6B4E9A; background: rgba(107,78,154,0.1); }
+
+    .article-read-time {
+      font-size: 0.78rem;
+      color: var(--slate-mist);
+    }
+    .article-date {
+      font-size: 0.78rem;
+      color: var(--sea-glass);
+    }
+
+    .article-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--deep-forest);
+      margin-bottom: 1.25rem;
+    }
+    .article-title em {
+      font-style: italic;
+      color: var(--warm-gold);
+    }
+
+    .article-excerpt {
+      font-size: 1.15rem;
+      color: var(--slate-mist);
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    /* Author strip */
+    .author-strip {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--sea-glass);
+      border-bottom: 1px solid var(--sea-glass);
+      margin-bottom: 0;
+    }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--sea-glass);
+      flex-shrink: 0;
+    }
+    .author-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 5%;
+    }
+    .author-info { flex: 1; }
+    .author-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--deep-forest);
+    }
+    .author-title {
+      font-size: 0.75rem;
+      color: var(--slate-mist);
+    }
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .share-label {
+      font-size: 0.72rem;
+      color: var(--sea-glass);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .share-btn {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--sea-glass);
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--slate-mist);
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .share-btn:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+
+    /* ─── HERO IMAGE ─── */
+    .article-hero-image {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 0;
+    }
+    .article-hero-image img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      max-height: 480px;
+      object-fit: cover;
+    }
+    .article-hero-image .emoji-hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+      background: var(--sand);
+      border-radius: 12px;
+      font-size: 5rem;
+      opacity: 0.5;
+    }
+
+    /* ─── ARTICLE BODY LAYOUT ─── */
+    .article-layout {
+      display: grid;
+      grid-template-columns: var(--content-width) 1fr;
+      gap: 0;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      align-items: start;
+    }
+
+    /* ─── TABLE OF CONTENTS (sticky sidebar) ─── */
+    .toc-sidebar {
+      padding-left: 3rem;
+      position: sticky;
+      top: 90px;
+    }
+    .toc-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sea-glass);
+      margin-bottom: 0.75rem;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .toc-list a {
+      font-size: 0.8rem;
+      color: var(--slate-mist);
+      text-decoration: none;
+      line-height: 1.4;
+      display: block;
+      padding: 0.25rem 0 0.25rem 0.75rem;
+      border-left: 2px solid var(--sand);
+      transition: all 0.2s;
+    }
+    .toc-list a:hover,
+    .toc-list a.toc-active {
+      color: var(--deep-forest);
+      border-left-color: var(--warm-gold);
+    }
+    .toc-list a.h3-link {
+      font-size: 0.74rem;
+      padding-left: 1.25rem;
+      color: var(--sea-glass);
+    }
+    .toc-divider {
+      height: 1px;
+      background: var(--sand);
+      margin: 1.25rem 0;
+    }
+    .toc-cta {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--warm-gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .toc-cta:hover { opacity: 0.8; }
+
+    /* ─── ARTICLE CONTENT ─── */
+    .article-content {
+      min-width: 0; /* prevent overflow in grid */
+    }
+
+    /* Portable Text / rich text rendering */
+    .article-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      color: var(--deep-forest);
+      margin: 2.75rem 0 1rem;
+      line-height: 1.25;
+      scroll-margin-top: 90px;
+    }
+    .article-content h2 em { font-style: italic; color: var(--warm-gold); }
+
+    .article-content h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--deep-forest);
+      margin: 2rem 0 0.75rem;
+      scroll-margin-top: 90px;
+    }
+
+    .article-content p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--slate-mist);
+      margin-bottom: 1.5rem;
+    }
+
+    .article-content strong {
+      color: var(--deep-forest);
+      font-weight: 600;
+    }
+
+    .article-content em {
+      font-style: italic;
+    }
+
+    .article-content a {
+      color: var(--warm-gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.2s;
+    }
+    .article-content a:hover { opacity: 0.75; }
+
+    /* Blockquote */
+    .article-content blockquote,
+    .article-content .pullquote {
+      margin: 2rem 0;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--warm-gold);
+      background: rgba(198,158,72,0.06);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-content blockquote p,
+    .article-content .pullquote p {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--deep-forest);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Lists */
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .article-content li {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--slate-mist);
+    }
+    .article-content li strong { color: var(--deep-forest); }
+
+    /* Key takeaway box */
+    .article-content .key-takeaway {
+      background: var(--deep-forest);
+      color: white;
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .article-content .key-takeaway .kt-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.6rem;
+    }
+    .article-content .key-takeaway p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Highlight stat / callout */
+    .article-content .stat-callout {
+      text-align: center;
+      padding: 2rem;
+      background: var(--sand);
+      border-radius: 12px;
+      margin: 2rem 0;
+      border: 1px solid var(--sea-glass);
+    }
+    .article-content .stat-callout .stat-number {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--warm-gold);
+      line-height: 1;
+      display: block;
+    }
+    .article-content .stat-callout p {
+      font-size: 0.875rem;
+      margin: 0.5rem 0 0;
+    }
+
+    /* Image within content */
+    .article-content figure {
+      margin: 2rem 0;
+    }
+    .article-content figure img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .article-content figcaption {
+      font-size: 0.78rem;
+      color: var(--sea-glass);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    /* Horizontal rule */
+    .article-content hr {
+      border: none;
+      border-top: 1px solid var(--sea-glass);
+      margin: 2.5rem 0;
+    }
+
+    /* ─── CLUSTER RELATED LINKS (within article) ─── */
+    .cluster-related-inline {
+      background: var(--sand);
+      border: 1px solid var(--sea-glass);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .cluster-related-inline .cri-label {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.75rem;
+    }
+    .cluster-related-inline .cri-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--deep-forest);
+    }
+    .cri-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .cri-links a {
+      font-size: 0.82rem;
+      color: var(--slate-mist);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .cri-links a:hover { color: var(--warm-gold); }
+    .cri-links a::before { content: '→'; color: var(--warm-gold); font-size: 0.8rem; }
+
+    /* ─── POST-ARTICLE AUTHOR BIO ─── */
+    .author-bio {
+      background: white;
+      border: 1px solid var(--sea-glass);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3.5rem 0 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .author-bio-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--sea-glass);
+      flex-shrink: 0;
+    }
+    .author-bio-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 5%;
+    }
+    .author-bio-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--deep-forest);
+      margin-bottom: 0.2rem;
+    }
+    .author-bio-text .bio-role {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.6rem;
+    }
+    .author-bio-text p {
+      font-size: 0.875rem;
+      color: var(--slate-mist);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .bio-cta {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: white;
+      background: var(--deep-forest);
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+    .bio-cta:hover { opacity: 0.85; }
+
+    /* ─── RELATED ARTICLES ─── */
+    .related-section {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+    .related-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--sea-glass);
+    }
+    .related-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+    }
+    .related-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--deep-forest);
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    /* Reuse article-card styles from blog.html */
+    .article-card {
+      background: white;
+      border: 1px solid var(--sea-glass);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .article-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(28,40,35,0.09); }
+    .card-img {
+      height: 160px;
+      background: var(--sand);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem; opacity: 0.6;
+      position: relative; overflow: hidden;
+    }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 1; }
+    .card-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+    .card-body .article-meta-small { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
+    .cluster-tag-sm {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.55rem; border-radius: 9999px;
+    }
+    .cluster-tag-sm.life     { color: var(--deep-forest); background: rgba(28,40,35,0.07); }
+    .cluster-tag-sm.longevity{ color: #4A7C6F; background: rgba(74,124,111,0.1); }
+    .cluster-tag-sm.mindset  { color: #8B6914; background: rgba(198,158,72,0.12); }
+    .cluster-tag-sm.adhd     { color: #6B4E9A; background: rgba(107,78,154,0.1); }
+    .card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.15rem; font-weight: 300;
+      line-height: 1.3; color: var(--deep-forest);
+      margin-bottom: 0.5rem; flex: 1;
+    }
+    .card-body p { font-size: 0.8rem; color: var(--slate-mist); line-height: 1.6; margin-bottom: 0.75rem; }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--sand);
+      background: rgba(235,230,218,0.3);
+    }
+    .card-date { font-size: 0.7rem; color: var(--sea-glass); }
+    .card-arrow { font-size: 0.85rem; color: var(--warm-gold); font-weight: 600; }
+
+    /* ─── CTA SECTION ─── */
+    .article-cta-section {
+      max-width: var(--content-width);
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+    .article-cta-card {
+      background: var(--deep-forest);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .article-cta-card .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.6rem;
+    }
+    .article-cta-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+    .article-cta-card h3 em { font-style: italic; color: var(--warm-gold); }
+    .article-cta-card p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .article-cta-card a {
+      display: inline-block;
+      background: var(--warm-gold);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .article-cta-card a:hover { opacity: 0.85; }
+
+    /* ─── LOADING / ERROR STATES ─── */
+    .page-loading {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 4rem;
+      text-align: center;
+      color: var(--slate-mist);
+    }
+    .page-loading .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--sea-glass);
+      border-top-color: var(--warm-gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .page-loading p { font-size: 0.875rem; }
+
+    .page-error {
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 2rem 4rem;
+      text-align: center;
+    }
+    .page-error h2 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+    .page-error p { font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 1.5rem; }
+    .page-error a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--warm-gold);
+      text-decoration: none;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: rgba(235,230,218,0.5);
+      border-top: 1px solid var(--sea-glass);
+      padding: 4rem 2rem 2rem;
+    }
+    .footer-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-name { font-family: var(--font-brand); font-size: 1.4rem; letter-spacing: 0.05em; color: var(--deep-forest); margin-bottom: 0.5rem; }
+    .footer-tagline { font-size: 0.825rem; color: var(--slate-mist); line-height: 1.6; }
+    .footer-col h4 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--deep-forest); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--slate-mist); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--deep-forest); }
+    .footer-col p { font-size: 0.875rem; color: var(--slate-mist); line-height: 1.7; }
+    .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }
+    .footer-bottom {
+      max-width: 1000px; margin: 0 auto;
+      padding-top: 1.5rem; border-top: 1px solid var(--sea-glass);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      :root { --content-width: 100%; }
+      .article-layout { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; }
+      .toc-sidebar { display: none; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .author-bio { flex-direction: column; }
+      .share-row { display: none; }
+    }
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1.25rem; }
+      .article-header, .breadcrumb, .article-hero-image, .related-section, .article-cta-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── PROGRESS BAR ─── -->
+  <div id="progress-bar"></div>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#story" onclick="closeMenu()">About</a></li>
+      <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="blog.html" class="active" onclick="closeMenu()">Articles</a></li>
+      <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="index.html#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── LOADING STATE ─── -->
+  <div class="page-loading" id="loadingState">
+    <div class="spinner"></div>
+    <p>Loading article…</p>
+  </div>
+
+  <!-- ─── ERROR STATE ─── -->
+  <div class="page-error" id="errorState" style="display:none;">
+    <h2>Article not found.</h2>
+    <p>This article may have moved or doesn't exist yet.</p>
+    <a href="blog.html">← Back to all articles</a>
+  </div>
+
+  <!-- ─── ARTICLE WRAPPER (hidden until loaded) ─── -->
+  <div id="articleWrapper" style="display:none;">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <nav class="breadcrumb-inner" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <a href="blog.html">Articles</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current" id="breadcrumb-cluster">Article</span>
+      </nav>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <header class="article-header">
+      <div class="article-meta-top">
+        <span class="cluster-tag" id="header-cluster-tag">Life Coaching</span>
+        <span class="article-read-time" id="header-read-time">· 8 min read</span>
+        <span class="article-date" id="header-date"></span>
+      </div>
+
+      <h1 class="article-title" id="article-title">Article Title</h1>
+      <p class="article-excerpt" id="article-excerpt"></p>
+
+      <div class="author-strip">
+        <div class="author-avatar">
+          <img
+            src="https://media.base44.com/images/public/6a314169758190746d400e79/731ae566b_IMG_0817.jpg"
+            alt="Kristian Sokol"
+          />
+        </div>
+        <div class="author-info">
+          <div class="author-name">Kristian Sokol</div>
+          <div class="author-title">Certified Life &amp; Longevity Coach</div>
+        </div>
+        <div class="share-row">
+          <span class="share-label">Share</span>
+          <a href="#" class="share-btn" id="share-twitter" title="Share on X/Twitter" target="_blank" rel="noopener">𝕏</a>
+          <a href="#" class="share-btn" id="share-linkedin" title="Share on LinkedIn" target="_blank" rel="noopener">in</a>
+          <button class="share-btn" onclick="copyLink()" title="Copy link">🔗</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO IMAGE -->
+    <div class="article-hero-image">
+      <div id="hero-image-container"></div>
+    </div>
+
+    <!-- ARTICLE LAYOUT: CONTENT + TOC SIDEBAR -->
+    <div class="article-layout">
+
+      <!-- LEFT: Article content -->
+      <article class="article-content" id="article-body">
+        <!-- Rendered by JS -->
+      </article>
+
+      <!-- RIGHT: Table of Contents sidebar -->
+      <aside class="toc-sidebar" id="toc-sidebar">
+        <p class="toc-label">In this article</p>
+        <ul class="toc-list" id="toc-list">
+          <!-- Built dynamically from h2/h3 headings -->
+        </ul>
+        <div class="toc-divider"></div>
+        <a href="index.html#contact" class="toc-cta">Book a free session →</a>
+      </aside>
+
+    </div>
+
+    <!-- AUTHOR BIO -->
+    <div class="article-cta-section">
+      <div class="author-bio reveal">
+        <div class="author-bio-avatar">
+          <img
+            src="https://media.base44.com/images/public/6a314169758190746d400e79/731ae566b_IMG_0817.jpg"
+            alt="Kristian Sokol"
+          />
+        </div>
+        <div class="author-bio-text">
+          <h4>Kristian Sokol</h4>
+          <p class="bio-role">Certified Life &amp; Longevity Coach</p>
+          <p>I help driven people who keep starting over finally build something that lasts. ADHD-aware, LGBTQ+ friendly, and zero judgment — phone or video, worldwide.</p>
+          <a href="index.html#contact" class="bio-cta">Book a free 30-minute session</a>
+        </div>
+      </div>
+
+      <!-- BOTTOM CTA CARD -->
+      <div class="article-cta-card reveal">
+        <p class="eyebrow">Ready to break the loop?</p>
+        <h3>This is where <em>the work begins.</em></h3>
+        <p>A free 30-minute call. No pitch. Just an honest conversation about what's actually keeping you stuck.</p>
+        <a href="index.html#contact">Book your free session →</a>
+      </div>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <section class="related-section">
+      <div class="related-header reveal">
+        <div>
+          <p class="related-eyebrow">More from this cluster</p>
+          <h2 class="related-title" id="related-title">More on Life Coaching</h2>
+        </div>
+        <a href="blog.html" style="margin-left:auto; font-size:0.82rem; color:var(--slate-mist); text-decoration:none; white-space:nowrap;">View all articles →</a>
+      </div>
+      <div class="related-grid" id="related-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+  </div><!-- /articleWrapper -->
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Kristian Sokol</p>
+        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#story">About</a></li>
+          <li><a href="index.html#pillars">How I Help</a></li>
+          <li><a href="blog.html">Articles</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Find Me</h4>
+        <p><span class="footer-icon">📍</span>Based in Europe<br /><span style="margin-left:1.4rem">Sessions worldwide</span></p>
+        <p style="margin-top:0.75rem"><span class="footer-icon">🌐</span>coachkris.co.uk</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware · LGBTQ+ friendly · Zero judgment, always</p>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ─── -->
+  <script>
+    // ════════════════════════════════════════════════
+    // SANITY CONFIG — same values as blog.html
+    // ════════════════════════════════════════════════
+    const SANITY_PROJECT_ID  = 'YOUR_PROJECT_ID';  // ← replace with your real ID
+    const SANITY_DATASET     = 'production';
+    const SANITY_API_VERSION = '2024-01-01';
+
+    // ─── NAV ───
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+      updateProgress();
+      updateTOCActive();
+    });
+    function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+    function closeMenu()  { document.getElementById('navLinks').classList.remove('open'); }
+
+    // ─── READING PROGRESS BAR ───
+    function updateProgress() {
+      const article = document.getElementById('article-body');
+      if (!article) return;
+      const rect = article.getBoundingClientRect();
+      const total = article.offsetHeight;
+      const scrolled = Math.max(0, -rect.top);
+      const pct = Math.min(100, (scrolled / total) * 100);
+      document.getElementById('progress-bar').style.width = pct + '%';
+    }
+
+    // ─── SCROLL REVEAL ───
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }});
+    }, { threshold: 0.08 });
+
+    // ─── SHARE BUTTONS ───
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.querySelector('[onclick="copyLink()"]');
+        btn.textContent = '✓';
+        setTimeout(() => { btn.textContent = '🔗'; }, 2000);
+      });
+    }
+
+    // ─── GET SLUG FROM URL ───
+    function getSlug() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('slug');
+    }
+
+    // ─── FORMAT DATE ───
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    // ─── CLUSTER HELPERS ───
+    function getClusterLabel(c) {
+      return { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware' }[c] || c;
+    }
+
+    // ─── PORTABLE TEXT RENDERER ───
+    // Converts Sanity block content array to HTML
+    function renderPortableText(blocks) {
+      if (!blocks || !Array.isArray(blocks)) return '';
+      return blocks.map(block => renderBlock(block)).join('\n');
+    }
+
+    function slugify(text) {
+      return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    }
+
+    function renderSpans(spans, markDefs) {
+      return (spans || []).map(span => {
+        let text = escapeHTML(span.text || '');
+        const marks = span.marks || [];
+        marks.forEach(mark => {
+          if (mark === 'strong')   { text = `<strong>${text}</strong>`; }
+          else if (mark === 'em')  { text = `<em>${text}</em>`; }
+          else if (mark === 'code'){ text = `<code>${text}</code>`; }
+          else {
+            // Check markDefs for links
+            const def = (markDefs || []).find(d => d._key === mark);
+            if (def && def._type === 'link') {
+              const rel = def.href.startsWith('http') ? ' rel="noopener noreferrer" target="_blank"' : '';
+              text = `<a href="${def.href}"${rel}>${text}</a>`;
+            }
+          }
+        });
+        return text;
+      }).join('');
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function renderBlock(block) {
+      if (!block) return '';
+
+      // Images
+      if (block._type === 'image') {
+        const url = block.asset?.url || '';
+        const alt = block.alt || '';
+        const caption = block.caption || '';
+        return `<figure><img src="${url}" alt="${alt}" loading="lazy" />${caption ? `<figcaption>${escapeHTML(caption)}</figcaption>` : ''}</figure>`;
+      }
+
+      // Custom block types
+      if (block._type === 'pullquote') {
+        return `<div class="pullquote"><p>${escapeHTML(block.text || '')}</p></div>`;
+      }
+      if (block._type === 'keyTakeaway') {
+        return `<div class="key-takeaway"><p class="kt-label">Key takeaway</p><p>${escapeHTML(block.text || '')}</p></div>`;
+      }
+      if (block._type === 'statCallout') {
+        return `<div class="stat-callout"><span class="stat-number">${escapeHTML(block.stat || '')}</span><p>${escapeHTML(block.label || '')}</p></div>`;
+      }
+
+      if (block._type !== 'block') return '';
+
+      const content = renderSpans(block.children, block.markDefs);
+
+      switch (block.style) {
+        case 'h2': {
+          const id = slugify(block.children?.map(s => s.text).join('') || '');
+          return `<h2 id="${id}">${content}</h2>`;
+        }
+        case 'h3': {
+          const id = slugify(block.children?.map(s => s.text).join('') || '');
+          return `<h3 id="${id}">${content}</h3>`;
+        }
+        case 'blockquote': return `<blockquote><p>${content}</p></blockquote>`;
+        case 'normal':
+        default: {
+          if (!content.trim()) return '<hr />';
+          return `<p>${content}</p>`;
+        }
+      }
+    }
+
+    // Handle lists
+    function renderBlocksWithLists(blocks) {
+      if (!blocks || !Array.isArray(blocks)) return '';
+      const result = [];
+      let i = 0;
+      while (i < blocks.length) {
+        const block = blocks[i];
+        if (block.listItem === 'bullet') {
+          const items = [];
+          while (i < blocks.length && blocks[i].listItem === 'bullet') {
+            items.push(`<li>${renderSpans(blocks[i].children, blocks[i].markDefs)}</li>`);
+            i++;
+          }
+          result.push(`<ul>${items.join('')}</ul>`);
+        } else if (block.listItem === 'number') {
+          const items = [];
+          while (i < blocks.length && blocks[i].listItem === 'number') {
+            items.push(`<li>${renderSpans(blocks[i].children, blocks[i].markDefs)}</li>`);
+            i++;
+          }
+          result.push(`<ol>${items.join('')}</ol>`);
+        } else {
+          result.push(renderBlock(block));
+          i++;
+        }
+      }
+      return result.join('\n');
+    }
+
+    // ─── BUILD TOC FROM RENDERED HEADINGS ───
+    function buildTOC() {
+      const article = document.getElementById('article-body');
+      const headings = article.querySelectorAll('h2, h3');
+      const tocList = document.getElementById('toc-list');
+      tocList.innerHTML = '';
+      headings.forEach(h => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${h.id}`;
+        a.textContent = h.textContent;
+        if (h.tagName === 'H3') a.classList.add('h3-link');
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      if (headings.length === 0) {
+        document.getElementById('toc-sidebar').style.display = 'none';
+      }
+    }
+
+    // ─── TOC ACTIVE STATE ON SCROLL ───
+    function updateTOCActive() {
+      const headings = document.querySelectorAll('.article-content h2, .article-content h3');
+      const tocLinks = document.querySelectorAll('.toc-list a');
+      let activeId = '';
+      headings.forEach(h => {
+        if (h.getBoundingClientRect().top < 120) activeId = h.id;
+      });
+      tocLinks.forEach(a => {
+        a.classList.toggle('toc-active', a.getAttribute('href') === `#${activeId}`);
+      });
+    }
+
+    // ─── RENDER RELATED ARTICLES ───
+    function renderRelated(articles, currentSlug, currentCluster) {
+      const related = articles
+        .filter(a => a.slug?.current !== currentSlug && a.cluster === currentCluster)
+        .slice(0, 3);
+
+      const grid = document.getElementById('related-grid');
+      document.getElementById('related-title').textContent = `More on ${getClusterLabel(currentCluster)}`;
+
+      if (related.length === 0) {
+        // Fallback: show articles from any cluster
+        const any = articles.filter(a => a.slug?.current !== currentSlug).slice(0, 3);
+        document.getElementById('related-title').textContent = 'More Articles';
+        grid.innerHTML = any.map(buildRelatedCard).join('');
+        return;
+      }
+      grid.innerHTML = related.map(buildRelatedCard).join('');
+
+      // Reveal related cards
+      grid.querySelectorAll('.article-card').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`;
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 100 + i * 100);
+      });
+    }
+
+    function buildRelatedCard(article) {
+      const slug = article.slug?.current || '#';
+      const url = `article.html?slug=${slug}`;
+      const img = article.imageUrl
+        ? `<img src="${article.imageUrl}" alt="${article.title}" loading="lazy" />`
+        : '';
+      return `
+        <a class="article-card" href="${url}">
+          <div class="card-img">${img}${!article.imageUrl ? (article.emoji || '📝') : ''}</div>
+          <div class="card-body">
+            <div class="article-meta-small">
+              <span class="cluster-tag-sm ${article.cluster}">${getClusterLabel(article.cluster)}</span>
+              <span style="font-size:0.72rem;color:var(--slate-mist)">${article.readTime || '?'} min</span>
+            </div>
+            <h3>${article.title}</h3>
+            <p>${(article.excerpt || '').substring(0, 100)}…</p>
+          </div>
+          <div class="card-footer">
+            <span class="card-date">${formatDate(article.publishedAt)}</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>`;
+    }
+
+    // ─── RENDER FULL ARTICLE ───
+    function renderArticle(article, allArticles) {
+      const slug = article.slug?.current || '';
+
+      // Update page meta
+      document.getElementById('page-title').textContent = `${article.title} | Kristian Sokol`;
+      document.getElementById('meta-description').content = article.excerpt || '';
+      document.getElementById('og-title').content = article.title;
+      document.getElementById('og-description').content = article.excerpt || '';
+      if (article.imageUrl) document.getElementById('og-image').content = article.imageUrl;
+      const pageUrl = `https://www.coachkris.co.uk/article?slug=${slug}`;
+      document.getElementById('og-url').content = pageUrl;
+      document.getElementById('canonical-url').href = pageUrl;
+
+      // Update schema.org
+      const schema = document.getElementById('schema-article');
+      schema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": article.title,
+        "description": article.excerpt,
+        "datePublished": article.publishedAt,
+        "image": article.imageUrl || '',
+        "url": pageUrl,
+        "author": { "@type": "Person", "name": "Kristian Sokol", "url": "https://www.coachkris.co.uk" },
+        "publisher": { "@type": "Organization", "name": "Kristian Sokol Coaching", "url": "https://www.coachkris.co.uk" }
+      });
+
+      // Update header
+      document.getElementById('breadcrumb-cluster').textContent = getClusterLabel(article.cluster);
+      const clusterTag = document.getElementById('header-cluster-tag');
+      clusterTag.textContent = getClusterLabel(article.cluster);
+      clusterTag.className = `cluster-tag ${article.cluster || ''}`;
+      document.getElementById('header-read-time').textContent = `· ${article.readTime || '?'} min read`;
+      document.getElementById('header-date').textContent = formatDate(article.publishedAt);
+      document.getElementById('article-title').innerHTML = article.title;
+      document.getElementById('article-excerpt').textContent = article.excerpt || '';
+
+      // Share buttons
+      const shareUrl = encodeURIComponent(pageUrl);
+      const shareTitle = encodeURIComponent(article.title);
+      document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}`;
+      document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+
+      // Hero image
+      const heroContainer = document.getElementById('hero-image-container');
+      if (article.imageUrl) {
+        heroContainer.innerHTML = `<img src="${article.imageUrl}" alt="${article.title}" />`;
+      } else {
+        heroContainer.innerHTML = `<div class="emoji-hero">${article.emoji || '📝'}</div>`;
+      }
+
+      // Article body
+      const bodyEl = document.getElementById('article-body');
+      if (article.body && Array.isArray(article.body)) {
+        bodyEl.innerHTML = renderBlocksWithLists(article.body);
+      } else if (article.bodyHtml) {
+        bodyEl.innerHTML = article.bodyHtml;
+      } else {
+        // Fallback body for placeholder articles
+        bodyEl.innerHTML = renderFallbackBody(article);
+      }
+
+      // TOC
+      buildTOC();
+
+      // Related articles
+      renderRelated(allArticles, slug, article.cluster);
+
+      // Activate scroll reveals
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+      // Show article
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('articleWrapper').style.display = 'block';
+    }
+
+    // ─── FALLBACK BODY for placeholder articles ───
+    function renderFallbackBody(article) {
+      const clusterLabel = getClusterLabel(article.cluster);
+      return `
+        <p>This article is part of the <strong>${clusterLabel}</strong> content cluster on coachkris.co.uk.</p>
+
+        <h2 id="the-real-problem">The Real Problem</h2>
+        <p>Most people approach this topic looking for tactics. What they actually need is a shift in how they see the problem itself. When you start with the right diagnosis, the right actions become obvious.</p>
+        <p>The most common mistake is treating a <strong>structural issue</strong> as a personal failing. Once you see the structure, you can change it.</p>
+
+        <blockquote>
+          <p>"You don't rise to the level of your goals. You fall to the level of your systems."</p>
+        </blockquote>
+
+        <h2 id="what-actually-works">What Actually Works</h2>
+        <p>After working with clients across very different life circumstances, a few patterns become clear. The people who make lasting change share a set of common behaviours — and they're not what most coaching programmes focus on.</p>
+        <ul>
+          <li><strong>They start smaller than they think they should.</strong> Not because they lack ambition — but because they understand momentum.</li>
+          <li><strong>They design for their worst day, not their best.</strong> Your system needs to work when you're tired, stressed, and not motivated.</li>
+          <li><strong>They track direction, not just outcomes.</strong> Are you moving toward something? That matters more than how fast.</li>
+        </ul>
+
+        <div class="key-takeaway">
+          <p class="kt-label">Key takeaway</p>
+          <p>Sustainable change isn't about more willpower. It's about building an environment and a system that makes the right action the easy action.</p>
+        </div>
+
+        <h2 id="how-to-apply-this">How to Apply This</h2>
+        <p>Start with one question: <em>What would a person who already has this do right now?</em> Not a dramatic overhaul. Not a new identity. Just the next right action — and the one after that.</p>
+        <p>The loop breaks one decision at a time.</p>
+
+        <p style="color:var(--warm-gold);font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-top:2rem;">
+          Full article content coming soon — connect Sanity.io to publish the complete piece here.
+        </p>
+      `;
+    }
+
+    // ─── FALLBACK ARTICLES (same as blog.html) ───
+    const FALLBACK_ARTICLES = [
+      { _id:'f1', title:'The Restart Loop: Why You Keep Beginning Again', slug:{current:'restart-loop-why-you-keep-beginning-again'}, excerpt:'Most people treat starting over as a personal failure. It\'s not. It\'s a system failure — and systems can be redesigned.', cluster:'life', readTime:9, publishedAt:'2026-06-01', featured:true, emoji:'🔄' },
+      { _id:'f2', title:'Five Longevity Habits Backed by Science', slug:{current:'five-longevity-habits-science-backed'}, excerpt:'The gap between the longevity research and what you actually need to do is much smaller than the supplement industry wants you to believe.', cluster:'longevity', readTime:7, publishedAt:'2026-05-20', emoji:'🧬' },
+      { _id:'f3', title:'Identity Before Action: Why Habits Fail Without This First', slug:{current:'identity-before-action-habits'}, excerpt:'You can\'t build a life that contradicts your self-concept. Before strategy, there is identity.', cluster:'mindset', readTime:6, publishedAt:'2026-05-10', emoji:'🧠' },
+      { _id:'f4', title:'ADHD and the Restart Loop: A Different Diagnosis', slug:{current:'adhd-restart-loop-different-diagnosis'}, excerpt:'ADHD doesn\'t cause failure. Mismatched systems cause failure.', cluster:'adhd', readTime:10, publishedAt:'2026-05-01', emoji:'⚡' },
+      { _id:'f5', title:'What Longevity Coaching Actually Is (And Isn\'t)', slug:{current:'what-longevity-coaching-actually-is'}, excerpt:'It\'s not about living to 120. It\'s about having the energy, clarity and physical capacity to fully inhabit the years you have.', cluster:'longevity', readTime:5, publishedAt:'2026-04-22', emoji:'🌿' },
+      { _id:'f6', title:'The One Question That Changed How I Coach', slug:{current:'one-question-that-changed-how-i-coach'}, excerpt:'"What would a person who already has this do right now?" — simple on the surface, profoundly disruptive underneath.', cluster:'mindset', readTime:4, publishedAt:'2026-04-10', emoji:'💡' },
+      { _id:'f7', title:'Sleep as a Performance Tool: What the Research Actually Says', slug:{current:'sleep-as-performance-tool'}, excerpt:'Sleep optimisation is one area where the science is remarkably clear and the application is completely free.', cluster:'longevity', readTime:8, publishedAt:'2026-04-01', emoji:'😴' },
+      { _id:'f8', title:'Time-Blindness, Deadlines, and the ADHD Tax', slug:{current:'time-blindness-adhd-tax'}, excerpt:'ADHD time-blindness isn\'t laziness or bad planning. It\'s a neurological difference.', cluster:'adhd', readTime:7, publishedAt:'2026-03-20', emoji:'⏱️' },
+      { _id:'f9', title:'How to Stop Reinventing Yourself and Start Becoming Yourself', slug:{current:'stop-reinventing-start-becoming'}, excerpt:'There\'s a meaningful difference between reinvention and evolution.', cluster:'life', readTime:6, publishedAt:'2026-03-10', emoji:'🌱' }
+    ];
+
+    // ─── MAIN LOAD FUNCTION ───
+    async function loadArticle() {
+      const slug = getSlug();
+      if (!slug) {
+        showError();
+        return;
+      }
+
+      if (SANITY_PROJECT_ID === 'YOUR_PROJECT_ID') {
+        // Use fallback articles
+        const article = FALLBACK_ARTICLES.find(a => a.slug?.current === slug);
+        if (!article) { showError(); return; }
+        renderArticle(article, FALLBACK_ARTICLES);
+        return;
+      }
+
+      // Fetch from Sanity — get this article + all articles for related
+      const articleQuery = encodeURIComponent(`*[_type == "post" && slug.current == "${slug}"][0]{
+        _id, title, slug, excerpt, cluster, readTime, publishedAt, featured, emoji,
+        "imageUrl": mainImage.asset->url,
+        body[]{ ..., _type == "image" => { ..., "url": asset->url } }
+      }`);
+
+      const allQuery = encodeURIComponent(`*[_type == "post"] | order(publishedAt desc){
+        _id, title, slug, excerpt, cluster, readTime, publishedAt, featured, emoji,
+        "imageUrl": mainImage.asset->url
+      }`);
+
+      const base = `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}`;
+
+      try {
+        const [articleRes, allRes] = await Promise.all([
+          fetch(`${base}?query=${articleQuery}`),
+          fetch(`${base}?query=${allQuery}`)
+        ]);
+
+        const articleData = await articleRes.json();
+        const allData     = await allRes.json();
+
+        const article    = articleData.result;
+        const allArticles = allData.result || [];
+
+        if (!article) { showError(); return; }
+        renderArticle(article, allArticles.length > 0 ? allArticles : FALLBACK_ARTICLES);
+      } catch (err) {
+        console.warn('Sanity error, using fallback:', err.message);
+        const article = FALLBACK_ARTICLES.find(a => a.slug?.current === slug);
+        if (!article) { showError(); return; }
+        renderArticle(article, FALLBACK_ARTICLES);
+      }
+    }
+
+    function showError() {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('errorState').style.display  = 'flex';
+    }
+
+    loadArticle();
+  </script>
+
+</body>
+</html>
