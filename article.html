@@ -76,7 +76,7 @@
     }
 
     /* ─── NAVIGATION ─── */
-    nav {
+        nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
@@ -85,6 +85,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      
+      /* FIX: Applied your index/blog solid background and separation styling on load */
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(28,40,35,0.08);
+      
       transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
     }
     nav.scrolled {
@@ -143,6 +150,7 @@
       border-radius: 2px;
       transition: all 0.3s;
     }
+
 
     /* ─── BREADCRUMB ─── */
     .breadcrumb {
