@@ -165,11 +165,14 @@
       line-height: 1.7;
     }
 
+    /* ─── CLUSTER INTRO BANNER ─── */
+
+
     /* ─── MAIN CONTENT ─── */
     .blog-main {
       max-width: 1160px;
       margin: 0 auto;
-      padding: 3rem 2rem 5rem;
+      padding: 5rem 2rem 6rem;
     }
 
     /* ─── TOPIC CLUSTER TABS ─── */
@@ -460,71 +463,76 @@
     }
 
     /* ─── NEWSLETTER CTA ─── */
-        .newsletter-section {
-      background: var(--sand);
-      border: 1px solid var(--sea-glass);
-      border-radius: 12px;
-      padding: 2rem 2rem;
+    .newsletter-section {
+      background: var(--deep-forest);
+      border-radius: 16px;
+      padding: 3.5rem;
       text-align: center;
       margin-bottom: 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
     }
     .newsletter-section .eyebrow {
-      display: none;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.75rem;
     }
     .newsletter-section h2 {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 300;
-      color: var(--deep-forest);
-      margin-bottom: 0;
-      white-space: nowrap;
+      color: white;
+      margin-bottom: 0.75rem;
     }
     .newsletter-section h2 em { font-style: italic; color: var(--warm-gold); }
-    .newsletter-section > p {
-      display: none;
+    .newsletter-section p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
     .newsletter-form {
       display: flex;
-      gap: 0.6rem;
-      align-items: center;
+      gap: 0.75rem;
+      max-width: 420px;
+      margin: 0 auto;
     }
     .newsletter-form input {
+      flex: 1;
       font-family: var(--font-body);
-      font-size: 0.85rem;
-      padding: 0.55rem 0.9rem;
-      border-radius: 6px;
-      border: 1.5px solid var(--sea-glass);
-      background: white;
-      color: var(--deep-forest);
+      font-size: 0.9rem;
+      padding: 0.75rem 1.1rem;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: white;
       outline: none;
-      width: 220px;
       transition: border-color 0.2s;
     }
-    .newsletter-form input::placeholder { color: var(--sea-glass); }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
     .newsletter-form input:focus { border-color: var(--warm-gold); }
     .newsletter-form button {
       font-family: var(--font-body);
-      font-size: 0.8rem;
+      font-size: 0.875rem;
       font-weight: 600;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      background: var(--deep-forest);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      background: var(--warm-gold);
       color: white;
       border: none;
       cursor: pointer;
       white-space: nowrap;
       transition: opacity 0.2s;
     }
-    .newsletter-form button:hover { opacity: 0.8; }
+    .newsletter-form button:hover { opacity: 0.85; }
     .newsletter-note {
-      font-size: 0.68rem;
-      color: var(--sea-glass);
-      margin-top: 0;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.75rem;
     }
 
     /* ─── FOOTER — same as index ─── */
@@ -577,7 +585,6 @@
 
     /* ─── SCROLL REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .featured-article { opacity: 1 !important; transform: none !important; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -627,6 +634,8 @@
       .nav-hamburger { display: flex; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-section { padding: 2.5rem 1.5rem; }
     }
     @media (max-width: 600px) {
       .articles-grid { grid-template-columns: 1fr; }
@@ -654,15 +663,16 @@
 
   <!-- ─── PAGE HERO ─── -->
   <div class="blog-hero">
-    <p class="blog-hero-eyebrow">Knowledge & Perspective</p>
-    <h1>Articles on <em>Life,<br />Longevity &amp; Breaking the Loop</em></h1>
-    <p>Evidence-based insights, honest reflections, and practical strategies — structured so each article connects to a bigger picture.</p>
+    <p class="blog-hero-eyebrow reveal">Knowledge & Perspective</p>
+    <h1 class="reveal reveal-delay-1">Articles on <em>Life,<br />Longevity &amp; Breaking the Loop</em></h1>
+    <p class="reveal reveal-delay-2">Evidence-based insights, honest reflections, and practical strategies — structured so each article connects to a bigger picture.</p>
   </div>
+
   <!-- ─── MAIN CONTENT ─── -->
   <main class="blog-main">
 
     <!-- FEATURED PILLAR ARTICLE -->
-    <a class="featured-article" id="featured-article" href="#" data-sanity-id="featured">
+    <a class="featured-article reveal" id="featured-article" href="#" data-sanity-id="featured">
       <div class="featured-img">
         <div class="img-placeholder" id="featured-emoji">🔄</div>
       </div>
@@ -754,8 +764,10 @@
 
     <!-- ─── NEWSLETTER CTA ─── -->
     <div class="newsletter-section reveal">
+      <p class="eyebrow">Stay in the loop</p>
       <h2>New articles, <em>no noise.</em></h2>
-      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)" id="newsletter-form">
+      <p>One email when a new article drops. Evidence-based, honest, and always worth your time.</p>
+      <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
         <input type="email" id="newsletter-email" placeholder="your@email.com" required />
         <button type="submit" id="newsletter-btn">Subscribe</button>
       </form>
@@ -809,28 +821,10 @@
     function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
 
     // ─── SCROLL REVEAL ───
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          revealObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-
-    function initReveal() {
-      // Use rAF to ensure browser has done layout before checking positions
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-            revealObserver.observe(el);
-          });
-        });
-      });
-    }
-
-    // Trigger immediately so above-fold items animate in on load
-    initReveal();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     // ─── CLUSTER FILTER TABS ───
     document.querySelectorAll('.cluster-tab').forEach(btn => {
@@ -1062,10 +1056,13 @@
             grid.innerHTML = `<div class="empty-state show"><h3>Coming soon</h3><p>Articles in this cluster are on their way.</p></div>`;
           } else {
             grid.innerHTML = clusterArticles.map(buildArticleCard).join('');
-            setTimeout(initReveal, 50);
+            // Observe newly injected cards
+            grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
           }
         }
       });
+      // Also re-run observer on any other .reveal elements not yet visible
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
     }
 
     // ─── FETCH FROM SANITY OR USE FALLBACK ───
@@ -1091,9 +1088,9 @@
       }
     }
 
-    loadArticles().then(() => { initReveal(); });
+    loadArticles();
 
-    // ─── NEWSLETTER — Formspree (same as main contact form) ───
+    // ─── NEWSLETTER ───
     async function subscribeNewsletter(e) {
       e.preventDefault();
       const email = document.getElementById('newsletter-email').value.trim();
@@ -1107,13 +1104,14 @@
           body: JSON.stringify({ email, _subject: 'New subscriber from blog', source: 'blog-newsletter' })
         });
         if (res.ok) {
-          document.getElementById('newsletter-form').innerHTML = '<span style="font-size:0.85rem;color:var(--deep-forest);font-weight:500;">✓ You're in. Talk soon.</span>';
+          document.getElementById('newsletter-form').innerHTML = '<span style="font-size:0.95rem;color:var(--warm-gold);font-weight:500;">✓ You're in. Talk soon.</span>';
         } else {
-          throw new Error('Formspree error');
+          throw new Error('Failed');
         }
       } catch(err) {
         btn.textContent = 'Subscribe';
         btn.disabled = false;
+        alert('Something went wrong. Please try again.');
       }
     }
   </script>
