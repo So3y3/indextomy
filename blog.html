@@ -808,10 +808,28 @@
     function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
 
     // ─── SCROLL REVEAL ───
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    function initReveal() {
+      const revealEls = document.querySelectorAll('.reveal:not(.visible)');
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // If already in viewport, make visible immediately
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('visible');
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    }
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    // Run once DOM is ready
+    initReveal();
 
     // ─── CLUSTER FILTER TABS ───
     document.querySelectorAll('.cluster-tab').forEach(btn => {
@@ -1043,6 +1061,7 @@
             grid.innerHTML = `<div class="empty-state show"><h3>Coming soon</h3><p>Articles in this cluster are on their way.</p></div>`;
           } else {
             grid.innerHTML = clusterArticles.map(buildArticleCard).join('');
+            if (typeof initReveal === 'function') setTimeout(initReveal, 50);
           }
         }
       });
@@ -1071,9 +1090,9 @@
       }
     }
 
-    loadArticles();
+    loadArticles().then(() => { if (typeof initReveal === 'function') initReveal(); });
 
-    // ─── NEWSLETTER ───
+    // ─── NEWSLETTER — Formspree (same as main contact form) ───
     async function subscribeNewsletter(e) {
       e.preventDefault();
       const email = document.getElementById('newsletter-email').value.trim();
@@ -1081,12 +1100,16 @@
       btn.textContent = '...';
       btn.disabled = true;
       try {
-        await fetch('https://superagent-6d400e79.base44.app/functions/subscribe', {
+        const res = await fetch('https://formspree.io/f/xwvjzolo', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, source: 'blog' })
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email, _subject: 'New subscriber from blog', source: 'blog-newsletter' })
         });
-        document.getElementById('newsletter-form').innerHTML = '<span style="font-size:0.85rem;color:var(--deep-forest);font-weight:500;">✓ You're in. Talk soon.</span>';
+        if (res.ok) {
+          document.getElementById('newsletter-form').innerHTML = '<span style="font-size:0.85rem;color:var(--deep-forest);font-weight:500;">✓ You're in. Talk soon.</span>';
+        } else {
+          throw new Error('Formspree error');
+        }
       } catch(err) {
         btn.textContent = 'Subscribe';
         btn.disabled = false;

@@ -1027,9 +1027,24 @@
     }
 
     // ─── SCROLL REVEAL ───
+    function initReveal() {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('visible');
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    }
     const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }});
-    }, { threshold: 0.08 });
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
     // ─── SHARE BUTTONS ───
     function copyLink() {
@@ -1323,7 +1338,7 @@
       renderRelated(allArticles, slug, article.cluster);
 
       // Activate scroll reveals
-      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      setTimeout(initReveal, 100);
 
       // Show article
       document.getElementById('loadingState').style.display = 'none';
