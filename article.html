@@ -1027,16 +1027,6 @@
     }
 
     // ─── SCROLL REVEAL ───
-    function initReveal() {
-      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('visible');
-        } else {
-          revealObserver.observe(el);
-        }
-      });
-    }
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -1044,7 +1034,17 @@
           revealObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+    function initReveal() {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            revealObserver.observe(el);
+          });
+        });
+      });
+    }
 
     // ─── SHARE BUTTONS ───
     function copyLink() {
@@ -1338,7 +1338,7 @@
       renderRelated(allArticles, slug, article.cluster);
 
       // Activate scroll reveals
-      setTimeout(initReveal, 100);
+      setTimeout(initReveal, 150);
 
       // Show article
       document.getElementById('loadingState').style.display = 'none';

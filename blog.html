@@ -577,6 +577,7 @@
 
     /* ─── SCROLL REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .featured-article { opacity: 1 !important; transform: none !important; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -653,15 +654,15 @@
 
   <!-- ─── PAGE HERO ─── -->
   <div class="blog-hero">
-    <p class="blog-hero-eyebrow reveal">Knowledge & Perspective</p>
-    <h1 class="reveal reveal-delay-1">Articles on <em>Life,<br />Longevity &amp; Breaking the Loop</em></h1>
-    <p class="reveal reveal-delay-2">Evidence-based insights, honest reflections, and practical strategies — structured so each article connects to a bigger picture.</p>
+    <p class="blog-hero-eyebrow">Knowledge & Perspective</p>
+    <h1>Articles on <em>Life,<br />Longevity &amp; Breaking the Loop</em></h1>
+    <p>Evidence-based insights, honest reflections, and practical strategies — structured so each article connects to a bigger picture.</p>
   </div>
   <!-- ─── MAIN CONTENT ─── -->
   <main class="blog-main">
 
     <!-- FEATURED PILLAR ARTICLE -->
-    <a class="featured-article reveal" id="featured-article" href="#" data-sanity-id="featured">
+    <a class="featured-article" id="featured-article" href="#" data-sanity-id="featured">
       <div class="featured-img">
         <div class="img-placeholder" id="featured-emoji">🔄</div>
       </div>
@@ -808,18 +809,6 @@
     function closeMenu() { document.getElementById('navLinks').classList.remove('open'); }
 
     // ─── SCROLL REVEAL ───
-    function initReveal() {
-      const revealEls = document.querySelectorAll('.reveal:not(.visible)');
-      revealEls.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        // If already in viewport, make visible immediately
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          el.classList.add('visible');
-        } else {
-          revealObserver.observe(el);
-        }
-      });
-    }
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -827,8 +816,20 @@
           revealObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-    // Run once DOM is ready
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+    function initReveal() {
+      // Use rAF to ensure browser has done layout before checking positions
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+            revealObserver.observe(el);
+          });
+        });
+      });
+    }
+
+    // Trigger immediately so above-fold items animate in on load
     initReveal();
 
     // ─── CLUSTER FILTER TABS ───
@@ -1061,7 +1062,7 @@
             grid.innerHTML = `<div class="empty-state show"><h3>Coming soon</h3><p>Articles in this cluster are on their way.</p></div>`;
           } else {
             grid.innerHTML = clusterArticles.map(buildArticleCard).join('');
-            if (typeof initReveal === 'function') setTimeout(initReveal, 50);
+            setTimeout(initReveal, 50);
           }
         }
       });
@@ -1090,7 +1091,7 @@
       }
     }
 
-    loadArticles().then(() => { if (typeof initReveal === 'function') initReveal(); });
+    loadArticles().then(() => { initReveal(); });
 
     // ─── NEWSLETTER — Formspree (same as main contact form) ───
     async function subscribeNewsletter(e) {
