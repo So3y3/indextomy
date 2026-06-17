@@ -146,19 +146,16 @@
 
     /* ─── BREADCRUMB ─── */
     .breadcrumb {
-      padding: 82px 2rem 0;
+      padding: 100px 2rem 0;
       max-width: var(--content-width);
       margin: 0 auto;
     }
     .breadcrumb-inner {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.72rem;
-      color: var(--sea-glass);
-      background: var(--sand);
-      padding: 0.3rem 0.75rem;
-      border-radius: 9999px;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--slate-mist);
     }
     .breadcrumb-inner a {
       color: var(--slate-mist);
@@ -317,7 +314,7 @@
       gap: 0;
       max-width: 1060px;
       margin: 0 auto;
-      padding: 2rem 2rem 4rem;
+      padding: 3rem 2rem 5rem;
       align-items: start;
     }
 
@@ -565,19 +562,19 @@
     .cri-links a:hover { color: var(--warm-gold); }
     .cri-links a::before { content: '→'; color: var(--warm-gold); font-size: 0.8rem; }
 
-        /* ─── POST-ARTICLE AUTHOR BIO — minimal ─── */
+    /* ─── POST-ARTICLE AUTHOR BIO ─── */
     .author-bio {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
       background: white;
       border: 1px solid var(--sea-glass);
-      border-radius: 10px;
-      margin: 2rem 0 1rem;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3.5rem 0 2.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
     }
     .author-bio-avatar {
-      width: 44px; height: 44px;
+      width: 72px; height: 72px;
       border-radius: 50%;
       overflow: hidden;
       border: 2px solid var(--sea-glass);
@@ -588,36 +585,39 @@
       object-fit: cover;
       object-position: center 5%;
     }
-    .author-bio-text {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
     .author-bio-text h4 {
       font-family: var(--font-heading);
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 400;
       color: var(--deep-forest);
+      margin-bottom: 0.2rem;
     }
     .author-bio-text .bio-role {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.6rem;
+    }
+    .author-bio-text p {
+      font-size: 0.875rem;
       color: var(--slate-mist);
+      line-height: 1.7;
+      margin-bottom: 1rem;
     }
     .bio-cta {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      color: var(--warm-gold);
+      color: white;
+      background: var(--deep-forest);
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
       text-decoration: none;
-      white-space: nowrap;
-      margin-left: auto;
       transition: opacity 0.2s;
+      display: inline-block;
     }
-    .bio-cta:hover { opacity: 0.75; }
+    .bio-cta:hover { opacity: 0.85; }
 
     /* ─── RELATED ARTICLES ─── */
     .related-section {
@@ -698,32 +698,56 @@
     .card-date { font-size: 0.7rem; color: var(--sea-glass); }
     .card-arrow { font-size: 0.85rem; color: var(--warm-gold); font-weight: 600; }
 
-        /* ─── CTA SECTION — minimal ─── */
+    /* ─── CTA SECTION ─── */
     .article-cta-section {
       max-width: var(--content-width);
-      margin: 0 auto 3rem;
+      margin: 0 auto 5rem;
       padding: 0 2rem;
     }
     .article-cta-card {
+      background: var(--deep-forest);
+      border-radius: 16px;
+      padding: 2.5rem;
       text-align: center;
-      padding: 1rem 0 0;
+    }
+    .article-cta-card .eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 0.6rem;
+    }
+    .article-cta-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: white;
+      margin-bottom: 0.6rem;
+    }
+    .article-cta-card h3 em { font-style: italic; color: var(--warm-gold); }
+    .article-cta-card p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .article-cta-card a {
       display: inline-block;
+      background: var(--warm-gold);
+      color: white;
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--slate-mist);
-      text-decoration: none;
-      border: 1.5px solid var(--sea-glass);
-      padding: 0.6rem 1.4rem;
+      padding: 0.8rem 2rem;
       border-radius: 6px;
-      transition: all 0.2s;
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
-    .article-cta-card a:hover {
-      border-color: var(--warm-gold);
-      color: var(--warm-gold);
-    }
+    .article-cta-card a:hover { opacity: 0.85; }
 
     /* ─── LOADING / ERROR STATES ─── */
     .page-loading {
@@ -817,6 +841,7 @@
       .nav-links.open { display: flex; }
       .nav-hamburger { display: flex; }
       .footer-bottom { flex-direction: column; text-align: center; }
+      .author-bio { flex-direction: column; }
       .share-row { display: none; }
     }
     @media (max-width: 600px) {
@@ -941,13 +966,17 @@
         <div class="author-bio-text">
           <h4>Kristian Sokol</h4>
           <p class="bio-role">Certified Life &amp; Longevity Coach</p>
-          <a href="index.html#contact" class="bio-cta">Book a free session</a>
+          <p>I help driven people who keep starting over finally build something that lasts. ADHD-aware, LGBTQ+ friendly, and zero judgment — phone or video, worldwide.</p>
+          <a href="index.html#contact" class="bio-cta">Book a free 30-minute session</a>
         </div>
       </div>
 
-      <!-- BOTTOM CTA CARD — minimal -->
+      <!-- BOTTOM CTA CARD -->
       <div class="article-cta-card reveal">
-        <a href="index.html#contact">Book a free 30-minute session →</a>
+        <p class="eyebrow">Ready to break the loop?</p>
+        <h3>This is where <em>the work begins.</em></h3>
+        <p>A free 30-minute call. No pitch. Just an honest conversation about what's actually keeping you stuck.</p>
+        <a href="index.html#contact">Book your free session →</a>
       </div>
     </div>
 
