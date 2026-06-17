@@ -857,7 +857,19 @@
   <div id="progress-bar"></div>
 
   <!-- ─── NAVIGATION ─── -->
-
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#story" onclick="closeMenu()">About</a></li>
+      <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="blog.html" class="active" onclick="closeMenu()">Articles</a></li>
+      <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="index.html#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
 
   <!-- ─── LOADING STATE ─── -->
   <div class="page-loading" id="loadingState">
