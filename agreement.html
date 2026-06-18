@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no, address=no, email=no">
     <title>Client Agreement | Coach Kris</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
@@ -331,18 +330,18 @@
         .bank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
         .bank-row { display: flex; flex-direction: column; }
         .bank-row .b-label { font-size: 7.5pt; color: var(--slate-500); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-        .bank-row .b-value { font-size: 9pt; font-weight: 700; color: var(--slate-900); font-family: 'Courier New', monospace; letter-spacing: 0.05em; text-decoration: none; }
+        .bank-row .b-value { font-size: 9pt; font-weight: 700; color: var(--slate-900); font-family: 'Courier New', monospace; letter-spacing: 0.05em; }
         .bank-row.full { grid-column: 1 / -1; }
 
-        .signatures-box { margin-top: auto; padding-top: 24px; }
-        .signatures-intro { font-size: 8.5pt; color: var(--slate-600); margin-bottom: 14px; }
-        .signatures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-top: 1px solid var(--slate-200); padding-top: 12px; }
+        .signatures-box { margin-top: 36px; }
+        .signatures-intro { font-size: 9pt; color: var(--slate-600); margin-bottom: 18px; }
+        .signatures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--slate-200); padding-top: 14px; }
         .sign-field { display: flex; flex-direction: column; }
-        .sign-field .lbl { font-size: 7.5px; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em; margin-bottom: 4px; }
-        .sign-line { height: 38px; border-bottom: 2px solid var(--slate-800); display: flex; align-items: flex-end; padding-bottom: 5px; }
-        .sign-line span.placeholder { color: transparent; font-style: italic; font-size: 10px; }
-        .sign-line span.autograph { font-weight: 900; color: var(--slate-900); font-family: 'Playfair Display', serif; font-size: 17px; font-style: italic; letter-spacing: 0.05em; }
-        .sign-date { margin-top: 6px; font-size: 8.5pt; color: var(--slate-500); border-bottom: 1px solid transparent; padding-bottom: 4px; }
+        .sign-field .lbl { font-size: 8px; font-weight: 700; text-transform: uppercase; color: var(--slate-500); letter-spacing: 0.05em; margin-bottom: 4px; }
+        .sign-line { height: 54px; border-bottom: 1px solid var(--slate-300); display: flex; align-items: flex-end; padding-bottom: 6px; }
+        .sign-line span.placeholder { color: var(--slate-300); font-style: italic; font-size: 10px; }
+        .sign-line span.autograph { font-weight: 700; color: var(--emerald-800); font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; letter-spacing: 0.05em; }
+        .sign-date { margin-top: 6px; font-size: 9pt; color: var(--slate-500); }
 
         .sheet-footer { text-align: center; font-size: 8pt; color: var(--slate-300); border-top: 1px solid var(--slate-100); padding-top: 12px; margin-top: 24px; }
 
@@ -351,7 +350,7 @@
 
         @page {
             size: A4;
-            margin: 0;
+            margin: 12mm 14mm;
         }
 
         @media print {
@@ -368,13 +367,12 @@
                 box-shadow: none !important;
                 border: none !important;
                 margin: 0 !important;
-                padding: 12mm 14mm !important;
+                padding: 0 !important;
                 width: 100% !important;
                 max-width: 100% !important;
-                min-height: 100vh !important;
+                min-height: auto !important;
                 font-size: 8.2pt !important;
                 line-height: 1.45 !important;
-                box-sizing: border-box !important;
             }
             .page-break {
                 page-break-before: always;
@@ -389,9 +387,9 @@
             .bank-box { padding: 6px 10px !important; margin: 5px 0 !important; }
             .bank-box .bank-title { margin-bottom: 5px !important; }
             .bank-grid { gap: 4px 12px !important; }
-            .signatures-box { margin-top: 0 !important; padding-top: 16px !important; }
+            .signatures-box { margin-top: 16px !important; }
             .signatures-grid { gap: 16px !important; }
-            .sign-line { height: 32px !important; border-bottom: 2px solid var(--slate-800) !important; }
+            .sign-line { height: 40px !important; }
             .metadata-grid { padding: 6px 10px !important; margin-bottom: 10px !important; gap: 8px !important; }
             .contract-header { padding-bottom: 10px !important; margin-bottom: 12px !important; }
             .contract-logo h2 { font-size: 17px !important; }
@@ -708,7 +706,7 @@
                             <div class="sign-field">
                                 <span class="lbl">Client Signature</span>
                                 <div class="sign-line">
-                                    <span id="displaySignatureName" class="placeholder">Alex Mercer</span>
+                                    <span id="displaySignatureName" class="placeholder">Alex Mercer (Sign on Printed PDF)</span>
                                 </div>
                                 <div class="sign-date">Date: __________________</div>
                             </div>
@@ -825,7 +823,7 @@
         }
 
         document.getElementById('displayClientName').innerText = clientName;
-        document.getElementById('displaySignatureName').innerText = clientName;
+        document.getElementById('displaySignatureName').innerText = `${clientName} (Sign on Printed PDF)`;
         document.getElementById('displaySelectedPackage').innerText = packageTitle;
         document.getElementById('displayTotalFee').innerText = `£${totalFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         document.getElementById('displayPaymentTerms').innerText = paymentTerms;
