@@ -1,950 +1,309 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contract Generator | Coach Kris</title>
-    <!-- Google Fonts for premium typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <title>Interactive 2-Page Document Generator</title>
+    <!-- Tailwind CSS for modern, premium styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Modern CSS Variables for Design Consistency */
-        :root {
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-300: #cbd5e1;
-            --slate-500: #64748b;
-            --slate-600: #475569;
-            --slate-700: #334155;
-            --slate-800: #1e293b;
-            --slate-900: #0f172a;
-            --slate-950: #020617;
-            --emerald-50: #ecfdf5;
-            --emerald-100: #d1fae5;
-            --emerald-500: #10b981;
-            --emerald-600: #059669;
-            --emerald-700: #047857;
-            --emerald-800: #065f46;
-            --amber-50: #fffbeb;
-            --amber-500: #f59e0b;
-            --blue-50: #eff6ff;
-            --blue-700: #1d4ed8;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --font-serif: 'Playfair Display', Georgia, serif;
-        }
-
-        /* Reset & Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* Screen View Styles: Displays the pages as realistic A4 sheets */
         body {
-            font-family: var(--font-sans);
-            background-color: var(--slate-50);
-            color: var(--slate-700);
-            min-height: 100-screen;
-            display: flex;
-            flex-direction: column;
-            -webkit-font-smoothing: antialiased;
+            background-color: #f1f5f9;
+            font-family: system-ui, -apple-system, sans-serif;
         }
 
-        /* Header Styling */
-        header {
-            background-color: var(--slate-900);
-            color: white;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-badge {
-            background-color: var(--emerald-500);
-            color: var(--slate-950);
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-            font-size: 11px;
-        }
-        .header-title h1 {
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.025em;
-        }
-        .header-title p {
-            font-size: 11px;
-            color: var(--slate-300);
-            margin-top: 2px;
-        }
-        .header-actions {
-            display: flex;
-            gap: 10px;
+        /* Hide the main content initially so nothing flashes before authorization */
+        #main-content {
+            display: none;
         }
 
-        /* Buttons */
-        .btn {
-            font-family: var(--font-sans);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 10px 18px;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-secondary {
-            background-color: var(--slate-800);
-            color: var(--slate-200);
-            border: 1px solid var(--slate-700);
-        }
-        .btn-secondary:hover {
-            background-color: var(--slate-700);
-        }
-        .btn-primary {
-            background-color: var(--emerald-500);
-            color: var(--slate-950);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .btn-primary:hover {
-            background-color: var(--emerald-600);
-            color: white;
-        }
-        .btn-outline {
-            background-color: var(--slate-50);
-            color: var(--slate-700);
-            border: 1px solid var(--slate-300);
-            width: 100%;
-            justify-content: center;
-        }
-        .btn-outline:hover {
-            background-color: var(--slate-100);
-        }
-
-        /* Main Workspace Layout */
-        main {
-            display: flex;
-            flex: 1;
-            height: calc(100vh - 68px);
+        .a4-page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+            position: relative;
             overflow: hidden;
         }
 
-        /* Sidebar Panel */
-        #sidebar {
-            width: 380px;
-            background-color: white;
-            border-right: 1px solid var(--slate-200);
-            padding: 24px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        .section-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--slate-900);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 4px;
-        }
-        .section-desc {
-            font-size: 11px;
-            color: var(--slate-500);
-            line-height: 1.4;
-        }
-        .form-group {
-            margin-top: 16px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--slate-600);
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .form-control {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid var(--slate-300);
-            border-radius: 6px;
-            font-size: 13px;
-            color: var(--slate-800);
-            transition: border-color 0.15s ease;
-        }
-        .form-control:focus {
-            outline: none;
-            border-color: var(--emerald-500);
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
-        }
-
-        /* Radio Options card grids */
-        .plan-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 12px;
-        }
-        .plan-card {
-            border: 1px solid var(--slate-200);
-            border-radius: 8px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: flex-start;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-        .plan-card:hover {
-            background-color: var(--slate-50);
-            border-color: var(--slate-300);
-        }
-        .plan-card input[type="radio"] {
-            margin-top: 4px;
-            margin-right: 12px;
-            accent-color: var(--emerald-600);
-            scale: 1.1;
-        }
-        .plan-card-content {
-            flex-1: 1;
-        }
-        .plan-name {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--slate-900);
-        }
-        .plan-details {
-            display: block;
-            font-size: 11px;
-            color: var(--slate-500);
-            margin-top: 2px;
-        }
-        .plan-badge {
-            display: inline-block;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-top: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-        .badge-gray { background-color: var(--slate-100); color: var(--slate-700); }
-        .badge-blue { background-color: var(--blue-50); color: var(--blue-700); }
-        .badge-green { background-color: var(--emerald-500); color: white; }
-
-        /* Custom styling for Emerald option */
-        .plan-card-emerald {
-            border-color: var(--emerald-100);
-            background-color: rgba(236, 253, 245, 0.2);
-        }
-        .plan-card-emerald:hover {
-            background-color: rgba(236, 253, 245, 0.5);
-        }
-
-        /* Instruction Card */
-        .instruction-card {
-            background-color: var(--slate-50);
-            border: 1px solid var(--slate-200);
-            border-radius: 8px;
-            padding: 16px;
-            font-size: 11px;
-            color: var(--slate-600);
-            line-height: 1.5;
-        }
-        .instruction-card span {
-            font-weight: 700;
-            color: var(--slate-800);
-        }
-        .instruction-card p {
-            margin-bottom: 6px;
-        }
-        .instruction-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Divider line */
-        hr {
-            border: 0;
-            border-top: 1px solid var(--slate-100);
-        }
-
-        /* Document Preview Canvas */
-        .preview-canvas {
-            flex: 1;
-            background-color: var(--slate-100);
-            overflow-y: auto;
-            padding: 48px;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        /* Premium Print Sheet (A4 Dimensions) */
-        .print-sheet {
-            background-color: white;
-            width: 210mm;
-            min-height: 297mm;
-            padding: 45px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
-            border: 1px solid var(--slate-200);
-            color: var(--slate-950);
-            font-size: 11pt;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        /* Contract Document Styling */
-        .contract-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 2px solid var(--emerald-600);
-            padding-bottom: 24px;
-            margin-bottom: 32px;
-        }
-        .contract-logo h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--slate-900);
-            font-family: var(--font-serif);
-        }
-        .contract-logo p {
-            font-size: 11px;
-            color: var(--emerald-700);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
-        }
-        .contract-contact {
-            text-align: right;
-            font-size: 11px;
-            color: var(--slate-500);
-        }
-        .contract-contact .website {
-            font-weight: 600;
-            color: var(--slate-700);
-        }
-
-        .contract-title {
-            font-size: 18px;
-            font-weight: 700;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--slate-900);
-            margin-bottom: 32px;
-        }
-
-        .metadata-grid {
-            display: grid;
-            grid-template-cols: 1fr 1fr;
-            gap: 16px;
-            background-color: var(--slate-50);
-            border: 1px solid var(--slate-100);
-            border-radius: 6px;
-            padding: 12px 16px;
-            margin-bottom: 24px;
-        }
-        .metadata-col .label {
-            display: block;
-            font-size: 9px;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--slate-500);
-            letter-spacing: 0.05em;
-            margin-bottom: 2px;
-        }
-        .metadata-col .value {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--slate-800);
-        }
-
-        .contract-body p {
-            margin-bottom: 16px;
-            text-align: justify;
-        }
-        .contract-body h3 {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--slate-900);
-            border-bottom: 1px solid var(--slate-200);
-            padding-bottom: 4px;
-            margin-top: 24px;
-            margin-bottom: 12px;
-        }
-        .contract-body ol, .contract-body ul {
-            padding-left: 20px;
-            margin-bottom: 16px;
-        }
-        .contract-body li {
-            margin-bottom: 8px;
-            text-align: justify;
-        }
-
-        /* Disclaimer Callout Box */
-        .disclaimer-box {
-            background-color: var(--amber-50);
-            border-left: 4px solid var(--amber-500);
-            padding: 12px;
-            display: block;
-            margin-top: 8px;
-            font-size: 11px;
-            color: var(--slate-800);
-            line-height: 1.5;
-        }
-
-        /* Financial highlight box */
-        .financial-box {
-            background-color: var(--emerald-50);
-            border: 1px solid var(--emerald-100);
-            border-radius: 6px;
-            padding: 16px;
-            margin: 16px 0;
-            color: var(--slate-900);
-        }
-        .financial-grid {
-            display: grid;
-            grid-template-cols: 1fr 1fr;
-            gap: 16px;
-        }
-        .financial-col .num {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--slate-950);
-            display: block;
-        }
-        .financial-col .lbl {
-            font-size: 9px;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: var(--emerald-700);
-            letter-spacing: 0.05em;
-        }
-        .financial-col .terms {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--slate-800);
-            display: block;
-            margin-top: 4px;
-        }
-
-        /* Signatures Layout */
-        .signatures-box {
-            margin-top: 48px;
-        }
-        .signatures-intro {
-            font-size: 12px;
-            color: var(--slate-600);
-            margin-bottom: 24px;
-        }
-        .signatures-grid {
-            display: grid;
-            grid-template-cols: 1fr 1fr;
-            gap: 32px;
-            border-top: 1px solid var(--slate-200);
-            padding-top: 16px;
-        }
-        .sign-field {
-            display: flex;
-            flex-direction: column;
-        }
-        .sign-field .lbl {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--slate-500);
-            letter-spacing: 0.05em;
-            margin-bottom: 4px;
-        }
-        .sign-line {
-            height: 64px;
-            border-bottom: 1px solid var(--slate-300);
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 8px;
-        }
-        .sign-line span.placeholder {
-            color: var(--slate-300);
-            font-style: italic;
-            font-size: 12px;
-        }
-        .sign-line span.autograph {
-            font-weight: 700;
-            color: var(--emerald-800);
-            font-family: var(--font-serif);
-            font-size: 18px;
-            font-style: italic;
-            letter-spacing: 0.05em;
-        }
-        .sign-date {
-            margin-top: 8px;
-            font-size: 11px;
-            color: var(--slate-500);
-        }
-
-        /* Page Footer */
-        .sheet-footer {
-            text-align: center;
-            font-size: 11px;
-            color: var(--slate-300);
-            border-top: 1px solid var(--slate-100);
-            padding-top: 16px;
-            margin-top: 32px;
-        }
-
-        /* Interactive Mode Floating Elements */
-        .floating-btn {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: var(--slate-900);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 9999px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            border: 1px solid var(--slate-700);
-            display: none;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            z-index: 50;
-        }
-
-        /* CSS Helpers */
-        .hidden { display: none !important; }
-
-        /* Print Media Queries for Precise 2-Page Layout formatting */
+        /* Direct Print Configurations */
         @media print {
             body {
-                background: white;
-                color: black;
-            }
-            .no-print {
-                display: none !important;
-            }
-            .preview-canvas {
-                padding: 0 !important;
-                background: transparent !important;
-                overflow: visible !important;
-                display: block !important;
-            }
-            .print-sheet {
-                box-shadow: none !important;
-                border: none !important;
+                background: white !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                min-height: auto !important;
-                page-break-after: always;
             }
-            .page-break {
-                page-break-before: always;
-                margin-top: 20mm; /* standard spacing */
+
+            /* Hide the action bar, lock screens, and non-printable elements */
+            .no-print, #lock-screen {
+                display: none !important;
             }
+
+            /* Force each A4 page container to match paper dimensions exactly */
+            .a4-page {
+                width: 210mm !important;
+                height: 297mm !important;
+                margin: 0 !important;
+                padding: 20mm !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                box-sizing: border-box !important;
+                position: relative !important;
+            }
+
+            /* This absolute magic rule strips the default browser header/footer (URLs, Dates) */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+
+        /* Styling for editable fields to make it user-friendly */
+        [contenteditable="true"] {
+            outline: none;
+            transition: background 0.2s ease;
+            border-radius: 4px;
+        }
+        [contenteditable="true"]:hover {
+            background-color: #f8fafc;
+            box-shadow: 0 0 0 2px #cbd5e1;
+        }
+        [contenteditable="true"]:focus {
+            background-color: #f1f5f9;
+            box-shadow: 0 0 0 2px #3b82f6;
         }
     </style>
 </head>
-<body>
+<body class="pb-12">
 
-    <!-- Header bar -->
-    <header id="header" class="no-print">
-        <div class="header-brand">
-            <div class="logo-badge">KRIS</div>
-            <div class="header-title">
-                <h1>Client Agreement Portal</h1>
-                <p>Kristian Sokol • coachkris.co.uk</p>
-            </div>
-        </div>
-        <div class="header-actions">
-            <button onclick="togglePrintMode()" class="btn btn-secondary">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v16.5h16.5V3.75H3.75zM12 9v6m3-3H9" />
+    <!-- SLEEK PASSWORD OVERLAY (No text, just icon and input box in dead center) -->
+    <div id="lock-screen" class="no-print fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center p-4">
+        <div id="lock-container" class="flex flex-col items-center gap-6 max-w-xs w-full transition-all duration-300">
+            <!-- Sleek Lock Icon -->
+            <div class="bg-slate-900 p-5 rounded-full border border-slate-800 shadow-xl">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-slate-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
                 </svg>
-                Toggle Print View (Full Screen)
-            </button>
-            <button onclick="window.print()" class="btn btn-primary">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.821V21h10.56v-7.179m-10.56 0a3.75 3.75 0 117.5 0M10.5 13.821h3m-6 3H16.5m-1.5-12h1.5m-3-1.5h1.5" />
-                </svg>
-                Print Agreement
-            </button>
-        </div>
-    </header>
-
-    <!-- Main Workspace Container -->
-    <main>
-        
-        <!-- Sidebar Controls -->
-        <section id="sidebar" class="no-print">
-            <div>
-                <h2 class="section-title">Client Details</h2>
-                <p class="section-desc">Input client metadata to dynamically fill the agreement.</p>
-                
-                <div class="form-group">
-                    <label>Client Full Name</label>
-                    <input type="text" id="inputClientName" value="Alex Mercer" oninput="updateContract()" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label>Agreement Date</label>
-                    <input type="date" id="inputAgreementDate" onchange="updateContract()" class="form-control">
-                </div>
             </div>
-
-            <hr>
-
-            <div>
-                <h2 class="section-title">Packages & Payment Plans</h2>
-                <p class="section-desc">Choose the specific package and billing rate model.</p>
-                
-                <div class="plan-grid">
-                    <!-- 4 Week -->
-                    <label class="plan-card">
-                        <input type="radio" name="pricingPlan" value="4-week" checked onchange="updateContract()">
-                        <div class="plan-card-content">
-                            <span class="plan-name">4-Week Kickstart</span>
-                            <span class="plan-details">4 weekly sessions • £400 total</span>
-                            <span class="plan-badge badge-gray">Paid Upfront</span>
-                        </div>
-                    </label>
-
-                    <!-- 8 Week Full -->
-                    <label class="plan-card">
-                        <input type="radio" name="pricingPlan" value="8-week-full" onchange="updateContract()">
-                        <div class="plan-card-content">
-                            <span class="plan-name">8-Week Commitment (Full)</span>
-                            <span class="plan-details">8 weekly sessions • £800 total</span>
-                            <span class="plan-badge badge-blue">Installments (2x £400)</span>
-                        </div>
-                    </label>
-
-                    <!-- 8 Week Discounted -->
-                    <label class="plan-card plan-card-emerald">
-                        <input type="radio" name="pricingPlan" value="8-week-discount" onchange="updateContract()">
-                        <div class="plan-card-content">
-                            <span class="plan-name" style="color: var(--emerald-800)">8-Week Commitment (Discount)</span>
-                            <span class="plan-details" style="color: var(--emerald-700)">8 weekly sessions • £750 total</span>
-                            <span class="plan-badge badge-green">Save £50 • Upfront</span>
-                        </div>
-                    </label>
-
-                    <!-- 12 Week Full -->
-                    <label class="plan-card">
-                        <input type="radio" name="pricingPlan" value="12-week-full" onchange="updateContract()">
-                        <div class="plan-card-content">
-                            <span class="plan-name">12-Week Transformation (Full)</span>
-                            <span class="plan-details">12 weekly sessions • £1,200 total</span>
-                            <span class="plan-badge badge-blue">Installments (3x £400)</span>
-                        </div>
-                    </label>
-
-                    <!-- 12 Week Discounted -->
-                    <label class="plan-card plan-card-emerald">
-                        <input type="radio" name="pricingPlan" value="12-week-discount" onchange="updateContract()">
-                        <div class="plan-card-content">
-                            <span class="plan-name" style="color: var(--emerald-800)">12-Week Transformation (Discount)</span>
-                            <span class="plan-details" style="color: var(--emerald-700)">12 weekly sessions • £1,050 total</span>
-                            <span class="plan-badge badge-green">Save £150 • Upfront</span>
-                        </div>
-                    </label>
-                </div>
-            </div>
-
-            <hr>
-
-            <div>
-                <button id="copyBtn" onclick="copyTextToClipboard()" class="btn btn-outline">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376A8.965 8.965 0 0012 12.75c-.497 0-.982.04-1.455.12l-.1.013m0 0l-3.35 3.35a.488.488 0 00-.142.345v2.333c0 .185.074.364.205.496l1.334 1.334a.75.75 0 001.06 0l4.316-4.316a.75.75 0 000-1.06l-1.06-1.06a.75.75 0 00-1.06 0l-1.125 1.125" />
+            
+            <!-- Input Area -->
+            <div id="input-wrapper" class="relative w-full">
+                <input type="password" id="passcode-input" autofocus placeholder="•••••••••" class="w-full bg-slate-900 border border-slate-800 focus:border-blue-500 rounded-xl px-4 py-3 text-center text-white tracking-widest placeholder-slate-700 outline-none transition-all shadow-inner text-lg">
+                <button onclick="checkPasscode()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
-                    Copy Plain Text to Clipboard
                 </button>
             </div>
+        </div>
+    </div>
 
-            <div class="instruction-card">
-                <span>How to Save as PDF:</span>
-                <p style="margin-top: 4px;">1. Fill out your client's details above.</p>
-                <p>2. Select <strong>"Toggle Print View"</strong> above to see full-screen.</p>
-                <p>3. Use your browser print shortcut (<strong>Ctrl + P</strong> or <strong>Cmd + P</strong>).</p>
-                <p>4. Set destination to <strong>"Save as PDF"</strong>.</p>
-                <p style="color: var(--slate-700); font-weight: 500; margin-top: 4px;">*Note: Ensure "Background Graphics" is enabled to print with styling.</p>
+    <!-- MAIN APP WRAPPER (Hidden by default until passcode is verified) -->
+    <div id="main-content">
+        <!-- Sticky Top Action Bar (Hidden when printing/downloading) -->
+        <div class="no-print sticky top-0 left-0 right-0 bg-slate-900 text-white shadow-lg z-50 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h1 class="text-lg font-bold tracking-tight">📄 2-Page Clean PDF Engine</h1>
+                <p class="text-xs text-slate-400">Click any text block below to edit/paste your content. Keep content inside the boundaries.</p>
             </div>
-        </section>
-
-        <!-- Document Preview Canvas -->
-        <section class="preview-canvas">
             
-            <div id="contractSheet" class="print-sheet">
+            <div class="flex items-center gap-3">
+                <!-- Save Local Copy Info -->
+                <div class="hidden md:block text-right mr-2">
+                    <p class="text-xs text-emerald-400 font-semibold">iPad PDF Tip:</p>
+                    <p class="text-[10px] text-slate-300">Tap Print → Pinch out (zoom) preview to save PDF</p>
+                </div>
                 
-                <!-- Page 1 Content -->
+                <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm transition-all shadow-md flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.82l-.024-.024c-.244-.243-.64-.243-.883 0l-3.72 3.72a.75.75 0 00.53 1.28h18.72a.75.75 0 00.53-1.28l-3.72-3.72a.624.624 0 00-.883 0l-.024.024M16.5 13.5V6.75A2.25 2.25 0 0014.25 4.5h-4.5A2.25 2.25 0 007.5 6.75V13.5m9 0h-9" />
+                    </svg>
+                    Print / Download PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- MAIN DOCUMENT WRAPPER -->
+        <div class="flex flex-col items-center mt-6">
+
+            <!-- PAGE 1 OF 2 -->
+            <div id="page-1" class="a4-page flex flex-col justify-between">
+                <!-- Page Header Area -->
                 <div>
-                    <!-- Header with Branding -->
-                    <div class="contract-header">
-                        <div class="contract-logo">
-                            <h2>Kristian Sokol</h2>
-                            <p>Life &amp; Longevity Coach</p>
+                    <div class="flex justify-between items-start border-b-2 border-slate-800 pb-6">
+                        <div>
+                            <h1 contenteditable="true" class="text-4xl font-extrabold tracking-tight text-slate-900 uppercase">Your Name / Title</h1>
+                            <p contenteditable="true" class="text-lg text-slate-600 font-medium mt-1">Professional Document Subtitle or Role</p>
                         </div>
-                        <div class="contract-contact">
-                            <p class="website">coachkris.co.uk</p>
-                            <p>Kristian.sokol@icloud.com</p>
+                        <div class="text-right text-xs text-slate-500 leading-relaxed">
+                            <p contenteditable="true">Email: contact@example.com</p>
+                            <p contenteditable="true">Phone: +1 (555) 019-2834</p>
+                            <p contenteditable="true">Website: yourdomain.com</p>
                         </div>
                     </div>
 
-                    <h1 class="contract-title">Agreement for Client Service</h1>
+                    <!-- Section 1: Introduction -->
+                    <div class="mt-8">
+                        <h2 contenteditable="true" class="text-lg font-bold text-slate-900 uppercase tracking-widest border-b border-slate-300 pb-1 mb-3">Executive Summary</h2>
+                        <p contenteditable="true" class="text-sm text-slate-700 leading-relaxed">
+                            This document is configured to fit exactly across two pages. Since you mentioned you liked your text, you can click directly on this paragraph to delete it and paste your own content. In this template, page 1 serves as the introduction and the first major block of work, while page 2 contains secondary sections. This ensures clean, predictable page-breaking without awkward single-sentence spillages.
+                        </p>
+                    </div>
 
-                    <div class="contract-body">
-                        <p>This Agreement is entered into by and between:</p>
+                    <!-- Section 2: Core Body Content (Page 1) -->
+                    <div class="mt-8">
+                        <h2 contenteditable="true" class="text-lg font-bold text-slate-900 uppercase tracking-widest border-b border-slate-300 pb-1 mb-4">Core Sections (Part I)</h2>
                         
-                        <div class="metadata-grid">
-                            <div class="metadata-col">
-                                <span class="label">The Coach</span>
-                                <span class="value">Kristian Sokol</span>
-                                <span style="display: block; font-size: 11px; color: var(--slate-500); font-weight: 500; margin-top: 2px;">Life &amp; Longevity Coach</span>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h3 contenteditable="true" class="text-sm font-bold text-slate-800">Primary Objective or Key Milestone 1</h3>
+                                    <span contenteditable="true" class="text-xs text-slate-500">Timeline / Date</span>
+                                </div>
+                                <p contenteditable="true" class="text-xs text-slate-600 leading-relaxed">
+                                    Enter your details here. By defining exact heights for both the web layout and the printing instructions, the browser is forced to treat Page 1 and Page 2 as separate paper entities. This prevents it from bleeding random parts over into a 3rd or 4th page.
+                                </p>
                             </div>
-                            <div class="metadata-col">
-                                <span class="label">The Client</span>
-                                <span id="displayClientName" class="value">Alex Mercer</span>
-                                <span style="display: block; font-size: 11px; color: var(--slate-500); font-weight: 500; margin-top: 2px;">Participant</span>
+
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h3 contenteditable="true" class="text-sm font-bold text-slate-800">Primary Objective or Key Milestone 2</h3>
+                                    <span contenteditable="true" class="text-xs text-slate-500">Timeline / Date</span>
+                                </div>
+                                <p contenteditable="true" class="text-xs text-slate-600 leading-relaxed">
+                                    Describe additional items in this block. We've optimized the layout margin using high-end CSS parameters designed specifically for iPadOS browsers. It removes unnecessary gaps so everything flows naturally.
+                                </p>
                             </div>
                         </div>
-
-                        <p>The Client and Coach work collaboratively (not as business associates or in legal alliances) to enhance the Client's physical wellness, longevity metrics, and personal life performance standards.</p>
-
-                        <h3>Responsibilities &amp; Scope</h3>
-                        
-                        <ol>
-                            <li><strong>Professional Ethics:</strong> Coach agrees to follow the Ethics and Standards of Conduct set forth by the International Coach Federation (ICF). The ICF's Code of Ethics is outlined in detail at <span style="color: var(--emerald-700); text-decoration: underline; font-size: 12px;">coachingfederation.org/ethics/code-of-ethics</span>.</li>
-                            
-                            <li><strong>Client Ownership:</strong> The Client's emotional, mental, and physical well-being is entirely their own responsibility. Likewise, the Client is responsible for all choices, decisions, behaviors, and actions. The Coach is not liable or accountable for any action or inaction, as well as for any direct or indirect results of service provided to the Client.</li>
-                            
-                            <li><strong>Non-Therapeutic Nature:</strong> It is critical for the Client to understand that coaching does not substitute for therapy, psychotherapeutic clinical support, or mental health treatment. It is in no way designed to treat any psychological disorder, clinical condition, or clinical medical problem, nor does it prevent them.</li>
-                            
-                            <li><strong>Medical &amp; Longevity Disclaimer:</strong> 
-                                <span class="disclaimer-box">
-                                    <strong>IMPORTANT HEALTHSPAN &amp; BIOMETRIC DISCLAIMER:</strong> Kristian Sokol is a specialized Life &amp; Longevity Coach. He is not a licensed clinical medical doctor, registered dietitian, or pharmacologist. Any protocol adjustments, analyses of wearable data (such as sleep metrics, heart rate variability, biomarkers), or supplement frameworks are for informational, healthspan optimization, and lifestyle design purposes only. They do not constitute diagnostic medical advice or physician treatment plans. The Client must consult their General Practitioner (GP) or appropriate clinical specialist before altering physical regimes, medical supplements, or nutritional profiles.
-                                </span>
-                            </li>
-
-                            <li><strong>Professional Insurance:</strong> The Coach maintains comprehensive professional indemnity insurance coverage for both life coaching and longevity coaching practices.</li>
-                            
-                            <li><strong>Commitment to Honesty:</strong> A successful coaching dynamic relies heavily on truthfulness and open dialogue. To ensure optimal progress, the Client agrees to communicate truthfully, engage in weekly active accountability tracking, and share direct feedback.</li>
-                        </ol>
                     </div>
                 </div>
 
-                <div class="sheet-footer no-print">
-                    Page 1 of 2
+                <!-- Page 1 Footer indicator -->
+                <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-3">
+                    <span contenteditable="true">Confidential Document</span>
+                    <span>Page 1 of 2</span>
                 </div>
-
-                <!-- Page 2 Content -->
-                <div class="page-break" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-                    <div class="contract-body" style="margin-top: 10px;">
-                        <h3>Coaching Package, Arrangements &amp; Access</h3>
-                        
-                        <p>Both parties agree to establish the following program arrangements:</p>
-                        
-                        <ul>
-                            <li><strong>Selected Package:</strong> <span id="displaySelectedPackage" style="font-weight: 700; color: var(--slate-950);">4-Week Kickstart Program</span></li>
-                            <li><strong>Format &amp; Cadence:</strong> One structured weekly coaching session lasting <strong>45 to 60 minutes</strong>. Meetings are held via Zoom, Skype, telephone, or mutually coordinated face-to-face sessions.</li>
-                            <li><strong>Between-Session Support:</strong> The Coach will provide continuous asynchronous support to track habit metrics, nutrition logs, or biometric trends. The Client can access the Coach via email, text, or WhatsApp. The Coach will respond within a maximum of <strong>24 hours</strong>. This between-session administrative support is protected at a strict 30-minute block per week per client to maintain executive quality.</li>
-                        </ul>
-
-                        <h3>Financial Investment &amp; Invoicing</h3>
-                        
-                        <div class="financial-box">
-                            <div class="financial-grid">
-                                <div class="financial-col">
-                                    <span class="lbl">Total Package Value</span>
-                                    <span id="displayTotalFee" class="num">£400.00</span>
-                                </div>
-                                <div class="financial-col">
-                                    <span class="lbl">Payment Schedule</span>
-                                    <span id="displayPaymentTerms" class="terms">Paid in full prior to initial session</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p><strong>Payment Terms:</strong> All upfront payments or initial installment cycles must clear <strong>24 hours prior</strong> to the scheduled initial session. For packages with installment frameworks, subsequent automated monthly payments are initiated every 4 weeks until the contract threshold is reached.</p>
-
-                        <h3>Rescheduling, Cancellations &amp; Expirations</h3>
-                        <ul>
-                            <li><strong>24-Hour Notice Window:</strong> The Client must provide at least 24 hours notice in advance if they wish to reschedule a coaching session. Rescheduled sessions will be made up within the course of the ongoing package.</li>
-                            <li><strong>Short-Notice Forfeiture:</strong> No replacements, credit roll-overs, or makeup sessions are possible if cancellations are requested with less than 24 hours notice.</li>
-                            <li><strong>Non-Refundable Commitment:</strong> Coaching requires a full investment of physical and mindset energy. Refunds are not generally offered, ensuring both parties respect the commitment threshold. Exceptional, sudden medical circumstances are reviewed strictly case-by-case.</li>
-                        </ul>
-
-                        <h3>Confidentiality</h3>
-                        <p>Under the ICF Code of Ethics, all materials, personal metrics, wearable biometric tracking logs, or private mental health thresholds shared during coaching remain confidential. Exceptions strictly relate to situations of explicit life-safety threats, self-harm risks, or court-mandated legal reporting requirements.</p>
-                    </div>
-
-                    <!-- Signatures Section -->
-                    <div class="signatures-box">
-                        <p class="signatures-intro">By signing below, the Coach and Client validate and accept the conditions and disclaimers outlined in this entire document.</p>
-                        
-                        <div class="signatures-grid">
-                            <!-- Client Sign Box -->
-                            <div class="sign-field">
-                                <span class="lbl">Client Signature</span>
-                                <div class="sign-line">
-                                    <span id="displaySignatureName" class="placeholder">Alex Mercer (Sign on Printed PDF)</span>
-                                </div>
-                                <div class="sign-date">
-                                    <span>Date: __________________</span>
-                                </div>
-                            </div>
-
-                            <!-- Coach Sign Box -->
-                            <div class="sign-field">
-                                <span class="lbl">Coach Signature</span>
-                                <div class="sign-line">
-                                    <span class="autograph">Kristian Sokol</span>
-                                </div>
-                                <div class="sign-date">
-                                    <span>Date: <span id="displaySignDate">18 June 2026</span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="sheet-footer no-print">
-                        Page 2 of 2
-                    </div>
-                </div>
-
             </div>
 
-            <!-- Floating Toggle Button (Visible only when in Print Mode) -->
-            <button id="floatingToggleBtn" onclick="togglePrintMode()" class="floating-btn no-print">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
-                </svg>
-                Show Settings
-            </button>
-        </section>
-    </main>
+            <!-- PAGE 2 OF 2 -->
+            <div id="page-2" class="a4-page flex flex-col justify-between">
+                <!-- Page Body Area -->
+                <div>
+                    <!-- Section 3: Core Body Content (Page 2) -->
+                    <div>
+                        <h2 contenteditable="true" class="text-lg font-bold text-slate-900 uppercase tracking-widest border-b border-slate-300 pb-1 mb-4">Core Sections (Part II)</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h3 contenteditable="true" class="text-sm font-bold text-slate-800">Additional Accomplishments or Details</h3>
+                                    <span contenteditable="true" class="text-xs text-slate-500">Timeline / Date</span>
+                                </div>
+                                <p contenteditable="true" class="text-xs text-slate-600 leading-relaxed">
+                                    This is the top of the second page. When you hit the "Print / Download" button, the browser is given explicit instructions to cleanly insert a page break right before this block starts. Paste your continuation text here.
+                                </p>
+                            </div>
 
+                            <div>
+                                <div class="flex justify-between items-baseline mb-1">
+                                    <h3 contenteditable="true" class="text-sm font-bold text-slate-800">Secondary Objectives</h3>
+                                    <span contenteditable="true" class="text-xs text-slate-500">Timeline / Date</span>
+                                </div>
+                                <p contenteditable="true" class="text-xs text-slate-600 leading-relaxed">
+                                    Ensure your content fits nicely within this space. Keeping content organized inside these boundaries guarantees a perfect 2-page print without the layout spilling over.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Support / Supplementary Section (Page 2) -->
+                    <div class="mt-8">
+                        <h2 contenteditable="true" class="text-lg font-bold text-slate-900 uppercase tracking-widest border-b border-slate-300 pb-1 mb-4">Key Performance Metrics & Notes</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <h4 contenteditable="true" class="text-xs font-bold text-slate-700 uppercase mb-1">Core Capability A</h4>
+                                <p contenteditable="true" class="text-[11px] text-slate-600 leading-relaxed">Editable data point description goes right here. Keep it short and impactful.</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <h4 contenteditable="true" class="text-xs font-bold text-slate-700 uppercase mb-1">Core Capability B</h4>
+                                <p contenteditable="true" class="text-[11px] text-slate-600 leading-relaxed">Editable data point description goes right here. Keep it short and impactful.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Conclusion / Sign-off -->
+                    <div class="mt-8">
+                        <h2 contenteditable="true" class="text-lg font-bold text-slate-900 uppercase tracking-widest border-b border-slate-300 pb-1 mb-3">Verification & Sign-off</h2>
+                        <p contenteditable="true" class="text-xs text-slate-600 leading-relaxed mb-4">
+                            By deploying this HTML to your website repository on GitHub, you will be able to load this page interactively, make live updates to the text blocks directly from Safari, and print them securely without exposing sensitive controls to the outside world.
+                        </p>
+                        <div class="flex justify-between items-end mt-6">
+                            <div>
+                                <p contenteditable="true" class="text-xs font-bold text-slate-800">Authorized Signature</p>
+                                <div class="w-40 border-b border-slate-400 mt-6"></div>
+                            </div>
+                            <p contenteditable="true" class="text-xs text-slate-500">Dated: June 18, 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page 2 Footer indicator -->
+                <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-3">
+                    <span contenteditable="true">Confidential Document</span>
+                    <span>Page 2 of 2</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SCRIPT HANDLING LOGIC -->
     <script>
-        // Set default date to today on load
-        document.addEventListener('DOMContentLoaded', () => {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('inputAgreementDate').value = today;
-            updateContract();
+        const correctCode = "515891226";
+        const passcodeInput = document.getElementById('passcode-input');
+        const lockScreen = document.getElementById('lock-screen');
+        const lockContainer = document.getElementById('lock-container');
+        const mainContent = document.getElementById('main-content');
+
+        // Watch for "Enter" keypress inside password input
+        passcodeInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPasscode();
+            }
         });
 
-        function togglePrintMode() {
-            const sidebar = document.getElementById('sidebar');
-            const header = document.getElementById('header');
-            const floatingBtn = document.getElementById('floatingToggleBtn');
-
-            const isSidebarHidden = sidebar.style.display === 'none';
-
-            if (isSidebarHidden) {
-                sidebar.style.display = 'flex';
-                header.style.display = 'flex';
-                floatingBtn.style.display = 'none';
-            } else {
-                sidebar.style.display = 'none';
-                header.style.display = 'none';
-                floatingBtn.style.display = 'inline-flex';
-            }
-        }
-
-        function copyTextToClipboard() {
-            const range = document.createRange();
-            range.selectNode(document.getElementById('contractSheet'));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            try {
-                document.execCommand('copy');
-                const btn = document.getElementById('copyBtn');
-                const origText = btn.innerHTML;
-                btn.innerHTML = '✓ Copied Plain Text!';
-                setTimeout(() => {
-                    btn.innerHTML = origText;
-                }, 2000);
-            } catch (err) {
-                console.error('Could not copy text: ', err);
-            }
-            window.getSelection().removeAllRanges();
-        }
-
-        function updateContract() {
-            // Get Elements
-            const clientName = document.getElementById('inputClientName').value || "Client Name";
-            const agreementDateVal = document.getElementById('inputAgreementDate').value;
+        function checkPasscode() {
+            const entered = passcodeInput.value.trim();
             
-            // Format Date safely
-            let formattedDate = "Pending Date";
-            if(agreementDateVal) {
-                const dateObj = new Date(agreementDateVal);
-                formattedDate = dateObj.toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                });
+            if (entered === correctCode) {
+                // Correct: Fade out lock screen and display main app
+                lockScreen.style.opacity = '0';
+                lockScreen.style.transition = 'opacity 0.4s ease';
+                
+                setTimeout(() => {
+                    lockScreen.style.display = 'none';
+                    mainContent.style.display = 'block';
+                }, 400);
+            } else {
+                // Wrong: Lock the screen completely
+                lockContainer.innerHTML = `
+                    <div class="bg-red-950/40 p-5 rounded-full border border-red-800/80 shadow-2xl mb-2 animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-red-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                        </svg>
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-xl font-bold tracking-widest text-red-500 uppercase">Website Locked</h2>
+                        <p class="text-xs text-slate-500 mt-2">Invalid code. Reload page to try again.</p>
+                    </div>
+                `;
             }
-
-            // Get selected pricing plan radio button
-            const selectedPlan = document.querySelector('input[name="pricingPlan"]:checked').value;
-
-            let packageTitle = "";
-            let totalFee = 0;
-            let paymentTerms = "";
-
-            switch(selectedPlan) {
-                case '4-week':
-                    packageTitle = "4-Week Kickstart Program (4 Sessions / Weekly)";
-                    totalFee = 400;
-                    paymentTerms = "Paid in full upfront (£400.00 prior to initial session).";
-                    break;
-                case '8-week-full':
-                    packageTitle = "8-Week Commitment Program (8 Sessions / Weekly)";
-                    totalFee = 800;
-                    paymentTerms = "Split Installments (2x monthly installments of £400.00).";
-                    break;
-                case '8-week-discount':
-                    packageTitle = "8-Week Commitment Program (8 Sessions / Weekly)";
-                    totalFee = 750;
-                    paymentTerms = "Paid in full upfront (£750.00 - Pay-in-full discount of £50 applied).";
-                    break;
-                case '12-week-full':
-                    packageTitle = "12-Week Transformation Program (12 Sessions / Weekly)";
-                    totalFee = 1200;
-                    paymentTerms = "Split Installments (3x monthly installments of £400.00).";
-                    break;
-                case '12-week-discount':
-                    packageTitle = "12-Week Transformation Program (12 Sessions / Weekly)";
-                    totalFee = 1050;
-                    paymentTerms = "Paid in full upfront (£1,050.00 - Pay-in-full discount of £150 applied).";
-                    break;
-            }
-
-            // Update DOM Document
-            document.getElementById('displayClientName').innerText = clientName;
-            document.getElementById('displaySignatureName').innerText = `${clientName} (Sign on Printed PDF)`;
-            document.getElementById('displaySelectedPackage').innerText = packageTitle;
-            document.getElementById('displayTotalFee').innerText = `£${totalFee.toLocaleString('en-GB', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-            document.getElementById('displayPaymentTerms').innerText = paymentTerms;
-            document.getElementById('displaySignDate').innerText = formattedDate;
         }
     </script>
 </body>
