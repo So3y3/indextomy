@@ -351,9 +351,38 @@
         @media print {
             body { background: white; color: black; }
             .no-print { display: none !important; }
-            .preview-canvas { padding: 0 !important; background: transparent !important; overflow: visible !important; display: block !important; }
-            .print-sheet { box-shadow: none !important; border: none !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; min-height: auto !important; page-break-after: always; }
-            .page-break { page-break-before: always; margin-top: 20mm; }
+            .preview-canvas {
+                padding: 0 !important;
+                background: transparent !important;
+                overflow: visible !important;
+                display: block !important;
+            }
+            .print-sheet {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 18mm 18mm 12mm 18mm !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+                /* NO page-break-after — prevents the blank 3rd page */
+            }
+            .page-break {
+                page-break-before: always;
+                margin-top: 0 !important;
+                padding-top: 4mm;
+            }
+            /* Tighten spacing for print to ensure 2-page fit */
+            .contract-body p { margin-bottom: 7px !important; }
+            .contract-body li { margin-bottom: 4px !important; }
+            .contract-body h3 { margin-top: 12px !important; margin-bottom: 6px !important; }
+            .financial-box { padding: 10px !important; margin: 8px 0 !important; }
+            .bank-box { padding: 8px 12px !important; margin: 6px 0 !important; }
+            .signatures-box { margin-top: 20px !important; }
+            .metadata-grid { padding: 8px 12px !important; margin-bottom: 12px !important; }
+            .contract-header { padding-bottom: 12px !important; margin-bottom: 16px !important; }
+            .contract-title { margin-bottom: 14px !important; }
+            .disclaimer-box { padding: 8px !important; }
         }
     </style>
 </head>
@@ -587,7 +616,7 @@
 
                 <!-- PAGE 2 -->
                 <div class="page-break" style="display:flex;flex-direction:column;justify-content:space-between;">
-                    <div class="contract-body" style="margin-top:10px;">
+                    <div class="contract-body" style="margin-top:0;">
 
                         <h3>Coaching Package, Arrangements &amp; Access</h3>
                         <p>Both parties agree to establish the following program arrangements:</p>
