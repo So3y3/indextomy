@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Agreement | Coach Kris</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <style>
         /* ─── LOCK SCREEN ─── */
@@ -252,12 +251,14 @@
             background-color: white;
             width: 210mm;
             min-height: 297mm;
-            padding: 36px 40px;
+            padding: 40px;
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
             border: 1px solid var(--slate-200);
             color: var(--slate-950);
             font-size: 9pt;
-            line-height: 1.5;
+            line-height: 1.55;
+            display: flex;
+            flex-direction: column;
         }
 
         .contract-header {
@@ -265,8 +266,8 @@
             justify-content: space-between;
             align-items: flex-start;
             border-bottom: 2px solid var(--emerald-600);
-            padding-bottom: 14px;
-            margin-bottom: 16px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
         }
         .contract-logo h2 { font-size: 20px; font-weight: 700; color: var(--slate-900); font-family: 'Playfair Display', serif; }
         .contract-logo p { font-size: 9px; color: var(--emerald-700); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
@@ -280,30 +281,30 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--slate-900);
-            margin-bottom: 16px;
+            margin-bottom: 22px;
         }
 
         .metadata-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
             background-color: var(--slate-50);
             border: 1px solid var(--slate-100);
             border-radius: 6px;
-            padding: 8px 12px;
-            margin-bottom: 12px;
+            padding: 10px 14px;
+            margin-bottom: 18px;
         }
         .metadata-col .label { display: block; font-size: 8px; text-transform: uppercase; font-weight: 600; color: var(--slate-500); letter-spacing: 0.05em; margin-bottom: 2px; }
         .metadata-col .value { font-size: 12px; font-weight: 600; color: var(--slate-800); }
 
-        .contract-body p { margin-bottom: 7px; text-align: justify; font-size: 9pt; }
-        .contract-body h3 { font-size: 10px; font-weight: 700; color: var(--slate-900); border-bottom: 1px solid var(--slate-200); padding-bottom: 3px; margin-top: 14px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
-        .contract-body ol, .contract-body ul { padding-left: 18px; margin-bottom: 7px; }
-        .contract-body li { margin-bottom: 4px; text-align: justify; font-size: 9pt; }
+        .contract-body p { margin-bottom: 10px; text-align: justify; font-size: 9pt; }
+        .contract-body h3 { font-size: 10px; font-weight: 700; color: var(--slate-900); border-bottom: 1px solid var(--slate-200); padding-bottom: 3px; margin-top: 18px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .contract-body ol, .contract-body ul { padding-left: 18px; margin-bottom: 10px; }
+        .contract-body li { margin-bottom: 6px; text-align: justify; font-size: 9pt; }
 
         .disclaimer-box { background-color: var(--amber-50); border-left: 4px solid var(--amber-500); padding: 10px; display: block; margin-top: 6px; font-size: 8pt; color: var(--slate-800); line-height: 1.5; }
 
-        .financial-box { background-color: var(--emerald-50); border: 1px solid var(--emerald-100); border-radius: 6px; padding: 10px 14px; margin: 8px 0; color: var(--slate-900); }
+        .financial-box { background-color: var(--emerald-50); border: 1px solid var(--emerald-100); border-radius: 6px; padding: 14px; margin: 12px 0; color: var(--slate-900); }
         .financial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .financial-col .num { font-size: 20px; font-weight: 700; color: var(--slate-950); display: block; }
         .financial-col .lbl { font-size: 8px; font-weight: 600; text-transform: uppercase; color: var(--emerald-700); letter-spacing: 0.05em; }
@@ -314,8 +315,8 @@
             background-color: var(--slate-50);
             border: 1px solid var(--slate-200);
             border-radius: 6px;
-            padding: 8px 12px;
-            margin: 6px 0;
+            padding: 12px 14px;
+            margin: 10px 0;
             font-size: 8.5pt;
         }
         .bank-box .bank-title {
@@ -332,7 +333,7 @@
         .bank-row .b-value { font-size: 9pt; font-weight: 700; color: var(--slate-900); font-family: 'Courier New', monospace; letter-spacing: 0.05em; }
         .bank-row.full { grid-column: 1 / -1; }
 
-        .signatures-box { margin-top: 20px; }
+        .signatures-box { margin-top: 36px; }
         .signatures-intro { font-size: 9pt; color: var(--slate-600); margin-bottom: 18px; }
         .signatures-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid var(--slate-200); padding-top: 14px; }
         .sign-field { display: flex; flex-direction: column; }
@@ -347,12 +348,55 @@
         .floating-btn { position: fixed; bottom: 24px; right: 24px; background-color: var(--slate-900); color: white; padding: 12px 20px; border-radius: 9999px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); cursor: pointer; border: 1px solid var(--slate-700); display: none; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; z-index: 50; }
         .hidden { display: none !important; }
 
+        @page {
+            size: A4;
+            margin: 12mm 14mm;
+        }
+
         @media print {
-            body { background: white !important; }
+            body { background: white; color: black; }
             .no-print { display: none !important; }
-            header, #sidebar { display: none !important; }
-            .preview-canvas { padding: 0 !important; background: transparent !important; overflow: visible !important; display: block !important; }
-            .print-sheet { box-shadow: none !important; border: none !important; margin: 0 !important; width: 100% !important; }
+            header { display: none !important; }
+            .preview-canvas {
+                padding: 0 !important;
+                background: transparent !important;
+                overflow: visible !important;
+                display: block !important;
+            }
+            .print-sheet {
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+                font-size: 8.2pt !important;
+                line-height: 1.45 !important;
+            }
+            .page-break {
+                page-break-before: always;
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .contract-body p { margin-bottom: 6px !important; font-size: 8.2pt !important; }
+            .contract-body li { margin-bottom: 4px !important; font-size: 8.2pt !important; }
+            .contract-body h3 { margin-top: 10px !important; margin-bottom: 5px !important; }
+            .financial-box { padding: 8px 10px !important; margin: 6px 0 !important; }
+            .financial-col .num { font-size: 16px !important; }
+            .bank-box { padding: 6px 10px !important; margin: 5px 0 !important; }
+            .bank-box .bank-title { margin-bottom: 5px !important; }
+            .bank-grid { gap: 4px 12px !important; }
+            .signatures-box { margin-top: 16px !important; }
+            .signatures-grid { gap: 16px !important; }
+            .sign-line { height: 40px !important; }
+            .metadata-grid { padding: 6px 10px !important; margin-bottom: 10px !important; gap: 8px !important; }
+            .contract-header { padding-bottom: 10px !important; margin-bottom: 12px !important; }
+            .contract-logo h2 { font-size: 17px !important; }
+            .contract-title { margin-bottom: 10px !important; font-size: 12px !important; }
+            .disclaimer-box { padding: 7px !important; font-size: 7.5pt !important; }
+            .signatures-intro { font-size: 8pt !important; margin-bottom: 10px !important; }
+            .sheet-footer { display: none !important; }
         }
     </style>
 </head>
@@ -786,39 +830,26 @@
         document.getElementById('displaySignDate').innerText = `Date: ${formattedDate}`;
     }
 
-    // ─── DOWNLOAD AS PDF (html2pdf.js — no browser chrome, no URL footer) ───
+    // ─── DOWNLOAD AS PDF ───
     function downloadPDF() {
-        const btn = document.querySelector('[onclick="downloadPDF()"]');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg> Generating…';
-        btn.disabled = true;
-
-        const clientName = document.getElementById('inputClientName').value || 'Client';
-        const element = document.querySelector('.print-sheet');
-
-        const opt = {
-            margin:       [12, 14, 12, 14],   // top, right, bottom, left (mm)
-            filename:     `Agreement_${clientName.replace(/\s+/g,'_')}.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  {
-                scale: 2,
-                useCORS: true,
-                logging: false,
-                letterRendering: true
-            },
-            jsPDF: {
-                unit: 'mm',
-                format: 'a4',
-                orientation: 'portrait',
-                compress: true
-            },
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'], before: '.page-break' }
-        };
-
-        html2pdf().set(opt).from(element).save().then(() => {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
+        // Hide sidebar and header, trigger print dialog (user saves as PDF), then restore
+        const sidebar = document.getElementById('sidebar');
+        const header = document.getElementById('header');
+        const wasHidden = sidebar.classList.contains('hidden');
+        if (!wasHidden) {
+            sidebar.classList.add('hidden');
+            header.classList.add('hidden');
+        }
+        // Small delay so browser paints the clean layout before print dialog opens
+        setTimeout(() => {
+            window.print();
+            setTimeout(() => {
+                if (!wasHidden) {
+                    sidebar.classList.remove('hidden');
+                    header.classList.remove('hidden');
+                }
+            }, 1000);
+        }, 200);
     }
 
     // ─── PRINT MODE TOGGLE ───
