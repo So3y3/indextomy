@@ -210,7 +210,7 @@
     }
     .article-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
     .article-modal {
-      background: var(--parchment); border-radius: 4px;
+      background: #ffffff; border-radius: 4px;
       max-width: 740px; width: 100%; padding: 3.5rem;
       position: relative; margin: auto;
       box-shadow: 0 20px 60px rgba(0,0,0,0.25);
@@ -349,7 +349,7 @@
 
     /* Admin panel */
     .admin-panel {
-      display: none; background: var(--parchment); border-radius: 4px;
+      display: none; background: #ffffff; border-radius: 4px;
       max-width: 860px; width: 100%; padding: 3rem;
       margin: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       position: relative;
@@ -882,7 +882,7 @@ function shareArticle(e, postId) {
   if (!post) return;
 
   // Build share data
-  const pageUrl   = 'https://www.coachkris.co.uk/blog';
+  const pageUrl   = 'https://www.coachkris.co.uk/blog.html';
   const title     = post.title.replace(/<[^>]+>/g,'');
   const authorImg = 'https://www.coachkris.co.uk/assets/kris-profile.jpg'; // OG image fallback
   const text      = `${title} — by Kristian Sokol, Life & Longevity Coach`;
