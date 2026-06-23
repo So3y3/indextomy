@@ -494,6 +494,53 @@
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
+
+    /* ── SUBSCRIBE STRIP ── */
+    .subscribe-strip {
+      background: var(--deep-forest);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+    .subscribe-strip h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 300;
+      color: #F5F1EA;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.01em;
+    }
+    .subscribe-strip h3 em { font-style: italic; color: var(--warm-gold); }
+    .subscribe-strip p {
+      font-size: 0.88rem;
+      color: var(--slate-mist);
+      margin-bottom: 1.75rem;
+    }
+    .subscribe-form {
+      display: flex; gap: 0; max-width: 440px; margin: 0 auto;
+      border: 1.5px solid rgba(198,158,72,0.35);
+      border-radius: 9999px; overflow: hidden;
+      background: rgba(255,255,255,0.05);
+    }
+    .subscribe-form input[type="email"] {
+      flex: 1; background: transparent; border: none; outline: none;
+      padding: 0.75rem 1.4rem;
+      font-family: var(--font-body); font-size: 0.88rem;
+      color: #F5F1EA;
+    }
+    .subscribe-form input[type="email"]::placeholder { color: var(--slate-mist); }
+    .subscribe-form button {
+      background: var(--warm-gold); color: white; border: none; cursor: pointer;
+      padding: 0.75rem 1.5rem; font-family: var(--font-body);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; transition: background 0.2s; white-space: nowrap;
+      border-radius: 0 9999px 9999px 0;
+    }
+    .subscribe-form button:hover { background: #b8913f; }
+    .subscribe-msg {
+      margin-top: 1rem; font-size: 0.82rem;
+      color: var(--warm-gold); display: none;
+    }
+    .subscribe-msg.show { display: block; }
   </style>
 </head>
 <body>
@@ -1412,6 +1459,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 
 <!-- ── FOOTER ── -->
+
+<!-- ── SUBSCRIBE STRIP ── -->
+<section class="subscribe-strip">
+  <h3>Stay in the <em>loop</em></h3>
+  <p>New articles, insights &amp; releases — straight to your inbox. No noise.</p>
+  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+    <input type="email" id="subEmail" placeholder="Your email address" required />
+    <button type="submit">Subscribe</button>
+  </form>
+  <p class="subscribe-msg" id="subMsg">✓ You're in — talk soon.</p>
+</section>
+
 <footer>
   <div class="footer-grid">
     <div>
@@ -1446,5 +1505,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   </div>
 </footer>
 
+
+  <script>
+    async function handleSubscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('subEmail').value.trim();
+      const btn   = e.target.querySelector('button');
+      const msg   = document.getElementById('subMsg');
+      if (!email) return;
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xkolgold', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email, _subject: 'New subscriber: ' + email })
+        });
+        if (res.ok) {
+          msg.classList.add('show');
+          document.getElementById('subEmail').value = '';
+          btn.textContent = 'Subscribe';
+          btn.disabled = false;
+        } else { throw new Error(); }
+      } catch {
+        btn.textContent = 'Subscribe';
+        btn.disabled = false;
+        alert('Something went wrong — please try again.');
+      }
+    }
+  </script>
 </body>
 </html>
