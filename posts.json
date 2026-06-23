@@ -1,5 +1,16 @@
 [
   {
+    "id": "post-1782206559332-yy6i6",
+    "status": "published",
+    "featured": false,
+    "title": "Test Article",
+    "category": "life",
+    "readTime": "1 min",
+    "excerpt": "Yes",
+    "body": "Yes",
+    "date": "2026-06-23"
+  },
+  {
     "id": "seed-1",
     "status": "published",
     "featured": true,
