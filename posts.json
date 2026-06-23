@@ -1,16 +1,5 @@
 [
   {
-    "id": "post-1782206737778-ef3s7",
-    "status": "published",
-    "featured": false,
-    "title": "Test for the post",
-    "category": "life",
-    "readTime": "5 min read",
-    "excerpt": "test i am just testing",
-    "body": "testing again",
-    "date": "2026-06-23"
-  },
-  {
     "id": "seed-1",
     "status": "published",
     "featured": true,
