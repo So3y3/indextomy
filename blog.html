@@ -496,53 +496,50 @@
     }
 
 
+
     /* ── SUBSCRIBE STRIP ── */
     .subscribe-strip {
-      background: var(--sand);
-      border-top: 1px solid rgba(28,40,35,0.1);
-      border-bottom: 1px solid rgba(28,40,35,0.1);
-      padding: 2rem 2rem;
+      background: var(--warm-gold);
+      padding: 1rem 2rem;
       text-align: center;
+    }
+    .subscribe-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.5rem; flex-wrap: wrap;
+      max-width: 700px; margin: 0 auto;
     }
     .subscribe-strip h3 {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--deep-forest);
-      margin-bottom: 0.25rem;
-      display: inline;
-      margin-right: 1rem;
-    }
-    .subscribe-strip h3 em { font-style: italic; color: var(--warm-gold); }
-    .subscribe-strip p.sub-tagline {
-      font-size: 0.82rem;
-      color: var(--slate-mist);
-      margin-bottom: 1.1rem;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-weight: 400; font-style: italic;
+      color: white;
+      margin: 0; white-space: nowrap;
     }
     .subscribe-form {
-      display: flex; gap: 0; max-width: 400px; margin: 0 auto;
-      border: 1.5px solid var(--sea-glass);
+      display: flex; gap: 0;
+      border: 1.5px solid rgba(255,255,255,0.5);
       border-radius: 9999px; overflow: hidden;
-      background: white;
+      background: rgba(255,255,255,0.15);
+      flex-shrink: 0;
     }
     .subscribe-form input[type="email"] {
-      flex: 1; background: transparent; border: none; outline: none;
-      padding: 0.6rem 1.25rem;
+      background: transparent; border: none; outline: none;
+      padding: 0.55rem 1.1rem; width: 200px;
       font-family: var(--font-body); font-size: 0.85rem;
-      color: var(--deep-forest);
+      color: white;
     }
-    .subscribe-form input[type="email"]::placeholder { color: var(--slate-mist); }
+    .subscribe-form input[type="email"]::placeholder { color: rgba(255,255,255,0.7); }
     .subscribe-form button {
-      background: var(--warm-gold); color: white; border: none; cursor: pointer;
-      padding: 0.6rem 1.25rem; font-family: var(--font-body);
+      background: var(--deep-forest); color: white; border: none; cursor: pointer;
+      padding: 0.55rem 1.2rem; font-family: var(--font-body);
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
       text-transform: uppercase; transition: background 0.2s; white-space: nowrap;
       border-radius: 0 9999px 9999px 0;
     }
-    .subscribe-form button:hover { background: #b8913f; }
+    .subscribe-form button:hover { background: #0a0f0d; }
     .subscribe-msg {
-      margin-top: 0.75rem; font-size: 0.82rem;
-      color: var(--warm-gold); display: none;
+      margin-top: 0.5rem; font-size: 0.82rem;
+      color: white; display: none; width: 100%; text-align: center;
     }
     .subscribe-msg.show { display: block; }
   </style>
@@ -1466,12 +1463,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 <!-- ── SUBSCRIBE STRIP ── -->
 <section class="subscribe-strip">
-  <h3>Never miss <em>what matters</em></h3>
-  <p class="sub-tagline">New articles, insights &amp; releases — straight to your inbox. No noise.</p>
-  <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-    <input type="email" id="subEmail" placeholder="Your email address" required />
-    <button type="submit">Subscribe</button>
-  </form>
+  <div class="subscribe-inner">
+    <h3>Never miss <em>what matters</em></h3>
+    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" id="subEmail" placeholder="Your email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
   <p class="subscribe-msg" id="subMsg">✓ You're in — talk soon.</p>
 </section>
 
