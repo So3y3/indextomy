@@ -1,13 +1,13 @@
 [
   {
-    "id": "post-1782206559332-yy6i6",
+    "id": "post-1782206737778-ef3s7",
     "status": "published",
     "featured": false,
-    "title": "Test Article",
+    "title": "Test for the post",
     "category": "life",
-    "readTime": "1 min",
-    "excerpt": "Yes",
-    "body": "Yes",
+    "readTime": "5 min read",
+    "excerpt": "test i am just testing",
+    "body": "testing again",
     "date": "2026-06-23"
   },
   {
