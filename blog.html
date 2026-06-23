@@ -641,11 +641,23 @@
 
 <script>
 // ═══════════════════════════════════════
-//  DATA — posts stored in localStorage
+//  CONFIG — GitHub-backed storage
 // ═══════════════════════════════════════
 
-const STORAGE_KEY = 'coachkris_posts_v1';
-const ADMIN_PASS  = '515891226';
+const ADMIN_PASS   = '515891226';
+const GH_OWNER     = 'So3y3';
+const GH_REPO      = 'indextomy';
+const GH_BRANCH    = 'main';
+const GH_FILE      = 'posts.json';
+const GH_API       = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
+const GH_RAW       = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${GH_FILE}`;
+
+// GitHub token — stored in sessionStorage only after admin login
+function getToken() { return sessionStorage.getItem('ck_gh_token') || ''; }
+
+// In-memory cache of posts (loaded on page init)
+let _postsCache = null;
+let _ghFileSha  = null; // needed to update the file via API
 
 // Seed posts — shown until you publish your own
 const SEED_POSTS = [
@@ -801,21 +813,81 @@ If this resonates, I'd love to have a conversation.`,
 //  HELPERS
 // ═══════════════════════════════════════
 
-function getPosts() {
+// Load posts from GitHub raw URL (fast, no auth needed)
+async function loadPostsFromGitHub() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
-  return null;
+    const res = await fetch(GH_RAW + '?nocache=' + Date.now());
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    _postsCache = data;
+    return data;
+  } catch(e) {
+    // Fall back to seed posts if file doesn't exist yet
+    _postsCache = SEED_POSTS;
+    return SEED_POSTS;
+  }
 }
 
-function savePosts(posts) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+// Fetch SHA (needed for GitHub file update API)
+async function fetchFileSha() {
+  const token = getToken();
+  if (!token) return null;
+  try {
+    const res = await fetch(GH_API, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return null;
+    const d = await res.json();
+    _ghFileSha = d.sha;
+    return d.sha;
+  } catch(e) { return null; }
+}
+
+// Save posts to GitHub
+async function savePosts(posts) {
+  const token = getToken();
+  if (!token) { alert('No GitHub token — cannot save. Please log in again.'); return false; }
+
+  _postsCache = posts;
+
+  // Get current SHA if we don't have it
+  if (!_ghFileSha) await fetchFileSha();
+
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2))));
+  const body = {
+    message: 'Update posts via admin panel',
+    content,
+    branch: GH_BRANCH,
+    ...(  _ghFileSha ? { sha: _ghFileSha } : {})
+  };
+
+  try {
+    const res = await fetch(GH_API, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + token,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      console.error('GitHub save error:', err);
+      alert('Save failed: ' + (err.message || res.status));
+      return false;
+    }
+    const result = await res.json();
+    _ghFileSha = result.content.sha; // update SHA for next save
+    return true;
+  } catch(e) {
+    alert('Network error saving to GitHub: ' + e.message);
+    return false;
+  }
 }
 
 function getAllPosts() {
-  const stored = getPosts();
-  if (stored && stored.length > 0) return stored;
+  if (_postsCache && _postsCache.length > 0) return _postsCache;
   return SEED_POSTS;
 }
 
@@ -882,7 +954,8 @@ function shareArticle(e, postId) {
   if (!post) return;
 
   // Build share data
-  const pageUrl   = 'https://www.coachkris.co.uk/blog.html';
+  const slug = slugify(post.title);
+  const pageUrl   = 'https://www.coachkris.co.uk/blog.html#' + slug;
   const title     = post.title.replace(/<[^>]+>/g,'');
   const authorImg = 'https://www.coachkris.co.uk/assets/kris-profile.jpg'; // OG image fallback
   const text      = `${title} — by Kristian Sokol, Life & Longevity Coach`;
@@ -1010,6 +1083,11 @@ function renderGrid() {
   }).join('');
 }
 
+function slugify(str) {
+  return str.replace(/<[^>]+>/g,'').toLowerCase()
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60);
+}
+
 let currentArticleId = null;
 
 function openArticle(id) {
@@ -1039,6 +1117,8 @@ function openArticle(id) {
   const overlay = document.getElementById('articleOverlay');
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Set hash for direct linking
+  history.replaceState(null, '', '#' + slugify(post.title));
   // Always scroll to top of the overlay
   overlay.scrollTop = 0;
 }
@@ -1083,6 +1163,7 @@ function openPrevArticle() {
 function closeArticle() {
   document.getElementById('articleOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  history.replaceState(null, '', location.pathname + location.search);
 }
 
 // ═══════════════════════════════════════
@@ -1107,13 +1188,19 @@ function closeAdminOverlay() {
   document.body.style.overflow = '';
 }
 
-function adminLogin() {
+async function adminLogin() {
   const val = document.getElementById('adminPass').value;
   const err = document.getElementById('loginError');
   if (val === ADMIN_PASS) {
     adminAuthed = true;
     err.style.display = 'none';
     document.getElementById('adminPass').value = '';
+    // Ask for GitHub token to enable saving
+    const tok = prompt('Enter your GitHub token to enable saving articles:');
+    if (tok && tok.trim()) {
+      sessionStorage.setItem('ck_gh_token', tok.trim());
+      await fetchFileSha(); // pre-fetch SHA
+    }
     showPanel();
   } else {
     err.style.display = 'block';
@@ -1135,7 +1222,7 @@ function switchTab(tab) {
   if (tab === 'posts') renderPostList();
 }
 
-function publishPost(status) {
+async function publishPost(status) {
   const title   = document.getElementById('f-title').value.trim();
   const body    = document.getElementById('f-body').value.trim();
   const cat     = document.getElementById('f-cat').value;
@@ -1171,12 +1258,18 @@ function publishPost(status) {
   };
 
   posts.unshift(newPost);
-  savePosts(posts);
 
   const msg = document.getElementById('publishMsg');
-  msg.textContent = status === 'published' ? '✓ Published!' : '✓ Saved as draft';
+  msg.textContent = '⏳ Saving to GitHub…';
   msg.classList.add('visible');
-  setTimeout(() => msg.classList.remove('visible'), 3000);
+
+  const ok = await savePosts(posts);
+  if (ok) {
+    msg.textContent = status === 'published' ? '✓ Published!' : '✓ Saved as draft';
+  } else {
+    msg.textContent = '✗ Save failed — check console';
+  }
+  setTimeout(() => msg.classList.remove('visible'), 4000);
 
   clearForm();
   renderGrid();
@@ -1251,8 +1344,20 @@ function deletePost(id) {
 //  EVENTS
 // ═══════════════════════════════════════
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  // Load posts from GitHub first
+  await loadPostsFromGitHub();
   renderGrid();
+
+  // If URL has a hash, try to open that article
+  if (location.hash && location.hash.length > 1) {
+    const targetSlug = location.hash.slice(1).toLowerCase();
+    const all = getAllPosts();
+    const match = all.find(p => p.status === 'published' && slugify(p.title) === targetSlug);
+    if (match) {
+      setTimeout(() => openArticle(match.id), 300);
+    }
+  }
 
   // Filter
   document.querySelectorAll('.filter-btn').forEach(btn => {
