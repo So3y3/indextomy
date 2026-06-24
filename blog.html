@@ -948,6 +948,51 @@ async function fetchFileSha() {
 }
 
 // Save posts to GitHub
+// ── AUTO-GENERATE INDIVIDUAL ARTICLE HTML FILES ──
+async function generateArticlePage(post, token) {
+  const slug = slugify(post.title);
+  const fileName = 'articles/' + slug + '.html';
+  const cleanTitle = post.title.replace(/<[^>]+>/g, '');
+  const bodyHtml = renderBodyToHtml(post.body);
+  const catLabel = { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware' }[post.category] || post.category;
+
+  const articleHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${cleanTitle} | Kristian Sokol</title>
+  <meta name="description" content="${post.excerpt.replace(/"/g,"'")}" />
+  <meta name="author" content="Kristian Sokol" />
+  <link rel="canonical" href="https://www.coachkris.co.uk/articles/${slug}.html" />
+  <meta property="og:title" content="${cleanTitle}" />
+  <meta property="og:description" content="${post.excerpt.replace(/"/g,"'")}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.coachkris.co.uk/articles/${slug}.html" />
+  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${cleanTitle}" />
+  <meta name="twitter:description" content="${post.excerpt.replace(/"/g,"'")}" />
+  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${cleanTitle}",
+    "description": "${post.excerpt.replace(/"/g,"'")}",
+    "author": {"@type": "Person", "name": "Kristian Sokol", "url": "https://www.coachkris.co.uk"},
+    "publisher": {"@type": "Person", "name": "Kristian Sokol"},
+    "datePublished": "${post.date}",
+    "dateModified": "${post.date}",
+    "url": "https://www.coachkris.co.uk/articles/${slug}.html",
+    "keywords": "${catLabel}, life coaching, longevity, Kristian Sokol"
+  }
+
 async function savePosts(posts) {
   const token = getToken();
   if (!token) { alert('No GitHub token — cannot save. Please log in again.'); return false; }
@@ -1623,51 +1668,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }).catch(function(){});
   })();
-  
-// ── AUTO-GENERATE INDIVIDUAL ARTICLE HTML FILES ──
-async function generateArticlePage(post, token) {
-  const slug = slugify(post.title);
-  const fileName = 'articles/' + slug + '.html';
-  const cleanTitle = post.title.replace(/<[^>]+>/g, '');
-  const bodyHtml = renderBodyToHtml(post.body);
-  const catLabel = { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware' }[post.category] || post.category;
-
-  const articleHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${cleanTitle} | Kristian Sokol</title>
-  <meta name="description" content="${post.excerpt.replace(/"/g,"'")}" />
-  <meta name="author" content="Kristian Sokol" />
-  <link rel="canonical" href="https://www.coachkris.co.uk/articles/${slug}.html" />
-  <meta property="og:title" content="${cleanTitle}" />
-  <meta property="og:description" content="${post.excerpt.replace(/"/g,"'")}" />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.coachkris.co.uk/articles/${slug}.html" />
-  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="${cleanTitle}" />
-  <meta name="twitter:description" content="${post.excerpt.replace(/"/g,"'")}" />
-  <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon-180.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "${cleanTitle}",
-    "description": "${post.excerpt.replace(/"/g,"'")}",
-    "author": {"@type": "Person", "name": "Kristian Sokol", "url": "https://www.coachkris.co.uk"},
-    "publisher": {"@type": "Person", "name": "Kristian Sokol"},
-    "datePublished": "${post.date}",
-    "dateModified": "${post.date}",
-    "url": "https://www.coachkris.co.uk/articles/${slug}.html",
-    "keywords": "${catLabel}, life coaching, longevity, Kristian Sokol"
-  }
   </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
