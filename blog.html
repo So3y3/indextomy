@@ -394,6 +394,19 @@
     }
     .form-group textarea { resize: vertical; min-height: 80px; }
     #f-body { min-height: 260px; line-height: 1.7; font-size: 0.93rem; }
+    .editor-toolbar {
+      display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.4rem;
+    }
+    .toolbar-btn {
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 700;
+      padding: 0.3rem 0.65rem; border: 1.5px solid var(--sea-glass);
+      background: white; color: var(--deep-forest); border-radius: 6px;
+      cursor: pointer; transition: all 0.15s; line-height: 1;
+    }
+    .toolbar-btn:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+    .toolbar-italic { font-style: italic; }
+    .toolbar-link { color: #3B6FD4; border-color: #3B6FD4; font-weight: 600; }
+    .toolbar-link:hover { background: #3B6FD4; color: white; }
     .form-hint { font-size: 0.72rem; color: var(--slate-mist); margin-top: 0.25rem; }
 
     .publish-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
@@ -719,8 +732,16 @@
         </div>
         <div class="form-group">
           <label>Article Body *</label>
-          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;&#10;Each blank line = new paragraph."></textarea>
-          <span class="form-hint">Use ## for headings, **bold**, *italic*, - for bullets. Each blank line becomes a new paragraph.</span>
+          <div class="editor-toolbar">
+            <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
+            <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
+            <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
+            <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
+            <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
+            <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
+          </div>
+          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;[link text](https://url.com)&#10;&#10;Each blank line = new paragraph."></textarea>
+          <span class="form-hint">Use ## headings, **bold**, *italic*, - bullets, [text](url) for links. Each blank line = new paragraph.</span>
         </div>
         <div class="form-group">
           <label>Featured? (shows larger on grid)</label>
@@ -959,7 +980,8 @@ function renderBodyToHtml(body) {
   var inList = false;
   function md(t) {
     return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-             .replace(/\*(.*?)\*/g,'<em>$1</em>');
+             .replace(/\*(.*?)\*/g,'<em>$1</em>')
+             .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener" style="color:var(--warm-gold);text-decoration:underline;text-underline-offset:2px;">$1</a>');
   }
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i];
@@ -1018,6 +1040,9 @@ function buildArticleHtml(post) {
   h += 'nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,241,234,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(193,206,201,0.3)}\n';
   h += '.nav-brand{font-family:var(--font-brand);font-size:1.1rem;letter-spacing:0.1em;color:var(--deep-forest)}\n';
   h += '.nav-back{font-size:0.8rem;color:var(--slate-mist);display:flex;align-items:center;gap:0.4rem;transition:color 0.2s}\n';
+  h += '.nav-links-article{display:flex;gap:2rem;list-style:none}@media(max-width:768px){.nav-links-article{display:none}}\n';
+  h += '.nav-links-article a{font-size:0.82rem;font-weight:500;color:var(--slate-mist);text-decoration:none;transition:color 0.2s}\n';
+  h += '.nav-links-article a:hover,.nav-active-link{color:var(--deep-forest)!important;font-weight:600}\n';
   h += '.nav-back:hover{color:var(--warm-gold)}\n';
   h += '.article-wrap{max-width:720px;margin:0 auto;padding:6rem 2rem 4rem}\n';
   h += '.article-meta{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}\n';
@@ -1036,6 +1061,7 @@ function buildArticleHtml(post) {
   h += '.article-body li{margin-bottom:0.5rem}\n';
   h += '.author-bar{margin-top:3rem;padding:1.5rem;background:white;border-radius:12px;border:1px solid var(--sea-glass);display:flex;gap:1.25rem;align-items:center}\n';
   h += '.author-initials{width:48px;height:48px;border-radius:50%;background:var(--deep-forest);color:var(--warm-gold);font-family:var(--font-brand);font-size:1.1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}\n';
+  h += '.author-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center top;flex-shrink:0;border:2px solid var(--sea-glass)}\n';
   h += '.author-name{font-weight:600;font-size:0.9rem;margin-bottom:0.2rem}\n';
   h += '.author-bio{font-size:0.8rem;color:var(--slate-mist)}\n';
   h += '.article-footer{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--sea-glass);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}\n';
@@ -1050,6 +1076,12 @@ function buildArticleHtml(post) {
   h += '</style>\n</head>\n<body>\n';
   h += '<nav>\n';
   h += '  <a class="nav-brand" href="../index.html">KRISTIAN SOKOL</a>\n';
+  h += '  <div class="nav-links-article">\n';
+  h += '    <a href="../index.html">Home</a>\n';
+  h += '    <a href="../index.html#pillars">How I Help</a>\n';
+  h += '    <a href="../index.html#contact">Contact</a>\n';
+  h += '    <a href="../blog.html" class="nav-active-link">Articles</a>\n';
+  h += '  </div>\n';
   h += '  <a class="nav-back" href="../blog.html">&#8592; All Articles</a>\n';
   h += '</nav>\n';
   h += '<main class="article-wrap">\n';
@@ -1502,6 +1534,42 @@ function switchTab(tab) {
   document.getElementById('tab-write').style.display = tab === 'write' ? '' : 'none';
   document.getElementById('tab-posts').style.display = tab === 'posts' ? '' : 'none';
   if (tab === 'posts') renderPostList();
+}
+
+
+// ── EDITOR TOOLBAR ──
+function insertFormatting(before, after) {
+  var ta = document.getElementById('f-body');
+  if (!ta) return;
+  var start = ta.selectionStart, end = ta.selectionEnd;
+  var sel = ta.value.substring(start, end);
+  var replacement = before + (sel || 'text') + after;
+  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
+  ta.selectionStart = start + before.length;
+  ta.selectionEnd   = start + before.length + (sel || 'text').length;
+  ta.focus();
+}
+function insertHeading(prefix) {
+  var ta = document.getElementById('f-body');
+  if (!ta) return;
+  var start = ta.selectionStart;
+  var lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
+  ta.value = ta.value.substring(0, lineStart) + prefix + ta.value.substring(lineStart);
+  ta.selectionStart = ta.selectionEnd = lineStart + prefix.length;
+  ta.focus();
+}
+function insertLink() {
+  var ta = document.getElementById('f-body');
+  if (!ta) return;
+  var start = ta.selectionStart, end = ta.selectionEnd;
+  var sel = ta.value.substring(start, end) || 'link text';
+  var url = prompt('Enter the URL:', 'https://');
+  if (!url) return;
+  var replacement = '[' + sel + '](' + url + ')';
+  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
+  ta.selectionStart = start + 1;
+  ta.selectionEnd   = start + 1 + sel.length;
+  ta.focus();
 }
 
 async function publishPost(status) {
