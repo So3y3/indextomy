@@ -1,0 +1,1050 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Session Reflection | Kristian Sokol — Life & Longevity Coach</title>
+  <meta name="description" content="Confidential Client Reflection Portal for Life, Longevity, and Business Coaching with Kristian Sokol." />
+  <meta name="author" content="Kristian Sokol" />
+
+  <!-- Google Fonts used in Coach Kris Website -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ----------------------------------------------------
+       Kristian Sokol Brand Constants (Matching www.coachkris.co.uk)
+       ---------------------------------------------------- */
+    :root {
+      --charcoal: #1c1d1a;
+      --cream: #faf7f2;
+      --cream-dark: #f0ede6;
+      --warm-gold: #b38b55;
+      --gold-hover: #9c7543;
+      --border-color: #e5dec9;
+      --white: #ffffff;
+      --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: col;
+      min-height: 100vh;
+    }
+
+    /* ----------------------------------------------------
+       Header & Navigation Lookalike Section
+       ---------------------------------------------------- */
+    .main-header {
+      background-color: var(--cream);
+      border-b: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      transition: var(--transition-smooth);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+
+    .logo:hover {
+      color: var(--warm-gold);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    .nav-menu a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-menu a:hover {
+      color: var(--warm-gold);
+    }
+
+    .nav-menu .cta-nav {
+      border: 1px solid var(--warm-gold);
+      padding: 0.7rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-menu .cta-nav:hover {
+      background-color: var(--warm-gold);
+      color: var(--cream);
+    }
+
+    /* Mobile Hamburger Menu Mockup matching Site */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none; /* Keep simple to maintain client-facing focus on secret page */
+      }
+      .logo {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ----------------------------------------------------
+       Onboarding Layout Container & Brand Pillars Theme
+       ---------------------------------------------------- */
+    .onboarding-wrapper {
+      flex-grow: 1;
+      padding: 5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .onboarding-card {
+      max-width: 750px;
+      width: 100%;
+      background-color: var(--white); /* Light contrast background card */
+      border: 1px solid var(--border-color);
+      box-shadow: 0 15px 40px rgba(28, 29, 26, 0.04);
+      border-radius: 4px; /* Crisp high-end editorial corners */
+      padding: 4rem 3.5rem;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      .onboarding-card {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+
+    /* Top luxury border accent mimicking pillar style */
+    .onboarding-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: var(--warm-gold);
+    }
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .brand-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--warm-gold);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .card-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      opacity: 0.8;
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ----------------------------------------------------
+       Form Styles matching site inputs
+       ---------------------------------------------------- */
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.6rem;
+    }
+
+    .form-group .label-desc {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: var(--charcoal);
+      opacity: 0.65;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Elegant Text & Textarea styling */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 1.1rem 1.2rem;
+      background-color: var(--cream);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      transition: var(--transition-smooth);
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--warm-gold);
+      background-color: var(--white);
+    }
+
+    /* Custom pathway cards (Pillars style selection) */
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .pathway-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pathway-card {
+      border: 1px solid var(--border-color);
+      background-color: var(--cream);
+      padding: 1.8rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 170px;
+    }
+
+    .pathway-card:hover {
+      border-color: var(--warm-gold);
+      background-color: var(--white);
+    }
+
+    .pathway-card.selected {
+      border-color: var(--warm-gold);
+      background-color: var(--white);
+      box-shadow: 0 8px 24px rgba(179, 139, 85, 0.08);
+    }
+
+    .pathway-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pathway-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: var(--charcoal);
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* Custom Styling for the range / scale sliders */
+    .slider-row {
+      display: flex;
+      flex-direction: column;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    @media (min-width: 640px) {
+      .slider-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .slider-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .slider-control-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    @media (min-width: 640px) {
+      .slider-control-box {
+        margin-top: 0;
+      }
+    }
+
+    .slider-input {
+      -webkit-appearance: none;
+      width: 160px;
+      height: 2px;
+      background: var(--border-color);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--warm-gold);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .slider-input::-webkit-slider-thumb:hover {
+      background: var(--gold-hover);
+      transform: scale(1.2);
+    }
+
+    .slider-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      color: var(--warm-gold);
+      width: 20px;
+      text-align: right;
+    }
+
+    /* Dynamic Animations */
+    .step-pane {
+      animation: smoothFade 0.5s ease-out forwards;
+    }
+
+    @keyframes smoothFade {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navigation Action Buttons */
+    .nav-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-secondary {
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      color: var(--warm-gold);
+    }
+
+    .btn-secondary:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: var(--charcoal);
+      color: var(--cream);
+      border: 1px solid var(--charcoal);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1.1rem 2.2rem;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--warm-gold);
+      border-color: var(--warm-gold);
+      color: var(--cream);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Success Pane styling */
+    .success-container {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .success-icon {
+      width: 60px;
+      height: 60px;
+      background-color: var(--cream-dark);
+      border-radius: 50%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .success-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--warm-gold);
+    }
+
+    .btn-home {
+      display: inline-block;
+      margin-top: 2rem;
+      border: 1px solid var(--warm-gold);
+      color: var(--warm-gold);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 1rem 2.2rem;
+      border-radius: 100px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-home:hover {
+      background-color: var(--warm-gold);
+      color: var(--cream);
+    }
+
+    /* ----------------------------------------------------
+       Site Lookalike Footer Section
+       ---------------------------------------------------- */
+    .main-footer {
+      background-color: var(--charcoal);
+      color: var(--cream);
+      padding: 5rem 2rem 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .footer-left h3, .footer-right h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-left p {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      max-width: 400px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact-info {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 640px) {
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Hide utility class */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Replicated Site Header Navigation -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="https://www.coachkris.co.uk" target="_blank" class="logo">KRISTIAN SOKOL</a>
+      <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="nav-menu">
+        <a href="https://www.coachkris.co.uk/#about">About</a>
+        <a href="https://www.coachkris.co.uk/#pillars">Pillars</a>
+        <a href="https://www.coachkris.co.uk/#approach">Approach</a>
+        <a href="https://www.coachkris.co.uk/blog">Articles</a>
+        <a href="https://www.coachkris.co.uk/#book" class="cta-nav">Book Session</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Confidential Transformation Portal wrapper -->
+  <div class="onboarding-wrapper">
+    <div class="onboarding-card">
+      
+      <!-- Interactive Multi-Step Form -->
+      <form id="intakeForm" action="https://formspree.io/f/xwvdvbon" method="POST">
+        
+        <!-- Setting Custom Subject Title on email output -->
+        <input type="hidden" name="_subject" value="Confidential Onboarding Submission">
+
+        <!-- PART 1: General Coordinates -->
+        <div id="step-0" class="step-pane">
+          <div class="card-header">
+            <span class="brand-eyebrow">Coordinates &bull; Part 1 of 4</span>
+            <h2 class="card-title">The Essentials</h2>
+            <p class="card-subtitle">Please verify or fill out your core parameters. These coordinates are strictly confidential and establish our safe foundation.</p>
+          </div>
+
+          <div class="space-y-6">
+            <div class="form-group">
+              <label for="Name">Your Full Name *</label>
+              <input type="text" id="Name" name="Name" required placeholder="e.g. Jessica Davies">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="Email">Your Direct Email *</label>
+                <input type="email" id="Email" name="Email" required placeholder="e.g. jessica@example.com">
+              </div>
+              <div class="form-group">
+                <label for="Phone">Contact Number *</label>
+                <input type="tel" id="Phone" name="Phone" required placeholder="e.g. +44 7700 900077">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="Birthday">Date of Birth</label>
+              <input type="text" id="Birthday" name="Birthday" placeholder="DD / MM / YYYY">
+            </div>
+          </div>
+        </div>
+
+        <!-- PART 2: Track selection (Pillars style) -->
+        <div id="step-1" class="step-pane hidden">
+          <div class="card-header">
+            <span class="brand-eyebrow">Alignment &bull; Part 2 of 4</span>
+            <h2 class="card-title">Choose Your Pillar Focus</h2>
+            <p class="card-subtitle">Which primary methodology are we targeting first? The reflection fields ahead will automatically adapt to support your selection.</p>
+          </div>
+
+          <div class="pathway-grid">
+            <!-- Life Track Selection Card -->
+            <div class="pathway-card" id="card-life" onclick="selectTrack('life')">
+              <div class="pathway-title">
+                Life
+                <input type="radio" name="Coaching Pillar" value="Life Coaching" required class="accent-gold-400 w-4 h-4 hidden">
+              </div>
+              <p class="pathway-desc">Personal mindset mechanics, relational boundaries, home sanctuary dynamics, and dismantling life-cycle tolerations.</p>
+            </div>
+
+            <!-- Longevity Track Selection Card -->
+            <div class="pathway-card" id="card-longevity" onclick="selectTrack('longevity')">
+              <div class="pathway-title">
+                Longevity
+                <input type="radio" name="Coaching Pillar" value="Longevity Coaching" class="accent-gold-400 w-4 h-4 hidden">
+              </div>
+              <p class="pathway-desc">Biological vigor architecture, daily energy parameters, sleep design, restoration protocols, and sustainable wellness.</p>
+            </div>
+
+            <!-- Business Track Selection Card -->
+            <div class="pathway-card" id="card-business" onclick="selectTrack('business')">
+              <div class="pathway-title">
+                Business
+                <input type="radio" name="Coaching Pillar" value="Business Coaching" class="accent-gold-400 w-4 h-4 hidden">
+              </div>
+              <p class="pathway-desc">Executive decision clarity, core leadership alignment, scaling structures, workflow optimization, and financial balance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PART 3: Adaptive Pillar Deep Reflection -->
+        <div id="step-2" class="step-pane hidden">
+          <div class="card-header">
+            <span class="brand-eyebrow">Deep Reflection &bull; Part 3 of 4</span>
+            <h2 id="dynamicRefTitle" class="card-title">The Diagnostic exploration</h2>
+            <p class="card-subtitle">Reflect honestly on your current parameters. Your input provides the breakthrough vectors we will focus on first.</p>
+          </div>
+
+          <!-- Dynamic Questions will be injected dynamically here -->
+          <div id="pillarDynamicForm"></div>
+        </div>
+
+        <!-- PART 4: Alignment diagnostics, Support & Commitment -->
+        <div id="step-3" class="step-pane hidden">
+          <div class="card-header">
+            <span class="brand-eyebrow">Synergy &bull; Part 4 of 4</span>
+            <h2 class="card-title">Holistic Diagnostics</h2>
+            <p class="card-subtitle">Let us establish a quick quantitative snapshot. Score your satisfaction across these primary vectors from 1 (requires deep focus) to 5 (thriving).</p>
+          </div>
+
+          <!-- Quantitative Sliders styled beautifully in lighter cream row boxes -->
+          <div class="space-y-1">
+            
+            <div class="slider-row">
+              <span class="slider-label">General Happiness & Soul Fulfillment</span>
+              <div class="slider-control-box">
+                <input type="range" name="Metric: Happiness" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+                <span class="slider-value">3</span>
+              </div>
+            </div>
+
+            <div class="slider-row">
+              <span class="slider-label">Home Sanctuary & Rest Environment</span>
+              <div class="slider-control-box">
+                <input type="range" name="Metric: Home Sanctuary" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+                <span class="slider-value">3</span>
+              </div>
+            </div>
+
+            <div class="slider-row">
+              <span class="slider-label">Deep Friendships & Relationship Ecosystem</span>
+              <div class="slider-control-box">
+                <input type="range" name="Metric: Ecosystem" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+                <span class="slider-value">3</span>
+              </div>
+            </div>
+
+            <div class="slider-row">
+              <span class="slider-label">Biological Vitality, Habits & Nutrition Flow</span>
+              <div class="slider-control-box">
+                <input type="range" name="Metric: Biological Vitality" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+                <span class="slider-value">3</span>
+              </div>
+            </div>
+
+            <div class="slider-row">
+              <span class="slider-label">Career Direction, Professional Scope & Wealth Flow</span>
+              <div class="slider-control-box">
+                <input type="range" name="Metric: Profession & Wealth" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+                <span class="slider-value">3</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Strategy support choice & scaling commitment -->
+          <div class="space-y-6 mt-10">
+            <div class="form-group">
+              <label for="SupportPref">What strategic dynamic serves you best during times of transformation?</label>
+              <select id="SupportPref" name="Support Style Preference">
+                <option value="Listening & Strategic Action Plan">Strategic Action Plans combined with Deep Empathetic Listening</option>
+                <option value="Guided Inquiry & Thought Work">Guided Self-Inquiry, Vision Framing & Thought Diagnostics</option>
+                <option value="High-Action Execution & Metrics">High-Momentum Accountability, Performance Execution & Habit Scaling</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>How prepared are you to dedicate focus & energy into this shift?</label>
+              <div class="flex items-center gap-4 mt-2">
+                <input type="range" name="Client Commitment Score (1-10)" min="1" max="10" value="8" class="slider-input flex-grow" oninput="updateSliderValue(this)">
+                <span class="slider-value" style="font-size: 1.5rem; width: 30px;">8</span>
+              </div>
+              <div class="flex justify-between text-[10px] text-gray-400 font-semibold uppercase tracking-wider mt-1">
+                <span>Want simple adjustments (1)</span>
+                <span>Fully Committed & Ready (10)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Action Buttons -->
+        <div class="nav-actions">
+          <button type="button" id="backBtn" class="btn-secondary" onclick="prevStep()" disabled>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            Back
+          </button>
+          
+          <button type="button" id="nextBtn" class="btn-primary" onclick="nextStep()">
+            Continue
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Replicated Site Confirmation Panel (Revealed on silent form submit) -->
+      <div id="successPanel" class="hidden success-container fade-step">
+        <div class="success-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h2 class="card-title">Your Coordinates Are Logged</h2>
+        <p class="card-subtitle">Thank you. Your onboarding diagnostic has been successfully transmitted directly to me. We will construct our next-level strategies using these reference points during our consultation.</p>
+        <a href="https://www.coachkris.co.uk" class="btn-home">Return to Homepage</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Replicated Site Brand Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h3>Kristian Sokol</h3>
+        <p>Break the loop before it breaks you. Embark on evidence-based, sustainable coaching supporting life alignment and biological longevity.</p>
+        <div class="footer-contact-info">
+          <p class="mb-1">Available worldwide online</p>
+          <p>Email: <a href="mailto:Kristian.sokol@icloud.com" class="text-gold-500 hover:underline">Kristian.sokol@icloud.com</a></p>
+        </div>
+      </div>
+      <div class="footer-right">
+        <h3>The Philosophy</h3>
+        <p>No quick fixes, no hyperbole. A practical, tailored integration of neuroscience, metabolic health habits, and professional strategy designed for high-performing lives.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
+    </div>
+  </footer>
+
+  <script>
+    let activeStep = 0;
+    const maxSteps = 4;
+    let chosenTrack = '';
+
+    // Dynamic Reflection Prompts based on Coach Kris' pillars
+    const trackTemplates = {
+      life: `
+        <div class="form-group">
+          <label>Home, Relationship & Ecosystem Dynamics</label>
+          <span class="label-desc">Reflect briefly on your current partner dynamic, years married (if applicable), or family structure. How does this setting fuel or drain your emotional energy?</span>
+          <textarea name="Life: Home & Family Dynamic" rows="4" placeholder="e.g. Married 12 years, two kids. Dynamics are loving but the constant routine leaves little room for deep recovery or romantic connection..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>The Tolerations (Life & Focus)</label>
+          <span class="label-desc">What three patterns, habits, or circumstances are you currently tolerating that are continuously leaking your baseline attention?</span>
+          <textarea name="Life: Current Tolerations" rows="3" placeholder="e.g. Constant screen distractions, boundary erosion with people in my circle, leaving my personal space unorganized..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your Sovereign Aspiration</label>
+          <span class="label-desc">If all constraints, limitations, and fear vectors vanished, what represent the highest personal shift you would pursue?</span>
+          <textarea name="Life: Core Aspiration" rows="3" placeholder="Describe the focus and direction of your life goals..."></textarea>
+        </div>
+      `,
+      longevity: `
+        <div class="form-group">
+          <label>Physical Energy, Recovery & Rhythms</label>
+          <span class="label-desc">How would you describe your baseline daily energy, cognitive performance, sleep quality, and physical structural recovery?</span>
+          <textarea name="Longevity: Physical Energy Baseline" rows="4" placeholder="e.g. Good early focus but heavy mid-afternoon slump. Sleep feels light and unrefreshing, waking up slightly stiff..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Biological & Lifestyle Tolerations</label>
+          <span class="label-desc">What biological stress-points or poor health dynamics are you currently tolerating on autopilot?</span>
+          <textarea name="Longevity: Biological Tolerations" rows="3" placeholder="e.g. Unstructured screen time before bed, erratic nutrition windows, relying too heavily on caffeine flow to get through meetings..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your Longevity Target</label>
+          <span class="label-desc">What key parameters do you prioritize optimizing? (e.g. deep sleep recovery, fat-to-fuel adaptation, metabolic stamina, pain-free structural movement)</span>
+          <textarea name="Longevity: Goals" rows="3" placeholder="What longevity or biological changes do you prioritize?"></textarea>
+        </div>
+      `,
+      business: `
+        <div class="form-group">
+          <label>Your Business Framework & Role</label>
+          <span class="label-desc">Describe your professional ecosystem, leadership responsibilities, team size, and what holds you in the trenches of your day-to-day.</span>
+          <textarea name="Business: Structure & Model" rows="4" placeholder="Describe your operation, who you manage, and what currently drains your tactical bandwidth..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Operational Friction & Tolerations</label>
+          <span class="label-desc">What process bottlenecks, team friction points, or lack of systemic business boundaries are you currently tolerating?</span>
+          <textarea name="Business: Tolerations" rows="3" placeholder="e.g. Handling operational details myself, late night communication, scaling plans stalled due to lack of standard procedures..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Your High-Performance Horizon (Next 12 Months)</label>
+          <span class="label-desc">What scale goals, structural changes, or operational exit strategies represent absolute success for you?</span>
+          <textarea name="Business: Scale Horizon" rows="3" placeholder="What does strategic business expansion look like over the coming year?"></textarea>
+        </div>
+      `
+    };
+
+    /**
+     * Reads query params from email redirection links
+     * to automatically pre-fill personal coordinates
+     */
+    function applyURLParameters() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const clientName = params.get('name') || params.get('Name');
+        const clientEmail = params.get('email') || params.get('Email');
+        const clientPhone = params.get('phone') || params.get('Phone');
+
+        if (clientName) {
+          const nameInput = document.getElementById('Name');
+          if (nameInput) nameInput.value = decodeURIComponent(clientName);
+        }
+        if (clientEmail) {
+          const emailInput = document.getElementById('Email');
+          if (emailInput) emailInput.value = decodeURIComponent(clientEmail);
+        }
+        if (clientPhone) {
+          const phoneInput = document.getElementById('Phone');
+          if (phoneInput) phoneInput.value = decodeURIComponent(clientPhone);
+        }
+      } catch (err) {
+        console.warn("Could not retrieve URL parameter pre-fills:", err);
+      }
+    }
+
+    function selectTrack(track) {
+      chosenTrack = track;
+      
+      // Update styling states of selectable cards
+      document.querySelectorAll('.pathway-card').forEach(c => c.classList.remove('selected'));
+      const activeCard = document.getElementById(`card-${track}`);
+      if (activeCard) {
+        activeCard.classList.add('selected');
+        const radio = activeCard.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+      }
+
+      // Populate conditional prompts
+      const titleEl = document.getElementById('dynamicRefTitle');
+      const dynamicContainer = document.getElementById('pillarDynamicForm');
+      dynamicContainer.innerHTML = trackTemplates[track];
+
+      // Format elegant heading labels matching selections
+      if (track === 'life') {
+        titleEl.textContent = "Your Personal Life Dynamic";
+      } else if (track === 'longevity') {
+        titleEl.textContent = "Vitality & Biological Blueprint";
+      } else if (track === 'business') {
+        titleEl.textContent = "Your Professional Scale Parameters";
+      }
+    }
+
+    function updateSliderValue(slider) {
+      const valSpan = slider.parentElement.querySelector('.slider-value');
+      if (valSpan) {
+        valSpan.textContent = slider.value;
+      }
+    }
+
+    function renderActiveStep() {
+      for (let i = 0; i < maxSteps; i++) {
+        const stepPane = document.getElementById(`step-${i}`);
+        if (stepPane) {
+          if (i === activeStep) {
+            stepPane.classList.remove('hidden');
+          } else {
+            stepPane.classList.add('hidden');
+          }
+        }
+      }
+
+      const backBtn = document.getElementById('backBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      backBtn.disabled = activeStep === 0;
+
+      if (activeStep === maxSteps - 1) {
+        nextBtn.innerHTML = `
+          Submit Confidentially
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+        `;
+      } else {
+        nextBtn.innerHTML = `
+          Continue
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        `;
+      }
+    }
+
+    function nextStep() {
+      // Step Validation
+      if (activeStep === 0) {
+        const nameVal = document.getElementById('Name');
+        const emailVal = document.getElementById('Email');
+        const phoneVal = document.getElementById('Phone');
+        if (!nameVal.value || !emailVal.value || !phoneVal.value) {
+          nameVal.reportValidity();
+          emailVal.reportValidity();
+          phoneVal.reportValidity();
+          return;
+        }
+      }
+
+      if (activeStep === 1) {
+        if (!chosenTrack) {
+          alert("Please select a Pillar focus pathway to proceed.");
+          return;
+        }
+      }
+
+      if (activeStep < maxSteps - 1) {
+        activeStep++;
+        renderActiveStep();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // High-end AJAX submission straight to your Formspree Endpoint
+        const formEl = document.getElementById('intakeForm');
+        const submitData = new FormData(formEl);
+        
+        const nextButton = document.getElementById('nextBtn');
+        nextButton.innerHTML = "Transmitting...";
+        nextButton.disabled = true;
+
+        fetch(formEl.action, {
+          method: formEl.method,
+          body: submitData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            formEl.classList.add('hidden');
+            document.getElementById('successPanel').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            alert("We encountered an issue submitting your coordinates. Please verify your details or connection.");
+            nextButton.innerHTML = "Submit Confidentially";
+            nextButton.disabled = false;
+          }
+        }).catch(err => {
+          alert("Connection error. Please try again or verify your connection.");
+          nextButton.innerHTML = "Submit Confidentially";
+          nextButton.disabled = false;
+        });
+      }
+    }
+
+    function prevStep() {
+      if (activeStep > 0) {
+        activeStep--;
+        renderActiveStep();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    window.onload = function() {
+      applyURLParameters();
+      renderActiveStep();
+    }
+  </script>
+</body>
+</html>
+
+```
