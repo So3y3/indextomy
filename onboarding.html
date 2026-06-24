@@ -134,7 +134,7 @@
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
     /* SUCCESS */
-    #success-screen { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; animation: fadeUp 0.5s ease; }
+    #success-screen { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--parchment); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; animation: fadeUp 0.5s ease; overflow-y: auto; }
     .success-icon { width: 68px; height: 68px; border-radius: 50%; background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; font-size: 1.7rem; }
     #success-screen h2 { font-family: var(--font-heading); font-size: clamp(1.9rem,5vw,2.9rem); font-weight: 300; color: var(--deep-forest); margin-bottom: 1rem; }
     #success-screen h2 em { font-style: italic; color: var(--warm-gold); }
@@ -238,14 +238,14 @@
     <div class="coaching-grid" id="coaching-type-grid">
       <input type="checkbox" class="coaching-opt" id="ct-life" name="coaching_type" value="Life Coaching" />
       <label class="coaching-label" for="ct-life">
-        <span class="cl-icon">&#127774;</span>
+        <span class="cl-icon">☀️</span>
         <span class="cl-name">Life Coaching</span>
         <span class="cl-desc">Habits, mindset, clarity, fulfilment</span>
       </label>
 
       <input type="checkbox" class="coaching-opt" id="ct-longevity" name="coaching_type" value="Longevity" />
       <label class="coaching-label" for="ct-longevity">
-        <span class="cl-icon">&#129344;</span>
+        <span class="cl-icon">🌱</span>
         <span class="cl-name">Longevity</span>
         <span class="cl-desc">Energy, health, sustainable performance</span>
       </label>
@@ -634,14 +634,6 @@
   </div>
 </div>
 
-<!-- SUCCESS -->
-<div id="success-screen">
-  <div class="success-icon">&#10022;</div>
-  <h2>You're all set, <em id="success-name">friend</em>.</h2>
-  <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
-  <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
-  <p style="margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--warm-gold);letter-spacing:0.02em;">- Kristian</p>
-</div>
 
 </main>
 
@@ -939,6 +931,14 @@
   }
 </script>
 
+<!-- SUCCESS -->
+<div id="success-screen">
+  <div class="success-icon">&#10022;</div>
+  <h2>You're all set, <em id="success-name">friend</em>.</h2>
+  <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
+  <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
+  <p style="margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--warm-gold);letter-spacing:0.02em;">- Kristian</p>
+</div>
 <!-- CONFETTI -->
 <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
 <script>
