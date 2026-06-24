@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pre-Session Reflection | Confidential Space</title>
-  <meta name="description" content="Confidential Client Reflection Portal." />
+  <title>Welcome | Coach Kris Client Intake</title>
+  <meta name="description" content="Client Intake Form — Coach Kris Life & Longevity Coaching." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,7 +54,7 @@
       overflow-x: hidden;
     }
 
-    input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], textarea, select {
       width: 100%;
       padding: 1.15rem 1.25rem;
       background-color: var(--obsidian) !important;
@@ -76,6 +75,11 @@
       box-shadow: 0 0 0 1px rgba(179, 143, 85, 0.25);
     }
 
+    /* Remove number input arrows */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type="number"] { -moz-appearance: textfield; }
+
     .pathway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1rem; }
     @media (max-width: 640px) { .pathway-grid { grid-template-columns: 1fr; } }
 
@@ -94,6 +98,7 @@
     }
 
     .pathway-card:hover { border-color: var(--warm-gold); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
+    .pathway-card.selected { border-color: var(--warm-gold); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
 
     .pathway-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -117,6 +122,44 @@
     
     .step-pane { animation: smoothFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     @keyframes smoothFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .btn-primary {
+      background: linear-gradient(to right, #92400e, #b38b55);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-back {
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.875rem 1.5rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-dark);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .btn-back:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      gap: 1rem;
+    }
   </style>
 </head>
 <body class="py-12 px-4 md:px-6 selection:bg-gold selection:text-black flex flex-col justify-center items-center min-h-screen">
@@ -124,7 +167,7 @@
   <div class="text-center max-w-xl mx-auto mb-10">
     <div class="flex items-center justify-center gap-2 mb-2">
       <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-      <span class="text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">Confidential Client Space</span>
+      <span class="text-[10px] uppercase tracking-[0.3em] text-gold font-semibold">Coach Kris — Client Intake</span>
     </div>
   </div>
 
@@ -134,36 +177,52 @@
     <form id="intakeForm" action="https://formspree.io/f/xwvdvbon" method="POST" class="space-y-8">
       <input type="hidden" name="_subject" value="Confidential Onboarding Reflection Submission">
 
+      <!-- STEP 0: Personal Details -->
       <div id="step-0" class="step-pane space-y-6">
         <div class="text-center max-w-lg mx-auto mb-8">
           <span class="text-xs uppercase tracking-widest text-gold font-semibold">Part 1 of 4</span>
-          <h2 class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">Welcome<span id="personalizedGreeting"></span></h2>
-          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">To begin, please write down a few personal details below. Don't overthink these, just note down the first things that come to your mind as you flow through this space.</p>
+          <h2 class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">Welcome — I'm So Glad You're Here<span id="personalizedGreeting"></span></h2>
+          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">Congratulations on taking this step. Deciding to invest in yourself takes courage, and I want you to know — you've made the right call. This short form helps me understand where you are right now so our time together is focused, personal, and truly impactful from session one.</p>
+          <p class="text-xs text-stone-400 mt-3 leading-relaxed max-w-md mx-auto">Everything you share here is completely confidential. Just answer honestly — there are no wrong answers.</p>
         </div>
 
         <div class="space-y-4">
+          <!-- Full Name -->
           <div class="text-center">
             <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold mb-2">Your Full Name *</label>
-            <input type="text" id="Name" name="Name" required class="w-full text-white mx-auto" placeholder="Jessica Davies">
+            <input type="text" id="Name" name="Name" required placeholder="Jessica Davies">
           </div>
+
+          <!-- Age -->
+          <div class="text-center">
+            <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold mb-2">Age *</label>
+            <input type="number" id="Age" name="Age" required placeholder="32" min="16" max="120" style="max-width: 200px; margin: 0 auto; display: block;">
+          </div>
+
+          <!-- Email + Phone -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="text-center">
               <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold mb-2">Direct Email *</label>
-              <input type="email" id="Email" name="Email" required class="w-full text-white mx-auto" placeholder="jessica@example.com">
+              <input type="email" id="Email" name="Email" required placeholder="jessica@example.com">
             </div>
             <div class="text-center">
               <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold mb-2">Phone Number *</label>
-              <input type="tel" id="Phone" name="Phone" required class="w-full text-white mx-auto" placeholder="+44 7700 900077">
+              <input type="tel" id="Phone" name="Phone" required placeholder="+44 7700 900077">
             </div>
           </div>
         </div>
+
+        <div class="nav-row justify-end">
+          <button type="button" class="btn-primary" onclick="nextStep()">Continue →</button>
+        </div>
       </div>
 
+      <!-- STEP 1: Select Gateway -->
       <div id="step-1" class="step-pane hidden space-y-6">
         <div class="text-center max-w-lg mx-auto mb-8">
           <span class="text-xs uppercase tracking-widest text-gold font-semibold">Part 2 of 4</span>
-          <h2 class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">Select Your Gateway</h2>
-          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">Which pathway matches your immediate focus? Trust your intuition.</p>
+          <h2 class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">What Brings You Here?</h2>
+          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">Select the area you most want to focus on right now. Trust your gut — you can always explore the others as we go.</p>
         </div>
 
         <div class="pathway-grid">
@@ -177,45 +236,200 @@
             <div class="pathway-title">Business<input type="radio" name="Coaching Track" value="Business Coaching" class="hidden"></div>
           </div>
         </div>
+
+        <div class="nav-row">
+          <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+          <!-- Note: on this step, selecting a card auto-advances. The back button still works. -->
+        </div>
       </div>
 
+      <!-- STEP 2: Core Exploration (dynamic) -->
       <div id="step-2" class="step-pane hidden space-y-6">
         <div class="text-center max-w-lg mx-auto mb-8">
           <span class="text-xs uppercase tracking-widest text-gold font-semibold">Part 3 of 4</span>
           <h2 id="dynamicRefTitle" class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">Core Exploration</h2>
-          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">Write down whatever comes up naturally.</p>
+          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">Answer as openly as you can. This is your space — no judgment, no right answers. The more honest you are, the better I can support you.</p>
         </div>
         <div id="pillarDynamicForm" class="space-y-6"></div>
+
+        <div class="nav-row">
+          <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+          <button type="button" class="btn-primary" onclick="nextStep()">Continue →</button>
+        </div>
       </div>
 
+      <!-- STEP 3: Holistic Alignment + Submit -->
       <div id="step-3" class="step-pane hidden space-y-6">
         <div class="text-center max-w-lg mx-auto mb-8">
           <span class="text-xs uppercase tracking-widest text-gold font-semibold">Part 4 of 4</span>
           <h2 class="text-3xl md:text-4xl font-serif text-white font-medium mt-2 leading-tight">Holistic Alignment</h2>
+          <p class="text-sm text-stone-300 mt-4 leading-relaxed max-w-md mx-auto">On a scale of 1–5, how are you feeling in each area of your life right now? Be real with yourself — this is the starting line, not the finish.</p>
         </div>
+
         <div class="space-y-2 border-t border-b border-[#222523] py-4">
-          <div class="flex justify-between text-[10px] uppercase tracking-widest text-gold font-semibold mb-2"><span>Metrics</span><span>Score (1-5)</span></div>
-          <div class="slider-row"><span class="slider-label">General Happiness</span><div class="slider-control-box"><input type="range" name="Metric: Happiness" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)"><span class="slider-value">3</span></div></div>
+          <div class="flex justify-between text-[10px] uppercase tracking-widest text-gold font-semibold mb-4">
+            <span>Metrics</span><span>Score (1–5)</span>
+          </div>
+
+          <div class="slider-row">
+            <span class="slider-label">General Happiness</span>
+            <div class="flex items-center gap-4">
+              <input type="range" name="Metric: Happiness" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+              <span class="slider-value">3</span>
+            </div>
+          </div>
+
+          <div class="slider-row">
+            <span class="slider-label">Energy & Vitality</span>
+            <div class="flex items-center gap-4">
+              <input type="range" name="Metric: Energy" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+              <span class="slider-value">3</span>
+            </div>
+          </div>
+
+          <div class="slider-row">
+            <span class="slider-label">Clarity of Purpose</span>
+            <div class="flex items-center gap-4">
+              <input type="range" name="Metric: Clarity" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+              <span class="slider-value">3</span>
+            </div>
+          </div>
+
+          <div class="slider-row" style="border-bottom: none;">
+            <span class="slider-label">Overall Momentum</span>
+            <div class="flex items-center gap-4">
+              <input type="range" name="Metric: Momentum" min="1" max="5" value="3" class="slider-input" oninput="updateSliderValue(this)">
+              <span class="slider-value">3</span>
+            </div>
+          </div>
         </div>
-        <button type="button" id="nextBtn" class="bg-gradient-to-r from-amber-700 to-gold text-black text-xs font-bold uppercase tracking-widest px-8 py-3.5 rounded transition" onclick="nextStep()">Continue</button>
+
+        <div class="nav-row">
+          <button type="button" class="btn-back" onclick="prevStep()">← Back</button>
+          <button type="submit" class="btn-primary">Submit Reflection ✦</button>
+        </div>
       </div>
+
     </form>
   </main>
 
   <script>
     let activeStep = 0;
     const maxSteps = 4;
-    function selectTrack(track) {
-      document.querySelectorAll('.pathway-card').forEach(c => c.style.borderColor = '#222523');
-      document.getElementById('card-' + track).style.borderColor = '#b38b55';
-      activeStep++; renderActiveStep();
+
+    // --- Navigation ---
+    function renderActiveStep() {
+      for (let i = 0; i < maxSteps; i++) {
+        const pane = document.getElementById('step-' + i);
+        if (pane) {
+          if (i === activeStep) {
+            pane.classList.remove('hidden');
+            // Re-trigger animation
+            pane.classList.remove('step-pane');
+            void pane.offsetWidth; // force reflow
+            pane.classList.add('step-pane');
+          } else {
+            pane.classList.add('hidden');
+          }
+        }
+      }
     }
-    function updateSliderValue(slider) { slider.parentElement.querySelector('.slider-value').textContent = slider.value; }
-    function renderActiveStep() { /* Step management logic */ }
-    function nextStep() { activeStep++; renderActiveStep(); }
-    function prevStep() { activeStep--; renderActiveStep(); }
+
+    function nextStep() {
+      if (activeStep < maxSteps - 1) {
+        activeStep++;
+        renderActiveStep();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function prevStep() {
+      if (activeStep > 0) {
+        activeStep--;
+        renderActiveStep();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // --- Track selection (Step 1 auto-advances) ---
+    function selectTrack(track) {
+      document.querySelectorAll('.pathway-card').forEach(c => c.classList.remove('selected'));
+      document.getElementById('card-' + track).classList.add('selected');
+
+      // Check the hidden radio
+      const card = document.getElementById('card-' + track);
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+
+      // Populate dynamic form for step 2
+      buildDynamicForm(track);
+
+      // Auto-advance after brief pause so user sees selection
+      setTimeout(() => { nextStep(); }, 350);
+    }
+
+    // --- Dynamic step 2 questions per track ---
+    function buildDynamicForm(track) {
+      const container = document.getElementById('pillarDynamicForm');
+      const titleEl = document.getElementById('dynamicRefTitle');
+
+      const trackData = {
+        life: {
+          title: 'Life Reflection',
+          questions: [
+            { label: 'What area of your personal life feels most out of alignment right now?', name: 'Life: Alignment Gap' },
+            { label: 'What does a deeply fulfilling life look like to you in 12 months?', name: 'Life: 12-Month Vision' },
+            { label: 'What belief or habit is most holding you back?', name: 'Life: Limiting Pattern' },
+          ]
+        },
+        longevity: {
+          title: 'Longevity Reflection',
+          questions: [
+            { label: 'How would you describe your relationship with your body and health right now?', name: 'Longevity: Current Health' },
+            { label: 'What is your single biggest health goal for the next 6 months?', name: 'Longevity: Health Goal' },
+            { label: 'Are there any specific health challenges or concerns you'd like to address?', name: 'Longevity: Challenges' },
+          ]
+        },
+        business: {
+          title: 'Business Reflection',
+          questions: [
+            { label: 'What is the most pressing challenge in your business right now?', name: 'Business: Pressing Challenge' },
+            { label: 'What does success look like for your business in the next 12 months?', name: 'Business: Vision' },
+            { label: 'Where do you feel most stuck or uncertain as a leader?', name: 'Business: Leadership Gap' },
+          ]
+        }
+      };
+
+      const data = trackData[track];
+      if (!data) return;
+
+      titleEl.textContent = data.title;
+      container.innerHTML = '';
+
+      data.questions.forEach(q => {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = `
+          <label class="block text-[10px] uppercase tracking-widest text-gold font-semibold mb-2">${q.label}</label>
+          <textarea name="${q.name}" rows="3" placeholder="Write freely…" style="text-align:left; resize:vertical;"></textarea>
+        `;
+        container.appendChild(wrapper);
+      });
+    }
+
+    // --- Slider value display ---
+    function updateSliderValue(slider) {
+      slider.parentElement.querySelector('.slider-value').textContent = slider.value;
+    }
+
+    // --- Personalized greeting (fills in name on step 2+ if provided) ---
+    document.getElementById('Name').addEventListener('input', function() {
+      const first = this.value.trim().split(' ')[0];
+      const greeting = document.getElementById('personalizedGreeting');
+      greeting.textContent = first ? `, ${first}` : '';
+    });
+
+    // Init
+    renderActiveStep();
   </script>
 </body>
 </html>
-
-```
