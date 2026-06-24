@@ -594,10 +594,10 @@
 
   <div class="ob-card">
     <p class="ob-card-title">Pick a Day &amp; Time</p>
-    <p class="field-hint">Choose a preferred slot for our initial session — I'll be in touch with the call link before we meet.</p>
+    <p class="field-hint" style="margin-bottom:1rem;">Choose your preferred slot — I'll send the call link before we meet.</p>
     <div class="field-row">
       <div class="field">
-        <label for="session-date">Preferred Date *</label>
+        <label for="session-date">Preferred Date * <span style="font-weight:400;opacity:0.6;">(minimum 24 hrs from now)</span></label>
         <input type="date" id="session-date" name="session_date" required />
       </div>
       <div class="field">
@@ -605,27 +605,7 @@
         <input type="time" id="session-time" name="session_time" required />
       </div>
     </div>
-    <div class="field-row single">
-      <div class="field">
-        <label for="session-timezone">Your Timezone</label>
-        <select id="session-timezone" name="session_timezone">
-          <option value="" disabled selected>Select your timezone...</option>
-          <option>GMT / UTC (London)</option>
-          <option>GMT+1 (BST / Madrid / Paris)</option>
-          <option>GMT+2 (Eastern Europe)</option>
-          <option>GMT+3 (Moscow / Istanbul)</option>
-          <option>GMT-5 (New York / EST)</option>
-          <option>GMT-6 (Chicago / CST)</option>
-          <option>GMT-7 (Denver / MST)</option>
-          <option>GMT-8 (Los Angeles / PST)</option>
-          <option>GMT+5:30 (India / IST)</option>
-          <option>GMT+8 (Singapore / Hong Kong)</option>
-          <option>GMT+9 (Tokyo / JST)</option>
-          <option>GMT+10 (Sydney / AEST)</option>
-          <option>Other</option>
-        </select>
-      </div>
-    </div>
+    
   </div>
 
 
@@ -921,6 +901,16 @@
       alert('Something went wrong. Please try again or email me directly.');
     }
   }
+</script>
+
+<script>
+  (function(){
+    var d = new Date(Date.now() + 24*60*60*1000);
+    var pad = function(n){ return n < 10 ? '0'+n : n; };
+    var minVal = d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+    var el = document.getElementById('session-date');
+    if(el) el.min = minVal;
+  })();
 </script>
 </body>
 </html>
