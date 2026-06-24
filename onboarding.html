@@ -22,7 +22,7 @@
 
     /* HEADER */
     .ob-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(245,241,234,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(193,206,201,0.3); }
-    .ob-brand { font-family: var(--font-brand); font-size: 1.5rem; letter-spacing: 0.08em; color: var(--deep-forest); text-decoration: none; }
+    .ob-brand { font-family: var(--font-brand); font-size: 1.1rem; letter-spacing: 0.08em; color: var(--deep-forest); text-decoration: none; }
     .ob-header-note { font-size: 0.72rem; color: var(--slate-mist); }
 
     /* PROGRESS */
@@ -42,10 +42,6 @@
     /* STEPS */
     .step { display: none; width: 100%; max-width: 640px; animation: fadeUp 0.4s ease both; }
     .step.active { display: block; }
-
-    /* Step-1 sub-card navigation */
-    #step-1 .ob-card { display: none; }
-    #step-1 .ob-card.panel-active { display: block; animation: fadeUp 0.35s ease; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
     /* STEP HEADER */
@@ -138,7 +134,7 @@
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
     /* SUCCESS */
-    #success-screen { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9000; background: var(--parchment); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; animation: fadeUp 0.5s ease; overflow-y: auto; }
+    #success-screen { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; animation: fadeUp 0.5s ease; }
     .success-icon { width: 68px; height: 68px; border-radius: 50%; background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; font-size: 1.7rem; }
     #success-screen h2 { font-family: var(--font-heading); font-size: clamp(1.9rem,5vw,2.9rem); font-weight: 300; color: var(--deep-forest); margin-bottom: 1rem; }
     #success-screen h2 em { font-style: italic; color: var(--warm-gold); }
@@ -181,7 +177,7 @@
   <p class="step-subtitle">Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.</p>
   <div class="step-divider"></div>
 
-  <div class="ob-card panel-active" id="card-about">
+  <div class="ob-card">
     <p class="ob-card-title">About You</p>
     <div class="field-row">
       <div class="field"><label for="first-name">First Name *</label><input type="text" id="first-name" placeholder="e.g. Alex" autocomplete="given-name" required /></div>
@@ -204,9 +200,35 @@
     </div>
   </div>
 
+  <div class="ob-card">
+    <p class="ob-card-title">What Are You Looking For?</p>
+    <p class="field-hint" style="margin-bottom:0.9rem;">Select all that apply - you can pick more than one.</p>
+    <div class="coaching-grid" id="coaching-type-grid">
+      <input type="checkbox" class="coaching-opt" id="ct-life" name="coaching_type" value="Life Coaching" />
+      <label class="coaching-label" for="ct-life">
+        <span class="cl-icon">&#127774;</span>
+        <span class="cl-name">Life Coaching</span>
+        <span class="cl-desc">Habits, mindset, clarity, fulfilment</span>
+      </label>
+
+      <input type="checkbox" class="coaching-opt" id="ct-longevity" name="coaching_type" value="Longevity" />
+      <label class="coaching-label" for="ct-longevity">
+        <span class="cl-icon">&#129344;</span>
+        <span class="cl-name">Longevity</span>
+        <span class="cl-desc">Energy, health, sustainable performance</span>
+      </label>
+
+      <input type="checkbox" class="coaching-opt" id="ct-business" name="coaching_type" value="Business / Project" />
+      <label class="coaching-label" for="ct-business">
+        <span class="cl-icon">&#128200;</span>
+        <span class="cl-name">Business / Project</span>
+        <span class="cl-desc">Strategy, growth, ideas, startups</span>
+      </label>
+    </div>
+    <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;">Please select at least one coaching type.</div>
   </div>
 
-  <div class="ob-card" id="card-world">
+  <div class="ob-card">
     <p class="ob-card-title">Your World Right Now</p>
     <div class="field-row">
       <div class="field"><label for="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business or 'in transition'" required /></div>
@@ -236,37 +258,9 @@
     </div>
   </div>
 
-  <div class="ob-card" id="card-coaching">
-    <p class="ob-card-title">What Are You Looking For?</p>
-    <p class="field-hint" style="margin-bottom:0.9rem;">Select all that apply - you can pick more than one.</p>
-    <div class="coaching-grid" id="coaching-type-grid">
-      <input type="checkbox" class="coaching-opt" id="ct-life" name="coaching_type" value="Life Coaching" />
-      <label class="coaching-label" for="ct-life">
-        <span class="cl-icon">☀️</span>
-        <span class="cl-name">Life Coaching</span>
-        <span class="cl-desc">Habits, mindset, clarity, fulfilment</span>
-      </label>
-
-      <input type="checkbox" class="coaching-opt" id="ct-longevity" name="coaching_type" value="Longevity" />
-      <label class="coaching-label" for="ct-longevity">
-        <span class="cl-icon">🌱</span>
-        <span class="cl-name">Longevity</span>
-        <span class="cl-desc">Energy, health, sustainable performance</span>
-      </label>
-
-      <input type="checkbox" class="coaching-opt" id="ct-business" name="coaching_type" value="Business / Project" />
-      <label class="coaching-label" for="ct-business">
-        <span class="cl-icon">&#128200;</span>
-        <span class="cl-name">Business / Project</span>
-        <span class="cl-desc">Strategy, growth, ideas, startups</span>
-      </label>
-    </div>
-    <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;">Please select at least one coaching type.</div>
-
-
-  <div class="ob-nav" id="s1-nav">
-    <button class="btn-back" id="s1-back" onclick="s1Prev()" style="display:none;">&larr; Back</button>
-    <button class="btn-next" id="s1-next" onclick="s1Next()">Next &rarr;</button>
+  <div class="ob-nav">
+    <span></span>
+    <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
   </div>
 </div>
 
@@ -375,13 +369,13 @@
     <div class="field-row single">
       <div class="field">
         <label for="eliminate">What would you most like to remove from your life?</label>
-        <textarea id="eliminate" rows="2" placeholder="A habit, situation, feeling - anything counts." required></textarea>
+        <textarea id="eliminate" rows="2" placeholder="A habit, situation, feeling - anything counts."></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="tolerating">What are you currently just putting up with?</label>
-        <textarea id="tolerating" rows="2" placeholder="Things you tolerate at work or in life that quietly drain you..." required></textarea>
+        <textarea id="tolerating" rows="2" placeholder="Things you tolerate at work or in life that quietly drain you..."></textarea>
       </div>
     </div>
   </div>
@@ -412,7 +406,7 @@
     <div class="field-row single">
       <div class="field">
         <label for="big-obstacle">What do you think is the main thing standing in your way?</label>
-        <textarea id="big-obstacle" rows="2" placeholder="Be honest - even 'I don't know yet' is a valid answer." required></textarea>
+        <textarea id="big-obstacle" rows="2" placeholder="Be honest - even 'I don't know yet' is a valid answer."></textarea>
       </div>
     </div>
   </div>
@@ -583,47 +577,13 @@
     <div class="field-row single">
       <div class="field">
         <label for="session-goal">The single most important thing you want from our first session</label>
-        <textarea id="session-goal" rows="2" placeholder="Even 'clarity on what to do next' is a perfectly valid goal." required></textarea>
+        <textarea id="session-goal" rows="2" placeholder="Even 'clarity on what to do next' is a perfectly valid goal."></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="additional">Anything you want me to know before we meet?</label>
-        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space." required></textarea>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="ob-card">
-    <p class="ob-card-title">When Works for You?</p>
-    <p class="field-hint" style="margin-bottom:0.85rem;">Pick a preferred day and time for our first session. I'll do my best to match it.</p>
-    <div class="field-row">
-      <div class="field">
-        <label for="preferred-date">Preferred Date</label>
-        <input type="date" id="preferred-date" />
-      </div>
-      <div class="field">
-        <label for="preferred-time">Preferred Time</label>
-        <select id="preferred-time">
-          <option value="" disabled selected>Choose a slot...</option>
-          <option>Morning (8am - 11am)</option>
-          <option>Late morning (11am - 1pm)</option>
-          <option>Afternoon (1pm - 4pm)</option>
-          <option>Late afternoon (4pm - 6pm)</option>
-          <option>Evening (6pm - 8pm)</option>
-        </select>
-      </div>
-    </div>
-    <div class="field-row single">
-      <div class="field">
-        <label for="session-format">Session Format Preference</label>
-        <select id="session-format">
-          <option value="" disabled selected>Choose one...</option>
-          <option>Video call (Zoom / Google Meet)</option>
-          <option>Phone call</option>
-          <option>No preference</option>
-        </select>
+        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space."></textarea>
       </div>
     </div>
   </div>
@@ -644,7 +604,7 @@
   <h2>You're all set, <em id="success-name">friend</em>.</h2>
   <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
   <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
-  <p style="margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--warm-gold);letter-spacing:0.02em;">- Kristian</p>
+  <p style="margin-top:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--warm-gold);">- Kristian</p>
 </div>
 
 </main>
@@ -666,15 +626,6 @@
   document.querySelectorAll('.coaching-opt').forEach(function(el) {
     el.addEventListener('change', updateConditionalSections);
   });
-
-
-  // Set min date for booking input
-  (function() {
-    var d = new Date();
-    var y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()+1).padStart(2,'0');
-    var el = document.getElementById('preferred-date');
-    if (el) el.min = y + '-' + m + '-' + day;
-  })();
 
   // ── SCALE ──
   function selectScale(el, group, val, tier) {
@@ -865,11 +816,6 @@
       'In their own words:',
       d.commitmentDesc,
       '',
-      '=== PREFERRED SESSION SLOT ===',
-      'Date: ' + v('preferred-date'),
-      'Time: ' + v('preferred-time'),
-      'Format: ' + v('session-format'),
-      '',
       '=== FINAL ===',
       'Session goal:',
       d.sessionGoal,
@@ -921,8 +867,7 @@
         })
       });
       if (res.ok) {
-        document.querySelectorAll('.step').forEach(function(el){ el.classList.remove('active'); });
-        document.querySelector('main').style.visibility = 'hidden';
+        document.getElementById('step-4').classList.remove('active');
         var s = document.getElementById('success-screen');
         s.style.display = 'flex';
         document.getElementById('success-name').textContent = d.firstName || 'friend';
@@ -931,7 +876,6 @@
           var dot = document.getElementById('dot-' + i);
           dot.classList.remove('active'); dot.classList.add('done');
         }
-        if (window.launchConfetti) window.launchConfetti();
       } else { throw new Error('fail'); }
     } catch(err) {
       btn.textContent = 'Submit';
@@ -940,121 +884,5 @@
     }
   }
 </script>
-
-<!-- CONFETTI -->
-<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
-<script>
-(function(){
-  var canvas, ctx, particles, running = false;
-  var colors = ['#C69E48','#1C2823','#C1CEC9','#B8695E','#7A8A85','#EBE6DA','#4A7C6F'];
-
-  function Particle(x, y) {
-    this.x = x; this.y = y;
-    this.vx = (Math.random() - 0.5) * 8;
-    this.vy = Math.random() * -12 - 4;
-    this.gravity = 0.35;
-    this.color = colors[Math.floor(Math.random() * colors.length)];
-    this.w = Math.random() * 10 + 5;
-    this.h = Math.random() * 5 + 3;
-    this.angle = Math.random() * 360;
-    this.spin = (Math.random() - 0.5) * 8;
-    this.alpha = 1;
-    this.decay = Math.random() * 0.012 + 0.008;
-    this.shape = Math.random() > 0.5 ? 'rect' : 'circle';
-  }
-
-  function launchConfetti() {
-    canvas = document.getElementById('confetti-canvas');
-    canvas.style.display = 'block';
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ctx = canvas.getContext('2d');
-    particles = [];
-    var cx = canvas.width / 2;
-    for (var i = 0; i < 180; i++) {
-      particles.push(new Particle(cx + (Math.random() - 0.5) * 200, canvas.height * 0.45));
-    }
-    running = true;
-    requestAnimationFrame(drawLoop);
-  }
-
-  function drawLoop() {
-    if (!running) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var alive = false;
-    particles.forEach(function(p) {
-      if (p.alpha <= 0) return;
-      alive = true;
-      p.x += p.vx; p.y += p.vy; p.vy += p.gravity;
-      p.vx *= 0.99; p.angle += p.spin; p.alpha -= p.decay;
-      ctx.save();
-      ctx.globalAlpha = Math.max(0, p.alpha);
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.angle * Math.PI / 180);
-      ctx.fillStyle = p.color;
-      if (p.shape === 'circle') {
-        ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill();
-      } else {
-        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-      }
-      ctx.restore();
-    });
-    if (alive) { requestAnimationFrame(drawLoop); }
-    else { canvas.style.display = 'none'; running = false; }
-  }
-
-  window.launchConfetti = launchConfetti;
-})();
-
-  // ── Step-1 sub-card navigation ──
-  var _s1Cards = ['card-about', 'card-world', 'card-coaching'];
-  var _s1Idx = 0;
-
-  function s1ShowCard(idx) {
-    _s1Cards.forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el) el.classList.remove('panel-active');
-    });
-    var el = document.getElementById(_s1Cards[idx]);
-    if (el) el.classList.add('panel-active');
-    var back = document.getElementById('s1-back');
-    if (back) back.style.display = idx === 0 ? 'none' : 'inline-flex';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function s1Validate(cardId) {
-    var card = document.getElementById(cardId);
-    if (!card) return true;
-    var inputs = card.querySelectorAll('input[required], select[required]');
-    for (var i = 0; i < inputs.length; i++) {
-      if (!inputs[i].value.trim()) { inputs[i].reportValidity(); return false; }
-    }
-    if (cardId === 'card-coaching') {
-      var checked = card.querySelectorAll('input[type=checkbox]:checked');
-      if (checked.length === 0) {
-        var err = document.getElementById('coaching-error');
-        if (err) err.style.display = 'block';
-        return false;
-      }
-    }
-    return true;
-  }
-
-  function s1Next() {
-    if (!s1Validate(_s1Cards[_s1Idx])) return;
-    if (_s1Idx < _s1Cards.length - 1) {
-      _s1Idx++;
-      s1ShowCard(_s1Idx);
-    } else {
-      goNext(1);
-    }
-  }
-
-  function s1Prev() {
-    if (_s1Idx > 0) { _s1Idx--; s1ShowCard(_s1Idx); }
-  }
-
-</script>
-
 </body>
 </html>
