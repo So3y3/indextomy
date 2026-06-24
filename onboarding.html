@@ -42,6 +42,9 @@
     /* STEPS */
     .step { display: none; width: 100%; max-width: 640px; animation: fadeUp 0.4s ease both; }
     .step.active { display: block; }
+
+    .sub-panel { display: none; width: 100%; }
+    .sub-panel.active { display: block; animation: fadeUp 0.35s ease; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
     /* STEP HEADER */
@@ -172,6 +175,14 @@
 
 <!-- ══ STEP 1 - Who You Are ══ -->
 <div class="step active" id="step-1">
+
+  <!-- Sub-panel A: About You -->
+  <div class="sub-panel active" id="sp-1a">
+    <p class="step-label">STEP 1 OF 4 &middot; THE BASICS</p>
+    <h1 class="ob-title">Good to have you <em>here.</em></h1>
+    <p class="ob-sub">Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.</p>
+    <div class="ob-divider"></div>
+<div class="step active" id="step-1">
   <p class="step-eyebrow">Step 1 of 4 · The Basics</p>
   <h1 class="step-title">Good to have you <em>here.</em></h1>
   <p class="step-subtitle">Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.</p>
@@ -201,8 +212,19 @@
   </div>
 
   </div>
+    <div class="ob-nav">
+      <span></span>
+      <button class="btn-next" onclick="nextSubPanel('sp-1a','sp-1b')">Next &rarr;</button>
+    </div>
+  </div>
 
-  <div class="ob-card">
+  <!-- Sub-panel B: Your World Right Now -->
+  <div class="sub-panel" id="sp-1b">
+    <p class="step-label">STEP 1 OF 4 &middot; YOUR WORLD</p>
+    <h1 class="ob-title">What does your <em>world</em> look like?</h1>
+    <p class="ob-sub">Help me understand the context you're coming from.</p>
+    <div class="ob-divider"></div>
+<div class="ob-card">
     <p class="ob-card-title">Your World Right Now</p>
     <div class="field-row">
       <div class="field"><label for="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business or 'in transition'" required /></div>
@@ -231,8 +253,18 @@
       </div>
     </div>
   </div>
+    <div class="ob-nav">
+      <button class="btn-back" onclick="prevSubPanel('sp-1b','sp-1a')">&larr; Back</button>
+      <button class="btn-next" onclick="nextSubPanel('sp-1b','sp-1c')">Next &rarr;</button>
+    </div>
+  </div>
 
-  <div class="ob-card">
+  <!-- Sub-panel C: What Are You Looking For -->
+  <div class="sub-panel" id="sp-1c">
+    <p class="step-label">STEP 1 OF 4 &middot; YOUR FOCUS</p>
+    <h1 class="ob-title">What are you <em>looking for?</em></h1>
+    <div class="ob-divider"></div>
+<div class="ob-card">
     <p class="ob-card-title">What Are You Looking For?</p>
     <p class="field-hint" style="margin-bottom:0.9rem;">Select all that apply - you can pick more than one.</p>
     <div class="coaching-grid" id="coaching-type-grid">
@@ -258,14 +290,13 @@
       </label>
     </div>
     <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;">Please select at least one coaching type.</div>
-
-
-  <div class="ob-nav">
-    <span></span>
-    <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+    <div class="ob-nav">
+      <button class="btn-back" onclick="prevSubPanel('sp-1c','sp-1b')">&larr; Back</button>
+      <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+    </div>
   </div>
-</div>
 
+</div>
 
 <!-- ══ STEP 2 - Life Snapshot ══ -->
 <div class="step" id="step-2">
