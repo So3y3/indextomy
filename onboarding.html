@@ -46,8 +46,6 @@
     /* Step-1 sub-card navigation */
     #step-1 .ob-card { display: none; }
     #step-1 .ob-card.panel-active { display: block; animation: fadeUp 0.35s ease; }
-    .orphan-card { display: none; }
-    .orphan-card.panel-active { display: block; animation: fadeUp 0.35s ease; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
     /* STEP HEADER */
@@ -1007,6 +1005,55 @@
 
   window.launchConfetti = launchConfetti;
 })();
+
+  // ── Step-1 sub-card navigation ──
+  var _s1Cards = ['card-about', 'card-world', 'card-coaching'];
+  var _s1Idx = 0;
+
+  function s1ShowCard(idx) {
+    _s1Cards.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.classList.remove('panel-active');
+    });
+    var el = document.getElementById(_s1Cards[idx]);
+    if (el) el.classList.add('panel-active');
+    var back = document.getElementById('s1-back');
+    if (back) back.style.display = idx === 0 ? 'none' : 'inline-flex';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function s1Validate(cardId) {
+    var card = document.getElementById(cardId);
+    if (!card) return true;
+    var inputs = card.querySelectorAll('input[required], select[required]');
+    for (var i = 0; i < inputs.length; i++) {
+      if (!inputs[i].value.trim()) { inputs[i].reportValidity(); return false; }
+    }
+    if (cardId === 'card-coaching') {
+      var checked = card.querySelectorAll('input[type=checkbox]:checked');
+      if (checked.length === 0) {
+        var err = document.getElementById('coaching-error');
+        if (err) err.style.display = 'block';
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function s1Next() {
+    if (!s1Validate(_s1Cards[_s1Idx])) return;
+    if (_s1Idx < _s1Cards.length - 1) {
+      _s1Idx++;
+      s1ShowCard(_s1Idx);
+    } else {
+      goNext(1);
+    }
+  }
+
+  function s1Prev() {
+    if (_s1Idx > 0) { _s1Idx--; s1ShowCard(_s1Idx); }
+  }
+
 </script>
 
 </body>
