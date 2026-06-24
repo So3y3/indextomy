@@ -5,252 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Let's Begin | Kristian Sokol</title>
   <meta name="robots" content="noindex, nofollow" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --parchment: #F5F1EA;
-      --deep-forest: #1C2823;
-      --warm-gold: #C69E48;
-      --slate-mist: #7A8A85;
-      --sand: #EBE6DA;
-      --sea-glass: #C1CEC9;
+      --parchment: #F5F1EA; --deep-forest: #1C2823; --warm-gold: #C69E48;
+      --slate-mist: #7A8A85; --sand: #EBE6DA; --sea-glass: #C1CEC9;
       --font-heading: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Inter', system-ui, sans-serif;
       --font-brand: 'Bebas Neue', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-body);
-      background: var(--parchment);
-      color: var(--deep-forest);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+    body { font-family: var(--font-body); background: var(--parchment); color: var(--deep-forest); min-height: 100vh; overflow-x: hidden; }
 
-    /* ── HEADER ── */
-    .ob-header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
-      background: rgba(245,241,234,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(193,206,201,0.3);
-    }
+    /* HEADER */
+    .ob-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(245,241,234,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(193,206,201,0.3); }
     .ob-brand { font-family: var(--font-brand); font-size: 1.1rem; letter-spacing: 0.08em; color: var(--deep-forest); text-decoration: none; }
-    .ob-header-note { font-size: 0.75rem; color: var(--slate-mist); }
+    .ob-header-note { font-size: 0.72rem; color: var(--slate-mist); }
 
-    /* ── PROGRESS BAR ── */
-    .progress-track {
-      position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
-      height: 3px; background: var(--sand);
-    }
-    .progress-fill {
-      height: 100%; background: var(--warm-gold);
-      transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
-    }
+    /* PROGRESS */
+    .progress-track { position: fixed; top: 56px; left: 0; right: 0; z-index: 99; height: 3px; background: var(--sand); }
+    .progress-fill { height: 100%; background: var(--warm-gold); transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
 
-    /* ── STEP DOTS ── */
-    .step-dots {
-      position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
-      z-index: 99;
-      display: flex; gap: 0.5rem; align-items: center;
-      padding: 0.4rem 1rem;
-      background: rgba(245,241,234,0.9);
-      border-radius: 20px;
-      border: 1px solid var(--sea-glass);
-    }
-    .step-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--sea-glass);
-      transition: all 0.3s;
-    }
-    .step-dot.active { background: var(--warm-gold); transform: scale(1.3); }
+    /* STEP DOTS */
+    .step-dots { position: fixed; top: 67px; left: 50%; transform: translateX(-50%); z-index: 99; display: flex; gap: 0.5rem; align-items: center; padding: 0.35rem 0.9rem; background: rgba(245,241,234,0.92); border-radius: 20px; border: 1px solid var(--sea-glass); white-space: nowrap; }
+    .step-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sea-glass); transition: all 0.3s; }
+    .step-dot.active { background: var(--warm-gold); transform: scale(1.35); }
     .step-dot.done { background: var(--deep-forest); }
-    .step-label {
-      font-size: 0.7rem; font-weight: 600; color: var(--slate-mist);
-      letter-spacing: 0.05em; margin-left: 0.3rem;
-    }
+    .step-label { font-size: 0.68rem; font-weight: 600; color: var(--slate-mist); letter-spacing: 0.05em; margin-left: 0.3rem; }
 
-    /* ── MAIN ── */
-    .ob-main {
-      min-height: 100vh;
-      display: flex; flex-direction: column; align-items: center;
-      padding: 140px 1.5rem 4rem;
-    }
+    /* MAIN */
+    .ob-main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 110px 1.5rem 4rem; }
 
-    /* ── STEPS ── */
-    .step { display: none; width: 100%; max-width: 640px; animation: fadeUp 0.45s ease both; }
+    /* STEPS */
+    .step { display: none; width: 100%; max-width: 640px; animation: fadeUp 0.4s ease both; }
     .step.active { display: block; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── STEP HEADER ── */
-    .step-eyebrow {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.75rem;
-    }
-    .step-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 300; line-height: 1.2;
-      color: var(--deep-forest); margin-bottom: 0.75rem;
-    }
+    /* STEP HEADER */
+    .step-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.6rem; }
+    .step-title { font-family: var(--font-heading); font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 300; line-height: 1.2; color: var(--deep-forest); margin-bottom: 0.6rem; }
     .step-title em { font-style: italic; color: var(--warm-gold); }
-    .step-subtitle {
-      font-size: 0.9rem; color: var(--slate-mist); line-height: 1.7;
-      margin-bottom: 2rem; max-width: 520px;
-    }
-    .step-divider { width: 48px; height: 1px; background: var(--warm-gold); margin-bottom: 2rem; }
+    .step-subtitle { font-size: 0.88rem; color: var(--slate-mist); line-height: 1.65; margin-bottom: 1.5rem; max-width: 520px; }
+    .step-divider { width: 40px; height: 1px; background: var(--warm-gold); margin-bottom: 1.5rem; }
 
-    /* ── CARDS ── */
-    .ob-card {
-      background: white; border: 1px solid var(--sea-glass);
-      border-radius: 16px; padding: 2rem; margin-bottom: 1.25rem;
-    }
-    .ob-card-title {
-      font-family: var(--font-heading); font-size: 1.15rem; font-weight: 400;
-      color: var(--deep-forest); margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem; border-bottom: 1px solid var(--sand);
-    }
+    /* 2-MIN BADGE */
+    .time-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(198,158,72,0.1); border: 1px solid rgba(198,158,72,0.35); border-radius: 20px; padding: 0.3rem 0.85rem; font-size: 0.75rem; font-weight: 600; color: var(--warm-gold); margin-bottom: 1.25rem; }
 
-    /* ── FIELDS ── */
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    /* CARDS */
+    .ob-card { background: white; border: 1px solid var(--sea-glass); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.1rem; }
+    .ob-card-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--deep-forest); margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--sand); }
+
+    /* FIELDS */
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
     .field-row.single { grid-template-columns: 1fr; }
     .field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
-
-    .field { display: flex; flex-direction: column; gap: 0.35rem; }
-    .field label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
-      color: var(--slate-mist); text-transform: uppercase;
-    }
-    .field input, .field select, .field textarea {
-      font-family: var(--font-body); font-size: 0.88rem;
-      background: var(--parchment); border: 1.5px solid var(--sea-glass);
-      border-radius: 8px; padding: 0.65rem 0.85rem;
-      color: var(--deep-forest); transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none; width: 100%; resize: none;
-    }
-    .field input:focus, .field select:focus, .field textarea:focus {
-      border-color: var(--warm-gold); box-shadow: 0 0 0 3px rgba(198,158,72,0.12);
-    }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .field label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; color: var(--slate-mist); text-transform: uppercase; }
+    .field input, .field select, .field textarea { font-family: var(--font-body); font-size: 0.88rem; background: var(--parchment); border: 1.5px solid var(--sea-glass); border-radius: 8px; padding: 0.6rem 0.8rem; color: var(--deep-forest); transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; resize: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--warm-gold); box-shadow: 0 0 0 3px rgba(198,158,72,0.1); }
     .field input::placeholder, .field textarea::placeholder { color: var(--sea-glass); font-style: italic; }
-    .field select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8A85' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 0.85rem center; padding-right: 2.25rem;
-    }
+    .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8A85' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.8rem center; padding-right: 2.2rem; }
 
-    /* ── SCALE ── */
-    .scale-legend { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--slate-mist); margin-bottom: 0.5rem; opacity: 0.7; }
-    .scale-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(193,206,201,0.25); }
-    .scale-row:last-child { border-bottom: none; }
-    .scale-label { font-size: 0.82rem; font-weight: 500; color: var(--deep-forest); flex: 1; min-width: 0; }
-    .scale-pills { display: flex; gap: 0.3rem; }
-    .scale-pill {
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 1.5px solid var(--sea-glass); background: var(--parchment);
-      font-size: 0.78rem; font-weight: 600; color: var(--slate-mist);
-      cursor: pointer; transition: all 0.15s;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    /* COACHING TYPE CHIPS (big, step 1) */
+    .coaching-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6rem; }
+    .coaching-opt { display: none; }
+    .coaching-label {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.3rem; padding: 0.9rem 0.5rem;
+      border: 1.5px solid var(--sea-glass); border-radius: 12px;
+      cursor: pointer; transition: all 0.15s; text-align: center;
+      background: var(--parchment); user-select: none;
     }
+    .coaching-label .cl-icon { font-size: 1.3rem; }
+    .coaching-label .cl-name { font-size: 0.8rem; font-weight: 700; color: var(--deep-forest); line-height: 1.2; }
+    .coaching-label .cl-desc { font-size: 0.67rem; color: var(--slate-mist); line-height: 1.3; }
+    .coaching-opt:checked + .coaching-label { background: rgba(28,40,35,0.04); border-color: var(--deep-forest); }
+    .coaching-opt:checked + .coaching-label .cl-name { color: var(--warm-gold); }
+    .coaching-label:hover { border-color: var(--warm-gold); }
+
+    /* SCALE */
+    .scale-legend { display: flex; justify-content: space-between; font-size: 0.67rem; color: var(--slate-mist); margin-bottom: 0.4rem; opacity: 0.75; }
+    .scale-row { display: flex; align-items: center; gap: 0.65rem; padding: 0.55rem 0; border-bottom: 1px solid rgba(193,206,201,0.22); }
+    .scale-row:last-child { border-bottom: none; }
+    .scale-label { font-size: 0.81rem; font-weight: 500; color: var(--deep-forest); flex: 1; min-width: 0; }
+    .scale-pills { display: flex; gap: 0.28rem; }
+    .scale-pill { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--sea-glass); background: var(--parchment); font-size: 0.76rem; font-weight: 600; color: var(--slate-mist); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .scale-pill:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
     .scale-pill.sel-low  { background: #B8695E; border-color: #B8695E; color: white; }
     .scale-pill.sel-mid  { background: var(--slate-mist); border-color: var(--slate-mist); color: white; }
     .scale-pill.sel-high { background: var(--warm-gold); border-color: var(--warm-gold); color: white; }
 
-    /* ── CHIPS ── */
-    .chip-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    /* CHIPS */
+    .chip-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .chip-option { display: none; }
-    .chip-label {
-      font-size: 0.82rem; font-weight: 500; border: 1.5px solid var(--sea-glass);
-      border-radius: 20px; padding: 0.45rem 1rem; cursor: pointer;
-      transition: all 0.15s; color: var(--slate-mist); user-select: none;
-    }
+    .chip-label { font-size: 0.81rem; font-weight: 500; border: 1.5px solid var(--sea-glass); border-radius: 20px; padding: 0.4rem 0.9rem; cursor: pointer; transition: all 0.15s; color: var(--slate-mist); user-select: none; }
     .chip-option:checked + .chip-label { background: var(--deep-forest); border-color: var(--deep-forest); color: white; }
     .chip-label:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
 
-    /* ── RADIO CARDS ── */
-    .radio-card-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+    /* RADIO CARDS */
+    .radio-card-grid { display: flex; flex-direction: column; gap: 0.45rem; }
     .radio-card-opt { display: none; }
-    .radio-card-label {
-      display: flex; align-items: center; gap: 0.85rem;
-      padding: 0.85rem 1.1rem; border: 1.5px solid var(--sea-glass);
-      border-radius: 10px; cursor: pointer; transition: all 0.15s;
-      background: var(--parchment); font-size: 0.88rem; color: var(--deep-forest);
-    }
-    .radio-card-label::before {
-      content: ''; width: 18px; height: 18px; border-radius: 50%;
-      border: 2px solid var(--sea-glass); flex-shrink: 0; transition: all 0.15s;
-    }
+    .radio-card-label { display: flex; align-items: center; gap: 0.8rem; padding: 0.8rem 1rem; border: 1.5px solid var(--sea-glass); border-radius: 10px; cursor: pointer; transition: all 0.15s; background: var(--parchment); font-size: 0.87rem; color: var(--deep-forest); }
+    .radio-card-label::before { content: ''; width: 17px; height: 17px; border-radius: 50%; border: 2px solid var(--sea-glass); flex-shrink: 0; transition: all 0.15s; }
     .radio-card-opt:checked + .radio-card-label { border-color: var(--warm-gold); background: rgba(198,158,72,0.06); }
     .radio-card-opt:checked + .radio-card-label::before { border-color: var(--warm-gold); background: var(--warm-gold); box-shadow: inset 0 0 0 3px white; }
     .radio-card-label:hover { border-color: var(--warm-gold); }
 
-    /* ── MISC ── */
-    .field-hint { font-size: 0.72rem; color: var(--slate-mist); font-style: italic; margin-top: 0.2rem; }
-    .mini-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-gold); margin: 1.25rem 0 0.75rem; }
+    /* CONDITIONAL SECTIONS */
+    .conditional-section { display: none; margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--sand); animation: fadeUp 0.3s ease; }
+    .conditional-section.visible { display: block; }
+
+    /* MISC */
+    .field-hint { font-size: 0.71rem; color: var(--slate-mist); font-style: italic; margin-top: 0.2rem; }
+    .mini-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-gold); margin: 1.1rem 0 0.65rem; }
     .mini-label:first-child { margin-top: 0; }
+    .field input.invalid, .field textarea.invalid, .field select.invalid { border-color: #B8695E; box-shadow: 0 0 0 3px rgba(184,105,94,0.1); }
+    .coaching-opt.invalid-coaching + .coaching-label { border-color: #B8695E; }
+    .error-msg { font-size: 0.71rem; color: #B8695E; margin-top: 0.2rem; }
 
-    /* ── VALIDATION ── */
-    .field input.invalid, .field textarea.invalid, .field select.invalid { border-color: #B8695E; box-shadow: 0 0 0 3px rgba(184,105,94,0.12); }
-    .error-msg { font-size: 0.72rem; color: #B8695E; margin-top: 0.2rem; }
-
-    /* ── NAV ── */
-    .ob-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; gap: 1rem; }
-    .btn-back {
-      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
-      color: var(--slate-mist); background: none; border: none; cursor: pointer;
-      display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0; transition: color 0.2s;
-    }
+    /* NAV */
+    .ob-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 1.25rem; gap: 1rem; }
+    .btn-back { font-family: var(--font-body); font-size: 0.84rem; font-weight: 600; color: var(--slate-mist); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0; transition: color 0.2s; }
     .btn-back:hover { color: var(--deep-forest); }
-    .btn-next {
-      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
-      background: var(--deep-forest); color: white; border: none;
-      border-radius: 8px; padding: 0.85rem 2rem; cursor: pointer;
-      transition: all 0.2s; margin-left: auto; display: flex; align-items: center; gap: 0.5rem;
-    }
+    .btn-next { font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; background: var(--deep-forest); color: white; border: none; border-radius: 8px; padding: 0.8rem 1.9rem; cursor: pointer; transition: all 0.2s; margin-left: auto; display: flex; align-items: center; gap: 0.5rem; }
     .btn-next:hover { background: var(--warm-gold); transform: translateY(-1px); }
-    .btn-submit {
-      font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
-      background: var(--warm-gold); color: white; border: none;
-      border-radius: 8px; padding: 0.85rem 2.25rem; cursor: pointer;
-      transition: all 0.2s; margin-left: auto; display: flex; align-items: center; gap: 0.5rem;
-    }
+    .btn-submit { font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; background: var(--warm-gold); color: white; border: none; border-radius: 8px; padding: 0.8rem 2rem; cursor: pointer; transition: all 0.2s; margin-left: auto; display: flex; align-items: center; gap: 0.5rem; }
     .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-    /* ── SUCCESS ── */
-    #success-screen {
-      display: none; flex-direction: column; align-items: center; justify-content: center;
-      min-height: 70vh; text-align: center; animation: fadeUp 0.5s ease;
-    }
-    .success-icon {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 2rem; font-size: 1.8rem;
-    }
-    #success-screen h2 { font-family: var(--font-heading); font-size: clamp(2rem,5vw,3rem); font-weight: 300; color: var(--deep-forest); margin-bottom: 1rem; }
+    /* SUCCESS */
+    #success-screen { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; animation: fadeUp 0.5s ease; }
+    .success-icon { width: 68px; height: 68px; border-radius: 50%; background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; font-size: 1.7rem; }
+    #success-screen h2 { font-family: var(--font-heading); font-size: clamp(1.9rem,5vw,2.9rem); font-weight: 300; color: var(--deep-forest); margin-bottom: 1rem; }
     #success-screen h2 em { font-style: italic; color: var(--warm-gold); }
-    #success-screen p { font-size: 0.92rem; color: var(--slate-mist); line-height: 1.75; max-width: 440px; margin: 0 auto; }
+    #success-screen p { font-size: 0.9rem; color: var(--slate-mist); line-height: 1.75; max-width: 440px; margin: 0 auto; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 580px) {
       .field-row, .field-row.triple { grid-template-columns: 1fr; }
-      .ob-card { padding: 1.35rem; }
-      .scale-label { font-size: 0.76rem; }
-      .scale-pill { width: 30px; height: 30px; font-size: 0.72rem; }
+      .coaching-grid { grid-template-columns: 1fr 1fr; }
+      .ob-card { padding: 1.25rem; }
+      .scale-pill { width: 28px; height: 28px; font-size: 0.71rem; }
     }
   </style>
 </head>
@@ -275,13 +173,12 @@
 
 <main class="ob-main">
 
-<!-- ══════════════════════════════════════════
-     STEP 1 — Who You Are
-══════════════════════════════════════════ -->
+<!-- ══ STEP 1 - Who You Are ══ -->
 <div class="step active" id="step-1">
-  <p class="step-eyebrow">Step 1 of 4 &nbsp;·&nbsp; The Basics</p>
+  <p class="step-eyebrow">Step 1 of 4 · The Basics</p>
   <h1 class="step-title">Good to have you <em>here.</em></h1>
-  <p class="step-subtitle">You've taken the first step — and that matters more than you might think. Let's start simple. A few details so I know who I'm speaking with before we meet.</p>
+  <div class="time-badge">&#9679; Takes about 2 minutes</div>
+  <p class="step-subtitle">A few details so I know who I'm speaking with before we meet.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
@@ -292,30 +189,57 @@
     </div>
     <div class="field-row">
       <div class="field"><label for="email">Email *</label><input type="email" id="email" placeholder="your@email.com" autocomplete="email" required /></div>
-      <div class="field"><label for="phone">Phone (optional)</label><input type="tel" id="phone" placeholder="+44 7..." /></div>
+      <div class="field"><label for="phone">Phone *</label><input type="tel" id="phone" placeholder="+44 7..." autocomplete="tel" required /></div>
     </div>
-    <div class="field-row triple">
+    <div class="field-row">
       <div class="field">
         <label for="age">Age Range *</label>
         <select id="age" required>
-          <option value="" disabled selected>Select…</option>
-          <option>18–24</option><option>25–34</option><option>35–44</option>
-          <option>45–54</option><option>55–64</option><option>65+</option>
+          <option value="" disabled selected>Select...</option>
+          <option>18-24</option><option>25-34</option><option>35-44</option>
+          <option>45-54</option><option>55-64</option><option>65+</option>
         </select>
       </div>
-      <div class="field"><label for="location">Country / City</label><input type="text" id="location" placeholder="e.g. London, UK" /></div>
-      <div class="field"><label for="timezone">Timezone</label><input type="text" id="timezone" placeholder="e.g. GMT, CET" /></div>
+      <div class="field"><label for="location">Country / City *</label><input type="text" id="location" placeholder="e.g. London, UK" required /></div>
     </div>
+  </div>
+
+  <div class="ob-card">
+    <p class="ob-card-title">What Are You Looking For?</p>
+    <p class="field-hint" style="margin-bottom:0.9rem;">Select all that apply - you can pick more than one.</p>
+    <div class="coaching-grid" id="coaching-type-grid">
+      <input type="checkbox" class="coaching-opt" id="ct-life" name="coaching_type" value="Life Coaching" />
+      <label class="coaching-label" for="ct-life">
+        <span class="cl-icon">&#127774;</span>
+        <span class="cl-name">Life Coaching</span>
+        <span class="cl-desc">Habits, mindset, clarity, fulfilment</span>
+      </label>
+
+      <input type="checkbox" class="coaching-opt" id="ct-longevity" name="coaching_type" value="Longevity" />
+      <label class="coaching-label" for="ct-longevity">
+        <span class="cl-icon">&#129344;</span>
+        <span class="cl-name">Longevity</span>
+        <span class="cl-desc">Energy, health, sustainable performance</span>
+      </label>
+
+      <input type="checkbox" class="coaching-opt" id="ct-business" name="coaching_type" value="Business / Project" />
+      <label class="coaching-label" for="ct-business">
+        <span class="cl-icon">&#128200;</span>
+        <span class="cl-name">Business / Project</span>
+        <span class="cl-desc">Strategy, growth, ideas, startups</span>
+      </label>
+    </div>
+    <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;">Please select at least one coaching type.</div>
   </div>
 
   <div class="ob-card">
     <p class="ob-card-title">Your World Right Now</p>
     <div class="field-row">
-      <div class="field"><label for="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business, or 'in transition'" required /></div>
+      <div class="field"><label for="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business or 'in transition'" required /></div>
       <div class="field">
         <label for="life-stage">Life Stage</label>
         <select id="life-stage">
-          <option value="" disabled selected>Best description…</option>
+          <option value="" disabled selected>Best description...</option>
           <option>Building something new</option>
           <option>Scaling / growing</option>
           <option>Stuck and wanting change</option>
@@ -329,7 +253,7 @@
       <div class="field">
         <label for="heard">How did you find me?</label>
         <select id="heard">
-          <option value="" disabled selected>Choose one…</option>
+          <option value="" disabled selected>Choose one...</option>
           <option>Google / Search</option><option>Instagram</option><option>LinkedIn</option>
           <option>Word of mouth / referral</option><option>CoachCompare or directory</option>
           <option>My website / articles</option><option>Other</option>
@@ -340,23 +264,21 @@
 
   <div class="ob-nav">
     <span></span>
-    <button class="btn-next" onclick="goNext(1)">Next &nbsp;→</button>
+    <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════════
-     STEP 2 — Life Snapshot
-══════════════════════════════════════════ -->
+<!-- ══ STEP 2 - Life Snapshot ══ -->
 <div class="step" id="step-2">
-  <p class="step-eyebrow">Step 2 of 4 &nbsp;·&nbsp; Your Life Snapshot</p>
+  <p class="step-eyebrow">Step 2 of 4 · Your Life Snapshot</p>
   <h1 class="step-title">Honest <em>self-assessment</em> is where it starts.</h1>
-  <p class="step-subtitle">No right or wrong answers here — just honesty. Rate each area of your life as it actually is right now. This is one of the most useful things you can give me before we speak.</p>
+  <p class="step-subtitle">No right or wrong here. Rate each area as it actually is right now. This is one of the most useful things you can share with me before we speak.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
     <p class="ob-card-title">Life Satisfaction Scores</p>
-    <div class="scale-legend"><span>1 · Struggling</span><span>5 · Thriving</span></div>
+    <div class="scale-legend"><span>1 - Struggling</span><span>5 - Thriving</span></div>
 
     <div class="scale-row">
       <span class="scale-label">Energy &amp; Physical Health</span>
@@ -445,60 +367,40 @@
     <div class="field-row single">
       <div class="field">
         <label for="want-most">Right now, what do you most want? *</label>
-        <textarea id="want-most" rows="3" placeholder="Be as specific or as vague as feels right — there's no wrong answer." required></textarea>
+        <textarea id="want-most" rows="3" placeholder="Be as specific or as vague as feels right." required></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="eliminate">What would you most like to remove from your life?</label>
-        <textarea id="eliminate" rows="2" placeholder="A habit, a situation, a feeling — anything counts."></textarea>
+        <textarea id="eliminate" rows="2" placeholder="A habit, situation, feeling - anything counts."></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="tolerating">What are you currently just putting up with?</label>
-        <textarea id="tolerating" rows="2" placeholder="Things you tolerate — at work or in life — that quietly drain you…"></textarea>
+        <textarea id="tolerating" rows="2" placeholder="Things you tolerate at work or in life that quietly drain you..."></textarea>
       </div>
     </div>
   </div>
 
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(2)">← Back</button>
-    <button class="btn-next" onclick="goNext(2)">Next &nbsp;→</button>
+    <button class="btn-back" onclick="goBack(2)">&larr; Back</button>
+    <button class="btn-next" onclick="goNext(2)">Next &rarr;</button>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════════
-     STEP 3 — Goals & Coaching Fit
-══════════════════════════════════════════ -->
+<!-- ══ STEP 3 - Goals & Coaching Fit (adaptive) ══ -->
 <div class="step" id="step-3">
-  <p class="step-eyebrow">Step 3 of 4 &nbsp;·&nbsp; Your Goals &amp; Style</p>
+  <p class="step-eyebrow">Step 3 of 4 · Your Goals &amp; Style</p>
   <h1 class="step-title">What does <em>winning</em> look like for you?</h1>
-  <p class="step-subtitle">This is where the real work begins. Tell me where you want to go — and how you tend to work best. I'll use this to shape our first session entirely around you.</p>
+  <p class="step-subtitle">Tell me where you want to go and how you tend to work best. I'll shape our first session entirely around your answers.</p>
   <div class="step-divider"></div>
 
+  <!-- Always shown -->
   <div class="ob-card">
-    <p class="ob-card-title">Your Primary Focus Areas</p>
-    <p class="field-hint" style="margin-bottom:0.85rem;">Select everything that resonates — no limit.</p>
-    <div class="chip-grid">
-      <input type="checkbox" class="chip-option" id="c-habits" name="focus" value="Building better habits" /><label class="chip-label" for="c-habits">Building better habits</label>
-      <input type="checkbox" class="chip-option" id="c-clarity" name="focus" value="Finding clarity and direction" /><label class="chip-label" for="c-clarity">Clarity &amp; direction</label>
-      <input type="checkbox" class="chip-option" id="c-longevity" name="focus" value="Longevity and health" /><label class="chip-label" for="c-longevity">Longevity &amp; health</label>
-      <input type="checkbox" class="chip-option" id="c-business" name="focus" value="Business or startup growth" /><label class="chip-label" for="c-business">Business or startup</label>
-      <input type="checkbox" class="chip-option" id="c-burnout" name="focus" value="Burnout and recovery" /><label class="chip-label" for="c-burnout">Burnout &amp; recovery</label>
-      <input type="checkbox" class="chip-option" id="c-adhd" name="focus" value="ADHD and focus" /><label class="chip-label" for="c-adhd">ADHD &amp; focus</label>
-      <input type="checkbox" class="chip-option" id="c-confidence" name="focus" value="Confidence and self-belief" /><label class="chip-label" for="c-confidence">Confidence &amp; self-belief</label>
-      <input type="checkbox" class="chip-option" id="c-transitions" name="focus" value="Life transitions" /><label class="chip-label" for="c-transitions">Life transitions</label>
-      <input type="checkbox" class="chip-option" id="c-relationships" name="focus" value="Relationships and communication" /><label class="chip-label" for="c-relationships">Relationships</label>
-      <input type="checkbox" class="chip-option" id="c-finance" name="focus" value="Financial clarity" /><label class="chip-label" for="c-finance">Financial clarity</label>
-      <input type="checkbox" class="chip-option" id="c-purpose" name="focus" value="Finding purpose" /><label class="chip-label" for="c-purpose">Finding purpose</label>
-      <input type="checkbox" class="chip-option" id="c-accountability" name="focus" value="Accountability" /><label class="chip-label" for="c-accountability">Accountability</label>
-    </div>
-  </div>
-
-  <div class="ob-card">
-    <p class="ob-card-title">Where are you headed?</p>
+    <p class="ob-card-title">Your 90-Day Goal</p>
     <div class="field-row single">
       <div class="field">
         <label for="goal-90">What would a real win look like in the next 90 days? *</label>
@@ -507,72 +409,146 @@
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="tried-before">What have you already tried that hasn't fully worked?</label>
-        <textarea id="tried-before" rows="2" placeholder="Books, therapy, courses, self-improvement attempts…"></textarea>
+        <label for="big-obstacle">What do you think is the main thing standing in your way?</label>
+        <textarea id="big-obstacle" rows="2" placeholder="Be honest - even 'I don't know yet' is a valid answer."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIFE COACHING section (shown if life coaching selected) -->
+  <div class="ob-card conditional-section" id="cond-life">
+    <p class="ob-card-title">Life Coaching - Going Deeper</p>
+    <div class="field-row single">
+      <div class="field">
+        <label for="life-pattern">Is there a pattern in your life you keep repeating that you want to break?</label>
+        <textarea id="life-pattern" rows="2" placeholder="e.g. Starting strong but losing momentum. Self-sabotage. Saying yes when you mean no."></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="big-obstacle">What do you think is the main thing standing in your way?</label>
-        <textarea id="big-obstacle" rows="2" placeholder="Be honest — even 'I don't know yet' is a valid answer."></textarea>
+        <label for="life-tried">What have you already tried that hasn't fully worked?</label>
+        <textarea id="life-tried" rows="2" placeholder="Books, therapy, courses, journaling - what have you put energy into?"></textarea>
+      </div>
+    </div>
+    <p class="mini-label">What areas of your life feel most off-track?</p>
+    <div class="chip-grid">
+      <input type="checkbox" class="chip-option" id="lc-habits" name="life_focus" value="Daily habits" /><label class="chip-label" for="lc-habits">Daily habits</label>
+      <input type="checkbox" class="chip-option" id="lc-confidence" name="life_focus" value="Confidence" /><label class="chip-label" for="lc-confidence">Confidence</label>
+      <input type="checkbox" class="chip-option" id="lc-purpose" name="life_focus" value="Sense of purpose" /><label class="chip-label" for="lc-purpose">Sense of purpose</label>
+      <input type="checkbox" class="chip-option" id="lc-anxiety" name="life_focus" value="Anxiety or overwhelm" /><label class="chip-label" for="lc-anxiety">Anxiety / overwhelm</label>
+      <input type="checkbox" class="chip-option" id="lc-adhd" name="life_focus" value="ADHD or focus" /><label class="chip-label" for="lc-adhd">ADHD / focus</label>
+      <input type="checkbox" class="chip-option" id="lc-relationships" name="life_focus" value="Relationships" /><label class="chip-label" for="lc-relationships">Relationships</label>
+      <input type="checkbox" class="chip-option" id="lc-balance" name="life_focus" value="Work-life balance" /><label class="chip-label" for="lc-balance">Work-life balance</label>
+      <input type="checkbox" class="chip-option" id="lc-identity" name="life_focus" value="Identity and self-worth" /><label class="chip-label" for="lc-identity">Identity / self-worth</label>
+    </div>
+  </div>
+
+  <!-- LONGEVITY section (shown if longevity selected) -->
+  <div class="ob-card conditional-section" id="cond-longevity">
+    <p class="ob-card-title">Longevity - Going Deeper</p>
+    <div class="field-row single">
+      <div class="field">
+        <label for="lon-current">Describe your current health and energy levels honestly.</label>
+        <textarea id="lon-current" rows="2" placeholder="Sleep, diet, movement, stress - give me the real picture."></textarea>
+      </div>
+    </div>
+    <p class="mini-label">Where do you want to focus?</p>
+    <div class="chip-grid">
+      <input type="checkbox" class="chip-option" id="lo-sleep" name="lon_focus" value="Sleep quality" /><label class="chip-label" for="lo-sleep">Sleep quality</label>
+      <input type="checkbox" class="chip-option" id="lo-energy" name="lon_focus" value="Sustained energy" /><label class="chip-label" for="lo-energy">Sustained energy</label>
+      <input type="checkbox" class="chip-option" id="lo-movement" name="lon_focus" value="Movement and fitness" /><label class="chip-label" for="lo-movement">Movement / fitness</label>
+      <input type="checkbox" class="chip-option" id="lo-nutrition" name="lon_focus" value="Nutrition and diet" /><label class="chip-label" for="lo-nutrition">Nutrition / diet</label>
+      <input type="checkbox" class="chip-option" id="lo-stress" name="lon_focus" value="Stress management" /><label class="chip-label" for="lo-stress">Stress management</label>
+      <input type="checkbox" class="chip-option" id="lo-longevity" name="lon_focus" value="Long-term health span" /><label class="chip-label" for="lo-longevity">Long-term health span</label>
+      <input type="checkbox" class="chip-option" id="lo-performance" name="lon_focus" value="Cognitive performance" /><label class="chip-label" for="lo-performance">Cognitive performance</label>
+    </div>
+    <div class="field-row single" style="margin-top:0.9rem;">
+      <div class="field">
+        <label for="lon-blocks">What's been your biggest blocker to better health habits?</label>
+        <textarea id="lon-blocks" rows="2" placeholder="Time, motivation, consistency, knowing where to start..."></textarea>
       </div>
     </div>
   </div>
 
+  <!-- BUSINESS section (shown if business selected) -->
+  <div class="ob-card conditional-section" id="cond-business">
+    <p class="ob-card-title">Business / Project - Going Deeper</p>
+    <div class="field-row">
+      <div class="field">
+        <label for="biz-stage">Where is your project or business right now?</label>
+        <select id="biz-stage">
+          <option value="" disabled selected>Select stage...</option>
+          <option>Just an idea</option>
+          <option>Early - pre-revenue</option>
+          <option>Live but early stage</option>
+          <option>Growing, need to scale</option>
+          <option>Established, stuck on a problem</option>
+          <option>Looking to pivot or exit</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="biz-sector">What sector or industry?</label>
+        <input type="text" id="biz-sector" placeholder="e.g. Tech, hospitality, e-commerce..." />
+      </div>
+    </div>
+    <div class="field-row single">
+      <div class="field">
+        <label for="biz-challenge">What is the single biggest challenge you're facing right now in the business?</label>
+        <textarea id="biz-challenge" rows="2" placeholder="Be specific - sales, team, product, funding, clarity on direction..."></textarea>
+      </div>
+    </div>
+    <p class="mini-label">What kind of help do you need most?</p>
+    <div class="chip-grid">
+      <input type="checkbox" class="chip-option" id="biz-strategy" name="biz_focus" value="Strategy and direction" /><label class="chip-label" for="biz-strategy">Strategy / direction</label>
+      <input type="checkbox" class="chip-option" id="biz-brand" name="biz_focus" value="Brand and positioning" /><label class="chip-label" for="biz-brand">Brand / positioning</label>
+      <input type="checkbox" class="chip-option" id="biz-sales" name="biz_focus" value="Sales and revenue" /><label class="chip-label" for="biz-sales">Sales / revenue</label>
+      <input type="checkbox" class="chip-option" id="biz-team" name="biz_focus" value="Team and leadership" /><label class="chip-label" for="biz-team">Team / leadership</label>
+      <input type="checkbox" class="chip-option" id="biz-systems" name="biz_focus" value="Systems and productivity" /><label class="chip-label" for="biz-systems">Systems / productivity</label>
+      <input type="checkbox" class="chip-option" id="biz-idea" name="biz_focus" value="Validating or developing an idea" /><label class="chip-label" for="biz-idea">Validating an idea</label>
+    </div>
+  </div>
+
+  <!-- Support style - always shown -->
   <div class="ob-card">
     <p class="ob-card-title">How You Work Best</p>
-
-    <p class="mini-label">When challenges come up, what support actually clicks?</p>
+    <p class="mini-label">When challenges come up, what support actually works for you?</p>
     <div class="chip-grid">
       <input type="checkbox" class="chip-option" id="sup-listen" name="support" value="Someone to listen without judgment" /><label class="chip-label" for="sup-listen">Someone to listen without judgment</label>
-      <input type="checkbox" class="chip-option" id="sup-strategy" name="support" value="A clear strategy or action plan" /><label class="chip-label" for="sup-strategy">Clear strategy / action plan</label>
-      <input type="checkbox" class="chip-option" id="sup-challenge" name="support" value="Being challenged and pushed" /><label class="chip-label" for="sup-challenge">Being challenged &amp; pushed</label>
+      <input type="checkbox" class="chip-option" id="sup-strategy" name="support" value="A clear action plan" /><label class="chip-label" for="sup-strategy">A clear action plan</label>
+      <input type="checkbox" class="chip-option" id="sup-challenge" name="support" value="Being challenged and pushed" /><label class="chip-label" for="sup-challenge">Being challenged</label>
       <input type="checkbox" class="chip-option" id="sup-questions" name="support" value="Being asked the right questions" /><label class="chip-label" for="sup-questions">The right questions</label>
       <input type="checkbox" class="chip-option" id="sup-accountability" name="support" value="Accountability check-ins" /><label class="chip-label" for="sup-accountability">Accountability check-ins</label>
-      <input type="checkbox" class="chip-option" id="sup-science" name="support" value="Science-backed frameworks and tools" /><label class="chip-label" for="sup-science">Science-backed frameworks</label>
+      <input type="checkbox" class="chip-option" id="sup-science" name="support" value="Science-backed frameworks" /><label class="chip-label" for="sup-science">Science-backed frameworks</label>
     </div>
-
-    <p class="mini-label" style="margin-top:1.25rem;">How do you tend to keep commitments when you set goals?</p>
+    <p class="mini-label" style="margin-top:1.1rem;">How do you tend to keep commitments when you set goals?</p>
     <div class="radio-card-grid">
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-always" value="Always — once I'm in, I'm fully in" />
-      <label class="radio-card-label" for="com-always">Always — once I'm in, I'm fully in</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-usually" value="Usually, but I need external accountability" />
-      <label class="radio-card-label" for="com-usually">Usually — but I need external accountability</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-sometimes" value="Sometimes — life gets in the way" />
-      <label class="radio-card-label" for="com-sometimes">Sometimes — life tends to get in the way</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-rarely" value="Rarely — that's partly why I'm here" />
-      <label class="radio-card-label" for="com-rarely">Rarely — honestly, that's partly why I'm here</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-always" value="Always - once I'm in, I'm fully in" /><label class="radio-card-label" for="com-always">Always - once I'm in, I'm fully in</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-usually" value="Usually, but I need external accountability" /><label class="radio-card-label" for="com-usually">Usually - but I need external accountability</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-sometimes" value="Sometimes - life gets in the way" /><label class="radio-card-label" for="com-sometimes">Sometimes - life tends to get in the way</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-rarely" value="Rarely - that's partly why I'm here" /><label class="radio-card-label" for="com-rarely">Rarely - honestly, that's partly why I'm here</label>
     </div>
   </div>
 
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(3)">← Back</button>
-    <button class="btn-next" onclick="goNext(3)">Next &nbsp;→</button>
+    <button class="btn-back" onclick="goBack(3)">&larr; Back</button>
+    <button class="btn-next" onclick="goNext(3)">Next &rarr;</button>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════════════════
-     STEP 4 — Final Thoughts
-══════════════════════════════════════════ -->
+<!-- ══ STEP 4 - Final Thoughts ══ -->
 <div class="step" id="step-4">
-  <p class="step-eyebrow">Step 4 of 4 &nbsp;·&nbsp; Almost There</p>
-  <h1 class="step-title">Last few things — <em>then we're set.</em></h1>
-  <p class="step-subtitle">These final questions are what allow me to walk into our session fully prepared — so we can skip the small talk and go straight to what actually matters for you.</p>
+  <p class="step-eyebrow">Step 4 of 4 · Almost There</p>
+  <h1 class="step-title">Last few things - <em>then we're set.</em></h1>
+  <p class="step-subtitle">These final questions are what let me walk into our session fully prepared. No generic questions, no wasted time.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
     <p class="ob-card-title">A Little Deeper</p>
     <div class="field-row single">
       <div class="field">
-        <label for="proud-of">What's something you're genuinely proud of that most people don't know about you?</label>
-        <textarea id="proud-of" rows="2" placeholder="Could be professional, personal, or something small — it all matters."></textarea>
-      </div>
-    </div>
-    <div class="field-row single">
-      <div class="field">
-        <label for="stuck-pattern">Is there a pattern in your life you keep repeating that you'd love to break?</label>
-        <textarea id="stuck-pattern" rows="2" placeholder="e.g. Starting things but not finishing. Overthinking. Self-sabotage when things get good."></textarea>
+        <label for="proud-of">Something you're genuinely proud of that most people don't know about you</label>
+        <textarea id="proud-of" rows="2" placeholder="Professional, personal, or something small - it all matters."></textarea>
       </div>
     </div>
     <div class="field-row single">
@@ -587,18 +563,14 @@
     <p class="ob-card-title">Your Commitment</p>
     <p class="mini-label">How ready are you right now?</p>
     <div class="radio-card-grid">
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-all-in" value="All in — I've been waiting for this" />
-      <label class="radio-card-label" for="r-all-in">All in — I've been waiting for this</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-ready" value="Ready — just need the right structure" />
-      <label class="radio-card-label" for="r-ready">Ready — I just need the right structure around me</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-curious" value="Curious — still figuring out if this is right for me" />
-      <label class="radio-card-label" for="r-curious">Curious — still figuring out if this is right for me</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-unsure" value="Unsure — need to see how the first session goes" />
-      <label class="radio-card-label" for="r-unsure">Unsure — need to see how the first session feels</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-all-in" value="All in - I've been waiting for this" /><label class="radio-card-label" for="r-all-in">All in - I've been waiting for this</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-ready" value="Ready - just need the right structure" /><label class="radio-card-label" for="r-ready">Ready - I just need the right structure around me</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-curious" value="Curious - still figuring out if this is right for me" /><label class="radio-card-label" for="r-curious">Curious - still figuring out if this is right for me</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-unsure" value="Unsure - need to see how the first session goes" /><label class="radio-card-label" for="r-unsure">Unsure - need to see how the first session feels</label>
     </div>
-    <div class="field-row single" style="margin-top:1.25rem;">
+    <div class="field-row single" style="margin-top:1.1rem;">
       <div class="field">
-        <label for="commitment-desc">In your own words — how committed are you to making this work? *</label>
+        <label for="commitment-desc">In your own words - how committed are you to making this work? *</label>
         <textarea id="commitment-desc" rows="3" placeholder="What makes now different from other times you've tried to change something?" required></textarea>
       </div>
     </div>
@@ -608,54 +580,84 @@
     <p class="ob-card-title">Anything Else?</p>
     <div class="field-row single">
       <div class="field">
-        <label for="session-goal">What's the single most important thing you want from our first session?</label>
+        <label for="session-goal">The single most important thing you want from our first session</label>
         <textarea id="session-goal" rows="2" placeholder="Even 'clarity on what to do next' is a perfectly valid goal."></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="additional">Anything else you want me to know before we meet?</label>
-        <textarea id="additional" rows="2" placeholder="Questions, concerns, context — no filter needed. This is your space."></textarea>
+        <label for="additional">Anything you want me to know before we meet?</label>
+        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space."></textarea>
       </div>
     </div>
   </div>
 
-  <p style="font-size:0.72rem;color:var(--slate-mist);text-align:center;margin-bottom:1.25rem;line-height:1.65;">
-    🔒 Everything you share here is strictly private — used only to prepare for our session together. It will never be shared with anyone.
+  <p style="font-size:0.71rem;color:var(--slate-mist);text-align:center;margin-bottom:1.1rem;line-height:1.65;">
+    &#128274; Everything you share here is strictly private and used only to prepare for our session together.
   </p>
 
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(4)">← Back</button>
-    <button class="btn-submit" id="submit-btn" onclick="submitForm()">Send to Kristian &nbsp;✦</button>
+    <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
+    <button class="btn-submit" id="submit-btn" onclick="submitForm()">Submit</button>
   </div>
 </div>
 
 <!-- SUCCESS -->
 <div id="success-screen">
-  <div class="success-icon">✦</div>
+  <div class="success-icon">&#10022;</div>
   <h2>You're all set, <em id="success-name">friend</em>.</h2>
-  <p style="margin-bottom:1.25rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count — no generic questions, no wasted time.</p>
+  <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
   <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
-  <p style="margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--warm-gold);">— Kristian</p>
+  <p style="margin-top:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--warm-gold);">- Kristian</p>
 </div>
 
 </main>
 
 <script>
-  let currentStep = 1;
-  const TOTAL = 4;
-  const scaleValues = {};
+  var currentStep = 1;
+  var TOTAL = 4;
+  var scaleValues = {};
 
+  // ── COACHING TYPE ADAPTIVE SECTIONS ──
+  function updateConditionalSections() {
+    var lifeChecked    = document.getElementById('ct-life').checked;
+    var lonChecked     = document.getElementById('ct-longevity').checked;
+    var bizChecked     = document.getElementById('ct-business').checked;
+    document.getElementById('cond-life').classList.toggle('visible', lifeChecked);
+    document.getElementById('cond-longevity').classList.toggle('visible', lonChecked);
+    document.getElementById('cond-business').classList.toggle('visible', bizChecked);
+  }
+  document.querySelectorAll('.coaching-opt').forEach(function(el) {
+    el.addEventListener('change', updateConditionalSections);
+  });
+
+  // ── SCALE ──
   function selectScale(el, group, val, tier) {
-    const pills = el.parentElement.querySelectorAll('.scale-pill');
-    pills.forEach(p => { p.classList.remove('sel-low','sel-mid','sel-high'); });
+    el.parentElement.querySelectorAll('.scale-pill').forEach(function(p) {
+      p.classList.remove('sel-low','sel-mid','sel-high');
+    });
     el.classList.add('sel-' + tier);
     scaleValues[group] = val;
   }
 
+  // ── VALIDATION ──
   function validateStep(step) {
-    let ok = true;
-    let firstInvalid = null;
+    var ok = true;
+    var firstInvalid = null;
+
+    // Coaching type required on step 1
+    if (step === 1) {
+      var anyCoaching = document.querySelectorAll('.coaching-opt:checked').length > 0;
+      var err = document.getElementById('coaching-error');
+      if (!anyCoaching) {
+        err.style.display = 'block';
+        ok = false;
+        if (!firstInvalid) firstInvalid = err;
+      } else {
+        err.style.display = 'none';
+      }
+    }
+
     document.querySelectorAll('#step-' + step + ' [required]').forEach(function(el) {
       el.classList.remove('invalid');
       var old = el.parentElement.querySelector('.error-msg');
@@ -664,18 +666,20 @@
         el.classList.add('invalid');
         var e = document.createElement('span');
         e.className = 'error-msg';
-        e.textContent = 'This one matters — please fill it in.';
+        e.textContent = 'Please fill this in.';
         el.parentElement.appendChild(e);
         if (!firstInvalid) firstInvalid = el;
         ok = false;
       }
     });
-    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (firstInvalid && firstInvalid.scrollIntoView) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return ok;
   }
 
   function goNext(from) {
     if (!validateStep(from)) return;
+    if (from === 1) updateConditionalSections();
     showStep(from + 1);
   }
   function goBack(from) { showStep(from - 1); }
@@ -689,8 +693,7 @@
   }
 
   function updateProgress(n) {
-    var pct = (n / TOTAL) * 100;
-    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressFill').style.width = ((n / TOTAL) * 100) + '%';
     document.getElementById('dot-label').textContent = 'Step ' + n + ' of ' + TOTAL;
     for (var i = 1; i <= TOTAL; i++) {
       var d = document.getElementById('dot-' + i);
@@ -701,62 +704,45 @@
   }
 
   function v(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-  function chips(name) { return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function(c){ return c.value; }).join(', '); }
+  function chips(name) { return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function(c){ return c.value; }).join(', ') || 'None selected'; }
   function radioVal(name) { var el = document.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : 'Not selected'; }
-
-  function collectAll() {
-    return {
-      firstName: v('first-name'), lastName: v('last-name'),
-      email: v('email'), phone: v('phone'),
-      age: v('age'), location: v('location'), timezone: v('timezone'),
-      occupation: v('occupation'), lifeStage: v('life-stage'), heardFrom: v('heard'),
-      scoreEnergy: scaleValues['s-energy'] || '-',
-      scoreWork: scaleValues['s-work'] || '-',
-      scoreFinance: scaleValues['s-finance'] || '-',
-      scoreRelationships: scaleValues['s-relationships'] || '-',
-      scorePurpose: scaleValues['s-purpose'] || '-',
-      scoreHabits: scaleValues['s-habits'] || '-',
-      scoreClarity: scaleValues['s-clarity'] || '-',
-      scoreHappiness: scaleValues['s-happiness'] || '-',
-      wantMost: v('want-most'), eliminate: v('eliminate'), tolerating: v('tolerating'),
-      focusAreas: chips('focus'),
-      goal90: v('goal-90'), triedBefore: v('tried-before'), bigObstacle: v('big-obstacle'),
-      supportStyle: chips('support'), commitment: radioVal('commitment'),
-      proudOf: v('proud-of'), stuckPattern: v('stuck-pattern'), accomplishUnsure: v('accomplish-unsure'),
-      readiness: radioVal('readiness'), commitmentDesc: v('commitment-desc'),
-      sessionGoal: v('session-goal'), additional: v('additional')
-    };
-  }
+  function coachingTypes() { return Array.from(document.querySelectorAll('.coaching-opt:checked')).map(function(c){ return c.value; }).join(', ') || 'None selected'; }
 
   function buildEmailBody(d) {
-    return [
-      'NEW CLIENT INTAKE — ' + d.firstName + ' ' + d.lastName,
+    var lifeChecked = document.getElementById('ct-life').checked;
+    var lonChecked  = document.getElementById('ct-longevity').checked;
+    var bizChecked  = document.getElementById('ct-business').checked;
+
+    var lines = [
+      'NEW CLIENT INTAKE - ' + d.firstName + ' ' + d.lastName,
       'Submitted: ' + new Date().toLocaleString(),
       '',
-      '━━━ CONTACT ━━━',
+      '=== CONTACT ===',
       'Name: ' + d.firstName + ' ' + d.lastName,
       'Email: ' + d.email,
-      'Phone: ' + (d.phone || 'Not provided'),
+      'Phone: ' + d.phone,
       'Age Range: ' + d.age,
       'Location: ' + d.location,
-      'Timezone: ' + d.timezone,
       'Heard from: ' + d.heardFrom,
       '',
-      '━━━ WHO THEY ARE ━━━',
+      '=== COACHING TYPE REQUESTED ===',
+      d.coachingTypes,
+      '',
+      '=== WHO THEY ARE ===',
       'Occupation: ' + d.occupation,
       'Life Stage: ' + d.lifeStage,
       '',
-      '━━━ LIFE SCORES (1=struggling · 5=thriving) ━━━',
+      '=== LIFE SCORES (1=struggling, 5=thriving) ===',
       'Energy & Health:        ' + d.scoreEnergy,
       'Work / Business:        ' + d.scoreWork,
       'Finances:               ' + d.scoreFinance,
       'Relationships:          ' + d.scoreRelationships,
       'Purpose & Direction:    ' + d.scorePurpose,
       'Habits & Consistency:   ' + d.scoreHabits,
-      'Mental Clarity & Focus: ' + d.scoreClarity,
+      'Mental Clarity:         ' + d.scoreClarity,
       'Overall Happiness:      ' + d.scoreHappiness,
       '',
-      '━━━ WHAT THEY WANT ━━━',
+      '=== WHAT THEY WANT ===',
       'Most want right now:',
       d.wantMost,
       '',
@@ -766,59 +752,119 @@
       'Currently tolerating:',
       d.tolerating,
       '',
-      '━━━ GOALS & FOCUS ━━━',
-      'Focus Areas: ' + d.focusAreas,
-      '',
+      '=== GOALS ===',
       '90-Day Win:',
       d.goal90,
       '',
-      "What's been tried before:",
-      d.triedBefore,
-      '',
       'Main obstacle:',
       d.bigObstacle,
+    ];
+
+    if (lifeChecked) {
+      lines = lines.concat([
+        '',
+        '=== LIFE COACHING - DEEPER ===',
+        'Life focus areas: ' + chips('life_focus'),
+        '',
+        'Pattern they want to break:',
+        v('life-pattern'),
+        '',
+        "What they've tried before:",
+        v('life-tried'),
+      ]);
+    }
+
+    if (lonChecked) {
+      lines = lines.concat([
+        '',
+        '=== LONGEVITY - DEEPER ===',
+        'Longevity focus areas: ' + chips('lon_focus'),
+        '',
+        'Current health & energy:',
+        v('lon-current'),
+        '',
+        'Biggest health habit blocker:',
+        v('lon-blocks'),
+      ]);
+    }
+
+    if (bizChecked) {
+      lines = lines.concat([
+        '',
+        '=== BUSINESS / PROJECT - DEEPER ===',
+        'Business stage: ' + v('biz-stage'),
+        'Sector / industry: ' + v('biz-sector'),
+        'Business focus areas: ' + chips('biz_focus'),
+        '',
+        'Biggest business challenge:',
+        v('biz-challenge'),
+      ]);
+    }
+
+    lines = lines.concat([
       '',
-      '━━━ COACHING FIT ━━━',
-      'Support Style: ' + d.supportStyle,
-      'Commitment Tendency: ' + d.commitment,
+      '=== COACHING FIT ===',
+      'Support style: ' + chips('support'),
+      'Commitment tendency: ' + d.commitment,
       '',
-      '━━━ DEEPER INSIGHTS ━━━',
+      '=== DEEPER INSIGHTS ===',
       'Proud of (hidden from others):',
       d.proudOf,
-      '',
-      'Pattern they want to break:',
-      d.stuckPattern,
       '',
       'Want to accomplish but unsure how:',
       d.accomplishUnsure,
       '',
-      '━━━ READINESS ━━━',
+      '=== READINESS ===',
       'Readiness: ' + d.readiness,
       '',
-      'In their own words (commitment):',
+      'In their own words:',
       d.commitmentDesc,
       '',
-      '━━━ FINAL ━━━',
+      '=== FINAL ===',
       'Session goal:',
       d.sessionGoal,
       '',
       'Anything else:',
-      d.additional
-    ].join('\n');
+      d.additional,
+    ]);
+
+    return lines.join('\n');
   }
 
   async function submitForm() {
     if (!validateStep(4)) return;
     var btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending…';
+    btn.textContent = 'Sending...';
     btn.disabled = true;
-    var d = collectAll();
+
+    var d = {
+      firstName: v('first-name'), lastName: v('last-name'),
+      email: v('email'), phone: v('phone'),
+      age: v('age'), location: v('location'),
+      heardFrom: v('heard'), coachingTypes: coachingTypes(),
+      occupation: v('occupation'), lifeStage: v('life-stage'),
+      scoreEnergy: scaleValues['s-energy'] || '-',
+      scoreWork: scaleValues['s-work'] || '-',
+      scoreFinance: scaleValues['s-finance'] || '-',
+      scoreRelationships: scaleValues['s-relationships'] || '-',
+      scorePurpose: scaleValues['s-purpose'] || '-',
+      scoreHabits: scaleValues['s-habits'] || '-',
+      scoreClarity: scaleValues['s-clarity'] || '-',
+      scoreHappiness: scaleValues['s-happiness'] || '-',
+      wantMost: v('want-most'), eliminate: v('eliminate'), tolerating: v('tolerating'),
+      goal90: v('goal-90'), bigObstacle: v('big-obstacle'),
+      commitment: radioVal('commitment'),
+      proudOf: v('proud-of'), accomplishUnsure: v('accomplish-unsure'),
+      readiness: radioVal('readiness'), commitmentDesc: v('commitment-desc'),
+      sessionGoal: v('session-goal'), additional: v('additional')
+    };
+
     try {
       var res = await fetch('https://formspree.io/f/xkolgold', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          _subject: 'New Intake: ' + d.firstName + ' ' + d.lastName,
+          _subject: 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')',
           email: d.email,
           name: d.firstName + ' ' + d.lastName,
           message: buildEmailBody(d)
@@ -834,11 +880,9 @@
           var dot = document.getElementById('dot-' + i);
           dot.classList.remove('active'); dot.classList.add('done');
         }
-      } else {
-        throw new Error('fail');
-      }
+      } else { throw new Error('fail'); }
     } catch(err) {
-      btn.textContent = 'Send to Kristian ✦';
+      btn.textContent = 'Submit';
       btn.disabled = false;
       alert('Something went wrong. Please try again or email me directly.');
     }
