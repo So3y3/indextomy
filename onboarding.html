@@ -42,6 +42,8 @@
     /* STEPS */
     .step { display: none; width: 100%; max-width: 640px; animation: fadeUp 0.4s ease both; }
     .step.active { display: block; }
+
+    .consent-line { font-size: 0.72rem; color: var(--slate); text-align: center; max-width: 480px; margin: 1.2rem auto 0.4rem; line-height: 1.6; opacity: 0.8; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
 
     /* STEP HEADER */
@@ -592,6 +594,7 @@
     &#128274; Everything you share here is strictly private and used only to prepare for our session together.
   </p>
 
+  <p class="consent-line">&#128274; By submitting this form you confirm that the information provided is accurate and you agree that it will be used solely to prepare for your coaching session. Your data is kept strictly private and will never be shared with third parties.</p>
   <div class="ob-nav">
     <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
     <button class="btn-submit" id="submit-btn" onclick="submitForm()">Submit</button>
