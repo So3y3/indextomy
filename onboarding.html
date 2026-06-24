@@ -22,7 +22,7 @@
 
     /* HEADER */
     .ob-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(245,241,234,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(193,206,201,0.3); }
-    .ob-brand { font-family: var(--font-brand); font-size: 1.1rem; letter-spacing: 0.08em; color: var(--deep-forest); text-decoration: none; }
+    .ob-brand { font-family: var(--font-brand); font-size: 1.5rem; letter-spacing: 0.08em; color: var(--deep-forest); text-decoration: none; }
     .ob-header-note { font-size: 0.72rem; color: var(--slate-mist); }
 
     /* PROGRESS */
@@ -369,13 +369,13 @@
     <div class="field-row single">
       <div class="field">
         <label for="eliminate">What would you most like to remove from your life?</label>
-        <textarea id="eliminate" rows="2" placeholder="A habit, situation, feeling - anything counts."></textarea>
+        <textarea id="eliminate" rows="2" placeholder="A habit, situation, feeling - anything counts." required></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="tolerating">What are you currently just putting up with?</label>
-        <textarea id="tolerating" rows="2" placeholder="Things you tolerate at work or in life that quietly drain you..."></textarea>
+        <textarea id="tolerating" rows="2" placeholder="Things you tolerate at work or in life that quietly drain you..." required></textarea>
       </div>
     </div>
   </div>
@@ -406,7 +406,7 @@
     <div class="field-row single">
       <div class="field">
         <label for="big-obstacle">What do you think is the main thing standing in your way?</label>
-        <textarea id="big-obstacle" rows="2" placeholder="Be honest - even 'I don't know yet' is a valid answer."></textarea>
+        <textarea id="big-obstacle" rows="2" placeholder="Be honest - even 'I don't know yet' is a valid answer." required></textarea>
       </div>
     </div>
   </div>
@@ -577,13 +577,47 @@
     <div class="field-row single">
       <div class="field">
         <label for="session-goal">The single most important thing you want from our first session</label>
-        <textarea id="session-goal" rows="2" placeholder="Even 'clarity on what to do next' is a perfectly valid goal."></textarea>
+        <textarea id="session-goal" rows="2" placeholder="Even 'clarity on what to do next' is a perfectly valid goal." required></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
         <label for="additional">Anything you want me to know before we meet?</label>
-        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space."></textarea>
+        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space." required></textarea>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ob-card">
+    <p class="ob-card-title">When Works for You?</p>
+    <p class="field-hint" style="margin-bottom:0.85rem;">Pick a preferred day and time for our first session. I'll do my best to match it.</p>
+    <div class="field-row">
+      <div class="field">
+        <label for="preferred-date">Preferred Date</label>
+        <input type="date" id="preferred-date" />
+      </div>
+      <div class="field">
+        <label for="preferred-time">Preferred Time</label>
+        <select id="preferred-time">
+          <option value="" disabled selected>Choose a slot...</option>
+          <option>Morning (8am - 11am)</option>
+          <option>Late morning (11am - 1pm)</option>
+          <option>Afternoon (1pm - 4pm)</option>
+          <option>Late afternoon (4pm - 6pm)</option>
+          <option>Evening (6pm - 8pm)</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-row single">
+      <div class="field">
+        <label for="session-format">Session Format Preference</label>
+        <select id="session-format">
+          <option value="" disabled selected>Choose one...</option>
+          <option>Video call (Zoom / Google Meet)</option>
+          <option>Phone call</option>
+          <option>No preference</option>
+        </select>
       </div>
     </div>
   </div>
@@ -604,7 +638,7 @@
   <h2>You're all set, <em id="success-name">friend</em>.</h2>
   <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
   <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
-  <p style="margin-top:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--warm-gold);">- Kristian</p>
+  <p style="margin-top:2rem;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;font-style:italic;color:var(--warm-gold);letter-spacing:0.02em;">- Kristian</p>
 </div>
 
 </main>
@@ -626,6 +660,15 @@
   document.querySelectorAll('.coaching-opt').forEach(function(el) {
     el.addEventListener('change', updateConditionalSections);
   });
+
+
+  // Set min date for booking input
+  (function() {
+    var d = new Date();
+    var y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()+1).padStart(2,'0');
+    var el = document.getElementById('preferred-date');
+    if (el) el.min = y + '-' + m + '-' + day;
+  })();
 
   // ── SCALE ──
   function selectScale(el, group, val, tier) {
@@ -816,6 +859,11 @@
       'In their own words:',
       d.commitmentDesc,
       '',
+      '=== PREFERRED SESSION SLOT ===',
+      'Date: ' + v('preferred-date'),
+      'Time: ' + v('preferred-time'),
+      'Format: ' + v('session-format'),
+      '',
       '=== FINAL ===',
       'Session goal:',
       d.sessionGoal,
@@ -876,6 +924,7 @@
           var dot = document.getElementById('dot-' + i);
           dot.classList.remove('active'); dot.classList.add('done');
         }
+        if (window.launchConfetti) window.launchConfetti();
       } else { throw new Error('fail'); }
     } catch(err) {
       btn.textContent = 'Submit';
@@ -884,5 +933,72 @@
     }
   }
 </script>
+
+<!-- CONFETTI -->
+<canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;display:none;"></canvas>
+<script>
+(function(){
+  var canvas, ctx, particles, running = false;
+  var colors = ['#C69E48','#1C2823','#C1CEC9','#B8695E','#7A8A85','#EBE6DA','#4A7C6F'];
+
+  function Particle(x, y) {
+    this.x = x; this.y = y;
+    this.vx = (Math.random() - 0.5) * 8;
+    this.vy = Math.random() * -12 - 4;
+    this.gravity = 0.35;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+    this.w = Math.random() * 10 + 5;
+    this.h = Math.random() * 5 + 3;
+    this.angle = Math.random() * 360;
+    this.spin = (Math.random() - 0.5) * 8;
+    this.alpha = 1;
+    this.decay = Math.random() * 0.012 + 0.008;
+    this.shape = Math.random() > 0.5 ? 'rect' : 'circle';
+  }
+
+  function launchConfetti() {
+    canvas = document.getElementById('confetti-canvas');
+    canvas.style.display = 'block';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx = canvas.getContext('2d');
+    particles = [];
+    var cx = canvas.width / 2;
+    for (var i = 0; i < 180; i++) {
+      particles.push(new Particle(cx + (Math.random() - 0.5) * 200, canvas.height * 0.45));
+    }
+    running = true;
+    requestAnimationFrame(drawLoop);
+  }
+
+  function drawLoop() {
+    if (!running) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var alive = false;
+    particles.forEach(function(p) {
+      if (p.alpha <= 0) return;
+      alive = true;
+      p.x += p.vx; p.y += p.vy; p.vy += p.gravity;
+      p.vx *= 0.99; p.angle += p.spin; p.alpha -= p.decay;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.alpha);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      if (p.shape === 'circle') {
+        ctx.beginPath(); ctx.arc(0, 0, p.w / 2, 0, Math.PI * 2); ctx.fill();
+      } else {
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      }
+      ctx.restore();
+    });
+    if (alive) { requestAnimationFrame(drawLoop); }
+    else { canvas.style.display = 'none'; running = false; }
+  }
+
+  window.launchConfetti = launchConfetti;
+})();
+</script>
+
 </body>
 </html>
