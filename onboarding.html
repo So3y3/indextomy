@@ -917,16 +917,19 @@
         })
       });
       if (res.ok) {
-        document.getElementById('step-4').classList.remove('active');
+        // Hide ALL steps
+        document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+        // Show success
         var s = document.getElementById('success-screen');
         s.style.display = 'flex';
         document.getElementById('success-name').textContent = d.firstName || 'friend';
         document.getElementById('progressFill').style.width = '100%';
+        document.querySelector('.step-dots').style.display = 'none';
         for (var i = 1; i <= TOTAL; i++) {
           var dot = document.getElementById('dot-' + i);
           dot.classList.remove('active'); dot.classList.add('done');
         }
-        if (window.launchConfetti) window.launchConfetti();
+        setTimeout(function(){ if (window.launchConfetti) window.launchConfetti(); }, 200);
       } else { throw new Error('fail'); }
     } catch(err) {
       btn.textContent = 'Submit';
