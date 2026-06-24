@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kristian Sokol | Life & Longevity Coach</title>
   <meta name="description" content="Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol. Phone or video sessions worldwide." />
-  <meta name="keywords" content="life coach, longevity coach, ADHD coach, life coaching, Kristian Sokol, break the loop, life transitions, sustainable longevity" />
+  <meta name="keywords" content="life coach, longevity coach, ADHD coach, life coaching, Kristian Sokol, break the loop, life transitions, sustainable longevity, habit building, business coaching" />
   <meta name="author" content="Kristian Sokol" />
+  <link rel="canonical" href="https://www.coachkris.co.uk/" />
   <meta property="og:title" content="Kristian Sokol | Life & Longevity Coach" />
-  <meta property="og:description" content="Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol." />
+  <meta property="og:description" content="Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol. Phone or video sessions worldwide." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.coachkris.co.uk/" />
+  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kristian Sokol | Life & Longevity Coach" />
+  <meta name="twitter:description" content="Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol." />
+  <meta name="twitter:creator" content="@coachkris" />
 
   <!-- Google Fonts -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -366,13 +373,13 @@
     #pillars .eyebrow { text-align: center; }
     #pillars .section-heading { text-align: center; }
 
+    /* ─── PILLARS ─── */
     .pillars-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       margin-top: 3rem;
     }
-
     .pillar-card {
       background: rgba(245,241,234,0.7);
       backdrop-filter: blur(8px);
@@ -380,80 +387,95 @@
       border-radius: 16px;
       padding: 2.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card.full-width {
+      grid-column: 1 / -1;
     }
     .pillar-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 48px rgba(28,40,35,0.1);
     }
 
-    .pillar-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.25rem;
+    /* Peeled corner "Learn more" tag */
+    .pillar-more {
+      position: absolute;
+      top: 0; right: 0;
+      background: var(--warm-gold);
+      color: white;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem 0.35rem 0.9rem;
+      border-bottom-left-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: flex; align-items: center; gap: 0.3rem;
     }
-    .pillar-icon.dark { background: var(--deep-forest); }
-    .pillar-icon.gold { background: var(--warm-gold); }
+    .pillar-more::before {
+      content: '↗';
+      font-size: 0.7rem;
+    }
+    .pillar-more:hover { background: #b8913f; }
+
+    .pillar-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.25rem;
+    }
+    .pillar-icon.dark   { background: var(--deep-forest); }
+    .pillar-icon.gold   { background: var(--warm-gold); }
+    .pillar-icon.teal   { background: #4A7C6F; }
 
     .pillar-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--warm-gold);
-      margin-bottom: 0.4rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.4rem;
     }
-
     .pillar-name {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--deep-forest);
-      margin-bottom: 0.3rem;
+      font-family: var(--font-heading); font-size: 2rem;
+      font-weight: 300; color: var(--deep-forest); margin-bottom: 0.3rem;
     }
-
     .pillar-subtitle {
-      font-size: 0.875rem;
-      color: var(--slate-mist);
-      margin-bottom: 1.75rem;
+      font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 1.75rem;
     }
-
     .pillar-features { display: flex; flex-direction: column; gap: 1rem; }
 
+    /* Pillar 3 features go 3-col on desktop */
+    .pillar-card.full-width .pillar-features {
+      flex-direction: row; flex-wrap: wrap; gap: 1.25rem;
+    }
+    .pillar-card.full-width .feature-row {
+      flex: 1 1 calc(33% - 1rem); min-width: 200px;
+    }
+
     .feature-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
+      display: flex; align-items: flex-start; gap: 0.85rem;
     }
-
     .feature-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      width: 36px; height: 36px; border-radius: 50%;
       background: rgba(198,158,72,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-      margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;
     }
-
     .feature-text strong {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--deep-forest);
-      margin-bottom: 0.1rem;
+      display: block; font-size: 0.875rem; font-weight: 600;
+      color: var(--deep-forest); margin-bottom: 0.1rem;
     }
+    .feature-text span { font-size: 0.8rem; color: var(--slate-mist); }
 
-    .feature-text span {
-      font-size: 0.8rem;
-      color: var(--slate-mist);
+    @media (max-width: 768px) {
+      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .pillar-card.full-width { grid-column: 1 / -1; }
+      .pillar-card { padding: 1.5rem; }
+      .pillar-card.full-width .pillar-features { flex-direction: column; }
+      .pillar-card.full-width .feature-row { flex: unset; }
+      .pillar-name { font-size: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card.full-width { grid-column: unset; }
     }
 
     /* ─── CONTACT ─── */
@@ -786,6 +808,50 @@
       .subscribe-form input[type="email"] { width: 100%; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.coachkris.co.uk/#person",
+        "name": "Kristian Sokol",
+        "jobTitle": "Certified Life & Longevity Coach",
+        "description": "Certified Life & Longevity Coach helping people break the restart loop, build lasting habits, improve their health and longevity, and grow their business ideas.",
+        "url": "https://www.coachkris.co.uk",
+        "sameAs": [
+          "https://www.instagram.com/kristian.sokol/"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Galicia",
+          "addressCountry": "ES"
+        },
+        "knowsAbout": ["Life Coaching", "Longevity Coaching", "Habit Building", "ADHD Coaching", "Business Coaching", "Health & Wellness"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.coachkris.co.uk/#website",
+        "url": "https://www.coachkris.co.uk",
+        "name": "Kristian Sokol | Life & Longevity Coach",
+        "description": "Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol.",
+        "author": {"@id": "https://www.coachkris.co.uk/#person"},
+        "inLanguage": "en-GB"
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.coachkris.co.uk/#business",
+        "name": "Kristian Sokol Coaching",
+        "description": "Certified Life & Longevity coaching for people who are tired of starting over and ready to build something that lasts.",
+        "url": "https://www.coachkris.co.uk",
+        "serviceType": ["Life Coaching", "Longevity Coaching", "Business Coaching", "Habit Coaching"],
+        "areaServed": "Worldwide",
+        "availableLanguage": "English",
+        "priceRange": "££"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -842,12 +908,13 @@
   <section id="pillars">
     <div class="section-inner-wide">
       <p class="eyebrow reveal">How I Can Help</p>
-      <h2 class="section-heading reveal reveal-delay-1">Two pillars. One whole you.</h2>
+      <h2 class="section-heading reveal reveal-delay-1">Three pillars. One whole you.</h2>
 
       <div class="pillars-grid">
 
         <!-- Pillar 1: Life Coaching -->
         <div class="pillar-card reveal reveal-delay-2">
+          <a class="pillar-more" href="blog.html#life-coaching-guide" title="Read more about Life Coaching">Read more</a>
           <div class="pillar-icon dark">🤍</div>
           <p class="pillar-label">Pillar One</p>
           <h3 class="pillar-name">Life Coaching</h3>
@@ -874,11 +941,19 @@
                 <span>Navigate change with confidence, not just survival mode.</span>
               </div>
             </div>
+            <div class="feature-row">
+              <div class="feature-icon">🔁</div>
+              <div class="feature-text">
+                <strong>Habit Building That Supports You</strong>
+                <span>Build routines that fit your real life — not the life you think you should have.</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Pillar 2: Longevity Coaching -->
         <div class="pillar-card reveal reveal-delay-3">
+          <a class="pillar-more" href="blog.html#longevity-guide" title="Read more about Longevity Coaching">Read more</a>
           <div class="pillar-icon gold">🧬</div>
           <p class="pillar-label">Pillar Two</p>
           <h3 class="pillar-name">Longevity Coaching</h3>
@@ -903,6 +978,45 @@
               <div class="feature-text">
                 <strong>Sustainable Performance</strong>
                 <span>Go further without burning out.. again.</span>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">🌿</div>
+              <div class="feature-text">
+                <strong>Live Longer, Live Better</strong>
+                <span>Practical strategies to add years to your life — and life to your years.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Project Coaching — full width -->
+        <div class="pillar-card full-width reveal reveal-delay-4">
+          <a class="pillar-more" href="blog.html#project-coaching-guide" title="Read more about Project Coaching">Read more</a>
+          <div class="pillar-icon teal">🧩</div>
+          <p class="pillar-label">Pillar Three</p>
+          <h3 class="pillar-name">Project Coaching</h3>
+          <p class="pillar-subtitle">The Strategy</p>
+          <div class="pillar-features">
+            <div class="feature-row">
+              <div class="feature-icon">🗺️</div>
+              <div class="feature-text">
+                <strong>The "What & How"</strong>
+                <span>Whether you're a solopreneur or a small business — map out the exact steps to build your momentum from idea to execution.</span>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">🧱</div>
+              <div class="feature-text">
+                <strong>Hit a Wall?</strong>
+                <span>Deconstruct the blocks, find what motivates you, and figure out why things aren't moving forward — then fix it.</span>
+              </div>
+            </div>
+            <div class="feature-row">
+              <div class="feature-icon">🌐</div>
+              <div class="feature-text">
+                <strong>Get Found Online</strong>
+                <span>Take your shop, coaching practice, or craft and build the website, design, and SEO strategy to finally be seen.</span>
               </div>
             </div>
           </div>
