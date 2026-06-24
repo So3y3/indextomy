@@ -592,6 +592,43 @@
 
   
 
+  <div class="ob-card">
+    <p class="ob-card-title">Pick a Day &amp; Time</p>
+    <p class="field-hint">Choose a preferred slot for our initial session — I'll be in touch with the call link before we meet.</p>
+    <div class="field-row">
+      <div class="field">
+        <label for="session-date">Preferred Date *</label>
+        <input type="date" id="session-date" name="session_date" required />
+      </div>
+      <div class="field">
+        <label for="session-time">Preferred Time *</label>
+        <input type="time" id="session-time" name="session_time" required />
+      </div>
+    </div>
+    <div class="field-row single">
+      <div class="field">
+        <label for="session-timezone">Your Timezone</label>
+        <select id="session-timezone" name="session_timezone">
+          <option value="" disabled selected>Select your timezone...</option>
+          <option>GMT / UTC (London)</option>
+          <option>GMT+1 (BST / Madrid / Paris)</option>
+          <option>GMT+2 (Eastern Europe)</option>
+          <option>GMT+3 (Moscow / Istanbul)</option>
+          <option>GMT-5 (New York / EST)</option>
+          <option>GMT-6 (Chicago / CST)</option>
+          <option>GMT-7 (Denver / MST)</option>
+          <option>GMT-8 (Los Angeles / PST)</option>
+          <option>GMT+5:30 (India / IST)</option>
+          <option>GMT+8 (Singapore / Hong Kong)</option>
+          <option>GMT+9 (Tokyo / JST)</option>
+          <option>GMT+10 (Sydney / AEST)</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
   <p class="consent-line">&#128274; By submitting this form you confirm that the information provided is accurate and you agree that it will be used solely to prepare for your coaching session. Your data is kept strictly private and will never be shared with third parties.</p>
   <div class="ob-nav">
     <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
