@@ -6,7 +6,7 @@
   <title>Articles | Kristian Sokol — Life & Longevity Coach</title>
   <meta name="description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
   <meta name="author" content="Kristian Sokol" />
-  <link rel="canonical" href="https://www.coachkris.co.uk/blog" />
+  <link rel="canonical" href="https://www.coachkris.co.uk/blog.html" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
@@ -16,7 +16,7 @@
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Articles | Kristian Sokol — Life &amp; Longevity Coach" />
   <meta property="og:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
-  <meta property="og:url" content="https://www.coachkris.co.uk/blog" />
+  <meta property="og:url" content="https://www.coachkris.co.uk/blog.html" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://www.coachkris.co.uk/assets/kris-og.jpg" />
   <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
@@ -558,6 +558,47 @@
       .subscribe-form input[type="email"] { width: 100%; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://www.coachkris.co.uk/blog.html#blog",
+        "name": "Articles | Kristian Sokol",
+        "description": "Evidence-based articles on life coaching, longevity, and breaking the restart loop.",
+        "url": "https://www.coachkris.co.uk/blog.html",
+        "author": {
+          "@type": "Person",
+          "name": "Kristian Sokol",
+          "url": "https://www.coachkris.co.uk"
+        },
+        "inLanguage": "en-GB",
+        "publisher": {
+          "@type": "Person",
+          "name": "Kristian Sokol"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.coachkris.co.uk/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Articles",
+            "item": "https://www.coachkris.co.uk/blog.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1551,5 +1592,29 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     }
   </script>
+
+  <!-- SEO: Hidden article content for search engine indexing -->
+  <div id="seo-articles" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"></div>
+  <script>
+  // Inject full article content into DOM for Google indexing
+  (function() {
+    var POSTS_URL = 'https://raw.githubusercontent.com/So3y3/indextomy/main/posts.json';
+    fetch(POSTS_URL).then(function(r){ return r.json(); }).then(function(posts) {
+      var container = document.getElementById('seo-articles');
+      if (!container || !Array.isArray(posts)) return;
+      posts.forEach(function(p) {
+        var article = document.createElement('article');
+        article.innerHTML =
+          '<h2>' + (p.title || '') + '</h2>' +
+          '<p>' + (p.category || '') + ' · ' + (p.date || '') + ' · ' + (p.readTime || '') + '</p>' +
+          '<p>' + (p.excerpt || '') + '</p>' +
+          '<div>' + (p.body || '').replace(/\n/g,'<br>') + '</div>' +
+          '<a href="/blog.html#' + (p.slug || '') + '">Read: ' + (p.title || '') + '</a>';
+        container.appendChild(article);
+      });
+    }).catch(function(){});
+  })();
+  </script>
+
 </body>
 </html>
