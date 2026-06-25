@@ -854,6 +854,13 @@
       d.additional,
     ]);
 
+    lines = lines.concat([
+      '',
+      '=== PREFERRED SESSION ===',
+      'Date: ' + d.sessionDate,
+      'Time: ' + d.sessionTime,
+    ]);
+
     return lines.join('\n');
   }
 
