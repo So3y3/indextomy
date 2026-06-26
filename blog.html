@@ -646,7 +646,7 @@
     <button class="filter-btn" data-filter="longevity">Longevity</button>
     <button class="filter-btn" data-filter="mindset">Mindset</button>
     <button class="filter-btn" data-filter="adhd">ADHD-Aware</button>
-    <button class="filter-btn" data-filter="build">Build</button>
+    <button class="filter-btn" data-filter="build">Business</button>
   </div>
 </div>
 
@@ -713,13 +713,13 @@
         <div class="form-row">
           <div class="form-group">
             <label>Category *</label>
-            <select id="f-cat">
-              <option value="life">Life Coaching</option>
-              <option value="longevity">Longevity</option>
-              <option value="mindset">Mindset</option>
-              <option value="adhd">ADHD-Aware</option>
-          <option value="growth">Build</option>
-            </select>
+            <div id="f-cat" style="display:flex;flex-direction:column;gap:0.4rem;padding:0.4rem 0;">
+              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="life" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Life Coaching</label>
+              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="longevity" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Longevity</label>
+              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="mindset" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Mindset</label>
+              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="adhd" style="accent-color:var(--warm-gold);width:15px;height:15px;"> ADHD-Aware</label>
+              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="build" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Business</label>
+            </div>
           </div>
           <div class="form-group">
             <label>Read Time</label>
@@ -1210,7 +1210,7 @@ function formatDate(d) {
 }
 
 function categoryLabel(cat) {
-  return { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware', growth: 'Build' }[cat] || cat;
+  return { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware', growth: 'Business', build: 'Business' }[cat] || cat;
 }
 
 function uid() {
@@ -1361,7 +1361,10 @@ function renderGrid() {
   const grid = document.getElementById('postsGrid');
   const all  = getAllPosts();
   const published = all.filter(p => p.status === 'published');
-  const filtered  = activeFilter === 'all' ? published : published.filter(p => p.category === activeFilter);
+  const filtered  = activeFilter === 'all' ? published : published.filter(p => {
+    const cats = Array.isArray(p.category) ? p.category : [p.category];
+    return cats.includes(activeFilter);
+  });
 
   if (filtered.length === 0) {
     grid.innerHTML = `<div class="empty-state"><h3>No articles yet</h3><p>Check back soon — new content is on its way.</p></div>`;
@@ -1379,8 +1382,10 @@ function renderGrid() {
     const isFeatured = post.featured;
     const title = post.title || '';
     const excerpt = post.excerpt || '';
-    const catLabel = categoryLabel(post.category);
-    const cat = post.category || 'life';
+    const catArr2 = Array.isArray(post.category) ? post.category : [post.category || 'life'];
+    const catLabel = catArr2.map(c => categoryLabel(c)).join(' · ');
+    const catArr = Array.isArray(post.category) ? post.category : [post.category || 'life'];
+    const cat = catArr[0];
     return `
       <div class="post-card ${isFeatured ? 'featured' : ''}" data-id="${post.id}" onclick="openArticle('${post.id}')">
         ${isFeatured ? '<span class="featured-badge">Featured</span>' : ''}
@@ -1411,7 +1416,8 @@ function openArticle(id) {
 
   currentArticleId = id;
 
-  document.getElementById('modalTag').textContent  = categoryLabel(post.category);
+  const mCats = Array.isArray(post.category) ? post.category : [post.category || 'life'];
+  document.getElementById('modalTag').textContent  = mCats.map(c => categoryLabel(c)).join(' · ');
   document.getElementById('modalTitle').innerHTML  = post.title;
   document.getElementById('modalMeta').innerHTML   =
     `<span>${formatDate(post.date)}</span>${post.readTime ? `<span>· ${post.readTime}</span>` : ''}<span>· By Kristian Sokol</span>`+
@@ -1575,7 +1581,9 @@ function insertLink() {
 async function publishPost(status) {
   const title   = document.getElementById('f-title').value.trim();
   const body    = document.getElementById('f-body').value.trim();
-  const cat     = document.getElementById('f-cat').value;
+  const catBoxes = document.querySelectorAll('#f-cat input[type=checkbox]:checked');
+  const cat     = Array.from(catBoxes).map(cb => cb.value);
+  if (cat.length === 0) { alert('Please select at least one category.'); return; }
   const time    = document.getElementById('f-time').value.trim();
   const excerpt = document.getElementById('f-excerpt').value.trim();
   const featured = document.getElementById('f-featured').value === 'yes';
@@ -1627,7 +1635,7 @@ async function publishPost(status) {
 
 function clearForm() {
   ['f-title','f-excerpt','f-body','f-time'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('f-cat').value = 'life';
+  document.querySelectorAll('#f-cat input[type=checkbox]').forEach(cb => cb.checked = false);
   document.getElementById('f-featured').value = 'no';
   delete document.getElementById('f-title').dataset.editingId;
 }
@@ -1661,7 +1669,11 @@ function editPost(id) {
 
   document.getElementById('f-title').value   = post.title.replace(/<[^>]+>/g,'');
   document.getElementById('f-title').dataset.editingId = post.id;
-  document.getElementById('f-cat').value     = post.category;
+  // restore category checkboxes
+  document.querySelectorAll('#f-cat input[type=checkbox]').forEach(cb => {
+    const cats = Array.isArray(post.category) ? post.category : [post.category];
+    cb.checked = cats.includes(cb.value);
+  });
   document.getElementById('f-time').value    = post.readTime || '';
   document.getElementById('f-excerpt').value = post.excerpt || '';
   document.getElementById('f-body').value    = post.body || '';
