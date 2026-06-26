@@ -893,11 +893,12 @@
     };
 
     try {
-      var res = await fetch('https://formspree.io/f/xwvdvbon', {
+      var res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          _subject: 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')',
+          access_key: '79920bd7-c91b-4176-9481-1189081e88e6',
+          subject: 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')',
           email: d.email,
           name: d.firstName + ' ' + d.lastName,
           message: buildEmailBody(d)
