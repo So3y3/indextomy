@@ -1345,16 +1345,17 @@
       btn.disabled = true;
 
       try {
-        const response = await fetch('https://formspree.io/f/xwvjzolo', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
+            access_key: '79920bd7-c91b-4176-9481-1189081e88e6',
             name,
             email,
             message,
             format: selectedFormat,
-            _subject: `New coaching enquiry from ${name}`,
-            _replyto: email
+            subject: `New coaching enquiry from ${name}`,
+            replyto: email
           })
         });
 
@@ -1383,10 +1384,10 @@
       btn.textContent = 'Sending…';
       btn.disabled = true;
       try {
-        const res = await fetch('https://formspree.io/f/xkolgold', {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, _subject: 'New subscriber: ' + email })
+          body: JSON.stringify({ access_key: '79920bd7-c91b-4176-9481-1189081e88e6', email, subject: 'New subscriber: ' + email })
         });
         if (res.ok) {
           msg.classList.add('show');
