@@ -985,8 +985,8 @@ function renderBodyToHtml(body) {
   }
   for (var i = 0; i < lines.length; i++) {
     var line = lines[i];
-    if (line.startsWith('### ')) { if(inList){out+='</ul>';inList=false;} out+='<h3>'+md(line.slice(4))+'</h3>'; continue; }
-    if (line.startsWith('## '))  { if(inList){out+='</ul>';inList=false;} out+='<h2>'+md(line.slice(3))+'</h2>'; continue; }
+    if (line.startsWith('###')) { if(inList){out+='</ul>';inList=false;} out+='<h3>'+md(line.replace(/^###\s*/,''))+'</h3>'; continue; }
+    if (line.startsWith('##'))  { if(inList){out+='</ul>';inList=false;} out+='<h2>'+md(line.replace(/^##\s*/,''))+'</h2>'; continue; }
     if (line.startsWith('# '))   { if(inList){out+='</ul>';inList=false;} out+='<h1>'+md(line.slice(2))+'</h1>'; continue; }
     if (line.startsWith('- ') || line.startsWith('* ')) {
       if (!inList) { out += '<ul>'; inList = true; }
