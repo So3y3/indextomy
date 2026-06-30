@@ -622,7 +622,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#pillars">How I Help</a></li>
     <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="blog.html" class="active">Articles</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
     <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -633,7 +633,7 @@
   <a href="index.html">Home</a>
   <a href="index.html#pillars">How I Help</a>
   <a href="index.html#contact">Contact</a>
-  <a href="blog.html">Articles</a>
+  <a href="blog.html">Blog</a>
   <a href="index.html#contact">Get in Touch</a>
 </div>
 
@@ -1080,7 +1080,7 @@ function buildArticleHtml(post) {
   h += '    <a href="../index.html">Home</a>\n';
   h += '    <a href="../index.html#pillars">How I Help</a>\n';
   h += '    <a href="../index.html#contact">Contact</a>\n';
-  h += '    <a href="../blog.html" class="nav-active-link">Articles</a>\n';
+  h += '    <a href="../blog.html" class="nav-active-link">Blog</a>\n';
   h += '  </div>\n';
   h += '  <a class="nav-back" href="../blog.html">&#8592; All Articles</a>\n';
   h += '</nav>\n';
@@ -1102,7 +1102,7 @@ function buildArticleHtml(post) {
   h += '    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:\'' + cleanTitle.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + '\',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert(\'Link copied!\')})}">Share &#8599;</button>\n';
   h += '  </div>\n';
   h += '</main>\n';
-  h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../index.html">Home</a> &middot; <a href="../blog.html">Articles</a></p></footer>\n';
+  h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../index.html">Home</a> &middot; <a href="../blog.html">Blog</a></p></footer>\n';
   h += '</body>\n</html>';
   return h;
 }
@@ -1800,7 +1800,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#pillars">How I Help</a></li>
         <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="blog.html">Articles</a></li>
+        <li><a href="blog.html">Blog</a></li>
       </ul>
     </div>
     <div class="footer-col">
