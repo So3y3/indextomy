@@ -472,6 +472,55 @@
                 <div class="form-group">
                     <label>Agreement Date</label>
                     <input type="date" id="inputAgreementDate" onchange="updateContract()" class="form-control">
+                
+                    <!-- ─── CUSTOM PLAN ─── -->
+                    <label class="plan-card" id="custom-plan-card">
+                        <input type="radio" name="pricingPlan" value="custom" onchange="updateContract(); toggleCustomFields()">
+                        <div class="plan-card-content">
+                            <span class="plan-name">Custom Plan</span>
+                            <span class="plan-details">Define your own program name, price &amp; payment terms</span>
+                            <span class="plan-badge badge-blue">Fully Customisable</span>
+                        </div>
+                    </label>
+
+                    <!-- Custom Plan Fields — shown only when Custom is selected -->
+                    <div id="custom-fields" style="display:none; background:#f9f7f3; border:1px solid var(--sea-glass); border-radius:10px; padding:14px 16px; margin-top:2px; display:none; flex-direction:column; gap:10px;">
+                        <div>
+                            <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Program Name</label>
+                            <input id="custom-name" type="text" placeholder="e.g. Yacht Crew Coaching Program" oninput="updateContract()"
+                                style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;"
+                                onfocus="this.style.borderColor='var(--warm-gold)'" onblur="this.style.borderColor='var(--sea-glass)'">
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                            <div>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Final Price (€)</label>
+                                <input id="custom-price" type="number" placeholder="550" oninput="updateContract()"
+                                    style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--warm-gold)'" onblur="this.style.borderColor='var(--sea-glass)'">
+                            </div>
+                            <div>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Full Price Before Discount (€)</label>
+                                <input id="custom-full-price" type="number" placeholder="800" oninput="updateContract()"
+                                    style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--warm-gold)'" onblur="this.style.borderColor='var(--sea-glass)'">
+                            </div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                            <div>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Discount %</label>
+                                <input id="custom-discount" type="number" placeholder="32" min="0" max="100" oninput="updateContract()"
+                                    style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--warm-gold)'" onblur="this.style.borderColor='var(--sea-glass)'">
+                            </div>
+                            <div>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Payment Plan</label>
+                                <input id="custom-payment" type="text" placeholder="e.g. Paid in 3 instalments" oninput="updateContract()"
+                                    style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;"
+                                    onfocus="this.style.borderColor='var(--warm-gold)'" onblur="this.style.borderColor='var(--sea-glass)'">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -757,6 +806,13 @@
     }
 
     // ─── CONTRACT UPDATER ───
+    
+    function toggleCustomFields() {
+        const isCustom = document.querySelector('input[name="pricingPlan"]:checked').value === 'custom';
+        const fields = document.getElementById('custom-fields');
+        fields.style.display = isCustom ? 'flex' : 'none';
+    }
+
     function updateContract() {
         const clientName = document.getElementById('inputClientName').value || 'Client Name';
         const dateInput = document.getElementById('inputAgreementDate').value;
@@ -821,6 +877,33 @@
                 totalFee = 1200;
                 paymentTerms = '3 payments of £400.00 — first prior to first session, subsequent payments every 30 days';
                 break;
+
+            case 'custom': {
+                const cName    = (document.getElementById('custom-name')?.value || '').trim();
+                const cPrice   = parseFloat(document.getElementById('custom-price')?.value) || 0;
+                const cFull    = parseFloat(document.getElementById('custom-full-price')?.value) || 0;
+                const cDisc    = parseFloat(document.getElementById('custom-discount')?.value) || 0;
+                const cPayment = (document.getElementById('custom-payment')?.value || '').trim();
+
+                packageTitle = cName || 'Custom Coaching Program';
+                totalFee = cPrice;
+
+                let discountNote = '';
+                if (cDisc > 0 && cFull > 0) {
+                    discountNote = ` (${cDisc}% discount applied — full price €${cFull.toLocaleString('en-GB', {minimumFractionDigits:2})})`;
+                } else if (cFull > 0) {
+                    discountNote = ` (full price €${cFull.toLocaleString('en-GB', {minimumFractionDigits:2})})`;
+                }
+
+                paymentTerms = (cPayment || 'As agreed') + discountNote;
+
+                // Override currency display for custom plans
+                document.getElementById('displayTotalFee').innerText = \`€\${totalFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\`;
+                document.getElementById('displayPaymentTerms').innerText = paymentTerms;
+                document.getElementById('displaySelectedPackage').innerText = packageTitle;
+                return;
+            }
+
         }
 
         document.getElementById('displayClientName').innerText = clientName;
