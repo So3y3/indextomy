@@ -1227,8 +1227,8 @@ function parseMarkdown(text) {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
     // headings
-    if (line.startsWith('### ')) { if(inList){html+='</ul>';inList=false;} html += `<h3>${md(line.slice(4))}</h3>`; continue; }
-    if (line.startsWith('## '))  { if(inList){html+='</ul>';inList=false;} html += `<h2>${md(line.slice(3))}</h2>`; continue; }
+    if (line.startsWith('###')) { if(inList){html+='</ul>';inList=false;} html += `<h3>${md(line.replace(/^###\s*/,''))}</h3>`; continue; }
+    if (line.startsWith('##'))  { if(inList){html+='</ul>';inList=false;} html += `<h2>${md(line.replace(/^##\s*/,''))}</h2>`; continue; }
     // bullets
     if (line.startsWith('- ') || line.startsWith('* ')) {
       if (!inList) { html += '<ul>'; inList = true; }
