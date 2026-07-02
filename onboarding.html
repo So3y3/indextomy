@@ -615,9 +615,7 @@
     <div class="field-row single">
       <div class="field">
         <label for="session-time">Preferred Time *</label>
-        <select id="session-time" name="session_time" required>
-          <option value="" disabled selected>Select an available slot</option>
-        </select>
+        <input type="time" id="session-time" name="session_time" required />
       </div>
     </div>
   </div>
@@ -935,18 +933,10 @@
   var dateEl=document.getElementById('session-date');
   if(dateEl) dateEl.min=minD.getFullYear()+'-'+p(minD.getMonth()+1)+'-'+p(minD.getDate());
 
-  // Populate available time slots, spaced 2 hours apart (08:00 - 20:00).
-  // The earliest bookable date is already tomorrow at minimum (24h lead time),
-  // so every slot on that day is valid to offer.
+  // Minimum bookable time: 2 hours from the moment they open the form
+  var minT=new Date(Date.now()+2*60*60*1000);
   var timeEl=document.getElementById('session-time');
-  if(timeEl){
-    ['08:00','10:00','12:00','14:00','16:00','18:00','20:00'].forEach(function(slot){
-      var opt=document.createElement('option');
-      opt.value=slot;
-      opt.textContent=slot;
-      timeEl.appendChild(opt);
-    });
-  }
+  if(timeEl) timeEl.min=p(minT.getHours())+':'+p(minT.getMinutes());
 })();
 </script>
 </body>
