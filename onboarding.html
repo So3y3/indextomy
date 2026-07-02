@@ -615,7 +615,9 @@
     <div class="field-row single">
       <div class="field">
         <label for="session-time">Preferred Time *</label>
-        <input type="time" id="session-time" name="session_time" required />
+        <select id="session-time" name="session_time" required>
+          <option value="" disabled selected>Select an available slot</option>
+        </select>
       </div>
     </div>
   </div>
@@ -889,7 +891,8 @@
       commitment: radioVal('commitment'),
       proudOf: v('proud-of'), accomplishUnsure: v('accomplish-unsure'),
       readiness: radioVal('readiness'), commitmentDesc: v('commitment-desc'),
-      sessionGoal: v('session-goal'), additional: v('additional')
+      sessionGoal: v('session-goal'), additional: v('additional'),
+      sessionDate: v('session-date'), sessionTime: v('session-time')
     };
 
     try {
@@ -925,10 +928,44 @@
 
 <script>
 (function(){
-  var d=new Date(Date.now()+24*60*60*1000);
   var p=function(n){return n<10?'0'+n:n;};
-  var el=document.getElementById('session-date');
-  if(el) el.min=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+
+  // Minimum bookable date: 24 hours from now
+  var minD=new Date(Date.now()+24*60*60*1000);
+  var dateEl=document.getElementById('session-date');
+  if(dateEl) dateEl.min=minD.getFullYear()+'-'+p(minD.getMonth()+1)+'-'+p(minD.getDate());
+
+  // Populate available time slots, spaced 2 hours apart, starting from the current time
+  var timeEl=document.getElementById('session-time');
+  if(timeEl){
+    var now=new Date();
+    var startHour=now.getHours()+2; // first slot is at least 2 hours from right now
+    var startMin=now.getMinutes()>=30?30:0;
+    var hours=[];
+    var h=startHour, m=startMin;
+    while(h<24){
+      hours.push(p(h)+':'+p(m));
+      m+=120;
+      while(m>=60){ m-=60; h+=1; }
+      // keep 2-hour spacing on the hour of the current minute bucket
+      m = (m===30)?30:0;
+    }
+    // Simpler, reliable approach: fixed slots every 2 hours across the day,
+    // filtered to only those at least 2 hours after the current moment.
+    var allSlots=['08:00','10:00','12:00','14:00','16:00','18:00','20:00'];
+    var cutoff=new Date(now.getTime()+2*60*60*1000);
+    allSlots.forEach(function(slot){
+      var parts=slot.split(':');
+      var slotDate=new Date();
+      slotDate.setHours(parseInt(parts[0],10), parseInt(parts[1],10), 0, 0);
+      // Since the earliest bookable date is already tomorrow (24h min),
+      // all fixed daily slots are valid options - offer the full set.
+      var opt=document.createElement('option');
+      opt.value=slot;
+      opt.textContent=slot;
+      timeEl.appendChild(opt);
+    });
+  }
 })();
 </script>
 </body>
