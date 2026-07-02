@@ -935,31 +935,12 @@
   var dateEl=document.getElementById('session-date');
   if(dateEl) dateEl.min=minD.getFullYear()+'-'+p(minD.getMonth()+1)+'-'+p(minD.getDate());
 
-  // Populate available time slots, spaced 2 hours apart, starting from the current time
+  // Populate available time slots, spaced 2 hours apart (08:00 - 20:00).
+  // The earliest bookable date is already tomorrow at minimum (24h lead time),
+  // so every slot on that day is valid to offer.
   var timeEl=document.getElementById('session-time');
   if(timeEl){
-    var now=new Date();
-    var startHour=now.getHours()+2; // first slot is at least 2 hours from right now
-    var startMin=now.getMinutes()>=30?30:0;
-    var hours=[];
-    var h=startHour, m=startMin;
-    while(h<24){
-      hours.push(p(h)+':'+p(m));
-      m+=120;
-      while(m>=60){ m-=60; h+=1; }
-      // keep 2-hour spacing on the hour of the current minute bucket
-      m = (m===30)?30:0;
-    }
-    // Simpler, reliable approach: fixed slots every 2 hours across the day,
-    // filtered to only those at least 2 hours after the current moment.
-    var allSlots=['08:00','10:00','12:00','14:00','16:00','18:00','20:00'];
-    var cutoff=new Date(now.getTime()+2*60*60*1000);
-    allSlots.forEach(function(slot){
-      var parts=slot.split(':');
-      var slotDate=new Date();
-      slotDate.setHours(parseInt(parts[0],10), parseInt(parts[1],10), 0, 0);
-      // Since the earliest bookable date is already tomorrow (24h min),
-      // all fixed daily slots are valid options - offer the full set.
+    ['08:00','10:00','12:00','14:00','16:00','18:00','20:00'].forEach(function(slot){
       var opt=document.createElement('option');
       opt.value=slot;
       opt.textContent=slot;
