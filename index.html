@@ -171,17 +171,12 @@
     .hero-photo-wrap {
       width: 200px;
       height: 200px;
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .hero-photo-circle {
-      width: 100%;
-      height: 100%;
       border-radius: 50%;
       overflow: hidden;
       border: 3px solid var(--sea-glass);
       box-shadow: 0 8px 40px rgba(28,40,35,0.12);
+      margin-bottom: 2rem;
+      position: relative;
     }
 
     .hero-photo-wrap img {
@@ -191,42 +186,6 @@
       object-position: center 5%;
     }
 
-    .hero-offer-badge {
-      position: absolute;
-      bottom: -16px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--warm-gold);
-      border: 2px solid var(--parchment);
-      border-radius: 9999px;
-      padding: 0.45rem 1rem 0.4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.25;
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 6px 18px rgba(28,40,35,0.18);
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .hero-offer-badge:hover {
-      transform: translateX(-50%) translateY(-2px);
-      opacity: 0.9;
-    }
-    .offer-kicker {
-      font-family: var(--font-body);
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--deep-forest);
-    }
-    .offer-cta {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--deep-forest);
-    }
 
     .hero-headline {
       font-family: var(--font-heading);
@@ -250,6 +209,39 @@
       max-width: 500px;
       margin-bottom: 2.5rem;
       line-height: 1.7;
+    }
+
+    .hero-founding-banner {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--warm-gold);
+      border: 2px solid var(--parchment);
+      border-radius: 9999px;
+      padding: 0.95rem 2.5rem 0.9rem;
+      text-decoration: none;
+      line-height: 1.35;
+      box-shadow: 0 8px 26px rgba(28,40,35,0.18);
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .hero-founding-banner:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+    .hero-founding-banner .fb-kicker {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+    }
+    .hero-founding-banner .fb-cta {
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--deep-forest);
     }
 
     .hero-buttons {
@@ -798,9 +790,9 @@
       nav { padding: 0 1.25rem; }
       section { padding: 4rem 1.25rem; }
       .hero-photo-wrap { width: 160px; height: 160px; }
-      .hero-offer-badge { padding: 0.38rem 0.8rem 0.34rem; bottom: -14px; }
-      .offer-kicker { font-size: 0.48rem; }
-      .offer-cta { font-size: 0.72rem; }
+      .hero-founding-banner { padding: 0.7rem 1.6rem 0.65rem; }
+      .hero-founding-banner .fb-kicker { font-size: 0.62rem; }
+      .hero-founding-banner .fb-cta { font-size: 1rem; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; }
     }
@@ -1009,16 +1001,10 @@
     <p class="hero-eyebrow reveal">Life &amp; Longevity Coaching</p>
 
     <div class="hero-photo-wrap reveal reveal-delay-1">
-      <div class="hero-photo-circle">
-        <img
-          src="kristian.jpg" width="558" height="600" loading="eager"
-          alt="Kristian Sokol - Life & Longevity Coach"
-        />
-      </div>
-      <a href="onboarding.html" class="hero-offer-badge">
-        <span class="offer-kicker">4-Week Founding Offer</span>
-        <span class="offer-cta">Apply Now &rarr;</span>
-      </a>
+      <img
+        src="kristian.jpg" width="558" height="600" loading="eager"
+        alt="Kristian Sokol - Life & Longevity Coach"
+      />
     </div>
 
     <h1 class="hero-headline reveal reveal-delay-2">
@@ -1028,6 +1014,11 @@
     <p class="hero-subheadline reveal reveal-delay-3">
       Coaching for people who are tired of starting over and ready to build something that lasts.
     </p>
+
+    <a href="onboarding.html" class="hero-founding-banner reveal reveal-delay-4">
+      <span class="fb-kicker">4-Week Founding Offer</span>
+      <span class="fb-cta">Apply Now &rarr;</span>
+    </a>
 
     <div class="hero-buttons reveal reveal-delay-4">
       <a href="#contact" class="btn-primary">Book a Free Session</a>
