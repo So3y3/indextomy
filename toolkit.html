@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Toolkit | Kristian Sokol</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --parchment: #F5F1EA;
+  --deep-forest: #1C2823;
+  --warm-gold: #C69E48;
+  --slate-mist: #7A8A85;
+  --sand: #EBE6DA;
+  --sea-glass: #C1CEC9;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--parchment);
+  color: var(--deep-forest);
+  line-height: 1.6;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 4rem 1.5rem 6rem; }
+
+.brand {
+  display: block;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--warm-gold);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+
+header.hero { text-align: center; margin-bottom: 3rem; }
+
+header.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--deep-forest);
+  line-height: 1.15;
+}
+header.hero h1 em { color: var(--warm-gold); font-style: italic; font-weight: 500; }
+
+header.hero p {
+  margin-top: 1rem;
+  color: var(--slate-mist);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* category pills */
+.cats {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.cat-pill {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--sea-glass);
+  background: transparent;
+  color: var(--deep-forest);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.cat-pill:hover { border-color: var(--warm-gold); }
+.cat-pill.active {
+  background: var(--deep-forest);
+  border-color: var(--deep-forest);
+  color: var(--parchment);
+}
+
+/* tool cards */
+.tool-list { display: flex; flex-direction: column; gap: 1rem; }
+.tool-card {
+  background: var(--sand);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease;
+}
+.tool-card:hover { box-shadow: 0 4px 18px rgba(28,40,35,0.08); }
+.tool-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tool-card-title {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: var(--deep-forest);
+}
+.tool-card-sub {
+  font-size: 0.85rem;
+  color: var(--slate-mist);
+  margin-top: 0.3rem;
+}
+.chevron {
+  font-size: 1.2rem;
+  color: var(--warm-gold);
+  transition: transform 0.25s ease;
+}
+.tool-card.open .chevron { transform: rotate(90deg); }
+
+.tool-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.tool-card.open .tool-panel { max-height: 3000px; }
+
+.tool-panel-inner { padding-top: 1.5rem; border-top: 1px solid var(--sea-glass); margin-top: 1.25rem; }
+
+.tool-panel-inner p.desc {
+  font-size: 0.95rem;
+  color: var(--deep-forest);
+  margin-bottom: 1.5rem;
+}
+
+/* sliders */
+.slider-row { margin-bottom: 1.25rem; }
+.slider-row label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.slider-row label span.val { color: var(--warm-gold); font-weight: 700; }
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--sea-glass);
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--warm-gold);
+  cursor: pointer;
+  border: 3px solid var(--parchment);
+  box-shadow: 0 0 0 1px var(--warm-gold);
+}
+input[type=range]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--warm-gold);
+  cursor: pointer;
+  border: 3px solid var(--parchment);
+}
+
+.field-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.field { flex: 1; min-width: 140px; }
+.field label { display: block; font-size: 0.82rem; font-weight: 500; margin-bottom: 0.4rem; color: var(--deep-forest); }
+.field input[type=number], .field select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid var(--sea-glass);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--parchment);
+  color: var(--deep-forest);
+}
+.unit-toggle { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+.unit-toggle button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--sea-glass);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--deep-forest);
+}
+.unit-toggle button.active { background: var(--deep-forest); color: var(--parchment); border-color: var(--deep-forest); }
+
+.btn-gold {
+  background: var(--warm-gold);
+  color: var(--parchment);
+  border: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.btn-gold:hover { opacity: 0.88; }
+.btn-outline {
+  background: transparent;
+  color: var(--deep-forest);
+  border: 1.5px solid var(--warm-gold);
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.75rem;
+}
+
+.result-box {
+  margin-top: 2rem;
+  padding: 1.75rem;
+  background: var(--parchment);
+  border: 1px solid var(--sea-glass);
+  border-radius: 14px;
+  display: none;
+}
+.result-box.show { display: block; }
+.result-box canvas { max-width: 100%; margin: 0 auto; display: block; }
+.result-actions { text-align: center; margin-top: 1.25rem; }
+
+.result-stat {
+  text-align: center;
+}
+.result-stat .big-num {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3rem;
+  color: var(--warm-gold);
+}
+.result-stat .label {
+  font-size: 0.85rem;
+  color: var(--slate-mist);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+.result-stat .tip {
+  margin-top: 1.25rem;
+  font-size: 0.92rem;
+  color: var(--deep-forest);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: var(--slate-mist);
+  margin-top: 1.5rem;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="brand" href="index.html">Kristian Sokol</a>
+
+  <header class="hero">
+    <h1>The <em>Toolkit</em></h1>
+    <p>A small collection of the exercises and calculators I use with clients. Pick a category, choose a tool, work through it at your own pace. Nothing here is saved, so feel free to explore.</p>
+  </header>
+
+  <div class="cats">
+    <button class="cat-pill active" data-cat="life">Life Coaching</button>
+    <button class="cat-pill" data-cat="longevity">Longevity</button>
+    <button class="cat-pill" data-cat="business">Business</button>
+  </div>
+
+  <div class="tool-list" id="toolList">
+
+    <!-- WHEEL OF LIFE -->
+    <div class="tool-card" data-cat="life" id="card-wheel-life">
+      <div class="tool-card-head" onclick="toggleCard('card-wheel-life')">
+        <div>
+          <div class="tool-card-title">Wheel of Life</div>
+          <div class="tool-card-sub">See where your life feels balanced, and where it doesn't</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+      <div class="tool-panel">
+        <div class="tool-panel-inner">
+          <p class="desc">Rate your current satisfaction in each of these 8 areas from 1 (needs real attention) to 10 (couldn't be better). Be honest, not aspirational. This isn't about where you want to be, it's a snapshot of where you actually are right now. Once you've rated all 8, your wheel will show you the shape of your life at a glance.</p>
+          <div id="wheelLifeSliders"></div>
+          <button class="btn-gold" onclick="generateWheel('life')">See My Wheel</button>
+          <div class="result-box" id="result-wheel-life">
+            <canvas id="chart-wheel-life" height="320"></canvas>
+            <div class="result-actions">
+              <button class="btn-outline" onclick="downloadChart('chart-wheel-life','my-wheel-of-life')">Download My Wheel</button>
+            </div>
+          </div>
+          <p class="disclaimer">This is a reflection tool, not a diagnostic. Your results reset once you leave or refresh this page.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BMI CALCULATOR -->
+    <div class="tool-card" data-cat="longevity" id="card-bmi">
+      <div class="tool-card-head" onclick="toggleCard('card-bmi')">
+        <div>
+          <div class="tool-card-title">BMI Calculator</div>
+          <div class="tool-card-sub">A quick, honest starting point for your health baseline</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+      <div class="tool-panel">
+        <div class="tool-panel-inner">
+          <p class="desc">BMI is a blunt instrument, it doesn't know the difference between muscle and fat, and it's not the whole picture of health. But it's a useful, fast starting point before we dig into what actually matters: body composition, energy, and how you function day to day.</p>
+          <div class="unit-toggle" id="bmiUnitToggle">
+            <button class="active" data-unit="metric" onclick="setBmiUnit('metric')">Metric (cm / kg)</button>
+            <button data-unit="imperial" onclick="setBmiUnit('imperial')">Imperial (ft-in / lb)</button>
+          </div>
+          <div id="bmiFieldsMetric" class="field-row">
+            <div class="field"><label>Height (cm)</label><input type="number" id="bmiHeightCm" placeholder="e.g. 178" /></div>
+            <div class="field"><label>Weight (kg)</label><input type="number" id="bmiWeightKg" placeholder="e.g. 75" /></div>
+          </div>
+          <div id="bmiFieldsImperial" class="field-row" style="display:none;">
+            <div class="field"><label>Height (ft)</label><input type="number" id="bmiHeightFt" placeholder="e.g. 5" /></div>
+            <div class="field"><label>Height (in)</label><input type="number" id="bmiHeightIn" placeholder="e.g. 10" /></div>
+            <div class="field"><label>Weight (lb)</label><input type="number" id="bmiWeightLb" placeholder="e.g. 165" /></div>
+          </div>
+          <button class="btn-gold" onclick="calculateBMI()">Calculate</button>
+          <div class="result-box" id="result-bmi">
+            <div class="result-stat">
+              <div class="big-num" id="bmiValue">--</div>
+              <div class="label" id="bmiCategory">--</div>
+              <p class="tip" id="bmiTip"></p>
+            </div>
+          </div>
+          <p class="disclaimer">BMI is a general guide only and not a substitute for medical or clinical advice.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLEEP & RECOVERY -->
+    <div class="tool-card" data-cat="longevity" id="card-sleep">
+      <div class="tool-card-head" onclick="toggleCard('card-sleep')">
+        <div>
+          <div class="tool-card-title">Sleep &amp; Recovery Score</div>
+          <div class="tool-card-sub">How well your body is actually recovering</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+      <div class="tool-panel">
+        <div class="tool-panel-inner">
+          <p class="desc">Longevity isn't built in the gym, it's built while you sleep. This quick check looks at the five things that shape real recovery: how long you sleep, how broken that sleep is, and how your energy actually holds up the next day.</p>
+          <div class="slider-row">
+            <label>Average hours of sleep per night <span class="val" id="val-sleepHours">7</span></label>
+            <input type="range" id="sleepHours" min="3" max="10" step="0.5" value="7" oninput="document.getElementById('val-sleepHours').textContent=this.value">
+          </div>
+          <div class="slider-row">
+            <label>Times you wake during the night <span class="val" id="val-sleepWakes">1</span></label>
+            <input type="range" id="sleepWakes" min="0" max="6" step="1" value="1" oninput="document.getElementById('val-sleepWakes').textContent=this.value">
+          </div>
+          <div class="slider-row">
+            <label>Morning energy (1 = exhausted, 10 = refreshed) <span class="val" id="val-sleepEnergy">6</span></label>
+            <input type="range" id="sleepEnergy" min="1" max="10" step="1" value="6" oninput="document.getElementById('val-sleepEnergy').textContent=this.value">
+          </div>
+          <div class="slider-row">
+            <label>Afternoon fatigue / energy crash (1 = none, 10 = severe) <span class="val" id="val-sleepFatigue">5</span></label>
+            <input type="range" id="sleepFatigue" min="1" max="10" step="1" value="5" oninput="document.getElementById('val-sleepFatigue').textContent=this.value">
+          </div>
+          <div class="slider-row">
+            <label>General stress level (1 = calm, 10 = overwhelmed) <span class="val" id="val-sleepStress">5</span></label>
+            <input type="range" id="sleepStress" min="1" max="10" step="1" value="5" oninput="document.getElementById('val-sleepStress').textContent=this.value">
+          </div>
+          <button class="btn-gold" onclick="calculateSleep()">See My Score</button>
+          <div class="result-box" id="result-sleep">
+            <div class="result-stat">
+              <div class="big-num" id="sleepScore">--</div>
+              <div class="label" id="sleepBand">--</div>
+              <p class="tip" id="sleepTip"></p>
+            </div>
+          </div>
+          <p class="disclaimer">This is a self-reflection score, not a medical sleep assessment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHEEL OF BUSINESS -->
+    <div class="tool-card" data-cat="business" id="card-wheel-business">
+      <div class="tool-card-head" onclick="toggleCard('card-wheel-business')">
+        <div>
+          <div class="tool-card-title">Wheel of Business</div>
+          <div class="tool-card-sub">Find the part of your business quietly holding everything else back</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+      <div class="tool-panel">
+        <div class="tool-panel-inner">
+          <p class="desc">Same idea as the Wheel of Life, aimed at your business. Rate each area honestly from 1 (barely functioning) to 10 (genuinely strong). Most businesses don't fail from one big mistake, they stall because one or two areas quietly fall behind while everything else compensates. This shows you where.</p>
+          <div id="wheelBusinessSliders"></div>
+          <button class="btn-gold" onclick="generateWheel('business')">See My Wheel</button>
+          <div class="result-box" id="result-wheel-business">
+            <canvas id="chart-wheel-business" height="320"></canvas>
+            <div class="result-actions">
+              <button class="btn-outline" onclick="downloadChart('chart-wheel-business','my-wheel-of-business')">Download My Wheel</button>
+            </div>
+          </div>
+          <p class="disclaimer">This is a reflection tool, not a diagnostic. Your results reset once you leave or refresh this page.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const LIFE_CATEGORIES = ["Health","Career","Money & Finances","Relationships","Family & Friends","Personal Growth","Fun & Recreation","Physical Environment"];
+const BUSINESS_CATEGORIES = ["Vision & Strategy","Marketing & Sales","Operations","Finance","Team & Culture","Customer Experience","Innovation","Personal Leadership"];
+
+function buildSliders(containerId, categories, prefix) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = categories.map((cat, i) => `
+    <div class="slider-row">
+      <label>${cat} <span class="val" id="val-${prefix}-${i}">5</span></label>
+      <input type="range" id="${prefix}-${i}" min="1" max="10" step="1" value="5"
+        oninput="document.getElementById('val-${prefix}-${i}').textContent=this.value">
+    </div>
+  `).join('');
+}
+buildSliders('wheelLifeSliders', LIFE_CATEGORIES, 'life');
+buildSliders('wheelBusinessSliders', BUSINESS_CATEGORIES, 'biz');
+
+const charts = {};
+
+function generateWheel(type) {
+  const categories = type === 'life' ? LIFE_CATEGORIES : BUSINESS_CATEGORIES;
+  const prefix = type === 'life' ? 'life' : 'biz';
+  const values = categories.map((_, i) => parseInt(document.getElementById(`${prefix}-${i}`).value));
+
+  const canvasId = `chart-wheel-${type === 'life' ? 'life' : 'business'}`;
+  const resultId = `result-wheel-${type === 'life' ? 'life' : 'business'}`;
+  document.getElementById(resultId).classList.add('show');
+
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  if (charts[canvasId]) charts[canvasId].destroy();
+
+  charts[canvasId] = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: categories,
+      datasets: [{
+        label: type === 'life' ? 'Your Wheel of Life' : 'Your Wheel of Business',
+        data: values,
+        backgroundColor: 'rgba(198,158,72,0.25)',
+        borderColor: '#C69E48',
+        borderWidth: 2,
+        pointBackgroundColor: '#C69E48',
+        pointBorderColor: '#F5F1EA',
+        pointRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        r: {
+          min: 0, max: 10,
+          ticks: { stepSize: 2, backdropColor: 'transparent', color: '#7A8A85', font: { size: 10 } },
+          grid: { color: '#C1CEC9' },
+          angleLines: { color: '#C1CEC9' },
+          pointLabels: { color: '#1C2823', font: { family: 'Inter', size: 11, weight: '600' } }
+        }
+      }
+    }
+  });
+
+  document.getElementById(resultId).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function downloadChart(canvasId, filename) {
+  const sourceCanvas = document.getElementById(canvasId);
+  const exportCanvas = document.createElement('canvas');
+  exportCanvas.width = sourceCanvas.width;
+  exportCanvas.height = sourceCanvas.height;
+  const ctx = exportCanvas.getContext('2d');
+  ctx.fillStyle = '#F5F1EA';
+  ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+  ctx.drawImage(sourceCanvas, 0, 0);
+  const link = document.createElement('a');
+  link.download = `${filename}.png`;
+  link.href = exportCanvas.toDataURL('image/png');
+  link.click();
+}
+
+// BMI
+let bmiUnit = 'metric';
+function setBmiUnit(unit) {
+  bmiUnit = unit;
+  document.querySelectorAll('#bmiUnitToggle button').forEach(b => b.classList.toggle('active', b.dataset.unit === unit));
+  document.getElementById('bmiFieldsMetric').style.display = unit === 'metric' ? 'flex' : 'none';
+  document.getElementById('bmiFieldsImperial').style.display = unit === 'imperial' ? 'flex' : 'none';
+}
+function calculateBMI() {
+  let heightM, weightKg;
+  if (bmiUnit === 'metric') {
+    heightM = parseFloat(document.getElementById('bmiHeightCm').value) / 100;
+    weightKg = parseFloat(document.getElementById('bmiWeightKg').value);
+  } else {
+    const ft = parseFloat(document.getElementById('bmiHeightFt').value) || 0;
+    const inch = parseFloat(document.getElementById('bmiHeightIn').value) || 0;
+    heightM = ((ft * 12) + inch) * 0.0254;
+    weightKg = parseFloat(document.getElementById('bmiWeightLb').value) * 0.453592;
+  }
+  if (!heightM || !weightKg || heightM <= 0 || weightKg <= 0) {
+    alert('Please fill in your height and weight to continue.');
+    return;
+  }
+  const bmi = weightKg / (heightM * heightM);
+  let category, tip;
+  if (bmi < 18.5) { category = 'Underweight'; tip = "There may be room to build more lean mass. Strength training and a slight calorie surplus, done properly, can make a real difference here."; }
+  else if (bmi < 25) { category = 'Healthy Range'; tip = "You're in a healthy range on paper. The next question is body composition and how you actually feel day to day, that's where we'd focus next."; }
+  else if (bmi < 30) { category = 'Above Healthy Range'; tip = "Nothing alarming here, but there's a clear opportunity. Small, sustainable shifts in movement and nutrition tend to work far better than drastic ones."; }
+  else { category = 'Well Above Healthy Range'; tip = "This is worth taking seriously, not with panic, but with a real plan. This is exactly the kind of pattern we'd work on breaking together."; }
+
+  document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+  document.getElementById('bmiCategory').textContent = category;
+  document.getElementById('bmiTip').textContent = tip;
+  document.getElementById('result-bmi').classList.add('show');
+}
+
+// Sleep score
+function calculateSleep() {
+  const hours = parseFloat(document.getElementById('sleepHours').value);
+  const wakes = parseFloat(document.getElementById('sleepWakes').value);
+  const energy = parseFloat(document.getElementById('sleepEnergy').value);
+  const fatigue = parseFloat(document.getElementById('sleepFatigue').value);
+  const stress = parseFloat(document.getElementById('sleepStress').value);
+
+  // hours: ideal band 7-9
+  let hoursScore;
+  if (hours >= 7 && hours <= 9) hoursScore = 100;
+  else hoursScore = Math.max(0, 100 - Math.abs(hours - 8) * 20);
+
+  const wakesScore = Math.max(0, 100 - wakes * 16);
+  const energyScore = energy * 10;
+  const fatigueScore = 100 - fatigue * 10;
+  const stressScore = 100 - stress * 10;
+
+  const total = Math.round((hoursScore + wakesScore + energyScore + fatigueScore + stressScore) / 5);
+
+  let band, tip;
+  if (total >= 80) { band = 'Excellent Recovery'; tip = "Your sleep is doing its job. This is the foundation everything else in your longevity is built on, protect it."; }
+  else if (total >= 60) { band = 'Good, With Room To Grow'; tip = "Solid, but there are one or two levers worth pulling. A consistent wind-down routine can move this a lot further."; }
+  else if (total >= 40) { band = 'Struggling To Recover'; tip = "Your body isn't fully catching up overnight, which shows up as fatigue, fog, and slower progress everywhere else. This is fixable, and worth prioritising."; }
+  else { band = 'Poor Recovery'; tip = "This is likely affecting far more than just how tired you feel. Let's make sleep and recovery the first thing we rebuild together."; }
+
+  document.getElementById('sleepScore').textContent = total;
+  document.getElementById('sleepBand').textContent = band;
+  document.getElementById('sleepTip').textContent = tip;
+  document.getElementById('result-sleep').classList.add('show');
+}
+
+// category filter
+function showCategory(cat) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+  document.querySelectorAll('.tool-card').forEach(c => {
+    c.style.display = c.dataset.cat === cat ? 'block' : 'none';
+  });
+}
+document.querySelectorAll('.cat-pill').forEach(p => p.addEventListener('click', () => showCategory(p.dataset.cat)));
+showCategory('life');
+
+// accordion
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.tool-card').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+</script>
+
+</body>
+</html>
