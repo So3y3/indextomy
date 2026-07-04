@@ -324,8 +324,20 @@ header.hero p {
   opacity: 0.8;
 }
 @media (max-width: 560px) {
-  .scale-row { flex-direction: column; align-items: flex-start; }
-  .scale-pill { width: 30px; height: 30px; font-size: 0.74rem; }
+  .scale-row { flex-direction: column; align-items: stretch; }
+  .scale-label { min-width: 0; }
+  .scale-pills { flex-wrap: nowrap; width: 100%; gap: 0.2rem; }
+  .scale-pill {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    font-size: 0.62rem;
+  }
+}
+@media (max-width: 380px) {
+  .scale-pill { font-size: 0.55rem; }
 }
 
 .belief-row {
@@ -435,7 +447,7 @@ header.hero p {
   text-align: center;
 }
 .result-box.show { display: block; }
-.result-box canvas { max-width: 100%; height: auto; margin: 0 auto; display: block; }
+.result-box canvas { max-width: 100%; width: 100%; height: auto; margin: 0 auto; display: block; }
 .result-actions { text-align: center; margin-top: 1.25rem; }
 
 .result-stat { text-align: center; }
@@ -783,8 +795,12 @@ function setupCanvas(canvas, w, h) {
   const dpr = window.devicePixelRatio || 1;
   canvas.width = width * dpr;
   canvas.height = height * dpr;
-  canvas.style.width = width + 'px';
-  canvas.style.height = height + 'px';
+  // Cap the on-screen box at the native size, but let it shrink fluidly on
+  // narrow screens via width:100% (from CSS) + aspect-ratio, so it scales
+  // down proportionally instead of the height staying pinned and squashing it.
+  canvas.style.maxWidth = width + 'px';
+  canvas.style.aspectRatio = width + ' / ' + height;
+  canvas.style.height = 'auto';
   const ctx = canvas.getContext('2d');
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   return ctx;
