@@ -181,7 +181,7 @@ footer {
   nav { padding: 0 1.25rem; }
 }
 
-.wrap { max-width: 1120px; margin: 0 auto; padding: 150px 2rem 6rem; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 104px 2rem 6rem; }
 
 header.hero { text-align: center; margin-bottom: 3rem; }
 
@@ -277,39 +277,100 @@ header.hero p {
   margin-bottom: 1.5rem;
 }
 
-.slider-row { margin-bottom: 1.25rem; }
-.slider-row label {
+.scale-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(193,206,201,0.35);
+  flex-wrap: wrap;
+}
+.scale-row:last-child { border-bottom: none; }
+.scale-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--deep-forest);
+  flex: 1;
+  min-width: 180px;
+}
+.scale-pills { display: flex; gap: 0.32rem; flex-wrap: wrap; }
+.scale-pill {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sea-glass);
+  background: var(--parchment);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--slate-mist);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.scale-pill:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+.scale-pill.sel-low  { background: #B8695E; border-color: #B8695E; color: white; }
+.scale-pill.sel-mid  { background: var(--slate-mist); border-color: var(--slate-mist); color: white; }
+.scale-pill.sel-high { background: var(--warm-gold); border-color: var(--warm-gold); color: white; }
+.scale-legend {
   display: flex;
   justify-content: space-between;
-  font-size: 0.88rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--slate-mist);
+  margin-bottom: 0.6rem;
+  opacity: 0.8;
+}
+@media (max-width: 560px) {
+  .scale-row { flex-direction: column; align-items: flex-start; }
+  .scale-pill { width: 30px; height: 30px; font-size: 0.74rem; }
+}
+
+.belief-row {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(193,206,201,0.35);
+}
+.belief-row:last-child { border-bottom: none; margin-bottom: 0.5rem; }
+.belief-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--warm-gold);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-right: 0.6rem;
+}
+.belief-field { margin-bottom: 0.8rem; }
+.belief-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin-bottom: 0.4rem;
 }
-.slider-row label span.val { color: var(--warm-gold); font-weight: 700; }
-input[type=range] {
-  -webkit-appearance: none;
+.belief-field.old label { color: #B8695E; }
+.belief-field.new label { color: var(--warm-gold); }
+.belief-field textarea {
   width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: var(--sea-glass);
-  outline: none;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--sea-glass);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  background: var(--parchment);
+  color: var(--deep-forest);
+  resize: vertical;
+  min-height: 48px;
+  line-height: 1.5;
 }
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  background: var(--warm-gold);
-  cursor: pointer;
-  border: 3px solid var(--parchment);
-  box-shadow: 0 0 0 1px var(--warm-gold);
-}
-input[type=range]::-moz-range-thumb {
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  background: var(--warm-gold);
-  cursor: pointer;
-  border: 3px solid var(--parchment);
-}
+.belief-field textarea:focus { outline: none; border-color: var(--warm-gold); }
 
 .field-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 .field { flex: 1; min-width: 140px; }
@@ -452,12 +513,38 @@ input[type=range]::-moz-range-thumb {
       <div class="tool-panel">
         <div class="tool-panel-inner">
           <p class="desc">Rate your current satisfaction in each of these 8 areas from 1 (needs real attention) to 10 (couldn't be better). Be honest, not aspirational. This isn't about where you want to be, it's a snapshot of where you actually are right now. Once you've rated all 8, your wheel will show you the shape of your life at a glance.</p>
+          <div class="scale-legend"><span>1 &mdash; Needs attention</span><span>10 &mdash; Couldn't be better</span></div>
           <div id="wheelLifeSliders"></div>
           <button class="btn-gold" onclick="generateWheel('life')">See My Wheel</button>
           <div class="result-box" id="result-wheel-life">
             <canvas id="chart-wheel-life"></canvas>
             <div class="result-actions">
               <button class="btn-outline" onclick="downloadChart('chart-wheel-life','my-wheel-of-life')">Download My Wheel</button>
+            </div>
+          </div>
+          <p class="disclaimer">This is a reflection tool, not a diagnostic. Your results reset once you leave or refresh this page.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIMITING BELIEF TRANSFORMATION -->
+    <div class="tool-card" data-cat="life" id="card-belief">
+      <div class="tool-card-head" onclick="toggleCard('card-belief')">
+        <div>
+          <div class="tool-card-title">Limiting Belief Rewrite</div>
+          <div class="tool-card-sub">Catch the stories holding you back, and rewrite them</div>
+        </div>
+        <div class="chevron">›</div>
+      </div>
+      <div class="tool-panel">
+        <div class="tool-panel-inner">
+          <p class="desc">Every loop starts with a story you've told yourself so many times it feels like fact. Write down 5 of those "negative" beliefs, honestly, then sit with each one and write the true, empowering belief you'd rather run on instead. Don't overthink it, write what you know deep down is actually true.</p>
+          <div id="beliefRows"></div>
+          <button class="btn-gold" onclick="generateBeliefWorksheet()">Create My Worksheet</button>
+          <div class="result-box" id="result-belief">
+            <canvas id="chart-belief"></canvas>
+            <div class="result-actions">
+              <button class="btn-outline" onclick="downloadChart('chart-belief','my-belief-rewrite')">Download My Worksheet</button>
             </div>
           </div>
           <p class="disclaimer">This is a reflection tool, not a diagnostic. Your results reset once you leave or refresh this page.</p>
@@ -515,27 +602,8 @@ input[type=range]::-moz-range-thumb {
       <div class="tool-panel">
         <div class="tool-panel-inner">
           <p class="desc">Longevity isn't built in the gym, it's built while you sleep. This quick check looks at the five things that shape real recovery: how long you sleep, how broken that sleep is, and how your energy actually holds up the next day.</p>
-          <div class="slider-row">
-            <label>Average hours of sleep per night <span class="val" id="val-sleepHours">7</span></label>
-            <input type="range" id="sleepHours" min="3" max="10" step="0.5" value="7" oninput="document.getElementById('val-sleepHours').textContent=this.value">
-          </div>
-          <div class="slider-row">
-            <label>Times you wake during the night <span class="val" id="val-sleepWakes">1</span></label>
-            <input type="range" id="sleepWakes" min="0" max="6" step="1" value="1" oninput="document.getElementById('val-sleepWakes').textContent=this.value">
-          </div>
-          <div class="slider-row">
-            <label>Morning energy (1 = exhausted, 10 = refreshed) <span class="val" id="val-sleepEnergy">6</span></label>
-            <input type="range" id="sleepEnergy" min="1" max="10" step="1" value="6" oninput="document.getElementById('val-sleepEnergy').textContent=this.value">
-          </div>
-          <div class="slider-row">
-            <label>Afternoon fatigue / energy crash (1 = none, 10 = severe) <span class="val" id="val-sleepFatigue">5</span></label>
-            <input type="range" id="sleepFatigue" min="1" max="10" step="1" value="5" oninput="document.getElementById('val-sleepFatigue').textContent=this.value">
-          </div>
-          <div class="slider-row">
-            <label>General stress level (1 = calm, 10 = overwhelmed) <span class="val" id="val-sleepStress">5</span></label>
-            <input type="range" id="sleepStress" min="1" max="10" step="1" value="5" oninput="document.getElementById('val-sleepStress').textContent=this.value">
-          </div>
-          <button class="btn-gold" onclick="calculateSleep()">See My Score</button>
+          <div id="sleepPills"></div>
+          <button class="btn-gold" onclick="calculateSleep()" style="margin-top:0.75rem;">See My Score</button>
           <div class="result-box" id="result-sleep">
             <div class="result-stat">
               <div class="big-num" id="sleepScore">--</div>
@@ -560,6 +628,7 @@ input[type=range]::-moz-range-thumb {
       <div class="tool-panel">
         <div class="tool-panel-inner">
           <p class="desc">Same idea as the Wheel of Life, aimed at your business. Rate each area honestly from 1 (barely functioning) to 10 (genuinely strong). Most businesses don't fail from one big mistake, they stall because one or two areas quietly fall behind while everything else compensates. This shows you where.</p>
+          <div class="scale-legend"><span>1 &mdash; Barely functioning</span><span>10 &mdash; Genuinely strong</span></div>
           <div id="wheelBusinessSliders"></div>
           <button class="btn-gold" onclick="generateWheel('business')">See My Wheel</button>
           <div class="result-box" id="result-wheel-business">
@@ -630,18 +699,71 @@ const LIFE_WHEEL_LABELS = ["Health","Career","Money","Love","Family","Growth","F
 const BUSINESS_CATEGORIES = ["Vision & Strategy","Marketing & Sales","Operations","Finance","Team & Culture","Customer Experience","Innovation","Personal Leadership"];
 const BUSINESS_WHEEL_LABELS = ["Strategy","Marketing","Operations","Finance","Team","Customers","Innovation","Leadership"];
 
+const pillValues = {};
+
+function pillTier(val, min, max) {
+  const frac = (val - min) / (max - min);
+  if (frac <= 0.3) return 'low';
+  if (frac <= 0.7) return 'mid';
+  return 'high';
+}
+
+function buildPillRow(label, groupId, min, max, defaultVal) {
+  pillValues[groupId] = defaultVal;
+  let pills = '';
+  for (let v = min; v <= max; v++) {
+    const cls = v === defaultVal ? ' sel-' + pillTier(v, min, max) : '';
+    pills += `<div class="scale-pill${cls}" onclick="selectPill(this,'${groupId}',${v},${min},${max})">${v}</div>`;
+  }
+  return `
+    <div class="scale-row">
+      <span class="scale-label">${label}</span>
+      <div class="scale-pills" data-scale="${groupId}">${pills}</div>
+    </div>`;
+}
+
+function selectPill(el, groupId, val, min, max) {
+  pillValues[groupId] = val;
+  el.parentElement.querySelectorAll('.scale-pill').forEach(p => {
+    p.classList.remove('sel-low', 'sel-mid', 'sel-high');
+  });
+  el.classList.add('sel-' + pillTier(val, min, max));
+}
+
 function buildSliders(containerId, categories, prefix) {
   const container = document.getElementById(containerId);
-  container.innerHTML = categories.map((cat, i) => `
-    <div class="slider-row">
-      <label>${cat} <span class="val" id="val-${prefix}-${i}">5</span></label>
-      <input type="range" id="${prefix}-${i}" min="1" max="10" step="1" value="5"
-        oninput="document.getElementById('val-${prefix}-${i}').textContent=this.value">
-    </div>
-  `).join('');
+  container.innerHTML = categories.map((cat, i) => buildPillRow(cat, `${prefix}-${i}`, 1, 10, 5)).join('');
 }
 buildSliders('wheelLifeSliders', LIFE_CATEGORIES, 'life');
 buildSliders('wheelBusinessSliders', BUSINESS_CATEGORIES, 'biz');
+
+document.getElementById('sleepPills').innerHTML = [
+  buildPillRow('Average hours of sleep per night', 'sleepHours', 3, 10, 7),
+  buildPillRow('Times you wake during the night', 'sleepWakes', 0, 6, 1),
+  buildPillRow('Morning energy (1 = exhausted, 10 = refreshed)', 'sleepEnergy', 1, 10, 6),
+  buildPillRow('Afternoon fatigue / energy crash (1 = none, 10 = severe)', 'sleepFatigue', 1, 10, 5),
+  buildPillRow('General stress level (1 = calm, 10 = overwhelmed)', 'sleepStress', 1, 10, 5)
+].join('');
+
+const BELIEF_PROMPTS = [
+  "I'm not good enough",
+  "I always fall back into old patterns",
+  "It's too late for me to change",
+  "I don't have what it takes",
+  "I'll never get out of this loop"
+];
+document.getElementById('beliefRows').innerHTML = BELIEF_PROMPTS.map((prompt, i) => `
+  <div class="belief-row">
+    <div class="belief-field old">
+      <label><span class="belief-num">${i+1}</span>Old Story</label>
+      <textarea id="belief-old-${i}" placeholder="e.g. ${prompt}"></textarea>
+    </div>
+    <div class="belief-field new">
+      <label>New Truth</label>
+      <textarea id="belief-new-${i}" placeholder="What's actually true instead?"></textarea>
+    </div>
+  </div>
+`).join('');
 
 const COLOR = {
   parchment: '#F5F1EA',
@@ -655,12 +777,14 @@ const COLOR = {
 const CANVAS_W = 680;
 const CANVAS_H = 800;
 
-function setupCanvas(canvas) {
+function setupCanvas(canvas, w, h) {
+  const width = w || CANVAS_W;
+  const height = h || CANVAS_H;
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = CANVAS_W * dpr;
-  canvas.height = CANVAS_H * dpr;
-  canvas.style.width = CANVAS_W + 'px';
-  canvas.style.height = CANVAS_H + 'px';
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
   const ctx = canvas.getContext('2d');
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   return ctx;
@@ -823,7 +947,7 @@ async function generateWheel(type) {
   const categories = isLife ? LIFE_CATEGORIES : BUSINESS_CATEGORIES;
   const wheelLabels = isLife ? LIFE_WHEEL_LABELS : BUSINESS_WHEEL_LABELS;
   const prefix = isLife ? 'life' : 'biz';
-  const values = categories.map((_, i) => parseInt(document.getElementById(`${prefix}-${i}`).value));
+  const values = categories.map((_, i) => pillValues[`${prefix}-${i}`]);
 
   const canvasId = isLife ? 'chart-wheel-life' : 'chart-wheel-business';
   const resultId = isLife ? 'result-wheel-life' : 'result-wheel-business';
@@ -840,6 +964,175 @@ function downloadChart(canvasId, filename) {
   link.download = `${filename}.png`;
   link.href = canvas.toDataURL('image/png', 1.0);
   link.click();
+}
+
+// ── LIMITING BELIEF WORKSHEET ──
+function wrapText(ctx, text, maxWidth) {
+  const words = text.split(/\s+/).filter(Boolean);
+  const lines = [];
+  let current = '';
+  words.forEach(word => {
+    const test = current ? current + ' ' + word : word;
+    if (ctx.measureText(test).width > maxWidth && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = test;
+    }
+  });
+  if (current) lines.push(current);
+  return lines.length ? lines : [''];
+}
+
+async function drawBeliefWorksheet(canvas, pairs) {
+  await Promise.all([
+    document.fonts.load('italic 500 40px "Cormorant Garamond"'),
+    document.fonts.load('italic 400 15px "Cormorant Garamond"'),
+    document.fonts.load('700 15px "Inter"'),
+    document.fonts.load('italic 400 17px "Inter"'),
+    document.fonts.load('700 18px "Inter"'),
+    document.fonts.load('italic 500 22px "Cormorant Garamond"')
+  ]);
+
+  const W = 760;
+  const padX = 70;
+  const contentWidth = W - padX * 2;
+
+  const measure = document.createElement('canvas').getContext('2d');
+
+  const oldLabelH = 22, oldLineH = 24, gapAfterOld = 10;
+  const arrowH = 34;
+  const newLabelH = 22, newLineH = 26;
+  const blockPadBottom = 34;
+  const numBadgeR = 15;
+
+  let y = 190;
+  const blocks = [];
+  pairs.forEach((pair, i) => {
+    measure.font = 'italic 400 17px "Inter"';
+    const oldLines = wrapText(measure, pair.oldText || '(no answer given)', contentWidth - 40);
+    measure.font = '700 18px "Inter"';
+    const newLines = wrapText(measure, pair.newText || '(no answer given)', contentWidth - 40);
+
+    const blockHeight = oldLabelH + (oldLines.length * oldLineH) + gapAfterOld + arrowH + newLabelH + (newLines.length * newLineH) + blockPadBottom;
+    blocks.push({ oldLines, newLines, blockHeight, startY: y });
+    y += blockHeight;
+  });
+
+  const H = y + 110;
+  const ctx = setupCanvas(canvas, W, H);
+
+  ctx.fillStyle = COLOR.parchment;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = COLOR.deepForest;
+  ctx.font = 'italic 500 40px "Cormorant Garamond"';
+  ctx.fillText('My Belief Shift', W / 2, 70);
+
+  ctx.strokeStyle = COLOR.warmGold;
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(W / 2 - 34, 90);
+  ctx.lineTo(W / 2 + 34, 90);
+  ctx.stroke();
+
+  ctx.font = 'italic 400 15px "Cormorant Garamond"';
+  ctx.fillStyle = COLOR.slateMist;
+  ctx.fillText('Five patterns I am choosing to rewrite', W / 2, 122);
+
+  blocks.forEach((block, i) => {
+    let by = block.startY;
+    const contentX = padX + 40;
+
+    // number badge
+    ctx.beginPath();
+    ctx.arc(padX + numBadgeR, by - 6, numBadgeR, 0, Math.PI * 2);
+    ctx.fillStyle = COLOR.warmGold;
+    ctx.fill();
+    ctx.textAlign = 'center';
+    ctx.font = '700 15px "Inter"';
+    ctx.fillStyle = COLOR.parchment;
+    ctx.fillText(String(i + 1), padX + numBadgeR, by - 1);
+
+    ctx.textAlign = 'left';
+
+    // OLD STORY label
+    ctx.font = '700 12px "Inter"';
+    ctx.fillStyle = '#B8695E';
+    ctx.fillText('OLD STORY', contentX, by - 2);
+    by += oldLabelH;
+
+    ctx.font = 'italic 400 17px "Inter"';
+    ctx.fillStyle = COLOR.slateMist;
+    block.oldLines.forEach(line => {
+      ctx.fillText(line, contentX, by);
+      by += oldLineH;
+    });
+    by += gapAfterOld;
+
+    // arrow
+    ctx.strokeStyle = COLOR.warmGold;
+    ctx.fillStyle = COLOR.warmGold;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(contentX + 6, by);
+    ctx.lineTo(contentX + 6, by + 16);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(contentX, by + 12);
+    ctx.lineTo(contentX + 6, by + 20);
+    ctx.lineTo(contentX + 12, by + 12);
+    ctx.closePath();
+    ctx.fill();
+    by += arrowH;
+
+    // NEW TRUTH label
+    ctx.font = '700 12px "Inter"';
+    ctx.fillStyle = COLOR.warmGold;
+    ctx.fillText('NEW TRUTH', contentX, by - 2);
+    by += newLabelH;
+
+    ctx.font = '700 18px "Inter"';
+    ctx.fillStyle = COLOR.deepForest;
+    block.newLines.forEach(line => {
+      ctx.fillText(line, contentX, by);
+      by += newLineH;
+    });
+
+    // divider
+    if (i < blocks.length - 1) {
+      ctx.strokeStyle = hexToRgba(COLOR.seaGlass, 0.7);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padX, block.startY + block.blockHeight - 16);
+      ctx.lineTo(W - padX, block.startY + block.blockHeight - 16);
+      ctx.stroke();
+    }
+  });
+
+  ctx.textAlign = 'center';
+  ctx.font = 'italic 500 22px "Cormorant Garamond"';
+  ctx.fillStyle = COLOR.warmGold;
+  ctx.fillText('coachkris.co.uk', W / 2, H - 34);
+}
+
+async function generateBeliefWorksheet() {
+  const pairs = [];
+  for (let i = 0; i < 5; i++) {
+    pairs.push({
+      oldText: document.getElementById(`belief-old-${i}`).value.trim(),
+      newText: document.getElementById(`belief-new-${i}`).value.trim()
+    });
+  }
+  if (pairs.every(p => !p.oldText && !p.newText)) {
+    alert('Fill in at least one belief pair to create your worksheet.');
+    return;
+  }
+  document.getElementById('result-belief').classList.add('show');
+  await drawBeliefWorksheet(document.getElementById('chart-belief'), pairs);
+  document.getElementById('result-belief').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // BMI
@@ -880,11 +1173,11 @@ function calculateBMI() {
 
 // Sleep score
 function calculateSleep() {
-  const hours = parseFloat(document.getElementById('sleepHours').value);
-  const wakes = parseFloat(document.getElementById('sleepWakes').value);
-  const energy = parseFloat(document.getElementById('sleepEnergy').value);
-  const fatigue = parseFloat(document.getElementById('sleepFatigue').value);
-  const stress = parseFloat(document.getElementById('sleepStress').value);
+  const hours = pillValues['sleepHours'];
+  const wakes = pillValues['sleepWakes'];
+  const energy = pillValues['sleepEnergy'];
+  const fatigue = pillValues['sleepFatigue'];
+  const stress = pillValues['sleepStress'];
 
   let hoursScore;
   if (hours >= 7 && hours <= 9) hoursScore = 100;
