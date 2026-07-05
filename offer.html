@@ -142,8 +142,15 @@
     .offer-scarcity {
       font-size: 0.85rem;
       color: var(--slate-mist);
+      margin-bottom: 0.4rem;
     }
     .offer-scarcity strong { color: var(--deep-forest); }
+
+    .offer-fineprint {
+      font-size: 0.78rem;
+      color: var(--slate-mist);
+      opacity: 0.85;
+    }
 
     /* ─── DIVIDER ─── */
     .divider {
@@ -201,6 +208,80 @@
     .includes-check svg { width: 13px; height: 13px; }
     .includes-item p { font-size: 0.98rem; }
     .includes-item strong { font-weight: 600; }
+
+    /* ─── QUICK CONTACT FORM ─── */
+    .quick-form-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+    }
+    .quick-form-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+      text-align: center;
+    }
+    .quick-form-title em { font-style: italic; color: var(--warm-gold); }
+    .quick-form-sub {
+      font-size: 0.88rem;
+      color: var(--slate-mist);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .qf-field { margin-bottom: 1.1rem; }
+    .qf-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate-mist);
+      margin-bottom: 0.4rem;
+    }
+    .qf-field input, .qf-field textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--deep-forest);
+      background: var(--parchment);
+      border: 1px solid var(--sand);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      resize: vertical;
+    }
+    .qf-field textarea { min-height: 90px; }
+    .qf-field input:focus, .qf-field textarea:focus {
+      outline: none;
+      border-color: var(--warm-gold);
+    }
+    .qf-submit {
+      width: 100%;
+      background: var(--deep-forest);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .qf-submit:hover { opacity: 0.9; }
+    .qf-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .qf-success {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    .qf-success h4 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .qf-success h4 em { font-style: italic; color: var(--warm-gold); }
+    .qf-success p { font-size: 0.9rem; color: var(--slate-mist); }
 
     /* ─── WHY ME ─── */
     .why-me {
@@ -277,7 +358,6 @@
       box-shadow: 0 8px 24px rgba(28,40,35,0.18);
     }
     .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
-    .cta-center { text-align: center; margin: 2.5rem 0; }
 
     .final-cta {
       text-align: center;
@@ -331,43 +411,70 @@
         <img src="kristian.jpg" width="140" height="140" alt="Kristian Sokol - Life & Longevity Coach" />
       </div>
       <h1 class="offer-headline">Break the Loop <em>in 4 weeks.</em></h1>
-      <p class="offer-sub">Coaching for people who are tired of starting over and ready to build something that lasts &mdash; guided week by week, not left to figure it out alone.</p>
+      <p class="offer-sub">Coaching for people who are tired of starting over and ready to build something that lasts, guided week by week, not left to figure it out alone.</p>
 
-      <a href="onboarding.html" class="offer-price-pill">
+      <a href="#quick-form" class="offer-price-pill">
         <span class="fb-kicker">4-Week Founding Offer</span>
         <span class="fb-cta">Apply Now &rarr;</span>
       </a>
       <p class="offer-scarcity">Just <strong>£100</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
+      <p class="offer-fineprint">One simple payment. No hidden fees.</p>
     </section>
 
     <div class="divider"></div>
 
     <section>
       <p class="section-eyebrow">What You Get</p>
-      <h2 class="section-title">Everything you need. <em>Nothing you don't.</em></h2>
+      <h2 class="section-title">Everything you need.</h2>
       <div class="includes-list">
         <div class="includes-item">
           <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>4x 60-minute 1-on-1 sessions</strong> &mdash; one every week for 4 weeks, phone or video.</p>
+          <p><strong>4x 60-minute 1-on-1 sessions</strong>, one every week for 4 weeks, phone or video.</p>
         </div>
         <div class="includes-item">
           <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Ongoing chat &amp; email support</strong> between sessions &mdash; you're never waiting a week for an answer.</p>
+          <p><strong>Ongoing chat &amp; email support</strong> between sessions, so you're never waiting a week for an answer.</p>
         </div>
         <div class="includes-item">
           <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Access to my private coaching toolkit</strong> &mdash; the same interactive tools I use with clients to map out exactly where you're stuck.</p>
+          <p><strong>Access to my private coaching toolkit</strong>, the same interactive tools I use with clients to map out exactly where you're stuck.</p>
         </div>
         <div class="includes-item">
           <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>A founding-member spot</strong> &mdash; capped at 5 people, kept small so it's actually personal.</p>
+          <p><strong>A founding-member spot</strong>, capped at 5 people, kept small so it's actually personal.</p>
         </div>
       </div>
     </section>
 
-    <div class="cta-center">
-      <a href="onboarding.html" class="cta-btn">Apply Now &rarr;</a>
-    </div>
+    <div class="divider"></div>
+
+    <section id="quick-form">
+      <div class="quick-form-card">
+        <h3 class="quick-form-title">Let's start the <em>conversation.</em></h3>
+        <p class="quick-form-sub">Short and sweet, just tell me a bit about you.</p>
+
+        <form id="qf" onsubmit="return submitQuickForm(event)">
+          <div class="qf-field">
+            <label for="qf-name">Name</label>
+            <input type="text" id="qf-name" placeholder="Your name" required />
+          </div>
+          <div class="qf-field">
+            <label for="qf-email">Email</label>
+            <input type="email" id="qf-email" placeholder="your@email.com" required />
+          </div>
+          <div class="qf-field">
+            <label for="qf-reason">Why coaching, why now?</label>
+            <textarea id="qf-reason" placeholder="A sentence or two is plenty" required></textarea>
+          </div>
+          <button type="submit" class="qf-submit" id="qf-submit-btn">Send</button>
+        </form>
+
+        <div class="qf-success" id="qf-success">
+          <h4>Thanks, <em id="qf-success-name">friend</em>.</h4>
+          <p>I've got your message and I'll be in touch soon.</p>
+        </div>
+      </div>
+    </section>
 
     <div class="divider"></div>
 
@@ -375,13 +482,13 @@
       <p class="section-eyebrow">Why Work With Me</p>
       <h2 class="section-title">From an Irish town of <em>loops</em>, to $300M superyachts.</h2>
       <div class="why-me">
-        <p>I've spent my career seeking discomfort to find comfort &mdash; and helping people break the patterns that keep repeating in their life, business, or health.</p>
+        <p>I've spent my career seeking discomfort to find comfort, helping people break the patterns that keep repeating in their life, business, or health.</p>
         <div class="stat-row">
           <div class="stat"><span class="stat-num">Top 17</span><span class="stat-label">Global Longevity Rank</span></div>
           <div class="stat"><span class="stat-num">30kg</span><span class="stat-label">Body Fat Lost</span></div>
           <div class="stat"><span class="stat-num">18</span><span class="stat-label">Biological Organ Age</span></div>
         </div>
-        <p>No corporate scripts, no cookie-cutter advice &mdash; just what's actually worked, for me and for the people I've coached.</p>
+        <p>No corporate scripts, no cookie-cutter advice, just what's actually worked, for me and for the people I've coached.</p>
       </div>
     </section>
 
@@ -409,9 +516,9 @@
     <div class="divider"></div>
 
     <section class="final-cta">
-      <h3>Only <em>5 founding spots.</em></h3>
-      <p>Once they're gone, this offer closes. Apply now and I'll personally reach out within 24 hours.</p>
-      <a href="onboarding.html" class="cta-btn">Apply Now &rarr;</a>
+      <h3>Are you <em>in?</em></h3>
+      <p>Skip the chatter, fill in the full application below, and dive right in.</p>
+      <a href="onboarding.html" class="cta-btn">Dive Right In &rarr;</a>
     </section>
 
   </div>
@@ -419,6 +526,45 @@
   <footer class="minimal">
     <p>&copy; 2026 Kristian Sokol &middot; <a href="index.html">coachkris.co.uk</a></p>
   </footer>
+
+  <script>
+    async function submitQuickForm(e) {
+      e.preventDefault();
+      var btn = document.getElementById('qf-submit-btn');
+      var name = document.getElementById('qf-name').value.trim();
+      var email = document.getElementById('qf-email').value.trim();
+      var reason = document.getElementById('qf-reason').value.trim();
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        var res = await fetch('https://formspree.io/f/xwvdvbon', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Quick Interest: ' + name,
+            name: name,
+            email: email,
+            message: '=== QUICK INTEREST FORM ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
+          })
+        });
+
+        if (res.ok) {
+          document.getElementById('qf').style.display = 'none';
+          document.getElementById('qf-success').style.display = 'block';
+          document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
+        } else {
+          throw new Error('fail');
+        }
+      } catch (err) {
+        btn.textContent = 'Send';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email me directly.');
+      }
+      return false;
+    }
+  </script>
 
 </body>
 </html>
