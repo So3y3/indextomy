@@ -397,6 +397,37 @@
       color: var(--slate-mist);
     }
 
+    /* ─── ACCREDITATIONS ─── */
+    .accred-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.25rem;
+      padding: 0.5rem 0 0.5rem;
+    }
+    .accred-row img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.92;
+      transition: opacity 0.2s ease;
+    }
+    .accred-row img:hover { opacity: 1; }
+    .footer-accred-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+    .footer-accred-row img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+
     /* ─── CTA BUTTONS ─── */
     .cta-btn {
       display: inline-block;
@@ -514,6 +545,8 @@
     @media (max-width: 480px) {
       nav { padding: 0 1.25rem; }
       .why-me .stat-row { gap: 1.25rem; }
+      .accred-row { gap: 1.5rem; }
+      .accred-row img { height: 40px; }
     }
   </style>
 </head>
@@ -537,11 +570,8 @@
 
     <section class="offer-hero">
       <p class="offer-kicker">Founding Member Offer &middot; 5 Spots Only</p>
-      <div class="offer-photo">
-        <img src="kristian.jpg" width="140" height="140" alt="Kristian Sokol - Life & Longevity Coach" />
-      </div>
       <h1 class="offer-headline">Break the Loop <em>in 4 weeks.</em></h1>
-      <p class="offer-sub">Coaching for people who are tired of starting over and ready to build something that lasts, guided week by week, not left to figure it out alone.</p>
+      <p class="offer-sub">You know that feeling, promising yourself tomorrow will be different, then watching it repeat anyway. You're one step away from changing all of that.</p>
 
       <a href="#quick-form" class="offer-price-pill">
         <span class="fb-kicker">4-Week Founding Offer</span>
@@ -549,31 +579,7 @@
       </a>
       <p class="offer-scarcity">Just <strong>£100</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
       <p class="offer-fineprint">One simple payment. No hidden fees.</p>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">What You Get</p>
-      <h2 class="section-title">Everything you need.</h2>
-      <div class="includes-list">
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>4x 60-minute 1-on-1 sessions</strong>, one every week for 4 weeks, phone or video.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Ongoing chat &amp; email support</strong> between sessions, so you're never waiting a week for an answer.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Access to my private coaching toolkit</strong>, the same interactive tools I use with clients to map out exactly where you're stuck.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>A founding-member spot</strong>, capped at 5 people, kept small so it's actually personal.</p>
-        </div>
-      </div>
+      <p class="offer-fineprint">Nothing to pay today, applying costs you nothing, you'll only pay once your spot is confirmed.</p>
     </section>
 
     <div class="divider"></div>
@@ -609,14 +615,41 @@
     <div class="divider"></div>
 
     <section>
+      <p class="section-eyebrow">What You Get</p>
+      <h2 class="section-title">Everything you need.</h2>
+      <div class="includes-list">
+        <div class="includes-item">
+          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <p><strong>4x 60-minute 1-on-1 sessions</strong>, one every week for 4 weeks, phone or video.</p>
+        </div>
+        <div class="includes-item">
+          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <p><strong>Ongoing chat &amp; email support</strong> between sessions, so you're never waiting a week for an answer.</p>
+        </div>
+        <div class="includes-item">
+          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <p><strong>Access to my private coaching toolkit</strong>, the same interactive tools I use with clients to map out exactly where you're stuck.</p>
+        </div>
+        <div class="includes-item">
+          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+          <p><strong>A founding-member spot</strong>, capped at 5 people, kept small so it's actually personal.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
       <p class="section-eyebrow">Why Work With Me</p>
       <h2 class="section-title">From an Irish town of <em>loops</em>, to $300M superyachts.</h2>
       <div class="why-me">
         <p>I've spent my career seeking discomfort to find comfort, helping people break the patterns that keep repeating in their life, business, or health.</p>
         <div class="stat-row">
           <div class="stat"><span class="stat-num">Top 17</span><span class="stat-label">Global Longevity Rank</span></div>
-          <div class="stat"><span class="stat-num">30kg</span><span class="stat-label">Body Fat Lost</span></div>
           <div class="stat"><span class="stat-num">18</span><span class="stat-label">Biological Organ Age</span></div>
+          <div class="stat"><span class="stat-num">30kg</span><span class="stat-label">Body Fat Lost</span></div>
+          <div class="stat"><span class="stat-num">ADHD</span><span class="stat-label">Diagnosed, Never Slowed Down</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">Businesses Built From Scratch</span></div>
         </div>
         <p>No corporate scripts, no cookie-cutter advice, just what's actually worked, for me and for the people I've coached.</p>
       </div>
@@ -645,6 +678,20 @@
 
     <div class="divider"></div>
 
+    <section>
+      <p class="section-eyebrow">Certified &amp; Accredited</p>
+      <h2 class="section-title">Recognized by the <em>bodies that matter.</em></h2>
+      <div class="accred-row">
+        <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" />
+        <img src="accreditations/nccap.png" alt="National Certification Council for Activity Professionals" loading="lazy" />
+        <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
+        <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
+        <img src="accreditations/icahp.png" alt="ICAHP International Compliance Assurance for Holistic Practitioners" loading="lazy" />
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <section class="final-cta">
       <h3>Are you <em>in?</em></h3>
       <p>Skip the queue. Fill in the full application below and dive right in.</p>
@@ -658,6 +705,13 @@
       <div>
         <p class="footer-brand-name">Kristian Sokol</p>
         <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+        <div class="footer-accred-row">
+          <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" />
+          <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
+          <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
+          <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
+          <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
+        </div>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
