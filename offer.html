@@ -13,7 +13,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
 
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
 
@@ -163,18 +165,6 @@
       max-width: 480px;
       margin: 0 auto 2rem;
     }
-    .offer-tagline {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--deep-forest);
-      margin-bottom: 1rem;
-    }
-    .offer-tagline em {
-      font-style: italic;
-      color: var(--warm-gold);
-      font-weight: 600;
-    }
 
     .offer-price-pill {
       display: inline-flex;
@@ -208,7 +198,6 @@
       font-size: 0.85rem;
       color: var(--slate-mist);
       margin-bottom: 0.4rem;
-      text-align: center;
     }
     .offer-scarcity strong { color: var(--deep-forest); }
 
@@ -216,8 +205,6 @@
       font-size: 0.78rem;
       color: var(--slate-mist);
       opacity: 0.85;
-      text-align: center;
-      margin-top: 1.25rem;
     }
 
     /* ─── DIVIDER ─── */
@@ -288,29 +275,10 @@
     .quick-form-title {
       font-family: var(--font-heading);
       font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.35rem;
       text-align: center;
     }
     .quick-form-title em { font-style: italic; color: var(--warm-gold); }
-    .quick-form-title .scraped-line {
-      display: block;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--slate-mist);
-      text-decoration: line-through;
-      text-decoration-color: var(--slate-mist);
-      text-decoration-thickness: 1.5px;
-      margin-bottom: 0.2rem;
-    }
-    .quick-form-title .day-one-big {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--warm-gold);
-      letter-spacing: 0.02em;
-    }
     .quick-form-sub {
       font-size: 0.88rem;
       color: var(--slate-mist);
@@ -605,22 +573,23 @@
     <section class="offer-hero">
       <p class="offer-kicker">Founding Member Offer &middot; 5 Spots Only</p>
       <h1 class="offer-headline">Break the Loop <em>in 4 weeks.</em></h1>
-      <p class="offer-tagline">One day, or <em>day one.</em> The choice is yours.</p>
       <p class="offer-sub">You know that feeling, promising yourself tomorrow will be different, then watching it repeat anyway. You're one step away from changing all of that.</p>
 
       <a href="#quick-form" class="offer-price-pill">
         <span class="fb-kicker">4-Week Founding Offer</span>
-        <span class="fb-cta">Sign Up &rarr;</span>
+        <span class="fb-cta">Apply Now &rarr;</span>
       </a>
+      <p class="offer-scarcity">Just <strong>£100</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
+      <p class="offer-fineprint">One simple payment. No hidden fees.</p>
+      <p class="offer-fineprint">Nothing to pay today, applying costs you nothing, you'll only pay once your spot is confirmed.</p>
     </section>
+
+    <div class="divider"></div>
 
     <section id="quick-form">
       <div class="quick-form-card">
-        <h3 class="quick-form-title">
-          <span class="scraped-line">One day.</span>
-          <span class="day-one-big">DAY ONE.</span>
-        </h3>
-        <p class="quick-form-sub">You already know something needs to change. Tell me where you're stuck, this is where it starts.</p>
+        <h3 class="quick-form-title">Let's start the <em>conversation.</em></h3>
+        <p class="quick-form-sub">Short and sweet, just tell me a bit about you.</p>
 
         <form id="qf" onsubmit="return submitQuickForm(event)">
           <div class="qf-field">
@@ -643,8 +612,6 @@
           <p>I've got your message and I'll be in touch soon.</p>
         </div>
       </div>
-      <p class="offer-scarcity">Just <strong>£100</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
-      <p class="offer-fineprint">No payment required to sign up. Once picked, I'll send your payment link.</p>
     </section>
 
     <div class="divider"></div>
