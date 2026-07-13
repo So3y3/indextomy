@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website for Counsellors & Therapists | Ranked #1 on Google | Kristian Sokol</title>
+  <meta name="description" content="Custom website for counsellors and psychotherapists — hand-coded, ranked #1 on Google, zero monthly fees. Includes full SEO, brand identity, client acquisition strategy, and 1-on-1 coaching. Very limited spots at £99." />
+  <link rel="canonical" href="https://www.coachkris.co.uk/therapistoffer.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Website for Counsellors & Therapists | Ranked #1 on Google" />
+  <meta property="og:description" content="Custom hand-coded website for counsellors and psychotherapists. Ranked #1 on Google. Zero monthly fees. Full SEO, brand identity, and client acquisition strategy included. Very limited spots at £99." />
+  <meta property="og:url" content="https://www.coachkris.co.uk/counsellingoffer.html" />
+  <meta property="og:image" content="https://www.coachkris.co.uk/kristian.jpg" />
+  <meta property="og:site_name" content="Kristian Sokol Coaching" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Website for Counsellors & Therapists | Ranked #1 on Google" />
+  <meta name="twitter:description" content="Custom hand-coded website for counsellors and psychotherapists. Zero monthly fees. Ranked #1 on Google. Very limited spots at £99." />
+  <meta name="twitter:image" content="https://www.coachkris.co.uk/kristian.jpg" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="website for counsellors, counsellor website design, therapist website, psychotherapist website UK, counselling website SEO, website for therapists Ireland, counsellor branding, private practice website" />
+  <meta name="author" content="Kristian Sokol" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Counsellor Website Package",
+    "description": "Custom hand-coded website for counsellors and psychotherapists. Includes full SEO, brand identity, client acquisition strategy, and coaching on next steps. Zero monthly fees.",
+    "provider": {
+      "@type": "Person",
+      "name": "Kristian Sokol",
+      "url": "https://www.coachkris.co.uk",
+      "jobTitle": "Life, Longevity & Business Coach"
+    },
+    "areaServed": ["United Kingdom", "Ireland", "Northern Ireland"],
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Counsellors, Psychotherapists, Therapists"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "99",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/LimitedAvailability",
+      "url": "https://www.coachkris.co.uk/therapistoffer.html"
+    },
+    "url": "https://www.coachkris.co.uk/therapistoffer.html"
+  }
+  </script>
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3fbd-4e55-a6b0-61da99f1b7ee"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment: #F5F1EA;
+      --deep-forest: #1C2823;
+      --warm-gold: #C69E48;
+      --slate-mist: #7A8A85;
+      --sand: #EBE6DA;
+      --sea-glass: #C1CEC9;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-brand: 'Bebas Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--parchment);
+      color: var(--deep-forest);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    em {
+      color: var(--warm-gold);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+
+    /* ─── NAVIGATION (matches main site) ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(245, 241, 234, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(28,40,35,0.08);
+    }
+    .nav-brand {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--deep-forest); }
+    .nav-cta {
+      background: var(--warm-gold) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--deep-forest);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 110px 1.5rem 5rem;
+    }
+
+    /* ─── HERO ─── */
+    .offer-hero {
+      text-align: center;
+      padding: 1rem 0 2.5rem;
+    }
+    .offer-kicker {
+      font-family: var(--font-brand);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin-bottom: 1.25rem;
+    }
+    .offer-headline {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .offer-tagline {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+    .offer-sub {
+      font-size: 1.05rem;
+      color: var(--slate-mist);
+      max-width: 580px;
+      margin: 0 auto 2rem;
+    }
+    .offer-price-pill {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--warm-gold);
+      border: 2px solid var(--parchment);
+      border-radius: 9999px;
+      padding: 0.95rem 2.5rem 0.9rem;
+      text-decoration: none;
+      line-height: 1.35;
+      box-shadow: 0 8px 26px rgba(28,40,35,0.18);
+      margin-bottom: 1.25rem;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .offer-price-pill:hover { transform: translateY(-2px); opacity: 0.9; }
+    .offer-price-pill .fb-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+    }
+    .offer-price-pill .fb-cta {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--deep-forest);
+    }
+    .offer-scarcity {
+      font-size: 0.85rem;
+      color: var(--slate-mist);
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+    .offer-scarcity strong { color: var(--deep-forest); }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--warm-gold);
+      margin: 3.5rem auto;
+      opacity: 0.5;
+    }
+
+    /* ─── EYEBRONS & TITLES ─── */
+    .section-eyebrow {
+      font-family: var(--font-brand);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* ─── PROBLEM SECTION ─── */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .comparison-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+    }
+    .comparison-card.problem {
+      border-left: 4px solid var(--slate-mist);
+    }
+    .comparison-card.difference {
+      border-left: 4px solid var(--warm-gold);
+    }
+    .comparison-card h4 {
+      font-family: var(--font-brand);
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      color: var(--deep-forest);
+    }
+    .comparison-card.problem h4 {
+      color: var(--slate-mist);
+    }
+    .comparison-card.difference h4 {
+      color: var(--warm-gold);
+    }
+    .comparison-card p {
+      font-size: 0.95rem;
+      color: var(--deep-forest);
+      line-height: 1.6;
+    }
+
+    /* ─── CASE STUDIES ─── */
+    .case-studies-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .case-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 20px;
+      padding: 2.25rem;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+    }
+    .case-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--sand);
+      padding-bottom: 1rem;
+    }
+    .case-eyebrow {
+      font-family: var(--font-brand);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      color: var(--warm-gold);
+    }
+    .case-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+    .case-intro {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .badge {
+      background: var(--parchment);
+      border: 1px solid var(--sand);
+      color: var(--deep-forest);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.highlight {
+      background: var(--warm-gold);
+      color: white;
+      border-color: var(--warm-gold);
+    }
+    .case-callout {
+      border: 1px solid var(--warm-gold);
+      background: rgba(198, 158, 72, 0.05);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .case-callout h5 {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--warm-gold);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .case-callout p {
+      font-size: 0.88rem;
+      color: var(--deep-forest);
+      line-height: 1.5;
+    }
+    .case-features-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate-mist);
+      margin-bottom: 0.75rem;
+    }
+    .case-features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .case-features-list li {
+      font-size: 0.88rem;
+      color: var(--deep-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .case-features-list li::before {
+      content: "•";
+      color: var(--warm-gold);
+      font-weight: bold;
+    }
+
+    /* ─── WHAT'S INCLUDED GRID ─── */
+    .grid-9 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .grid-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+    }
+    .grid-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+    .grid-card h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--deep-forest);
+    }
+    .grid-card p {
+      font-size: 0.8rem;
+      color: var(--slate-mist);
+      line-height: 1.5;
+    }
+
+    /* ─── BEYOND THE WEBSITE ─── */
+    .beyond-card {
+      background: var(--sand);
+      border-radius: 20px;
+      padding: 2.25rem;
+    }
+    .beyond-body {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--deep-forest);
+      margin-bottom: 1.75rem;
+    }
+    .beyond-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .beyond-item {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: 0 2px 12px rgba(28,40,35,0.03);
+    }
+    .beyond-number {
+      font-family: var(--font-brand);
+      font-size: 1.3rem;
+      color: var(--warm-gold);
+      line-height: 1;
+      background: var(--parchment);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .beyond-item-content h4 {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--deep-forest);
+    }
+    .beyond-item-content p {
+      font-size: 0.85rem;
+      color: var(--slate-mist);
+      line-height: 1.5;
+    }
+
+    /* ─── INVESTMENT / PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .pricing-card.featured {
+      border: 2px solid var(--warm-gold);
+      transform: scale(1.03);
+      z-index: 2;
+    }
+    .pricing-card h4 {
+      font-family: var(--font-brand);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--slate-mist);
+      margin-bottom: 0.75rem;
+    }
+    .pricing-card.featured h4 {
+      color: var(--warm-gold);
+    }
+    .price-amt {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .price-amt span {
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      color: var(--slate-mist);
+    }
+    .pricing-card p {
+      font-size: 0.85rem;
+      color: var(--slate-mist);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    .pricing-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slate-mist);
+      margin-top: 1.5rem;
+    }
+
+    /* ─── ACCREDITATIONS ─── */
+    .accred-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.25rem;
+      padding: 0.5rem 0 0.5rem;
+    }
+    .accred-row img {
+      height: 56px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.92;
+      transition: opacity 0.2s ease;
+    }
+    .accred-row img:hover { opacity: 1; }
+
+    /* ─── QUICK CONTACT FORM ─── */
+    .quick-form-card {
+      background: #ffffff;
+      border: 1px solid var(--sand);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(28,40,35,0.05);
+    }
+    .quick-form-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .quick-form-title .scraped-line {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: line-through;
+      text-decoration-color: var(--slate-mist);
+      text-decoration-thickness: 1.5px;
+      margin-bottom: 0.2rem;
+    }
+    .quick-form-title .day-one-big {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--warm-gold);
+      letter-spacing: 0.02em;
+    }
+    .quick-form-sub {
+      font-size: 0.88rem;
+      color: var(--slate-mist);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .qf-field { margin-bottom: 1.25rem; }
+    .qf-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate-mist);
+      margin-bottom: 0.4rem;
+    }
+    .qf-field input, .qf-field textarea, .qf-field select {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--deep-forest);
+      background: var(--parchment);
+      border: 1px solid var(--sand);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      resize: vertical;
+    }
+    .qf-field textarea { min-height: 90px; }
+    .qf-field input:focus, .qf-field textarea:focus, .qf-field select:focus {
+      outline: none;
+      border-color: var(--warm-gold);
+    }
+    .qf-submit {
+      width: 100%;
+      background: var(--deep-forest);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .qf-submit:hover { opacity: 0.9; }
+    .qf-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .qf-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .qf-success h4 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .qf-success p { font-size: 0.95rem; color: var(--slate-mist); }
+
+    /* ─── FOOTER (matches main site) ─── */
+    footer {
+      background: rgba(235,230,218,0.5);
+      border-top: 1px solid var(--sea-glass);
+      padding: 4rem 2rem 2rem;
+      margin-top: 2rem;
+    }
+    .footer-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-size: 0.825rem;
+      color: var(--slate-mist);
+      line-height: 1.6;
+    }
+    .footer-accred-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+    .footer-accred-row img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--deep-forest); }
+    .footer-col p {
+      font-size: 0.875rem;
+      color: var(--slate-mist);
+      line-height: 1.7;
+    }
+    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-social-link:hover { color: var(--deep-forest); }
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sea-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-bottom p {
+      font-size: 0.775rem;
+      color: var(--slate-mist);
+    }
+
+    /* ─── RESPONSIVE STYLES ─── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; left: 0; right: 0;
+        background: rgba(245,241,234,0.97);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--sea-glass);
+        gap: 1.25rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      
+      .comparison-grid, .case-features-list, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .pricing-card.featured {
+        transform: none;
+      }
+      .grid-9 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0 1.25rem; }
+      .grid-9 {
+        grid-template-columns: 1fr;
+      }
+      .accred-row { gap: 1.5rem; }
+      .accred-row img { height: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#story" onclick="closeMenu()">About</a></li>
+      <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+      <li><a href="#quick-form" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrap">
+
+    
+    <section class="offer-hero">
+      <p class="offer-kicker">VERY LIMITED SLOTS · COUNSELLORS &amp; THERAPISTS</p>
+      <h1 class="offer-headline">Your practice deserves a website that <em>works.</em></h1>
+      <p class="offer-tagline">Custom-built. Ranked #1. Zero monthly fees.</p>
+      <p class="offer-sub">Most counsellors are paying £15-50/month for a template that looks like everyone else's. I build you something completely yours — hand-coded, fast, and ranked on Google from day one. Then I help you fill it with the right clients.</p>
+
+      <a href="#quick-form" class="offer-price-pill">
+        <span class="fb-kicker">VERY LIMITED SLOTS · £99</span>
+        <span class="fb-cta">Apply Now &rarr;</span>
+      </a>
+      <p class="offer-scarcity">Only <strong>5 slots</strong> available at this introductory price.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">THE HONEST TRUTH</p>
+      <h2 class="section-title">Wix and Squarespace are <em>costing you clients.</em></h2>
+      
+      <div class="comparison-grid">
+        <div class="comparison-card problem">
+          <h4>THE PROBLEM</h4>
+          <p>Wix, Squarespace, Therapy Directory — you're paying £15-50/month, using the same template as hundreds of other counsellors, with no real SEO. You don't own it. When you stop paying, it disappears.</p>
+        </div>
+        <div class="comparison-card difference">
+          <h4>THE DIFFERENCE</h4>
+          <p>A hand-coded site built specifically for you. Ranked #1 on Google for your specialism and location. Zero monthly fees — ever. You own it completely. One cost, then it works for you forever.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">PROOF</p>
+      <h2 class="section-title">Two projects. Two results. <em>Both ranked #1.</em></h2>
+      
+      <div class="case-studies-stack">
+        
+        <div class="case-card">
+          <div class="case-card-header">
+            <div>
+              <p class="case-eyebrow">PROJECT 01 · MY OWN SITE</p>
+              <h3 class="case-title">CoachKris <em style="font-size:0.85em;opacity:0.7;">(that's me)</em></h3>
+            </div>
+          </div>
+          <p class="case-intro">Certified Life, Longevity &amp; Business Coach — complete digital ecosystem built from scratch, ranked #1 on Google.</p>
+          <a href="https://coachkris.co.uk" target="_blank" rel="noopener" style="display:block;margin:1.25rem 0;text-decoration:none;">
+            <img src="https://api.microlink.io/?url=https://coachkris.co.uk&screenshot=true&meta=false&embed=screenshot.url" alt="CoachKris website screenshot" loading="lazy" style="width:100%;border-radius:10px;border:1px solid var(--sand);box-shadow:0 4px 20px rgba(28,40,35,0.10);" onerror="this.style.display='none'" />
+            <span style="display:inline-block;margin-top:0.5rem;font-size:0.8rem;color:var(--warm-gold);font-family:var(--font-body);">↗ coachkris.co.uk</span>
+          </a>
+          
+          <div class="badge-row">
+            <span class="badge highlight">#1 Ranked on Google</span>
+            <span class="badge">Life · Longevity · Business</span>
+            <span class="badge">ADHD-Aware</span>
+          </div>
+
+          <p class="case-features-title">Key features built:</p>
+          <ul class="case-features-list">
+            <li>4-step onboarding wizard</li>
+            <li>Blog CMS</li>
+            <li>Native booking calendar</li>
+            <li>Newsletter integration</li>
+            <li>Zero platform dependencies</li>
+          </ul>
+        </div>
+
+        
+        <div class="case-card">
+          <div class="case-card-header">
+            <div>
+              <p class="case-eyebrow">PROJECT 02</p>
+              <h3 class="case-title">PeterDonnelly (peterdonnelly.co.uk)</h3>
+            </div>
+          </div>
+          <p class="case-intro">Online Counsellor &amp; Psychotherapist — warm therapeutic brand with built-in contract generator, GDPR compliance, and clinical intake system. Ranked #1 on Google.</p>
+          <a href="https://peterdonnelly.co.uk" target="_blank" rel="noopener" style="display:block;margin:1.25rem 0;text-decoration:none;">
+            <img src="https://api.microlink.io/?url=https://peterdonnelly.co.uk&screenshot=true&meta=false&embed=screenshot.url" alt="PeterDonnelly website screenshot" loading="lazy" style="width:100%;border-radius:10px;border:1px solid var(--sand);box-shadow:0 4px 20px rgba(28,40,35,0.10);" onerror="this.style.display='none'" />
+            <span style="display:inline-block;margin-top:0.5rem;font-size:0.8rem;color:var(--warm-gold);font-family:var(--font-body);">↗ peterdonnelly.co.uk</span>
+          </a>
+          
+          <div class="badge-row">
+            <span class="badge highlight">#1 Ranked on Google</span>
+            <span class="badge">MBACP Accredited</span>
+            <span class="badge">GDPR Compliant</span>
+            <span class="badge">ICO Registered</span>
+          </div>
+
+          <div class="case-callout">
+            <h5>Built-In Contract Generator</h5>
+            <p>Full counselling agreement displayed and signed inside the onboarding. Clients accept with a checkbox. No DocuSign subscription. Zero ongoing cost. Ever.</p>
+          </div>
+
+          <p class="case-features-title">Key features built:</p>
+          <ul class="case-features-list">
+            <li>GDPR by design</li>
+            <li>Clinical health &amp; emergency protocol</li>
+            <li>Cross-border online therapy compliance</li>
+            <li>Lead triage contact system</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">EVERY BUILD INCLUDES</p>
+      <h2 class="section-title">Everything you need. <em>Nothing you don't.</em></h2>
+      
+      <div class="grid-9">
+        <div class="grid-card">
+          <div class="grid-card-icon">✍</div>
+          <h4>Custom HTML/CSS Code</h4>
+          <p>Hand-written from scratch. 100% unique. No templates, no page builders.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">📍</div>
+          <h4>SEO #1 Optimised</h4>
+          <p>Meta tags, schema markup, semantic HTML, clean URLs, fast load. Built to rank from day one.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">📱</div>
+          <h4>Fully Mobile Responsive</h4>
+          <p>Perfect on every screen. Built mobile-first, always.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">📋</div>
+          <h4>Multi-Step Onboarding Funnel</h4>
+          <p>Qualify clients before they reach you. Conditional logic, step-by-step intake.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">✍</div>
+          <h4>Built-In Contract Generator</h4>
+          <p>Clients sign your counselling agreement digitally inside the onboarding. No DocuSign needed.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">🔒</div>
+          <h4>GDPR Compliant by Design</h4>
+          <p>Explicit consent, ICO-registered disclosure, legal terms woven into the client journey.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">📰</div>
+          <h4>Blog with Browser CMS</h4>
+          <p>Write and publish from your browser. No WordPress, no plugins.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">💳</div>
+          <h4>Payment Integration</h4>
+          <p>Stripe or PayPal connected and embedded when you need it.</p>
+        </div>
+        <div class="grid-card">
+          <div class="grid-card-icon">∞</div>
+          <h4>Ongoing Support</h4>
+          <p>Small agreed fee per edit, only when you need it. No retainer.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">BEYOND THE BUILD</p>
+      <h2 class="section-title">A website nobody <em>visits</em> is just a pretty brochure.</h2>
+      
+      <div class="beyond-card">
+        <p class="beyond-body">I don't just hand you a site and disappear. I coach you on the steps that follow — how to find your unique angle as a counsellor, who your ideal clients actually are, and how to position yourself so the right people choose you without you having to chase them.</p>
+        
+        <div class="beyond-list">
+          <div class="beyond-item">
+            <span class="beyond-number">1</span>
+            <div class="beyond-item-content">
+              <h4>Niche &amp; brand identity session</h4>
+              <p>Get clear on exactly who you help and how to articulate it clearly on your site.</p>
+            </div>
+          </div>
+          <div class="beyond-item">
+            <span class="beyond-number">2</span>
+            <div class="beyond-item-content">
+              <h4>Client acquisition strategy</h4>
+              <p>A simple, step-by-step plan to get your first or next private clients without wasting time.</p>
+            </div>
+          </div>
+          <div class="beyond-item">
+            <span class="beyond-number">3</span>
+            <div class="beyond-item-content">
+              <h4>Google Business Profile setup</h4>
+              <p>Optimised setup to ensure you appear prominently in local search results when people look for local support.</p>
+            </div>
+          </div>
+          <div class="beyond-item">
+            <span class="beyond-number">4</span>
+            <div class="beyond-item-content">
+              <h4>Social media content direction</h4>
+              <p>Tailored guidance on what topics to discuss, when to post, and how to build local trust online.</p>
+            </div>
+          </div>
+          <div class="beyond-item">
+            <span class="beyond-number">5</span>
+            <div class="beyond-item-content">
+              <h4>Launch roadmap</h4>
+              <p>A checklist of exactly what to do in the first 30 days after your custom site goes live to kickstart momentum.</p>
+            </div>
+          </div>
+          <div class="beyond-item">
+            <span class="beyond-number">6</span>
+            <div class="beyond-item-content">
+              <h4>Coaching on your next steps</h4>
+              <p>1-on-1 guidance on finding your unique angle, narrowing your niche, and building a referral and marketing strategy that attracts better-matched clients consistently.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">THE FOUNDING OFFER</p>
+      <h2 class="section-title">Transparent. <em>Simple.</em> Fair.</h2>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div>
+            <h4>DOMAIN</h4>
+            <div class="price-amt">from £6<span>/yr</span></div>
+          </div>
+          <p>You own it outright. Renews once a year, the only ongoing cost.</p>
+        </div>
+        <div class="pricing-card featured">
+          <div>
+            <h4>FULL PACKAGE</h4>
+            <div class="price-amt"><s style="font-size:1rem;opacity:0.45;font-family:var(--font-body);font-weight:400;letter-spacing:0;">£449</s> £99<span>one-time</span></div>
+          </div>
+          <p>Website build, full SEO, brand identity, client acquisition strategy, and 1-on-1 coaching on your next steps — including how to find your unique angle and attract better-matched clients. Limited spots remaining.</p>
+        </div>
+        <div class="pricing-card">
+          <div>
+            <h4>ONGOING EDITS</h4>
+            <div class="price-amt">Agreed</div>
+          </div>
+          <p>Small pre-agreed fee per edit. Only when you need it. No retainer.</p>
+        </div>
+      </div>
+      <p class="pricing-note">After the founding offer closes, the full package rate is <strong>£449</strong>. This is your one window in at £99.</p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <p class="section-eyebrow">THE COMPARISON</p>
+      <h2 class="section-title">The honest comparison.</h2>
+      
+      <div class="comparison-grid">
+        <div class="comparison-card problem">
+          <h4>WIX / SQUARESPACE</h4>
+          <p>You'll pay £15-50/month (up to £600/year). Your site uses a template shared with thousands of other therapists. You have zero control over advanced SEO parameters, and you never actually own the site. If you stop paying, it disappears.</p>
+        </div>
+        <div class="comparison-card difference">
+          <h4>THIS PACKAGE</h4>
+          <p>A £99 one-time investment. 100% custom-designed and hand-coded for your specific therapy practice. Optimized to rank #1 on Google. You own everything entirely. Includes business strategy and ongoing client-getting advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section id="quick-form">
+      <div class="quick-form-card">
+        <h3 class="quick-form-title">
+          <span class="scraped-line">One day.</span>
+          <span class="day-one-big">DAY ONE.</span>
+        </h3>
+        
+
+        <form id="qf" action="https://formspree.io/f/xwvdvbon" method="POST">
+          <input type="hidden" name="_subject" value="Counsellor Package Application" />
+          
+          <div class="qf-field">
+            <label for="qf-name">Full Name</label>
+            <input type="text" id="qf-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="qf-field">
+            <label for="qf-email">Email</label>
+            <input type="email" id="qf-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="qf-field">
+            <label for="qf-website">Website URL (Optional)</label>
+            <input type="url" id="qf-website" name="website" placeholder="https://example.com" />
+          </div>
+          <div class="qf-field">
+            <label for="qf-platform">What platform are you currently on?</label>
+            <input type="text" id="qf-platform" name="current_platform" placeholder="Wix, Squarespace, none, etc." required />
+          </div>
+          <div class="qf-field">
+            <label for="qf-challenge">What's the biggest challenge with getting clients right now?</label>
+            <textarea id="qf-challenge" name="challenge" placeholder="Tell me a bit about your current situation..." required></textarea>
+          </div>
+          
+          <button type="submit" class="qf-submit" id="qf-submit-btn">Apply Now &rarr;</button>
+          <p class="pay-methods-note">I'll be in touch within 24 hours. Limited spots remaining.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    
+    <section>
+      <p class="section-eyebrow">Certified &amp; Accredited</p>
+      <h2 class="section-title">Recognised by the <em>bodies that matter.</em></h2>
+      <div class="accred-row">
+        <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+        <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+        <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+        <img src="accreditations/iphm.png" alt="IPHM Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+        <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Kristian Sokol</p>
+        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+        <div class="footer-accred-row">
+          <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
+          <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/iphm.png" alt="IPHM Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#story">About</a></li>
+          <li><a href="index.html#pillars">How I Help</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Find Me</h4>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          NI, UK, ES
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Available worldwide online
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+          <a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware · LGBTQ+ friendly · Zero judgment, always</p>
+    </div>
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Sticky nav
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+  
+  // Mobile menu
+  window.toggleMenu = function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  window.closeMenu = function() {
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // Intercept Formspree submission to display success state
+  var form = document.getElementById('qf');
+  form.addEventListener('submit', function(e) {
+    if (!form.checkValidity()) return;
+    
+    e.preventDefault();
+    
+    var submitBtn = document.getElementById('qf-submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function(value, key){
+      data[key] = value;
+    });
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(function(response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        var successDiv = document.createElement('div');
+        successDiv.className = 'qf-success';
+        successDiv.style.display = 'block';
+        successDiv.innerHTML = '<h4>Application Received, <em>friend</em>.</h4><p>Your details are with me. I will review your application and be in touch within 24 hours.</p>';
+        form.parentNode.appendChild(successDiv);
+      } else {
+        alert('There was an issue submitting your application. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Apply Now →';
+      }
+    })
+    .catch(function(error) {
+      alert('There was a network issue submitting your application. Please try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Apply Now →';
+    });
+  });
+});
+  </script>
+
+</body>
+</html>
