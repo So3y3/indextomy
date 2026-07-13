@@ -1232,12 +1232,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(function(response) {
       if (response.ok) {
-        form.style.display = 'none';
-        var successDiv = document.createElement('div');
-        successDiv.className = 'qf-success';
-        successDiv.style.display = 'block';
-        successDiv.innerHTML = '<h4>Application Received, <em>friend</em>.</h4><p>Your details are with me. I will review your application and be in touch within 24 hours.</p>';
-        form.parentNode.appendChild(successDiv);
+        window.location.href = 'https://buy.stripe.com/eVq4gyenP0fKdT7e6128801';
       } else {
         alert('There was an issue submitting your application. Please try again.');
         submitBtn.disabled = false;
