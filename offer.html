@@ -807,7 +807,7 @@
       document.getElementById('navLinks').classList.remove('open');
     }
 
-    async function handlePayment() {
+    function handlePayment() {
       var name = document.getElementById('qf-name').value.trim();
       var email = document.getElementById('qf-email').value.trim();
       var reason = document.getElementById('qf-reason').value.trim();
@@ -817,30 +817,29 @@
         return;
       }
 
+      // Open Stripe immediately — must happen synchronously in the click handler
+      // so the browser doesn't block it as a popup
+      var stripeWin = window.open('https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800', '_blank');
+
+      // Show confirmation state
       var btn = document.getElementById('qf-submit-btn');
       btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      try {
-        await fetch('https://formspree.io/f/xwvdvbon', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            _subject: 'Founding Member Purchase: ' + name,
-            name: name,
-            email: email,
-            message: '=== FOUNDING MEMBER PURCHASE ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
-          })
-        });
-      } catch(err) { /* proceed silently */ }
-
+      btn.textContent = 'Opening Stripe…';
       document.getElementById('qf').style.display = 'none';
       document.getElementById('qf-success').style.display = 'block';
       document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
 
-      setTimeout(function() {
-        window.open('https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800', '_blank');
-      }, 800);
+      // Fire Formspree in the background (non-blocking)
+      fetch('https://formspree.io/f/xwvdvbon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Founding Member Purchase: ' + name,
+          name: name,
+          email: email,
+          message: '=== FOUNDING MEMBER PURCHASE ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
+        })
+      }).catch(function() {});
     }
 
   </script>
