@@ -13,9 +13,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Inter:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
 
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
 
@@ -899,7 +898,8 @@
   </footer>
 
   <script>
-    // Sticky nav
+document.addEventListener("DOMContentLoaded",function(){
+// Sticky nav
     var navbar = document.getElementById('navbar');
     window.addEventListener('scroll', function() {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
@@ -1098,7 +1098,8 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closePillar();
   });
-  </script>
+});
+</script>
 
 </body>
 </html>
