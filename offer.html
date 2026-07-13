@@ -584,6 +584,55 @@
       .accred-row { gap: 1.5rem; }
       .accred-row img { height: 40px; }
     }
+
+    /* ─── BUY NOW BUTTON ─── */
+    .hero-btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .buy-now-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--warm-gold);
+      color: var(--deep-forest);
+      border-radius: 9999px;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(198,158,72,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-width: 240px;
+    }
+    .buy-now-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(198,158,72,0.45);
+    }
+    .buy-now-label {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .buy-now-sub {
+      font-size: 0.7rem;
+      font-weight: 500;
+      opacity: 0.75;
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (min-width: 640px) {
+      .hero-btn-group {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -610,10 +659,16 @@
       <p class="offer-tagline">One day, or <em>day one.</em> The choice is yours.</p>
       <p class="offer-sub">You know that feeling, promising yourself tomorrow will be different, then watching it repeat anyway. You're one step away from changing all of that.</p>
 
-      <a href="#quick-form" class="offer-price-pill">
-        <span class="fb-kicker">4-Week Founding Offer</span>
-        <span class="fb-cta">Sign Up &rarr;</span>
-      </a>
+      <div class="hero-btn-group">
+        <a href="https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800" target="_blank" rel="noopener" class="buy-now-btn">
+          <span class="buy-now-label">Buy Now &middot; £99</span>
+          <span class="buy-now-sub">Card &middot; Apple Pay &middot; Google Pay</span>
+        </a>
+        <a href="#quick-form" class="offer-price-pill">
+          <span class="fb-kicker">Questions first?</span>
+          <span class="fb-cta">Message me &rarr;</span>
+        </a>
+      </div>
     </section>
 
     <section id="quick-form">
@@ -645,7 +700,7 @@
           <p>I've got your message and I'll be in touch soon.</p>
         </div>
       </div>
-      <p class="offer-scarcity">Just <strong>£100</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
+      <p class="offer-scarcity">Just <strong>£99</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
       <p class="offer-fineprint">No payment required to sign up. Once picked, I'll send your payment link.</p>
     </section>
 
@@ -732,7 +787,14 @@
     <section class="final-cta">
       <h3>Are you <em>in?</em></h3>
       <p>Skip the queue. Fill in the full application below and dive right in.</p>
-      <a href="onboarding.html" class="cta-btn">Dive Right In &rarr;</a>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <a href="https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800" target="_blank" rel="noopener" class="cta-btn" style="background:var(--warm-gold);color:var(--deep-forest);font-size:1.05rem;padding:1.1rem 2.8rem;">
+          Buy Now &middot; £99 &rarr;
+        </a>
+        <a href="onboarding.html" class="cta-btn" style="background:transparent;border:1.5px solid var(--sea-glass);color:var(--parchment);font-size:0.85rem;padding:0.7rem 2rem;box-shadow:none;">
+          Prefer to apply first &rarr;
+        </a>
+      </div>
     </section>
 
   </div>
