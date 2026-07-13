@@ -672,6 +672,16 @@
     }
     .pillar-mini[onclick] { transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .pillar-mini[onclick]:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(28,40,35,0.12); }
+    .pillar-mini-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.6rem;
+      line-height: 1;
+    }
+    @media (max-width: 600px) {
+      .pillars-mini {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -788,14 +798,17 @@
       <h2 class="section-title">Wherever you're <em>stuck</em>, we'll find it.</h2>
       <div class="pillars-mini">
         <div class="pillar-mini" onclick="openPillar('life')" style="cursor:pointer;" title="Read more">
+          <div class="pillar-mini-icon">☀️</div>
           <h4>Life <span style="font-size:0.75rem;opacity:0.6;">↗</span></h4>
           <p>Habits, identity, and the patterns holding you back.</p>
         </div>
         <div class="pillar-mini" onclick="openPillar('longevity')" style="cursor:pointer;" title="Read more">
+          <div class="pillar-mini-icon">🌱</div>
           <h4>Longevity <span style="font-size:0.75rem;opacity:0.6;">↗</span></h4>
           <p>Body, brain, and energy built to last.</p>
         </div>
         <div class="pillar-mini" onclick="openPillar('business')" style="cursor:pointer;" title="Read more">
+          <div class="pillar-mini-icon">📈</div>
           <h4>Business <span style="font-size:0.75rem;opacity:0.6;">↗</span></h4>
           <p>Strategy and direction when you're stuck between ideas.</p>
         </div>
@@ -1023,7 +1036,7 @@
 <p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to find out what your body, brain and core are really capable of? The first call is free and there is no pressure, just an honest conversation.</p>
 `
     },
-    project: {
+    business: {
       label: 'Pillar Three',
       title: 'Business Coaching',
       subtitle: 'The Strategy',
