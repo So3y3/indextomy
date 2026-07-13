@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4-Week Founding Offer | Kristian Sokol Coaching</title>
-  <meta name="description" content="5 founding spots. 4 weekly 1-on-1 sessions, ongoing support, and access to my private coaching toolkit. £100." />
+  <title>Free 4-Week Founding Coaching | Kristian Sokol</title>
+  <meta name="description" content="Limited coaching spots. 4 weekly 1-on-1 sessions, ongoing support, and access to my private coaching toolkit. £99 for the full 4 weeks." />
   <link rel="canonical" href="https://www.coachkris.co.uk/offer.html" />
   <meta name="robots" content="noindex, nofollow" />
 
@@ -585,97 +585,7 @@
       .accred-row img { height: 40px; }
     }
 
-    /* ─── BUY NOW BUTTON ─── */
-    .hero-btn-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .buy-now-btn {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      background: var(--warm-gold);
-      color: var(--deep-forest);
-      border-radius: 9999px;
-      padding: 1rem 2.5rem;
-      text-decoration: none;
-      box-shadow: 0 8px 28px rgba(198,158,72,0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-width: 240px;
-    }
-    .buy-now-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(198,158,72,0.45);
-    }
-    .buy-now-label {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    .buy-now-sub {
-      font-size: 0.7rem;
-      font-weight: 500;
-      opacity: 0.75;
-      margin-top: 0.2rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    @media (min-width: 640px) {
-      .hero-btn-group {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-
-    /* ─── PAY BUTTON ─── */
-    .pay-btn {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: var(--warm-gold);
-      color: var(--deep-forest);
-      border: none;
-      border-radius: 9999px;
-      padding: 1.15rem 2rem;
-      cursor: pointer;
-      box-shadow: 0 8px 28px rgba(198,158,72,0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      margin-top: 1.5rem;
-    }
-    .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(198,158,72,0.5); }
-    .pay-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-    .pay-btn-main {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    .pay-btn-methods {
-      font-size: 0.68rem;
-      font-weight: 500;
-      opacity: 0.7;
-      margin-top: 0.3rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .hero-scroll-btn {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-    }
-
-
-    .pay-methods-line {
+    .pay-methods-note {
       text-align: center;
       font-size: 0.7rem;
       color: var(--slate-mist);
@@ -705,14 +615,14 @@
   <div class="wrap">
 
     <section class="offer-hero">
-      <p class="offer-kicker">Founding Member Offer &middot; 5 Spots Only</p>
+      <p class="offer-kicker">4-Week Coaching Offer &middot; Limited Spots</p>
       <h1 class="offer-headline">Break the Loop <em>in 4 weeks.</em></h1>
       <p class="offer-tagline">One day, or <em>day one.</em> The choice is yours.</p>
       <p class="offer-sub">You know that feeling, promising yourself tomorrow will be different, then watching it repeat anyway. You're one step away from changing all of that.</p>
 
-      <a href="#quick-form" class="buy-now-btn hero-scroll-btn">
-        <span class="buy-now-label">Buy Now &middot; £99</span>
-        <span class="buy-now-sub">Debit &middot; Credit &middot; Apple Pay &middot; Google Pay &middot; Klarna</span>
+      <a href="#quick-form" class="offer-price-pill">
+        <span class="fb-kicker">4-Week Coaching Program &middot; £99</span>
+        <span class="fb-cta">Buy Now &rarr;</span>
       </a>
     </section>
 
@@ -722,36 +632,33 @@
           <span class="scraped-line">One day.</span>
           <span class="day-one-big">DAY ONE.</span>
         </h3>
-        <p class="quick-form-sub">Fill in your details, hit the button. Your message comes straight to me, Stripe opens to complete the payment.</p>
+        <p class="quick-form-sub">You already know something needs to change. Tell me where you're stuck, this is where it starts.</p>
 
-        <div id="qf-form-wrap">
+        <div id="qf">
           <div class="qf-field">
-            <label for="qf-name">Your Name</label>
-            <input type="text" id="qf-name" placeholder="Your name" />
+            <label for="qf-name">Name</label>
+            <input type="text" id="qf-name" placeholder="Your name" required />
           </div>
           <div class="qf-field">
-            <label for="qf-email">Email Address</label>
-            <input type="email" id="qf-email" placeholder="your@email.com" />
+            <label for="qf-email">Email</label>
+            <input type="email" id="qf-email" placeholder="your@email.com" required />
           </div>
           <div class="qf-field">
             <label for="qf-reason">Why coaching, why now?</label>
-            <textarea id="qf-reason" placeholder="A sentence or two is plenty"></textarea>
+            <textarea id="qf-reason" placeholder="A sentence or two is plenty" required></textarea>
           </div>
-
-          <button type="button" class="pay-btn" id="pay-btn" onclick="handlePayment()">Buy Now &middot; £99</button>
-          <p class="pay-methods-line">Debit &middot; Credit &middot; Apple Pay &middot; Google Pay &middot; Klarna</p>
+          <button type="button" class="qf-submit" id="qf-submit-btn" onclick="handlePayment()">Buy Now &middot; £99</button>
+          <p class="pay-methods-note">Debit &middot; Credit &middot; Apple Pay &middot; Google Pay &middot; Klarna</p>
         </div>
 
-        <div class="qf-success" id="qf-success" style="display:none;">
-          <div style="font-size:2rem;margin-bottom:0.75rem;">&#x2705;</div>
+        <div class="qf-success" id="qf-success">
           <h4>On your way, <em id="qf-success-name">friend</em>.</h4>
-          <p>Message sent. Stripe is opening now to complete your payment.</p>
+          <p>Your details are with me. Stripe is opening to complete your payment now.</p>
         </div>
       </div>
-      <p class="offer-scarcity">5 founding spots only &middot; phone or video &middot; any timezone</p>
+      <p class="offer-scarcity"><strong>£99</strong> for the full 4 weeks &middot; limited spots available</p>
+      <p class="offer-fineprint">Secure payment via Stripe. Once payment is confirmed, I'll be in touch to book your first session.</p>
     </section>
-
-  </div>
 
     <div class="divider"></div>
 
@@ -831,84 +738,12 @@
       </div>
     </section>
 
-  </div>
-
-  <footer>lass="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">What You Get</p>
-      <h2 class="section-title">Everything you need.</h2>
-      <div class="includes-list">
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>4x 60-minute 1-on-1 sessions</strong>, one every week for 4 weeks, phone or video.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Ongoing chat &amp; email support</strong> between sessions, so you're never waiting a week for an answer.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Access to my private coaching toolkit</strong>, the same interactive tools I use with clients to map out exactly where you're stuck.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>A founding-member spot</strong>, capped at 5 people, kept small so it's actually personal.</p>
-        </div>
-      </div>
-    </section>
-
     <div class="divider"></div>
 
-    <section>
-      <p class="section-eyebrow">Why Work With Me</p>
-      <h2 class="section-title">From an Irish town of <em>loops</em>, to $300M superyachts.</h2>
-      <div class="why-me">
-        <p>I've spent my career seeking discomfort to find comfort, helping people break the patterns that keep repeating in their life, business, or health.</p>
-        <div class="stat-row">
-          <div class="stat"><span class="stat-num">Top 17</span><span class="stat-label">Global Longevity Rank</span></div>
-          <div class="stat"><span class="stat-num">18</span><span class="stat-label">Biological Organ Age</span></div>
-          <div class="stat"><span class="stat-num">30kg</span><span class="stat-label">Body Fat Lost</span></div>
-          <div class="stat"><span class="stat-num">ADHD</span><span class="stat-label">Diagnosed, Never Slowed Down</span></div>
-          <div class="stat"><span class="stat-num">3</span><span class="stat-label">Businesses Built From Scratch</span></div>
-        </div>
-        <p>No corporate scripts, no cookie-cutter advice, just what's actually worked, for me and for the people I've coached.</p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">Coaching Pillars</p>
-      <h2 class="section-title">Wherever you're <em>stuck</em>, we'll find it.</h2>
-      <div class="pillars-mini">
-        <div class="pillar-mini">
-          <h4>Life</h4>
-          <p>Habits, identity, and the patterns holding you back.</p>
-        </div>
-        <div class="pillar-mini">
-          <h4>Longevity</h4>
-          <p>Body, brain, and energy built to last.</p>
-        </div>
-        <div class="pillar-mini">
-          <h4>Business</h4>
-          <p>Strategy and direction when you're stuck between ideas.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">Certified &amp; Accredited</p>
-      <h2 class="section-title">Recognized by the <em>bodies that matter.</em></h2>
-      <div class="accred-row">
-        <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" />
-        <img src="accreditations/nccap.png" alt="National Certification Council for Activity Professionals" loading="lazy" />
-        <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
-        <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
-        <img src="accreditations/icahp.png" alt="ICAHP International Compliance Assurance for Holistic Practitioners" loading="lazy" />
-      </div>
+    <section class="final-cta">
+      <h3>Are you <em>in?</em></h3>
+      <p>Skip the queue. Fill in the full application below and dive right in.</p>
+      <a href="#quick-form" class="cta-btn">Buy Now &middot; £99 &rarr;</a>
     </section>
 
   </div>
@@ -982,9 +817,9 @@
         return;
       }
 
-      var btn = document.getElementById('pay-btn');
+      var btn = document.getElementById('qf-submit-btn');
       btn.disabled = true;
-      btn.querySelector('.pay-btn-main').textContent = 'Sending…';
+      btn.textContent = 'Sending…';
 
       try {
         await fetch('https://formspree.io/f/xwvdvbon', {
@@ -999,7 +834,7 @@
         });
       } catch(err) { /* proceed silently */ }
 
-      document.getElementById('qf-form-wrap').style.display = 'none';
+      document.getElementById('qf').style.display = 'none';
       document.getElementById('qf-success').style.display = 'block';
       document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
 
