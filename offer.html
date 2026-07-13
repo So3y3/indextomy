@@ -633,6 +633,47 @@
       }
     }
 
+
+    /* ─── PAY BUTTON ─── */
+    .pay-btn {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--warm-gold);
+      color: var(--deep-forest);
+      border: none;
+      border-radius: 9999px;
+      padding: 1.15rem 2rem;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(198,158,72,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 1.5rem;
+    }
+    .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(198,158,72,0.5); }
+    .pay-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    .pay-btn-main {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .pay-btn-methods {
+      font-size: 0.68rem;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+    }
+
   </style>
 </head>
 <body>
@@ -659,16 +700,10 @@
       <p class="offer-tagline">One day, or <em>day one.</em> The choice is yours.</p>
       <p class="offer-sub">You know that feeling, promising yourself tomorrow will be different, then watching it repeat anyway. You're one step away from changing all of that.</p>
 
-      <div class="hero-btn-group">
-        <a href="https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800" target="_blank" rel="noopener" class="buy-now-btn">
-          <span class="buy-now-label">Buy Now &middot; £99</span>
-          <span class="buy-now-sub">Card &middot; Apple Pay &middot; Google Pay</span>
-        </a>
-        <a href="#quick-form" class="offer-price-pill">
-          <span class="fb-kicker">Questions first?</span>
-          <span class="fb-cta">Message me &rarr;</span>
-        </a>
-      </div>
+      <a href="#quick-form" class="buy-now-btn hero-scroll-btn">
+        <span class="buy-now-label">Buy Now &middot; £99</span>
+        <span class="buy-now-sub">Debit &middot; Credit &middot; Apple Pay &middot; Google Pay &middot; Klarna</span>
+      </a>
     </section>
 
     <section id="quick-form">
@@ -677,124 +712,35 @@
           <span class="scraped-line">One day.</span>
           <span class="day-one-big">DAY ONE.</span>
         </h3>
-        <p class="quick-form-sub">You already know something needs to change. Tell me where you're stuck, this is where it starts.</p>
+        <p class="quick-form-sub">Fill in your details, hit the button. Your message comes straight to me, Stripe opens to complete the payment.</p>
 
-        <form id="qf" onsubmit="return submitQuickForm(event)">
+        <div id="qf-form-wrap">
           <div class="qf-field">
-            <label for="qf-name">Name</label>
-            <input type="text" id="qf-name" placeholder="Your name" required />
+            <label for="qf-name">Your Name</label>
+            <input type="text" id="qf-name" placeholder="Your name" />
           </div>
           <div class="qf-field">
-            <label for="qf-email">Email</label>
-            <input type="email" id="qf-email" placeholder="your@email.com" required />
+            <label for="qf-email">Email Address</label>
+            <input type="email" id="qf-email" placeholder="your@email.com" />
           </div>
           <div class="qf-field">
             <label for="qf-reason">Why coaching, why now?</label>
-            <textarea id="qf-reason" placeholder="A sentence or two is plenty" required></textarea>
+            <textarea id="qf-reason" placeholder="A sentence or two is plenty"></textarea>
           </div>
-          <button type="submit" class="qf-submit" id="qf-submit-btn">Send</button>
-        </form>
 
-        <div class="qf-success" id="qf-success">
-          <h4>Thanks, <em id="qf-success-name">friend</em>.</h4>
-          <p>I've got your message and I'll be in touch soon.</p>
+          <button type="button" class="pay-btn" id="pay-btn" onclick="handlePayment()">
+            <span class="pay-btn-main">Buy Now &middot; £99</span>
+            <span class="pay-btn-methods">Debit &middot; Credit &middot; Apple Pay &middot; Google Pay &middot; Klarna</span>
+          </button>
+        </div>
+
+        <div class="qf-success" id="qf-success" style="display:none;">
+          <div style="font-size:2rem;margin-bottom:0.75rem;">&#x2705;</div>
+          <h4>On your way, <em id="qf-success-name">friend</em>.</h4>
+          <p>Message sent. Stripe is opening now to complete your payment.</p>
         </div>
       </div>
-      <p class="offer-scarcity">Just <strong>£99</strong> for the full 4 weeks &middot; only 5 founding spots available</p>
-      <p class="offer-fineprint">No payment required to sign up. Once picked, I'll send your payment link.</p>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">What You Get</p>
-      <h2 class="section-title">Everything you need.</h2>
-      <div class="includes-list">
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>4x 60-minute 1-on-1 sessions</strong>, one every week for 4 weeks, phone or video.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Ongoing chat &amp; email support</strong> between sessions, so you're never waiting a week for an answer.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>Access to my private coaching toolkit</strong>, the same interactive tools I use with clients to map out exactly where you're stuck.</p>
-        </div>
-        <div class="includes-item">
-          <span class="includes-check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-          <p><strong>A founding-member spot</strong>, capped at 5 people, kept small so it's actually personal.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">Why Work With Me</p>
-      <h2 class="section-title">From an Irish town of <em>loops</em>, to $300M superyachts.</h2>
-      <div class="why-me">
-        <p>I've spent my career seeking discomfort to find comfort, helping people break the patterns that keep repeating in their life, business, or health.</p>
-        <div class="stat-row">
-          <div class="stat"><span class="stat-num">Top 17</span><span class="stat-label">Global Longevity Rank</span></div>
-          <div class="stat"><span class="stat-num">18</span><span class="stat-label">Biological Organ Age</span></div>
-          <div class="stat"><span class="stat-num">30kg</span><span class="stat-label">Body Fat Lost</span></div>
-          <div class="stat"><span class="stat-num">ADHD</span><span class="stat-label">Diagnosed, Never Slowed Down</span></div>
-          <div class="stat"><span class="stat-num">3</span><span class="stat-label">Businesses Built From Scratch</span></div>
-        </div>
-        <p>No corporate scripts, no cookie-cutter advice, just what's actually worked, for me and for the people I've coached.</p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">Coaching Pillars</p>
-      <h2 class="section-title">Wherever you're <em>stuck</em>, we'll find it.</h2>
-      <div class="pillars-mini">
-        <div class="pillar-mini">
-          <h4>Life</h4>
-          <p>Habits, identity, and the patterns holding you back.</p>
-        </div>
-        <div class="pillar-mini">
-          <h4>Longevity</h4>
-          <p>Body, brain, and energy built to last.</p>
-        </div>
-        <div class="pillar-mini">
-          <h4>Business</h4>
-          <p>Strategy and direction when you're stuck between ideas.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section>
-      <p class="section-eyebrow">Certified &amp; Accredited</p>
-      <h2 class="section-title">Recognized by the <em>bodies that matter.</em></h2>
-      <div class="accred-row">
-        <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" />
-        <img src="accreditations/nccap.png" alt="National Certification Council for Activity Professionals" loading="lazy" />
-        <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
-        <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
-        <img src="accreditations/icahp.png" alt="ICAHP International Compliance Assurance for Holistic Practitioners" loading="lazy" />
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section class="final-cta">
-      <h3>Are you <em>in?</em></h3>
-      <p>Skip the queue. Fill in the full application below and dive right in.</p>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
-        <a href="https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800" target="_blank" rel="noopener" class="cta-btn" style="background:var(--warm-gold);color:var(--deep-forest);font-size:1.05rem;padding:1.1rem 2.8rem;">
-          Buy Now &middot; £99 &rarr;
-        </a>
-        <a href="onboarding.html" class="cta-btn" style="background:transparent;border:1.5px solid var(--sea-glass);color:var(--parchment);font-size:0.85rem;padding:0.7rem 2rem;box-shadow:none;">
-          Prefer to apply first &rarr;
-        </a>
-      </div>
+      <p class="offer-scarcity">5 founding spots only &middot; phone or video &middot; any timezone</p>
     </section>
 
   </div>
@@ -858,42 +804,42 @@
       document.getElementById('navLinks').classList.remove('open');
     }
 
-    async function submitQuickForm(e) {
-      e.preventDefault();
-      var btn = document.getElementById('qf-submit-btn');
+    async function handlePayment() {
       var name = document.getElementById('qf-name').value.trim();
       var email = document.getElementById('qf-email').value.trim();
       var reason = document.getElementById('qf-reason').value.trim();
 
-      btn.textContent = 'Sending...';
+      if (!name || !email || !reason) {
+        alert('Please fill in all three fields before continuing.');
+        return;
+      }
+
+      var btn = document.getElementById('pay-btn');
       btn.disabled = true;
+      btn.querySelector('.pay-btn-main').textContent = 'Sending…';
 
       try {
-        var res = await fetch('https://formspree.io/f/xwvdvbon', {
+        await fetch('https://formspree.io/f/xwvdvbon', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
-            _subject: 'Quick Interest: ' + name,
+            _subject: 'Founding Member Purchase: ' + name,
             name: name,
             email: email,
-            message: '=== QUICK INTEREST FORM ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
+            message: '=== FOUNDING MEMBER PURCHASE ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
           })
         });
+      } catch(err) { /* proceed silently */ }
 
-        if (res.ok) {
-          document.getElementById('qf').style.display = 'none';
-          document.getElementById('qf-success').style.display = 'block';
-          document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
-        } else {
-          throw new Error('fail');
-        }
-      } catch (err) {
-        btn.textContent = 'Send';
-        btn.disabled = false;
-        alert('Something went wrong. Please try again or email me directly.');
-      }
-      return false;
+      document.getElementById('qf-form-wrap').style.display = 'none';
+      document.getElementById('qf-success').style.display = 'block';
+      document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
+
+      setTimeout(function() {
+        window.open('https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800', '_blank');
+      }, 800);
     }
+
   </script>
 
 </body>
