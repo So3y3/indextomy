@@ -809,7 +809,7 @@
         <span class="fb-kicker">VERY LIMITED SLOTS · £99</span>
         <span class="fb-cta">Sign Up &amp; Pay &rarr;</span>
       </a>
-      <p class="offer-scarcity"><strong>Very limited slots remaining.</strong> Only <strong>5 slots</strong> available at this introductory price.</p>
+      <p class="offer-scarcity"><strong>Very limited slots remaining.</strong> After this founding offer closes, the full rate is £449. Only <strong>5 slots</strong> available at this introductory price.</p>
     </section>
 
     <div class="divider"></div>
@@ -913,6 +913,7 @@
         <span style="font-size:1.2rem;font-weight:700;color:var(--deep-forest);font-family:var(--font-body);">Sign Up &amp; Pay &rarr;</span>
       </a>
       <p style="margin-top:0.75rem;font-size:0.82rem;color:var(--slate-mist);">Stripe secured &middot; One-time payment &middot; No monthly fees</p>
+      <p style="margin-top:0.5rem;font-size:0.82rem;color:var(--slate-mist);">After this founding offer closes, the full package rate is <strong style="color:var(--deep-forest);">£449</strong>. This is your one window in at £99.</p>
     </div>
 
     <div class="divider"></div>
@@ -1093,7 +1094,6 @@
       <div class="quick-form-card">
         <h3 class="quick-form-title">
           <span class="scraped-line">Very limited slots.</span>
-          <span class="day-one-big">APPLY NOW.</span>
         </h3>
         
 
@@ -1214,7 +1214,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var submitBtn = document.getElementById('qf-submit-btn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Submitting...';
+    submitBtn.textContent = 'Redirecting to payment...';
 
     var formData = new FormData(form);
     var data = {};
@@ -1241,13 +1241,13 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         alert('There was an issue submitting your application. Please try again.');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Apply Now →';
+        submitBtn.textContent = 'Sign Up & Pay →';
       }
     })
     .catch(function(error) {
       alert('There was a network issue submitting your application. Please try again.');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Apply Now →';
+      submitBtn.textContent = 'Sign Up & Pay →';
     });
   });
 });
