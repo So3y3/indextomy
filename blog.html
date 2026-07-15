@@ -3891,10 +3891,33 @@ function shareArticle(e, postId) {
       a.href = '#';
       a.addEventListener('click', ev => {
         ev.preventDefault();
-        navigator.clipboard.writeText(pageUrl).then(() => {
-          a.querySelector('span').textContent = 'Copied!';
-          setTimeout(() => { a.querySelector('span').textContent = 'Copy link'; }, 1800);
-        });
+        const label = a.querySelector('span');
+        function showCopied() {
+          label.textContent = 'Copied!';
+          setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pageUrl).then(showCopied).catch(() => {
+            // fallback
+            const ta = document.createElement('textarea');
+            ta.value = pageUrl;
+            ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+            document.body.appendChild(ta);
+            ta.focus(); ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            showCopied();
+          });
+        } else {
+          const ta = document.createElement('textarea');
+          ta.value = pageUrl;
+          ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+          document.body.appendChild(ta);
+          ta.focus(); ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showCopied();
+        }
       });
     }
     a.innerHTML = n.icon + `<span>${n.name}</span>`;
