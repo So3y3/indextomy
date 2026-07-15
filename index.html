@@ -248,6 +248,25 @@
       color: var(--deep-forest);
     }
 
+
+    .hero-offer-pair {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .hero-founding-banner--teal {
+      background: var(--deep-forest);
+      border-color: var(--warm-gold);
+    }
+    .hero-founding-banner--teal .fb-kicker,
+    .hero-founding-banner--teal .fb-cta {
+      color: var(--warm-gold);
+    }
+    @media (max-width: 480px) {
+      .hero-offer-pair { flex-direction: column; align-items: center; }
+    }
     .hero-buttons {
       display: flex;
       gap: 1rem;
@@ -1060,10 +1079,16 @@
       Coaching for people who are tired of starting over and ready to build something that lasts.
     </p>
 
-    <a href="offer.html" class="hero-founding-banner reveal reveal-delay-4">
-      <span class="fb-kicker">4-Week Founding Offer</span>
-      <span class="fb-cta">Apply Now &rarr;</span>
-    </a>
+    <div class="hero-offer-pair reveal reveal-delay-4">
+      <a href="offer.html" class="hero-founding-banner">
+        <span class="fb-kicker">Personal Coaching Offer</span>
+        <span class="fb-cta">Apply Now &rarr;</span>
+      </a>
+      <a href="therapistoffer.html" class="hero-founding-banner hero-founding-banner--teal">
+        <span class="fb-kicker">For Counsellors &amp; Therapists</span>
+        <span class="fb-cta">See the Offer &rarr;</span>
+      </a>
+    </div>
 
     <div class="hero-buttons reveal reveal-delay-4">
       <a href="#contact" class="btn-primary">Book a Free Session</a>
