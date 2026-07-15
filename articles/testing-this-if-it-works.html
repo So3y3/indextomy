@@ -58,7 +58,179 @@ footer{background:var(--deep-forest);color:rgba(255,255,255,0.5);text-align:cent
 footer a{color:rgba(255,255,255,0.6)}
 footer a:hover{color:var(--warm-gold)}
 @media(max-width:600px){.article-wrap{padding:5rem 1.25rem 3rem}h1.article-title{font-size:2rem}}
-</style>
+
+    /* ── NAV + FOOTER (synced from index.html) ── */
+    .nav-brand {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--deep-forest); }
+
+    .nav-cta {
+      background: var(--warm-gold) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85 !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--deep-forest);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: rgba(235,230,218,0.5);
+      border-top: 1px solid var(--sea-glass);
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.825rem;
+      color: var(--slate-mist);
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--deep-forest); }
+
+    .footer-col p {
+      font-size: 0.875rem;
+      color: var(--slate-mist);
+      line-height: 1.7;
+    }
+
+    .footer-col .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }
+
+    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+
+    .footer-social-link:hover { color: var(--deep-forest); }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sea-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-accred-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+
+    .footer-accred-row img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+
+    .footer-bottom p {
+      font-size: 0.775rem;
+      color: var(--slate-mist);
+    }
+
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }
+
+    .nav-links.open { display: flex; }
+
+    .nav-hamburger { display: flex; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }
+      .nav-links.open { display: flex; }
+      .nav-hamburger { display: flex; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
   <meta property="og:image" content="https://www.coachkris.co.uk/og_index.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -67,16 +239,19 @@ footer a:hover{color:var(--warm-gold)}
   <meta name="twitter:description" content="Just the loop about the loop" />
 </head>
 <body>
-<nav>
-  <a class="nav-brand" href="../index.html">KRISTIAN SOKOL</a>
-  <ul class="nav-links-article">
-    <li><a href="../index.html#story">About</a></li>
-    <li><a href="../index.html#pillars">How I Help</a></li>
-    <li><a href="../index.html#contact">Contact</a></li>
-    <li><a href="../blog.html" class="nav-active-link">Blog</a></li>
-    <li><a href="../index.html#contact" class="nav-cta-article">Get in Touch</a></li>
-  </ul>
-</nav>
+<nav id="navbar">
+    <a href="/" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/#story" onclick="closeMenu()">About</a></li>
+      <li><a href="/#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="/#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="/blog.html" onclick="closeMenu()">Blog</a></li>
+      <li><a href="/#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
 <main class="article-wrap">
   <div class="article-meta"><span class="article-tag">Mindset</span><span class="article-date">24 June 2026</span><span class="article-read">5 min</span></div>
   <h1 class="article-title">Testing this if it works</h1>
@@ -88,6 +263,58 @@ footer a:hover{color:var(--warm-gold)}
   </div>
   <div class="article-footer"><a class="back-btn" href="../blog.html">&#8592; Back to Articles</a><button class="share-btn" onclick="if(navigator.share){navigator.share({title:'Testing this if it works',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert('Link copied!')})}" >Share &#8599;</button></div>
 </main>
-<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../index.html">Home</a> &middot; <a href="../blog.html">Articles</a></p></footer>
+<footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Kristian Sokol</p>
+        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+        <div class="footer-accred-row">
+          <img src="../accreditations/cpd.png" alt="CPD Accredited" loading="lazy" />
+          <img src="../accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
+          <img src="../accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
+          <img src="../accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
+          <img src="../accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#story">About</a></li>
+          <li><a href="/#pillars">How I Help</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Find Me</h4>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          NI, UK, ES
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Available worldwide online
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+          <a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
+    </div>
+  </footer>
+<script>
+  function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);});
+</script>
 </body>
 </html>
