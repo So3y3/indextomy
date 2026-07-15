@@ -3829,7 +3829,7 @@ function shareArticle(e, postId) {
 
   // Build share data
   const slug = slugify(post.title);
-  const pageUrl   = 'https://www.coachkris.co.uk/blog.html#' + slug;
+  const pageUrl   = 'https://www.coachkris.co.uk/articles/' + slug + '.html';
   const title     = post.title.replace(/<[^>]+>/g,'');
   const authorImg = 'https://www.coachkris.co.uk/assets/kris-profile.jpg'; // OG image fallback
   const text      = `${title} — by Kristian Sokol, Life & Longevity Coach`;
