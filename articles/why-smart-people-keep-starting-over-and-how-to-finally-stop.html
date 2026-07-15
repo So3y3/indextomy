@@ -20,7 +20,17 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Smart People Keep Starting Over and How to Finally Stop","description":"The restart loop isn't a discipline problem. It's an architecture problem. Understanding the real mechanics behind why driven people self-sabotage is the first step to building something that actually holds.","author":{"@type":"Person","name":"Kristian Sokol","url":"https://www.coachkris.co.uk"},"datePublished":"2026-06-23","url":"https://www.coachkris.co.uk/articles/why-smart-people-keep-starting-over-and-how-to-finally-stop.html"}</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--parchment:#F5F1EA;--deep-forest:#1C2823;--warm-gold:#C69E48;--slate-mist:#7A8A85;--sand:#EBE6DA;--sea-glass:#C1CEC9;--font-heading:"Cormorant Garamond",Georgia,serif;--font-body:"Inter",system-ui,sans-serif;--font-brand:"Bebas Neue",sans-serif}
+:root {
+      --parchment: #F5F1EA;
+      --deep-forest: #1C2823;
+      --warm-gold: #C69E48;
+      --slate-mist: #7A8A85;
+      --sand: #EBE6DA;
+      --sea-glass: #C1CEC9;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-brand: 'Bebas Neue', sans-serif;
+    }
 body{font-family:var(--font-body);background:var(--parchment);color:var(--deep-forest);line-height:1.6}
 a{color:inherit;text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,241,234,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(193,206,201,0.3)}
@@ -59,123 +69,9 @@ footer a{color:rgba(255,255,255,0.6)}
 footer a:hover{color:var(--warm-gold)}
 @media(max-width:600px){.article-wrap{padding:5rem 1.25rem 3rem}h1.article-title{font-size:2rem}}
 
-    /* ── NAV (matching main site) ── */
-    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,241,234,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(28,40,35,0.08);transition:height 0.3s,box-shadow 0.3s}
-    #navbar.scrolled{height:56px;box-shadow:0 2px 12px rgba(28,40,35,0.12)}
-    .nav-brand{font-family:var(--font-brand,'Bebas Neue',sans-serif);font-size:1.5rem;letter-spacing:0.1em;color:var(--deep-forest);text-decoration:none}
-    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
-    .nav-links a{font-size:0.875rem;font-weight:500;color:var(--slate-mist);text-decoration:none;transition:color 0.2s}
-    .nav-links a:hover{color:var(--deep-forest)}
-    .nav-links .nav-cta{background:var(--deep-forest);color:var(--parchment)!important;padding:0.5rem 1.2rem;border-radius:6px;font-weight:600;transition:background 0.2s,opacity 0.2s}
-    .nav-links .nav-cta:hover{opacity:0.85}
-    .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-    .nav-hamburger span{display:block;width:22px;height:2px;background:var(--deep-forest);border-radius:2px;transition:all 0.3s}
-    @media(max-width:768px){
-      .nav-hamburger{display:flex}
-      .nav-links{display:none;position:fixed;top:70px;left:0;right:0;background:var(--parchment);flex-direction:column;gap:0;padding:1rem 0;box-shadow:0 4px 20px rgba(28,40,35,0.1);z-index:999}
-      .nav-links.open{display:flex}
-      .nav-links li{width:100%}
-      .nav-links a{display:block;padding:0.875rem 2rem;border-bottom:1px solid var(--sea-glass)}
-      .nav-links .nav-cta{margin:1rem 2rem;border-radius:6px;text-align:center;border-bottom:none}
+    
     }
-    /* ── FOOTER (matching main site) ── */
-    footer{background:var(--deep-forest);color:rgba(255,255,255,0.6);padding:3rem 2rem 1.5rem;margin-top:4rem}
-    .footer-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
-    .footer-brand-name{font-family:var(--font-brand,'Bebas Neue',sans-serif);font-size:1.6rem;letter-spacing:0.1em;color:var(--parchment);margin-bottom:0.4rem}
-    .footer-tagline{font-size:0.82rem;color:var(--slate-mist);line-height:1.6;margin-bottom:1rem}
-    .footer-accred-row{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-top:0.75rem}
-    .footer-accred-row img{height:32px;width:auto;opacity:0.7;filter:brightness(0) invert(1);transition:opacity 0.2s}
-    .footer-accred-row img:hover{opacity:1}
-    .footer-col h4{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-gold);margin-bottom:1rem}
-    .footer-col ul{list-style:none}
-    .footer-col ul li{margin-bottom:0.5rem}
-    .footer-col a{font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
-    .footer-col a:hover,.footer-social-link:hover{color:var(--warm-gold)}
-    .footer-social-link{font-size:0.82rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.2s}
-    .footer-col p{font-size:0.82rem}
-    .footer-bottom{max-width:900px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;font-size:0.75rem;color:rgba(255,255,255,0.3)}
-    @media(max-width:600px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
-</style>
-</head>
-<body>
-<nav id="navbar">
-    <a href="/" class="nav-brand">Kristian Sokol</a>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="/#story" onclick="closeMenu()">About</a></li>
-      <li><a href="/#pillars" onclick="closeMenu()">How I Help</a></li>
-      <li><a href="/#contact" onclick="closeMenu()">Contact</a></li>
-      <li><a href="/blog.html" onclick="closeMenu()">Blog</a></li>
-      <li><a href="/#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
-    </ul>
-  </nav>
-<main class="article-wrap">
-  <div class="article-meta">
-    <span class="article-tag">Life Coaching</span>
-    <span class="article-date">23 June 2026</span>
-    <span class="article-read">5 min read</span>
-  </div>
-  <h1 class="article-title">Why Smart People Keep Starting Over and How to Finally Stop</h1>
-  <p class="article-excerpt">The restart loop isn't a discipline problem. It's an architecture problem. Understanding the real mechanics behind why driven people self-sabotage is the first step to building something that actually holds.</p>
-  <div class="article-body"><h2>The Pattern Nobody Talks About</h2><p>You've been here before. A new week, a new plan, a fresh burst of motivation. This time it's going to be different.</p><p>Then somewhere between day three and day ten, the momentum quietly disappears.</p><p>This isn't a willpower failure. <strong>It's a systems failure</strong> and there's a fundamental difference.</p><h2>Why High Achievers Are Most Vulnerable</h2><p>Counterintuitively, it's often the most capable, intelligent people who get stuck in the restart loop longest. Here's why:</p><ul><li>They can sustain effort through sheer force of will temporarily</li><li>They learn to confuse intensity with progress</li><li>They haven't yet built systems that work <em>without</em> motivation</li></ul><p>The restart loop is seductive precisely because the starts feel so good. New beginnings carry natural energy.</p><h2>The Architecture Fix</h2><p>What you need isn't more discipline. You need better architecture systems that function on your lowest-energy day, not just your best one.</p><p><strong>Start smaller than feels meaningful.</strong> The goal isn't the action, it's the identity reinforcement that comes from showing up.</p><p>Build your environment before you need your willpower. Make the right choice the easy choice.</p><h2>Working With a Coach</h2><p>This is exactly what I work on with clients in the <em>Break the Loop</em> programme. We identify your specific restart triggers, rebuild your systems from the ground up, and create accountability structures that outlast motivation.</p><p>If you're ready to stop starting over, I'd love to talk.</p></div>
-  <div class="author-bar">
-    <div class="author-initials">KS</div>
-    <div><div class="author-name">Kristian Sokol</div><div class="author-bio">Certified Life &amp; Longevity Coach - Break the Loop</div></div>
-  </div>
-  <div class="article-footer">
-    <a class="back-btn" href="../blog.html">&#8592; Back to Articles</a>
-    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:'Why Smart People Keep Starting Over and How to Finally Stop',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert('Link copied!')})}">Share &#8599;</button>
-  </div>
-</main>
-<footer>
-    <div class="footer-grid">
-      <div>
-        <p class="footer-brand-name">Kristian Sokol</p>
-        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
-        <div class="footer-accred-row">
-          <img src="../accreditations/cpd.png" alt="CPD Accredited" loading="lazy" />
-          <img src="../accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
-          <img src="../accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
-          <img src="../accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
-          <img src="../accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#story">About</a></li>
-          <li><a href="/#pillars">How I Help</a></li>
-          <li><a href="/#contact">Contact</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Find Me</h4>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          NI, UK, ES
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Available worldwide online
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-          <a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Kristian Sokol. All rights reserved.</p>
-      <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
-    </div>
-  </footer>
-<script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
+    
   }
   function closeMenu() {
     document.getElementById('navLinks').classList.remove('open');
@@ -185,5 +81,16 @@ footer a:hover{color:var(--warm-gold)}
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
 </script>
+<script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
 </body>
 </html>
