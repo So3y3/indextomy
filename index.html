@@ -219,7 +219,6 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
       background: var(--warm-gold);
       border: 2px solid var(--parchment);
       border-radius: 9999px;
@@ -227,8 +226,8 @@
       text-decoration: none;
       line-height: 1.35;
       box-shadow: 0 8px 26px rgba(28,40,35,0.18);
+      margin-bottom: 1.5rem;
       transition: transform 0.2s ease, opacity 0.2s ease;
-      min-height: 5rem;
     }
     .hero-founding-banner:hover {
       transform: translateY(-2px);
@@ -236,51 +235,40 @@
     }
     .hero-founding-banner .fb-kicker {
       font-family: var(--font-body);
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--deep-forest);
-      opacity: 0.75;
-      line-height: 1.2;
-      display: block;
-      text-align: center;
     }
     .hero-founding-banner .fb-cta {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: 1.2rem;
+      font-weight: 700;
       color: var(--deep-forest);
-      display: block;
-      text-align: center;
-      line-height: 1.2;
-      margin-top: 0.15rem;
     }
 
 
     .hero-offer-pair {
       display: flex;
       gap: 1rem;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.5rem;
     }
     .hero-founding-banner--teal {
       background: var(--deep-forest);
       border-color: var(--warm-gold);
     }
-    .hero-founding-banner--teal .fb-kicker {
-      color: var(--warm-gold);
-      opacity: 0.8;
-    }
+    .hero-founding-banner--teal .fb-kicker,
     .hero-founding-banner--teal .fb-cta {
       color: var(--warm-gold);
     }
     @media (max-width: 480px) {
-      .hero-offer-pair { flex-direction: row !important; flex-wrap: nowrap !important; gap: 0.4rem; align-items: stretch; justify-content: center; margin-bottom: 2rem !important; }
-      .hero-founding-banner { flex: 1 1 0 !important; min-width: 0 !important; max-width: 50% !important; padding: 0.65rem 0.5rem !important; margin-bottom: 0 !important; justify-content: space-between !important; min-height: 4.5rem !important; }
-      .hero-founding-banner .fb-kicker { font-size: 0.52rem !important; letter-spacing: 0.04em; }
-      .hero-founding-banner .fb-cta { font-size: 0.82rem !important; margin-top: auto !important; }
+      .hero-offer-pair { flex-direction: row; gap: 0.5rem; align-items: stretch; justify-content: center; }
+      .hero-founding-banner { flex: 1; min-width: 0; max-width: 48%; padding: 0.6rem 0.5rem; }
+      .hero-founding-banner .fb-kicker { font-size: 0.55rem; letter-spacing: 0.06em; }
+      .hero-founding-banner .fb-cta { font-size: 0.85rem; }
     }
     .hero-buttons {
       display: flex;
@@ -1093,7 +1081,7 @@
 
     <div class="hero-offer-pair reveal reveal-delay-4">
       <a href="offer.html" class="hero-founding-banner">
-        <span class="fb-kicker">Personal Coaching<br>Offer</span>
+        <span class="fb-kicker">Personal Coaching Offer</span>
         <span class="fb-cta">Apply Now &rarr;</span>
       </a>
       <a href="therapistoffer.html" class="hero-founding-banner hero-founding-banner--teal">
