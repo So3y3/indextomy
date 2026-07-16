@@ -6,26 +6,10 @@
   <title>Articles | Kristian Sokol — Life & Longevity Coach</title>
   <meta name="description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
   <meta name="author" content="Kristian Sokol" />
-  <link rel="canonical" href="https://www.coachkris.co.uk/blog.html" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="canonical" href="https://www.coachkris.co.uk/blog" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Articles | Kristian Sokol — Life &amp; Longevity Coach" />
-  <meta property="og:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
-  <meta property="og:url" content="https://www.coachkris.co.uk/blog.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.coachkris.co.uk/assets/kris-og.jpg" />
-  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
-  <meta name="author" content="Kristian Sokol" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Articles | Kristian Sokol — Life &amp; Longevity Coach" />
-  <meta name="twitter:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop." />
-  <meta name="twitter:image" content="https://www.coachkris.co.uk/assets/kris-og.jpg" />
-  <meta name="twitter:creator" content="@coachkris" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
 
   <style>
@@ -77,7 +61,7 @@
 
     /* ── HERO ── */
     .blog-hero {
-      padding: 110px 2rem 0.5rem;
+      padding: 110px 2rem 1.5rem;
       max-width: 900px; margin: 0 auto; text-align: center;
     }
     .blog-hero h1 {
@@ -97,7 +81,7 @@
     /* ── FILTER TABS ── */
     .filter-bar {
       display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;
-      padding: 1.5rem 0 0; max-width: 900px; margin: 0 auto;
+      padding: 1.25rem 2rem 2.5rem; max-width: 900px; margin: 0 auto;
     }
     .filter-btn {
       font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
@@ -106,35 +90,31 @@
       border: 1.5px solid var(--sea-glass); background: white;
       color: var(--slate-mist); cursor: pointer; transition: all 0.2s;
     }
-    .filter-btn:hover { border-color: #E8763A; color: #E8763A; background: rgba(232,118,58,0.07); }
-    .filter-btn.active { background: #E8763A; color: white; border-color: #E8763A; }
+    .filter-btn:hover { border-color: #4A7C6F; color: #4A7C6F; background: rgba(74,124,111,0.06); }
+    .filter-btn.active { background: #4A7C6F; color: white; border-color: #4A7C6F; }
 
     /* ── GRID ── */
-    .blog-main { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 6rem; }
+    .blog-main { max-width: 1200px; margin: 0 auto; padding: 0 2rem 6rem; }
 
     .posts-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      gap: 0;
+      border-top: 1px solid rgba(28,40,35,0.12);
+      border-left: 1px solid rgba(28,40,35,0.12);
     }
 
     .post-card {
-      border: 1px solid rgba(28,40,35,0.08);
-      border-radius: 4px;
-      background: white;
+      border-right: 1px solid rgba(28,40,35,0.12);
+      border-bottom: 1px solid rgba(28,40,35,0.12);
       padding: 2rem 1.75rem;
       text-decoration: none; color: inherit;
       display: flex; flex-direction: column; gap: 1rem;
-      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      transition: background 0.2s;
       cursor: pointer; position: relative;
       min-height: 260px;
-      box-shadow: 0 2px 8px rgba(28,40,35,0.06);
     }
-    .post-card:hover {
-      background: white;
-      box-shadow: 0 6px 20px rgba(28,40,35,0.1);
-      transform: translateY(-2px);
-    }
+    .post-card:hover { background: var(--sand); }
 
     .card-accent {
       width: 32px; height: 3px; border-radius: 2px;
@@ -166,26 +146,16 @@
     /* Featured card — spans 2 columns */
     .post-card.featured {
       grid-column: span 2;
-      background: white; color: var(--deep-forest);
+      background: #D6E8E4; color: var(--deep-forest);
     }
     .post-card.featured h2 { color: var(--deep-forest); font-size: 1.7rem; }
-    .post-card.featured .card-tag { color: var(--slate-mist); }
+    .post-card.featured .card-tag { color: #4A7C6F; }
     .post-card.featured .card-meta { color: var(--slate-mist); }
-    .post-card.featured .card-accent { background: #E8763A; }
-    .post-card.featured:hover { background: white; }
+    .post-card.featured .card-accent { background: #4A7C6F; }
+    .post-card.featured:hover { background: #C5DDD8; }
     .post-card.featured .card-excerpt {
-      font-size: 0.9rem; color: var(--slate-mist); line-height: 1.6;
+      font-size: 0.9rem; color: #4A6B66; line-height: 1.6;
     }
-
-
-    /* Featured badge */
-    .featured-badge {
-      position: absolute; top: 1.1rem; right: 1.25rem;
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #E8763A;
-      display: flex; align-items: center; gap: 0.3rem;
-    }
-    .featured-badge::before { content: '★'; font-size: 0.7rem; }
 
     .card-excerpt {
       font-size: 0.83rem; color: var(--slate-mist); line-height: 1.5;
@@ -213,7 +183,7 @@
     }
     .article-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
     .article-modal {
-      background: #ffffff; border-radius: 4px;
+      background: var(--parchment); border-radius: 4px;
       max-width: 740px; width: 100%; padding: 3.5rem;
       position: relative; margin: auto;
       box-shadow: 0 20px 60px rgba(0,0,0,0.25);
@@ -229,67 +199,30 @@
     .modal-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1rem; }
     .modal-title { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.25rem; }
     .modal-title em { font-style: italic; color: var(--warm-gold); }
-    .modal-meta { font-size: 0.78rem; color: var(--slate-mist); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--sand); display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .modal-meta { font-size: 0.78rem; color: var(--slate-mist); margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--sand); display: flex; gap: 1rem; flex-wrap: wrap; }
     .modal-body { font-size: 1.02rem; line-height: 1.85; color: var(--deep-forest); }
     .modal-body p { margin-bottom: 1.25rem; }
-    .modal-body h2 { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 300; margin: 2.5rem 0 1rem; color: var(--deep-forest); }
-    .modal-body h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 400; font-style: italic; color: var(--warm-gold); margin: 1.75rem 0 0.75rem; }
+    .modal-body h2 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+    .modal-body h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
     .modal-body ul, .modal-body ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
     .modal-body li { margin-bottom: 0.5rem; }
     .modal-body strong { font-weight: 600; }
-    .modal-body em { font-style: italic; color: var(--warm-gold); }
+    .modal-body em { font-style: italic; }
     .modal-cta {
       margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--sand);
       display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
-      justify-content: space-between;
     }
     .modal-cta .cta-back {
       font-size: 0.85rem; color: var(--slate-mist); text-decoration: none;
       font-weight: 500; transition: color 0.2s;
     }
     .modal-cta .cta-back:hover { color: var(--deep-forest); }
-    .cta-nav-btn {
-      display: inline-block; background: var(--deep-forest); color: white;
+    .modal-cta .cta-contact {
+      display: inline-block; background: var(--warm-gold); color: white;
       padding: 0.65rem 1.75rem; border-radius: 9999px; text-decoration: none;
-      font-weight: 600; font-size: 0.85rem; transition: opacity 0.2s;
-      border: none; cursor: pointer; font-family: var(--font-body);
+      font-weight: 600; font-size: 0.85rem; transition: opacity 0.2s; margin-left: auto;
     }
-    .cta-nav-btn:hover { opacity: 0.85; }
-    .cta-nav-btn.secondary {
-      background: transparent; color: var(--slate-mist);
-      border: 1.5px solid var(--sea-glass);
-    }
-    .cta-nav-btn.secondary:hover { opacity: 1; border-color: var(--deep-forest); color: var(--deep-forest); }
-    .cta-nav-btn:disabled, .cta-nav-btn[style*="display: none"] { display: none; }
-
-
-    /* ── SHARE BUTTON ── */
-    .share-btn {
-      margin-left: auto; display: inline-flex; align-items: center; gap: 0.3rem;
-      background: none; border: 1px solid var(--sea-glass); border-radius: 9999px;
-      padding: 0.15rem 0.65rem; font-size: 0.78rem; font-weight: 500;
-      color: var(--slate-mist); cursor: pointer; transition: all 0.2s;
-      font-family: var(--font-body); letter-spacing: 0.02em; flex-shrink: 0;
-      line-height: 1.4; vertical-align: middle;
-    }
-    .share-btn:hover { border-color: var(--deep-forest); color: var(--deep-forest); }
-
-    /* Share popover */
-    .share-popover {
-      position: absolute; background: white; border-radius: 8px;
-      box-shadow: 0 8px 32px rgba(28,40,35,0.18); padding: 0.5rem;
-      display: flex; flex-direction: column; gap: 0.2rem;
-      z-index: 9999; min-width: 180px;
-    }
-    .share-popover a {
-      display: flex; align-items: center; gap: 0.65rem;
-      padding: 0.55rem 0.85rem; border-radius: 6px;
-      font-size: 0.82rem; font-weight: 500; color: var(--deep-forest);
-      text-decoration: none; transition: background 0.15s;
-    }
-    .share-popover a:hover { background: var(--sand); }
-    .share-popover a svg { flex-shrink: 0; }
-    .share-divider { height: 1px; background: var(--sand); margin: 0.25rem 0.5rem; }
+    .modal-cta .cta-contact:hover { opacity: 0.85; }
 
     /* ── ADMIN GATE ── */
     .admin-fab {
@@ -352,7 +285,7 @@
 
     /* Admin panel */
     .admin-panel {
-      display: none; background: #ffffff; border-radius: 4px;
+      display: none; background: var(--parchment); border-radius: 4px;
       max-width: 860px; width: 100%; padding: 3rem;
       margin: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       position: relative;
@@ -394,19 +327,6 @@
     }
     .form-group textarea { resize: vertical; min-height: 80px; }
     #f-body { min-height: 260px; line-height: 1.7; font-size: 0.93rem; }
-    .editor-toolbar {
-      display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.4rem;
-    }
-    .toolbar-btn {
-      font-family: var(--font-body); font-size: 0.75rem; font-weight: 700;
-      padding: 0.3rem 0.65rem; border: 1.5px solid var(--sea-glass);
-      background: white; color: var(--deep-forest); border-radius: 6px;
-      cursor: pointer; transition: all 0.15s; line-height: 1;
-    }
-    .toolbar-btn:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
-    .toolbar-italic { font-style: italic; }
-    .toolbar-link { color: #3B6FD4; border-color: #3B6FD4; font-weight: 600; }
-    .toolbar-link:hover { background: #3B6FD4; color: white; }
     .form-hint { font-size: 0.72rem; color: var(--slate-mist); margin-top: 0.25rem; }
 
     .publish-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
@@ -464,15 +384,15 @@
       .post-card.featured { grid-column: span 2; }
     }
     @media (max-width: 768px) {
-      .posts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
       .post-card.featured { grid-column: span 2; }
       .article-modal, .admin-panel { padding: 2rem 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
-      .posts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
-      .post-card.featured { grid-column: span 2; }
-      .blog-hero { padding: 100px 1.25rem 0.5rem; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .post-card.featured { grid-column: span 1; }
+      .blog-hero { padding: 120px 1.5rem 50px; }
     }
 
     /* ── FOOTER ── */
@@ -505,128 +425,12 @@
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 0.5rem;
     }
-    
-    .footer-accred-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.1rem;
-    }
-    .footer-accred-row img {
-      height: 26px;
-      width: auto;
-      object-fit: contain;
-      opacity: 0.85;
-    }
     .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
     }
-
-
-
-    /* ── SUBSCRIBE STRIP ── */
-    .subscribe-strip {
-      background: var(--parchment);
-      border-top: 1px solid rgba(198,158,72,0.25);
-      border-bottom: 1px solid rgba(198,158,72,0.25);
-      padding: 1.75rem 2rem;
-      text-align: center;
-    }
-    .subscribe-inner {
-      display: flex; align-items: center; justify-content: center;
-      gap: 1.75rem; flex-wrap: wrap;
-      max-width: 680px; margin: 0 auto;
-    }
-    .subscribe-strip h3 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-      font-weight: 300;
-      color: var(--deep-forest);
-      margin: 0; white-space: nowrap; line-height: 1.2;
-    }
-    .subscribe-strip h3 em {
-      font-style: italic; font-weight: 700;
-      color: var(--warm-gold);
-    }
-    .subscribe-form {
-      display: flex; gap: 0;
-      border: 1.5px solid var(--sea-glass);
-      border-radius: 9999px; overflow: hidden;
-      background: var(--parchment); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(28,40,35,0.07);
-    }
-    .subscribe-form input[type="email"] {
-      background: transparent; border: none; outline: none;
-      padding: 0.6rem 1.2rem; width: 195px;
-      font-family: var(--font-body); font-size: 0.85rem;
-      color: var(--deep-forest); background: var(--parchment);
-    }
-    .subscribe-form input[type="email"]::placeholder { color: var(--slate-mist); }
-    .subscribe-form button {
-      background: var(--warm-gold); color: white; border: none; cursor: pointer;
-      padding: 0.6rem 1.25rem; font-family: var(--font-body);
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; transition: background 0.2s; white-space: nowrap;
-      border-radius: 0 9999px 9999px 0;
-    }
-    .subscribe-form button:hover { background: #b8913f; }
-    .subscribe-msg {
-      margin-top: 0.6rem; font-size: 0.82rem;
-      color: var(--warm-gold); display: none; width: 100%; text-align: center;
-    }
-    .subscribe-msg.show { display: block; }
-    @media (max-width: 600px) {
-      .subscribe-inner { flex-direction: column; gap: 1rem; }
-      .subscribe-strip h3 { white-space: normal; font-size: 1.25rem; }
-      .subscribe-form { width: 100%; max-width: 320px; }
-      .subscribe-form input[type="email"] { width: 100%; }
-    }
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Blog",
-        "@id": "https://www.coachkris.co.uk/blog.html#blog",
-        "name": "Articles | Kristian Sokol",
-        "description": "Evidence-based articles on life coaching, longevity, and breaking the restart loop.",
-        "url": "https://www.coachkris.co.uk/blog.html",
-        "author": {
-          "@type": "Person",
-          "name": "Kristian Sokol",
-          "url": "https://www.coachkris.co.uk"
-        },
-        "inLanguage": "en-GB",
-        "publisher": {
-          "@type": "Person",
-          "name": "Kristian Sokol"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.coachkris.co.uk/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Articles",
-            "item": "https://www.coachkris.co.uk/blog.html"
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-<!-- cache-bust: 2026-07-16T05:42 -->
 </head>
 <body>
 
@@ -634,10 +438,10 @@
 <nav id="mainNav">
   <a href="index.html" class="nav-brand">Kristian Sokol</a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#story">About</a></li>
     <li><a href="index.html#pillars">How I Help</a></li>
     <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="blog.html" class="active">Articles</a></li>
     <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -645,24 +449,27 @@
   </button>
 </nav>
 <div class="nav-mobile" id="navMobile">
-  <a href="index.html">Home</a>
+  <a href="index.html#story">About</a>
   <a href="index.html#pillars">How I Help</a>
   <a href="index.html#contact">Contact</a>
-  <a href="blog.html">Blog</a>
+  <a href="blog.html">Articles</a>
   <a href="index.html#contact">Get in Touch</a>
 </div>
 
 <!-- ── HERO ── -->
 <div class="blog-hero">
   <h1>Articles on <em>Life,<br/>Longevity & Breaking the Loop</em></h1>
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="life">Life Coaching</button>
-    <button class="filter-btn" data-filter="longevity">Longevity</button>
-    <button class="filter-btn" data-filter="mindset">Mindset</button>
-    <button class="filter-btn" data-filter="adhd">ADHD-Aware</button>
-    <button class="filter-btn" data-filter="build">Business</button>
-  </div>
+  <p>Expert insights backed by verified data and up-to-date research — no filler, no fluff.</p>
+  <a href="index.html" class="hero-back">← Back to main site</a>
+</div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="life">Life Coaching</button>
+  <button class="filter-btn" data-filter="longevity">Longevity</button>
+  <button class="filter-btn" data-filter="mindset">Mindset</button>
+  <button class="filter-btn" data-filter="adhd">ADHD-Aware</button>
 </div>
 
 <!-- ── BLOG GRID ── -->
@@ -679,8 +486,8 @@
     <div class="modal-meta" id="modalMeta"></div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-cta">
-      <button class="cta-nav-btn secondary" id="modalPrevBtn" onclick="openPrevArticle()">← Previous Article</button>
-      <button class="cta-nav-btn" id="modalNextBtn" onclick="openNextArticle()">Next Article →</button>
+      <a class="cta-back" href="index.html">← Back to main site</a>
+      <a class="cta-contact" href="index.html#contact">Work with Kristian →</a>
     </div>
   </div>
 </div>
@@ -728,13 +535,12 @@
         <div class="form-row">
           <div class="form-group">
             <label>Category *</label>
-            <div id="f-cat" style="display:flex;flex-direction:column;gap:0.4rem;padding:0.4rem 0;">
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="life" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Life Coaching</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="longevity" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Longevity</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="mindset" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Mindset</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="adhd" style="accent-color:var(--warm-gold);width:15px;height:15px;"> ADHD-Aware</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="build" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Business</label>
-            </div>
+            <select id="f-cat">
+              <option value="life">Life Coaching</option>
+              <option value="longevity">Longevity</option>
+              <option value="mindset">Mindset</option>
+              <option value="adhd">ADHD-Aware</option>
+            </select>
           </div>
           <div class="form-group">
             <label>Read Time</label>
@@ -747,16 +553,8 @@
         </div>
         <div class="form-group">
           <label>Article Body *</label>
-          <div class="editor-toolbar">
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
-            <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
-            <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
-          </div>
-          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;[link text](https://url.com)&#10;&#10;Each blank line = new paragraph."></textarea>
-          <span class="form-hint">Use ## headings, **bold**, *italic*, - bullets, [text](url) for links. Each blank line = new paragraph.</span>
+          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;&#10;Each blank line = new paragraph."></textarea>
+          <span class="form-hint">Use ## for headings, **bold**, *italic*, - for bullets. Each blank line becomes a new paragraph.</span>
         </div>
         <div class="form-group">
           <label>Featured? (shows larger on grid)</label>
@@ -783,23 +581,11 @@
 
 <script>
 // ═══════════════════════════════════════
-//  CONFIG — GitHub-backed storage
+//  DATA — posts stored in localStorage
 // ═══════════════════════════════════════
 
-const ADMIN_PASS   = '515891226';
-const GH_OWNER     = 'So3y3';
-const GH_REPO      = 'indextomy';
-const GH_BRANCH    = 'main';
-const GH_FILE      = 'posts.json';
-const GH_API       = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
-const GH_RAW       = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${GH_FILE}`;
-
-// GitHub token — stored in sessionStorage only after admin login
-function getToken() { return sessionStorage.getItem('ck_gh_token') || ''; }
-
-// In-memory cache of posts (loaded on page init)
-let _postsCache = null;
-let _ghFileSha  = null; // needed to update the file via API
+const STORAGE_KEY = 'coachkris_posts_v1';
+const ADMIN_PASS  = '515891226';
 
 // Seed posts — shown until you publish your own
 const SEED_POSTS = [
@@ -955,2200 +741,21 @@ If this resonates, I'd love to have a conversation.`,
 //  HELPERS
 // ═══════════════════════════════════════
 
-// Load posts from GitHub raw URL (fast, no auth needed)
-async function loadPostsFromGitHub() {
+function getPosts() {
   try {
-    const res = await fetch(GH_RAW + '?nocache=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    _postsCache = data;
-    return data;
-  } catch(e) {
-    // Fall back to seed posts if file doesn't exist yet
-    _postsCache = SEED_POSTS;
-    return SEED_POSTS;
-  }
-}
-
-// Fetch SHA (needed for GitHub file update API)
-async function fetchFileSha() {
-  const token = getToken();
-  if (!token) return null;
-  try {
-    const res = await fetch(GH_API, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (!res.ok) return null;
-    const d = await res.json();
-    _ghFileSha = d.sha;
-    return d.sha;
-  } catch(e) { return null; }
-}
-
-// Save posts to GitHub
-
-// ── ARTICLE PAGE GENERATOR ──
-function renderBodyToHtml(body) {
-  if (!body) return '';
-  var lines = body.split('\n');
-  var out = '';
-  var inList = false;
-  function md(t) {
-    return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-             .replace(/\*(.*?)\*/g,'<em>$1</em>')
-             .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener" style="color:var(--warm-gold);text-decoration:underline;text-underline-offset:2px;">$1</a>');
-  }
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i];
-    if (line.startsWith('###')) { if(inList){out+='</ul>';inList=false;} out+='<h3>'+md(line.replace(/^###\s*/,''))+'</h3>'; continue; }
-    if (line.startsWith('##'))  { if(inList){out+='</ul>';inList=false;} out+='<h2>'+md(line.replace(/^##\s*/,''))+'</h2>'; continue; }
-    if (line.startsWith('# '))   { if(inList){out+='</ul>';inList=false;} out+='<h1>'+md(line.slice(2))+'</h1>'; continue; }
-    if (line.startsWith('- ') || line.startsWith('* ')) {
-      if (!inList) { out += '<ul>'; inList = true; }
-      out += '<li>'+md(line.slice(2))+'</li>';
-      continue;
-    }
-    if (inList) { out += '</ul>'; inList = false; }
-    if (line.trim() === '') continue;
-    out += '<p>'+md(line)+'</p>';
-  }
-  if (inList) out += '</ul>';
-  return out;
-}
-
-function buildArticleHtml(post) {
-  var slug       = slugify(post.title);
-  var cleanTitle = post.title.replace(/<[^>]+>/g, '');
-  var bodyHtml   = renderBodyToHtml(post.body || '');
-  var catLabels  = { life:'Life Coaching', longevity:'Longevity', mindset:'Mindset', adhd:'ADHD-Aware', growth:'Growth' };
-  var catLabel   = catLabels[post.category] || post.category || 'Article';
-  var postDate   = post.date || new Date().toISOString().slice(0,10);
-  var excerpt    = (post.excerpt || '').replace(/"/g,"'");
-  var baseUrl    = 'https://www.coachkris.co.uk';
-  var articleUrl = baseUrl + '/articles/' + slug + '.html';
-  var schemaObj  = '{"@context":"https://schema.org","@type":"Article","headline":"' + cleanTitle.replace(/"/g,"'") + '","description":"' + excerpt + '","author":{"@type":"Person","name":"Kristian Sokol","url":"' + baseUrl + '"},"datePublished":"' + postDate + '","url":"' + articleUrl + '"}';
-
-  var h = '';
-  h += '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
-  h += '<meta charset="UTF-8" />\n';
-  h += '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n';
-  h += '<title>' + cleanTitle + ' | Kristian Sokol</title>\n';
-  h += '<meta name="description" content="' + excerpt + '" />\n';
-  h += '<meta name="author" content="Kristian Sokol" />\n';
-  h += '<link rel="canonical" href="' + articleUrl + '" />\n';
-  h += '<meta property="og:title" content="' + cleanTitle.replace(/"/g,"'") + '" />\n';
-  h += '<meta property="og:description" content="' + excerpt + '" />\n';
-  h += '<meta property="og:type" content="article" />\n';
-  h += '<meta property="og:url" content="' + articleUrl + '" />\n';
-  h += '<meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />\n';
-  h += '<meta name="twitter:card" content="summary_large_image" />\n';
-  h += '<meta property="og:image" content="https://www.coachkris.co.uk/og/og_' + slug + '.jpg" />\n';
-  h += '<meta property="og:image:width" content="1200" />\n';
-  h += '<meta property="og:image:height" content="630" />\n';
-  h += '<meta name="twitter:image" content="https://www.coachkris.co.uk/og/og_' + slug + '.jpg" />\n';
-  h += '<meta name="twitter:title" content="' + cleanTitle.replace(/"/g,\"'\") + '" />\n';
-  h += '<meta name="twitter:description" content="' + excerpt + '" />\n';
-  h += '<link rel="icon" type="image/x-icon" href="../favicon.ico" />\n';
-  h += '<link rel="preconnect" href="https://fonts.googleapis.com" />\n';
-  h += '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n';
-  h += '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />\n';
-  h += '<sc'+'ript type="application/ld+json">' + schemaObj + '<\/sc'+'ript>\n';
-  h += '<style>\n';
-  h += '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}\n';
-  h += ':root{--parchment:#F5F1EA;--deep-forest:#1C2823;--warm-gold:#C69E48;--slate-mist:#7A8A85;--sand:#EBE6DA;--sea-glass:#C1CEC9;--font-heading:"Cormorant Garamond",Georgia,serif;--font-body:"Inter",system-ui,sans-serif;--font-brand:"Bebas Neue",sans-serif}\n';
-  h += 'body{font-family:var(--font-body);background:var(--parchment);color:var(--deep-forest);line-height:1.6}\n';
-  h += 'a{color:inherit;text-decoration:none}\n';
-  h += '/* ─── NAVIGATION ─── */\n';
-  h += '    nav {\n';
-  h += '      position: fixed;\n';
-  h += '      top: 0; left: 0; right: 0;\n';
-  h += '      z-index: 1000;\n';
-  h += '      padding: 0 2rem;\n';
-  h += '      height: 70px;\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: space-between;\n';
-  h += '      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    nav.scrolled {\n';
-  h += '      background: rgba(245, 241, 234, 0.92);\n';
-  h += '      backdrop-filter: blur(12px);\n';
-  h += '      -webkit-backdrop-filter: blur(12px);\n';
-  h += '      box-shadow: 0 1px 0 rgba(28,40,35,0.08);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-brand {\n';
-  h += '      font-family: var(--font-brand);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      text-decoration: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-links {\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      gap: 2rem;\n';
-  h += '      list-style: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-links a {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: color 0.2s;\n';
-  h += '    }\n';
-  h += '    .nav-links a:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .nav-cta {\n';
-  h += '      background: var(--warm-gold) !important;\n';
-  h += '      color: white !important;\n';
-  h += '      padding: 0.5rem 1.25rem;\n';
-  h += '      border-radius: 9999px;\n';
-  h += '      font-weight: 600 !important;\n';
-  h += '      font-size: 0.875rem !important;\n';
-  h += '      transition: opacity 0.2s !important;\n';
-  h += '    }\n';
-  h += '    .nav-cta:hover { opacity: 0.85 !important; }\n';
-  h += '\n';
-  h += '    .nav-hamburger {\n';
-  h += '      display: none;\n';
-  h += '      flex-direction: column;\n';
-  h += '      gap: 5px;\n';
-  h += '      cursor: pointer;\n';
-  h += '      background: none;\n';
-  h += '      border: none;\n';
-  h += '      padding: 4px;\n';
-  h += '    }\n';
-  h += '    .nav-hamburger span {\n';
-  h += '      display: block;\n';
-  h += '      width: 24px;\n';
-  h += '      height: 2px;\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-radius: 2px;\n';
-  h += '      transition: all 0.3s;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── HERO ─── */\n';
-  h += '    #hero {\n';
-  h += '      min-height: 100vh;\n';
-  h += '      display: flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: center;\n';
-  h += '      text-align: center;\n';
-  h += '      padding: 120px 2rem 80px;\n';
-  h += '      background: linear-gradient(180deg, var(--sand) 0%, var(--parchment) 60%);\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* Thin vertical accent line */\n';
-  h += '    #hero::before {\n';
-  h += '      content: \'\';\n';
-  h += '      position: absolute;\n';
-  h += '      top: 0; left: 50%;\n';
-  h += '      width: 1px;\n';
-  h += '      height: 80px;\n';
-  h += '      background: linear-gradient(180deg, transparent, var(--warm-gold));\n';
-  h += '      transform: translateX(-50%);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-eyebrow {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      letter-spacing: 0.2em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-photo-wrap {\n';
-  h += '      width: 200px;\n';
-  h += '      height: 200px;\n';
-  h += '      border-radius: 50%;\n';
-  h += '      overflow: hidden;\n';
-  h += '      border: 3px solid var(--sea-glass);\n';
-  h += '      box-shadow: 0 8px 40px rgba(28,40,35,0.12);\n';
-  h += '      margin-bottom: 2rem;\n';
-  h += '      position: relative;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-photo-wrap img {\n';
-  h += '      width: 100%;\n';
-  h += '      height: 100%;\n';
-  h += '      object-fit: cover;\n';
-  h += '      object-position: center 5%;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '\n';
-  h += '    .hero-headline {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: clamp(2.5rem, 6vw, 4.5rem);\n';
-  h += '      font-weight: 300;\n';
-  h += '      line-height: 1.15;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      max-width: 700px;\n';
-  h += '      margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-headline em {\n';
-  h += '      font-style: italic;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-subheadline {\n';
-  h += '      font-size: 1.05rem;\n';
-  h += '      font-weight: 400;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      max-width: 500px;\n';
-  h += '      margin-bottom: 2.5rem;\n';
-  h += '      line-height: 1.7;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-founding-banner {\n';
-  h += '      display: inline-flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      align-items: center;\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      border: 2px solid var(--parchment);\n';
-  h += '      border-radius: 9999px;\n';
-  h += '      padding: 0.95rem 2.5rem 0.9rem;\n';
-  h += '      text-decoration: none;\n';
-  h += '      line-height: 1.35;\n';
-  h += '      box-shadow: 0 8px 26px rgba(28,40,35,0.18);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '      transition: transform 0.2s ease, opacity 0.2s ease;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner:hover {\n';
-  h += '      transform: translateY(-2px);\n';
-  h += '      opacity: 0.9;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner .fb-kicker {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.1em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner .fb-cta {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 1.2rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '\n';
-  h += '    .hero-offer-pair {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 1rem;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      justify-content: center;\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner--teal {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner--teal .fb-kicker,\n';
-  h += '    .hero-founding-banner--teal .fb-cta {\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '    @media (max-width: 480px) {\n';
-  h += '      .hero-offer-pair { flex-direction: column; align-items: center; }\n';
-  h += '    }\n';
-  h += '    .hero-buttons {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 1rem;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      justify-content: center;\n';
-  h += '      margin-bottom: 3rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .btn-primary {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '      padding: 0.8rem 2rem;\n';
-  h += '      border-radius: 6px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: opacity 0.2s, transform 0.2s;\n';
-  h += '      display: inline-block;\n';
-  h += '    }\n';
-  h += '    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }\n';
-  h += '\n';
-  h += '    .btn-secondary {\n';
-  h += '      background: transparent;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      padding: 0.8rem 2rem;\n';
-  h += '      border-radius: 6px;\n';
-  h += '      border: 1.5px solid var(--deep-forest);\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: all 0.2s;\n';
-  h += '      display: inline-block;\n';
-  h += '    }\n';
-  h += '    .btn-secondary:hover { background: var(--deep-forest); color: white; transform: translateY(-1px); }\n';
-  h += '\n';
-  h += '    .hero-badges {\n';
-  h += '      display: flex;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      gap: 0.6rem;\n';
-  h += '      justify-content: center;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .badge {\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      background: white;\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      padding: 0.35rem 0.85rem;\n';
-  h += '      border-radius: 9999px;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-scroll-arrow {\n';
-  h += '      position: absolute;\n';
-  h += '      bottom: 2rem;\n';
-  h += '      left: 50%;\n';
-  h += '      transform: translateX(-50%);\n';
-  h += '      animation: bounce 2s ease-in-out infinite;\n';
-  h += '      color: var(--sea-glass);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '    }\n';
-  h += '    @keyframes bounce {\n';
-  h += '      0%, 100% { transform: translateX(-50%) translateY(0); }\n';
-  h += '      50% { transform: translateX(-50%) translateY(8px); }\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── SECTIONS COMMON ─── */\n';
-  h += '    section { padding: 6rem 2rem; }\n';
-  h += '\n';
-  h += '    .section-inner {\n';
-  h += '      max-width: 800px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .section-inner-wide {\n';
-  h += '      max-width: 1100px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .eyebrow {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      letter-spacing: 0.2em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      margin-bottom: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .section-heading {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: clamp(2rem, 4vw, 3rem);\n';
-  h += '      font-weight: 300;\n';
-  h += '      line-height: 1.25;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 2rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── MY STORY ─── */\n';
-  h += '    #story {\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    #story::before {\n';
-  h += '      content: \'\';\n';
-  h += '      position: absolute;\n';
-  h += '      inset: 0;\n';
-  h += '      background-image: url(\'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=30\');\n';
-  h += '      background-size: cover;\n';
-  h += '      background-position: center;\n';
-  h += '      opacity: 0.04;\n';
-  h += '      pointer-events: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner {\n';
-  h += '      position: relative;\n';
-  h += '      max-width: 800px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      padding-left: 1.5rem;\n';
-  h += '      border-left: 2px solid var(--warm-gold);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner p {\n';
-  h += '      font-size: 1.05rem;\n';
-  h += '      line-height: 1.85;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner p strong {\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-weight: 600;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-blockquote {\n';
-  h += '      margin-top: 2.5rem;\n';
-  h += '      padding: 1.5rem 2rem;\n';
-  h += '      border-left: 3px solid var(--warm-gold);\n';
-  h += '      background: rgba(198,158,72,0.06);\n';
-  h += '      border-radius: 0 8px 8px 0;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-blockquote p {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: 1.4rem;\n';
-  h += '      font-style: italic;\n';
-  h += '      font-weight: 400;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      line-height: 1.6;\n';
-  h += '      margin: 0 !important;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── TWO PILLARS ─── */\n';
-  h += '    #pillars {\n';
-  h += '      background: var(--sand);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    #pillars .eyebrow { text-align: center; }\n';
-  h += '    #pillars .section-heading { text-align: center; }\n';
-  h += '\n';
-  h += '    /* ─── PILLARS ─── */\n';
-  h += '    .pillars-grid {\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1fr 1fr;\n';
-  h += '      gap: 2rem;\n';
-  h += '      margin-top: 3rem;\n';
-  h += '    }\n';
-  h += '    .pillar-card {\n';
-  h += '      background: rgba(245,241,234,0.7);\n';
-  h += '      backdrop-filter: blur(8px);\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 16px;\n';
-  h += '      padding: 2.5rem;\n';
-  h += '      transition: transform 0.3s ease, box-shadow 0.3s ease;\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '    .pillar-card.full-width {\n';
-  h += '      grid-column: 1 / -1;\n';
-  h += '    }\n';
-  h += '    .pillar-card:hover {\n';
-  h += '      transform: translateY(-4px);\n';
-  h += '      box-shadow: 0 16px 48px rgba(28,40,35,0.1);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* Whole card clickable */\n';
-  h += '    .pillar-card {\n';
-  h += '      cursor: pointer;\n';
-  h += '    }\n';
-  h += '    /* Bottom-right "Read more" tag */\n';
-  h += '    .pillar-more {\n';
-  h += '      position: absolute;\n';
-  h += '      bottom: 1.25rem; right: 1.25rem;\n';
-  h += '      background: transparent;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-size: 0.7rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.08em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      border: 1px solid var(--warm-gold);\n';
-  h += '      padding: 0.3rem 0.7rem;\n';
-  h += '      border-radius: 20px;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: background 0.2s, color 0.2s;\n';
-  h += '      display: inline-flex; align-items: center; gap: 0.3rem;\n';
-  h += '      pointer-events: none;\n';
-  h += '    }\n';
-  h += '    .pillar-card:hover .pillar-more {\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      color: white;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .pillar-icon {\n';
-  h += '      width: 56px; height: 56px; border-radius: 50%;\n';
-  h += '      display: flex; align-items: center; justify-content: center;\n';
-  h += '      font-size: 1.6rem; margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '    .pillar-icon.dark   { background: var(--deep-forest); }\n';
-  h += '    .pillar-icon.gold   { background: var(--warm-gold); }\n';
-  h += '    .pillar-icon.teal   { background: #4A7C6F; }\n';
-  h += '\n';
-  h += '    .pillar-label {\n';
-  h += '      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;\n';
-  h += '      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.4rem;\n';
-  h += '    }\n';
-  h += '    .pillar-name {\n';
-  h += '      font-family: var(--font-heading); font-size: 2rem;\n';
-  h += '      font-weight: 300; color: var(--deep-forest); margin-bottom: 0.3rem;\n';
-  h += '    }\n';
-  h += '    .pillar-subtitle {\n';
-  h += '      font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 1.75rem;\n';
-  h += '    }\n';
-  h += '    .pillar-features { display: flex; flex-direction: column; gap: 1rem; }\n';
-  h += '\n';
-  h += '    /* Pillar 3 features go 3-col on desktop */\n';
-  h += '    .pillar-card.full-width .pillar-features {\n';
-  h += '      flex-direction: row; flex-wrap: wrap; gap: 1.25rem;\n';
-  h += '    }\n';
-  h += '    .pillar-card.full-width .feature-row {\n';
-  h += '      flex: 1 1 calc(33% - 1rem); min-width: 200px;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .feature-row {\n';
-  h += '      display: flex; align-items: flex-start; gap: 0.85rem;\n';
-  h += '    }\n';
-  h += '    .feature-icon {\n';
-  h += '      width: 36px; height: 36px; border-radius: 50%;\n';
-  h += '      background: rgba(198,158,72,0.1);\n';
-  h += '      display: flex; align-items: center; justify-content: center;\n';
-  h += '      font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;\n';
-  h += '    }\n';
-  h += '    .feature-text strong {\n';
-  h += '      display: block; font-size: 0.875rem; font-weight: 600;\n';
-  h += '      color: var(--deep-forest); margin-bottom: 0.1rem;\n';
-  h += '    }\n';
-  h += '    .feature-text span { font-size: 0.8rem; color: var(--slate-mist); }\n';
-  h += '\n';
-  h += '    @media (max-width: 768px) {\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }\n';
-  h += '      .pillar-card.full-width { grid-column: 1 / -1; }\n';
-  h += '      .pillar-card { padding: 1.25rem 1rem 2.5rem; }\n';
-  h += '      .pillar-card.full-width .pillar-features { flex-direction: column; }\n';
-  h += '      .pillar-card.full-width .feature-row { flex: unset; }\n';
-  h += '      .pillar-name { font-size: 1.6rem; font-weight: 400; }\n';
-  h += '      .pillar-subtitle { margin-bottom: 1rem; }\n';
-  h += '      .pillar-more { bottom: 0.75rem; right: 0.75rem; font-size: 0.6rem; padding: 0.25rem 0.55rem; }\n';
-  h += '    }\n';
-  h += '    @media (max-width: 480px) {\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }\n';
-  h += '      .pillar-card.full-width { grid-column: 1 / -1; }\n';
-  h += '      .pillar-card { padding: 1rem 0.85rem 2.5rem; }\n';
-  h += '      .pillar-name { font-size: 1.45rem; font-weight: 400; }\n';
-  h += '      .pillar-icon { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0.85rem; }\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── CONTACT ─── */\n';
-  h += '    #contact {\n';
-  h += '      background: var(--parchment);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-grid {\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1fr 1.4fr;\n';
-  h += '      gap: 4rem;\n';
-  h += '      align-items: start;\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-left .eyebrow { margin-bottom: 0.5rem; }\n';
-  h += '    .contact-left .section-heading { margin-bottom: 0.75rem; }\n';
-  h += '\n';
-  h += '    .contact-subtext {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-weight: 500;\n';
-  h += '      margin-bottom: 2.5rem;\n';
-  h += '      letter-spacing: 0.02em;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-steps { display: flex; flex-direction: column; gap: 1.5rem; }\n';
-  h += '\n';
-  h += '    .contact-step {\n';
-  h += '      display: flex;\n';
-  h += '      align-items: flex-start;\n';
-  h += '      gap: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .step-number {\n';
-  h += '      width: 36px;\n';
-  h += '      height: 36px;\n';
-  h += '      border-radius: 50%;\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      color: white;\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: center;\n';
-  h += '      flex-shrink: 0;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .step-text strong {\n';
-  h += '      display: block;\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 0.2rem;\n';
-  h += '    }\n';
-  h += '    .step-text span {\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-form-card {\n';
-  h += '      background: var(--sand);\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 16px;\n';
-  h += '      padding: 2.5rem;\n';
-  h += '      box-shadow: 0 4px 24px rgba(28,40,35,0.06);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group {\n';
-  h += '      display: flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      gap: 0.4rem;\n';
-  h += '      margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group label {\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group input,\n';
-  h += '    .form-group textarea,\n';
-  h += '    .form-group select {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      background: white;\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 8px;\n';
-  h += '      padding: 0.75rem 1rem;\n';
-  h += '      width: 100%;\n';
-  h += '      transition: border-color 0.2s, box-shadow 0.2s;\n';
-  h += '      outline: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group input:focus,\n';
-  h += '    .form-group textarea:focus,\n';
-  h += '    .form-group select:focus {\n';
-  h += '      border-color: var(--warm-gold);\n';
-  h += '      box-shadow: 0 0 0 3px rgba(198,158,72,0.12);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group textarea { resize: vertical; min-height: 110px; }\n';
-  h += '\n';
-  h += '    .form-toggle {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 0.75rem;\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .toggle-btn {\n';
-  h += '      flex: 1;\n';
-  h += '      padding: 0.6rem;\n';
-  h += '      border-radius: 8px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.85rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      cursor: pointer;\n';
-  h += '      border: 1.5px solid var(--sea-glass);\n';
-  h += '      background: white;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      transition: all 0.2s;\n';
-  h += '    }\n';
-  h += '    .toggle-btn.active {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-color: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-submit {\n';
-  h += '      width: 100%;\n';
-  h += '      padding: 0.9rem;\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '      border: none;\n';
-  h += '      border-radius: 8px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.95rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      cursor: pointer;\n';
-  h += '      transition: opacity 0.2s, transform 0.2s;\n';
-  h += '      letter-spacing: 0.02em;\n';
-  h += '    }\n';
-  h += '    .form-submit:hover { opacity: 0.85; transform: translateY(-1px); }\n';
-  h += '    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }\n';
-  h += '\n';
-  h += '    .form-success {\n';
-  h += '      display: none;\n';
-  h += '      text-align: center;\n';
-  h += '      padding: 2rem;\n';
-  h += '    }\n';
-  h += '    .form-success.show { display: block; }\n';
-  h += '    .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }\n';
-  h += '    .form-success h3 {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '      font-weight: 400;\n';
-  h += '      margin-bottom: 0.5rem;\n';
-  h += '    }\n';
-  h += '    .form-success p { font-size: 0.875rem; color: var(--slate-mist); }\n';
-  h += '\n';
-  h += '    /* ─── FOOTER ─── */\n';
-  h += '    footer {\n';
-  h += '      background: rgba(235,230,218,0.5);\n';
-  h += '      border-top: 1px solid var(--sea-glass);\n';
-  h += '      padding: 4rem 2rem 2rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-grid {\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1.5fr 1fr 1fr;\n';
-  h += '      gap: 3rem;\n';
-  h += '      margin-bottom: 3rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-brand-name {\n';
-  h += '      font-family: var(--font-brand);\n';
-  h += '      font-size: 1.4rem;\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 0.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-tagline {\n';
-  h += '      font-size: 0.825rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      line-height: 1.6;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col h4 {\n';
-  h += '      font-size: 0.7rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.15em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }\n';
-  h += '\n';
-  h += '    .footer-col ul a {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: color 0.2s;\n';
-  h += '    }\n';
-  h += '    .footer-col ul a:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .footer-col p {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      line-height: 1.7;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }\n';
-  h += '    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }\n';
-  h += '    .footer-social-link:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .footer-bottom {\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      padding-top: 1.5rem;\n';
-  h += '      border-top: 1px solid var(--sea-glass);\n';
-  h += '      display: flex;\n';
-  h += '      justify-content: space-between;\n';
-  h += '      align-items: center;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      gap: 0.5rem;\n';
-  h += '    }\n';
-  h += '    .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }\n';
-  h += '@media (max-width: 768px) {\n';
-  h += '      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }\n';
-  h += '      .nav-links.open { display: flex; }\n';
-  h += '      .nav-hamburger { display: flex; }\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr; }\n';
-  h += '      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }\n';
-  h += '      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }\n';
-  h += '      .footer-bottom { flex-direction: column; text-align: center; }\n';
-  h += '    }\n';
-  h += '@media (max-width: 768px) {\n';
-  h += '      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }\n';
-  h += '      .nav-links.open { display: flex; }\n';
-  h += '      .nav-hamburger { display: flex; }\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr; }\n';
-  h += '      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }\n';
-  h += '      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }\n';
-  h += '      .footer-bottom { flex-direction: column; text-align: center; }\n';
-  h += '    }\n';
-  h += 'footer a{color:rgba(255,255,255,0.6)}\n';
-  h += 'footer a:hover{color:var(--warm-gold)}\n';
-  h += '@media(max-width:600px){.article-wrap{padding:5rem 1.25rem 3rem}h1.article-title{font-size:2rem}}\n';
-  h += '</style>\n</head>\n<body>\n';
-  h += '<nav>\n';
-  h += '  <a href="/" class="nav-brand">Kristian Sokol</a>\n';
-  h += '  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>\n';
-  h += '  <ul class="nav-links" id="navLinks">\n';
-  h += '    <li><a href="/#story" onclick="closeMenu()">About</a></li>\n';
-  h += '    <li><a href="/#pillars" onclick="closeMenu()">How I Help</a></li>\n';
-  h += '    <li><a href="/#contact" onclick="closeMenu()">Contact</a></li>\n';
-  h += '    <li><a href="/blog.html" onclick="closeMenu()">Blog</a></li>\n';
-  h += '    <li><a href="/#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>\n';
-  h += '  </ul>\n';
-  h += '</nav>\n';
-  h += '<main class="article-wrap">\n';
-  h += '  <div class="article-meta">\n';
-  h += '    <span class="article-tag">' + catLabel + '</span>\n';
-  h += '    <span class="article-date">' + formatDate(postDate) + '</span>\n';
-  h += '    <span class="article-read">' + (post.readTime || '5 min read') + '</span>\n';
-  h += '  </div>\n';
-  h += '  <h1 class="article-title">' + post.title + '</h1>\n';
-  h += '  <p class="article-excerpt">' + (post.excerpt || '') + '</p>\n';
-  h += '  <div class="article-body">' + bodyHtml + '</div>\n';
-  h += '  <div class="author-bar">\n';
-  h += '    <div class="author-initials">KS</div>\n';
-  h += '    <div><div class="author-name">Kristian Sokol</div><div class="author-bio">Certified Life &amp; Longevity Coach - Break the Loop</div></div>\n';
-  h += '  </div>\n';
-  h += '  <div class="article-footer">\n';
-  h += '    <a class="back-btn" href="../blog.html">&#8592; Back to Articles</a>\n';
-  h += '    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:\'' + cleanTitle.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + '\',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert(\'Link copied!\')})}">Share &#8599;</button>\n';
-  h += '  </div>\n';
-  h += '</main>\n';
-    h += '<footer>\n';
-  h += '<div class="footer-grid">\n';
-  h += '<div>\n';
-  h += '<p class="footer-brand-name">Kristian Sokol</p>\n';
-  h += '<p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>\n';
-  h += '<div class="footer-accred-row">\n';
-  h += '<img src="../accreditations/cpd.png" alt="CPD" loading="lazy" />\n';
-  h += '<img src="../accreditations/nccap.png" alt="NCCAP" loading="lazy" />\n';
-  h += '<img src="../accreditations/cma.png" alt="CMA" loading="lazy" />\n';
-  h += '<img src="../accreditations/iphm.png" alt="IPHM" loading="lazy" />\n';
-  h += '<img src="../accreditations/icahp.png" alt="ICAHP" loading="lazy" />\n';
-  h += '</div></div>\n';
-  h += '<div class="footer-col"><h4>Navigate</h4><ul>\n';
-  h += '<li><a href="/">Home</a></li>\n';
-  h += '<li><a href="/#story">About</a></li>\n';
-  h += '<li><a href="/#pillars">How I Help</a></li>\n';
-  h += '<li><a href="/#contact">Contact</a></li>\n';
-  h += '<li><a href="/blog.html">Blog</a></li>\n';
-  h += '</ul></div>\n';
-  h += '<div class="footer-col"><h4>Find Me</h4>\n';
-  h += '<p><a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a></p>\n';
-  h += '<p>NI, UK, ES &middot; Available worldwide online</p>\n';
-  h += '</div></div>\n';
-  h += '<div class="footer-bottom">\n';
-  h += '<p>&copy; 2026 Kristian Sokol. All rights reserved.</p>\n';
-  h += '<p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>\n';
-  h += '</div></footer>\
-  </script>
-</head>
-<body>
-
-<!-- ── NAV ── -->
-<nav id="mainNav">
-  <a href="index.html" class="nav-brand">Kristian Sokol</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#pillars">How I Help</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Get in Touch</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-mobile" id="navMobile">
-  <a href="index.html">Home</a>
-  <a href="index.html#pillars">How I Help</a>
-  <a href="index.html#contact">Contact</a>
-  <a href="blog.html">Blog</a>
-  <a href="index.html#contact">Get in Touch</a>
-</div>
-
-<!-- ── HERO ── -->
-<div class="blog-hero">
-  <h1>Articles on <em>Life,<br/>Longevity & Breaking the Loop</em></h1>
-  <div class="filter-bar" id="filterBar">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="life">Life Coaching</button>
-    <button class="filter-btn" data-filter="longevity">Longevity</button>
-    <button class="filter-btn" data-filter="mindset">Mindset</button>
-    <button class="filter-btn" data-filter="adhd">ADHD-Aware</button>
-    <button class="filter-btn" data-filter="build">Business</button>
-  </div>
-</div>
-
-<!-- ── BLOG GRID ── -->
-<main class="blog-main">
-  <div class="posts-grid" id="postsGrid"></div>
-</main>
-
-<!-- ── ARTICLE READER MODAL ── -->
-<div class="article-overlay" id="articleOverlay">
-  <div class="article-modal">
-    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
-    <p class="modal-eyebrow" id="modalTag"></p>
-    <h1 class="modal-title" id="modalTitle"></h1>
-    <div class="modal-meta" id="modalMeta"></div>
-    <div class="modal-body" id="modalBody"></div>
-    <div class="modal-cta">
-      <button class="cta-nav-btn secondary" id="modalPrevBtn" onclick="openPrevArticle()">← Previous Article</button>
-      <button class="cta-nav-btn" id="modalNextBtn" onclick="openNextArticle()">Next Article →</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── ADMIN FAB (subtle, bottom-right) ── -->
-<button class="admin-fab" id="adminFab" title="Admin" aria-label="Admin login">✦</button>
-
-<!-- ── ADMIN OVERLAY ── -->
-<div class="admin-overlay" id="adminOverlay">
-
-  <!-- Login -->
-  <div class="admin-login" id="adminLogin">
-    <div class="admin-login-inner">
-      <div class="admin-login-logo">KS</div>
-      <h2>Editorial Access</h2>
-      <p>Enter your password to access the blog dashboard</p>
-      <input type="password" id="adminPass" placeholder="••••••••" maxlength="30"
-        onkeydown="if(event.key==='Enter') adminLogin()" autocomplete="current-password" />
-      <button onclick="adminLogin()">Enter Dashboard →</button>
-      <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
-      <a class="login-cancel" href="blog.html">← Return to articles</a>
-    </div>
-  </div>
-
-  <!-- Panel -->
-  <div class="admin-panel" id="adminPanel">
-    <button class="admin-close" id="adminClose" aria-label="Close panel">✕</button>
-    <div class="admin-header">
-      <h2>Blog Dashboard</h2>
-      <p>Write, publish and manage your articles</p>
-    </div>
-
-    <div class="admin-tabs">
-      <button class="admin-tab active" data-tab="write">✍️ Write New Post</button>
-      <button class="admin-tab" data-tab="posts">📋 All Posts</button>
-    </div>
-
-    <!-- Write tab -->
-    <div id="tab-write">
-      <form class="write-form" onsubmit="return false">
-        <div class="form-group">
-          <label>Article Title *</label>
-          <input type="text" id="f-title" placeholder="e.g. Why Your Sleep Routine Is Sabotaging Your Longevity" />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Category *</label>
-            <div id="f-cat" style="display:flex;flex-direction:column;gap:0.4rem;padding:0.4rem 0;">
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="life" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Life Coaching</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="longevity" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Longevity</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="mindset" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Mindset</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="adhd" style="accent-color:var(--warm-gold);width:15px;height:15px;"> ADHD-Aware</label>
-              <label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="build" style="accent-color:var(--warm-gold);width:15px;height:15px;"> Business</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Read Time</label>
-            <input type="text" id="f-time" placeholder="e.g. 5 min read" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Short Excerpt (shown on card)</label>
-          <textarea id="f-excerpt" rows="2" placeholder="One or two sentences that hook the reader…"></textarea>
-        </div>
-        <div class="form-group">
-          <label>Article Body *</label>
-          <div class="editor-toolbar">
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
-            <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
-            <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
-          </div>
-          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;[link text](https://url.com)&#10;&#10;Each blank line = new paragraph."></textarea>
-          <span class="form-hint">Use ## headings, **bold**, *italic*, - bullets, [text](url) for links. Each blank line = new paragraph.</span>
-        </div>
-        <div class="form-group">
-          <label>Featured? (shows larger on grid)</label>
-          <select id="f-featured">
-            <option value="no">No — standard card</option>
-            <option value="yes">Yes — make this the featured post</option>
-          </select>
-        </div>
-        <div class="publish-row">
-          <button class="btn-publish" onclick="publishPost('published')">Publish Now →</button>
-          <button class="btn-draft" onclick="publishPost('draft')">Save as Draft</button>
-          <span class="publish-msg" id="publishMsg">✓ Published!</span>
-          <button class="btn-clear" onclick="clearForm()">Clear form</button>
-        </div>
-      </form>
-    </div>
-
-    <!-- Posts tab -->
-    <div id="tab-posts" style="display:none">
-      <div class="post-list" id="postList"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-// ═══════════════════════════════════════
-//  CONFIG — GitHub-backed storage
-// ═══════════════════════════════════════
-
-const ADMIN_PASS   = '515891226';
-const GH_OWNER     = 'So3y3';
-const GH_REPO      = 'indextomy';
-const GH_BRANCH    = 'main';
-const GH_FILE      = 'posts.json';
-const GH_API       = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
-const GH_RAW       = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${GH_FILE}`;
-
-// GitHub token — stored in sessionStorage only after admin login
-function getToken() { return sessionStorage.getItem('ck_gh_token') || ''; }
-
-// In-memory cache of posts (loaded on page init)
-let _postsCache = null;
-let _ghFileSha  = null; // needed to update the file via API
-
-// Seed posts — shown until you publish your own
-const SEED_POSTS = [
-  {
-    id: 'seed-1', status: 'published', featured: true,
-    title: 'Why Smart People Keep <em>Starting Over</em> — and How to Finally Stop',
-    category: 'life', readTime: '10 min read',
-    excerpt: 'The restart loop isn\'t a discipline problem. It\'s an architecture problem. Understanding the real mechanics behind why driven people self-sabotage is the first step to building something that actually holds.',
-    body: `## The Pattern Nobody Talks About
-
-You've been here before. A new week, a new plan, a fresh burst of motivation. This time it's going to be different.
-
-Then somewhere between day three and day ten, the momentum quietly disappears.
-
-This isn't a willpower failure. **It's a systems failure** — and there's a fundamental difference.
-
-## Why High Achievers Are Most Vulnerable
-
-Counterintuitively, it's often the most capable, intelligent people who get stuck in the restart loop longest. Here's why:
-
-- They can sustain effort through sheer force of will — temporarily
-- They learn to confuse intensity with progress
-- They haven't yet built systems that work *without* motivation
-
-The restart loop is seductive precisely because the starts feel so good. New beginnings carry natural energy.
-
-## The Architecture Fix
-
-What you need isn't more discipline. You need better architecture — systems that function on your lowest-energy day, not just your best one.
-
-**Start smaller than feels meaningful.** The goal isn't the action, it's the identity reinforcement that comes from showing up.
-
-Build your environment before you need your willpower. Make the right choice the easy choice.
-
-## Working With a Coach
-
-This is exactly what I work on with clients in the *Break the Loop* programme. We identify your specific restart triggers, rebuild your systems from the ground up, and create accountability structures that outlast motivation.
-
-If you're ready to stop starting over, I'd love to talk.`,
-    date: '2025-06-01'
-  },
-  {
-    id: 'seed-2', status: 'published', featured: false,
-    title: 'The <em>Longevity Basics</em> Nobody Told You About',
-    category: 'longevity', readTime: '7 min read',
-    excerpt: 'Before expensive supplements and biohacking gadgets — here are the five evidence-based fundamentals that actually move the needle.',
-    body: `## Evidence Over Hype
-
-The longevity industry is worth billions. Most of it is noise.
-
-Before you spend money on NAD+ infusions or continuous glucose monitors, there are **five fundamentals** that the research consistently shows matter most. They're unglamorous. They work.
-
-## The Five Fundamentals
-
-**1. Sleep quality over quantity**
-Seven to nine hours is the target, but *architecture* matters as much as duration. Consistent sleep and wake times regulate your circadian rhythm more than anything else.
-
-**2. Zone 2 cardio — 150 minutes per week**
-This is the single most evidence-backed longevity intervention available. Low intensity, long duration aerobic exercise trains your mitochondria and metabolic efficiency.
-
-**3. Protein at every meal**
-Muscle mass is one of the strongest predictors of healthy ageing. Most people eat far too little protein, especially as they age.
-
-**4. Strength training — twice per week minimum**
-Not optional. Muscle is metabolically active tissue. Sarcopenia (age-related muscle loss) accelerates every other ageing marker.
-
-**5. Stress regulation**
-Chronic cortisol elevation is profoundly ageing. This isn't about elimination — it's about recovery. Sleep, nature, relationships, breathwork.
-
-## Where Coaching Fits
-
-Most people know *what* to do. The gap is in the doing — consistently, sustainably, year after year.
-
-That's where a longevity coach earns their place.`,
-    date: '2025-06-08'
-  },
-  {
-    id: 'seed-3', status: 'published', featured: false,
-    title: 'Identity Before <em>Habits</em>',
-    category: 'mindset', readTime: '6 min read',
-    excerpt: 'You don\'t rise to your goals — you fall to your identity. Until you shift how you see yourself, habits are just performances.',
-    body: `## The Identity Gap
-
-Most habit advice focuses on behaviour. Do this. Track that. Build a streak.
-
-It misses the deeper layer: **who you believe yourself to be**.
-
-## The Athlete Principle
-
-Ask someone who exercises consistently why they do it. They won't say "because of my habit tracker." They'll say some version of: *I'm someone who moves their body.*
-
-The behaviour flows from the identity. Not the other way around.
-
-## How to Shift Identity
-
-Identity shifts come through evidence. Small, consistent actions that prove to yourself you are the person you want to become.
-
-- You don't *try* to read more — you become someone who reads
-- You don't *try* to eat well — you become someone who takes their health seriously
-- You don't *try* to be productive — you become someone who follows through
-
-The coaching work is in accelerating this identity evolution — removing the counterevidence (the exceptions, the excuses) and stacking the proof.
-
-## The Coaching Conversation
-
-In my practice, the first sessions are rarely about habits. They're about unpacking the story you're telling about who you are and what you're capable of.
-
-That's where the real work begins.`,
-    date: '2025-06-15'
-  },
-  {
-    id: 'seed-4', status: 'published', featured: false,
-    title: 'ADHD and the <em>Motivation Myth</em>',
-    category: 'adhd', readTime: '8 min read',
-    excerpt: 'Neurotypical productivity advice is built on assumptions that don\'t apply to ADHD brains. Here\'s what actually works.',
-    body: `## Built for a Different Brain
-
-Most productivity systems were designed by and for neurotypical minds. They assume consistent motivation, linear task completion, and the ability to start on demand.
-
-For ADHD brains, **none of these assumptions hold**.
-
-## The ADHD Motivation System
-
-Neurotypical motivation responds to importance and deadlines. ADHD motivation responds to:
-
-- **Interest** — Is this genuinely engaging right now?
-- **Challenge** — Is there a level of difficulty that creates flow?
-- **Novelty** — Is this new enough to activate dopamine?
-- **Urgency** — Is there a real, immediate consequence?
-
-This isn't a character flaw. It's a neurological reality.
-
-## Systems That Work With Your Brain
-
-**External structure over internal willpower.** Use body doubling, accountability partners, visible timers, and environmental design.
-
-**Work with your interest cycles.** When something is engaging, go deep. Don't fight the hyperfocus — channel it.
-
-**Reduce friction to zero.** The fewer decisions required to start, the more likely you are to begin.
-
-**Celebrate completion, not perfection.** ADHD brains are acutely sensitive to failure signals. Build in wins.
-
-## ADHD-Aware Coaching
-
-I work with a number of clients who are navigating life and ambition with ADHD. The approach is different — and the results, when it's tailored correctly, are remarkable.
-
-If this resonates, I'd love to have a conversation.`,
-    date: '2025-06-22'
-  }
-];
-
-// ═══════════════════════════════════════
-//  HELPERS
-// ═══════════════════════════════════════
-
-// Load posts from GitHub raw URL (fast, no auth needed)
-async function loadPostsFromGitHub() {
-  try {
-    const res = await fetch(GH_RAW + '?nocache=' + Date.now());
-    if (!res.ok) throw new Error('not found');
-    const data = await res.json();
-    _postsCache = data;
-    return data;
-  } catch(e) {
-    // Fall back to seed posts if file doesn't exist yet
-    _postsCache = SEED_POSTS;
-    return SEED_POSTS;
-  }
-}
-
-// Fetch SHA (needed for GitHub file update API)
-async function fetchFileSha() {
-  const token = getToken();
-  if (!token) return null;
-  try {
-    const res = await fetch(GH_API, {
-      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
-    });
-    if (!res.ok) return null;
-    const d = await res.json();
-    _ghFileSha = d.sha;
-    return d.sha;
-  } catch(e) { return null; }
-}
-
-// Save posts to GitHub
-
-// ── ARTICLE PAGE GENERATOR ──
-function renderBodyToHtml(body) {
-  if (!body) return '';
-  var lines = body.split('\n');
-  var out = '';
-  var inList = false;
-  function md(t) {
-    return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-             .replace(/\*(.*?)\*/g,'<em>$1</em>')
-             .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener" style="color:var(--warm-gold);text-decoration:underline;text-underline-offset:2px;">$1</a>');
-  }
-  for (var i = 0; i < lines.length; i++) {
-    var line = lines[i];
-    if (line.startsWith('###')) { if(inList){out+='</ul>';inList=false;} out+='<h3>'+md(line.replace(/^###\s*/,''))+'</h3>'; continue; }
-    if (line.startsWith('##'))  { if(inList){out+='</ul>';inList=false;} out+='<h2>'+md(line.replace(/^##\s*/,''))+'</h2>'; continue; }
-    if (line.startsWith('# '))   { if(inList){out+='</ul>';inList=false;} out+='<h1>'+md(line.slice(2))+'</h1>'; continue; }
-    if (line.startsWith('- ') || line.startsWith('* ')) {
-      if (!inList) { out += '<ul>'; inList = true; }
-      out += '<li>'+md(line.slice(2))+'</li>';
-      continue;
-    }
-    if (inList) { out += '</ul>'; inList = false; }
-    if (line.trim() === '') continue;
-    out += '<p>'+md(line)+'</p>';
-  }
-  if (inList) out += '</ul>';
-  return out;
-}
-
-function buildArticleHtml(post) {
-  var slug       = slugify(post.title);
-  var cleanTitle = post.title.replace(/<[^>]+>/g, '');
-  var bodyHtml   = renderBodyToHtml(post.body || '');
-  var catLabels  = { life:'Life Coaching', longevity:'Longevity', mindset:'Mindset', adhd:'ADHD-Aware', growth:'Growth' };
-  var catLabel   = catLabels[post.category] || post.category || 'Article';
-  var postDate   = post.date || new Date().toISOString().slice(0,10);
-  var excerpt    = (post.excerpt || '').replace(/"/g,"'");
-  var baseUrl    = 'https://www.coachkris.co.uk';
-  var articleUrl = baseUrl + '/articles/' + slug + '.html';
-  var schemaObj  = '{"@context":"https://schema.org","@type":"Article","headline":"' + cleanTitle.replace(/"/g,"'") + '","description":"' + excerpt + '","author":{"@type":"Person","name":"Kristian Sokol","url":"' + baseUrl + '"},"datePublished":"' + postDate + '","url":"' + articleUrl + '"}';
-
-  var h = '';
-  h += '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
-  h += '<meta charset="UTF-8" />\n';
-  h += '<meta name="viewport" content="width=device-width, initial-scale=1.0" />\n';
-  h += '<title>' + cleanTitle + ' | Kristian Sokol</title>\n';
-  h += '<meta name="description" content="' + excerpt + '" />\n';
-  h += '<meta name="author" content="Kristian Sokol" />\n';
-  h += '<link rel="canonical" href="' + articleUrl + '" />\n';
-  h += '<meta property="og:title" content="' + cleanTitle.replace(/"/g,"'") + '" />\n';
-  h += '<meta property="og:description" content="' + excerpt + '" />\n';
-  h += '<meta property="og:type" content="article" />\n';
-  h += '<meta property="og:url" content="' + articleUrl + '" />\n';
-  h += '<meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />\n';
-  h += '<meta name="twitter:card" content="summary_large_image" />\n';
-  h += '<meta property="og:image" content="https://www.coachkris.co.uk/og/og_' + slug + '.jpg" />\n';
-  h += '<meta property="og:image:width" content="1200" />\n';
-  h += '<meta property="og:image:height" content="630" />\n';
-  h += '<meta name="twitter:image" content="https://www.coachkris.co.uk/og/og_' + slug + '.jpg" />\n';
-  h += '<meta name="twitter:title" content="' + cleanTitle.replace(/"/g,\"'\") + '" />\n';
-  h += '<meta name="twitter:description" content="' + excerpt + '" />\n';
-  h += '<link rel="icon" type="image/x-icon" href="../favicon.ico" />\n';
-  h += '<link rel="preconnect" href="https://fonts.googleapis.com" />\n';
-  h += '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n';
-  h += '<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />\n';
-  h += '<sc'+'ript type="application/ld+json">' + schemaObj + '<\/sc'+'ript>\n';
-  h += '<style>\n';
-  h += '*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}\n';
-  h += ':root{--parchment:#F5F1EA;--deep-forest:#1C2823;--warm-gold:#C69E48;--slate-mist:#7A8A85;--sand:#EBE6DA;--sea-glass:#C1CEC9;--font-heading:"Cormorant Garamond",Georgia,serif;--font-body:"Inter",system-ui,sans-serif;--font-brand:"Bebas Neue",sans-serif}\n';
-  h += 'body{font-family:var(--font-body);background:var(--parchment);color:var(--deep-forest);line-height:1.6}\n';
-  h += 'a{color:inherit;text-decoration:none}\n';
-  h += '/* ─── NAVIGATION ─── */\n';
-  h += '    nav {\n';
-  h += '      position: fixed;\n';
-  h += '      top: 0; left: 0; right: 0;\n';
-  h += '      z-index: 1000;\n';
-  h += '      padding: 0 2rem;\n';
-  h += '      height: 70px;\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: space-between;\n';
-  h += '      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    nav.scrolled {\n';
-  h += '      background: rgba(245, 241, 234, 0.92);\n';
-  h += '      backdrop-filter: blur(12px);\n';
-  h += '      -webkit-backdrop-filter: blur(12px);\n';
-  h += '      box-shadow: 0 1px 0 rgba(28,40,35,0.08);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-brand {\n';
-  h += '      font-family: var(--font-brand);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      text-decoration: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-links {\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      gap: 2rem;\n';
-  h += '      list-style: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .nav-links a {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: color 0.2s;\n';
-  h += '    }\n';
-  h += '    .nav-links a:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .nav-cta {\n';
-  h += '      background: var(--warm-gold) !important;\n';
-  h += '      color: white !important;\n';
-  h += '      padding: 0.5rem 1.25rem;\n';
-  h += '      border-radius: 9999px;\n';
-  h += '      font-weight: 600 !important;\n';
-  h += '      font-size: 0.875rem !important;\n';
-  h += '      transition: opacity 0.2s !important;\n';
-  h += '    }\n';
-  h += '    .nav-cta:hover { opacity: 0.85 !important; }\n';
-  h += '\n';
-  h += '    .nav-hamburger {\n';
-  h += '      display: none;\n';
-  h += '      flex-direction: column;\n';
-  h += '      gap: 5px;\n';
-  h += '      cursor: pointer;\n';
-  h += '      background: none;\n';
-  h += '      border: none;\n';
-  h += '      padding: 4px;\n';
-  h += '    }\n';
-  h += '    .nav-hamburger span {\n';
-  h += '      display: block;\n';
-  h += '      width: 24px;\n';
-  h += '      height: 2px;\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-radius: 2px;\n';
-  h += '      transition: all 0.3s;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── HERO ─── */\n';
-  h += '    #hero {\n';
-  h += '      min-height: 100vh;\n';
-  h += '      display: flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: center;\n';
-  h += '      text-align: center;\n';
-  h += '      padding: 120px 2rem 80px;\n';
-  h += '      background: linear-gradient(180deg, var(--sand) 0%, var(--parchment) 60%);\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* Thin vertical accent line */\n';
-  h += '    #hero::before {\n';
-  h += '      content: \'\';\n';
-  h += '      position: absolute;\n';
-  h += '      top: 0; left: 50%;\n';
-  h += '      width: 1px;\n';
-  h += '      height: 80px;\n';
-  h += '      background: linear-gradient(180deg, transparent, var(--warm-gold));\n';
-  h += '      transform: translateX(-50%);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-eyebrow {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      letter-spacing: 0.2em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-photo-wrap {\n';
-  h += '      width: 200px;\n';
-  h += '      height: 200px;\n';
-  h += '      border-radius: 50%;\n';
-  h += '      overflow: hidden;\n';
-  h += '      border: 3px solid var(--sea-glass);\n';
-  h += '      box-shadow: 0 8px 40px rgba(28,40,35,0.12);\n';
-  h += '      margin-bottom: 2rem;\n';
-  h += '      position: relative;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-photo-wrap img {\n';
-  h += '      width: 100%;\n';
-  h += '      height: 100%;\n';
-  h += '      object-fit: cover;\n';
-  h += '      object-position: center 5%;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '\n';
-  h += '    .hero-headline {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: clamp(2.5rem, 6vw, 4.5rem);\n';
-  h += '      font-weight: 300;\n';
-  h += '      line-height: 1.15;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      max-width: 700px;\n';
-  h += '      margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-headline em {\n';
-  h += '      font-style: italic;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-subheadline {\n';
-  h += '      font-size: 1.05rem;\n';
-  h += '      font-weight: 400;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      max-width: 500px;\n';
-  h += '      margin-bottom: 2.5rem;\n';
-  h += '      line-height: 1.7;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-founding-banner {\n';
-  h += '      display: inline-flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      align-items: center;\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      border: 2px solid var(--parchment);\n';
-  h += '      border-radius: 9999px;\n';
-  h += '      padding: 0.95rem 2.5rem 0.9rem;\n';
-  h += '      text-decoration: none;\n';
-  h += '      line-height: 1.35;\n';
-  h += '      box-shadow: 0 8px 26px rgba(28,40,35,0.18);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '      transition: transform 0.2s ease, opacity 0.2s ease;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner:hover {\n';
-  h += '      transform: translateY(-2px);\n';
-  h += '      opacity: 0.9;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner .fb-kicker {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.1em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner .fb-cta {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 1.2rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '\n';
-  h += '    .hero-offer-pair {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 1rem;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      justify-content: center;\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner--teal {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '    .hero-founding-banner--teal .fb-kicker,\n';
-  h += '    .hero-founding-banner--teal .fb-cta {\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '    }\n';
-  h += '    @media (max-width: 480px) {\n';
-  h += '      .hero-offer-pair { flex-direction: column; align-items: center; }\n';
-  h += '    }\n';
-  h += '    .hero-buttons {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 1rem;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      justify-content: center;\n';
-  h += '      margin-bottom: 3rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .btn-primary {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '      padding: 0.8rem 2rem;\n';
-  h += '      border-radius: 6px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: opacity 0.2s, transform 0.2s;\n';
-  h += '      display: inline-block;\n';
-  h += '    }\n';
-  h += '    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }\n';
-  h += '\n';
-  h += '    .btn-secondary {\n';
-  h += '      background: transparent;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      padding: 0.8rem 2rem;\n';
-  h += '      border-radius: 6px;\n';
-  h += '      border: 1.5px solid var(--deep-forest);\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: all 0.2s;\n';
-  h += '      display: inline-block;\n';
-  h += '    }\n';
-  h += '    .btn-secondary:hover { background: var(--deep-forest); color: white; transform: translateY(-1px); }\n';
-  h += '\n';
-  h += '    .hero-badges {\n';
-  h += '      display: flex;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      gap: 0.6rem;\n';
-  h += '      justify-content: center;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .badge {\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      background: white;\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      padding: 0.35rem 0.85rem;\n';
-  h += '      border-radius: 9999px;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .hero-scroll-arrow {\n';
-  h += '      position: absolute;\n';
-  h += '      bottom: 2rem;\n';
-  h += '      left: 50%;\n';
-  h += '      transform: translateX(-50%);\n';
-  h += '      animation: bounce 2s ease-in-out infinite;\n';
-  h += '      color: var(--sea-glass);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '    }\n';
-  h += '    @keyframes bounce {\n';
-  h += '      0%, 100% { transform: translateX(-50%) translateY(0); }\n';
-  h += '      50% { transform: translateX(-50%) translateY(8px); }\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── SECTIONS COMMON ─── */\n';
-  h += '    section { padding: 6rem 2rem; }\n';
-  h += '\n';
-  h += '    .section-inner {\n';
-  h += '      max-width: 800px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .section-inner-wide {\n';
-  h += '      max-width: 1100px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .eyebrow {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.75rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      letter-spacing: 0.2em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      margin-bottom: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .section-heading {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: clamp(2rem, 4vw, 3rem);\n';
-  h += '      font-weight: 300;\n';
-  h += '      line-height: 1.25;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 2rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── MY STORY ─── */\n';
-  h += '    #story {\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    #story::before {\n';
-  h += '      content: \'\';\n';
-  h += '      position: absolute;\n';
-  h += '      inset: 0;\n';
-  h += '      background-image: url(\'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=30\');\n';
-  h += '      background-size: cover;\n';
-  h += '      background-position: center;\n';
-  h += '      opacity: 0.04;\n';
-  h += '      pointer-events: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner {\n';
-  h += '      position: relative;\n';
-  h += '      max-width: 800px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      padding-left: 1.5rem;\n';
-  h += '      border-left: 2px solid var(--warm-gold);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner p {\n';
-  h += '      font-size: 1.05rem;\n';
-  h += '      line-height: 1.85;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-inner p strong {\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-weight: 600;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-blockquote {\n';
-  h += '      margin-top: 2.5rem;\n';
-  h += '      padding: 1.5rem 2rem;\n';
-  h += '      border-left: 3px solid var(--warm-gold);\n';
-  h += '      background: rgba(198,158,72,0.06);\n';
-  h += '      border-radius: 0 8px 8px 0;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .story-blockquote p {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: 1.4rem;\n';
-  h += '      font-style: italic;\n';
-  h += '      font-weight: 400;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      line-height: 1.6;\n';
-  h += '      margin: 0 !important;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── TWO PILLARS ─── */\n';
-  h += '    #pillars {\n';
-  h += '      background: var(--sand);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    #pillars .eyebrow { text-align: center; }\n';
-  h += '    #pillars .section-heading { text-align: center; }\n';
-  h += '\n';
-  h += '    /* ─── PILLARS ─── */\n';
-  h += '    .pillars-grid {\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1fr 1fr;\n';
-  h += '      gap: 2rem;\n';
-  h += '      margin-top: 3rem;\n';
-  h += '    }\n';
-  h += '    .pillar-card {\n';
-  h += '      background: rgba(245,241,234,0.7);\n';
-  h += '      backdrop-filter: blur(8px);\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 16px;\n';
-  h += '      padding: 2.5rem;\n';
-  h += '      transition: transform 0.3s ease, box-shadow 0.3s ease;\n';
-  h += '      position: relative;\n';
-  h += '      overflow: hidden;\n';
-  h += '    }\n';
-  h += '    .pillar-card.full-width {\n';
-  h += '      grid-column: 1 / -1;\n';
-  h += '    }\n';
-  h += '    .pillar-card:hover {\n';
-  h += '      transform: translateY(-4px);\n';
-  h += '      box-shadow: 0 16px 48px rgba(28,40,35,0.1);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* Whole card clickable */\n';
-  h += '    .pillar-card {\n';
-  h += '      cursor: pointer;\n';
-  h += '    }\n';
-  h += '    /* Bottom-right "Read more" tag */\n';
-  h += '    .pillar-more {\n';
-  h += '      position: absolute;\n';
-  h += '      bottom: 1.25rem; right: 1.25rem;\n';
-  h += '      background: transparent;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-size: 0.7rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.08em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      border: 1px solid var(--warm-gold);\n';
-  h += '      padding: 0.3rem 0.7rem;\n';
-  h += '      border-radius: 20px;\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: background 0.2s, color 0.2s;\n';
-  h += '      display: inline-flex; align-items: center; gap: 0.3rem;\n';
-  h += '      pointer-events: none;\n';
-  h += '    }\n';
-  h += '    .pillar-card:hover .pillar-more {\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      color: white;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .pillar-icon {\n';
-  h += '      width: 56px; height: 56px; border-radius: 50%;\n';
-  h += '      display: flex; align-items: center; justify-content: center;\n';
-  h += '      font-size: 1.6rem; margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '    .pillar-icon.dark   { background: var(--deep-forest); }\n';
-  h += '    .pillar-icon.gold   { background: var(--warm-gold); }\n';
-  h += '    .pillar-icon.teal   { background: #4A7C6F; }\n';
-  h += '\n';
-  h += '    .pillar-label {\n';
-  h += '      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;\n';
-  h += '      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.4rem;\n';
-  h += '    }\n';
-  h += '    .pillar-name {\n';
-  h += '      font-family: var(--font-heading); font-size: 2rem;\n';
-  h += '      font-weight: 300; color: var(--deep-forest); margin-bottom: 0.3rem;\n';
-  h += '    }\n';
-  h += '    .pillar-subtitle {\n';
-  h += '      font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 1.75rem;\n';
-  h += '    }\n';
-  h += '    .pillar-features { display: flex; flex-direction: column; gap: 1rem; }\n';
-  h += '\n';
-  h += '    /* Pillar 3 features go 3-col on desktop */\n';
-  h += '    .pillar-card.full-width .pillar-features {\n';
-  h += '      flex-direction: row; flex-wrap: wrap; gap: 1.25rem;\n';
-  h += '    }\n';
-  h += '    .pillar-card.full-width .feature-row {\n';
-  h += '      flex: 1 1 calc(33% - 1rem); min-width: 200px;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .feature-row {\n';
-  h += '      display: flex; align-items: flex-start; gap: 0.85rem;\n';
-  h += '    }\n';
-  h += '    .feature-icon {\n';
-  h += '      width: 36px; height: 36px; border-radius: 50%;\n';
-  h += '      background: rgba(198,158,72,0.1);\n';
-  h += '      display: flex; align-items: center; justify-content: center;\n';
-  h += '      font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;\n';
-  h += '    }\n';
-  h += '    .feature-text strong {\n';
-  h += '      display: block; font-size: 0.875rem; font-weight: 600;\n';
-  h += '      color: var(--deep-forest); margin-bottom: 0.1rem;\n';
-  h += '    }\n';
-  h += '    .feature-text span { font-size: 0.8rem; color: var(--slate-mist); }\n';
-  h += '\n';
-  h += '    @media (max-width: 768px) {\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }\n';
-  h += '      .pillar-card.full-width { grid-column: 1 / -1; }\n';
-  h += '      .pillar-card { padding: 1.25rem 1rem 2.5rem; }\n';
-  h += '      .pillar-card.full-width .pillar-features { flex-direction: column; }\n';
-  h += '      .pillar-card.full-width .feature-row { flex: unset; }\n';
-  h += '      .pillar-name { font-size: 1.6rem; font-weight: 400; }\n';
-  h += '      .pillar-subtitle { margin-bottom: 1rem; }\n';
-  h += '      .pillar-more { bottom: 0.75rem; right: 0.75rem; font-size: 0.6rem; padding: 0.25rem 0.55rem; }\n';
-  h += '    }\n';
-  h += '    @media (max-width: 480px) {\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }\n';
-  h += '      .pillar-card.full-width { grid-column: 1 / -1; }\n';
-  h += '      .pillar-card { padding: 1rem 0.85rem 2.5rem; }\n';
-  h += '      .pillar-name { font-size: 1.45rem; font-weight: 400; }\n';
-  h += '      .pillar-icon { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0.85rem; }\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    /* ─── CONTACT ─── */\n';
-  h += '    #contact {\n';
-  h += '      background: var(--parchment);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-grid {\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1fr 1.4fr;\n';
-  h += '      gap: 4rem;\n';
-  h += '      align-items: start;\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-left .eyebrow { margin-bottom: 0.5rem; }\n';
-  h += '    .contact-left .section-heading { margin-bottom: 0.75rem; }\n';
-  h += '\n';
-  h += '    .contact-subtext {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--warm-gold);\n';
-  h += '      font-weight: 500;\n';
-  h += '      margin-bottom: 2.5rem;\n';
-  h += '      letter-spacing: 0.02em;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-steps { display: flex; flex-direction: column; gap: 1.5rem; }\n';
-  h += '\n';
-  h += '    .contact-step {\n';
-  h += '      display: flex;\n';
-  h += '      align-items: flex-start;\n';
-  h += '      gap: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .step-number {\n';
-  h += '      width: 36px;\n';
-  h += '      height: 36px;\n';
-  h += '      border-radius: 50%;\n';
-  h += '      background: var(--warm-gold);\n';
-  h += '      color: white;\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      display: flex;\n';
-  h += '      align-items: center;\n';
-  h += '      justify-content: center;\n';
-  h += '      flex-shrink: 0;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .step-text strong {\n';
-  h += '      display: block;\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 0.2rem;\n';
-  h += '    }\n';
-  h += '    .step-text span {\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .contact-form-card {\n';
-  h += '      background: var(--sand);\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 16px;\n';
-  h += '      padding: 2.5rem;\n';
-  h += '      box-shadow: 0 4px 24px rgba(28,40,35,0.06);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group {\n';
-  h += '      display: flex;\n';
-  h += '      flex-direction: column;\n';
-  h += '      gap: 0.4rem;\n';
-  h += '      margin-bottom: 1.25rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group label {\n';
-  h += '      font-size: 0.8rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group input,\n';
-  h += '    .form-group textarea,\n';
-  h += '    .form-group select {\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.9rem;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      background: white;\n';
-  h += '      border: 1px solid var(--sea-glass);\n';
-  h += '      border-radius: 8px;\n';
-  h += '      padding: 0.75rem 1rem;\n';
-  h += '      width: 100%;\n';
-  h += '      transition: border-color 0.2s, box-shadow 0.2s;\n';
-  h += '      outline: none;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group input:focus,\n';
-  h += '    .form-group textarea:focus,\n';
-  h += '    .form-group select:focus {\n';
-  h += '      border-color: var(--warm-gold);\n';
-  h += '      box-shadow: 0 0 0 3px rgba(198,158,72,0.12);\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-group textarea { resize: vertical; min-height: 110px; }\n';
-  h += '\n';
-  h += '    .form-toggle {\n';
-  h += '      display: flex;\n';
-  h += '      gap: 0.75rem;\n';
-  h += '      margin-bottom: 1.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .toggle-btn {\n';
-  h += '      flex: 1;\n';
-  h += '      padding: 0.6rem;\n';
-  h += '      border-radius: 8px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.85rem;\n';
-  h += '      font-weight: 500;\n';
-  h += '      cursor: pointer;\n';
-  h += '      border: 1.5px solid var(--sea-glass);\n';
-  h += '      background: white;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      transition: all 0.2s;\n';
-  h += '    }\n';
-  h += '    .toggle-btn.active {\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      border-color: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .form-submit {\n';
-  h += '      width: 100%;\n';
-  h += '      padding: 0.9rem;\n';
-  h += '      background: var(--deep-forest);\n';
-  h += '      color: white;\n';
-  h += '      border: none;\n';
-  h += '      border-radius: 8px;\n';
-  h += '      font-family: var(--font-body);\n';
-  h += '      font-size: 0.95rem;\n';
-  h += '      font-weight: 600;\n';
-  h += '      cursor: pointer;\n';
-  h += '      transition: opacity 0.2s, transform 0.2s;\n';
-  h += '      letter-spacing: 0.02em;\n';
-  h += '    }\n';
-  h += '    .form-submit:hover { opacity: 0.85; transform: translateY(-1px); }\n';
-  h += '    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }\n';
-  h += '\n';
-  h += '    .form-success {\n';
-  h += '      display: none;\n';
-  h += '      text-align: center;\n';
-  h += '      padding: 2rem;\n';
-  h += '    }\n';
-  h += '    .form-success.show { display: block; }\n';
-  h += '    .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }\n';
-  h += '    .form-success h3 {\n';
-  h += '      font-family: var(--font-heading);\n';
-  h += '      font-size: 1.5rem;\n';
-  h += '      font-weight: 400;\n';
-  h += '      margin-bottom: 0.5rem;\n';
-  h += '    }\n';
-  h += '    .form-success p { font-size: 0.875rem; color: var(--slate-mist); }\n';
-  h += '\n';
-  h += '    /* ─── FOOTER ─── */\n';
-  h += '    footer {\n';
-  h += '      background: rgba(235,230,218,0.5);\n';
-  h += '      border-top: 1px solid var(--sea-glass);\n';
-  h += '      padding: 4rem 2rem 2rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-grid {\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      display: grid;\n';
-  h += '      grid-template-columns: 1.5fr 1fr 1fr;\n';
-  h += '      gap: 3rem;\n';
-  h += '      margin-bottom: 3rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-brand-name {\n';
-  h += '      font-family: var(--font-brand);\n';
-  h += '      font-size: 1.4rem;\n';
-  h += '      letter-spacing: 0.05em;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 0.5rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-tagline {\n';
-  h += '      font-size: 0.825rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      line-height: 1.6;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col h4 {\n';
-  h += '      font-size: 0.7rem;\n';
-  h += '      font-weight: 700;\n';
-  h += '      letter-spacing: 0.15em;\n';
-  h += '      text-transform: uppercase;\n';
-  h += '      color: var(--deep-forest);\n';
-  h += '      margin-bottom: 1rem;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }\n';
-  h += '\n';
-  h += '    .footer-col ul a {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      text-decoration: none;\n';
-  h += '      transition: color 0.2s;\n';
-  h += '    }\n';
-  h += '    .footer-col ul a:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .footer-col p {\n';
-  h += '      font-size: 0.875rem;\n';
-  h += '      color: var(--slate-mist);\n';
-  h += '      line-height: 1.7;\n';
-  h += '    }\n';
-  h += '\n';
-  h += '    .footer-col .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }\n';
-  h += '    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }\n';
-  h += '    .footer-social-link:hover { color: var(--deep-forest); }\n';
-  h += '\n';
-  h += '    .footer-bottom {\n';
-  h += '      max-width: 1000px;\n';
-  h += '      margin: 0 auto;\n';
-  h += '      padding-top: 1.5rem;\n';
-  h += '      border-top: 1px solid var(--sea-glass);\n';
-  h += '      display: flex;\n';
-  h += '      justify-content: space-between;\n';
-  h += '      align-items: center;\n';
-  h += '      flex-wrap: wrap;\n';
-  h += '      gap: 0.5rem;\n';
-  h += '    }\n';
-  h += '    .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }\n';
-  h += '@media (max-width: 768px) {\n';
-  h += '      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }\n';
-  h += '      .nav-links.open { display: flex; }\n';
-  h += '      .nav-hamburger { display: flex; }\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr; }\n';
-  h += '      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }\n';
-  h += '      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }\n';
-  h += '      .footer-bottom { flex-direction: column; text-align: center; }\n';
-  h += '    }\n';
-  h += '@media (max-width: 768px) {\n';
-  h += '      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }\n';
-  h += '      .nav-links.open { display: flex; }\n';
-  h += '      .nav-hamburger { display: flex; }\n';
-  h += '      .pillars-grid { grid-template-columns: 1fr; }\n';
-  h += '      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }\n';
-  h += '      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }\n';
-  h += '      .footer-bottom { flex-direction: column; text-align: center; }\n';
-  h += '    }\n';
-  h += 'footer a{color:rgba(255,255,255,0.6)}\n';
-  h += 'footer a:hover{color:var(--warm-gold)}\n';
-  h += '@media(max-width:600px){.article-wrap{padding:5rem 1.25rem 3rem}h1.article-title{font-size:2rem}}\n';
-  h += '</style>\n</head>\n<body>\n';
-  h += '<nav>\n';
-  h += '  <a href="/" class="nav-brand">Kristian Sokol</a>\n';
-  h += '  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>\n';
-  h += '  <ul class="nav-links" id="navLinks">\n';
-  h += '    <li><a href="/#story" onclick="closeMenu()">About</a></li>\n';
-  h += '    <li><a href="/#pillars" onclick="closeMenu()">How I Help</a></li>\n';
-  h += '    <li><a href="/#contact" onclick="closeMenu()">Contact</a></li>\n';
-  h += '    <li><a href="/blog.html" onclick="closeMenu()">Blog</a></li>\n';
-  h += '    <li><a href="/#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>\n';
-  h += '  </ul>\n';
-  h += '</nav>\n';
-  h += '<main class="article-wrap">\n';
-  h += '  <div class="article-meta">\n';
-  h += '    <span class="article-tag">' + catLabel + '</span>\n';
-  h += '    <span class="article-date">' + formatDate(postDate) + '</span>\n';
-  h += '    <span class="article-read">' + (post.readTime || '5 min read') + '</span>\n';
-  h += '  </div>\n';
-  h += '  <h1 class="article-title">' + post.title + '</h1>\n';
-  h += '  <p class="article-excerpt">' + (post.excerpt || '') + '</p>\n';
-  h += '  <div class="article-body">' + bodyHtml + '</div>\n';
-  h += '  <div class="author-bar">\n';
-  h += '    <div class="author-initials">KS</div>\n';
-  h += '    <div><div class="author-name">Kristian Sokol</div><div class="author-bio">Certified Life &amp; Longevity Coach - Break the Loop</div></div>\n';
-  h += '  </div>\n';
-  h += '  <div class="article-footer">\n';
-  h += '    <a class="back-btn" href="../blog.html">&#8592; Back to Articles</a>\n';
-  h += '    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:\'' + cleanTitle.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + '\',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert(\'Link copied!\')})}">Share &#8599;</button>\n';
-  h += '  </div>\n';
-  h += '</main>\n';
-  h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../index.html">Home</a> &middot; <a href="../blog.html">Blog</a></p></footer>\n';
-  h += '</body>\n</html>';
-  return h;
-}
-
-async function pushArticleToGitHub(post, token) {
-  var slug     = slugify(post.title);
-  var fileName = 'articles/' + slug + '.html';
-  var htmlContent = buildArticleHtml(post);
-  var ghApiBase = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/';
-  var sha = null;
-  try {
-    var check = await fetch(ghApiBase + fileName, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
-    if (check.ok) { var d = await check.json(); sha = d.sha; }
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
   } catch(e) {}
-  var content = btoa(unescape(encodeURIComponent(htmlContent)));
-  var reqBody = { message: 'Auto-publish: ' + post.title.replace(/<[^>]+>/g,''), content: content, branch: GH_BRANCH };
-  if (sha) reqBody.sha = sha;
-  try {
-    var res = await fetch(ghApiBase + fileName, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(reqBody) });
-    if (res.ok) console.log('Article page created: ' + fileName);
-    else console.warn('Article page failed:', res.status);
-  } catch(e) { console.warn('Article page error:', e.message); }
+  return null;
 }
 
-async function updateSitemap(published, token) {
-  var ghApiBase = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/';
-  var today = new Date().toISOString().slice(0,10);
-  var articleUrls = published.map(function(p) {
-    var sl = slugify(p.title);
-    return '  <url>\n    <loc>https://www.coachkris.co.uk/articles/' + sl + '.html</loc>\n    <lastmod>' + (p.date || today) + '</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>';
-  }).join('\n');
-  var sitemapXml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.coachkris.co.uk/</loc>\n    <lastmod>' + today + '</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n  <url>\n    <loc>https://www.coachkris.co.uk/blog.html</loc>\n    <lastmod>' + today + '</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n' + articleUrls + '\n</urlset>';
-  var sha = null;
-  try {
-    var check = await fetch(ghApiBase + 'sitemap.xml', { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
-    if (check.ok) { var d = await check.json(); sha = d.sha; }
-  } catch(e) {}
-  var content = btoa(unescape(encodeURIComponent(sitemapXml)));
-  var reqBody = { message: 'Auto-update sitemap', content: content, branch: GH_BRANCH };
-  if (sha) reqBody.sha = sha;
-  try {
-    await fetch(ghApiBase + 'sitemap.xml', { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(reqBody) });
-    console.log('Sitemap updated');
-  } catch(e) { console.warn('Sitemap update failed:', e.message); }
-}
-
-
-async function savePosts(posts) {
-  const token = getToken();
-  if (!token) { alert('No GitHub token — cannot save. Please log in again.'); return false; }
-
-  _postsCache = posts;
-
-  // Get current SHA if we don't have it
-  if (!_ghFileSha) await fetchFileSha();
-
-  const content = btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2))));
-  const body = {
-    message: 'Update posts via admin panel',
-    content,
-    branch: GH_BRANCH,
-    ...(  _ghFileSha ? { sha: _ghFileSha } : {})
-  };
-
-  try {
-    const res = await fetch(GH_API, {
-      method: 'PUT',
-      headers: {
-        'Authorization': 'token ' + token,
-        'Accept': 'application/vnd.github.v3+json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      console.error('GitHub save error:', err);
-      alert('Save failed: ' + (err.message || res.status));
-      return false;
-    }
-    const result = await res.json();
-    _ghFileSha = result.content.sha; // update SHA for next save
-
-    // Auto-generate individual HTML pages + sitemap for published posts
-    var published = posts.filter(function(p){ return p.status === 'published'; });
-    for (var i = 0; i < published.length; i++) {
-      await pushArticleToGitHub(published[i], token);
-    }
-    await updateSitemap(published, token);
-
-    return true;
-  } catch(e) {
-    alert('Network error saving to GitHub: ' + e.message);
-    return false;
-  }
+function savePosts(posts) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
 }
 
 function getAllPosts() {
-  if (_postsCache && _postsCache.length > 0) return _postsCache;
+  const stored = getPosts();
+  if (stored && stored.length > 0) return stored;
   return SEED_POSTS;
 }
 
@@ -3157,7 +764,7 @@ function formatDate(d) {
 }
 
 function categoryLabel(cat) {
-  return { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware', growth: 'Business', build: 'Business' }[cat] || cat;
+  return { life: 'Life Coaching', longevity: 'Longevity', mindset: 'Mindset', adhd: 'ADHD-Aware' }[cat] || cat;
 }
 
 function uid() {
@@ -3174,8 +781,8 @@ function parseMarkdown(text) {
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
     // headings
-    if (line.startsWith('###')) { if(inList){html+='</ul>';inList=false;} html += `<h3>${md(line.replace(/^###\s*/,''))}</h3>`; continue; }
-    if (line.startsWith('##'))  { if(inList){html+='</ul>';inList=false;} html += `<h2>${md(line.replace(/^##\s*/,''))}</h2>`; continue; }
+    if (line.startsWith('### ')) { if(inList){html+='</ul>';inList=false;} html += `<h3>${md(line.slice(4))}</h3>`; continue; }
+    if (line.startsWith('## '))  { if(inList){html+='</ul>';inList=false;} html += `<h2>${md(line.slice(3))}</h2>`; continue; }
     // bullets
     if (line.startsWith('- ') || line.startsWith('* ')) {
       if (!inList) { html += '<ul>'; inList = true; }
@@ -3199,128 +806,6 @@ function md(t) {
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
 }
 
-
-// ═══════════════════════════════════════
-//  SHARE
-// ═══════════════════════════════════════
-let _sharePopover = null;
-
-function shareArticle(e, postId) {
-  e.stopPropagation();
-  // Remove any existing popover
-  if (_sharePopover) { _sharePopover.remove(); _sharePopover = null; return; }
-
-  const all  = getAllPosts();
-  const post = all.find(p => p.id === postId);
-  if (!post) return;
-
-  // Build share data
-  const slug = slugify(post.title);
-  const pageUrl   = 'https://www.coachkris.co.uk/articles/' + slug + '.html';
-  const title     = post.title.replace(/<[^>]+>/g,'');
-  const authorImg = 'https://www.coachkris.co.uk/assets/kris-profile.jpg'; // OG image fallback
-  const text      = `${title} — by Kristian Sokol, Life & Longevity Coach`;
-  const encoded   = encodeURIComponent(pageUrl);
-  const encodedText = encodeURIComponent(text);
-
-  const networks = [
-    {
-      name: 'LinkedIn',
-      url: `https://www.linkedin.com/sharing/share-offsite/?url=${encoded}`,
-      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`
-    },
-    {
-      name: 'X (Twitter)',
-      url: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encoded}`,
-      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="#000"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`
-    },
-    {
-      name: 'Facebook',
-      url: `https://www.facebook.com/sharer/sharer.php?u=${encoded}`,
-      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>`
-    },
-    { divider: true },
-    {
-      name: 'Copy link',
-      url: null,
-      icon: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`
-    }
-  ];
-
-  const pop = document.createElement('div');
-  pop.className = 'share-popover';
-
-  networks.forEach(n => {
-    if (n.divider) {
-      const div = document.createElement('div');
-      div.className = 'share-divider';
-      pop.appendChild(div);
-      return;
-    }
-    const a = document.createElement('a');
-    if (n.url) {
-      a.href = n.url;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-    } else {
-      a.href = '#';
-      a.addEventListener('click', ev => {
-        ev.preventDefault();
-        const label = a.querySelector('span');
-        function showCopied() {
-          label.textContent = 'Copied!';
-          setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(pageUrl).then(showCopied).catch(() => {
-            // fallback
-            const ta = document.createElement('textarea');
-            ta.value = pageUrl;
-            ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
-            document.body.appendChild(ta);
-            ta.focus(); ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-            showCopied();
-          });
-        } else {
-          const ta = document.createElement('textarea');
-          ta.value = pageUrl;
-          ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
-          document.body.appendChild(ta);
-          ta.focus(); ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          showCopied();
-        }
-      });
-    }
-    a.innerHTML = n.icon + `<span>${n.name}</span>`;
-    pop.appendChild(a);
-  });
-
-  // Position near the button
-  const btn = e.currentTarget;
-  const rect = btn.getBoundingClientRect();
-  const modal = document.querySelector('.article-modal');
-  const modalRect = modal.getBoundingClientRect();
-  pop.style.top  = (rect.bottom - modalRect.top + modal.scrollTop + 8) + 'px';
-  pop.style.right = (modalRect.right - rect.right) + 'px';
-  pop.style.position = 'absolute';
-
-  modal.style.position = 'relative';
-  modal.appendChild(pop);
-  _sharePopover = pop;
-
-  // Close on outside click
-  setTimeout(() => {
-    document.addEventListener('click', function handler() {
-      if (_sharePopover) { _sharePopover.remove(); _sharePopover = null; }
-      document.removeEventListener('click', handler);
-    });
-  }, 10);
-}
-
 // ═══════════════════════════════════════
 //  RENDER
 // ═══════════════════════════════════════
@@ -3331,10 +816,7 @@ function renderGrid() {
   const grid = document.getElementById('postsGrid');
   const all  = getAllPosts();
   const published = all.filter(p => p.status === 'published');
-  const filtered  = activeFilter === 'all' ? published : published.filter(p => {
-    const cats = Array.isArray(p.category) ? p.category : [p.category];
-    return cats.includes(activeFilter);
-  });
+  const filtered  = activeFilter === 'all' ? published : published.filter(p => p.category === activeFilter);
 
   if (filtered.length === 0) {
     grid.innerHTML = `<div class="empty-state"><h3>No articles yet</h3><p>Check back soon — new content is on its way.</p></div>`;
@@ -3352,13 +834,10 @@ function renderGrid() {
     const isFeatured = post.featured;
     const title = post.title || '';
     const excerpt = post.excerpt || '';
-    const catArr2 = Array.isArray(post.category) ? post.category : [post.category || 'life'];
-    const catLabel = catArr2.map(c => categoryLabel(c)).join(' · ');
-    const catArr = Array.isArray(post.category) ? post.category : [post.category || 'life'];
-    const cat = catArr[0];
+    const catLabel = categoryLabel(post.category);
+    const cat = post.category || 'life';
     return `
       <div class="post-card ${isFeatured ? 'featured' : ''}" data-id="${post.id}" onclick="openArticle('${post.id}')">
-        ${isFeatured ? '<span class="featured-badge">Featured</span>' : ''}
         <div class="card-accent ${cat}"></div>
         <div class="card-tag">${catLabel}</div>
         <h2>${title}</h2>
@@ -3372,88 +851,25 @@ function renderGrid() {
   }).join('');
 }
 
-function slugify(str) {
-  return str.replace(/<[^>]+>/g,'').toLowerCase()
-    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60);
-}
-
-let currentArticleId = null;
-
 function openArticle(id) {
   const all   = getAllPosts();
   const post  = all.find(p => p.id === id);
   if (!post) return;
 
-  currentArticleId = id;
-
-  const mCats = Array.isArray(post.category) ? post.category : [post.category || 'life'];
-  document.getElementById('modalTag').textContent  = mCats.map(c => categoryLabel(c)).join(' · ');
+  document.getElementById('modalTag').textContent  = categoryLabel(post.category);
   document.getElementById('modalTitle').innerHTML  = post.title;
   document.getElementById('modalMeta').innerHTML   =
-    `<span>${formatDate(post.date)}</span>${post.readTime ? `<span>· ${post.readTime}</span>` : ''}<span>· By Kristian Sokol</span>`+
-    `<button class="share-btn" onclick="shareArticle(event,'${post.id}')" title="Share this article">` +
-    `<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>` +
-    `Share</button>`;
+    `<span>${formatDate(post.date)}</span>${post.readTime ? `<span>· ${post.readTime}</span>` : ''}<span>· By Kristian Sokol</span>`;
   document.getElementById('modalBody').innerHTML   = parseMarkdown(post.body);
-
-  // Update prev/next buttons
-  const nextPost = getNextArticle(post);
-  const prevPost = getPrevArticle(post);
-  const nextBtn  = document.getElementById('modalNextBtn');
-  const prevBtn  = document.getElementById('modalPrevBtn');
-  if (nextBtn) nextBtn.style.display = nextPost ? '' : 'none';
-  if (prevBtn) prevBtn.style.display = prevPost ? '' : 'none';
 
   const overlay = document.getElementById('articleOverlay');
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
-  // Set hash for direct linking
-  history.replaceState(null, '', '#' + slugify(post.title));
-  // Always scroll to top of the overlay
-  overlay.scrollTop = 0;
-}
-
-function getSortedPublished() {
-  // All published, same-category-first logic applied per-article; here just sort by date desc
-  return getAllPosts().filter(p => p.status === 'published').sort((a,b) => new Date(b.date)-new Date(a.date));
-}
-
-function getNextArticle(post) {
-  const all = getSortedPublished();
-  const idx = all.findIndex(p => p.id === post.id);
-  // "next" = older article (higher index)
-  if (idx === -1 || idx >= all.length - 1) return null;
-  return all[idx + 1];
-}
-
-function getPrevArticle(post) {
-  const all = getSortedPublished();
-  const idx = all.findIndex(p => p.id === post.id);
-  // "prev" = newer article (lower index)
-  if (idx <= 0) return null;
-  return all[idx - 1];
-}
-
-function openNextArticle() {
-  if (!currentArticleId) return;
-  const post = getAllPosts().find(p => p.id === currentArticleId);
-  if (!post) return;
-  const next = getNextArticle(post);
-  if (next) openArticle(next.id);
-}
-
-function openPrevArticle() {
-  if (!currentArticleId) return;
-  const post = getAllPosts().find(p => p.id === currentArticleId);
-  if (!post) return;
-  const prev = getPrevArticle(post);
-  if (prev) openArticle(prev.id);
 }
 
 function closeArticle() {
   document.getElementById('articleOverlay').classList.remove('open');
   document.body.style.overflow = '';
-  history.replaceState(null, '', location.pathname + location.search);
 }
 
 // ═══════════════════════════════════════
@@ -3478,19 +894,13 @@ function closeAdminOverlay() {
   document.body.style.overflow = '';
 }
 
-async function adminLogin() {
+function adminLogin() {
   const val = document.getElementById('adminPass').value;
   const err = document.getElementById('loginError');
   if (val === ADMIN_PASS) {
     adminAuthed = true;
     err.style.display = 'none';
     document.getElementById('adminPass').value = '';
-    // Ask for GitHub token to enable saving
-    const tok = prompt('Enter your GitHub token to enable saving articles:');
-    if (tok && tok.trim()) {
-      sessionStorage.setItem('ck_gh_token', tok.trim());
-      await fetchFileSha(); // pre-fetch SHA
-    }
     showPanel();
   } else {
     err.style.display = 'block';
@@ -3512,48 +922,10 @@ function switchTab(tab) {
   if (tab === 'posts') renderPostList();
 }
 
-
-// ── EDITOR TOOLBAR ──
-function insertFormatting(before, after) {
-  var ta = document.getElementById('f-body');
-  if (!ta) return;
-  var start = ta.selectionStart, end = ta.selectionEnd;
-  var sel = ta.value.substring(start, end);
-  var replacement = before + (sel || 'text') + after;
-  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
-  ta.selectionStart = start + before.length;
-  ta.selectionEnd   = start + before.length + (sel || 'text').length;
-  ta.focus();
-}
-function insertHeading(prefix) {
-  var ta = document.getElementById('f-body');
-  if (!ta) return;
-  var start = ta.selectionStart;
-  var lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
-  ta.value = ta.value.substring(0, lineStart) + prefix + ta.value.substring(lineStart);
-  ta.selectionStart = ta.selectionEnd = lineStart + prefix.length;
-  ta.focus();
-}
-function insertLink() {
-  var ta = document.getElementById('f-body');
-  if (!ta) return;
-  var start = ta.selectionStart, end = ta.selectionEnd;
-  var sel = ta.value.substring(start, end) || 'link text';
-  var url = prompt('Enter the URL:', 'https://');
-  if (!url) return;
-  var replacement = '[' + sel + '](' + url + ')';
-  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
-  ta.selectionStart = start + 1;
-  ta.selectionEnd   = start + 1 + sel.length;
-  ta.focus();
-}
-
-async function publishPost(status) {
+function publishPost(status) {
   const title   = document.getElementById('f-title').value.trim();
   const body    = document.getElementById('f-body').value.trim();
-  const catBoxes = document.querySelectorAll('#f-cat input[type=checkbox]:checked');
-  const cat     = Array.from(catBoxes).map(cb => cb.value);
-  if (cat.length === 0) { alert('Please select at least one category.'); return; }
+  const cat     = document.getElementById('f-cat').value;
   const time    = document.getElementById('f-time').value.trim();
   const excerpt = document.getElementById('f-excerpt').value.trim();
   const featured = document.getElementById('f-featured').value === 'yes';
@@ -3586,18 +958,12 @@ async function publishPost(status) {
   };
 
   posts.unshift(newPost);
+  savePosts(posts);
 
   const msg = document.getElementById('publishMsg');
-  msg.textContent = '⏳ Saving to GitHub…';
+  msg.textContent = status === 'published' ? '✓ Published!' : '✓ Saved as draft';
   msg.classList.add('visible');
-
-  const ok = await savePosts(posts);
-  if (ok) {
-    msg.textContent = status === 'published' ? '✓ Published!' : '✓ Saved as draft';
-  } else {
-    msg.textContent = '✗ Save failed — check console';
-  }
-  setTimeout(() => msg.classList.remove('visible'), 4000);
+  setTimeout(() => msg.classList.remove('visible'), 3000);
 
   clearForm();
   renderGrid();
@@ -3605,7 +971,7 @@ async function publishPost(status) {
 
 function clearForm() {
   ['f-title','f-excerpt','f-body','f-time'].forEach(id => document.getElementById(id).value = '');
-  document.querySelectorAll('#f-cat input[type=checkbox]').forEach(cb => cb.checked = false);
+  document.getElementById('f-cat').value = 'life';
   document.getElementById('f-featured').value = 'no';
   delete document.getElementById('f-title').dataset.editingId;
 }
@@ -3639,11 +1005,7 @@ function editPost(id) {
 
   document.getElementById('f-title').value   = post.title.replace(/<[^>]+>/g,'');
   document.getElementById('f-title').dataset.editingId = post.id;
-  // restore category checkboxes
-  document.querySelectorAll('#f-cat input[type=checkbox]').forEach(cb => {
-    const cats = Array.isArray(post.category) ? post.category : [post.category];
-    cb.checked = cats.includes(cb.value);
-  });
+  document.getElementById('f-cat').value     = post.category;
   document.getElementById('f-time').value    = post.readTime || '';
   document.getElementById('f-excerpt').value = post.excerpt || '';
   document.getElementById('f-body').value    = post.body || '';
@@ -3676,20 +1038,8 @@ function deletePost(id) {
 //  EVENTS
 // ═══════════════════════════════════════
 
-document.addEventListener('DOMContentLoaded', async () => {
-  // Load posts from GitHub first
-  await loadPostsFromGitHub();
+document.addEventListener('DOMContentLoaded', () => {
   renderGrid();
-
-  // If URL has a hash, try to open that article
-  if (location.hash && location.hash.length > 1) {
-    const targetSlug = location.hash.slice(1).toLowerCase();
-    const all = getAllPosts();
-    const match = all.find(p => p.status === 'published' && slugify(p.title) === targetSlug);
-    if (match) {
-      setTimeout(() => openArticle(match.id), 300);
-    }
-  }
 
   // Filter
   document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -3744,47 +1094,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 
 <!-- ── FOOTER ── -->
-
-<!-- ── SUBSCRIBE STRIP ── -->
-<section class="subscribe-strip">
-  <div class="subscribe-inner">
-    <h3><em>Be the first</em> to know</h3>
-    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-      <input type="email" id="subEmail" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-  <p class="subscribe-msg" id="subMsg">✓ You're in — talk soon.</p>
-</section>
-
 <footer>
   <div class="footer-grid">
     <div>
       <p class="footer-brand-name">Kristian Sokol</p>
       <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
-        <div class="footer-accred-row">
-          <img src="accreditations/cpd.png" alt="CPD Accredited" loading="lazy" />
-          <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
-          <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
-          <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
-          <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
-        </div>
     </div>
     <div class="footer-col">
       <h4>Navigate</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#story">About</a></li>
         <li><a href="index.html#pillars">How I Help</a></li>
         <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blog.html">Articles</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Find Me</h4>
       <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        NI, UK, ES
+        Galicia, Northern Spain
       </p>
       <p style="display:flex;align-items:center;gap:0.6rem;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
@@ -3797,59 +1127,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
   </div>
 </footer>
-
-
-  <script>
-    async function handleSubscribe(e) {
-      e.preventDefault();
-      const email = document.getElementById('subEmail').value.trim();
-      const btn   = e.target.querySelector('button');
-      const msg   = document.getElementById('subMsg');
-      if (!email) return;
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      try {
-        const res = await fetch('https://formspree.io/f/xkolgold', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, _subject: 'New subscriber: ' + email })
-        });
-        if (res.ok) {
-          msg.classList.add('show');
-          document.getElementById('subEmail').value = '';
-          btn.textContent = 'Subscribe';
-          btn.disabled = false;
-        } else { throw new Error(); }
-      } catch {
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-        alert('Something went wrong — please try again.');
-      }
-    }
-  </script>
-
-  <!-- SEO: Hidden article content for search engine indexing -->
-  <div id="seo-articles" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"></div>
-  <script>
-  // Inject full article content into DOM for Google indexing
-  (function() {
-    var POSTS_URL = 'https://raw.githubusercontent.com/So3y3/indextomy/main/posts.json';
-    fetch(POSTS_URL).then(function(r){ return r.json(); }).then(function(posts) {
-      var container = document.getElementById('seo-articles');
-      if (!container || !Array.isArray(posts)) return;
-      posts.forEach(function(p) {
-        var article = document.createElement('article');
-        article.innerHTML =
-          '<h2>' + (p.title || '') + '</h2>' +
-          '<p>' + (p.category || '') + ' · ' + (p.date || '') + ' · ' + (p.readTime || '') + '</p>' +
-          '<p>' + (p.excerpt || '') + '</p>' +
-          '<div>' + (p.body || '').replace(/\n/g,'<br>') + '</div>' +
-          '<a href="/blog.html#' + (p.slug || '') + '">Read: ' + (p.title || '') + '</a>';
-        container.appendChild(article);
-      });
-    }).catch(function(){});
-  })();
-  </script>
 
 </body>
 </html>
