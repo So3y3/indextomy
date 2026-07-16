@@ -265,7 +265,10 @@
       color: var(--warm-gold);
     }
     @media (max-width: 480px) {
-      .hero-offer-pair { flex-direction: column; align-items: center; }
+      .hero-offer-pair { flex-direction: row; gap: 0.5rem; align-items: stretch; }
+      .hero-founding-banner { flex: 1; min-width: 0; padding: 0.65rem 0.75rem; }
+      .hero-founding-banner .fb-kicker { font-size: 0.58rem; }
+      .hero-founding-banner .fb-cta { font-size: 0.9rem; }
     }
     .hero-buttons {
       display: flex;
