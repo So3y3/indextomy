@@ -58,7 +58,7 @@
     .ob-card-title { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: var(--deep-forest); margin-bottom: 1.1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--sand); }
 
     /* FIELDS */
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; align-items: end; }
     .field-row.single { grid-template-columns: 1fr; }
     .field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
     .field { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -137,7 +137,7 @@
 
     /* SUCCESS */
     #success-screen { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; animation: fadeUp 0.5s ease; }
-    .success-icon { width: 68px; height: 68px; border-radius: 50%; background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; font-size: 1.7rem; }
+    .success-icon { width: 68px; height: 68px; border-radius: 50%; background: rgba(198,158,72,0.1); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.75rem; font-size: 1.7rem; color: var(--warm-gold); }
     #success-screen h2 { font-family: var(--font-heading); font-size: clamp(1.9rem,5vw,2.9rem); font-weight: 300; color: var(--deep-forest); margin-bottom: 1rem; }
     #success-screen h2 em { font-style: italic; color: var(--warm-gold); }
     #success-screen p { font-size: 0.9rem; color: var(--slate-mist); line-height: 1.75; max-width: 440px; margin: 0 auto; }
@@ -630,7 +630,7 @@
 
 <!-- SUCCESS -->
 <div id="success-screen">
-  <div class="success-icon">&#10022;</div>
+  <div class="success-icon">&#10003;</div>
   <h2>You're all set, <em id="success-name">friend</em>.</h2>
   <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
   <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
