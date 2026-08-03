@@ -1212,7 +1212,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  // Handle free call form submission
+});
+
+  // Handle free call form submission (global scope, not inside DOMContentLoaded)
   window.handleFreeCall = function() {
     var form = document.getElementById('qf');
     if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -1232,7 +1234,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(function(response) {
       if (response.ok) {
-        form.innerHTML = '<div style="text-align:center;padding:2rem 0;"><h4 style="font-family:var(--font-heading);font-size:1.6rem;color:var(--deep-forest);margin-bottom:0.5rem;">Got it.</h4><p style="color:var(--slate-mist);font-size:0.95rem;">Your message is with me. I'll be in touch within 24 hours to book your free call.</p></div>';
+        form.innerHTML = '<div style="text-align:center;padding:2rem 0;"><h4 style="font-family:var(--font-heading);font-size:1.6rem;color:var(--deep-forest);margin-bottom:0.5rem;">Got it.</h4><p style="color:var(--slate-mist);font-size:0.95rem;">Your message is with me. I\'ll be in touch within 24 hours to book your free call.</p></div>';
       } else {
         alert('There was an issue submitting your request. Please try again.');
         submitBtn.disabled = false;
@@ -1245,7 +1247,6 @@ document.addEventListener("DOMContentLoaded", function() {
       submitBtn.textContent = 'Request My Free Call \u2192';
     });
   };
-});
   </script>
 </body>
 </html>
