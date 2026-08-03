@@ -466,6 +466,14 @@
                 <h2 class="section-title">Client Details</h2>
                 <p class="section-desc">Input client metadata to dynamically fill the agreement.</p>
                 <div class="form-group">
+                    <label>Contract Language</label>
+                    <select id="contractLang" onchange="setLanguage(this.value)" class="form-control" style="cursor:pointer;font-weight:600;">
+                        <option value="en">English</option>
+                        <option value="es">Español (Spanish)</option>
+                        <option value="sk">Slovenčina (Slovak)</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label>Client Full Name</label>
                     <input type="text" id="inputClientName" value="Alex Mercer" oninput="updateContract()" class="form-control">
                 </div>
@@ -627,7 +635,7 @@
                     <div class="contract-header">
                         <div class="contract-logo">
                             <h2>Kristian Sokol</h2>
-                            <p>Life &amp; Longevity Coach</p>
+                            <p data-i18n="coach_title">Life &amp; Longevity Coach</p>
                         </div>
                         <div class="contract-contact">
                             <p class="website">coachkris.co.uk</p>
@@ -635,94 +643,94 @@
                         </div>
                     </div>
 
-                    <h1 class="contract-title">Agreement for Client Service</h1>
+                    <h1 class="contract-title" data-i18n="contract_title">Agreement for Client Service</h1>
 
                     <div class="contract-body">
-                        <p>This Agreement is entered into by and between:</p>
+                        <p data-i18n="intro_between">This Agreement is entered into by and between:</p>
 
                         <div class="metadata-grid">
                             <div class="metadata-col">
-                                <span class="label">The Coach</span>
+                                <span class="label" data-i18n="the_coach">The Coach</span>
                                 <span class="value">Kristian Sokol</span>
                                 <span style="display:block;font-size:9px;color:var(--slate-500);font-weight:500;margin-top:2px;">Life &amp; Longevity Coach</span>
                             </div>
                             <div class="metadata-col">
-                                <span class="label">The Client</span>
+                                <span class="label" data-i18n="the_client">The Client</span>
                                 <span id="displayClientName" class="value">Alex Mercer</span>
-                                <span style="display:block;font-size:9px;color:var(--slate-500);font-weight:500;margin-top:2px;">Participant</span>
+                                <span style="display:block;font-size:9px;color:var(--slate-500);font-weight:500;margin-top:2px;" data-i18n="participant">Participant</span>
                             </div>
                         </div>
 
-                        <p>The Client and Coach work collaboratively (not as business associates or in legal alliances) to enhance the Client's physical wellness, longevity metrics, and personal life performance standards.</p>
+                        <p data-i18n="collab_para">The Client and Coach work collaboratively (not as business associates or in legal alliances) to enhance the Client's physical wellness, longevity metrics, and personal life performance standards.</p>
 
-                        <h3>Responsibilities &amp; Scope</h3>
+                        <h3 data-i18n="resp_scope">Responsibilities &amp; Scope</h3>
                         <ol>
-                            <li><strong>Professional Ethics:</strong> Coach agrees to follow the Ethics and Standards of Conduct set forth by the International Coach Federation (ICF). The ICF's Code of Ethics is outlined in detail at <span style="color:var(--emerald-700);text-decoration:underline;">coachingfederation.org/ethics/code-of-ethics</span>.</li>
-                            <li><strong>Client Ownership:</strong> The Client's emotional, mental, and physical well-being is entirely their own responsibility. Likewise, the Client is responsible for all choices, decisions, behaviors, and actions. The Coach is not liable or accountable for any action or inaction, as well as for any direct or indirect results of service provided to the Client.</li>
-                            <li><strong>Non-Therapeutic Nature:</strong> It is critical for the Client to understand that coaching does not substitute for therapy, psychotherapeutic clinical support, or mental health treatment. It is in no way designed to treat any psychological disorder, clinical condition, or clinical medical problem, nor does it prevent them.</li>
-                            <li><strong>Medical &amp; Longevity Disclaimer:</strong>
+                            <li data-i18n="li_ethics"><strong>Professional Ethics:</strong> Coach agrees to follow the Ethics and Standards of Conduct set forth by the International Coach Federation (ICF). The ICF's Code of Ethics is outlined in detail at <span style="color:var(--emerald-700);text-decoration:underline;">coachingfederation.org/ethics/code-of-ethics</span>.</li>
+                            <li data-i18n="li_ownership"><strong>Client Ownership:</strong> The Client's emotional, mental, and physical well-being is entirely their own responsibility. Likewise, the Client is responsible for all choices, decisions, behaviors, and actions. The Coach is not liable or accountable for any action or inaction, as well as for any direct or indirect results of service provided to the Client.</li>
+                            <li data-i18n="li_nontherapeutic"><strong>Non-Therapeutic Nature:</strong> It is critical for the Client to understand that coaching does not substitute for therapy, psychotherapeutic clinical support, or mental health treatment. It is in no way designed to treat any psychological disorder, clinical condition, or clinical medical problem, nor does it prevent them.</li>
+                            <li data-i18n="li_medical"><strong>Medical &amp; Longevity Disclaimer:</strong>
                                 <span class="disclaimer-box">
                                     <strong>IMPORTANT HEALTHSPAN &amp; BIOMETRIC DISCLAIMER:</strong> Kristian Sokol is a specialized Life &amp; Longevity Coach. He is not a licensed clinical medical doctor, registered dietitian, or pharmacologist. Any protocol adjustments, analyses of wearable data (such as sleep metrics, heart rate variability, biomarkers), or supplement frameworks are for informational, healthspan optimization, and lifestyle design purposes only. They do not constitute diagnostic medical advice or physician treatment plans. The Client must consult their General Practitioner (GP) or appropriate clinical specialist before altering physical regimes, medical supplements, or nutritional profiles.
                                 </span>
                             </li>
-                            <li><strong>Professional Insurance:</strong> The Coach maintains comprehensive professional indemnity insurance coverage for both life coaching and longevity coaching practices.</li>
-                            <li><strong>Commitment to Honesty:</strong> A successful coaching dynamic relies heavily on truthfulness and open dialogue. To ensure optimal progress, the Client agrees to communicate truthfully, engage in weekly active accountability tracking, and share direct feedback.</li>
+                            <li data-i18n="li_insurance"><strong>Professional Insurance:</strong> The Coach maintains comprehensive professional indemnity insurance coverage for both life coaching and longevity coaching practices.</li>
+                            <li data-i18n="li_honesty"><strong>Commitment to Honesty:</strong> A successful coaching dynamic relies heavily on truthfulness and open dialogue. To ensure optimal progress, the Client agrees to communicate truthfully, engage in weekly active accountability tracking, and share direct feedback.</li>
                         </ol>
                     </div>
                 </div>
 
-                <div class="sheet-footer no-print">Page 1 of 2</div>
+                <div class="sheet-footer no-print" data-i18n="page1of2">Page 1 of 2</div>
 
                 <!-- PAGE 2 -->
                 <div class="page-break">
                     <div class="contract-body" style="margin-top:0;">
 
-                        <h3>Coaching Package, Arrangements &amp; Access</h3>
-                        <p>Both parties agree to establish the following program arrangements:</p>
+                        <h3 data-i18n="package_heading">Coaching Package, Arrangements &amp; Access</h3>
+                        <p data-i18n="arrangements_intro">Both parties agree to establish the following program arrangements:</p>
                         <ul>
-                            <li><strong>Selected Package:</strong> <span id="displaySelectedPackage" style="font-weight:700;color:var(--slate-950);">4-Week Break the Loop Program</span></li>
-                            <li><strong>Format &amp; Cadence:</strong> One structured weekly coaching session lasting <strong>45 to 60 minutes</strong>. Sessions are conducted via a platform mutually agreed upon between Coach and Client — including but not limited to Zoom, Skype, WhatsApp, email, telephone, or face-to-face where both parties agree.</li>
-                            <li><strong>Between-Session Support:</strong> The Coach will provide continuous asynchronous support to track habit metrics, nutrition logs, or biometric trends. The Client can access the Coach via email, text, or WhatsApp. The Coach will respond within a maximum of <strong>24 hours</strong>. This between-session administrative support is protected at a strict 30-minute block per week per client to maintain executive quality.</li>
+                            <li data-i18n="li_package"><strong>Selected Package:</strong> <span id="displaySelectedPackage" style="font-weight:700;color:var(--slate-950);">4-Week Break the Loop Program</span></li>
+                            <li data-i18n="li_format"><strong>Format &amp; Cadence:</strong> One structured weekly coaching session lasting <strong>45 to 60 minutes</strong>. Sessions are conducted via a platform mutually agreed upon between Coach and Client — including but not limited to Zoom, Skype, WhatsApp, email, telephone, or face-to-face where both parties agree.</li>
+                            <li data-i18n="li_support"><strong>Between-Session Support:</strong> The Coach will provide continuous asynchronous support to track habit metrics, nutrition logs, or biometric trends. The Client can access the Coach via email, text, or WhatsApp. The Coach will respond within a maximum of <strong>24 hours</strong>. This between-session administrative support is protected at a strict 30-minute block per week per client to maintain executive quality.</li>
                         </ul>
 
-                        <h3>Financial Investment &amp; Invoicing</h3>
+                        <h3 data-i18n="financial_heading">Financial Investment &amp; Invoicing</h3>
                         <div class="financial-box">
                             <div class="financial-grid">
                                 <div class="financial-col">
-                                    <span class="lbl">Total Package Value</span>
+                                    <span class="lbl" data-i18n="total_value">Total Package Value</span>
                                     <span id="displayTotalFee" class="num">£400.00</span>
                                 </div>
                                 <div class="financial-col">
-                                    <span class="lbl">Payment Schedule</span>
+                                    <span class="lbl" data-i18n="payment_schedule">Payment Schedule</span>
                                     <span id="displayPaymentTerms" class="terms">Paid in full prior to first session</span>
                                 </div>
                             </div>
                         </div>
 
-                        <p><strong>Payment Terms:</strong> All upfront payments or initial installment cycles must clear <strong>24 hours prior</strong> to the scheduled first session. For packages with installment frameworks, subsequent payments are due every 30 days from the date of the first payment until the total contract value is reached.</p>
+                        <p data-i18n="payment_terms_para"><strong>Payment Terms:</strong> All upfront payments or initial installment cycles must clear <strong>24 hours prior</strong> to the scheduled first session. For packages with installment frameworks, subsequent payments are due every 30 days from the date of the first payment until the total contract value is reached.</p>
 
-                        <p><strong>Payment Method:</strong> Payments are made by bank transfer directly to:</p>
+                        <p data-i18n="payment_method"><strong>Payment Method:</strong> Payments are made by bank transfer directly to:</p>
                         <div class="bank-box">
-                            <div class="bank-title">🏦 Starling Bank — Payment Details</div>
+                            <div class="bank-title" data-i18n="bank_title">🏦 Starling Bank — Payment Details</div>
                             <div class="bank-grid">
                                 <div class="bank-row">
-                                    <span class="b-label">Account Name</span>
+                                    <span class="b-label" data-i18n="bank_acct_name">Account Name</span>
                                     <span class="b-value">Kristian Sokol</span>
                                 </div>
                                 <div class="bank-row">
-                                    <span class="b-label">Bank</span>
+                                    <span class="b-label" data-i18n="bank_name">Bank</span>
                                     <span class="b-value">Starling Bank</span>
                                 </div>
                                 <div class="bank-row">
-                                    <span class="b-label">Account Number</span>
+                                    <span class="b-label" data-i18n="bank_acct_num">Account Number</span>
                                     <span class="b-value">02896808</span>
                                 </div>
                                 <div class="bank-row">
-                                    <span class="b-label">Sort Code</span>
+                                    <span class="b-label" data-i18n="bank_sort">Sort Code</span>
                                     <span class="b-value">60-83-71</span>
                                 </div>
                                 <div class="bank-row full">
-                                    <span class="b-label">IBAN (International)</span>
+                                    <span class="b-label" data-i18n="bank_iban">IBAN (International)</span>
                                     <span class="b-value">GB98 SRLG 6083 7102 8968 08</span>
                                 </div>
                                 <div class="bank-row full">
@@ -732,31 +740,31 @@
                             </div>
                         </div>
 
-                        <h3>Rescheduling, Cancellations &amp; Expirations</h3>
+                        <h3 data-i18n="resched_heading">Rescheduling, Cancellations &amp; Expirations</h3>
                         <ul>
-                            <li><strong>24-Hour Notice Window:</strong> The Client must provide at least 24 hours notice in advance if they wish to reschedule a coaching session. Rescheduled sessions will be made up within the course of the ongoing package.</li>
-                            <li><strong>Short-Notice Forfeiture:</strong> No replacements, credit roll-overs, or makeup sessions are possible if cancellations are requested with less than 24 hours notice.</li>
-                            <li><strong>Non-Refundable Commitment:</strong> Coaching requires a full investment of physical and mindset energy. Refunds are not generally offered, ensuring both parties respect the commitment threshold. Exceptional, sudden medical circumstances are reviewed strictly case-by-case.</li>
+                            <li data-i18n="li_24h"><strong>24-Hour Notice Window:</strong> The Client must provide at least 24 hours notice in advance if they wish to reschedule a coaching session. Rescheduled sessions will be made up within the course of the ongoing package.</li>
+                            <li data-i18n="li_shortnotice"><strong>Short-Notice Forfeiture:</strong> No replacements, credit roll-overs, or makeup sessions are possible if cancellations are requested with less than 24 hours notice.</li>
+                            <li data-i18n="li_nonrefundable"><strong>Non-Refundable Commitment:</strong> Coaching requires a full investment of physical and mindset energy. Refunds are not generally offered, ensuring both parties respect the commitment threshold. Exceptional, sudden medical circumstances are reviewed strictly case-by-case.</li>
                         </ul>
 
-                        <h3>Confidentiality</h3>
-                        <p>Under the ICF Code of Ethics, all materials, personal metrics, wearable biometric tracking logs, or private mental health thresholds shared during coaching remain confidential. Exceptions strictly relate to situations of explicit life-safety threats, self-harm risks, or court-mandated legal reporting requirements.</p>
+                        <h3 data-i18n="confidentiality_heading">Confidentiality</h3>
+                        <p data-i18n="confidentiality_para">Under the ICF Code of Ethics, all materials, personal metrics, wearable biometric tracking logs, or private mental health thresholds shared during coaching remain confidential. Exceptions strictly relate to situations of explicit life-safety threats, self-harm risks, or court-mandated legal reporting requirements.</p>
 
                     </div>
 
                     <!-- Signatures -->
                     <div class="signatures-box">
-                        <p class="signatures-intro">By signing below, the Coach and Client validate and accept the conditions and disclaimers outlined in this entire document.</p>
+                        <p class="signatures-intro" data-i18n="sig_intro">By signing below, the Coach and Client validate and accept the conditions and disclaimers outlined in this entire document.</p>
                         <div class="signatures-grid">
                             <div class="sign-field">
-                                <span class="lbl">Client Signature</span>
+                                <span class="lbl" data-i18n="client_sig">Client Signature</span>
                                 <div class="sign-line">
                                     <span id="displaySignatureName" class="placeholder">Alex Mercer</span>
                                 </div>
-                                <div class="sign-date">Date: __________________</div>
+                                <div class="sign-date" data-i18n="date_label">Date: __________________</div>
                             </div>
                             <div class="sign-field">
-                                <span class="lbl">Coach Signature</span>
+                                <span class="lbl" data-i18n="coach_sig">Coach Signature</span>
                                 <div class="sign-line">
                                     <span class="autograph">Kristian Sokol</span>
                                 </div>
@@ -766,8 +774,8 @@
                     </div>
 
                     <div class="sheet-footer">
-                        <p>Kristian Sokol · Life &amp; Longevity Coach · coachkris.co.uk · Kristian.sokol@icloud.com</p>
-                        <p style="margin-top:4px;">This agreement is confidential and binding upon signed acceptance by both parties.</p>
+                        <p>Kristian Sokol · <span data-i18n="coach_title">Life &amp; Longevity Coach</span> · coachkris.co.uk · Kristian.sokol@icloud.com</p>
+                        <p style="margin-top:4px;" data-i18n="footer_binding">This agreement is confidential and binding upon signed acceptance by both parties.</p>
                     </div>
                 </div><!-- end page-break -->
 
@@ -777,6 +785,234 @@
 
 </div><!-- end app-root -->
 </div><!-- end #app -->
+
+<script>
+    // ─── TRANSLATION SYSTEM ───
+    let currentLang = 'en';
+
+    const translations = {
+        en: {
+            coach_title: "Life & Longevity Coach",
+            contract_title: "Agreement for Client Service",
+            intro_between: "This Agreement is entered into by and between:",
+            the_coach: "The Coach",
+            the_client: "The Client",
+            participant: "Participant",
+            collab_para: "The Client and Coach work collaboratively (not as business associates or in legal alliances) to enhance the Client's physical wellness, longevity metrics, and personal life performance standards.",
+            resp_scope: "Responsibilities & Scope",
+            li_ethics: '<strong>Professional Ethics:</strong> Coach agrees to follow the Ethics and Standards of Conduct set forth by the International Coach Federation (ICF). The ICF\'s Code of Ethics is outlined in detail at <span style="color:var(--emerald-700);text-decoration:underline;">coachingfederation.org/ethics/code-of-ethics</span>.',
+            li_ownership: "<strong>Client Ownership:</strong> The Client's emotional, mental, and physical well-being is entirely their own responsibility. Likewise, the Client is responsible for all choices, decisions, behaviors, and actions. The Coach is not liable or accountable for any action or inaction, as well as for any direct or indirect results of service provided to the Client.",
+            li_nontherapeutic: "<strong>Non-Therapeutic Nature:</strong> It is critical for the Client to understand that coaching does not substitute for therapy, psychotherapeutic clinical support, or mental health treatment. It is in no way designed to treat any psychological disorder, clinical condition, or clinical medical problem, nor does it prevent them.",
+            li_medical: '<strong>Medical & Longevity Disclaimer:</strong>\n                                <span class="disclaimer-box">\n                                    <strong>IMPORTANT HEALTHSPAN & BIOMETRIC DISCLAIMER:</strong> Kristian Sokol is a specialized Life & Longevity Coach. He is not a licensed clinical medical doctor, registered dietitian, or pharmacologist. Any protocol adjustments, analyses of wearable data (such as sleep metrics, heart rate variability, biomarkers), or supplement frameworks are for informational, healthspan optimization, and lifestyle design purposes only. They do not constitute diagnostic medical advice or physician treatment plans. The Client must consult their General Practitioner (GP) or appropriate clinical specialist before altering physical regimes, medical supplements, or nutritional profiles.\n                                </span>',
+            li_insurance: "<strong>Professional Insurance:</strong> The Coach maintains comprehensive professional indemnity insurance coverage for both life coaching and longevity coaching practices.",
+            li_honesty: "<strong>Commitment to Honesty:</strong> A successful coaching dynamic relies heavily on truthfulness and open dialogue. To ensure optimal progress, the Client agrees to communicate truthfully, engage in weekly active accountability tracking, and share direct feedback.",
+            page1of2: "Page 1 of 2",
+            package_heading: "Coaching Package, Arrangements & Access",
+            arrangements_intro: "Both parties agree to establish the following program arrangements:",
+            li_package: '<strong>Selected Package:</strong> <span id="displaySelectedPackage" style="font-weight:700;color:var(--slate-950);">4-Week Break the Loop Program</span>',
+            li_format: "<strong>Format & Cadence:</strong> One structured weekly coaching session lasting <strong>45 to 60 minutes</strong>. Sessions are conducted via a platform mutually agreed upon between Coach and Client \u2014 including but not limited to Zoom, Skype, WhatsApp, email, telephone, or face-to-face where both parties agree.",
+            li_support: "<strong>Between-Session Support:</strong> The Coach will provide continuous asynchronous support to track habit metrics, nutrition logs, or biometric trends. The Client can access the Coach via email, text, or WhatsApp. The Coach will respond within a maximum of <strong>24 hours</strong>. This between-session administrative support is protected at a strict 30-minute block per week per client to maintain executive quality.",
+            financial_heading: "Financial Investment & Invoicing",
+            total_value: "Total Package Value",
+            payment_schedule: "Payment Schedule",
+            payment_terms_para: "<strong>Payment Terms:</strong> All upfront payments or initial installment cycles must clear <strong>24 hours prior</strong> to the scheduled first session. For packages with installment frameworks, subsequent payments are due every 30 days from the date of the first payment until the total contract value is reached.",
+            payment_method: "<strong>Payment Method:</strong> Payments are made by bank transfer directly to:",
+            bank_title: "\uD83C\uDFD0 Starling Bank \u2014 Payment Details",
+            bank_acct_name: "Account Name",
+            bank_name: "Bank",
+            bank_acct_num: "Account Number",
+            bank_sort: "Sort Code",
+            bank_iban: "IBAN (International)",
+            resched_heading: "Rescheduling, Cancellations & Expirations",
+            li_24h: "<strong>24-Hour Notice Window:</strong> The Client must provide at least 24 hours notice in advance if they wish to reschedule a coaching session. Rescheduled sessions will be made up within the course of the ongoing package.",
+            li_shortnotice: "<strong>Short-Notice Forfeiture:</strong> No replacements, credit roll-overs, or makeup sessions are possible if cancellations are requested with less than 24 hours notice.",
+            li_nonrefundable: "<strong>Non-Refundable Commitment:</strong> Coaching requires a full investment of physical and mindset energy. Refunds are not generally offered, ensuring both parties respect the commitment threshold. Exceptional, sudden medical circumstances are reviewed strictly case-by-case.",
+            confidentiality_heading: "Confidentiality",
+            confidentiality_para: "Under the ICF Code of Ethics, all materials, personal metrics, wearable biometric tracking logs, or private mental health thresholds shared during coaching remain confidential. Exceptions strictly relate to situations of explicit life-safety threats, self-harm risks, or court-mandated legal reporting requirements.",
+            sig_intro: "By signing below, the Coach and Client validate and accept the conditions and disclaimers outlined in this entire document.",
+            client_sig: "Client Signature",
+            coach_sig: "Coach Signature",
+            date_label: "Date: __________________",
+            footer_binding: "This agreement is confidential and binding upon signed acceptance by both parties.",
+            // Dynamic strings for updateContract
+            client_name_placeholder: "Client Name",
+            as_agreed: "As agreed",
+            custom_program: "Custom Coaching Program",
+            date_prefix: "Date: ",
+            discount_applied: " discount applied \u2014 full price \u20ac",
+            full_price: " (full price \u20ac",
+            // Package names
+            pkg_4week: "4-Week Break the Loop Program (4 Sessions / Weekly)",
+            pkg_4week_per: "4-Week Break the Loop Program (4 Sessions / Weekly \u2014 Pay Per Session)",
+            pkg_8week: "8-Week Break the Loop Program (8 Sessions / Weekly)",
+            pkg_12week: "12-Week Break the Loop Program (12 Sessions / Weekly)",
+            // Payment terms
+            pay_full: "Paid in full prior to first session",
+            pay_full_total: "Paid in full prior to first session \u2014 Total",
+            pay_saving: " saving applied to full price of \u20ac",
+            pay_individual: "4 individual payments of \u20ac100.00 \u2014 each due 24 hours prior to the corresponding session",
+            pay_2_split_8: "2 payments of \u20ac375.00 \u2014 first prior to first session, second 30 days later",
+            pay_2_standard_8: "2 payments of \u20ac400.00 \u2014 first prior to first session, second 30 days later",
+            pay_3_split_12: "3 payments of \u20ac350.00 \u2014 first prior to first session, subsequent payments every 30 days",
+            pay_3_standard_12: "3 payments of \u20ac400.00 \u2014 first prior to first session, subsequent payments every 30 days",
+            pay_8_full: "Paid in full prior to first session \u2014 Total \u20ac750.00 (\u20ac50 saving applied to full price of \u20ac800)",
+            pay_12_full: "Paid in full prior to first session \u2014 Total \u20ac1,050.00 (\u20ac150 saving applied to full price of \u20ac1,200)",
+            pay_4_full: "Paid in full prior to first session (\u20ac400.00)",
+            date_locale: "en-GB"
+        },
+        es: {
+            coach_title: "Coach de Vida y Longevidad",
+            contract_title: "Contrato de Prestaci\u00f3n de Servicios al Cliente",
+            intro_between: "El presente Contrato se celebra por y entre:",
+            the_coach: "El Coach",
+            the_client: "El Cliente",
+            participant: "Participante",
+            collab_para: "El Cliente y el Coach trabajan de manera colaborativa (no como socios comerciales ni mediante alianza legal alguna) para optimizar el bienestar f\u00edsico del Cliente, sus m\u00e9tricas de longevidad y sus est\u00e1ndares de rendimiento personal y de vida.",
+            resp_scope: "Responsabilidades y Alcance",
+            li_ethics: '<strong>\u00c9tica Profesional:</strong> El Coach se compromete a cumplir con la \u00c9tica y las Normas de Conducta establecidas por la Federaci\u00f3n Internacional de Coaching (ICF, por sus siglas en ingl\u00e9s). El C\u00f3digo \u00c9tico de la ICF se detalla en <span style="color:var(--emerald-700);text-decoration:underline;">coachingfederation.org/ethics/code-of-ethics</span>.',
+            li_ownership: "<strong>Responsabilidad del Cliente:</strong> El bienestar emocional, mental y f\u00edsico del Cliente es responsabilidad exclusiva de este. Asimismo, el Cliente es responsable de todas sus elecciones, decisiones, conductas y acciones. El Coach no asume responsabilidad legal ni civil por cualquier acci\u00f3n u omisi\u00f3n, ni por los resultados directos o indirectos del servicio prestado al Cliente.",
+            li_nontherapeutic: "<strong>Naturaleza No Terap\u00e9utica:</strong> Es fundamental que el Cliente comprenda que el coaching no sustituye a la terapia, al apoyo cl\u00ednico psicoterap\u00e9utico ni al tratamiento de salud mental. De ninguna manera est\u00e1 dise\u00f1ado para tratar trastorno psicol\u00f3gico, condici\u00f3n cl\u00ednica o problema m\u00e9dico alguno, ni para prevenirlos.",
+            li_medical: '<strong>Exenci\u00f3n de Responsabilidad M\u00e9dica y de Longevidad:</strong>\n                                <span class="disclaimer-box">\n                                    <strong>AVISO IMPORTANTE SOBRE SALUD INTEGRAL Y DATOS BIOM\u00c9TRICOS:</strong> Kristian Sokol es un Coach especializado en Vida y Longevidad. No es un m\u00e9dico cl\u00ednico colegiado, dietista-nutricionista colegado ni farmac\u00f3logo. Cualquier ajuste de protocolo, an\u00e1lisis de datos de dispositivos corporables (tales como m\u00e9tricas de sue\u00f1o, variabilidad de la frecuencia card\u00edaca, biomarcadores) o esquemas de suplementaci\u00f3n tienen fines exclusivamente informativos, de optimizaci\u00f3n de la longevidad saludable y de dise\u00f1o del estilo de vida. No constituyen asesoramiento m\u00e9dico diagn\u00f3stico ni planes de tratamiento m\u00e9dico. El Cliente debe consultar a su m\u00e9dico de cabecera o al especialista cl\u00ednico correspondiente antes de modificar reg\u00edmenes de actividad f\u00edsica, suplementaci\u00f3n m\u00e9dica o perfiles nutricionales.\n                                </span>',
+            li_insurance: "<strong>Seguro Profesional:</strong> El Coach cuenta con una cobertura integral de seguro de responsabilidad civil profesional tanto para la pr\u00e1ctica del coaching de vida como del coaching de longevidad.",
+            li_honesty: "<strong>Compromiso de Honestidad:</strong> Una din\u00e1mica de coaching exitosa depende en gran medida de la veracidad y el di\u00e1logo abierto. Para garantizar un progreso \u00f3ptimo, el Cliente se compromete a comunicarse con veracidad, participar activamente en el seguimiento semanal de responsabilidad y compartir comentarios directos.",
+            page1of2: "P\u00e1gina 1 de 2",
+            package_heading: "Paquete de Coaching, Acuerdos y Acceso",
+            arrangements_intro: "Ambas partes acuerdan establecer los siguientes acuerdos del programa:",
+            li_package: '<strong>Paquete Seleccionado:</strong> <span id="displaySelectedPackage" style="font-weight:700;color:var(--slate-950);">Programa Break the Loop de 4 Semanas</span>',
+            li_format: "<strong>Formato y Frecuencia:</strong> Una sesi\u00f3n semanal estructurada de coaching con una duraci\u00f3n de <strong>45 a 60 minutos</strong>. Las sesiones se llevar\u00e1n a cabo a trav\u00e9s de una plataforma acordada mutuamente entre el Coach y el Cliente \u2014 que incluye, entre otras, Zoom, Skype, WhatsApp, correo electr\u00f3nico, tel\u00e9fono o de forma presencial cuando ambas partes as\u00ed lo acuerden.",
+            li_support: "<strong>Soporte Entre Sesiones:</strong> El Coach brindar\u00e1 soporte asincr\u00f3nico continuo para dar seguimiento a las m\u00e9tricas de h\u00e1bitos, registros de nutrici\u00f3n o tendencias biom\u00e9tricas. El Cliente podr\u00e1 contactar al Coach por correo electr\u00f3nico, mensaje de texto o WhatsApp. El Coach responder\u00e1 en un plazo m\u00e1ximo de <strong>24 horas</strong>. Este soporte administrativo entre sesiones est\u00e1 reservado a un bloque estricto de 30 minutos por semana por cliente con el fin de mantener una calidad ejecutiva.",
+            financial_heading: "Inversi\u00f3n Financiera y Facturaci\u00f3n",
+            total_value: "Valor Total del Paquete",
+            payment_schedule: "Calendario de Pagos",
+            payment_terms_para: "<strong>Condiciones de Pago:</strong> Todos los pagos por adelantado o ciclos de cuota inicial deben quedar liquidados <strong>24 horas antes</strong> de la primera sesi\u00f3n programada. En el caso de paquetes con esquema de pago en cuotas, los pagos posteriores vencer\u00e1n cada 30 d\u00edas a contar desde la fecha del primer pago hasta alcanzar el valor total del contrato.",
+            payment_method: "<strong>M\u00e9todo de Pago:</strong> Los pagos se realizar\u00e1n mediante transferencia bancaria directamente a:",
+            bank_title: "\uD83C\uDFD0 Starling Bank \u2014 Datos de Pago",
+            bank_acct_name: "Titular de la Cuenta",
+            bank_name: "Entidad Bancaria",
+            bank_acct_num: "N\u00famero de Cuenta",
+            bank_sort: "C\u00f3digo de Sucursal (Sort Code)",
+            bank_iban: "IBAN (Internacional)",
+            resched_heading: "Reprogramaci\u00f3n, Cancelaciones y Vencimientos",
+            li_24h: "<strong>Plazo de Aviso de 24 Horas:</strong> El Cliente deber\u00e1 avisar con al menos 24 horas de antelaci\u00f3n si desea reprogramar una sesi\u00f3n de coaching. Las sesiones reprogramadas se recuperar\u00e1n en el transcurso del paquete en vigor.",
+            li_shortnotice: "<strong>P\u00e9rdida por Cancelaci\u00f3n con Poco Aviso:</strong> No ser\u00e1 posible realizar sustituciones, acumulaciones de cr\u00e9dito ni sesiones de reposici\u00f3n si las cancelaciones se solicitan con menos de 24 horas de antelaci\u00f3n.",
+            li_nonrefundable: "<strong>Compromiso No Reembolsable:</strong> El coaching exige una inversi\u00f3n plena de energ\u00eda f\u00edsica y mental. Por norma general no se ofrecen reembolsos, garantizando as\u00ed que ambas partes respeten el nivel de compromiso acordado. Las circunstancias m\u00e9dicas sobrevenidas y excepcionales se evaluar\u00e1n de manera estrictamente individual.",
+            confidentiality_heading: "Confidencialidad",
+            confidentiality_para: "Conforme al C\u00f3digo \u00c9tico de la ICF, todos los materiales, m\u00e9tricas personales, registros de seguimiento biom\u00e9trico de dispositivos corporables o l\u00edmites privados de salud mental compartidos durante el coaching mantendr\u00e1n car\u00e1cter confidencial. Las \u00fanicas excepciones corresponden estrictamente a situaciones de amenaza expl\u00edcita a la vida o seguridad, riesgos de autolesi\u00f3n o requerimientos legales por mandato judicial.",
+            sig_intro: "Al firmar a continuaci\u00f3n, el Coach y el Cliente validan y aceptan las condiciones y exenciones de responsabilidad descritas en la totalidad del presente documento.",
+            client_sig: "Firma del Cliente",
+            coach_sig: "Firma del Coach",
+            date_label: "Fecha: __________________",
+            footer_binding: "Este acuerdo es confidencial y vinculante a partir de su aceptaci\u00f3n firmada por ambas partes.",
+            client_name_placeholder: "Nombre del Cliente",
+            as_agreed: "Seg\u00fan lo acordado",
+            custom_program: "Programa de Coaching Personalizado",
+            date_prefix: "Fecha: ",
+            discount_applied: " descuento aplicado \u2014 precio completo \u20ac",
+            full_price: " (precio completo \u20ac",
+            pkg_4week: "Programa Break the Loop de 4 Semanas (4 Sesiones / Semanal)",
+            pkg_4week_per: "Programa Break the Loop de 4 Semanas (4 Sesiones / Semanal \u2014 Pago Por Sesi\u00f3n)",
+            pkg_8week: "Programa Break the Loop de 8 Semanas (8 Sesiones / Semanal)",
+            pkg_12week: "Programa Break the Loop de 12 Semanas (12 Sesiones / Semanal)",
+            pay_full: "Pagado en su totalidad antes de la primera sesi\u00f3n",
+            pay_full_total: "Pagado en su totalidad antes de la primera sesi\u00f3n \u2014 Total",
+            pay_saving: " descuento aplicado sobre el precio total de \u20ac",
+            pay_individual: "4 pagos individuales de \u20ac100.00 \u2014 cada uno con vencimiento 24 horas antes de la sesi\u00f3n correspondiente",
+            pay_2_split_8: "2 pagos de \u20ac375.00 \u2014 el primero antes de la primera sesi\u00f3n, el segundo 30 d\u00edas despu\u00e9s",
+            pay_2_standard_8: "2 pagos de \u20ac400.00 \u2014 el primero antes de la primera sesi\u00f3n, el segundo 30 d\u00edas despu\u00e9s",
+            pay_3_split_12: "3 pagos de \u20ac350.00 \u2014 el primero antes de la primera sesi\u00f3n, los pagos posteriores cada 30 d\u00edas",
+            pay_3_standard_12: "3 pagos de \u20ac400.00 \u2014 el primero antes de la primera sesi\u00f3n, los pagos posteriores cada 30 d\u00edas",
+            pay_8_full: "Pagado en su totalidad antes de la primera sesi\u00f3n \u2014 Total \u20ac750.00 (\u20ac50 descuento aplicado sobre el precio total de \u20ac800)",
+            pay_12_full: "Pagado en su totalidad antes de la primera sesi\u00f3n \u2014 Total \u20ac1.050,00 (\u20ac150 descuento aplicado sobre el precio total de \u20ac1.200)",
+            pay_4_full: "Pagado en su totalidad antes de la primera sesi\u00f3n (\u20ac400,00)",
+            date_locale: "es-ES"
+        },
+        sk: {
+            coach_title: "Kou\u010d pre \u017eivotn\u00fd \u0161t\u00fdl a dlhovekos\u0165",
+            contract_title: "Zmluva o poskytovan\u00ed slu\u017eieb klientovi",
+            intro_between: "T\u00e1to zmluva sa uzatv\u00e1ra medzi:",
+            the_coach: "Kou\u010d",
+            the_client: "Klient",
+            participant: "\u00da\u010dastn\u00edk",
+            collab_para: "Klient a Kou\u010d spolupracuj\u00fa na z\u00e1klade vz\u00e1jomnej s\u00fa\u010dinnosti (nie ako obchodn\u00ed partneri ani v r\u00e1mci pr\u00e1vneho spojenectva) s cie\u013eom zlep\u0161i\u0165 fyzick\u00fa pohodu, ukazovatele dlhovekosti a \u0161tandardy osobnej v\u00fdkonnosti Klienta.",
+            resp_scope: "Zodpovednos\u0165 a rozsah slu\u017eieb",
+            li_ethics: '<strong>Profesijn\u00e1 etika:</strong> Kou\u010d sa zav\u00e4zuje dodr\u017eiava\u0165 etick\u00e9 z\u00e1sady a \u0161tandardy konania stanoven\u00e9 Medzin\u00e1rodnou feder\u00e1ciou kou\u010dov (ICF). Etick\u00fd k\u00f3dex ICF je podrobne uveden\u00fd na str\u00e1nke <span style="color:var(--emerald-700);text-decoration:underline;">coachingfederation.org/ethics/code-of-ethics</span>.',
+            li_ownership: "<strong>Vlastn\u00e1 zodpovednos\u0165 Klienta:</strong> Emocion\u00e1lne, du\u0161evn\u00e9 a fyzick\u00e9 zdravie a pohoda Klienta s\u00fa v\u00fdlu\u010dne v jeho vlastnej zodpovednosti. Rovnako Klient nesie zodpovednos\u0165 za v\u0161etky svoje vo\u013eby, rozhodnutia, spr\u00e1vanie a konanie. Kou\u010d nezodpoved\u00e1 za \u017eiadne konanie alebo opomenutie konania Klienta, ani za \u017eiadne priame \u010di nepriame v\u00fdsledky slu\u017eieb poskytnut\u00fdch Klientovi.",
+            li_nontherapeutic: "<strong>Neterapeutick\u00e1 povaha slu\u017eieb:</strong> Je nevyhnutn\u00e9, aby Klient porozumel, \u017ee kou\u010ding nenahr\u00e1dza terapiu, psychoterapeutick\u00fa odborn\u00fa starostlivos\u0165 ani lie\u010dbu du\u0161evn\u00e9ho zdravia. Kou\u010ding v \u017eiadnom pr\u00edpade nie je ur\u010den\u00fd na lie\u010dbu psychick\u00fdch por\u00fach, zdravotn\u00fdch stavov \u010di klinick\u00fdch lek\u00e1rskych probl\u00e9mov a nesl\u00fa\u017ei ani ako ich prevencia.",
+            li_medical: '<strong>Vyhl\u00e1senie o vyl\u00fa\u010den\u00ed lekárskej zodpovednosti a dlhovekosti:</strong>\n                                <span class="disclaimer-box">\n                                    <strong>D\u00d4LE\u017dIT\u00c9 UPOZORNENIE T\u00ddKAJ\u00daCE SA ZDRAVIA A BIOMETRICK\u00ddCH \u00daDAJOV:</strong> Kristian Sokol je \u0161pecializovan\u00fd Kou\u010d pre \u017eivotn\u00fd \u0161t\u00fdl a dlhovekos\u0165. Nie je licencovan\u00fdm lekárom, registrovan\u00fdm odborn\u00edkom na v\u00fd\u017eivu ani farmakol\u00f3gom. Akéko\u013evek \u00fapravy protokolov, anal\u00fdzy d\u00e1t z nosite\u013en\u00fdch zariaden\u00ed (ako s\u00fa ukazovatele sp\u00e1nku, variabilita srdcovej frekvencie, biometrick\u00e9 ukazovatele) alebo odpor\u00fa\u010dania v\u00fd\u017eivov\u00fdch doplnkov sl\u00fa\u017ea v\u00fdlu\u010dne na informa\u010dn\u00e9 \u00fa\u010dely, optimaliz\u00e1ciu d\u013a\u017eky zdrav\u00e9ho \u017eivota (healthspan) a nastavenie \u017eivotn\u00e9ho \u0161t\u00fdlu. Nepredstavuj\u00fa lek\u00e1rsku diagn\u00f3zu, odborn\u00fa lek\u00e1rsku radu ani lie\u010dbebn\u00fd pl\u00e1n predp\u00edsan\u00fd lekárom. Klient je povinn\u00fd pred akouko\u013evek zmenou pohybov\u00e9ho re\u017eimu, u\u00edvania v\u00fd\u017eivov\u00fdch doplnkov alebo stravovac\u00edch n\u00e1vykov poradi\u0165 sa so svoj\u00edm v\u0161eobecn\u00fdm lekárom alebo pr\u00edslu\u0161n\u00fdm odborn\u00fdm lekárom.\n                                </span>',
+            li_insurance: "<strong>Profesijn\u00e9 poistenie:</strong> Kou\u010d m\u00e1 uzatvoren\u00e9 komplexn\u00e9 poistenie profesijnej zodpovednosti pre oblas\u0165 \u017eivotn\u00e9ho kou\u010dingu aj kou\u010dingu dlhovekosti.",
+            li_honesty: "<strong>Z\u00e1v\u00e4zok pravdivosti:</strong> \u00dapspe\u0161n\u00fd priebeh kou\u010dingu v\u00fdrazne z\u00e1vis\u00ed od pravdivosti a otvoren\u00e9ho dial\u00f3gu. V z\u00e1ujme dosiahnutia optim\u00e1lneho pokroku sa Klient zav\u00e4zuje komunikova\u0165 pravdivo, akt\u00edvne sa zap\u00e1ja\u0165 do t\u00fd\u017edenn\u00e9ho sledovania plnenia cie\u013eov a poskytova\u0165 priamu sp\u00e4tn\u00fa v\u00e4zbu.",
+            page1of2: "Strana 1 z 2",
+            package_heading: "Kou\u010dovac\u00ed bal\u00edk, podmienky a pr\u00edstup",
+            arrangements_intro: "Zmluvn\u00e9 strany sa dohodli na nasleduj\u00facich podmienkach programu:",
+            li_package: '<strong>Zvolen\u00fd bal\u00edk:</strong> <span id="displaySelectedPackage" style="font-weight:700;color:var(--slate-950);">4-t\u00fd\u017ed\u0148ov\u00fd program Break the Loop</span>',
+            li_format: "<strong>Forma a frekvencia:</strong> Jedno \u0161trukt\u00farovan\u00e9 t\u00fd\u017edenn\u00e9 kou\u010dovacie stretnutie v trvan\u00ed <strong>45 a\u017e 60 min\u00fat</strong>. Stretnutia prebiehaj\u00fa prostredn\u00edctvom platformy dohodnutej medzi Kou\u010dom a Klientom \u2014 okrem in\u00e9ho najm\u00e1 cez Zoom, Skype, WhatsApp, e-mail, telef\u00f3n alebo osobne po vz\u00e1jomnej dohode.",
+            li_support: "<strong>Podpora medzi stretnutiami:</strong> Kou\u010d bude poskytova\u0165 priebe\u017en\u00fa asynchr\u00f3nnu podporu pri sledovan\u00ed n\u00e1vykov, stravovac\u00edch z\u00e1znamov alebo biometrick\u00fdch trendov. Klient m\u00f4\u017ee Kou\u010da kontaktova\u0165 e-mailom, správou SMS alebo cez WhatsApp. Kou\u010d odpovie najnesk\u00f4r do <strong>24 hod\u00edn</strong>. V z\u00e1ujme zachovania \u0161pi\u010dkovej kvality slu\u017eieb je t\u00e1to administrat\u00edvna podpora medzi stretnutiami vyhraden\u00e1 v rozsahu maxim\u00e1lne 30 min\u00fat t\u00fd\u017edenne na jedn\u00e9ho klienta.",
+            financial_heading: "Finan\u010dn\u00e1 invest\u00edcia a faktur\u00e1cia",
+            total_value: "Celkov\u00e1 hodnota bal\u00edka",
+            payment_schedule: "Harmonogram platieb",
+            payment_terms_para: "<strong>Platobn\u00e9 podmienky:</strong> V\u0161etky platby vopred alebo prv\u00e9 spl\u00e1tky musia by\u0165 prip\u00edsan\u00e9 na \u00fa\u010det najnesk\u00f4r <strong>24 hod\u00edn</strong> pred pl\u00e1novan\u00fdm prv\u00fdm stretnut\u00edm. Pri bal\u00edkoch s \u00fahradou v spl\u00e1tkach s\u00fa nasleduj\u00face platby splatn\u00e9 ka\u017ed\u00fdch 30 dn\u00ed od d\u00e1tumu prvej platby, a\u017e do \u00faplnn\u00e9ho uhradenia celkovej hodnoty zmluvy.",
+            payment_method: "<strong>Sp\u00f4sob \u00fahhrady:</strong> Platby sa realizuj\u00fa bankov\u00fdm prevodom priamo na \u00fa\u010det:",
+            bank_title: "\uD83C\uDFD0 Starling Bank \u2014 Platobn\u00e9 \u00fadaje",
+            bank_acct_name: "N\u00e1zov \u00fa\u010dtu",
+            bank_name: "Banka",
+            bank_acct_num: "\u010c\u00edslo \u00fa\u010dtu",
+            bank_sort: "K\u00f3d banky (Sort Code)",
+            bank_iban: "IBAN (medzin\u00e1rodn\u00fd)",
+            resched_heading: "Zmena term\u00ednu, zru\u0161enie a exspir\u00e1cia",
+            li_24h: "<strong>Lehota na ozn\u00e1menie 24 hod\u00edn vopred:</strong> Ak si Klient \u017eel\u00e1 zmeni\u0165 term\u00edn kou\u010dovacieho stretnutia, mus\u00ed to ozn\u00e1mi\u0165 najmenej 24 hod\u00edn vopred. N\u00e1hradn\u00e9 stretnutia sa uskuto\u010dnia v priebehu trvania aktu\u00e1lneho bal\u00edka.",
+            li_shortnotice: "<strong>Prepadnutie stretnutia pri neskorom zru\u0161en\u00ed:</strong> V pr\u00edpade zru\u0161enia stretnutia menej ako 24 hod\u00edn vopred nie je mo\u017en\u00e1 \u017eiadna n\u00e1hrada, prenos kreditu ani poskytnutie n\u00e1hradn\u00e9ho stretnutia.",
+            li_nonrefundable: "<strong>Nen\u00e1vratn\u00fd z\u00e1v\u00e4zok:</strong> Kou\u010ding vy\u017eaduje pln\u00e9 nasadenie fyzickej a ment\u00e1lnej energie. Finan\u010dn\u00e9 prostriedky sa spravidla nevracaj\u00fa, \u010do zabezpe\u010duje, \u017ee obe strany re\u0161pektuj\u00fa \u00farove\u0148 prijat\u00e9ho z\u00e1v\u00e4zku. V\u00fdnimo\u010dn\u00e9 a n\u00e1hle zdravotn\u00e9 okolnosti sa posudzuj\u00fa pr\u00edsne individu\u00e1lne.",
+            confidentiality_heading: "D\u00f4vernos\u0165 inform\u00e1ci\u00ed",
+            confidentiality_para: "V s\u00falade s Etick\u00fdm k\u00f3dexom ICF zost\u00e1vaj\u00fa v\u0161etky materi\u00e1ly, osobn\u00e9 ukazovatele, z\u00e1znamy z biometrick\u00fdch nosite\u013en\u00fdch zariaden\u00ed \u010di s\u00fakromn\u00e9 inform\u00e1cie o du\u0161evnom zdrav\u00ed poskytnut\u00e9 po\u010das kou\u010dingu d\u00f4vern\u00e9. V\u00fdnimku tvoria v\u00fdlu\u010dne situ\u00e1cie bezprostredn\u00e9ho ohrozenia \u017eivota, rizika seba po\u0161kodzovania alebo z\u00e1konn\u00e9 povinnosti ohl\u00e1senia ulo\u017een\u00e9 s\u00fadom.",
+            sig_intro: "Svoj\u00edm podpisom ni\u017e\u0161ie Kou\u010d a Klient potvrdzuj\u00fa a prij\u00edmaj\u00fa podmienky a vyhl\u00e1senia uveden\u00e9 v celom tomto dokumente.",
+            client_sig: "Podpis Klienta",
+            coach_sig: "Podpis Kou\u010da",
+            date_label: "D\u00e1tum: __________________",
+            footer_binding: "T\u00e1to zmluva je d\u00f4vern\u00e1 a st\u00e1va sa z\u00e1v\u00e4znou po jej podp\u00edsan\u00ed oboma zmluvn\u00fdmi stranami.",
+            client_name_placeholder: "Meno Klienta",
+            as_agreed: "Pod\u013ea dohody",
+            custom_program: "Individu\u00e1lny kou\u010dovac\u00ed program",
+            date_prefix: "D\u00e1tum: ",
+            discount_applied: " z\u013eava uplatnen\u00e1 \u2014 pln\u00e1 cena \u20ac",
+            full_price: " (pln\u00e1 cena \u20ac",
+            pkg_4week: "4-t\u00fd\u017ed\u0148ov\u00fd program Break the Loop (4 stretnutia / t\u00fd\u017edenne)",
+            pkg_4week_per: "4-t\u00fd\u017ed\u0148ov\u00fd program Break the Loop (4 stretnutia / t\u00fd\u017edenne \u2014 platba za stretnutie)",
+            pkg_8week: "8-t\u00fd\u017ed\u0148ov\u00fd program Break the Loop (8 stretnut\u00ed / t\u00fd\u017edenne)",
+            pkg_12week: "12-t\u00fd\u017ed\u0148ov\u00fd program Break the Loop (12 stretnut\u00ed / t\u00fd\u017edenne)",
+            pay_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm",
+            pay_full_total: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm \u2014 Celkom",
+            pay_saving: " z\u013eava uplatnen\u00e1 z plnej ceny \u20ac",
+            pay_individual: "4 jednotliv\u00e9 platby vo v\u00fdske \u20ac100,00 \u2014 ka\u017ed\u00e1 splatn\u00e1 24 hod\u00edn pred pr\u00edslu\u0161n\u00fdm stretnut\u00edm",
+            pay_2_split_8: "2 platby vo v\u00fdske \u20ac375,00 \u2014 prv\u00e1 pred prv\u00edm stretnut\u00edm, druh\u00e1 o 30 dn\u00ed nesk\u00f4r",
+            pay_2_standard_8: "2 platby vo v\u00fdske \u20ac400,00 \u2014 prv\u00e1 pred prv\u00edm stretnut\u00edm, druh\u00e1 o 30 dn\u00ed nesk\u00f4r",
+            pay_3_split_12: "3 platby vo v\u00fdske \u20ac350,00 \u2014 prv\u00e1 pred prv\u00edm stretnut\u00edm, nasleduj\u00face platby ka\u017ed\u00fdch 30 dn\u00ed",
+            pay_3_standard_12: "3 platby vo v\u00fdske \u20ac400,00 \u2014 prv\u00e1 pred prv\u00edm stretnut\u00edm, nasleduj\u00face platby ka\u017ed\u00fdch 30 dn\u00ed",
+            pay_8_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm \u2014 Celkom \u20ac750,00 (\u20ac50 z\u013eava uplatnen\u00e1 z plnej ceny \u20ac800)",
+            pay_12_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm \u2014 Celkom \u20ac1.050,00 (\u20ac150 z\u013eava uplatnen\u00e1 z plnej ceny \u20ac1.200)",
+            pay_4_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm (\u20ac400,00)",
+            date_locale: "sk-SK"
+        }
+    };
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        const t = translations[lang];
+        // Update all data-i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+            const key = el.getAttribute('data-i18n');
+            if (t[key]) {
+                // Special handling for li_package which contains a span with id
+                if (key === 'li_package') {
+                    el.innerHTML = t[key];
+                } else {
+                    el.innerHTML = t[key];
+                }
+            }
+        });
+        // Re-run contract update to refresh dynamic content in the new language
+        updateContract();
+    }
+</script>
 
 <script>
     // ─── LOCK SCREEN ───
@@ -808,13 +1044,14 @@
     }
 
     function updateContract() {
-        const clientName = document.getElementById('inputClientName').value || 'Client Name';
+        const t = translations[currentLang] || translations.en;
+        const clientName = document.getElementById('inputClientName').value || t.client_name_placeholder;
         const dateInput = document.getElementById('inputAgreementDate').value;
 
         let formattedDate = '________________';
         if (dateInput) {
             const d = new Date(dateInput + 'T12:00:00');
-            formattedDate = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+            formattedDate = d.toLocaleDateString(t.date_locale, { day: 'numeric', month: 'long', year: 'numeric' });
         }
 
         const selectedPlan = document.querySelector('input[name="pricingPlan"]:checked').value;
@@ -825,51 +1062,51 @@
 
         switch (selectedPlan) {
             case '4-week':
-                packageTitle = '4-Week Break the Loop Program (4 Sessions / Weekly)';
+                packageTitle = t.pkg_4week;
                 totalFee = 400;
-                paymentTerms = 'Paid in full prior to first session (£400.00)';
+                paymentTerms = t.pay_4_full;
                 break;
 
             case '4-week-per-session':
-                packageTitle = '4-Week Break the Loop Program (4 Sessions / Weekly — Pay Per Session)';
+                packageTitle = t.pkg_4week_per;
                 totalFee = 400;
-                paymentTerms = '4 individual payments of £100.00 — each due 24 hours prior to the corresponding session';
+                paymentTerms = t.pay_individual;
                 break;
 
             case '8-discount-full':
-                packageTitle = '8-Week Break the Loop Program (8 Sessions / Weekly)';
+                packageTitle = t.pkg_8week;
                 totalFee = 750;
-                paymentTerms = 'Paid in full prior to first session — Total £750.00 (£50 saving applied to full price of £800)';
+                paymentTerms = t.pay_8_full;
                 break;
 
             case '8-discount-split':
-                packageTitle = '8-Week Break the Loop Program (8 Sessions / Weekly)';
+                packageTitle = t.pkg_8week;
                 totalFee = 750;
-                paymentTerms = '2 payments of £375.00 — first prior to first session, second 30 days later (£50 saving applied to full price of £800)';
+                paymentTerms = t.pay_2_split_8 + ' (' + t.pay_saving + '800)';
                 break;
 
             case '8-standard':
-                packageTitle = '8-Week Break the Loop Program (8 Sessions / Weekly)';
+                packageTitle = t.pkg_8week;
                 totalFee = 800;
-                paymentTerms = '2 payments of £400.00 — first prior to first session, second 30 days later';
+                paymentTerms = t.pay_2_standard_8;
                 break;
 
             case '12-discount-full':
-                packageTitle = '12-Week Break the Loop Program (12 Sessions / Weekly)';
+                packageTitle = t.pkg_12week;
                 totalFee = 1050;
-                paymentTerms = 'Paid in full prior to first session — Total £1,050.00 (£150 saving applied to full price of £1,200)';
+                paymentTerms = t.pay_12_full;
                 break;
 
             case '12-discount-split':
-                packageTitle = '12-Week Break the Loop Program (12 Sessions / Weekly)';
+                packageTitle = t.pkg_12week;
                 totalFee = 1050;
-                paymentTerms = '3 payments of £350.00 — first prior to first session, subsequent payments every 30 days (£150 saving applied to full price of £1,200)';
+                paymentTerms = t.pay_3_split_12 + ' (' + t.pay_saving + '1,200)';
                 break;
 
             case '12-standard':
-                packageTitle = '12-Week Break the Loop Program (12 Sessions / Weekly)';
+                packageTitle = t.pkg_12week;
                 totalFee = 1200;
-                paymentTerms = '3 payments of £400.00 — first prior to first session, subsequent payments every 30 days';
+                paymentTerms = t.pay_3_standard_12;
                 break;
             case 'custom':
                 var cName    = (document.getElementById('custom-name').value || '').trim();
@@ -877,21 +1114,21 @@
                 var cFull    = parseFloat(document.getElementById('custom-full-price').value) || 0;
                 var cDisc    = parseFloat(document.getElementById('custom-discount').value) || 0;
                 var cPayment = (document.getElementById('custom-payment').value || '').trim();
-                packageTitle = cName || 'Custom Coaching Program';
+                packageTitle = cName || t.custom_program;
                 totalFee = cPrice;
                 var discountNote = '';
                 if (cDisc > 0 && cFull > 0) {
-                    discountNote = ' (' + cDisc + '% discount applied — full price \u20ac' + cFull.toLocaleString('en-GB', {minimumFractionDigits:2}) + ')';
+                    discountNote = t.full_price + cFull.toLocaleString('en-GB', {minimumFractionDigits:2}) + ')';
                 } else if (cFull > 0) {
-                    discountNote = ' (full price \u20ac' + cFull.toLocaleString('en-GB', {minimumFractionDigits:2}) + ')';
+                    discountNote = t.full_price + cFull.toLocaleString('en-GB', {minimumFractionDigits:2}) + ')';
                 }
-                paymentTerms = (cPayment || 'As agreed') + discountNote;
+                paymentTerms = (cPayment || t.as_agreed) + discountNote;
                 document.getElementById('displayClientName').innerText = clientName;
                 document.getElementById('displaySignatureName').innerText = clientName;
                 document.getElementById('displaySelectedPackage').innerText = packageTitle;
                 document.getElementById('displayTotalFee').innerText = '\u20ac' + totalFee.toLocaleString('en-GB', {minimumFractionDigits:2, maximumFractionDigits:2});
                 document.getElementById('displayPaymentTerms').innerText = paymentTerms;
-                document.getElementById('displaySignDate').innerText = 'Date: ' + formattedDate;
+                document.getElementById('displaySignDate').innerText = t.date_prefix + formattedDate;
                 return;
 
         }
@@ -901,7 +1138,7 @@
         document.getElementById('displaySelectedPackage').innerText = packageTitle;
         document.getElementById('displayTotalFee').innerText = `£${totalFee.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         document.getElementById('displayPaymentTerms').innerText = paymentTerms;
-        document.getElementById('displaySignDate').innerText = `Date: ${formattedDate}`;
+        document.getElementById('displaySignDate').innerText = t.date_prefix + formattedDate;
     }
 
     // ─── DOWNLOAD AS PDF ───
