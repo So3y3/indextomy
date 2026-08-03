@@ -1900,7 +1900,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Admin fab + URL param (?admin=1 opens login directly)
-  document.getElementById('adminFab').addEventListener('click', openAdminOverlay);
+  var fabBtn = document.getElementById('adminFab');
+  if (fabBtn) fabBtn.addEventListener('click', openAdminOverlay);
   if (new URLSearchParams(window.location.search).get('admin') === '1') {
     openAdminOverlay();
   }
