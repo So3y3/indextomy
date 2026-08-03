@@ -1136,6 +1136,7 @@ function buildArticleHtml(post) {
   h += '<meta property="og:type" content="article" />\n';
   h += '<meta property="og:url" content="' + articleUrl + '" />\n';
   h += '<meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />\n';
+  h += '<meta property="og:image" content="' + baseUrl + '/og/og_' + slug + '.jpg" />\n';
   h += '<meta name="twitter:card" content="summary_large_image" />\n';
   h += '<link rel="icon" type="image/x-icon" href="../favicon.ico" />\n';
   h += '<link rel="preconnect" href="https://fonts.googleapis.com" />\n';
@@ -1215,6 +1216,130 @@ function buildArticleHtml(post) {
   h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../index.html">Home</a> &middot; <a href="../blog.html">Blog</a></p></footer>\n';
   h += '</body>\n</html>';
   return h;
+}
+
+
+// ═══════════════════════════════════════
+//  AUTO-GENERATED OG IMAGE (1200x630 branded)
+// ═══════════════════════════════════════
+function generateOGImageData(post) {
+  var slug = slugify(post.title);
+  var cleanTitle = post.title.replace(/<[^>]+>/g, '');
+  var catLabels = { life:'Life Coaching', longevity:'Longevity', mindset:'Mindset', adhd:'ADHD-Aware', growth:'Growth', build:'Business' };
+  var cats = Array.isArray(post.category) ? post.category : [post.category];
+  var catLabel = cats.map(function(c) { return catLabels[c] || c; }).join(' · ') || 'Article';
+
+  var canvas = document.createElement('canvas');
+  canvas.width = 1200;
+  canvas.height = 630;
+  var ctx = canvas.getContext('2d');
+
+  // Background - parchment
+  ctx.fillStyle = '#F5F1EA';
+  ctx.fillRect(0, 0, 1200, 630);
+
+  // Top accent bar - deep forest
+  ctx.fillStyle = '#1C2823';
+  ctx.fillRect(0, 0, 1200, 8);
+
+  // Left circle with KS initials
+  var circleX = 130, circleY = 315, circleR = 85;
+  ctx.beginPath();
+  ctx.arc(circleX, circleY, circleR, 0, Math.PI * 2);
+  ctx.fillStyle = '#1C2823';
+  ctx.fill();
+  ctx.strokeStyle = '#C69E48';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // KS text in circle
+  ctx.fillStyle = '#C69E48';
+  ctx.font = 'bold 42px "Bebas Neue", Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('KS', circleX, circleY + 3);
+
+  // Gold vertical line separator
+  ctx.strokeStyle = '#C69E48';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(270, 200);
+  ctx.lineTo(270, 430);
+  ctx.stroke();
+
+  // Category eyebrow
+  ctx.fillStyle = '#C69E48';
+  ctx.font = '600 18px Inter, Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(catLabel.toUpperCase(), 310, 210);
+
+  // Title - Cormorant Garamond (wrapped)
+  ctx.fillStyle = '#1C2823';
+  ctx.font = '300 52px "Cormorant Garamond", Georgia, serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'top';
+  var titleX = 310;
+  var titleY = 245;
+  var maxWidth = 830;
+  var lineHeight = 62;
+
+  // Word-wrap title
+  var words = cleanTitle.split(' ');
+  var lines = [];
+  var currentLine = '';
+  for (var i = 0; i < words.length; i++) {
+    var testLine = currentLine ? currentLine + ' ' + words[i] : words[i];
+    if (ctx.measureText(testLine).width > maxWidth && currentLine) {
+      lines.push(currentLine);
+      currentLine = words[i];
+    } else {
+      currentLine = testLine;
+    }
+  }
+  if (currentLine) lines.push(currentLine);
+  if (lines.length > 3) lines = lines.slice(0, 3);
+
+  for (var j = 0; j < lines.length; j++) {
+    ctx.fillText(lines[j], titleX, titleY + j * lineHeight);
+  }
+
+  // Bottom brand text
+  ctx.fillStyle = '#7A8A85';
+  ctx.font = '500 16px Inter, Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'bottom';
+  ctx.fillText('Kristian Sokol  ·  Life, Longevity & Business Coach', 310, 570);
+
+  // Bottom gold line
+  ctx.strokeStyle = '#C69E48';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, 622);
+  ctx.lineTo(1200, 622);
+  ctx.stroke();
+
+  return canvas.toDataURL('image/jpeg', 0.92);
+}
+
+async function pushOGImageToGitHub(post, token) {
+  var slug = slugify(post.title);
+  var fileName = 'og/og_' + slug + '.jpg';
+  var dataUrl = generateOGImageData(post);
+  // Convert data URL to base64 content (strip the prefix)
+  var base64Content = dataUrl.split(',')[1];
+  var ghApiBase = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/';
+  var sha = null;
+  try {
+    var check = await fetch(ghApiBase + fileName, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }});
+    if (check.ok) { var d = await check.json(); sha = d.sha; }
+  } catch(e) {}
+  var reqBody = { message: 'Auto-generate OG image: ' + post.title.replace(/<[^>]+>/g,''), content: base64Content, branch: GH_BRANCH };
+  if (sha) reqBody.sha = sha;
+  try {
+    var res = await fetch(ghApiBase + fileName, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' }, body: JSON.stringify(reqBody) });
+    if (res.ok) console.log('OG image created: ' + fileName);
+    else console.warn('OG image failed:', res.status);
+  } catch(e) { console.warn('OG image error:', e.message); }
 }
 
 async function pushArticleToGitHub(post, token) {
@@ -1300,6 +1425,7 @@ async function savePosts(posts) {
     var published = posts.filter(function(p){ return p.status === 'published'; });
     for (var i = 0; i < published.length; i++) {
       await pushArticleToGitHub(published[i], token);
+      await pushOGImageToGitHub(published[i], token);
     }
     await updateSitemap(published, token);
 
