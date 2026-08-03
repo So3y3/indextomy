@@ -1096,22 +1096,24 @@
   }
   </script>
 
-    <!-- Google Translate -->
-    <div id="google_translate_element" style="display:none;"></div>
-    <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'es,sk',
-            autoDisplay: false,
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-    }
-    </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <!-- End Google Translate -->
+    
 </head>
 <body>
+  <!-- Google Translate -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+  function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'es,sk',
+          autoDisplay: false,
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+  }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- End Google Translate -->
+
 
   <!-- ─── NAVIGATION ─── -->
   <nav id="navbar">
@@ -1796,21 +1798,27 @@
         document.querySelectorAll('.lang-option').forEach(function(opt) {
             opt.classList.remove('active');
         });
-        e.target.classList.add('active');
+        if (e.target) e.target.classList.add('active');
         // Update button label
         var labels = {en: 'ENG', es: 'ESP', sk: 'SVK'};
         document.querySelector('.lang-current').textContent = labels[lang] || lang.toUpperCase();
         // Close dropdown
-        document.getElementById('langDropdown').classList.remove('show');
+        var dd = document.getElementById('langDropdown');
+        if (dd) dd.classList.remove('show');
         if (lang === 'en') {
-            // Restore original - reload page without translate param
+            // Restore original - clear cookie and reload
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             window.location.href = window.location.pathname;
         } else {
-            // Trigger Google Translate
+            // Try the Google Translate select first
             var select = document.querySelector('.goog-te-combo');
             if (select) {
                 select.value = lang;
                 select.dispatchEvent(new Event('change'));
+            } else {
+                // Fallback: set googtrans cookie and reload
+                document.cookie = 'googtrans=/en/' + lang + '; path=/';
+                window.location.reload();
             }
         }
     }
