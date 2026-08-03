@@ -781,78 +781,11 @@
       .accred-row img { height: 40px; }
     }
   
-    /* ─── Language Switcher ─── */
-    .lang-switch { position: relative; display: inline-block; }
-    .lang-btn {
-      background: none; border: none; cursor: pointer;
-      font-size: 0.8rem; color: var(--text-dark, #333); font-weight: 600;
-      display: flex; align-items: center; gap: 2px;
-      padding: 0.3rem 0.5rem; border-radius: 6px;
-      transition: background 0.2s;
-    }
-    .lang-btn:hover { background: rgba(0,0,0,0.06); }
-    .lang-current { letter-spacing: 0.5px; }
-    .lang-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%; right: 0;
-      margin-top: 0.4rem;
-      background: #F5F1EA;
-      border: 1px solid #C1CEC9;
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      min-width: 130px;
-      z-index: 9999;
-      overflow: hidden;
-    }
-    .lang-dropdown.show { display: block; }
-    .lang-option {
-      display: block;
-      padding: 0.6rem 1rem;
-      font-size: 0.82rem;
-      color: #333;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .lang-option:hover { background: rgba(198,158,72,0.12); }
-    .lang-option.active { color: #C69E48; font-weight: 600; }
-    @media (max-width: 768px) {
-      .lang-switch { margin-top: 0.5rem; }
-    }
-    /* Hide Google Translate banner */
-    .goog-te-banner-frame.skiptranslate,
-    iframe.skiptranslate,
-    iframe.goog-te-banner-frame,
-    .goog-te-ftab-frame,
-    .goog-te-balloon-frame,
-    #goog-gt-tt,
-    .goog-te-gadget,
-    .goog-logo-link,
-    .goog-tooltip,
-    .goog-tooltip:hover,
-    .skiptranslate { display: none !important; }
-    body { top: 0 !important; margin-top: 0 !important; position: static !important; }
-    body[style*="margin-top"] { margin-top: 0 !important; }
-    iframe.goog-te-banner-frame { display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important; }
-
+    
+    
 </style>
 </head>
 <body>
-  <!-- Google Translate -->
-  <div id="google_translate_element" style="display:none;"></div>
-  <script>
-  function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'es,sk',
-          autoDisplay: false,
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-  }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <!-- End Google Translate -->
-
   <nav id="navbar">
     <a href="index.html" class="nav-brand">Kristian Sokol</a>
     <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -863,17 +796,7 @@
       <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
       <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
       <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
-      <li class="lang-switch">
-        <button class="lang-btn" onclick="toggleLangMenu(event)" aria-label="Change language">
-          <span class="lang-current">ENG</span>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:2px;"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="lang-dropdown" id="langDropdown">
-          <a href="#" onclick="translatePage('en', event)" class="lang-option active" data-lang="en">English</a>
-          <a href="#" onclick="translatePage('es', event)" class="lang-option" data-lang="es">Español</a>
-          <a href="#" onclick="translatePage('sk', event)" class="lang-option" data-lang="sk">Slovenčina</a>
-        </div>
-      </li>
+
       <li><a href="#quick-form" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
     </ul>
   </nav>
@@ -1339,46 +1262,5 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
   </script>
-
-
-  <script>
-  function toggleLangMenu(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var dd = document.getElementById('langDropdown');
-      dd.classList.toggle('show');
-  }
-  document.addEventListener('click', function(e) {
-      var dd = document.getElementById('langDropdown');
-      if (dd && dd.classList.contains('show') && !e.target.closest('.lang-switch')) {
-          dd.classList.remove('show');
-      }
-  });
-  function translatePage(lang, e) {
-      e.preventDefault();
-      document.querySelectorAll('.lang-option').forEach(function(opt) {
-          opt.classList.remove('active');
-      });
-      if (e.target) e.target.classList.add('active');
-      var labels = {en: 'ENG', es: 'ESP', sk: 'SVK'};
-      document.querySelector('.lang-current').textContent = labels[lang] || lang.toUpperCase();
-      var dd = document.getElementById('langDropdown');
-      if (dd) dd.classList.remove('show');
-      if (lang === 'en') {
-          document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-          window.location.href = window.location.pathname;
-      } else {
-          var select = document.querySelector('.goog-te-combo');
-          if (select) {
-              select.value = lang;
-              select.dispatchEvent(new Event('change'));
-          } else {
-              document.cookie = 'googtrans=/en/' + lang + '; path=/';
-              window.location.reload();
-          }
-      }
-  }
-  </script>
-
 </body>
 </html>
