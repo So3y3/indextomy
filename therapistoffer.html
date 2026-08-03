@@ -206,6 +206,21 @@
       max-width: 580px;
       margin: 0 auto 2rem;
     }
+    .cta-btn {
+      display: inline-block;
+      background: var(--warm-gold);
+      color: var(--deep-forest);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 26px rgba(28,40,35,0.18);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
     .offer-price-pill {
       display: inline-flex;
       flex-direction: column;
@@ -574,6 +589,10 @@
     .accred-row img:hover { opacity: 1; }
 
     /* ─── QUICK CONTACT FORM ─── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .contact-left { padding-right: 1rem; }
+    @media (max-width: 768px) { .contact-left { padding-right: 0; } }
     .quick-form-card {
       background: #ffffff;
       border: 1px solid var(--sand);
@@ -1091,38 +1110,80 @@
 
     
     <section id="quick-form" style="scroll-margin-top:5rem;">
-      <div class="quick-form-card">
-        
-        
+      <div class="contact-grid" style="max-width:1100px;margin:0 auto;">
 
-        <form id="qf" action="https://formspree.io/f/xwvdvbon" method="POST">
-          <input type="hidden" name="_subject" value="Free Clarity Call Request - Therapist" />
-          
-          <div class="qf-field">
-            <label for="qf-name">Full Name</label>
-            <input type="text" id="qf-name" name="name" placeholder="Your name" required />
+        <div class="contact-left">
+          <p style="font-family:var(--font-brand);font-size:0.95rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gold);margin-bottom:1.25rem;">Let's Connect</p>
+          <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(2rem,5vw,2.8rem);line-height:1.15;margin-bottom:1rem;">Ready to get<br /><em>found first?</em></h2>
+          <p style="font-size:1.05rem;color:var(--slate-mist);margin-bottom:2.5rem;">Free 30-minute call - No commitment - Phone or video</p>
+
+          <div style="display:flex;flex-direction:column;gap:1.5rem;">
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--warm-gold);color:white;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+              <div>
+                <strong style="display:block;font-size:0.9rem;font-weight:600;color:var(--deep-forest);margin-bottom:0.2rem;">Fill in the form</strong>
+                <span style="font-size:0.8rem;color:var(--slate-mist);">Takes 2 minutes. Tell me a bit about your practice.</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--warm-gold);color:white;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+              <div>
+                <strong style="display:block;font-size:0.9rem;font-weight:600;color:var(--deep-forest);margin-bottom:0.2rem;">I'll reach out within 24h</strong>
+                <span style="font-size:0.8rem;color:var(--slate-mist);">We'll find a time that works. Phone or video, your choice.</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:1rem;">
+              <div style="width:36px;height:36px;border-radius:50%;background:var(--warm-gold);color:white;font-size:0.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+              <div>
+                <strong style="display:block;font-size:0.9rem;font-weight:600;color:var(--deep-forest);margin-bottom:0.2rem;">Free 30-minute session</strong>
+                <span style="font-size:0.8rem;color:var(--slate-mist);">No sales pitch. Just an honest conversation about what's possible.</span>
+              </div>
+            </div>
           </div>
-          <div class="qf-field">
-            <label for="qf-email">Email</label>
-            <input type="email" id="qf-email" name="email" placeholder="your@email.com" required />
+        </div>
+
+        <div style="background:var(--sand);border:1px solid var(--sea-glass);border-radius:16px;padding:2.5rem;box-shadow:0 4px 24px rgba(28,40,35,0.06);">
+          <div id="formContent">
+            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.25rem;">
+              <label for="qf-name" style="font-size:0.8rem;font-weight:600;color:var(--deep-forest);letter-spacing:0.05em;">Your Name</label>
+              <input type="text" id="qf-name" name="name" placeholder="Your full name" required style="font-family:var(--font-body);font-size:0.9rem;color:var(--deep-forest);background:white;border:1px solid var(--sea-glass);border-radius:8px;padding:0.75rem 1rem;width:100%;outline:none;" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.25rem;">
+              <label for="qf-email" style="font-size:0.8rem;font-weight:600;color:var(--deep-forest);letter-spacing:0.05em;">Email Address</label>
+              <input type="email" id="qf-email" name="email" placeholder="you@example.com" required style="font-family:var(--font-body);font-size:0.9rem;color:var(--deep-forest);background:white;border:1px solid var(--sea-glass);border-radius:8px;padding:0.75rem 1rem;width:100%;outline:none;" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.25rem;">
+              <label for="qf-challenge" style="font-size:0.8rem;font-weight:600;color:var(--deep-forest);letter-spacing:0.05em;">What's going on? (brief is fine)</label>
+              <textarea id="qf-challenge" name="message" placeholder="I've been struggling with..." required style="font-family:var(--font-body);font-size:0.9rem;color:var(--deep-forest);background:white;border:1px solid var(--sea-glass);border-radius:8px;padding:0.75rem 1rem;width:100%;outline:none;resize:vertical;min-height:110px;"></textarea>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.25rem;">
+              <label style="font-size:0.8rem;font-weight:600;color:var(--deep-forest);letter-spacing:0.05em;">PREFERRED FORMAT</label>
+              <div style="display:flex;gap:0.75rem;margin-bottom:0.5rem;">
+                <button type="button" id="phoneBtn" onclick="selectFormat('phone')" style="flex:1;padding:0.6rem;border-radius:8px;font-family:var(--font-body);font-size:0.85rem;font-weight:500;cursor:pointer;border:1.5px solid var(--sea-glass);background:var(--deep-forest);color:white;transition:all 0.2s;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  Phone
+                </button>
+                <button type="button" id="videoBtn" onclick="selectFormat('video')" style="flex:1;padding:0.6rem;border-radius:8px;font-family:var(--font-body);font-size:0.85rem;font-weight:500;cursor:pointer;border:1.5px solid var(--sea-glass);background:white;color:var(--slate-mist);transition:all 0.2s;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  Video
+                </button>
+              </div>
+            </div>
+            <input type="hidden" name="format" id="formatInput" value="phone" />
+            <button type="button" id="qf-submit-btn" onclick="handleFreeCall()" style="width:100%;padding:0.9rem;background:var(--deep-forest);color:white;border:none;border-radius:8px;font-family:var(--font-body);font-size:0.95rem;font-weight:600;cursor:pointer;transition:opacity 0.2s,transform 0.2s;letter-spacing:0.02em;">
+              REQUEST FREE CALL
+            </button>
+            <p style="font-size:0.72rem;color:var(--slate-mist);text-align:center;margin-top:0.75rem;">
+              Free 30-minute call - No commitment - Phone or video
+            </p>
           </div>
-          <div class="qf-field">
-            <label for="qf-website">Website URL (Optional)</label>
-            <input type="url" id="qf-website" name="website" placeholder="https://example.com" />
+          <div id="formSuccess" style="display:none;text-align:center;padding:2rem;">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem;">✅</div>
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:400;margin-bottom:0.5rem;">Message received!</h3>
+            <p style="font-size:0.875rem;color:var(--slate-mist);">Thanks for reaching out - I'll get back to you within 24 hours.</p>
           </div>
-          <div class="qf-field">
-            <label for="qf-platform">What platform are you currently on?</label>
-            <input type="text" id="qf-platform" name="current_platform" placeholder="Wix, Squarespace, none, etc." required />
-          </div>
-          <div class="qf-field">
-            <label for="qf-challenge">What's the biggest challenge with getting clients right now?</label>
-            <textarea id="qf-challenge" name="challenge" placeholder="Tell me a bit about your current situation..." required></textarea>
-          </div>
-          
-          <button type="button" class="qf-submit" id="qf-submit-btn" onclick="handleFreeCall()">Request My Free Call &rarr;</button>
-          <p class="pay-methods-note">I'll personally reply within 24 hours to schedule your call</p>
-          
-        </form>
+        </div>
+
       </div>
     </section>
 
@@ -1214,37 +1275,62 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-  // Handle free call form submission (global scope, not inside DOMContentLoaded)
+  // Format toggle for contact form
+  window.selectFormat = function(fmt) {
+    var phoneBtn = document.getElementById('phoneBtn');
+    var videoBtn = document.getElementById('videoBtn');
+    var formatInput = document.getElementById('formatInput');
+    if (fmt === 'phone') {
+      phoneBtn.style.background = 'var(--deep-forest)'; phoneBtn.style.color = 'white';
+      videoBtn.style.background = 'white'; videoBtn.style.color = 'var(--slate-mist)';
+    } else {
+      videoBtn.style.background = 'var(--deep-forest)'; videoBtn.style.color = 'white';
+      phoneBtn.style.background = 'white'; phoneBtn.style.color = 'var(--slate-mist)';
+    }
+    formatInput.value = fmt;
+  };
+
+  // Handle free call form submission (global scope)
   window.handleFreeCall = function() {
-    var form = document.getElementById('qf');
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    
+    var name = document.getElementById('qf-name').value;
+    var email = document.getElementById('qf-email').value;
+    var message = document.getElementById('qf-challenge').value;
+    var format = document.getElementById('formatInput').value;
+
+    if (!name || !email || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
     var submitBtn = document.getElementById('qf-submit-btn');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    var formData = new FormData(form);
-    var data = {};
-    formData.forEach(function(value, key){ data[key] = value; });
-
     fetch('https://formspree.io/f/xwvdvbon', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+        format: format,
+        _subject: 'Free Clarity Call Request - Therapist'
+      })
     })
     .then(function(response) {
       if (response.ok) {
-        form.innerHTML = '<div style="text-align:center;padding:2rem 0;"><h4 style="font-family:var(--font-heading);font-size:1.6rem;color:var(--deep-forest);margin-bottom:0.5rem;">Got it.</h4><p style="color:var(--slate-mist);font-size:0.95rem;">Your message is with me. I\'ll be in touch within 24 hours to book your free call.</p></div>';
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
       } else {
-        alert('There was an issue submitting your request. Please try again.');
+        alert('Something went wrong. Please try again.');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Request My Free Call \u2192';
+        submitBtn.textContent = 'REQUEST FREE CALL';
       }
     })
     .catch(function(error) {
-      alert('There was a network issue. Please try again or email me directly.');
+      alert('Network issue. Please try again or email me directly.');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Request My Free Call \u2192';
+      submitBtn.textContent = 'REQUEST FREE CALL';
     });
   };
   </script>
