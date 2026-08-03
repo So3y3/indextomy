@@ -196,6 +196,19 @@
             width: 100%;
             justify-content: center;
         }
+
+        .btn-send {
+            background: linear-gradient(135deg, #4A7C6F, #2C5F4E);
+            color: white;
+            border: none;
+        }
+        .btn-send:hover { background: linear-gradient(135deg, #3D6B5E, #1F4A3A); transform: translateY(-1px); }
+        .btn-send.sent { background: #2d7a4f; pointer-events: none; }
+        .btn-send.error { background: #c0392b; }
+        @media (max-width: 768px) {
+            .header-actions { flex-wrap: wrap; gap: 6px; }
+            .btn-send { order: -1; width: 100%; }
+        }
         .btn-outline:hover { background-color: var(--slate-100); }
 
         main { display: flex; flex: 1; height: calc(100vh - 68px); overflow: hidden; }
@@ -464,22 +477,26 @@
         <div class="header-brand">
             <div class="logo-badge">KRIS</div>
             <div class="header-title">
-                <h1>Client Agreement Portal</h1>
+                <h1 data-i18n="ui_portal_title">Client Agreement Portal</h1>
                 <p>Kristian Sokol • coachkris.co.uk</p>
             </div>
         </div>
         <div class="header-actions">
             <button onclick="togglePrintMode()" class="btn btn-secondary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v16.5h16.5V3.75H3.75zM12 9v6m3-3H9"/></svg>
-                Toggle Print View
+                <span data-i18n="ui_toggle_print">Toggle Print View</span>
             </button>
             <button onclick="downloadPDF()" class="btn btn-secondary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
-                Download PDF
+                <span data-i18n="ui_download_pdf">Download PDF</span>
             </button>
             <button onclick="window.print()" class="btn btn-primary">
                 <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.821V21h10.56v-7.179m-10.56 0a3.75 3.75 0 117.5 0M10.5 13.821h3m-6 3H16.5m-1.5-12h1.5m-3-1.5h1.5"/></svg>
-                Print Agreement
+                <span data-i18n="ui_print">Print Agreement</span>
+            </button>
+            <button onclick="sendToKris()" class="btn btn-send" id="btnSendToKris">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+                <span data-i18n="ui_send_to_kris">Send to Kris</span>
             </button>
         </div>
     </header>
@@ -488,10 +505,10 @@
         <!-- ─── SIDEBAR ─── -->
         <section id="sidebar" class="no-print">
             <div>
-                <h2 class="section-title">Client Details</h2>
-                <p class="section-desc">Input client metadata to dynamically fill the agreement.</p>
+                <h2 class="section-title" data-i18n="ui_client_details">Client Details</h2>
+                <p class="section-desc" data-i18n="ui_client_details_desc">Input client metadata to dynamically fill the agreement.</p>
                 <div class="form-group">
-                    <label>Contract Language</label>
+                    <label data-i18n="ui_contract_lang">Contract Language</label>
                     <select id="contractLang" onchange="setLanguage(this.value)" class="form-control" style="cursor:pointer;font-weight:600;">
                         <option value="en">English</option>
                         <option value="es">Español (Spanish)</option>
@@ -499,50 +516,50 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Client Full Name</label>
+                    <label data-i18n="ui_client_name">Client Full Name</label>
                     <input type="text" id="inputClientName" value="Alex Mercer" oninput="updateContract()" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label>Agreement Date</label>
+                    <label data-i18n="ui_agreement_date">Agreement Date</label>
                     <input type="date" id="inputAgreementDate" onchange="updateContract()" class="form-control">
                 
                     <!-- ─── CUSTOM PLAN ─── -->
                     <label class="plan-card" id="custom-plan-card">
                         <input type="radio" name="pricingPlan" value="custom" onchange="updateContract(); toggleCustomFields()">
                         <div class="plan-card-content">
-                            <span class="plan-name">Custom Plan</span>
-                            <span class="plan-details">Define your own program name, price &amp; payment terms</span>
-                            <span class="plan-badge badge-blue">Fully Customisable</span>
+                            <span class="plan-name" data-i18n="ui_custom_plan">Custom Plan</span>
+                            <span class="plan-details" data-i18n="ui_custom_plan_desc">Define your own program name, price &amp; payment terms</span>
+                            <span class="plan-badge badge-blue" data-i18n="ui_customisable">Fully Customisable</span>
                         </div>
                     </label>
 
                     <!-- Custom Plan Fields -->
                     <div id="custom-fields" style="display:none;background:#f9f7f3;border:1px solid var(--sea-glass);border-radius:10px;padding:14px 16px;margin-top:2px;flex-direction:column;gap:10px;">
                         <div>
-                            <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Program Name</label>
+                            <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;" data-i18n="ui_program_name">Program Name</label>
                             <input id="custom-name" type="text" placeholder="e.g. Yacht Crew Coaching Program" oninput="updateContract()"
                                 style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;">
                         </div>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                             <div>
-                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Final Price (€)</label>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;" data-i18n="ui_final_price">Final Price (€)</label>
                                 <input id="custom-price" type="number" placeholder="550" oninput="updateContract()"
                                     style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;">
                             </div>
                             <div>
-                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Full Price Before Discount (€)</label>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;" data-i18n="ui_full_price">Full Price Before Discount (€)</label>
                                 <input id="custom-full-price" type="number" placeholder="800" oninput="updateContract()"
                                     style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;">
                             </div>
                         </div>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
                             <div>
-                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Discount %</label>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;" data-i18n="ui_discount">Discount %</label>
                                 <input id="custom-discount" type="number" placeholder="32" min="0" max="100" oninput="updateContract()"
                                     style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;">
                             </div>
                             <div>
-                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;">Payment Plan</label>
+                                <label style="font-size:0.72rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate-mist);display:block;margin-bottom:4px;" data-i18n="ui_payment_plan">Payment Plan</label>
                                 <input id="custom-payment" type="text" placeholder="e.g. Paid in 3 instalments" oninput="updateContract()"
                                     style="width:100%;padding:8px 10px;border:1.5px solid var(--sea-glass);border-radius:7px;font-family:'Inter',sans-serif;font-size:0.85rem;color:var(--deep-forest);background:white;outline:none;box-sizing:border-box;">
                             </div>
@@ -555,8 +572,8 @@
             <hr>
 
             <div>
-                <h2 class="section-title">Packages &amp; Payment Plans</h2>
-                <p class="section-desc">Choose the specific package and billing model.</p>
+                <h2 class="section-title" data-i18n="ui_packages">Packages &amp; Payment Plans</h2>
+                <p class="section-desc" data-i18n="ui_packages_desc">Choose the specific package and billing model.</p>
 
                 <div class="plan-grid">
 
@@ -564,9 +581,9 @@
                     <label class="plan-card">
                         <input type="radio" name="pricingPlan" value="4-week" checked onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name">4-Week Break the Loop</span>
-                            <span class="plan-details">4 weekly sessions • £400 total</span>
-                            <span class="plan-badge badge-gray">Paid Upfront</span>
+                            <span class="plan-name" data-i18n="ui_pkg_4wk">4-Week Break the Loop</span>
+                            <span class="plan-details" data-i18n="ui_pkg_4wk_desc">4 weekly sessions • £400 total</span>
+                            <span class="plan-badge badge-gray" data-i18n="ui_pkg_4wk_badge">Paid Upfront</span>
                         </div>
                     </label>
 
@@ -574,9 +591,9 @@
                     <label class="plan-card">
                         <input type="radio" name="pricingPlan" value="4-week-per-session" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name">4-Week Break the Loop (Pay Per Session)</span>
-                            <span class="plan-details">4 weekly sessions • £100 per session</span>
-                            <span class="plan-badge badge-blue">£100 due 24h before each session</span>
+                            <span class="plan-name" data-i18n="ui_pkg_4wk_pps">4-Week Break the Loop (Pay Per Session)</span>
+                            <span class="plan-details" data-i18n="ui_pkg_4wk_pps_desc">4 weekly sessions • £100 per session</span>
+                            <span class="plan-badge badge-blue" data-i18n="ui_pkg_4wk_pps_badge">£100 due 24h before each session</span>
                         </div>
                     </label>
 
@@ -584,9 +601,9 @@
                     <label class="plan-card plan-card-emerald">
                         <input type="radio" name="pricingPlan" value="8-discount-full" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name" style="color:var(--emerald-800)">8-Week Break the Loop — Discount (Full)</span>
-                            <span class="plan-details" style="color:var(--emerald-700)">8 weekly sessions • £750 total</span>
-                            <span class="plan-badge badge-green">Save £50 · Paid in Full</span>
+                            <span class="plan-name" style="color:var(--emerald-800)" data-i18n="ui_pkg_8wk_d_full">8-Week Break the Loop — Discount (Full)</span>
+                            <span class="plan-details" style="color:var(--emerald-700)" data-i18n="ui_pkg_8wk_d_full_desc">8 weekly sessions • £750 total</span>
+                            <span class="plan-badge badge-green" data-i18n="ui_pkg_8wk_d_full_badge">Save £50 · Paid in Full</span>
                         </div>
                     </label>
 
@@ -594,9 +611,9 @@
                     <label class="plan-card plan-card-emerald">
                         <input type="radio" name="pricingPlan" value="8-discount-split" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name" style="color:var(--emerald-800)">8-Week Break the Loop — Discount (Split)</span>
+                            <span class="plan-name" style="color:var(--emerald-800)" data-i18n="ui_pkg_8wk_d_split">8-Week Break the Loop — Discount (Split)</span>
                             <span class="plan-details" style="color:var(--emerald-700)">8 weekly sessions • £750 total</span>
-                            <span class="plan-badge badge-green">Save £50 · 2 × £375 (30 days apart)</span>
+                            <span class="plan-badge badge-green" data-i18n="ui_pkg_8wk_d_split_badge">Save £50 · 2 × £375 (30 days apart)</span>
                         </div>
                     </label>
 
@@ -604,9 +621,9 @@
                     <label class="plan-card">
                         <input type="radio" name="pricingPlan" value="8-standard" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name">8-Week Break the Loop — Standard</span>
-                            <span class="plan-details">8 weekly sessions • £800 total</span>
-                            <span class="plan-badge badge-blue">2 × £400 (30 days apart)</span>
+                            <span class="plan-name" data-i18n="ui_pkg_8wk_std">8-Week Break the Loop — Standard</span>
+                            <span class="plan-details" data-i18n="ui_pkg_8wk_std_desc">8 weekly sessions • £800 total</span>
+                            <span class="plan-badge badge-blue" data-i18n="ui_pkg_8wk_std_badge">2 × £400 (30 days apart)</span>
                         </div>
                     </label>
 
@@ -614,9 +631,9 @@
                     <label class="plan-card plan-card-emerald">
                         <input type="radio" name="pricingPlan" value="12-discount-full" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name" style="color:var(--emerald-800)">12-Week Break the Loop — Discount (Full)</span>
-                            <span class="plan-details" style="color:var(--emerald-700)">12 weekly sessions • £1,050 total</span>
-                            <span class="plan-badge badge-green">Save £150 · Paid in Full</span>
+                            <span class="plan-name" style="color:var(--emerald-800)" data-i18n="ui_pkg_12wk_d_full">12-Week Break the Loop — Discount (Full)</span>
+                            <span class="plan-details" style="color:var(--emerald-700)" data-i18n="ui_pkg_12wk_d_full_desc">12 weekly sessions • £1,050 total</span>
+                            <span class="plan-badge badge-green" data-i18n="ui_pkg_12wk_d_full_badge">Save £150 · Paid in Full</span>
                         </div>
                     </label>
 
@@ -624,9 +641,9 @@
                     <label class="plan-card plan-card-emerald">
                         <input type="radio" name="pricingPlan" value="12-discount-split" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name" style="color:var(--emerald-800)">12-Week Break the Loop — Discount (Split)</span>
-                            <span class="plan-details" style="color:var(--emerald-700)">12 weekly sessions • £1,050 total</span>
-                            <span class="plan-badge badge-green">Save £150 · 3 × £350 (30 days apart)</span>
+                            <span class="plan-name" style="color:var(--emerald-800)" data-i18n="ui_pkg_12wk_d_split">12-Week Break the Loop — Discount (Split)</span>
+                            <span class="plan-details" style="color:var(--emerald-700)" data-i18n="ui_pkg_12wk_d_split_desc">12 weekly sessions • £1,050 total</span>
+                            <span class="plan-badge badge-green" data-i18n="ui_pkg_12wk_d_split_badge">Save £150 · 3 × £350 (30 days apart)</span>
                         </div>
                     </label>
 
@@ -634,9 +651,9 @@
                     <label class="plan-card">
                         <input type="radio" name="pricingPlan" value="12-standard" onchange="updateContract()">
                         <div class="plan-card-content">
-                            <span class="plan-name">12-Week Break the Loop — Standard</span>
-                            <span class="plan-details">12 weekly sessions • £1,200 total</span>
-                            <span class="plan-badge badge-blue">3 × £400 (30 days apart)</span>
+                            <span class="plan-name" data-i18n="ui_pkg_12wk_std">12-Week Break the Loop — Standard</span>
+                            <span class="plan-details" data-i18n="ui_pkg_12wk_std_desc">12 weekly sessions • £1,200 total</span>
+                            <span class="plan-badge badge-blue" data-i18n="ui_pkg_12wk_std_badge">3 × £400 (30 days apart)</span>
                         </div>
                     </label>
 
@@ -646,8 +663,8 @@
             <hr>
 
             <div class="instruction-card">
-                <p><span>How to save a PDF:</span> Click "Print Agreement", then choose "Save as PDF" in your printer options. Ensure you select A4 paper size.</p>
-                <p>The document will print across two clean pages.</p>
+                <p><span data-i18n="ui_howto_title">How to save a PDF:</span> <span data-i18n="ui_howto_body">Click "Print Agreement", then choose "Save as PDF" in your printer options. Ensure you select A4 paper size.</span></p>
+                <p data-i18n="ui_two_pages">The document will print across two clean pages.</p>
             </div>
         </section>
 
@@ -884,6 +901,68 @@
             pay_12_full: "Paid in full prior to first session \u2014 Total \u20ac1,050.00 (\u20ac150 saving applied to full price of \u20ac1,200)",
             pay_4_full: "Paid in full prior to first session (\u20ac400.00)",
             date_locale: "en-GB"
+        ,
+
+            // ─── UI LABELS ───
+            ui_portal_title: "Client Agreement Portal",
+            ui_toggle_print: "Toggle Print View",
+            ui_download_pdf: "Download PDF",
+            ui_print: "Print Agreement",
+            ui_send_to_kris: "Send to Kris",
+            ui_sending: "Sending...",
+            ui_sent: "Sent! Kris will be in touch.",
+            ui_send_error: "Failed to send. Please try again.",
+            ui_client_details: "Client Details",
+            ui_client_details_desc: "Input client metadata to dynamically fill the agreement.",
+            ui_contract_lang: "Contract Language",
+            ui_client_name: "Client Full Name",
+            ui_client_name_placeholder: "Client Name",
+            ui_agreement_date: "Agreement Date",
+            ui_packages: "Packages & Payment Plans",
+            ui_packages_desc: "Choose the specific package and billing model.",
+            ui_custom_plan: "Custom Plan",
+            ui_custom_plan_desc: "Define your own program name, price & payment terms",
+            ui_customisable: "Fully Customisable",
+            ui_program_name: "Program Name",
+            ui_program_name_ph: "e.g. Yacht Crew Coaching Program",
+            ui_final_price: "Final Price (€)",
+            ui_full_price: "Full Price Before Discount (€)",
+            ui_discount: "Discount %",
+            ui_payment_plan: "Payment Plan",
+            ui_payment_plan_ph: "e.g. Paid in 3 instalments",
+            ui_pkg_4wk: "4-Week Break the Loop",
+            ui_pkg_4wk_desc: "4 weekly sessions • £400 total",
+            ui_pkg_4wk_badge: "Paid Upfront",
+            ui_pkg_4wk_pps: "4-Week Break the Loop (Pay Per Session)",
+            ui_pkg_4wk_pps_desc: "4 weekly sessions • £100 per session",
+            ui_pkg_4wk_pps_badge: "£100 due 24h before each session",
+            ui_pkg_8wk_d_full: "8-Week Break the Loop — Discount (Full)",
+            ui_pkg_8wk_d_full_desc: "8 weekly sessions • £750 total",
+            ui_pkg_8wk_d_full_badge: "Save £50 · Paid in Full",
+            ui_pkg_8wk_d_split: "8-Week Break the Loop — Discount (Split)",
+            ui_pkg_8wk_d_split_badge: "Save £50 · 2 × £375 (30 days apart)",
+            ui_pkg_8wk_std: "8-Week Break the Loop — Standard",
+            ui_pkg_8wk_std_desc: "8 weekly sessions • £800 total",
+            ui_pkg_8wk_std_badge: "2 × £400 (30 days apart)",
+            ui_pkg_12wk_d_full: "12-Week Break the Loop — Discount (Full)",
+            ui_pkg_12wk_d_full_desc: "12 weekly sessions • £1,050 total",
+            ui_pkg_12wk_d_full_badge: "Save £150 · Paid in Full",
+            ui_pkg_12wk_d_split: "12-Week Break the Loop — Discount (Split)",
+            ui_pkg_12wk_d_split_desc: "12 weekly sessions • £1,050 total",
+            ui_pkg_12wk_d_split_badge: "Save £150 · 3 × £350 (30 days apart)",
+            ui_pkg_12wk_std: "12-Week Break the Loop — Standard",
+            ui_pkg_12wk_std_desc: "12 weekly sessions • £1,200 total",
+            ui_pkg_12wk_std_badge: "3 × £400 (30 days apart)",
+            ui_howto_title: "How to save a PDF:",
+            ui_howto_body: 'Click "Print Agreement", then choose "Save as PDF" in your printer options. Ensure you select A4 paper size.',
+            ui_two_pages: "The document will print across two clean pages.",
+            ui_email_subject: "New Client Agreement",
+            ui_email_lang: "Language",
+            ui_email_client: "Client Name",
+            ui_email_date: "Agreement Date",
+            ui_email_package: "Selected Package",
+            ui_email_custom: "Custom Plan Details",
+            ui_email_signature: "This agreement was submitted via coachkris.co.uk/agreement.html"
         },
         es: {
             coach_title: "Coach de Vida y Longevidad",
@@ -950,6 +1029,68 @@
             pay_12_full: "Pagado en su totalidad antes de la primera sesi\u00f3n \u2014 Total \u20ac1.050,00 (\u20ac150 descuento aplicado sobre el precio total de \u20ac1.200)",
             pay_4_full: "Pagado en su totalidad antes de la primera sesi\u00f3n (\u20ac400,00)",
             date_locale: "es-ES"
+        ,
+
+            // ─── UI LABELS ───
+            ui_portal_title: "Portal de Contratos de Cliente",
+            ui_toggle_print: "Vista de Impresión",
+            ui_download_pdf: "Descargar PDF",
+            ui_print: "Imprimir Contrato",
+            ui_send_to_kris: "Enviar a Kris",
+            ui_sending: "Enviando...",
+            ui_sent: "¡Enviado! Kris se pondrá en contacto.",
+            ui_send_error: "Error al enviar. Inténtelo de nuevo.",
+            ui_client_details: "Datos del Cliente",
+            ui_client_details_desc: "Introduzca los datos del cliente para rellenar el contrato dinámicamente.",
+            ui_contract_lang: "Idioma del Contrato",
+            ui_client_name: "Nombre Completo del Cliente",
+            ui_client_name_placeholder: "Nombre del Cliente",
+            ui_agreement_date: "Fecha del Contrato",
+            ui_packages: "Paquetes y Planes de Pago",
+            ui_packages_desc: "Elija el paquete específico y el modelo de facturación.",
+            ui_custom_plan: "Plan Personalizado",
+            ui_custom_plan_desc: "Defina su propio nombre de programa, precio y condiciones de pago",
+            ui_customisable: "Totalmente Personalizable",
+            ui_program_name: "Nombre del Programa",
+            ui_program_name_ph: "ej. Programa de Coaching para Tripulación de Yates",
+            ui_final_price: "Precio Final (€)",
+            ui_full_price: "Precio Antes del Descuento (€)",
+            ui_discount: "Descuento %",
+            ui_payment_plan: "Plan de Pago",
+            ui_payment_plan_ph: "ej. Pagado en 3 plazos",
+            ui_pkg_4wk: "4 Semanas Break the Loop",
+            ui_pkg_4wk_desc: "4 sesiones semanales • 400 € total",
+            ui_pkg_4wk_badge: "Pagado por Adelantado",
+            ui_pkg_4wk_pps: "4 Semanas Break the Loop (Pago por Sesión)",
+            ui_pkg_4wk_pps_desc: "4 sesiones semanales • 100 € por sesión",
+            ui_pkg_4wk_pps_badge: "100 € antes de cada sesión (24h)",
+            ui_pkg_8wk_d_full: "8 Semanas Break the Loop — Descuento (Completo)",
+            ui_pkg_8wk_d_full_desc: "8 sesiones semanales • 750 € total",
+            ui_pkg_8wk_d_full_badge: "Ahorra 50 € · Pagado Completo",
+            ui_pkg_8wk_d_split: "8 Semanas Break the Loop — Descuento (Dividido)",
+            ui_pkg_8wk_d_split_badge: "Ahorra 50 € · 2 × 375 € (30 días)",
+            ui_pkg_8wk_std: "8 Semanas Break the Loop — Estándar",
+            ui_pkg_8wk_std_desc: "8 sesiones semanales • 800 € total",
+            ui_pkg_8wk_std_badge: "2 × 400 € (30 días)",
+            ui_pkg_12wk_d_full: "12 Semanas Break the Loop — Descuento (Completo)",
+            ui_pkg_12wk_d_full_desc: "12 sesiones semanales • 1.050 € total",
+            ui_pkg_12wk_d_full_badge: "Ahorra 150 € · Pagado Completo",
+            ui_pkg_12wk_d_split: "12 Semanas Break the Loop — Descuento (Dividido)",
+            ui_pkg_12wk_d_split_desc: "12 sesiones semanales • 1.050 € total",
+            ui_pkg_12wk_d_split_badge: "Ahorra 150 € · 3 × 350 € (30 días)",
+            ui_pkg_12wk_std: "12 Semanas Break the Loop — Estándar",
+            ui_pkg_12wk_std_desc: "12 sesiones semanales • 1.200 € total",
+            ui_pkg_12wk_std_badge: "3 × 400 € (30 días)",
+            ui_howto_title: "Cómo guardar un PDF:",
+            ui_howto_body: 'Haga clic en "Imprimir Contrato", luego elija "Guardar como PDF" en las opciones de impresión. Seleccione tamaño A4.',
+            ui_two_pages: "El documento se imprimirá en dos páginas limpias.",
+            ui_email_subject: "Nuevo Contrato de Cliente",
+            ui_email_lang: "Idioma",
+            ui_email_client: "Nombre del Cliente",
+            ui_email_date: "Fecha del Contrato",
+            ui_email_package: "Paquete Seleccionado",
+            ui_email_custom: "Detalles del Plan Personalizado",
+            ui_email_signature: "Este contrato fue enviado desde coachkris.co.uk/agreement.html"
         },
         sk: {
             coach_title: "Kou\u010d pre \u017eivotn\u00fd \u0161t\u00fdl a dlhovekos\u0165",
@@ -1016,6 +1157,68 @@
             pay_12_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm \u2014 Celkom \u20ac1.050,00 (\u20ac150 z\u013eava uplatnen\u00e1 z plnej ceny \u20ac1.200)",
             pay_4_full: "Uhraden\u00e9 v plnej v\u00fdske pred prv\u00edm stretnut\u00edm (\u20ac400,00)",
             date_locale: "sk-SK"
+        ,
+
+            // ─── UI LABELS ───
+            ui_portal_title: "Portál klientskych zmlúv",
+            ui_toggle_print: "Prepnúť tlačové zobrazenie",
+            ui_download_pdf: "Stiahnuť PDF",
+            ui_print: "Vytlačiť zmluvu",
+            ui_send_to_kris: "Poslať Krisovi",
+            ui_sending: "Odosielanie...",
+            ui_sent: "Odoslané! Kris vás bude kontaktovať.",
+            ui_send_error: "Odoslanie zlyhalo. Skúste to znova.",
+            ui_client_details: "Údaje klienta",
+            ui_client_details_desc: "Zadajte údaje klienta pre dynamické vyplnenie zmluvy.",
+            ui_contract_lang: "Jazyk zmluvy",
+            ui_client_name: "Meno a priezvisko klienta",
+            ui_client_name_placeholder: "Meno klienta",
+            ui_agreement_date: "Dátum zmluvy",
+            ui_packages: "Balíčky a platobné plány",
+            ui_packages_desc: "Vyberte konkrétny balíček a model platby.",
+            ui_custom_plan: "Vlastný plán",
+            ui_custom_plan_desc: "Definujte vlastný názov programu, cenu a platobné podmienky",
+            ui_customisable: "Plne prispôsobiteľné",
+            ui_program_name: "Názov programu",
+            ui_program_name_ph: "napr. Yacht Crew Coaching Program",
+            ui_final_price: "Konečná cena (€)",
+            ui_full_price: "Pôvodná cena pred zľavou (€)",
+            ui_discount: "Zľava %",
+            ui_payment_plan: "Platobný plán",
+            ui_payment_plan_ph: "napr. Platené v 3 splátkach",
+            ui_pkg_4wk: "4-týždenný Break the Loop",
+            ui_pkg_4wk_desc: "4 týždenné stretnutia • 400 € spolu",
+            ui_pkg_4wk_badge: "Platené vopred",
+            ui_pkg_4wk_pps: "4-týždenný Break the Loop (Platba za stretnutie)",
+            ui_pkg_4wk_pps_desc: "4 týždenné stretnutia • 100 € za stretnutie",
+            ui_pkg_4wk_pps_badge: "100 € 24h pred každým stretnutím",
+            ui_pkg_8wk_d_full: "8-týždenný Break the Loop — Zľava (Celá suma)",
+            ui_pkg_8wk_d_full_desc: "8 týždenných stretnutí • 750 € spolu",
+            ui_pkg_8wk_d_full_badge: "Ušetríte 50 € · Platené v plnej sume",
+            ui_pkg_8wk_d_split: "8-týždenný Break the Loop — Zľava (Rozdelené)",
+            ui_pkg_8wk_d_split_badge: "Ušetríte 50 € · 2 × 375 € (30 dní)",
+            ui_pkg_8wk_std: "8-týždenný Break the Loop — Štandard",
+            ui_pkg_8wk_std_desc: "8 týždenných stretnutí • 800 € spolu",
+            ui_pkg_8wk_std_badge: "2 × 400 € (30 dní)",
+            ui_pkg_12wk_d_full: "12-týždenný Break the Loop — Zľava (Celá suma)",
+            ui_pkg_12wk_d_full_desc: "12 týždenných stretnutí • 1.050 € spolu",
+            ui_pkg_12wk_d_full_badge: "Ušetríte 150 € · Platené v plnej sume",
+            ui_pkg_12wk_d_split: "12-týždenný Break the Loop — Zľava (Rozdelené)",
+            ui_pkg_12wk_d_split_desc: "12 týždenných stretnutí • 1.050 € spolu",
+            ui_pkg_12wk_d_split_badge: "Ušetríte 150 € · 3 × 350 € (30 dní)",
+            ui_pkg_12wk_std: "12-týždenný Break the Loop — Štandard",
+            ui_pkg_12wk_std_desc: "12 týždenných stretnutí • 1.200 € spolu",
+            ui_pkg_12wk_std_badge: "3 × 400 € (30 dní)",
+            ui_howto_title: "Ako uložiť PDF:",
+            ui_howto_body: 'Kliknite na "Vytlačiť zmluvu", potom vyberte "Uložiť ako PDF" v možnostiach tlače. Vyberte formát A4.',
+            ui_two_pages: "Dokument sa vytlačí na dve čisté stránky.",
+            ui_email_subject: "Nová klientska zmluva",
+            ui_email_lang: "Jazyk",
+            ui_email_client: "Meno klienta",
+            ui_email_date: "Dátum zmluvy",
+            ui_email_package: "Vybraný balíček",
+            ui_email_custom: "Detaily vlastného plánu",
+            ui_email_signature: "Táto zmluva bola odoslaná z coachkris.co.uk/agreement.html"
         }
     };
 
@@ -1037,8 +1240,84 @@
         // Slovak text runs longer than English/Spanish — apply a tighter print
         // layout so the document still fits on 2 pages instead of spilling to 3.
         document.body.classList.toggle('lang-compact', lang === 'sk');
+
+        // Update placeholder text for form inputs
+        var nameInput = document.getElementById('inputClientName');
+        if (nameInput) nameInput.placeholder = t.ui_client_name_placeholder || 'Client Name';
+        var progInput = document.getElementById('custom-name');
+        if (progInput) progInput.placeholder = t.ui_program_name_ph || '';
+        var payInput = document.getElementById('custom-payment');
+        if (payInput) payInput.placeholder = t.ui_payment_plan_ph || '';
         // Re-run contract update to refresh dynamic content in the new language
         updateContract();
+    }
+
+    // ─── SEND TO KRIS via Formspree ───
+    async function sendToKris() {
+        var t = translations[currentLang];
+        var btn = document.getElementById('btnSendToKris');
+        var span = btn.querySelector('span');
+        var originalText = span.textContent;
+        span.textContent = t.ui_sending;
+        btn.style.pointerEvents = 'none';
+
+        // Gather form data
+        var clientName = document.getElementById('inputClientName').value || '';
+        var agreementDate = document.getElementById('inputAgreementDate').value || '';
+        var selectedPlan = document.querySelector('input[name="pricingPlan"]:checked');
+        var planValue = selectedPlan ? selectedPlan.value : 'unknown';
+        var planLabel = '';
+
+        if (planValue === 'custom') {
+            var cname = document.getElementById('custom-name') ? document.getElementById('custom-name').value : '';
+            var cprice = document.getElementById('custom-price') ? document.getElementById('custom-price').value : '';
+            var cfullprice = document.getElementById('custom-full-price') ? document.getElementById('custom-full-price').value : '';
+            var cdiscount = document.getElementById('custom-discount') ? document.getElementById('custom-discount').value : '';
+            var cpayment = document.getElementById('custom-payment') ? document.getElementById('custom-payment').value : '';
+            planLabel = (t.ui_custom || 'Custom Plan') + ': ' + cname + ' | ' + cprice + ' EUR | ' + cpayment;
+            if (cfullprice) planLabel += ' (was ' + cfullprice + ' EUR)';
+            if (cdiscount) planLabel += ' (-' + cdiscount + '%)';
+        } else {
+            var planCard = selectedPlan ? selectedPlan.closest('.plan-card') : null;
+            if (planCard) {
+                var nameEl = planCard.querySelector('.plan-name');
+                planLabel = nameEl ? nameEl.textContent.trim() : planValue;
+            } else {
+                planLabel = planValue;
+            }
+        }
+
+        var formData = {
+            _subject: t.ui_email_subject + ' — ' + clientName,
+            language: currentLang.toUpperCase(),
+            client_name: clientName,
+            agreement_date: agreementDate,
+            selected_package: planLabel,
+            source: 'coachkris.co.uk/agreement.html'
+        };
+
+        try {
+            var response = await fetch('https://formspree.io/f/xwvdvbon', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                span.textContent = t.ui_sent;
+                btn.classList.add('sent');
+            } else {
+                throw new Error('Formspree error');
+            }
+        } catch (err) {
+            span.textContent = t.ui_send_error;
+            btn.classList.add('error');
+            setTimeout(function() {
+                span.textContent = originalText;
+                btn.classList.remove('error');
+                btn.style.pointerEvents = 'auto';
+            }, 3000);
+        }
     }
 </script>
 
