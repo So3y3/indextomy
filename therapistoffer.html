@@ -980,15 +980,15 @@
           <p class="test-step-num" id="stepNum">Step 1 of 3</p>
           <p class="test-question" id="stepQuestion">Does your website load in under 3 seconds?</p>
           <div class="test-buttons">
-            <button class="test-btn yes" onclick="answerStep()">Yes</button>
-            <button class="test-btn no" onclick="answerStep()">No</button>
+            <button class="test-btn yes" id="yesBtn" onclick="answerStep()">Yes</button>
+            <button class="test-btn no" id="noBtn" onclick="answerStep()">No</button>
           </div>
         </div>
 
         <div id="testResult" style="display:none;">
           <div class="test-result">
-            <h3>If you answered "no" or "I don't know" to any of these...</h3>
-            <p>do yourself a favour and get in touch. I'm more than happy to fix it.</p>
+            <h3>You've earned this! <span class="gold-text">Now</span> that you're ready to challenge your comfort zone and move to the next level - let's talk.</h3>
+            <p>Schedule your free 30-minute call. No pitch, no pressure. Just a real conversation about where you are and where you could be.</p>
             <a href="#quick-form" class="cta-btn" style="background:var(--warm-gold);color:var(--deep-forest);">Book your free call &rarr;</a>
             <p class="offer-scarcity" style="margin-top:1rem;">No pitch. No commitment. Just an honest conversation.</p>
           </div>
@@ -1016,6 +1016,11 @@
           document.getElementById('stepNum').textContent = 'Step ' + (currentStep + 1) + ' of 3';
           document.getElementById('stepQuestion').textContent = questions[currentStep];
           document.getElementById('dot-' + currentStep).classList.add('active');
+          // On the last question, hide No button and change Yes to something fun
+          if (currentStep === 2) {
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('yesBtn').textContent = "I'm ready";
+          }
         } else {
           document.getElementById('testContent').style.display = 'none';
           document.getElementById('testResult').style.display = 'block';
