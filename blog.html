@@ -1227,61 +1227,54 @@ function generateOGImageData(post) {
   var cleanTitle = post.title.replace(/<[^>]+>/g, '');
   var catLabels = { life:'Life Coaching', longevity:'Longevity', mindset:'Mindset', adhd:'ADHD-Aware', growth:'Growth', build:'Business' };
   var cats = Array.isArray(post.category) ? post.category : [post.category];
-  var catLabel = cats.map(function(c) { return catLabels[c] || c; }).join(' · ') || 'Article';
+  var catLabel = cats.map(function(c) { return catLabels[c] || c; }).join(' \u00b7 ') || 'Article';
+  var excerpt = (post.excerpt || '').replace(/"/g,"'");
 
   var canvas = document.createElement('canvas');
   canvas.width = 1200;
   canvas.height = 630;
   var ctx = canvas.getContext('2d');
+  var W = 1200, H = 630;
 
   // Background - parchment
   ctx.fillStyle = '#F5F1EA';
-  ctx.fillRect(0, 0, 1200, 630);
+  ctx.fillRect(0, 0, W, H);
 
-  // Top accent bar - deep forest
+  // Top accent bar (thin gold)
+  ctx.fillStyle = '#C69E48';
+  ctx.fillRect(0, 0, W, 6);
+
+  // Bottom accent bar (thin deep forest)
   ctx.fillStyle = '#1C2823';
-  ctx.fillRect(0, 0, 1200, 8);
+  ctx.fillRect(0, H - 6, W, 6);
 
-  // Left circle with KS initials
-  var circleX = 130, circleY = 315, circleR = 85;
+  // Small gold diamond at top center
+  ctx.fillStyle = '#C69E48';
   ctx.beginPath();
-  ctx.arc(circleX, circleY, circleR, 0, Math.PI * 2);
-  ctx.fillStyle = '#1C2823';
+  ctx.moveTo(600, 56);
+  ctx.lineTo(610, 66);
+  ctx.lineTo(600, 76);
+  ctx.lineTo(590, 66);
+  ctx.closePath();
   ctx.fill();
-  ctx.strokeStyle = '#C69E48';
-  ctx.lineWidth = 3;
-  ctx.stroke();
 
-  // KS text in circle
+  // Category eyebrow (centered, letter-spaced, gold)
   ctx.fillStyle = '#C69E48';
-  ctx.font = 'bold 42px "Bebas Neue", Arial, sans-serif';
+  ctx.font = '600 17px Inter, Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText('KS', circleX, circleY + 3);
-
-  // Gold vertical line separator
-  ctx.strokeStyle = '#C69E48';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(270, 200);
-  ctx.lineTo(270, 430);
-  ctx.stroke();
-
-  // Category eyebrow
-  ctx.fillStyle = '#C69E48';
-  ctx.font = '600 18px Inter, Arial, sans-serif';
-  ctx.textAlign = 'left';
-  ctx.fillText(catLabel.toUpperCase(), 310, 210);
-
-  // Title - Cormorant Garamond (wrapped)
-  ctx.fillStyle = '#1C2823';
-  ctx.font = '300 52px "Cormorant Garamond", Georgia, serif';
-  ctx.textAlign = 'left';
   ctx.textBaseline = 'top';
-  var titleX = 310;
-  var titleY = 245;
-  var maxWidth = 830;
-  var lineHeight = 62;
+  var catUpper = catLabel.toUpperCase();
+  // Manual letter spacing
+  var spacedCat = catUpper.split('').join(' ');
+  ctx.fillText(spacedCat, W / 2, 95);
+
+  // Title (centered, Cormorant Garamond, deep forest)
+  ctx.fillStyle = '#1C2823';
+  ctx.font = '300 62px "Cormorant Garamond", Georgia, serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  var maxTitleW = 900;
+  var titleLineH = 72;
 
   // Word-wrap title
   var words = cleanTitle.split(' ');
@@ -1289,7 +1282,7 @@ function generateOGImageData(post) {
   var currentLine = '';
   for (var i = 0; i < words.length; i++) {
     var testLine = currentLine ? currentLine + ' ' + words[i] : words[i];
-    if (ctx.measureText(testLine).width > maxWidth && currentLine) {
+    if (ctx.measureText(testLine).width > maxTitleW && currentLine) {
       lines.push(currentLine);
       currentLine = words[i];
     } else {
@@ -1299,24 +1292,56 @@ function generateOGImageData(post) {
   if (currentLine) lines.push(currentLine);
   if (lines.length > 3) lines = lines.slice(0, 3);
 
+  var titleY = 150;
   for (var j = 0; j < lines.length; j++) {
-    ctx.fillText(lines[j], titleX, titleY + j * lineHeight);
+    ctx.fillText(lines[j], W / 2, titleY + j * titleLineH);
+  }
+  var titleEndY = titleY + lines.length * titleLineH;
+
+  // Gold divider line (short, centered)
+  ctx.fillStyle = '#C69E48';
+  ctx.fillRect(W / 2 - 40, titleEndY + 20, 80, 3);
+
+  // Description (centered, Inter, slate mist)
+  ctx.fillStyle = '#7A8A85';
+  ctx.font = '400 22px Inter, Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  var maxDescW = 800;
+  var descLineH = 34;
+  var descY = titleEndY + 45;
+
+  var descWords = excerpt.split(' ');
+  var descLines = [];
+  var descCurrent = '';
+  for (var k = 0; k < descWords.length; k++) {
+    var testDesc = descCurrent ? descCurrent + ' ' + descWords[k] : descWords[k];
+    if (ctx.measureText(testDesc).width > maxDescW && descCurrent) {
+      descLines.push(descCurrent);
+      descCurrent = descWords[k];
+    } else {
+      descCurrent = testDesc;
+    }
+  }
+  if (descCurrent) descLines.push(descCurrent);
+  if (descLines.length > 3) descLines = descLines.slice(0, 3);
+
+  for (var d = 0; d < descLines.length; d++) {
+    ctx.fillText(descLines[d], W / 2, descY + d * descLineH);
   }
 
-  // Bottom brand text
-  ctx.fillStyle = '#7A8A85';
-  ctx.font = '500 16px Inter, Arial, sans-serif';
-  ctx.textAlign = 'left';
+  // Bottom: coachkris.co.uk (centered, Bebas Neue, deep forest)
+  ctx.fillStyle = '#1C2823';
+  ctx.font = '36px "Bebas Neue", Arial, sans-serif';
+  ctx.textAlign = 'center';
   ctx.textBaseline = 'bottom';
-  ctx.fillText('Kristian Sokol  ·  Life, Longevity & Business Coach', 310, 570);
+  ctx.fillText('COACHKRIS.CO.UK', W / 2, H - 42);
 
-  // Bottom gold line
-  ctx.strokeStyle = '#C69E48';
-  ctx.lineWidth = 2;
+  // Small gold dot under URL
+  ctx.fillStyle = '#C69E48';
   ctx.beginPath();
-  ctx.moveTo(0, 622);
-  ctx.lineTo(1200, 622);
-  ctx.stroke();
+  ctx.arc(W / 2, H - 18, 4, 0, Math.PI * 2);
+  ctx.fill();
 
   return canvas.toDataURL('image/jpeg', 0.92);
 }
