@@ -971,71 +971,9 @@
       .pillar-overlay-title { font-size: 1.7rem; }
     }
 
-    /* ─── Language Switcher ─── */
-    .lang-switch { position: relative; display: inline-block; }
-    .lang-btn {
-      display: inline-flex; align-items: center;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: inherit;
-      padding: 0.4rem 0.7rem;
-      border-radius: 9999px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
-      font-family: var(--font-body), sans-serif;
-    }
-    .lang-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
-    .lang-dropdown {
-      display: none;
-      position: absolute;
-      top: 100%; right: 0;
-      margin-top: 0.4rem;
-      background: var(--parchment, #F5F1EA);
-      border: 1px solid var(--sea-glass, #C1CEC9);
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      min-width: 130px;
-      z-index: 9999;
-      overflow: hidden;
-    }
-    .lang-dropdown.show { display: block; }
-    .lang-option {
-      display: block;
-      padding: 0.6rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--deep-forest, #2C3B2D);
-      text-decoration: none;
-      transition: background 0.15s;
-      font-family: var(--font-body), sans-serif;
-    }
-    .lang-option:hover { background: rgba(184,145,58,0.1); }
-    .lang-option.active { color: var(--warm-gold, #B8913A); font-weight: 700; }
-    /* Hide Google Translate banner */
-    .goog-te-banner-frame.skiptranslate,
-    iframe.skiptranslate,
-    iframe.goog-te-banner-frame,
-    .goog-te-ftab-frame,
-    .goog-te-balloon-frame,
-    #goog-gt-tt,
-    .goog-te-gadget,
-    .goog-logo-link,
-    .goog-tooltip,
-    .goog-tooltip:hover { display: none !important; }
-    body { top: 0 !important; margin-top: 0 !important; position: static !important; }
-    .skiptranslate { display: none !important; }
-    .goog-te-spinner-pos { display: none !important; }
-    @media (max-width: 768px) {
-      .lang-switch { margin-top: 0.5rem; }
-    }
+    
 
-    /* Fix body position when Google Translate is active */
-    body[style*="margin-top"] { margin-top: 0 !important; }
-    iframe.goog-te-banner-frame { display: none !important; height: 0 !important; width: 0 !important; visibility: hidden !important; }
-</style>
+    </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1111,22 +1049,6 @@
     
 </head>
 <body>
-  <!-- Google Translate -->
-  <div id="google_translate_element" style="display:none;"></div>
-  <script>
-  function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'es,sk',
-          autoDisplay: false,
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-      }, 'google_translate_element');
-  }
-  </script>
-  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <!-- End Google Translate -->
-
-
   <!-- ─── NAVIGATION ─── -->
   <nav id="navbar">
     <a href="#hero" class="nav-brand">Kristian Sokol</a>
@@ -1138,17 +1060,7 @@
       <li><a href="#pillars" onclick="closeMenu()">How I Help</a></li>
       <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
       <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
-      <li class="lang-switch">
-        <button class="lang-btn" onclick="toggleLangMenu(event)" aria-label="Change language">
-          <span class="lang-current">ENG</span>
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:2px;"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="lang-dropdown" id="langDropdown">
-          <a href="#" onclick="translatePage('en', event)" class="lang-option active" data-lang="en">English</a>
-          <a href="#" onclick="translatePage('es', event)" class="lang-option" data-lang="es">Español</a>
-          <a href="#" onclick="translatePage('sk', event)" class="lang-option" data-lang="sk">Slovenčina</a>
-        </div>
-      </li>
+
       <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
     </ul>
   </nav>
@@ -1790,50 +1702,5 @@
 
 
     <!-- Language Switcher JS -->
-    <script>
-    function toggleLangMenu(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var dd = document.getElementById('langDropdown');
-        dd.classList.toggle('show');
-    }
-    // Close dropdown when clicking elsewhere
-    document.addEventListener('click', function(e) {
-        var dd = document.getElementById('langDropdown');
-        if (dd && dd.classList.contains('show') && !e.target.closest('.lang-switch')) {
-            dd.classList.remove('show');
-        }
-    });
-    function translatePage(lang, e) {
-        e.preventDefault();
-        // Update active state
-        document.querySelectorAll('.lang-option').forEach(function(opt) {
-            opt.classList.remove('active');
-        });
-        if (e.target) e.target.classList.add('active');
-        // Update button label
-        var labels = {en: 'ENG', es: 'ESP', sk: 'SVK'};
-        document.querySelector('.lang-current').textContent = labels[lang] || lang.toUpperCase();
-        // Close dropdown
-        var dd = document.getElementById('langDropdown');
-        if (dd) dd.classList.remove('show');
-        if (lang === 'en') {
-            // Restore original - clear cookie and reload
-            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            window.location.href = window.location.pathname;
-        } else {
-            // Try the Google Translate select first
-            var select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change'));
-            } else {
-                // Fallback: set googtrans cookie and reload
-                document.cookie = 'googtrans=/en/' + lang + '; path=/';
-                window.location.reload();
-            }
-        }
-    }
-    </script>
 </body>
 </html>
