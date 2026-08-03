@@ -840,9 +840,9 @@
     <div class="divider"></div>
 
     <section class="final-cta">
-      <h3>Still <em>thinking about it?</em></h3>
-      <p>That's fine. The free call exists exactly for this. 30 minutes, no pressure, no pitch. If it helps, great. If not, you walk away with clarity.</p>
-      <a href="#quick-form" class="cta-btn">Book Your Free Call &rarr;</a>
+      <h3>Still <em>unsure?</em></h3>
+      <p>No pressure at all. If you have questions or just want to talk things through, I offer a quick 30-minute call. No pitch, no commitment, just an honest conversation to see if this is the right fit for you.</p>
+      <a href="https://www.coachkris.co.uk/#contact" class="cta-btn">Get in Touch &rarr;</a>
     </section>
 
   </div>
@@ -921,37 +921,193 @@ document.addEventListener("DOMContentLoaded",function(){
       document.getElementById('navLinks').classList.remove('open');
     }
 
-    function handleFreeCall() {
-          var name = document.getElementById('qf-name').value.trim();
-          var email = document.getElementById('qf-email').value.trim();
-          var reason = document.getElementById('qf-reason').value.trim();
-          if (!name || !email || !reason) { alert('Please fill in all fields.'); return; }
-          var btn = document.getElementById('qf-submit-btn');
-          btn.disabled = true;
-          btn.textContent = 'Sending...';
-          fetch('https://formspree.io/f/xkolgold', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-              name: name,
-              email: email,
-              message: reason,
-              _subject: 'Free Clarity Call Request - ' + name,
-              type: 'free_call_request'
-            })
-          }).then(function(r) { return r.ok ? r.json() : Promise.reject(r); })
-            .then(function() {
-              document.getElementById('qf').style.display = 'none';
-              var s = document.getElementById('qf-success');
-              s.style.display = 'block';
-              document.getElementById('qf-success-name').textContent = name.split(' ')[0];
-            })
-            .catch(function() {
-              btn.disabled = false;
-              btn.textContent = 'Try Again';
-              alert('Something went wrong. Please try again or email me directly.');
-            });
-        }
-        </script>
+    function handlePayment() {
+      var name = document.getElementById('qf-name').value.trim();
+      var email = document.getElementById('qf-email').value.trim();
+      var reason = document.getElementById('qf-reason').value.trim();
+
+      if (!name || !email || !reason) {
+        alert('Please fill in all three fields before continuing.');
+        return;
+      }
+
+      // Open Stripe immediately — must happen synchronously in the click handler
+      // so the browser doesn't block it as a popup
+      var stripeWin = window.open('https://buy.stripe.com/dRmeVc7Zr9QkaGV9PL28800', '_blank');
+
+      // Show confirmation state
+      var btn = document.getElementById('qf-submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Opening Stripe…';
+      document.getElementById('qf').style.display = 'none';
+      document.getElementById('qf-success').style.display = 'block';
+      document.getElementById('qf-success-name').textContent = name.split(' ')[0] || 'friend';
+
+      // Fire Formspree in the background (non-blocking)
+      fetch('https://formspree.io/f/xwvdvbon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Founding Member Purchase: ' + name,
+          name: name,
+          email: email,
+          message: '=== FOUNDING MEMBER PURCHASE ===\nName: ' + name + '\nEmail: ' + email + '\nWhy coaching, why now: ' + reason
+        })
+      }).catch(function() {});
+    }
+
+
+
+  const PILLAR_CONTENT = {
+    life: {
+      label: 'Pillar One',
+      title: 'Life Coaching',
+      subtitle: 'The Soul',
+      body: `
+<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
+  We are all somewhere different. And that is exactly where we begin.
+</p>
+
+<p>No two people arrive at the same crossroads. No two struggles look the same from the inside. What I have learned, through my own loops, my own restarts, and the journeys of every person I have worked with, is that real change only happens when someone finally meets you <em>exactly where you are</em>. Not where you think you should be. Not where the world expects you to be. Where you actually are, right now.</p>
+
+<p>That is the skill I have spent years building: the ability to truly listen, to adapt, and to be fully present, so that in every session, you feel it. No script. No clipboard. Just someone in your corner who actually gets it.</p>
+
+<p>And it does not have to be a monumental life overhaul to bring you here. Some people come carrying years of weight. Others arrive with one specific thing, a habit they cannot shake, a relationship that is not working, a decision they have been circling for months, and that is just as valid a place to start. Whatever brought you here, we work with that.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Going beneath the surface</h3>
+
+<p>Most coaching stays at the level of goals and to-do lists. We go deeper. Together we will dive into the <em>core mechanics</em>, the beliefs, the patterns, the quiet stories you tell yourself every single day. The ones that say <em>"this is just who I am"</em> or <em>"why do I always do this?"</em></p>
+
+<p>We face those parts. We name them. And then, gently but firmly, we rebuild the ones that are no longer serving you and reinforce the ones that are. This is not about fixing you. You are not broken. It is about <strong>understanding the architecture of yourself</strong> so you can finally build on solid ground.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Building a life that actually holds</h3>
+
+<p>Think of it like constructing a staircase together. Each session we lay another step, habits, routines, and safety nets that are built <em>around your life</em>, not borrowed from someone else's. Your surroundings. Your rhythm. Your version of sustainable.</p>
+
+<p>And along the way, we design what I call the <strong>handrails</strong>, the kind of support structures that catch you when the next hard step comes. Because it will. That is not failure, that is life. The difference is that this time, you will not be facing it alone, and you will not be starting from zero.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">A space that is entirely yours</h3>
+
+<p>What we build together is more than a plan. It is a space, one that feels free. Free to be honest, free to be messy, free to be whoever is emerging through all of this. A space where the version of you that has been waiting to exist can finally step forward, block by block, without judgment and without rush.</p>
+
+<p>I will be there for every step of this journey. Not ahead of you, not behind you, <em>right beside you</em>, guiding you to meet yourself and to meet whoever this path leads us to.</p>
+
+<div style="margin-top:2.5rem;padding:1.5rem 1.75rem;background:var(--sand);border-left:3px solid var(--warm-gold);border-radius:0 12px 12px 0;">
+  <p style="margin:0;font-family:var(--font-heading);font-size:1.15rem;font-weight:300;font-style:italic;color:var(--deep-forest);">"Together we will create something that doesn't just look like progress. It <em>feels</em> like freedom."</p>
+</div>
+
+<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to take the first step? The initial call is free, informal, and entirely about you.</p>
+`
+    },
+    longevity: {
+      label: 'Pillar Two',
+      title: 'Longevity Coaching',
+      subtitle: 'The Science',
+      body: `
+<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
+  A lot of people call themselves longevity experts. I am not one of them. I am one of the results.
+</p>
+
+<p>Top 17th in longevity rankings worldwide. Most of my organs biologically testing at around 18 years old. 30kg of body fat lost and significant lean muscle gained along the way. These are not numbers I throw around lightly. They are the outcome of years of genuine work, obsessive curiosity, and an unwillingness to settle for what the mainstream tells you is "normal" ageing.</p>
+
+<p>When you work with me, you are not getting someone who read the books and built a following. You are getting someone who actually did the work, connected the dots, and applied it to a real human system, with results that are measurable, visible, and lasting.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The three pillars of a long, vibrant life</h3>
+
+<p>Real longevity is not just about what you eat or how often you move. It is about understanding the three core parts of what makes you <em>you</em>, and creating the conditions for all three to thrive together.</p>
+
+<div style="display:flex;flex-direction:column;gap:1.25rem;margin:1.75rem 0;">
+  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
+    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Body</p>
+    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Biometrics, nutrition, daily movement, and understanding the individual needs of every system within you. We build a backbone structure so your body carries you through life proudly, healthily, and for as long as possible.</p>
+  </div>
+  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
+    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Brain</p>
+    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Patterns, behaviours, and the quiet addictions your mind has built over years. I will show you what to listen to, when to listen, and how to gently reprogram the beliefs that are occupying valuable space and holding you back. Your brain is your greatest tool and your biggest saboteur. We learn to work with both.</p>
+  </div>
+  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
+    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Core</p>
+    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Your spirit, your deeper purpose, whatever name resonates with you. The pull you feel but rarely follow. Together we clear the fog around your true beliefs so you can move in the right direction, even if that means building an entirely new foundation from scratch.</p>
+  </div>
+</div>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">When one falls, everything compensates</h3>
+
+<p>Body, brain, and core are deeply connected. When one goes out of balance, the others overwork to cover it. That is where emotional eating, chronic fatigue, low energy, restlessness, and accelerated ageing come from. Not weakness. Imbalance.</p>
+
+<p>With the right guidance you will start noticing the shifts quickly. Not because I hand you a plan, but because together we build something that actually fits your life, your biology, and your version of what it means to feel good.</p>
+
+<div style="margin-top:2.5rem;padding:1.5rem 1.75rem;background:var(--sand);border-left:3px solid var(--warm-gold);border-radius:0 12px 12px 0;">
+  <p style="margin:0 0 0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gold);">The philosophy</p>
+  <p style="margin:0;font-family:var(--font-heading);font-size:1.15rem;font-weight:300;font-style:italic;color:var(--deep-forest);">"Seek discomfort to find comfort. From biometrics to spiritual beliefs, everything is connected."</p>
+</div>
+
+<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to find out what your body, brain and core are really capable of? The first call is free and there is no pressure, just an honest conversation.</p>
+`
+    },
+    business: {
+      label: 'Pillar Three',
+      title: 'Business Coaching',
+      subtitle: 'The Strategy',
+      body: `
+<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
+  Why aren't they getting in touch? What should I do next? We have all been there. Yes, including me.
+</p>
+
+<p>I did not learn business from a course. I grew up in it. My mother went from owning a small shop to running a building company with around twenty men on the books, to eventually owning multiple successful hotels. She never wasted a second, and it was down to her sharp instincts and the way she noticed things nobody else did. I was around it all before I could even talk. As I grew, she often asked for my input, encouraging my creativity and the different way I looked at things rather than shutting it down. That is where I absorbed patterns most people never learn to see.</p>
+
+<p>Later I struck out on my own, studied more, gathered more, and started spotting patterns in a way that felt almost unfair. That path eventually led me to work as a deckhand on a &euro;300 million superyacht, surrounded by some of the wealthiest people on the planet. Different world, same patterns. I have been close enough, long enough, to know exactly what separates the businesses that move from the ones that stall.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Who this is for</h3>
+
+<p>This is not for huge corporations. If that is you, this probably is not the right fit, and that is fine. This is for the creative individuals. The brave ones. Solopreneurs and small businesses, online or in person, trying to reach their full potential. It does not matter if it is just an idea, if you have already started, if you need a push, or simply want help with the next step.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The start line</h3>
+
+<p>If you are just beginning, well done, that is a great place to be, and also the hardest, because turning an idea into something real takes time, strategy, and direction. From first draft to a website with strong SEO to landing your first client, this is my favourite part of the work. Watching someone get their first win is exactly why I do this.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Stuck in the middle</h3>
+
+<p>Not sure what to do next, or why your current setup is not working? I have a sharp eye for business and for what success actually requires. We will brainstorm, adjust, rethink, edit, and rebuild whatever needs it, until you feel confident enough to put it out into the world and move to the next stage.</p>
+
+<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The dip nobody talks about</h3>
+
+<p>Then there is the moment when everything was working and suddenly is not, and you cannot quite put your finger on why. We go through every detail, every corner, every page, and find exactly what changed. Then we rebuild, adjust, and bring the life back into your business or practice.</p>
+
+<p>Success means different things to different people and different businesses. It does not always mean money, but we all know that feeling when we get there. And if you do not know it yet, buckle in. We will find it together.</p>
+
+<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to find your next step? The first call is free, no pressure, just a real conversation about where you are and where you want to be.</p>
+`
+    }
+  };
+
+  function openPillar(key) {
+    const d = PILLAR_CONTENT[key];
+    if (!d) return;
+    document.getElementById('povLabel').textContent    = d.label;
+    document.getElementById('povTitle').textContent    = d.title;
+    document.getElementById('povSubtitle').textContent = d.subtitle;
+    document.getElementById('povBody').innerHTML       = d.body;
+    document.getElementById('pillarOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Scroll overlay to top
+    document.getElementById('pillarOverlayInner').scrollTop = 0;
+  }
+
+  function closePillar() {
+    document.getElementById('pillarOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closePillarIfBg(e) {
+    if (e.target === document.getElementById('pillarOverlay')) closePillar();
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePillar();
+  });
+});
+</script>
 </body>
 </html>
