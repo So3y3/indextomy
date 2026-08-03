@@ -160,13 +160,36 @@
       display: block;
       width: 100%;
     }
+
+    /* LANGUAGE SELECTOR */
+    .ob-header-right { display: flex; align-items: center; gap: 1rem; }
+    .ob-lang-select {
+      font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 4px 10px; border: 1px solid rgba(122,138,133,0.3);
+      border-radius: 6px; background: transparent; color: var(--slate-mist);
+      cursor: pointer; outline: none; transition: all 0.2s;
+    }
+    .ob-lang-select:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
+    .ob-lang-select:focus { border-color: var(--warm-gold); }
+    @media (max-width: 600px) {
+      .ob-header-right { gap: 0.5rem; }
+      .ob-lang-select { font-size: 0.65rem; padding: 3px 8px; }
+    }
+
 </style>
 </head>
 <body>
 
 <header class="ob-header">
   <a class="ob-brand" href="index.html">KRISTIAN SOKOL</a>
-  <span class="ob-header-note">Private &amp; Confidential</span>
+  <div class="ob-header-right">
+    <select id="obLang" onchange="applyI18n(this.value)" class="ob-lang-select" aria-label="Language">
+      <option value="en">EN</option>
+      <option value="es">ES</option>
+      <option value="sk">SK</option>
+    </select>
+    <span class="ob-header-note" data-i18n="ob_header_note">Private &amp; Confidential</span>
+  </div>
 </header>
 
 <div class="progress-track">
@@ -185,68 +208,68 @@
 
 <!-- ══ STEP 1 - Who You Are ══ -->
 <div class="step active" id="step-1">
-  <p class="step-eyebrow">Step 1 of 4 · The Basics</p>
-  <h1 class="step-title">Good to have you <em>here.</em></h1>
-  <p class="step-subtitle">Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.</p>
+  <p class="step-eyebrow" data-i18n="step1_eyebrow">Step 1 of 4 · The Basics</p>
+  <h1 class="step-title" data-i18n="step1_title">Good to have you <em>here.</em></h1>
+  <p class="step-subtitle" data-i18n="intro_subtitle">Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
-    <p class="ob-card-title">About You</p>
+    <p class="ob-card-title" data-i18n="about_you">About You</p>
     <div class="field-row">
-      <div class="field"><label for="first-name">First Name *</label><input type="text" id="first-name" placeholder="e.g. Alex" autocomplete="given-name" required /></div>
-      <div class="field"><label for="last-name">Last Name *</label><input type="text" id="last-name" placeholder="e.g. Morgan" autocomplete="family-name" required /></div>
+      <div class="field"><label for="first-name" data-i18n="first_name">First Name *</label><input type="text" id="first-name" placeholder="e.g. Alex" data-i18n-ph="ph_first_name" autocomplete="given-name" required /></div>
+      <div class="field"><label for="last-name" data-i18n="last_name">Last Name *</label><input type="text" id="last-name" placeholder="e.g. Morgan" data-i18n-ph="ph_last_name" autocomplete="family-name" required /></div>
     </div>
     <div class="field-row">
-      <div class="field"><label for="email">Email *</label><input type="email" id="email" placeholder="your@email.com" autocomplete="email" required /></div>
-      <div class="field"><label for="phone">Phone *</label><input type="tel" id="phone" placeholder="+44 7..." autocomplete="tel" required /></div>
+      <div class="field"><label for="email" data-i18n="email">Email *</label><input type="email" id="email" placeholder="your@email.com" data-i18n-ph="ph_email" autocomplete="email" required /></div>
+      <div class="field"><label for="phone" data-i18n="phone">Phone *</label><input type="tel" id="phone" placeholder="+44 7..." data-i18n-ph="ph_phone" autocomplete="tel" required /></div>
     </div>
     <div class="field-row">
       <div class="field">
-        <label for="age">Age Range *</label>
+        <label for="age" data-i18n="age_range">Age Range *</label>
         <select id="age" required>
           <option value="" disabled selected>Select...</option>
           <option>18-24</option><option>25-34</option><option>35-44</option>
           <option>45-54</option><option>55-64</option><option>65+</option>
         </select>
       </div>
-      <div class="field"><label for="location">Country / City *</label><input type="text" id="location" placeholder="e.g. London, UK" required /></div>
+      <div class="field"><label for="location" data-i18n="location">Country / City *</label><input type="text" id="location" placeholder="e.g. London, UK" data-i18n-ph="ph_location" required /></div>
     </div>
   </div>
 
   <div class="ob-card">
-    <p class="ob-card-title">What Are You Looking For?</p>
-    <p class="field-hint" style="margin-bottom:0.9rem;">Select all that apply - you can pick more than one.</p>
+    <p class="ob-card-title" data-i18n="looking_for">What Are You Looking For?</p>
+    <p class="field-hint" style="margin-bottom:0.9rem;" data-i18n="select_multiple">Select all that apply - you can pick more than one.</p>
     <div class="coaching-grid" id="coaching-type-grid">
       <input type="checkbox" class="coaching-opt" id="ct-life" name="coaching_type" value="Life Coaching" />
       <label class="coaching-label" for="ct-life">
         <span class="cl-icon">☀️</span>
-        <span class="cl-name">Life Coaching</span>
-        <span class="cl-desc">Habits, mindset, clarity, fulfilment</span>
+        <span class="cl-name" data-i18n="ct_life">Life Coaching</span>
+        <span class="cl-desc" data-i18n="ct_life_desc">Habits, mindset, clarity, fulfilment</span>
       </label>
 
       <input type="checkbox" class="coaching-opt" id="ct-longevity" name="coaching_type" value="Longevity" />
       <label class="coaching-label" for="ct-longevity">
         <span class="cl-icon">🌱</span>
-        <span class="cl-name">Longevity</span>
-        <span class="cl-desc">Energy, health, sustainable performance</span>
+        <span class="cl-name" data-i18n="ct_longevity">Longevity</span>
+        <span class="cl-desc" data-i18n="ct_longevity_desc">Energy, health, sustainable performance</span>
       </label>
 
       <input type="checkbox" class="coaching-opt" id="ct-business" name="coaching_type" value="Business / Project" />
       <label class="coaching-label" for="ct-business">
         <span class="cl-icon">&#128200;</span>
-        <span class="cl-name">Business / Project</span>
-        <span class="cl-desc">Strategy, growth, ideas, startups</span>
+        <span class="cl-name" data-i18n="ct_business">Business / Project</span>
+        <span class="cl-desc" data-i18n="ct_business_desc">Strategy, growth, ideas, startups</span>
       </label>
     </div>
-    <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;">Please select at least one coaching type.</div>
+    <div id="coaching-error" class="error-msg" style="display:none;margin-top:0.5rem;" data-i18n="error_coaching">Please select at least one coaching type.</div>
   </div>
 
   <div class="ob-card">
-    <p class="ob-card-title">Your World Right Now</p>
+    <p class="ob-card-title" data-i18n="world_now">Your World Right Now</p>
     <div class="field-row">
-      <div class="field"><label for="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business or 'in transition'" required /></div>
+      <div class="field"><label for="occupation" data-i18n="occupation">What do you do? *</label><input type="text" id="occupation" placeholder="Role, business or 'in transition'" data-i18n-ph="ph_occupation" required /></div>
       <div class="field">
-        <label for="life-stage">Life Stage</label>
+        <label for="life-stage" data-i18n="life_stage">Life Stage</label>
         <select id="life-stage">
           <option value="" disabled selected>Best description...</option>
           <option>Building something new</option>
@@ -260,7 +283,7 @@
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="heard">How did you find me?</label>
+        <label for="heard" data-i18n="heard_from">How did you find me?</label>
         <select id="heard">
           <option value="" disabled selected>Choose one...</option>
           <option>Google / Search</option><option>Instagram</option><option>LinkedIn</option>
@@ -273,24 +296,24 @@
 
   <div class="ob-nav">
     <span></span>
-    <button class="btn-next" onclick="goNext(1)">Next &rarr;</button>
+    <button class="btn-next" onclick="goNext(1)" data-i18n="btn_next">Next &rarr;</button>
   </div>
 </div>
 
 
 <!-- ══ STEP 2 - Life Snapshot ══ -->
 <div class="step" id="step-2">
-  <p class="step-eyebrow">Step 2 of 4 · Your Life Snapshot</p>
-  <h1 class="step-title">Honest <em>self-assessment</em> is where it starts.</h1>
-  <p class="step-subtitle">No right or wrong here. Rate each area as it actually is right now. This is one of the most useful things you can share with me before we speak.</p>
+  <p class="step-eyebrow" data-i18n="step2_eyebrow">Step 2 of 4 · Your Life Snapshot</p>
+  <h1 class="step-title" data-i18n="step2_title">Honest <em>self-assessment</em> is where it starts.</h1>
+  <p class="step-subtitle" data-i18n="step2_subtitle">No right or wrong here. Rate each area as it actually is right now. This is one of the most useful things you can share with me before we speak.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
-    <p class="ob-card-title">Life Satisfaction Scores</p>
-    <div class="scale-legend"><span>1 - Struggling</span><span>5 - Thriving</span></div>
+    <p class="ob-card-title" data-i18n="life_scores">Life Satisfaction Scores</p>
+    <div class="scale-legend"><span data-i18n="scale_low">1 - Struggling</span><span data-i18n="scale_high">5 - Thriving</span></div>
 
     <div class="scale-row">
-      <span class="scale-label">Energy &amp; Physical Health</span>
+      <span class="scale-label" data-i18n="scale_energy">Energy &amp; Physical Health</span>
       <div class="scale-pills" data-scale="s-energy">
         <div class="scale-pill" onclick="selectScale(this,'s-energy',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-energy',2,'low')">2</div>
@@ -300,7 +323,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Work / Career / Business</span>
+      <span class="scale-label" data-i18n="scale_work">Work / Career / Business</span>
       <div class="scale-pills" data-scale="s-work">
         <div class="scale-pill" onclick="selectScale(this,'s-work',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-work',2,'low')">2</div>
@@ -310,7 +333,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Finances &amp; Stability</span>
+      <span class="scale-label" data-i18n="scale_finance">Finances &amp; Stability</span>
       <div class="scale-pills" data-scale="s-finance">
         <div class="scale-pill" onclick="selectScale(this,'s-finance',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-finance',2,'low')">2</div>
@@ -320,7 +343,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Relationships &amp; Connection</span>
+      <span class="scale-label" data-i18n="scale_rel">Relationships &amp; Connection</span>
       <div class="scale-pills" data-scale="s-relationships">
         <div class="scale-pill" onclick="selectScale(this,'s-relationships',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-relationships',2,'low')">2</div>
@@ -330,7 +353,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Direction &amp; Sense of Purpose</span>
+      <span class="scale-label" data-i18n="scale_purpose">Direction &amp; Sense of Purpose</span>
       <div class="scale-pills" data-scale="s-purpose">
         <div class="scale-pill" onclick="selectScale(this,'s-purpose',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-purpose',2,'low')">2</div>
@@ -340,7 +363,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Habits &amp; Daily Consistency</span>
+      <span class="scale-label" data-i18n="scale_habits">Habits &amp; Daily Consistency</span>
       <div class="scale-pills" data-scale="s-habits">
         <div class="scale-pill" onclick="selectScale(this,'s-habits',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-habits',2,'low')">2</div>
@@ -350,7 +373,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Mental Clarity &amp; Focus</span>
+      <span class="scale-label" data-i18n="scale_clarity">Mental Clarity &amp; Focus</span>
       <div class="scale-pills" data-scale="s-clarity">
         <div class="scale-pill" onclick="selectScale(this,'s-clarity',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-clarity',2,'low')">2</div>
@@ -360,7 +383,7 @@
       </div>
     </div>
     <div class="scale-row">
-      <span class="scale-label">Overall Happiness &amp; Fulfilment</span>
+      <span class="scale-label" data-i18n="scale_happiness">Overall Happiness &amp; Fulfilment</span>
       <div class="scale-pills" data-scale="s-happiness">
         <div class="scale-pill" onclick="selectScale(this,'s-happiness',1,'low')">1</div>
         <div class="scale-pill" onclick="selectScale(this,'s-happiness',2,'low')">2</div>
@@ -372,119 +395,119 @@
   </div>
 
   <div class="ob-card">
-    <p class="ob-card-title">What's on your mind?</p>
+    <p class="ob-card-title" data-i18n="on_your_mind">What's on your mind?</p>
     <div class="field-row single">
       <div class="field">
-        <label for="want-most">Right now, what do you most want? *</label>
-        <textarea id="want-most" rows="3" placeholder="Be as specific or as vague as feels right." required></textarea>
+        <label for="want-most" data-i18n="want_most">Right now, what do you most want? *</label>
+        <textarea id="want-most" rows="3" placeholder="Be as specific or as vague as feels right." data-i18n-ph="ph_want_most" required></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="eliminate">What would you most like to remove from your life?</label>
-        <textarea id="eliminate" rows="2" required placeholder="A habit, situation, feeling - anything counts."></textarea>
+        <label for="eliminate" data-i18n="eliminate">What would you most like to remove from your life?</label>
+        <textarea id="eliminate" rows="2" required placeholder="A habit, situation, feeling - anything counts." data-i18n-ph="ph_eliminate"></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="tolerating">What are you currently just putting up with?</label>
-        <textarea id="tolerating" rows="2" required placeholder="Things you tolerate at work or in life that quietly drain you..."></textarea>
+        <label for="tolerating" data-i18n="tolerating">What are you currently just putting up with?</label>
+        <textarea id="tolerating" rows="2" required placeholder="Things you tolerate at work or in life that quietly drain you..." data-i18n-ph="ph_tolerating"></textarea>
       </div>
     </div>
   </div>
 
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(2)">&larr; Back</button>
-    <button class="btn-next" onclick="goNext(2)">Next &rarr;</button>
+    <button class="btn-back" onclick="goBack(2)" data-i18n="btn_back">&larr; Back</button>
+    <button class="btn-next" onclick="goNext(2)" data-i18n="btn_next">Next &rarr;</button>
   </div>
 </div>
 
 
 <!-- ══ STEP 3 - Goals & Coaching Fit (adaptive) ══ -->
 <div class="step" id="step-3">
-  <p class="step-eyebrow">Step 3 of 4 · Your Goals &amp; Style</p>
-  <h1 class="step-title">What does <em>winning</em> look like for you?</h1>
-  <p class="step-subtitle">Tell me where you want to go and how you tend to work best. I'll shape our first session entirely around your answers.</p>
+  <p class="step-eyebrow" data-i18n="step3_eyebrow">Step 3 of 4 · Your Goals &amp; Style</p>
+  <h1 class="step-title" data-i18n="step3_title">What does <em>winning</em> look like for you?</h1>
+  <p class="step-subtitle" data-i18n="step3_subtitle">Tell me where you want to go and how you tend to work best. I'll shape our first session entirely around your answers.</p>
   <div class="step-divider"></div>
 
   <!-- Always shown -->
   <div class="ob-card">
-    <p class="ob-card-title">Your 90-Day Goal</p>
+    <p class="ob-card-title" data-i18n="goal_90day">Your 90-Day Goal</p>
     <div class="field-row single">
       <div class="field">
-        <label for="goal-90">What would a real win look like in the next 90 days? *</label>
-        <textarea id="goal-90" rows="3" placeholder="What would make you look back and say 'that changed things'?" required></textarea>
+        <label for="goal-90" data-i18n="goal_90">What would a real win look like in the next 90 days? *</label>
+        <textarea id="goal-90" rows="3" placeholder="What would make you look back and say 'that changed things'?" data-i18n-ph="ph_goal90" required></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="big-obstacle">What do you think is the main thing standing in your way?</label>
-        <textarea id="big-obstacle" rows="2" required placeholder="Be honest - even 'I don't know yet' is a valid answer."></textarea>
+        <label for="big-obstacle" data-i18n="big_obstacle">What do you think is the main thing standing in your way?</label>
+        <textarea id="big-obstacle" rows="2" required placeholder="Be honest - even 'I don't know yet' is a valid answer." data-i18n-ph="ph_obstacle"></textarea>
       </div>
     </div>
   </div>
 
   <!-- LIFE COACHING section (shown if life coaching selected) -->
   <div class="ob-card conditional-section" id="cond-life">
-    <p class="ob-card-title">Life Coaching - Going Deeper</p>
+    <p class="ob-card-title" data-i18n="life_deeper">Life Coaching - Going Deeper</p>
     <div class="field-row single">
       <div class="field">
-        <label for="life-pattern">Is there a pattern in your life you keep repeating that you want to break?</label>
-        <textarea id="life-pattern" rows="2" placeholder="e.g. Starting strong but losing momentum. Self-sabotage. Saying yes when you mean no."></textarea>
+        <label for="life-pattern" data-i18n="life_pattern">Is there a pattern in your life you keep repeating that you want to break?</label>
+        <textarea id="life-pattern" rows="2" placeholder="e.g. Starting strong but losing momentum. Self-sabotage. Saying yes when you mean no." data-i18n-ph="ph_life_pattern"></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="life-tried">What have you already tried that hasn't fully worked?</label>
-        <textarea id="life-tried" rows="2" placeholder="Books, therapy, courses, journaling - what have you put energy into?"></textarea>
+        <label for="life-tried" data-i18n="life_tried">What have you already tried that hasn't fully worked?</label>
+        <textarea id="life-tried" rows="2" placeholder="Books, therapy, courses, journaling - what have you put energy into?" data-i18n-ph="ph_life_tried"></textarea>
       </div>
     </div>
-    <p class="mini-label">What areas of your life feel most off-track?</p>
+    <p class="mini-label" data-i18n="life_off_track">What areas of your life feel most off-track?</p>
     <div class="chip-grid">
-      <input type="checkbox" class="chip-option" id="lc-habits" name="life_focus" value="Daily habits" /><label class="chip-label" for="lc-habits">Daily habits</label>
-      <input type="checkbox" class="chip-option" id="lc-confidence" name="life_focus" value="Confidence" /><label class="chip-label" for="lc-confidence">Confidence</label>
-      <input type="checkbox" class="chip-option" id="lc-purpose" name="life_focus" value="Sense of purpose" /><label class="chip-label" for="lc-purpose">Sense of purpose</label>
-      <input type="checkbox" class="chip-option" id="lc-anxiety" name="life_focus" value="Anxiety or overwhelm" /><label class="chip-label" for="lc-anxiety">Anxiety / overwhelm</label>
-      <input type="checkbox" class="chip-option" id="lc-adhd" name="life_focus" value="ADHD or focus" /><label class="chip-label" for="lc-adhd">ADHD / focus</label>
-      <input type="checkbox" class="chip-option" id="lc-relationships" name="life_focus" value="Relationships" /><label class="chip-label" for="lc-relationships">Relationships</label>
-      <input type="checkbox" class="chip-option" id="lc-balance" name="life_focus" value="Work-life balance" /><label class="chip-label" for="lc-balance">Work-life balance</label>
-      <input type="checkbox" class="chip-option" id="lc-identity" name="life_focus" value="Identity and self-worth" /><label class="chip-label" for="lc-identity">Identity / self-worth</label>
+      <input type="checkbox" class="chip-option" id="lc-habits" name="life_focus" value="Daily habits" /><label class="chip-label" for="lc-habits" data-i18n="chip_daily_habits">Daily habits</label>
+      <input type="checkbox" class="chip-option" id="lc-confidence" name="life_focus" value="Confidence" /><label class="chip-label" for="lc-confidence" data-i18n="chip_confidence">Confidence</label>
+      <input type="checkbox" class="chip-option" id="lc-purpose" name="life_focus" value="Sense of purpose" /><label class="chip-label" for="lc-purpose" data-i18n="chip_purpose">Sense of purpose</label>
+      <input type="checkbox" class="chip-option" id="lc-anxiety" name="life_focus" value="Anxiety or overwhelm" /><label class="chip-label" for="lc-anxiety" data-i18n="chip_anxiety">Anxiety / overwhelm</label>
+      <input type="checkbox" class="chip-option" id="lc-adhd" name="life_focus" value="ADHD or focus" /><label class="chip-label" for="lc-adhd" data-i18n="chip_adhd">ADHD / focus</label>
+      <input type="checkbox" class="chip-option" id="lc-relationships" name="life_focus" value="Relationships" /><label class="chip-label" for="lc-relationships" data-i18n="chip_relationships">Relationships</label>
+      <input type="checkbox" class="chip-option" id="lc-balance" name="life_focus" value="Work-life balance" /><label class="chip-label" for="lc-balance" data-i18n="chip_work_life">Work-life balance</label>
+      <input type="checkbox" class="chip-option" id="lc-identity" name="life_focus" value="Identity and self-worth" /><label class="chip-label" for="lc-identity" data-i18n="chip_identity">Identity / self-worth</label>
     </div>
   </div>
 
   <!-- LONGEVITY section (shown if longevity selected) -->
   <div class="ob-card conditional-section" id="cond-longevity">
-    <p class="ob-card-title">Longevity - Going Deeper</p>
+    <p class="ob-card-title" data-i18n="lon_deeper">Longevity - Going Deeper</p>
     <div class="field-row single">
       <div class="field">
-        <label for="lon-current">Describe your current health and energy levels honestly.</label>
-        <textarea id="lon-current" rows="2" placeholder="Sleep, diet, movement, stress - give me the real picture."></textarea>
+        <label for="lon-current" data-i18n="lon_current">Describe your current health and energy levels honestly.</label>
+        <textarea id="lon-current" rows="2" placeholder="Sleep, diet, movement, stress - give me the real picture." data-i18n-ph="ph_lon_current"></textarea>
       </div>
     </div>
-    <p class="mini-label">Where do you want to focus?</p>
+    <p class="mini-label" data-i18n="lon_focus">Where do you want to focus?</p>
     <div class="chip-grid">
-      <input type="checkbox" class="chip-option" id="lo-sleep" name="lon_focus" value="Sleep quality" /><label class="chip-label" for="lo-sleep">Sleep quality</label>
-      <input type="checkbox" class="chip-option" id="lo-energy" name="lon_focus" value="Sustained energy" /><label class="chip-label" for="lo-energy">Sustained energy</label>
-      <input type="checkbox" class="chip-option" id="lo-movement" name="lon_focus" value="Movement and fitness" /><label class="chip-label" for="lo-movement">Movement / fitness</label>
-      <input type="checkbox" class="chip-option" id="lo-nutrition" name="lon_focus" value="Nutrition and diet" /><label class="chip-label" for="lo-nutrition">Nutrition / diet</label>
-      <input type="checkbox" class="chip-option" id="lo-stress" name="lon_focus" value="Stress management" /><label class="chip-label" for="lo-stress">Stress management</label>
-      <input type="checkbox" class="chip-option" id="lo-longevity" name="lon_focus" value="Long-term health span" /><label class="chip-label" for="lo-longevity">Long-term health span</label>
-      <input type="checkbox" class="chip-option" id="lo-performance" name="lon_focus" value="Cognitive performance" /><label class="chip-label" for="lo-performance">Cognitive performance</label>
+      <input type="checkbox" class="chip-option" id="lo-sleep" name="lon_focus" value="Sleep quality" /><label class="chip-label" for="lo-sleep" data-i18n="chip_sleep">Sleep quality</label>
+      <input type="checkbox" class="chip-option" id="lo-energy" name="lon_focus" value="Sustained energy" /><label class="chip-label" for="lo-energy" data-i18n="chip_energy">Sustained energy</label>
+      <input type="checkbox" class="chip-option" id="lo-movement" name="lon_focus" value="Movement and fitness" /><label class="chip-label" for="lo-movement" data-i18n="chip_movement">Movement / fitness</label>
+      <input type="checkbox" class="chip-option" id="lo-nutrition" name="lon_focus" value="Nutrition and diet" /><label class="chip-label" for="lo-nutrition" data-i18n="chip_nutrition">Nutrition / diet</label>
+      <input type="checkbox" class="chip-option" id="lo-stress" name="lon_focus" value="Stress management" /><label class="chip-label" for="lo-stress" data-i18n="chip_stress">Stress management</label>
+      <input type="checkbox" class="chip-option" id="lo-longevity" name="lon_focus" value="Long-term health span" /><label class="chip-label" for="lo-longevity" data-i18n="chip_health_span">Long-term health span</label>
+      <input type="checkbox" class="chip-option" id="lo-performance" name="lon_focus" value="Cognitive performance" /><label class="chip-label" for="lo-performance" data-i18n="chip_cognitive">Cognitive performance</label>
     </div>
     <div class="field-row single" style="margin-top:0.9rem;">
       <div class="field">
-        <label for="lon-blocks">What's been your biggest blocker to better health habits?</label>
-        <textarea id="lon-blocks" rows="2" placeholder="Time, motivation, consistency, knowing where to start..."></textarea>
+        <label for="lon-blocks" data-i18n="lon_blocks">What's been your biggest blocker to better health habits?</label>
+        <textarea id="lon-blocks" rows="2" placeholder="Time, motivation, consistency, knowing where to start..." data-i18n-ph="ph_lon_blocks"></textarea>
       </div>
     </div>
   </div>
 
   <!-- BUSINESS section (shown if business selected) -->
   <div class="ob-card conditional-section" id="cond-business">
-    <p class="ob-card-title">Business / Project - Going Deeper</p>
+    <p class="ob-card-title" data-i18n="biz_deeper">Business / Project - Going Deeper</p>
     <div class="field-row">
       <div class="field">
-        <label for="biz-stage">Where is your project or business right now?</label>
+        <label for="biz-stage" data-i18n="biz_stage">Where is your project or business right now?</label>
         <select id="biz-stage">
           <option value="" disabled selected>Select stage...</option>
           <option>Just an idea</option>
@@ -496,107 +519,107 @@
         </select>
       </div>
       <div class="field">
-        <label for="biz-sector">What sector or industry?</label>
-        <input type="text" id="biz-sector" placeholder="e.g. Tech, hospitality, e-commerce..." />
+        <label for="biz-sector" data-i18n="biz_sector">What sector or industry?</label>
+        <input type="text" id="biz-sector" placeholder="e.g. Tech, hospitality, e-commerce..." data-i18n-ph="ph_biz_sector" />
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="biz-challenge">What is the single biggest challenge you're facing right now in the business?</label>
-        <textarea id="biz-challenge" rows="2" placeholder="Be specific - sales, team, product, funding, clarity on direction..."></textarea>
+        <label for="biz-challenge" data-i18n="biz_challenge">What is the single biggest challenge you're facing right now in the business?</label>
+        <textarea id="biz-challenge" rows="2" placeholder="Be specific - sales, team, product, funding, clarity on direction..." data-i18n-ph="ph_biz_challenge"></textarea>
       </div>
     </div>
-    <p class="mini-label">What kind of help do you need most?</p>
+    <p class="mini-label" data-i18n="biz_help">What kind of help do you need most?</p>
     <div class="chip-grid">
-      <input type="checkbox" class="chip-option" id="biz-strategy" name="biz_focus" value="Strategy and direction" /><label class="chip-label" for="biz-strategy">Strategy / direction</label>
-      <input type="checkbox" class="chip-option" id="biz-brand" name="biz_focus" value="Brand and positioning" /><label class="chip-label" for="biz-brand">Brand / positioning</label>
-      <input type="checkbox" class="chip-option" id="biz-sales" name="biz_focus" value="Sales and revenue" /><label class="chip-label" for="biz-sales">Sales / revenue</label>
-      <input type="checkbox" class="chip-option" id="biz-team" name="biz_focus" value="Team and leadership" /><label class="chip-label" for="biz-team">Team / leadership</label>
-      <input type="checkbox" class="chip-option" id="biz-systems" name="biz_focus" value="Systems and productivity" /><label class="chip-label" for="biz-systems">Systems / productivity</label>
-      <input type="checkbox" class="chip-option" id="biz-idea" name="biz_focus" value="Validating or developing an idea" /><label class="chip-label" for="biz-idea">Validating an idea</label>
+      <input type="checkbox" class="chip-option" id="biz-strategy" name="biz_focus" value="Strategy and direction" /><label class="chip-label" for="biz-strategy" data-i18n="chip_strategy">Strategy / direction</label>
+      <input type="checkbox" class="chip-option" id="biz-brand" name="biz_focus" value="Brand and positioning" /><label class="chip-label" for="biz-brand" data-i18n="chip_brand">Brand / positioning</label>
+      <input type="checkbox" class="chip-option" id="biz-sales" name="biz_focus" value="Sales and revenue" /><label class="chip-label" for="biz-sales" data-i18n="chip_sales">Sales / revenue</label>
+      <input type="checkbox" class="chip-option" id="biz-team" name="biz_focus" value="Team and leadership" /><label class="chip-label" for="biz-team" data-i18n="chip_team">Team / leadership</label>
+      <input type="checkbox" class="chip-option" id="biz-systems" name="biz_focus" value="Systems and productivity" /><label class="chip-label" for="biz-systems" data-i18n="chip_systems">Systems / productivity</label>
+      <input type="checkbox" class="chip-option" id="biz-idea" name="biz_focus" value="Validating or developing an idea" /><label class="chip-label" for="biz-idea" data-i18n="chip_idea">Validating an idea</label>
     </div>
   </div>
 
   <!-- Support style - always shown -->
   <div class="ob-card">
-    <p class="ob-card-title">How You Work Best</p>
-    <p class="mini-label">When challenges come up, what support actually works for you?</p>
+    <p class="ob-card-title" data-i18n="how_you_work">How You Work Best</p>
+    <p class="mini-label" data-i18n="support_question">When challenges come up, what support actually works for you?</p>
     <div class="chip-grid">
-      <input type="checkbox" class="chip-option" id="sup-listen" name="support" value="Someone to listen without judgment" /><label class="chip-label" for="sup-listen">Someone to listen without judgment</label>
-      <input type="checkbox" class="chip-option" id="sup-strategy" name="support" value="A clear action plan" /><label class="chip-label" for="sup-strategy">A clear action plan</label>
-      <input type="checkbox" class="chip-option" id="sup-challenge" name="support" value="Being challenged and pushed" /><label class="chip-label" for="sup-challenge">Being challenged</label>
-      <input type="checkbox" class="chip-option" id="sup-questions" name="support" value="Being asked the right questions" /><label class="chip-label" for="sup-questions">The right questions</label>
-      <input type="checkbox" class="chip-option" id="sup-accountability" name="support" value="Accountability check-ins" /><label class="chip-label" for="sup-accountability">Accountability check-ins</label>
-      <input type="checkbox" class="chip-option" id="sup-science" name="support" value="Science-backed frameworks" /><label class="chip-label" for="sup-science">Science-backed frameworks</label>
+      <input type="checkbox" class="chip-option" id="sup-listen" name="support" value="Someone to listen without judgment" /><label class="chip-label" for="sup-listen" data-i18n="chip_listen">Someone to listen without judgment</label>
+      <input type="checkbox" class="chip-option" id="sup-strategy" name="support" value="A clear action plan" /><label class="chip-label" for="sup-strategy" data-i18n="chip_action_plan">A clear action plan</label>
+      <input type="checkbox" class="chip-option" id="sup-challenge" name="support" value="Being challenged and pushed" /><label class="chip-label" for="sup-challenge" data-i18n="chip_challenged">Being challenged</label>
+      <input type="checkbox" class="chip-option" id="sup-questions" name="support" value="Being asked the right questions" /><label class="chip-label" for="sup-questions" data-i18n="chip_questions">The right questions</label>
+      <input type="checkbox" class="chip-option" id="sup-accountability" name="support" value="Accountability check-ins" /><label class="chip-label" for="sup-accountability" data-i18n="chip_accountability">Accountability check-ins</label>
+      <input type="checkbox" class="chip-option" id="sup-science" name="support" value="Science-backed frameworks" /><label class="chip-label" for="sup-science" data-i18n="chip_science">Science-backed frameworks</label>
     </div>
-    <p class="mini-label" style="margin-top:1.1rem;">How do you tend to keep commitments when you set goals?</p>
+    <p class="mini-label" style="margin-top:1.1rem;" data-i18n="commitment_q">How do you tend to keep commitments when you set goals?</p>
     <div class="radio-card-grid">
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-always" value="Always - once I'm in, I'm fully in" /><label class="radio-card-label" for="com-always">Always - once I'm in, I'm fully in</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-usually" value="Usually, but I need external accountability" /><label class="radio-card-label" for="com-usually">Usually - but I need external accountability</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-sometimes" value="Sometimes - life gets in the way" /><label class="radio-card-label" for="com-sometimes">Sometimes - life tends to get in the way</label>
-      <input type="radio" class="radio-card-opt" name="commitment" id="com-rarely" value="Rarely - that's partly why I'm here" /><label class="radio-card-label" for="com-rarely">Rarely - honestly, that's partly why I'm here</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-always" value="Always - once I'm in, I'm fully in" /><label class="radio-card-label" for="com-always" data-i18n="com_always">Always - once I'm in, I'm fully in</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-usually" value="Usually, but I need external accountability" /><label class="radio-card-label" for="com-usually" data-i18n="com_usually">Usually - but I need external accountability</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-sometimes" value="Sometimes - life gets in the way" /><label class="radio-card-label" for="com-sometimes" data-i18n="com_sometimes">Sometimes - life tends to get in the way</label>
+      <input type="radio" class="radio-card-opt" name="commitment" id="com-rarely" value="Rarely - that's partly why I'm here" /><label class="radio-card-label" for="com-rarely" data-i18n="com_rarely">Rarely - honestly, that's partly why I'm here</label>
     </div>
   </div>
 
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(3)">&larr; Back</button>
-    <button class="btn-next" onclick="goNext(3)">Next &rarr;</button>
+    <button class="btn-back" onclick="goBack(3)" data-i18n="btn_back">&larr; Back</button>
+    <button class="btn-next" onclick="goNext(3)" data-i18n="btn_next">Next &rarr;</button>
   </div>
 </div>
 
 
 <!-- ══ STEP 4 - Final Thoughts ══ -->
 <div class="step" id="step-4">
-  <p class="step-eyebrow">Step 4 of 4 · Almost There</p>
-  <h1 class="step-title">Last few things - <em>then we're set.</em></h1>
-  <p class="step-subtitle">These final questions are what let me walk into our session fully prepared. No generic questions, no wasted time.</p>
+  <p class="step-eyebrow" data-i18n="step4_eyebrow">Step 4 of 4 · Almost There</p>
+  <h1 class="step-title" data-i18n="step4_title">Last few things - <em>then we're set.</em></h1>
+  <p class="step-subtitle" data-i18n="step4_subtitle">These final questions are what let me walk into our session fully prepared. No generic questions, no wasted time.</p>
   <div class="step-divider"></div>
 
   <div class="ob-card">
-    <p class="ob-card-title">A Little Deeper</p>
+    <p class="ob-card-title" data-i18n="a_little_deeper">A Little Deeper</p>
     <div class="field-row single">
       <div class="field">
-        <label for="proud-of">Something you're genuinely proud of that most people don't know about you</label>
-        <textarea id="proud-of" rows="2" required placeholder="Professional, personal, or something small - it all matters."></textarea>
+        <label for="proud-of" data-i18n="proud_of">Something you're genuinely proud of that most people don't know about you</label>
+        <textarea id="proud-of" rows="2" required placeholder="Professional, personal, or something small - it all matters." data-i18n-ph="ph_proud"></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="accomplish-unsure">Is there something you'd love to accomplish but aren't sure how to go about it?</label>
-        <textarea id="accomplish-unsure" rows="2" required placeholder="No idea is too big or too vague here."></textarea>
+        <label for="accomplish-unsure" data-i18n="accomplish_unsure">Is there something you'd love to accomplish but aren't sure how to go about it?</label>
+        <textarea id="accomplish-unsure" rows="2" required placeholder="No idea is too big or too vague here." data-i18n-ph="ph_accomplish"></textarea>
       </div>
     </div>
   </div>
 
   <div class="ob-card">
-    <p class="ob-card-title">Your Commitment</p>
-    <p class="mini-label">How ready are you right now?</p>
+    <p class="ob-card-title" data-i18n="your_commitment">Your Commitment</p>
+    <p class="mini-label" data-i18n="readiness_q">How ready are you right now?</p>
     <div class="radio-card-grid">
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-all-in" value="All in - I've been waiting for this" /><label class="radio-card-label" for="r-all-in">All in - I've been waiting for this</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-ready" value="Ready - just need the right structure" /><label class="radio-card-label" for="r-ready">Ready - I just need the right structure around me</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-curious" value="Curious - still figuring out if this is right for me" /><label class="radio-card-label" for="r-curious">Curious - still figuring out if this is right for me</label>
-      <input type="radio" class="radio-card-opt" name="readiness" id="r-unsure" value="Unsure - need to see how the first session goes" /><label class="radio-card-label" for="r-unsure">Unsure - need to see how the first session feels</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-all-in" value="All in - I've been waiting for this" /><label class="radio-card-label" for="r-all-in" data-i18n="r_all_in">All in - I've been waiting for this</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-ready" value="Ready - just need the right structure" /><label class="radio-card-label" for="r-ready" data-i18n="r_ready">Ready - I just need the right structure around me</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-curious" value="Curious - still figuring out if this is right for me" /><label class="radio-card-label" for="r-curious" data-i18n="r_curious">Curious - still figuring out if this is right for me</label>
+      <input type="radio" class="radio-card-opt" name="readiness" id="r-unsure" value="Unsure - need to see how the first session goes" /><label class="radio-card-label" for="r-unsure" data-i18n="r_unsure">Unsure - need to see how the first session feels</label>
     </div>
     <div class="field-row single" style="margin-top:1.1rem;">
       <div class="field">
-        <label for="commitment-desc">In your own words - how committed are you to making this work? *</label>
-        <textarea id="commitment-desc" rows="3" placeholder="What makes now different from other times you've tried to change something?" required></textarea>
+        <label for="commitment-desc" data-i18n="commitment_desc">In your own words - how committed are you to making this work? *</label>
+        <textarea id="commitment-desc" rows="3" placeholder="What makes now different from other times you've tried to change something?" data-i18n-ph="ph_commitment" required></textarea>
       </div>
     </div>
   </div>
 
   <div class="ob-card">
-    <p class="ob-card-title">Anything Else?</p>
+    <p class="ob-card-title" data-i18n="anything_else">Anything Else?</p>
     <div class="field-row single">
       <div class="field">
-        <label for="session-goal">The single most important thing you want from our first session</label>
-        <textarea id="session-goal" rows="2" required placeholder="Even 'clarity on what to do next' is a perfectly valid goal."></textarea>
+        <label for="session-goal" data-i18n="session_goal">The single most important thing you want from our first session</label>
+        <textarea id="session-goal" rows="2" required placeholder="Even 'clarity on what to do next' is a perfectly valid goal." data-i18n-ph="ph_session_goal"></textarea>
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="additional">Anything you want me to know before we meet?</label>
-        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space."></textarea>
+        <label for="additional" data-i18n="additional">Anything you want me to know before we meet?</label>
+        <textarea id="additional" rows="2" placeholder="Questions, concerns, context - no filter needed. This is your space." data-i18n-ph="ph_additional"></textarea>
       </div>
     </div>
   </div>
@@ -604,40 +627,650 @@
   
 
   <div class="ob-card">
-    <p class="ob-card-title">Pick a Day &amp; Time</p>
-    <p class="field-hint" style="margin-bottom:1.2rem;">Choose your preferred slot — I'll send the call link before we meet.</p>
+    <p class="ob-card-title" data-i18n="pick_time">Pick a Day &amp; Time</p>
+    <p class="field-hint" style="margin-bottom:1.2rem;" data-i18n="slot_hint">Choose your preferred slot — I'll send the call link before we meet.</p>
     <div class="field-row single">
       <div class="field">
-        <label for="session-date">Preferred Date *</label>
+        <label for="session-date" data-i18n="preferred_date">Preferred Date *</label>
         <input type="date" id="session-date" name="session_date" required />
       </div>
     </div>
     <div class="field-row single">
       <div class="field">
-        <label for="session-time">Preferred Time *</label>
+        <label for="session-time" data-i18n="preferred_time">Preferred Time *</label>
         <input type="time" id="session-time" name="session_time" required />
       </div>
     </div>
   </div>
 
 
-  <p class="consent-line">&#128274; By submitting this form you confirm that the information provided is accurate and you agree that it will be used solely to prepare for your coaching session. Your data is kept strictly private and will never be shared with third parties.</p>
+  <p class="consent-line" data-i18n="consent">&#128274; By submitting this form you confirm that the information provided is accurate and you agree that it will be used solely to prepare for your coaching session. Your data is kept strictly private and will never be shared with third parties.</p>
   <div class="ob-nav">
-    <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
-    <button class="btn-submit" id="submit-btn" onclick="submitForm()">Submit</button>
+    <button class="btn-back" onclick="goBack(4)" data-i18n="btn_back">&larr; Back</button>
+    <button class="btn-submit" id="submit-btn" onclick="submitForm()" data-i18n="btn_submit">Submit</button>
   </div>
 </div>
 
 <!-- SUCCESS -->
 <div id="success-screen">
   <div class="success-icon">&#10022;</div>
-  <h2>You're all set, <em id="success-name">friend</em>.</h2>
-  <p style="margin-bottom:1.1rem;">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
-  <p>I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
+  <h2 data-i18n="success_title">You're all set, <em id="success-name">friend</em>.</h2>
+  <p style="margin-bottom:1.1rem;" data-i18n="success_p1">Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.</p>
+  <p data-i18n="success_p2">I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.</p>
   <p style="margin-top:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--warm-gold);">- Kristian</p>
 </div>
 
 </main>
+
+<script>
+
+    // ─── TRANSLATIONS ───
+    var currentLang = 'en';
+    var i18n = {
+      en: {
+        // Header
+        ob_header_note: "Private & Confidential",
+        // Intro
+        intro_subtitle: "Over the next 4 steps I'll ask you some personal questions to help me build the best coaching strategy for you. Go with the first thing that comes to mind - quick and honest always wins.",
+        // Step labels
+        step_progress: "Step {n} of 4",
+        step1_eyebrow: "Step 1 of 4 · The Basics",
+        step1_title: "Good to have you <em>here.</em>",
+        step2_eyebrow: "Step 2 of 4 · Your Life Snapshot",
+        step2_title: "Honest <em>self-assessment</em> is where it starts.",
+        step2_subtitle: "No right or wrong here. Rate each area as it actually is right now. This is one of the most useful things you can share with me before we speak.",
+        step3_eyebrow: "Step 3 of 4 · Your Goals & Style",
+        step3_title: "What does <em>winning</em> look like for you?",
+        step3_subtitle: "Tell me where you want to go and how you tend to work best. I'll shape our first session entirely around your answers.",
+        step4_eyebrow: "Step 4 of 4 · Almost There",
+        step4_title: "Last few things - <em>then we're set.</em>",
+        step4_subtitle: "These final questions are what let me walk into our session fully prepared. No generic questions, no wasted time.",
+        // Cards
+        about_you: "About You",
+        looking_for: "What Are You Looking For?",
+        select_multiple: "Select all that apply - you can pick more than one.",
+        world_now: "Your World Right Now",
+        life_scores: "Life Satisfaction Scores",
+        scale_low: "1 - Struggling",
+        scale_high: "5 - Thriving",
+        on_your_mind: "What's on your mind?",
+        goal_90day: "Your 90-Day Goal",
+        how_you_work: "How You Work Best",
+        a_little_deeper: "A Little Deeper",
+        your_commitment: "Your Commitment",
+        anything_else: "Anything Else?",
+        pick_time: "Pick a Day & Time",
+        // Labels
+        first_name: "First Name *",
+        last_name: "Last Name *",
+        email: "Email *",
+        phone: "Phone *",
+        age_range: "Age Range *",
+        location: "Country / City *",
+        heard_from: "How did you find me?",
+        occupation: "What do you do? *",
+        life_stage: "Life Stage",
+        want_most: "Right now, what do you most want? *",
+        eliminate: "What would you most like to remove from your life?",
+        tolerating: "What are you currently just putting up with?",
+        goal_90: "What would a real win look like in the next 90 days? *",
+        big_obstacle: "What do you think is the main thing standing in your way?",
+        life_deeper: "Life Coaching - Going Deeper",
+        life_pattern: "Is there a pattern in your life you keep repeating that you want to break?",
+        life_tried: "What have you already tried that hasn't fully worked?",
+        life_off_track: "What areas of your life feel most off-track?",
+        lon_deeper: "Longevity - Going Deeper",
+        lon_current: "Describe your current health and energy levels honestly.",
+        lon_focus: "Where do you want to focus?",
+        lon_blocks: "What's been your biggest blocker to better health habits?",
+        biz_deeper: "Business / Project - Going Deeper",
+        biz_stage: "Where is your project or business right now?",
+        biz_sector: "What sector or industry?",
+        biz_challenge: "What is the single biggest challenge you're facing right now in the business?",
+        biz_help: "What kind of help do you need most?",
+        support_question: "When challenges come up, what support actually works for you?",
+        commitment_q: "How do you tend to keep commitments when you set goals?",
+        proud_of: "Something you're genuinely proud of that most people don't know about you",
+        accomplish_unsure: "Is there something you'd love to accomplish but aren't sure how to go about it?",
+        readiness_q: "How ready are you right now?",
+        commitment_desc: "In your own words - how committed are you to making this work? *",
+        session_goal: "The single most important thing you want from our first session",
+        additional: "Anything you want me to know before we meet?",
+        preferred_date: "Preferred Date *",
+        preferred_time: "Preferred Time *",
+        slot_hint: "Choose your preferred slot — I'll send the call link before we meet.",
+        // Coaching types
+        ct_life: "Life Coaching",
+        ct_life_desc: "Habits, mindset, clarity, fulfilment",
+        ct_longevity: "Longevity",
+        ct_longevity_desc: "Energy, health, sustainable performance",
+        ct_business: "Business / Project",
+        ct_business_desc: "Strategy, growth, ideas, startups",
+        // Buttons
+        btn_next: "Next →",
+        btn_back: "← Back",
+        btn_submit: "Submit",
+        btn_sending: "Sending...",
+        // Consent
+        consent: "🔒 By submitting this form you confirm that the information provided is accurate and you agree that it will be used solely to prepare for your coaching session. Your data is kept strictly private and will never be shared with third parties.",
+        // Error
+        error_coaching: "Please select at least one coaching type.",
+        error_field: "Please fill this in.",
+        // Success
+        success_title: "You're all set, <em>friend</em>.",
+        success_p1: "Your responses are on their way to me. I'll review everything before we speak so we can make every minute of our first session count.",
+        success_p2: "I'll be in touch shortly to confirm our time. I'm genuinely looking forward to it.",
+        success_name_fallback: "friend",
+        // Chips - life focus
+        chip_daily_habits: "Daily habits",
+        chip_confidence: "Confidence",
+        chip_identity: "Identity / self-worth",
+        chip_relationships: "Relationships",
+        chip_work_life: "Work-life balance",
+        chip_stress: "Stress management",
+        chip_anxiety: "Anxiety / overwhelm",
+        chip_purpose: "Sense of purpose",
+        // Chips - longevity focus
+        chip_movement: "Movement / fitness",
+        chip_nutrition: "Nutrition / diet",
+        chip_sleep: "Sleep quality",
+        chip_energy: "Sustained energy",
+        chip_cognitive: "Cognitive performance",
+        chip_health_span: "Long-term health span",
+        // Chips - business focus
+        chip_brand: "Brand / positioning",
+        chip_sales: "Sales / revenue",
+        chip_systems: "Systems / productivity",
+        chip_team: "Team / leadership",
+        chip_strategy: "Strategy / direction",
+        chip_idea: "Validating an idea",
+        chip_adhd: "ADHD / focus",
+        // Chips - support
+        chip_listen: "Someone to listen without judgment",
+        chip_challenged: "Being challenged",
+        chip_questions: "The right questions",
+        chip_action_plan: "A clear action plan",
+        chip_accountability: "Accountability check-ins",
+        chip_science: "Science-backed frameworks",
+        // Radio - commitment
+        com_rarely: "Rarely - honestly, that's partly why I'm here",
+        com_sometimes: "Sometimes - life tends to get in the way",
+        com_usually: "Usually - but I need external accountability",
+        com_always: "Always - once I'm in, I'm fully in",
+        // Radio - readiness
+        r_all_in: "All in - I've been waiting for this",
+        r_ready: "Ready - I just need the right structure around me",
+        r_curious: "Curious - still figuring out if this is right for me",
+        r_unsure: "Unsure - need to see how the first session feels",
+        // Select options
+        sel_age: "Select...",
+        sel_life_stage: "Best description...",
+        sel_heard: "Choose one...",
+        sel_biz_stage: "Select stage...",
+        opt_building: "Building something new",
+        opt_scaling: "Scaling / growing",
+        opt_stuck: "Stuck and wanting change",
+        opt_transition: "In transition",
+        opt_burnout: "Burnout recovery",
+        opt_fine_more: "Generally fine, want more",
+        opt_google: "Google / Search",
+        opt_instagram: "Instagram",
+        opt_linkedin: "LinkedIn",
+        opt_referral: "Word of mouth / referral",
+        opt_coachcompare: "CoachCompare or directory",
+        opt_website: "My website / articles",
+        opt_other: "Other",
+        opt_idea: "Just an idea",
+        opt_pre_revenue: "Early - pre-revenue",
+        opt_live_early: "Live but early stage",
+        opt_growing: "Growing, need to scale",
+        opt_established: "Established, stuck on a problem",
+        opt_pivot: "Looking to pivot or exit",
+        // Placeholders
+        ph_first_name: "e.g. Alex",
+        ph_last_name: "e.g. Morgan",
+        ph_email: "your@email.com",
+        ph_phone: "+44 7...",
+        ph_location: "e.g. London, UK",
+        ph_occupation: "Role, business or 'in transition'",
+        ph_want_most: "Be as specific or as vague as feels right.",
+        ph_eliminate: "A habit, situation, feeling - anything counts.",
+        ph_tolerating: "Things you tolerate at work or in life that quietly drain you...",
+        ph_goal90: "What would make you look back and say 'that changed things'?",
+        ph_obstacle: "Be honest - even 'I don't know yet' is a valid answer.",
+        ph_life_pattern: "e.g. Starting strong but losing momentum. Self-sabotage. Saying yes when you mean no.",
+        ph_life_tried: "Books, therapy, courses, journaling - what have you put energy into?",
+        ph_lon_current: "Sleep, diet, movement, stress - give me the real picture.",
+        ph_lon_blocks: "Time, motivation, consistency, knowing where to start...",
+        ph_biz_sector: "e.g. Tech, hospitality, e-commerce...",
+        ph_biz_challenge: "Be specific - sales, team, product, funding, clarity on direction...",
+        ph_proud: "Professional, personal, or something small - it all matters.",
+        ph_accomplish: "No idea is too big or too vague here.",
+        ph_commitment: "What makes now different from other times you've tried to change something?",
+        ph_session_goal: "Even 'clarity on what to do next' is a perfectly valid goal.",
+        ph_additional: "Questions, concerns, context - no filter needed. This is your space.",
+        // Email
+        email_subject: "New Intake",
+        email_footer: "This intake was submitted from coachkris.co.uk/onboarding.html",
+      },
+      sk: {
+        // Header
+        ob_header_note: "Súkromné a dôverné",
+        // Intro
+        intro_subtitle: "V nasledujúcich 4 krokoch vám položím niekoľko osobných otázok, aby som pre vás vytvoril najlepšiu koučingovú stratégiu. Idite po prvom, čo vás napadne - rýchlosť a úprimnosť vždy zvíťazia.",
+        // Step labels
+        step_progress: "Krok {n} z 4",
+        step1_eyebrow: "Krok 1 z 4 · Základy",
+        step1_title: "Som rád, že ste <em>tu.</em>",
+        step2_eyebrow: "Krok 2 z 4 · Váš životný prehľad",
+        step2_title: "Úprimné <em>sebahodnotenie</em> je začiatok.",
+        step2_subtitle: "Nie je tu nič správne alebo nesprávne. Ohodnoťte každú oblasť takú, aká reálne je. Je to jedna z najužitočnejších vecí, ktoré mi môžete pred našim rozhovorom povedať.",
+        step3_eyebrow: "Krok 3 z 4 · Vaše ciele a štýl",
+        step3_title: "Ako <em>víťazstvo</em> vyzerá pre vás?",
+        step3_subtitle: "Povedzte mi, kam chcete zájsť a ako najlepšie pracujete. Našu prvú sedenia prispôsobím úplne vašim odpovediam.",
+        step4_eyebrow: "Krok 4 z 4 · Takmer hotové",
+        step4_title: "Posledné detaily - <em>a sme tam.</em>",
+        step4_subtitle: "Tieto posledné otázky mi umožnia prísť na sedenie plne pripravený. Žiadne všeobecné otázky, žiadny zbytočný čas.",
+        // Cards
+        about_you: "O vás",
+        looking_for: "Čo hľadáte?",
+        select_multiple: "Vyberte všetko, čo platí - môžete označiť viac možností.",
+        world_now: "Váš svet teraz",
+        life_scores: "Skóre spokojnosti so životom",
+        scale_low: "1 - Bojujem",
+        scale_high: "5 - V rozkvete",
+        on_your_mind: "Čo máte na mysli?",
+        goal_90day: "Váš 90-dňový cieľ",
+        how_you_work: "Ako pracujete najlepšie",
+        a_little_deeper: "Trochu hlbšie",
+        your_commitment: "Váš záväzok",
+        anything_else: "Ešte niečo?",
+        pick_time: "Vyberte deň a čas",
+        // Labels
+        first_name: "Krstné meno *",
+        last_name: "Priezvisko *",
+        email: "Email *",
+        phone: "Telefón *",
+        age_range: "Veková skupina *",
+        location: "Krajina / Mesto *",
+        heard_from: "Ako ste ma našli?",
+        occupation: "Čo robíte? *",
+        life_stage: "Životné štádium",
+        want_most: "Čo teraz chcete najviac? *",
+        eliminate: "Čo by ste najradšej zo svojho života odstránili?",
+        tolerating: "Čo momentálne len znášate?",
+        goal_90: "Aké by malo byť skutočné víťazstvo v nasledujúcich 90 dňoch? *",
+        big_obstacle: "Čo si myslíte, že je hlavná vec, ktorá vám stojí v ceste?",
+        life_deeper: "Životný koučing - hlbšie",
+        life_pattern: "Je vo vašom živote nejaký vzor, ktorý sa opakujete a chcete ho prerušiť?",
+        life_tried: "Čo ste už skúsili, ale nefungovalo to úplne?",
+        life_off_track: "Ktoré oblasti vášho života sa zdajú najviac mimo dráhy?",
+        lon_deeper: "Dlhovekosť - hlbšie",
+        lon_current: "Opíšte úprimne vašu súčasnú úroveň zdravia a energie.",
+        lon_focus: "Na čo sa chcete sústrediť?",
+        lon_blocks: "Čo bolo vašou najväčšou prekážkou pre lepšie zdravotné návyky?",
+        biz_deeper: "Biznis / Projekt - hlbšie",
+        biz_stage: "Kde je váš projekt alebo biznis teraz?",
+        biz_sector: "Aký sektor alebo odvetvie?",
+        biz_challenge: "Aká je vaša jediná najväčšia výzva, ktorú teraz v biznise čelíte?",
+        biz_help: "Aký druh pomoci potrebujete najviac?",
+        support_question: "Keď sa objavia výzvy, aký druh podpory vám naozaj pomáha?",
+        commitment_q: "Ako si zvyčajne plníte záväzky, keď si dáte ciele?",
+        proud_of: "Niečo, na čo ste oprávnene hrdí a čo o vás väčšina ľudí nevie",
+        accomplish_unsure: "Je niečo, čo by ste chceli dosiahnuť, ale nie ste si istí ako na to?",
+        readiness_q: "Aký je váš stav pripravenosti práve teraz?",
+        commitment_desc: "Vašimi vlastnými slovami - ako ste odhodlaní urobiť, aby to fungovalo? *",
+        session_goal: "To najdôležitejšie, čo chcete z našej prvej sedenie",
+        additional: "Niečo, čo by ste chceli, aby som vedel predtým, ako sa stretneme?",
+        preferred_date: "Preferovaný dátum *",
+        preferred_time: "Preferovaný čas *",
+        slot_hint: "Vyberte si svoj preferovaný termín - pred našim stretnutím vám pošlem odkaz na hovor.",
+        // Coaching types
+        ct_life: "Životný koučing",
+        ct_life_desc: "Návyky, myslenie, jasnosť, naplnenie",
+        ct_longevity: "Dlhovekosť",
+        ct_longevity_desc: "Energia, zdravie, udržateľný výkon",
+        ct_business: "Biznis / Projekt",
+        ct_business_desc: "Stratégia, rast, nápady, startupy",
+        // Buttons
+        btn_next: "Ďalej →",
+        btn_back: "← Späť",
+        btn_submit: "Odoslať",
+        btn_sending: "Odosielanie...",
+        // Consent
+        consent: "🔒 Odoslaním tohto formulára potvrdzujete, že uvedené informácie sú pravdivé a súhlasíte s ich použitím výhradne na prípravu vašej koučingovej sedenie. Vaše údaje sú prísne súkromné a nikdy nebudú zdieľané s tretími stranami.",
+        // Error
+        error_coaching: "Vyberte prosím aspoň jeden typ koučingu.",
+        error_field: "Prosím, vyplňte toto pole.",
+        // Success
+        success_title: "Všetko je pripravené, <em>kamarát</em>.",
+        success_p1: "Vaše odpovede mi putujú. Pozriem si všetko pred našim rozhovorom, aby každú minútu prvého sedenia využili naplno.",
+        success_p2: "Čoskoro sa ozvem pre potvrdenie času. Naozaj sa na to teším.",
+        success_name_fallback: "priateľ",
+        // Chips - life focus
+        chip_daily_habits: "Denné návyky",
+        chip_confidence: "Sebadôvera",
+        chip_identity: "Identita / sebahodnotenie",
+        chip_relationships: "Vzťahy",
+        chip_work_life: "Rovnováha medzi prácou a životom",
+        chip_stress: "Riadenie stresu",
+        chip_anxiety: "Úzkosť / zahltenie",
+        chip_purpose: "Zmysel a zameranie",
+        // Chips - longevity focus
+        chip_movement: "Pohyb / fitness",
+        chip_nutrition: "Výživa / strava",
+        chip_sleep: "Kvalita spánku",
+        chip_energy: "Udržateľná energia",
+        chip_cognitive: "Kognitívny výkon",
+        chip_health_span: "Dlhodobé zdravie",
+        // Chips - business focus
+        chip_brand: "Značka / pozicionovanie",
+        chip_sales: "Predaj / príjmy",
+        chip_systems: "Systémy / produktivita",
+        chip_team: "Tím / vedenie",
+        chip_strategy: "Stratégia / smer",
+        chip_idea: "Validácia nápadu",
+        chip_adhd: "ADHD / sústredenie",
+        // Chips - support
+        chip_listen: "Niekto, kto vypočuje bez posudzovania",
+        chip_challenged: "Byť vyzvaný",
+        chip_questions: "Správne otázky",
+        chip_action_plan: "Jasný akčný plán",
+        chip_accountability: "Pravidelná zodpovednosť",
+        chip_science: "Vedecky podložené metódy",
+        // Radio - commitment
+        com_rarely: "Zriedka - úprimne, čiastočne preto som tu",
+        com_sometimes: "Občas - život sa rád pripletie",
+        com_usually: "Zvyčajne - ale potrebujem externú zodpovednosť",
+        com_always: "Vždy - keď sa pustím do niečoho, som naplno",
+        // Radio - readiness
+        r_all_in: "Naplno - už na to dlho čakám",
+        r_ready: "Pripravený - potrebujem len správnu štruktúru okolo seba",
+        r_curious: "Zvedavý - stále zisťujem, či je to pre mňa to pravé",
+        r_unsure: "Nerozhodný - potrebujem vidieť, ako sa bude cítiť prvá sedenie",
+        // Select options
+        sel_age: "Vyberte...",
+        sel_life_stage: "Najlepší popis...",
+        sel_heard: "Vyberte jeden...",
+        sel_biz_stage: "Vyberte fázu...",
+        opt_building: "Budujem niečo nové",
+        opt_scaling: "Škálujem / rastiem",
+        opt_stuck: "Uviaznutý a chcem zmenu",
+        opt_transition: "V prechode",
+        opt_burnout: "Zotavujem sa z vyčerpania",
+        opt_fine_more: "V pohode, chcem viac",
+        opt_google: "Google / Vyhľadávanie",
+        opt_instagram: "Instagram",
+        opt_linkedin: "LinkedIn",
+        opt_referral: "Odporúčanie",
+        opt_coachcompare: "CoachCompare alebo zoznam",
+        opt_website: "Moja stránka / články",
+        opt_other: "Iné",
+        opt_idea: "Iba nápad",
+        opt_pre_revenue: "Skoro - ešte bez príjmov",
+        opt_live_early: "Funguje, ale v rannej fáze",
+        opt_growing: "Rastie, potrebujem škálovať",
+        opt_established: "Zavedené, uviaznuté na probléme",
+        opt_pivot: "Chcem sa otočiť alebo ukončiť",
+        // Placeholders
+        ph_first_name: "napr. Alex",
+        ph_last_name: "napr. Morgan",
+        ph_email: "vas@email.com",
+        ph_phone: "+421 9...",
+        ph_location: "napr. Bratislava, SR",
+        ph_occupation: "Pozícia, biznis alebo 'v prechode'",
+        ph_want_most: "Buďte taký špecifický alebo vágny, ako sa vám zdá správne.",
+        ph_eliminate: "Zvyk, situácia, pocit - čokoľvek platí.",
+        ph_tolerating: "Veci, ktoré znášate v práci alebo živote a ktoré vás potichu vyčerpávajú...",
+        ph_goal90: "Čo by vás prinútilo pozrieť späť a povedať 'to zmenilo veci'?",
+        ph_obstacle: "Buďte úprimný - aj 'ešte neviem' je platná odpoveď.",
+        ph_life_pattern: "napr. Začnem silno, ale stratím dych. Sebadeštrukcia. Hovorím áno, keď myslím nie.",
+        ph_life_tried: "Knihy, terapia, kurzy, denník - do čoho ste vložili energiu?",
+        ph_lon_current: "Spánok, strava, pohyb, stres - dajte mi skutočný obraz.",
+        ph_lon_blocks: "Čas, motivácia, dôslednosť, vedomie, kde začať...",
+        ph_biz_sector: "napr. IT, pohostinstvo, e-commerce...",
+        ph_biz_challenge: "Buďte špecifický - predaj, tím, produkt, financie, jasnosť v smere...",
+        ph_proud: "Profesionálne, osobné, alebo niečo malé - všetko záleží.",
+        ph_accomplish: "Žiadny nápad nie je príliš veľký alebo vágny.",
+        ph_commitment: "Čo robí tento iný od ostatných pokusov o zmenu?",
+        ph_session_goal: "Aj 'jasnosť o ďalších krokoch' je perfectly platný cieľ.",
+        ph_additional: "Otázky, obavy, kontext - žiadny filter. Toto je váš priestor.",
+        // Email
+        email_subject: "Nová registrácia",
+        email_footer: "Táto registrácia bola odoslaná z coachkris.co.uk/onboarding.html",
+      },
+      es: {
+        // Header
+        ob_header_note: "Privado y Confidencial",
+        // Intro
+        intro_subtitle: "En los próximos 4 pasos le haré algunas preguntas personales para ayudarle a construir la mejor estrategia de coaching. Vaya con lo primero que le venga a la mente - la rapidez y la honestidad siempre ganan.",
+        // Step labels
+        step_progress: "Paso {n} de 4",
+        step1_eyebrow: "Paso 1 de 4 · Lo Básico",
+        step1_title: "Qué bueno tenerle <em>aquí.</em>",
+        step2_eyebrow: "Paso 2 de 4 · Su Panorama de Vida",
+        step2_title: "La <em>autoevaluación</em> honesta es donde empieza todo.",
+        step2_subtitle: "No hay respuestas correctas ni incorrectas. Califique cada área tal como es ahora mismo. Es una de las cosas más útiles que puede compartir conmigo antes de hablar.",
+        step3_eyebrow: "Paso 3 de 4 · Sus Metas y Estilo",
+        step3_title: "¿Cómo se ve <em>ganar</em> para usted?",
+        step3_subtitle: "Dígame a dónde quiere llegar y cómo trabaja mejor. Daré forma a nuestra primera sesión completamente en base a sus respuestas.",
+        step4_eyebrow: "Paso 4 de 4 · Casi Listo",
+        step4_title: "Últimos detalles - <em>y ya estamos.</em>",
+        step4_subtitle: "Estas preguntas finales me permiten llegar a nuestra sesión completamente preparado. Sin preguntas genéricas, sin tiempo perdido.",
+        // Cards
+        about_you: "Sobre Usted",
+        looking_for: "¿Qué Busca?",
+        select_multiple: "Seleccione todas las que apliquen - puede elegir más de una.",
+        world_now: "Su Mundo Ahora",
+        life_scores: "Puntuación de Satisfacción de Vida",
+        scale_low: "1 - Luchando",
+        scale_high: "5 - Floreciendo",
+        on_your_mind: "¿Qué tiene en mente?",
+        goal_90day: "Su Meta a 90 Días",
+        how_you_work: "Cómo Trabaja Mejor",
+        a_little_deeper: "Un Poco Más Profundo",
+        your_commitment: "Su Compromiso",
+        anything_else: "¿Algo Más?",
+        pick_time: "Elija Día y Hora",
+        // Labels
+        first_name: "Nombre *",
+        last_name: "Apellido *",
+        email: "Email *",
+        phone: "Teléfono *",
+        age_range: "Rango de Edad *",
+        location: "País / Ciudad *",
+        heard_from: "¿Cómo me encontró?",
+        occupation: "¿A qué se dedica? *",
+        life_stage: "Etapa de Vida",
+        want_most: "Ahora mismo, ¿qué es lo que más quiere? *",
+        eliminate: "¿Qué le gustaría más eliminar de su vida?",
+        tolerating: "¿Qué está simplemente tolerando ahora mismo?",
+        goal_90: "¿Cómo se vería una verdadera victoria en los próximos 90 días? *",
+        big_obstacle: "¿Qué cree que es lo principal que se interpone en su camino?",
+        life_deeper: "Coaching de Vida - Más Profundo",
+        life_pattern: "¿Hay algún patrón en su vida que se repite y que quiere romper?",
+        life_tried: "¿Qué ha intentado ya que no ha funcionado del todo?",
+        life_off_track: "¿Qué áreas de su vida siente más desviadas?",
+        lon_deeper: "Longevidad - Más Profundo",
+        lon_current: "Describa honestamente su nivel actual de salud y energía.",
+        lon_focus: "¿En qué quiere enfocarse?",
+        lon_blocks: "¿Cuál ha sido su mayor obstáculo para mejores hábitos de salud?",
+        biz_deeper: "Negocio / Proyecto - Más Profundo",
+        biz_stage: "¿Dónde está su proyecto o negocio ahora?",
+        biz_sector: "¿Qué sector o industria?",
+        biz_challenge: "¿Cuál es el mayor desafío que enfrenta ahora mismo en el negocio?",
+        biz_help: "¿Qué tipo de ayuda necesita más?",
+        support_question: "Cuando surgen desafíos, ¿qué tipo de apoyo le funciona realmente?",
+        commitment_q: "¿Cómo suele cumplir sus compromisos cuando se fija metas?",
+        proud_of: "Algo de lo que esté genuinamente orgulloso y que la mayoría no sepa sobre usted",
+        accomplish_unsure: "¿Hay algo que le encantaría lograr pero no sabe cómo?",
+        readiness_q: "¿Qué tan listo está ahora mismo?",
+        commitment_desc: "En sus propias palabras - ¿qué tan comprometido está a hacer que esto funcione? *",
+        session_goal: "Lo más importante que quiere de nuestra primera sesión",
+        additional: "¿Algo que quiera que sepa antes de que nos veamos?",
+        preferred_date: "Fecha Preferida *",
+        preferred_time: "Hora Preferida *",
+        slot_hint: "Elija su horario preferido - le enviaré el enlace de la llamada antes de que nos veamos.",
+        // Coaching types
+        ct_life: "Coaching de Vida",
+        ct_life_desc: "Hábitos, mentalidad, claridad, realización",
+        ct_longevity: "Longevidad",
+        ct_longevity_desc: "Energía, salud, rendimiento sostenible",
+        ct_business: "Negocio / Proyecto",
+        ct_business_desc: "Estrategia, crecimiento, ideas, startups",
+        // Buttons
+        btn_next: "Siguiente →",
+        btn_back: "← Atrás",
+        btn_submit: "Enviar",
+        btn_sending: "Enviando...",
+        // Consent
+        consent: "🔒 Al enviar este formulario confirma que la información proporcionada es precisa y acepta que se usará únicamente para preparar su sesión de coaching. Sus datos se mantienen estrictamente privados y nunca se compartirán con terceros.",
+        // Error
+        error_coaching: "Por favor seleccione al menos un tipo de coaching.",
+        error_field: "Por favor complete este campo.",
+        // Success
+        success_title: "Todo listo, <em>amigo</em>.",
+        success_p1: "Sus respuestas están en camino. Revisaré todo antes de que hablemos para aprovechar cada minuto de nuestra primera sesión.",
+        success_p2: "Me pondré en contacto pronto para confirmar nuestra hora. Genuinamente lo espero con ganas.",
+        success_name_fallback: "amigo",
+        // Chips - life focus
+        chip_daily_habits: "Hábitos diarios",
+        chip_confidence: "Confianza",
+        chip_identity: "Identidad / autoestima",
+        chip_relationships: "Relaciones",
+        chip_work_life: "Equilibrio trabajo-vida",
+        chip_stress: "Gestión del estrés",
+        chip_anxiety: "Ansiedad / abrumación",
+        chip_purpose: "Sentido de propósito",
+        // Chips - longevity focus
+        chip_movement: "Movimiento / fitness",
+        chip_nutrition: "Nutrición / dieta",
+        chip_sleep: "Calidad del sueño",
+        chip_energy: "Energía sostenida",
+        chip_cognitive: "Rendimiento cognitivo",
+        chip_health_span: "Salud a largo plazo",
+        // Chips - business focus
+        chip_brand: "Marca / posicionamiento",
+        chip_sales: "Ventas / ingresos",
+        chip_systems: "Sistemas / productividad",
+        chip_team: "Equipo / liderazgo",
+        chip_strategy: "Estrategia / dirección",
+        chip_idea: "Validar una idea",
+        chip_adhd: "ADHD / enfoque",
+        // Chips - support
+        chip_listen: "Alguien que escuche sin juzgar",
+        chip_challenged: "Ser desafiado",
+        chip_questions: "Las preguntas correctas",
+        chip_action_plan: "Un plan de acción claro",
+        chip_accountability: "Seguimiento de responsabilidad",
+        chip_science: "Métodos basados en ciencia",
+        // Radio - commitment
+        com_rarely: "Rara vez - honestamente, en parte por eso estoy aquí",
+        com_sometimes: "A veces - la vida suele interponerse",
+        com_usually: "Normalmente - pero necesito responsabilidad externa",
+        com_always: "Siempre - cuando me comprometo, me entrego por completo",
+        // Radio - readiness
+        r_all_in: "Totalmente - he estado esperando esto",
+        r_ready: "Listo - solo necesito la estructura correcta a mi alrededor",
+        r_curious: "Curioso - todavía averiguando si esto es para mí",
+        r_unsure: "Inseguro - necesito ver cómo se siente la primera sesión",
+        // Select options
+        sel_age: "Seleccione...",
+        sel_life_stage: "Mejor descripción...",
+        sel_heard: "Elija uno...",
+        sel_biz_stage: "Seleccione fase...",
+        opt_building: "Construyendo algo nuevo",
+        opt_scaling: "Escalando / creciendo",
+        opt_stuck: "Estancado y queriendo cambio",
+        opt_transition: "En transición",
+        opt_burnout: "Recuperándome del agotamiento",
+        opt_fine_more: "Bastante bien, quiero más",
+        opt_google: "Google / Búsqueda",
+        opt_instagram: "Instagram",
+        opt_linkedin: "LinkedIn",
+        opt_referral: "Boca a boca / recomendación",
+        opt_coachcompare: "CoachCompare o directorio",
+        opt_website: "Mi web / artículos",
+        opt_other: "Otro",
+        opt_idea: "Solo una idea",
+        opt_pre_revenue: "Temprano - pre-ingresos",
+        opt_live_early: "Activo pero en fase inicial",
+        opt_growing: "Creciendo, necesita escalar",
+        opt_established: "Establecido, atascado en un problema",
+        opt_pivot: "Buscando pivotar o salir",
+        // Placeholders
+        ph_first_name: "ej. Alex",
+        ph_last_name: "ej. Morgan",
+        ph_email: "su@email.com",
+        ph_phone: "+34 6...",
+        ph_location: "ej. Madrid, España",
+        ph_occupation: "Cargo, negocio o 'en transición'",
+        ph_want_most: "Sea tan específico o tan vago como le parezca bien.",
+        ph_eliminate: "Un hábito, situación, sentimiento - todo cuenta.",
+        ph_tolerating: "Cosas que tolera en el trabajo o la vida que le drenan en silencio...",
+        ph_goal90: "¿Qué le haría mirar atrás y decir 'eso cambió las cosas'?",
+        ph_obstacle: "Sea honesto - incluso 'todavía no sé' es una respuesta válida.",
+        ph_life_pattern: "ej. Empezar fuerte pero perder impulso. Autosabotaje. Decir sí cuando quiero decir no.",
+        ph_life_tried: "Libros, terapia, cursos, diario - ¿en qué ha puesto energía?",
+        ph_lon_current: "Sueño, dieta, movimiento, estrés - deme el panorama real.",
+        ph_lon_blocks: "Tiempo, motivación, consistencia, saber por dónde empezar...",
+        ph_biz_sector: "ej. Tecnología, hostelería, e-commerce...",
+        ph_biz_challenge: "Sea específico - ventas, equipo, producto, financiación, claridad de dirección...",
+        ph_proud: "Profesional, personal, o algo pequeño - todo importa.",
+        ph_accomplish: "Ninguna idea es demasiado grande o demasiado vaga.",
+        ph_commitment: "¿Qué hace que ahora sea diferente de otras veces que intentó cambiar algo?",
+        ph_session_goal: "Incluso 'claridad sobre los próximos pasos' es una meta perfectamente válida.",
+        ph_additional: "Preguntas, inquietudes, contexto - sin filtro. Este es su espacio.",
+        // Email
+        email_subject: "Nueva inscripción",
+        email_footer: "Esta inscripción fue enviada desde coachkris.co.uk/onboarding.html",
+      }
+    };
+
+    function applyI18n(lang) {
+      currentLang = lang;
+      var t = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key]) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-ph');
+        if (t[key]) el.placeholder = t[key];
+      });
+      // Update step progress label
+      var dotLabel = document.getElementById('dot-label');
+      if (dotLabel) dotLabel.textContent = t.step_progress.replace('{n}', currentStep);
+      // Update submit button text if not sending
+      var submitBtn = document.getElementById('submit-btn');
+      if (submitBtn && !submitBtn.disabled) submitBtn.textContent = t.btn_submit;
+      // Update error messages
+      var coachingErr = document.getElementById('coaching-error');
+      if (coachingErr) coachingErr.textContent = t.error_coaching;
+      // Update success name fallback
+      // Update lang selector display
+      document.documentElement.lang = lang;
+      // Update select option texts
+      var selectMaps = {
+        'age': [['Select...', t.sel_age]],
+        'life-stage': [['Best description...', t.sel_life_stage], ['Building something new', t.opt_building], ['Scaling / growing', t.opt_scaling], ['Stuck and wanting change', t.opt_stuck], ['In transition', t.opt_transition], ['Burnout recovery', t.opt_burnout], ['Generally fine, want more', t.opt_fine_more]],
+        'heard': [['Choose one...', t.sel_heard], ['Google / Search', t.opt_google], ['Instagram', t.opt_instagram], ['LinkedIn', t.opt_linkedin], ['Word of mouth / referral', t.opt_referral], ['CoachCompare or directory', t.opt_coachcompare], ['My website / articles', t.opt_website], ['Other', t.opt_other]],
+        'biz-stage': [['Select stage...', t.sel_biz_stage], ['Just an idea', t.opt_idea], ['Early - pre-revenue', t.opt_pre_revenue], ['Live but early stage', t.opt_live_early], ['Growing, need to scale', t.opt_growing], ['Established, stuck on a problem', t.opt_established], ['Looking to pivot or exit', t.opt_pivot]]
+      };
+      Object.keys(selectMaps).forEach(function(selId) {
+        var sel = document.getElementById(selId);
+        if (!sel) return;
+        selectMaps[selId].forEach(function(pair) {
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].textContent === pair[0]) {
+              sel.options[i].textContent = pair[1];
+            }
+          }
+        });
+      });
+    }
+
+</script>
 
 <script>
   var currentStep = 1;
@@ -692,7 +1325,7 @@
         el.classList.add('invalid');
         var e = document.createElement('span');
         e.className = 'error-msg';
-        e.textContent = 'Please fill this in.';
+        e.textContent = i18n[currentLang].error_field;
         el.parentElement.appendChild(e);
         if (!firstInvalid) firstInvalid = el;
         ok = false;
@@ -720,7 +1353,7 @@
 
   function updateProgress(n) {
     document.getElementById('progressFill').style.width = ((n / TOTAL) * 100) + '%';
-    document.getElementById('dot-label').textContent = 'Step ' + n + ' of ' + TOTAL;
+    document.getElementById('dot-label').textContent = i18n[currentLang].step_progress.replace('{n}', n);
     for (var i = 1; i <= TOTAL; i++) {
       var d = document.getElementById('dot-' + i);
       d.classList.remove('active','done');
@@ -740,7 +1373,7 @@
     var bizChecked  = document.getElementById('ct-business').checked;
 
     var lines = [
-      'NEW CLIENT INTAKE - ' + d.firstName + ' ' + d.lastName,
+      i18n[currentLang].email_subject.toUpperCase() + ' - ' + d.firstName + ' ' + d.lastName + ' [' + currentLang.toUpperCase() + ']',
       'Submitted: ' + new Date().toLocaleString(),
       '',
       '=== CONTACT ===',
@@ -861,13 +1494,14 @@
       'Time: ' + d.sessionTime,
     ]);
 
+    lines = lines.concat(['', i18n[currentLang].email_footer, 'Language: ' + currentLang.toUpperCase()]);
     return lines.join('\n');
   }
 
   async function submitForm() {
     if (!validateStep(4)) return;
     var btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending...';
+    btn.textContent = i18n[currentLang].btn_sending;
     btn.disabled = true;
 
     var d = {
@@ -898,7 +1532,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          _subject: 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')',
+          _subject: i18n[currentLang].email_subject + ': ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ') [' + currentLang.toUpperCase() + ']',
           email: d.email,
           name: d.firstName + ' ' + d.lastName,
           message: buildEmailBody(d)
@@ -908,7 +1542,7 @@
         document.getElementById('step-4').classList.remove('active');
         var s = document.getElementById('success-screen');
         s.style.display = 'flex';
-        document.getElementById('success-name').textContent = d.firstName || 'friend';
+        document.getElementById('success-name').textContent = d.firstName || i18n[currentLang].success_name_fallback;
         document.getElementById('progressFill').style.width = '100%';
         for (var i = 1; i <= TOTAL; i++) {
           var dot = document.getElementById('dot-' + i);
