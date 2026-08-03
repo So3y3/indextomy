@@ -398,6 +398,31 @@
             .disclaimer-box { padding: 7px !important; font-size: 7.5pt !important; }
             .signatures-intro { font-size: 8pt !important; margin-bottom: 10px !important; }
             .sheet-footer { display: none !important; }
+
+            /* ─── Slovak runs longer than EN/ES — compact further to keep it at 2 pages ─── */
+            body.lang-compact .print-sheet {
+                font-size: 7.3pt !important;
+                line-height: 1.28 !important;
+            }
+            body.lang-compact .contract-body p { margin-bottom: 4px !important; font-size: 7.3pt !important; }
+            body.lang-compact .contract-body li { margin-bottom: 2px !important; font-size: 7.3pt !important; }
+            body.lang-compact .contract-body h3 { margin-top: 7px !important; margin-bottom: 3px !important; font-size: 10.5pt !important; }
+            body.lang-compact .financial-box { padding: 6px 8px !important; margin: 4px 0 !important; }
+            body.lang-compact .financial-col .num { font-size: 14px !important; }
+            body.lang-compact .bank-box { padding: 5px 8px !important; margin: 4px 0 !important; }
+            body.lang-compact .bank-box .bank-title { margin-bottom: 3px !important; font-size: 9px !important; }
+            body.lang-compact .bank-grid { gap: 3px 10px !important; }
+            body.lang-compact .b-label { font-size: 7.5px !important; }
+            body.lang-compact .b-value { font-size: 8.5px !important; }
+            body.lang-compact .signatures-box { margin-top: 10px !important; }
+            body.lang-compact .signatures-grid { gap: 12px !important; }
+            body.lang-compact .sign-line { height: 30px !important; }
+            body.lang-compact .metadata-grid { padding: 4px 8px !important; margin-bottom: 6px !important; gap: 6px !important; }
+            body.lang-compact .contract-header { padding-bottom: 6px !important; margin-bottom: 8px !important; }
+            body.lang-compact .contract-logo h2 { font-size: 15px !important; }
+            body.lang-compact .contract-title { margin-bottom: 6px !important; font-size: 11px !important; }
+            body.lang-compact .disclaimer-box { padding: 5px !important; font-size: 6.6pt !important; line-height: 1.22 !important; }
+            body.lang-compact .signatures-intro { font-size: 7.2pt !important; margin-bottom: 6px !important; }
         }
     </style>
 </head>
@@ -1009,6 +1034,9 @@
                 }
             }
         });
+        // Slovak text runs longer than English/Spanish — apply a tighter print
+        // layout so the document still fits on 2 pages instead of spilling to 3.
+        document.body.classList.toggle('lang-compact', lang === 'sk');
         // Re-run contract update to refresh dynamic content in the new language
         updateContract();
     }
