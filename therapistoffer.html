@@ -1119,7 +1119,7 @@
             <textarea id="qf-challenge" name="challenge" placeholder="Tell me a bit about your current situation..." required></textarea>
           </div>
           
-          <button type="submit" class="qf-submit" id="qf-submit-btn">Request My Free Call &rarr;</button>
+          <button type="button" class="qf-submit" id="qf-submit-btn" onclick="handleFreeCall()">Request My Free Call &rarr;</button>
           <p class="pay-methods-note">I'll personally reply within 24 hours to schedule your call</p>
           
         </form>
@@ -1212,12 +1212,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  // Intercept Formspree submission to display success state
-  var form = document.getElementById('qf');
-  form.addEventListener('submit', function(e) {
-    if (!form.checkValidity()) return;
-    
-    e.preventDefault();
+  // Handle free call form submission
+  window.handleFreeCall = function() {
+    var form = document.getElementById('qf');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
     
     var submitBtn = document.getElementById('qf-submit-btn');
     submitBtn.disabled = true;
@@ -1225,16 +1223,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var formData = new FormData(form);
     var data = {};
-    formData.forEach(function(value, key){
-      data[key] = value;
-    });
+    formData.forEach(function(value, key){ data[key] = value; });
 
-    fetch(form.action, {
+    fetch('https://formspree.io/f/xwvdvbon', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     })
     .then(function(response) {
@@ -1243,15 +1236,15 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         alert('There was an issue submitting your request. Please try again.');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Request My Free Call →';
+        submitBtn.textContent = 'Request My Free Call \u2192';
       }
     })
     .catch(function(error) {
-      alert('There was a network issue submitting your request. Please try again.');
+      alert('There was a network issue. Please try again or email me directly.');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Request My Free Call →';
+      submitBtn.textContent = 'Request My Free Call \u2192';
     });
-  });
+  };
 });
   </script>
 </body>
