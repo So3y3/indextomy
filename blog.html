@@ -464,6 +464,29 @@
     .toolbar-link:hover { background: #3B6FD4; color: white; }
     .form-hint { font-size: 0.72rem; color: var(--slate-mist); margin-top: 0.25rem; }
 
+    /* Live Preview */
+    .editor-mode-toggle { display: flex; gap: 0; margin-bottom: 0.75rem; border-bottom: 1.5px solid var(--sea-glass); }
+    .mode-btn { font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; padding: 0.5rem 1.2rem; border: none; background: none; color: var(--slate-mist); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; letter-spacing: 0.04em; }
+    .mode-btn.active { color: var(--deep-forest); border-bottom-color: var(--warm-gold); }
+    .mode-btn:hover:not(.active) { color: var(--deep-forest); }
+    .preview-wrap { display: none; }
+    .preview-wrap.visible { display: block; }
+    #preview-body { min-height: 260px; max-height: 500px; overflow-y: auto; padding: 1.5rem 1.75rem; background: white; border: 1.5px solid var(--sea-glass); border-radius: 4px; }
+    .preview-title { font-family: var(--font-heading); font-size: 1.85rem; font-weight: 700; line-height: 1.15; margin-bottom: 0.75rem; color: var(--deep-forest); }
+    .preview-title em { font-style: italic; color: var(--warm-gold); }
+    .preview-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.75rem; }
+    .preview-meta { font-size: 0.78rem; color: var(--slate-mist); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--sand); }
+    #preview-content { font-size: 1.02rem; line-height: 1.85; color: var(--deep-forest); }
+    #preview-content p { margin-bottom: 1.25rem; }
+    #preview-content h2 { font-family: var(--font-heading); font-size: 1.75rem; font-weight: 300; margin: 2.5rem 0 1rem; color: var(--deep-forest); }
+    #preview-content h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 400; font-style: italic; color: var(--warm-gold); margin: 1.75rem 0 0.75rem; }
+    #preview-content ul, #preview-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    #preview-content li { margin-bottom: 0.5rem; }
+    #preview-content strong { font-weight: 600; }
+    #preview-content em { font-style: italic; color: var(--warm-gold); }
+    #preview-content a { color: #3B6FD4; text-decoration: underline; }
+    .preview-hint { font-size: 0.72rem; color: var(--slate-mist); margin-top: 0.25rem; font-style: italic; }
+
     .publish-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
     .btn-publish {
       background: var(--deep-forest); color: white;
@@ -804,16 +827,31 @@
         </div>
         <div class="form-group">
           <label>Article Body *</label>
-          <div class="editor-toolbar">
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
-            <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
-            <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
-            <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
-            <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
+          <div class="editor-mode-toggle">
+            <button type="button" class="mode-btn active" id="mode-edit" onclick="switchEditorMode('edit')">✍️ Edit</button>
+            <button type="button" class="mode-btn" id="mode-preview" onclick="switchEditorMode('preview')">👁 Preview</button>
           </div>
-          <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;[link text](https://url.com)&#10;&#10;Each blank line = new paragraph."></textarea>
-          <span class="form-hint">Use ## headings, **bold**, *italic*, - bullets, [text](url) for links. Each blank line = new paragraph.</span>
+          <div id="edit-wrap">
+            <div class="editor-toolbar">
+              <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
+              <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
+              <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
+              <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
+              <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
+              <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
+            </div>
+            <textarea id="f-body" placeholder="Write your full article here. You can use basic formatting:&#10;&#10;## Section Heading&#10;### Sub Heading&#10;**bold text**&#10;*italic text*&#10;- bullet point&#10;[link text](https://url.com)&#10;&#10;Each blank line = new paragraph."></textarea>
+            <span class="form-hint">Use ## headings, **bold**, *italic*, - bullets, [text](url) for links. Each blank line = new paragraph.</span>
+          </div>
+          <div class="preview-wrap" id="preview-wrap">
+            <div id="preview-body">
+              <div class="preview-eyebrow" id="preview-eyebrow"></div>
+              <div class="preview-title" id="preview-title"></div>
+              <div class="preview-meta" id="preview-meta"></div>
+              <div id="preview-content"></div>
+            </div>
+            <span class="preview-hint">This is how your article will look when published. Switch back to Edit to continue writing.</span>
+          </div>
         </div>
         <div class="form-group">
           <label>Featured? (shows larger on grid)</label>
@@ -1650,6 +1688,58 @@ function insertLink() {
   ta.focus();
 }
 
+// Live Preview Mode
+function switchEditorMode(mode) {
+  var editBtn = document.getElementById('mode-edit');
+  var previewBtn = document.getElementById('mode-preview');
+  var editWrap = document.getElementById('edit-wrap');
+  var previewWrap = document.getElementById('preview-wrap');
+  
+  if (mode === 'preview') {
+    editBtn.classList.remove('active');
+    previewBtn.classList.add('active');
+    editWrap.style.display = 'none';
+    previewWrap.classList.add('visible');
+    updatePreview();
+  } else {
+    editBtn.classList.add('active');
+    previewBtn.classList.remove('active');
+    editWrap.style.display = '';
+    previewWrap.classList.remove('visible');
+  }
+}
+
+function updatePreview() {
+  var title = document.getElementById('f-title').value || 'Your Title Here';
+  var excerpt = document.getElementById('f-excerpt').value || '';
+  var body = document.getElementById('f-body').value || '';
+  var timeVal = document.getElementById('f-time').value || '';
+  
+  // Parse category checkboxes
+  var cats = [];
+  document.querySelectorAll('#f-cat input:checked').forEach(function(cb) { cats.push(cb.value); });
+  var catLabel = cats.length ? cats.map(function(c) { return c.charAt(0).toUpperCase() + c.slice(1); }).join(' · ') : 'Uncategorised';
+  
+  // Format date
+  var dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  var metaParts = [catLabel, dateStr];
+  if (timeVal) metaParts.push(timeVal);
+  
+  document.getElementById('preview-eyebrow').textContent = catLabel;
+  document.getElementById('preview-title').innerHTML = title.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  document.getElementById('preview-meta').textContent = metaParts.join(' · ');
+  document.getElementById('preview-content').innerHTML = parseMarkdown(body);
+}
+
+// Update preview live as user types
+document.addEventListener('input', function(e) {
+  if (e.target.id === 'f-title' || e.target.id === 'f-excerpt' || e.target.id === 'f-body' || e.target.id === 'f-time' || e.target.closest('#f-cat')) {
+    if (document.getElementById('mode-preview').classList.contains('active')) {
+      updatePreview();
+    }
+  }
+});
+
 async function publishPost(status) {
   const title   = document.getElementById('f-title').value.trim();
   const body    = document.getElementById('f-body').value.trim();
@@ -1710,6 +1800,7 @@ function clearForm() {
   document.querySelectorAll('#f-cat input[type=checkbox]').forEach(cb => cb.checked = false);
   document.getElementById('f-featured').value = 'no';
   delete document.getElementById('f-title').dataset.editingId;
+  switchEditorMode('edit');
 }
 
 function renderPostList() {
