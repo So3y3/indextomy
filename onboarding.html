@@ -894,15 +894,15 @@
     };
 
     try {
-      var fd = new FormData();
-      fd.append('_subject', 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')');
-      fd.append('email', d.email);
-      fd.append('name', d.firstName + ' ' + d.lastName);
-      fd.append('message', buildEmailBody(d));
       var res = await fetch('https://formspree.io/f/xwvdvbon', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: fd
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'New Intake: ' + d.firstName + ' ' + d.lastName + ' (' + d.coachingTypes + ')',
+          email: d.email,
+          name: d.firstName + ' ' + d.lastName,
+          message: buildEmailBody(d)
+        })
       });
       if (res.ok) {
         document.getElementById('step-4').classList.remove('active');
