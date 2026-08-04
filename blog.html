@@ -18,7 +18,7 @@
   <meta property="og:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
   <meta property="og:url" content="https://www.coachkris.co.uk/blog.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.coachkris.co.uk/assets/kris-og.jpg" />
+  <meta property="og:image" content="https://www.coachkris.co.uk/og/og_hero.jpg" />
   <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
   <meta name="author" content="Kristian Sokol" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -1136,7 +1136,7 @@ function buildArticleHtml(post) {
   h += '<meta property="og:type" content="article" />\n';
   h += '<meta property="og:url" content="' + articleUrl + '" />\n';
   h += '<meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />\n';
-  h += '<meta property="og:image" content="' + baseUrl + '/og/og_' + slug + '.jpg" />\n';
+  h += '<meta property="og:image" content="https://www.coachkris.co.uk/og/og_hero.jpg" />\n';
   h += '<meta name="twitter:card" content="summary_large_image" />\n';
   h += '<link rel="icon" type="image/x-icon" href="../favicon.ico" />\n';
   h += '<link rel="preconnect" href="https://fonts.googleapis.com" />\n';
@@ -1450,7 +1450,6 @@ async function savePosts(posts) {
     var published = posts.filter(function(p){ return p.status === 'published'; });
     for (var i = 0; i < published.length; i++) {
       await pushArticleToGitHub(published[i], token);
-      await pushOGImageToGitHub(published[i], token);
     }
     await updateSitemap(published, token);
 
