@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 12-Week Intensive | Kristian Sokol Coaching</title>
-  <meta name="description" content="Full transformation across life, longevity, and business. 12 weeks of personal coaching to rebuild the systems running your life." />
+  <title>You Said Don't Do It Alone | The 12-Week Intensive</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -28,92 +27,73 @@
       --font-brand: 'Bebas Neue', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background-color: var(--parchment); color: var(--deep-forest); line-height: 1.7; overflow-x: hidden; }
+    body { font-family: var(--font-body); background-color: var(--deep-forest); color: var(--parchment); line-height: 1.7; overflow-x: hidden; }
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--sand); }
-    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: var(--deep-forest); }
+    ::-webkit-scrollbar-thumb { background: var(--warm-gold); border-radius: 3px; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; background: rgba(245,241,234,0.92); backdrop-filter: blur(12px); box-shadow: 0 1px 12px rgba(28,40,35,0.06); }
-    .nav-brand { font-family: var(--font-brand); font-size: 1.5rem; color: var(--deep-forest); text-decoration: none; letter-spacing: 0.05em; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; background: rgba(28,40,35,0.92); backdrop-filter: blur(12px); box-shadow: 0 1px 12px rgba(0,0,0,0.2); }
+    .nav-brand { font-family: var(--font-brand); font-size: 1.5rem; color: var(--parchment); text-decoration: none; letter-spacing: 0.05em; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.875rem; color: var(--slate-mist); text-decoration: none; transition: color 0.2s; font-weight: 500; }
-    .nav-links a:hover { color: var(--deep-forest); }
+    .nav-links a { font-size: 0.875rem; color: rgba(245,241,234,0.6); text-decoration: none; transition: color 0.2s; font-weight: 500; }
+    .nav-links a:hover { color: var(--warm-gold); }
 
-    .hero { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 4rem; background: linear-gradient(180deg, var(--deep-forest) 0%, #0f1613 100%); color: var(--parchment); }
-    .hero-content { max-width: 680px; }
-    .hero-kicker { font-family: var(--font-brand); font-size: 0.9rem; letter-spacing: 0.3em; color: var(--warm-gold); margin-bottom: 1.2rem; }
-    .hero h1 { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.2rem; }
+    .hero { min-height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 3rem; }
+    .hero-content { max-width: 640px; }
+    .hero-kicker { font-family: var(--font-brand); font-size: 0.85rem; letter-spacing: 0.3em; color: var(--warm-gold); margin-bottom: 1rem; }
+    .hero h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 400; line-height: 1.15; margin-bottom: 1.2rem; }
     .hero h1 em { font-style: italic; color: var(--warm-gold); }
-    .hero p { font-size: 1.1rem; color: rgba(245,241,234,0.7); max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; }
+    .hero p { font-size: 1.1rem; color: rgba(245,241,234,0.6); max-width: 500px; margin: 0 auto; line-height: 1.7; }
     .hero-line { width: 60px; height: 2px; background: var(--warm-gold); margin: 1.5rem auto; }
-    .btn-gold { display: inline-block; background: var(--warm-gold); color: var(--deep-forest); padding: 1.1rem 3rem; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(198,158,72,0.4); }
-    .btn-dark { display: inline-block; background: var(--deep-forest); color: white; padding: 1.1rem 3rem; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 1.05rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; }
-    .btn-dark:hover { background: var(--warm-gold); transform: translateY(-2px); }
 
-    section.block { padding: 4rem 2rem; max-width: 720px; margin: 0 auto; }
-    .kicker { font-family: var(--font-brand); font-size: 0.8rem; letter-spacing: 0.25em; color: var(--warm-gold); text-align: center; margin-bottom: 0.8rem; }
-    h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; text-align: center; line-height: 1.2; margin-bottom: 1.5rem; }
+    .section { padding: 3rem 2rem; max-width: 720px; margin: 0 auto; text-align: center; }
+    .kicker { font-family: var(--font-brand); font-size: 0.8rem; letter-spacing: 0.25em; color: var(--warm-gold); margin-bottom: 0.6rem; }
+    h2 { font-family: var(--font-heading); font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 400; line-height: 1.2; margin-bottom: 1rem; }
     h2 em { font-style: italic; color: var(--warm-gold); }
-    p { font-size: 1rem; margin-bottom: 1rem; line-height: 1.7; }
+    .section p { font-size: 1rem; color: rgba(245,241,234,0.7); max-width: 520px; margin: 0 auto 1rem; line-height: 1.7; }
 
-    .sectors { max-width: 900px; margin: 0 auto; padding: 2rem 2rem; }
-    .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
-    .sector-card { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 1px solid var(--sea-glass); background: white; }
-    .sector-card h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; }
+    .sectors { max-width: 880px; margin: 0 auto; padding: 2rem 2rem; }
+    .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2rem; }
+    .sector-card { text-align: center; padding: 1.8rem 1.2rem; border-radius: 16px; border: 1px solid rgba(198,158,72,0.2); background: rgba(255,255,255,0.03); }
+    .sector-card h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--parchment); }
     .sector-card h3 em { color: var(--warm-gold); }
-    .sector-card p { font-size: 0.88rem; color: var(--slate-mist); line-height: 1.6; }
-    .sector-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .sector-card p { font-size: 0.85rem; color: rgba(245,241,234,0.6); line-height: 1.6; }
 
-    .structure { background: var(--sand); padding: 4rem 2rem; }
-    .structure-inner { max-width: 720px; margin: 0 auto; }
-    .phase { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.5rem 0; border-bottom: 1px solid var(--sea-glass); }
+    .structure { background: rgba(0,0,0,0.15); padding: 4rem 2rem; }
+    .structure-inner { max-width: 680px; margin: 0 auto; }
+    .phase { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.2rem 0; border-bottom: 1px solid rgba(198,158,72,0.15); }
     .phase:last-child { border-bottom: none; }
-    .phase-num { width: 56px; height: 56px; border-radius: 50%; background: var(--deep-forest); color: var(--warm-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; flex-shrink: 0; }
-    .phase-content h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .phase-num { width: 52px; height: 52px; border-radius: 50%; background: var(--warm-gold); color: var(--deep-forest); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; flex-shrink: 0; }
+    .phase-content h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.2rem; color: var(--parchment); }
     .phase-content h3 em { color: var(--warm-gold); }
-    .phase-content p { font-size: 0.9rem; color: var(--slate-mist); line-height: 1.6; }
+    .phase-content p { font-size: 0.88rem; color: rgba(245,241,234,0.6); line-height: 1.6; text-align: left; }
 
-    .pricing { text-align: center; padding: 4rem 2rem; background: var(--parchment); }
-    .price-card { max-width: 520px; margin: 2rem auto 0; background: white; border: 1px solid var(--sea-glass); border-radius: 20px; padding: 3rem 2rem; box-shadow: 0 8px 32px rgba(28,40,35,0.06); }
-    .price-amount { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; color: var(--deep-forest); line-height: 1; }
-    .price-currency { font-size: 2rem; vertical-align: super; color: var(--warm-gold); }
-    .price-note { font-size: 0.85rem; color: var(--slate-mist); margin-top: 0.5rem; margin-bottom: 1.5rem; }
-    .price-includes { text-align: left; margin: 1.5rem 0 2rem; }
-    .price-includes li { list-style: none; padding: 0.5rem 0; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.6rem; }
-    .price-includes li::before { content: '\2713'; color: var(--warm-gold); font-weight: 700; }
+    .pricing { text-align: center; padding: 4rem 2rem; background: var(--parchment); color: var(--deep-forest); }
+    .price-card { max-width: 500px; margin: 2rem auto 0; background: white; border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 2rem; box-shadow: 0 12px 40px rgba(28,40,35,0.1); }
+    .price-amount { font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; color: var(--deep-forest); line-height: 1; }
+    .price-currency { font-size: 1.8rem; vertical-align: super; color: var(--warm-gold); }
+    .price-note { font-size: 0.85rem; color: var(--slate-mist); margin-top: 0.4rem; margin-bottom: 1.5rem; }
+    .price-includes { text-align: left; margin: 1.2rem 0; list-style: none; }
+    .price-includes li { padding: 0.4rem 0; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .price-includes li::before { content: '\2713'; color: var(--warm-gold); font-weight: 700; flex-shrink: 0; }
 
-    .offer-options { max-width: 600px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1rem; }
-    .offer-option { background: white; border: 2px solid var(--sea-glass); border-radius: 12px; padding: 1.5rem; transition: all 0.3s; }
-    .offer-option:hover { border-color: var(--warm-gold); }
-    .offer-option-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.3rem; }
-    .offer-option-title em { color: var(--warm-gold); }
-    .offer-option-desc { font-size: 0.88rem; color: var(--slate-mist); margin-bottom: 0.8rem; }
-    .offer-option-price { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--deep-forest); margin-bottom: 0.8rem; }
+    .btn-gold { display: block; width: 100%; padding: 1.1rem; background: var(--warm-gold); color: var(--deep-forest); border: none; border-radius: 999px; font-family: var(--font-body); font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; margin-bottom: 0.8rem; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(198,158,72,0.4); }
+    .btn-dark { display: block; width: 100%; padding: 1rem; background: var(--deep-forest); color: white; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+    .btn-dark:hover { background: var(--slate-mist); }
 
-    .btn-option { display: block; width: 100%; padding: 0.9rem; border: none; border-radius: 999px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; }
-    .btn-option-gold { background: var(--warm-gold); color: var(--deep-forest); }
-    .btn-option-gold:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(198,158,72,0.25); }
-    .btn-option-dark { background: var(--deep-forest); color: white; }
-    .btn-option-dark:hover { background: var(--warm-gold); }
+    .guarantee { max-width: 500px; margin: 2rem auto; padding: 1.2rem; background: white; border: 1.5px solid var(--warm-gold); border-radius: 12px; text-align: center; }
+    .guarantee h4 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .guarantee p { font-size: 0.85rem; color: var(--slate-mist); margin: 0; }
 
-    .guarantee { max-width: 560px; margin: 2rem auto; padding: 1.5rem; background: white; border: 1.5px solid var(--warm-gold); border-radius: 12px; text-align: center; }
-    .guarantee h4 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; }
-    .guarantee p { font-size: 0.88rem; color: var(--slate-mist); margin: 0; }
-
-    .skip { text-align: center; margin: 2rem auto; padding: 0 2rem; }
-    .skip a { font-size: 0.9rem; color: var(--slate-mist); text-decoration: none; border-bottom: 1px solid var(--sea-glass); padding-bottom: 2px; }
+    .skip { text-align: center; margin: 2rem auto; max-width: 500px; padding: 0 2rem; }
+    .skip a { font-size: 0.88rem; color: var(--slate-mist); text-decoration: none; border-bottom: 1px solid var(--sea-glass); padding-bottom: 2px; }
     .skip a:hover { color: var(--deep-forest); }
 
-    footer { background: rgba(235,230,218,0.5); border-top: 1px solid var(--sea-glass); padding: 3rem 2rem 2rem; margin-top: 3rem; }
-    .footer-bottom { max-width: 1000px; margin: 0 auto; text-align: center; }
-    .footer-bottom p { font-size: 0.775rem; color: var(--slate-mist); }
+    footer { background: rgba(0,0,0,0.1); border-top: 1px solid rgba(198,158,72,0.1); padding: 2rem; text-align: center; }
+    footer p { font-size: 0.775rem; color: rgba(245,241,234,0.4); }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .sector-grid { grid-template-columns: 1fr; }
-      .phase { flex-direction: column; gap: 1rem; }
-    }
+    @media (max-width: 768px) { .nav-links { display: none; } .sector-grid { grid-template-columns: 1fr; } .phase { flex-direction: column; gap: 0.8rem; } }
   </style>
 </head>
 <body>
@@ -130,42 +110,40 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-kicker">THE 12-WEEK INTENSIVE</p>
-      <h1>You said you don't want to do it <em>alone</em>.<br/>So let's not.</h1>
-      <p>You picked the 4-call option. That tells me something: you're serious about this. Not "I'll try it for a week" serious. <em>Actually change my life</em> serious.</p>
+      <p class="hero-kicker">YOU PICKED 4 CALLS</p>
+      <h1>You said you don't want to do it <em>alone</em>.<br/>So let's go all the way.</h1>
+      <p>You chose the 4-call package. That tells me something. You're not "I'll try it for a week" serious. You're <em>actually change my life</em> serious.</p>
       <div class="hero-line"></div>
-      <p style="font-size: 0.95rem; color: rgba(245,241,234,0.5);">Before you check out, let me show you what happens when 4 calls becomes 12 weeks.</p>
+      <p style="font-size: 0.92rem; color: rgba(245,241,234,0.45);">Before you check out, let me show you what happens when 4 calls becomes 12 weeks.</p>
     </div>
   </section>
 
-  <!-- THE PITCH -->
-  <section class="block">
-    <div class="kicker">HERE'S THE DIFFERENCE</div>
-    <h2>4 calls gets you <em>started</em>.<br/>12 weeks gets you <em>transformed</em>.</h2>
-    <p>The workbook teaches you the system. Four calls get you through the first month. But the loop doesn't break in a month. It breaks when the new system becomes who you are, not just something you're trying.</p>
-    <p>That takes 12 weeks. Not because I'm padding the timeline. Because that's how long it takes to rebuild the three systems (brain, body, consciousness) and let the new patterns hardcode themselves into your daily life.</p>
-    <p style="margin-top: 1.5rem; text-align: center; font-size: 1.15rem; color: var(--deep-forest);">This is the difference between <em>resetting</em> and <em>rebuilding</em>.</p>
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="kicker">HERE'S WHAT HAPPENS WITH 4 CALLS</div>
+    <h2>4 calls gets you <em>started</em>.<br/>It doesn't get you <em>transformed</em>.</h2>
+    <p>Week 1: We map your loop. It clicks. Week 2: We install the new system. You feel different. Week 3: The old loop fights back. It always does. Week 4: You're holding steady. We celebrate.</p>
+    <p>Then the calls end. And Week 5 comes.</p>
+    <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--parchment);">The loop doesn't break in 4 weeks. It breaks when the new system becomes <em>who you are</em>, not something you're trying.</p>
+    <p>That takes 12 weeks. Not because I'm padding the timeline. Because that's how long it takes to rebuild the three systems and let the new patterns hardcode themselves into your daily life.</p>
   </section>
 
   <!-- THREE SECTORS -->
   <section class="sectors">
     <div class="kicker">WHAT WE REBUILD</div>
-    <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 400; text-align: center; margin-bottom: 1rem;">All three. Not just <em>one</em>.</h2>
+    <h2>All three. Not just <em>one</em>.</h2>
     <div class="sector-grid">
       <div class="sector-card">
-        <div class="sector-icon">&#9728;</div>
         <h3><em>Life</em></h3>
-        <p>The patterns running your relationships, habits, and identity. We break the ones that hold you back and install the ones that move you forward. This isn't therapy. It's architecture.</p>
+        <p>The patterns running your relationships, habits, and identity. We break the ones holding you back and install the ones that move you forward.</p>
       </div>
       <div class="sector-card">
-        <div class="sector-icon">&#10003;</div>
         <h3><em>Longevity</em></h3>
-        <p>Your body is the foundation everything stands on. We build it to last decades, not weeks. Sleep, energy, nutrition, movement. Not a fitness program. A longevity system.</p>
+        <p>Your body is the foundation. We build it to last decades, not weeks. Sleep, energy, nutrition, movement. A longevity system, not a fitness program.</p>
       </div>
       <div class="sector-card">
-        <div class="sector-icon">&#9650;</div>
         <h3><em>Business</em></h3>
-        <p>Whether you're employed, self-employed, or building something, we create systems for growth that don't depend on motivation. Your business should serve your life, not consume it.</p>
+        <p>Systems and strategy for real growth that don't depend on motivation. Your business should serve your life, not consume it.</p>
       </div>
     </div>
   </section>
@@ -175,95 +153,77 @@
     <div class="structure-inner">
       <div class="kicker">THE STRUCTURE</div>
       <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 400; text-align: center; margin-bottom: 2rem;">12 weeks. <em>Three phases.</em></h2>
-
       <div class="phase">
         <div class="phase-num">01</div>
         <div class="phase-content">
           <h3>Weeks 1-4: <em>Break the Loop</em></h3>
-          <p>We map your patterns, reset your body's baseline, and install the new loop from the workbook. By Week 4, the old pattern is visible and the new one is running.</p>
+          <p>We map your patterns, reset your body's baseline, and install the new loop. By Week 4, the old pattern is visible and the new one is running.</p>
         </div>
       </div>
-
       <div class="phase">
         <div class="phase-num">02</div>
         <div class="phase-content">
           <h3>Weeks 5-8: <em>Build the Systems</em></h3>
-          <p>We take the new loop and scale it across life, longevity, and business. Weekly calls. Real accountability. Systems that run without willpower. By Week 8, you're not trying anymore. You're living it.</p>
+          <p>We take the new loop and scale it across life, longevity, and business. Weekly calls. Real accountability. By Week 8, you're not trying anymore. You're living it.</p>
         </div>
       </div>
-
       <div class="phase">
         <div class="phase-num">03</div>
         <div class="phase-content">
           <h3>Weeks 9-12: <em>Hardcode the Change</em></h3>
-          <p>The final phase isn't about adding more. It's about making the new patterns permanent. We test the system under pressure (real life, real stress) and adjust until it holds. By Week 12, this is just who you are.</p>
+          <p>We test the system under real pressure and adjust until it holds. By Week 12, this is just who you are.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING / CHOOSE -->
+  <!-- PRICING -->
   <section class="pricing">
-    <div class="kicker">CHOOSE YOUR PATH</div>
-    <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 400; margin-bottom: 0.5rem;">Two ways to move <em>forward</em>.</h2>
-    <p style="text-align: center; color: var(--slate-mist); max-width: 500px; margin: 0 auto;">You were heading to checkout for the 4-call package. Here's what changes if you go all in now.</p>
+    <div class="kicker">YOUR CHOICE</div>
+    <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 400; margin-bottom: 0.5rem;">Two ways <em>forward</em>.</h2>
+    <p style="text-align: center; color: var(--slate-mist); max-width: 480px; margin: 0 auto;">You're heading to checkout for the 4-call package at &euro;117. Here's what changes if you go all in.</p>
 
-    <div class="offer-options">
-
-      <!-- Option A: Stick with 4 calls -->
-      <div class="offer-option">
-        <p class="offer-option-title">Stick with <em>4 calls</em></p>
-        <p class="offer-option-desc">The 4-call package you already selected. Workbook + 4 weekly calls. A great start.</p>
-        <p class="offer-option-price">&euro;117</p>
-        <a href="#" class="btn-option btn-option-dark" id="checkout4Calls">Continue with 4 Calls &mdash; &euro;117</a>
-      </div>
-
-      <!-- Option B: Upgrade to 12-week intensive -->
-      <div class="offer-option" style="border-color: var(--warm-gold); background: var(--parchment);">
-        <p class="offer-option-title">Upgrade to the <em>12-Week Intensive</em></p>
-        <p class="offer-option-desc">Everything in the 4-call package, plus 8 more weeks of coaching. Full transformation across life, longevity, and business. Workbook included free.</p>
-        <p class="offer-option-price" style="color: var(--deep-forest);">&euro;1,249 <span style="font-size: 0.9rem; font-weight: 400; color: var(--slate-mist);">(or 3 x &euro;449/month)</span></p>
-        <ul class="price-includes" style="text-align: left; margin: 1rem 0;">
-          <li>12 weekly 1-on-1 calls (60 min each)</li>
-          <li>Life, longevity, and business coaching</li>
-          <li>Workbook included free (no extra &euro;17)</li>
-          <li>WhatsApp + email support between calls</li>
-          <li>All call recordings saved</li>
-          <li>Custom systems built around your life</li>
-          <li>This page's price. After this, it's &euro;2,000.</li>
-        </ul>
-        <a href="#" class="btn-option btn-option-gold" id="checkoutIntensive">Upgrade to 12-Week Intensive &mdash; &euro;1,249</a>
-      </div>
-
+    <div class="price-card">
+      <div class="kicker" style="margin-bottom: 0.8rem;">UPGRADE TO THE 12-WEEK INTENSIVE</div>
+      <div class="price-amount"><span class="price-currency">&euro;</span>1,249</div>
+      <p class="price-note">or 3 x &euro;449/month</p>
+      <ul class="price-includes">
+        <li>12 weekly 1-on-1 calls (60 min each)</li>
+        <li>Life, longevity, and business coaching</li>
+        <li>Workbook included free (no extra &euro;17)</li>
+        <li>WhatsApp + email support between calls</li>
+        <li>All call recordings saved</li>
+        <li>Custom systems built around your life</li>
+        <li>This price only exists on this page. After this, it's &euro;2,000.</li>
+      </ul>
+      <a href="#" class="btn-gold" id="checkoutIntensive">Upgrade to 12-Week Intensive &mdash; &euro;1,249</a>
+      <a href="#" class="btn-dark" id="checkout4Calls">Stick with 4 Calls &mdash; &euro;117</a>
     </div>
 
     <div class="guarantee">
       <h4>14-day money-back guarantee</h4>
-      <p>If we do the first two calls and you don't feel this is the right fit, I'll refund everything. No questions. No friction. I'd rather you find what works than feel locked in.</p>
+      <p>If we do the first two calls and you don't feel this is the right fit, I'll refund everything. No questions. No friction.</p>
     </div>
 
     <div class="skip">
-      <a href="#" id="skipToIntensive">No thanks, I'll stick with the 4-call package for &euro;117.</a>
+      <a href="#" id="skipLink">No thanks, I'll stick with 4 calls for &euro;117.</a>
     </div>
   </section>
 
   <footer>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Kristian Sokol. All rights reserved.</p>
-    </div>
+    <p>&copy; 2026 Kristian Sokol. All rights reserved.</p>
   </footer>
 
   <script>
-    // Stripe checkout will be wired up once products are created
-    document.getElementById('checkout4Calls').addEventListener('click', function(e) {
-      e.preventDefault();
-      alert('Stripe checkout for 4-call package (€117) will be connected here.');
-    });
     document.getElementById('checkoutIntensive').addEventListener('click', function(e) {
       e.preventDefault();
       alert('Stripe checkout for 12-Week Intensive (€1,249) will be connected here.');
     });
-    document.getElementById('skipToIntensive').addEventListener('click', function(e) {
+    document.getElementById('checkout4Calls').addEventListener('click', function(e) {
+      e.preventDefault();
+      alert('Stripe checkout for 4-call package (€117) will be connected here.');
+    });
+    document.getElementById('skipLink').addEventListener('click', function(e) {
       e.preventDefault();
       alert('Stripe checkout for 4-call package (€117) will be connected here.');
     });
