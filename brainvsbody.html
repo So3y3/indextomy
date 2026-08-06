@@ -209,7 +209,7 @@
       <h1>Your brain chases <em>comfort</em>.<br/>Your body needs <em>care</em>.<br/>Your conscious self wants <em>growth</em>.</h1>
       <p class="hero-sub">You don't fail because you lack information. You fail because three parts of you are pulling in different directions. This workbook resets all three in 7 days.</p>
       <div class="hero-cta">
-        <button class="btn-buy" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Get the Workbook for &euro;17</button>
+        <a href="upsell1.html"><button class="btn-buy">Get the Workbook for &euro;17</button></a>
         <span class="btn-buy-note">Instant download &middot; PDF &middot; 30+ pages &middot; No subscription</span>
       </div>
     </div>
@@ -372,7 +372,7 @@
         <li>5 proprietary frameworks and tools</li>
         <li>Lifetime access and updates</li>
       </ul>
-      <button class="btn-buy" id="buyButton" style="width:100%;">Get Instant Access</button>
+      <a href="upsell1.html" style="width:100%;"><button class="btn-buy" id="buyButton" style="width:100%;">Get Instant Access</button></a>
       <p class="price-note" style="margin-top:1rem;">Secure payment via Stripe &middot; 14-day money-back guarantee</p>
     </div>
   </section>
@@ -421,7 +421,7 @@
   <section class="final-cta">
     <h2 class="reveal">The loop doesn't break itself.<br/><em>That's the whole point.</em></h2>
     <p class="reveal">Seven days. Three systems. One reset. For less than the cost of a dinner you won't remember.</p>
-    <button class="btn-buy reveal" style="background:var(--warm-gold);color:white;" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Get the Workbook for &euro;17</button>
+    <a href="upsell1.html"><button class="btn-buy reveal" style="background:var(--warm-gold);color:white;">Get the Workbook for &euro;17</button></a>
   </section>
 
   <footer>
@@ -478,10 +478,6 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    document.getElementById('buyButton').addEventListener('click', function() {
-      // Stripe checkout will be integrated here once the product is created
-      alert('Stripe checkout coming soon. This is where the payment modal will appear.');
-    });
   </script>
 </body>
 </html>
