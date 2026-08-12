@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Voice You Feed — A 7-Day Experiment | Kristian Sokol</title>
+  <meta name="description" content="A guided 7-day experiment for people who know what they want to do, but keep talking themselves out of it. Stop renegotiating your decisions. €17. Instant access." />
+  <link rel="canonical" href="https://www.coachkris.co.uk/thevoiceyoufeed.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Voice You Feed — A 7-Day Experiment to Stop Negotiating With Yourself" />
+  <meta property="og:description" content="You said you'd start tomorrow. Again. Spend 7 days learning why the last promise became negotiable. €17. Instant access." />
+  <meta property="og:image" content="og/og_hero.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.coachkris.co.uk/thevoiceyoufeed.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Voice You Feed — A 7-Day Experiment" />
+  <meta name="twitter:description" content="Stop renegotiating your decisions. A guided 7-day experiment. €17." />
+  <meta name="twitter:image" content="og/og_hero.jpg" />
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --parchment: #F5F1EA;
+      --deep-forest: #1C2823;
+      --warm-gold: #C69E48;
+      --slate-mist: #7A8A85;
+      --sand: #EBE6DA;
+      --sea-glass: #C1CEC9;
+      --teal: #4A7C6F;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-brand: 'Bebas Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--parchment);
+      color: var(--deep-forest);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+
+    /* ─── NAVIGATION (matches main site) ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(28, 40, 35, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 0 rgba(198,158,72,0.15);
+    }
+    nav.scrolled .nav-brand { color: var(--parchment); }
+    nav.scrolled .nav-links a { color: rgba(245,241,234,0.7); }
+    nav.scrolled .nav-links a:hover { color: var(--warm-gold); }
+    nav.scrolled .nav-hamburger span { background: var(--parchment); }
+    .nav-brand {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      text-decoration: none;
+      transition: color 0.4s;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--slate-mist);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--deep-forest); }
+    .nav-cta {
+      background: var(--warm-gold) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600 !important;
+      font-size: 0.875rem !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.85 !important; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--deep-forest);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--deep-forest);
+      color: var(--parchment);
+      padding: 120px 1.5rem 5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-kicker {
+      font-family: var(--font-brand);
+      letter-spacing: 4px;
+      color: var(--warm-gold);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1.05;
+      max-width: 720px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { color: var(--warm-gold); font-style: italic; }
+    .hero-sub {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      color: var(--sea-glass);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.45;
+    }
+    .hero p.hero-desc {
+      font-size: 1rem;
+      color: rgba(245,241,234,0.8);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--warm-gold);
+      color: var(--deep-forest);
+      border: none;
+      border-radius: 9999px;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      box-shadow: 0 8px 30px rgba(198,158,72,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(198,158,72,0.4);
+    }
+    .cta-btn .cta-sub {
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
+      margin-top: 2px;
+    }
+    .hero-microcopy {
+      font-size: 0.82rem;
+      color: rgba(245,241,234,0.5);
+      margin-top: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* Hero product mockup */
+    .hero-mockup {
+      margin-top: 3rem;
+      max-width: 600px;
+      width: 100%;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.3));
+    }
+    .hero-mockup img { width: 100%; height: auto; }
+
+    /* ─── SECTION SYSTEM ─── */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .section.wide { max-width: 900px; }
+    .section.full { max-width: 100%; padding-left: 0; padding-right: 0; }
+
+    .section-eyebrow {
+      font-family: var(--font-brand);
+      letter-spacing: 3px;
+      font-size: 0.78rem;
+      color: var(--warm-gold);
+      margin-bottom: 1rem;
+    }
+    .section h2 {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .section h2 em { color: var(--warm-gold); font-style: italic; }
+    .section h3 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .section h3 em { color: var(--warm-gold); font-style: italic; }
+    .section p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #2E3934;
+      margin-bottom: 1.25rem;
+    }
+    .section p.lead {
+      font-size: 1.1rem;
+      color: var(--slate-mist);
+      line-height: 1.6;
+    }
+
+    /* Dark section */
+    .section.dark {
+      background: var(--deep-forest);
+      color: var(--parchment);
+      max-width: 100%;
+      padding: 5rem 1.5rem;
+    }
+    .section.dark .inner { max-width: 680px; margin: 0 auto; }
+    .section.dark .section-eyebrow { color: var(--warm-gold); }
+    .section.dark h2 { color: var(--parchment); }
+    .section.dark h2 em { color: var(--warm-gold); }
+    .section.dark p { color: rgba(245,241,234,0.82); }
+
+    /* Signature statement (large) */
+    .sig-statement {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      line-height: 1.25;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .sig-statement.dark { color: var(--parchment); }
+    .sig-statement.dark em { color: var(--warm-gold); }
+    .sig-statement.light em { color: var(--warm-gold); }
+    .sig-statement .sig-bar {
+      width: 50px;
+      height: 3px;
+      background: var(--warm-gold);
+      margin: 1.5rem auto 0;
+    }
+
+    /* Full-width dark sig */
+    .full-sig {
+      background: var(--deep-forest);
+      color: var(--parchment);
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .full-sig .sig-text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      line-height: 1.25;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .full-sig .sig-text em { color: var(--warm-gold); }
+    .full-sig .sig-bar {
+      width: 50px;
+      height: 3px;
+      background: var(--warm-gold);
+      margin: 1.5rem auto 0;
+    }
+
+    /* Phase cards */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .phase-card {
+      background: white;
+      border: 1px solid var(--sand);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .phase-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(28,40,35,0.08);
+    }
+    .phase-num {
+      font-family: var(--font-brand);
+      letter-spacing: 2px;
+      font-size: 0.72rem;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .phase-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .phase-card h3 em { color: var(--warm-gold); font-style: italic; }
+    .phase-card p { font-size: 0.92rem; line-height: 1.65; margin-bottom: 0.5rem; }
+    .phase-breakthrough {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--teal);
+      margin-top: 0.75rem;
+      padding-left: 14px;
+      border-left: 3px solid var(--sea-glass);
+    }
+
+    /* Day 7 mapped list */
+    .mapped-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .mapped-item {
+      background: var(--sand);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+    }
+    .mapped-label {
+      font-family: var(--font-brand);
+      letter-spacing: 1.5px;
+      font-size: 0.68rem;
+      color: var(--warm-gold);
+      margin-bottom: 0.4rem;
+    }
+    .mapped-item p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin: 0;
+      color: #2E3934;
+    }
+
+    /* Product showcase */
+    .showcase {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: var(--sand);
+    }
+    .showcase-inner { max-width: 700px; margin: 0 auto; }
+    .showcase img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 12px 48px rgba(28,40,35,0.15);
+      margin: 1.5rem 0;
+    }
+    .showcase p {
+      font-size: 0.9rem;
+      color: var(--slate-mist);
+      max-width: 480px;
+      margin: 0.5rem auto;
+    }
+
+    /* Interior pages preview */
+    .interior-preview {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .interior-preview img {
+      width: 200px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 6px 24px rgba(28,40,35,0.1);
+    }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--sea-glass);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--deep-forest);
+      list-style: none;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--warm-gold); }
+    .faq-q .faq-toggle {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s;
+      color: var(--warm-gold);
+      font-size: 1.3rem;
+      font-weight: 300;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 400px;
+      padding-bottom: 1.25rem;
+    }
+    .faq-a p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #2E3934;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Final CTA section */
+    .final-cta {
+      background: var(--deep-forest);
+      color: var(--parchment);
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .final-cta-inner { max-width: 560px; margin: 0 auto; }
+    .final-cta h2 {
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: clamp(1.8rem, 5vw, 2.4rem);
+      color: var(--parchment);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .final-cta h2 em { color: var(--warm-gold); font-style: italic; }
+    .final-cta p {
+      color: rgba(245,241,234,0.7);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .final-cta .cta-btn { margin-bottom: 1rem; }
+    .final-cta .hero-microcopy { color: rgba(245,241,234,0.45); }
+    .final-tagline {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--warm-gold);
+      margin-top: 2rem;
+    }
+
+    /* Quote block */
+    .quote-block {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--slate-mist);
+      border-left: 3px solid var(--sea-glass);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      line-height: 1.5;
+    }
+
+    /* Story box */
+    .story-box {
+      background: var(--sand);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0;
+    }
+    .story-box-label {
+      font-family: var(--font-brand);
+      letter-spacing: 2px;
+      font-size: 0.68rem;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .story-box p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+      color: #2E3934;
+    }
+    .story-box p:last-child { margin-bottom: 0; }
+
+    /* Safety note */
+    .safety {
+      background: rgba(198,158,72,0.06);
+      border: 1px solid rgba(198,158,72,0.2);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .safety-label {
+      font-family: var(--font-brand);
+      letter-spacing: 2px;
+      font-size: 0.65rem;
+      color: var(--warm-gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .safety p { font-size: 0.88rem; margin-bottom: 0; line-height: 1.6; }
+
+    /* CTA section mid-page */
+    .mid-cta {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Roadmap image */
+    .roadmap-img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(28,40,35,0.1);
+    }
+
+    /* ─── FOOTER (matches main site) ─── */
+    footer {
+      background: rgba(235,230,218,0.5);
+      border-top: 1px solid var(--sea-glass);
+      padding: 4rem 2rem 2rem;
+      margin-top: 0;
+    }
+    .footer-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sea-glass);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--deep-forest);
+      margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col a {
+      color: var(--slate-mist);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--warm-gold); }
+    .footer-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--deep-forest);
+      margin-bottom: 0.5rem;
+    }
+    .footer-accred-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.1rem;
+    }
+    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-social-link:hover { color: var(--warm-gold); }
+    .footer-tagline {
+      font-size: 0.825rem;
+      color: var(--slate-mist);
+      line-height: 1.6;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: var(--slate-mist); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(28,40,35,0.97);
+        backdrop-filter: blur(12px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid rgba(198,158,72,0.2);
+        gap: 1.25rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { color: rgba(245,241,234,0.8); }
+      .nav-links a:hover { color: var(--warm-gold); }
+      .nav-hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .mapped-grid { grid-template-columns: 1fr; }
+      .section { padding: 4rem 1.25rem; }
+      .hero { padding: 100px 1.25rem 3rem; }
+      .interior-preview img { width: 160px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0 1.25rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .cta-btn { padding: 0.85rem 1.75rem; font-size: 0.9rem; }
+      .interior-preview { gap: 0.5rem; }
+      .interior-preview img { width: 140px; }
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-brand">Kristian Sokol</a>
+    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#story" onclick="closeMenu()">About</a></li>
+      <li><a href="index.html#pillars" onclick="closeMenu()">How I Help</a></li>
+      <li><a href="index.html#contact" onclick="closeMenu()">Contact</a></li>
+      <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
+      <li><a href="index.html#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-kicker">THE VOICE YOU FEED</div>
+    <h1>You Said You'd Start <em>Tomorrow.</em><br>Again.</h1>
+    <p class="hero-sub">Maybe tomorrow really will be different.<br>But before you make yourself another promise, spend 7 days learning why the last one became negotiable.</p>
+    <p class="hero-desc">A guided 7-day experiment for people who know what they want to do, but somehow keep talking themselves out of it when the moment comes.</p>
+
+    <!-- CTA: Payment destination to be configured. Placeholder for now. -->
+    <a href="#start" class="cta-btn" id="hero-cta">
+      START MY 7-DAY EXPERIMENT
+      <span style="font-size:1.15rem;font-weight:700;">€17</span>
+      <span class="cta-sub">7 days &middot; Guided digital workbook &middot; Instant access</span>
+    </a>
+    <p class="hero-microcopy">Instant access &middot; Start whenever you're ready</p>
+
+    <div class="hero-mockup">
+      <img src="og/og_hero.jpg" alt="The Voice You Feed workbook cover" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- RECOGNITION: "You meant it when you said it" -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">YOU MEANT IT WHEN YOU SAID IT</div>
+    <p>This morning, you really were going to exercise.</p>
+    <p>You really were going to eat differently.</p>
+    <p>You really were going to put the phone down earlier.</p>
+    <p>Start the project. Go for the walk. Get to bed on time. Do the thing you've been putting off.</p>
+    <p>And then the moment came.</p>
+
+    <div class="quote-block">"I'm tired."<br>"I've done enough today."<br>"One won't matter."<br>"I'll do it properly tomorrow."<br>"I deserve this."</div>
+
+    <p>And somehow... the decision you were completely certain about this morning became negotiable by tonight.</p>
+    <p>So you make another promise. Tomorrow.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SIGNATURE: What if you don't keep changing your mind? -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="full-sig">
+    <div class="sig-text">What if you don't keep <em>changing your mind?</em></div>
+    <div class="sig-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- THE PATTERN -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">THE PATTERN</div>
+    <p>What if you keep renegotiating decisions once they become uncomfortable?</p>
+    <p>That's the pattern I want you to spend seven days looking for.</p>
+    <p>Because the strange thing about this negotiation is that it doesn't arrive sounding like an enemy. It sounds exactly like you. Reasonable. Convincing. Sometimes even responsible.</p>
+    <p>And if you never learn to recognise the moment it starts, it's incredibly easy to mistake the negotiation for what you genuinely decided you wanted.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SAFETY NUANCE -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">THIS ISN'T ABOUT IGNORING YOURSELF</div>
+    <p>Sometimes circumstances really do change. Sometimes you're genuinely exhausted. Sometimes you're hungry. Sometimes you need recovery. Sometimes the intelligent decision is to stop, adjust or change the plan.</p>
+    <p>That's why this isn't about blindly forcing yourself through everything. It's about learning to ask one much better question:</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SIGNATURE: New evidence or new argument -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="full-sig">
+    <div class="sig-text">Is there <em>new evidence</em><br>or just a <em>new argument?</em></div>
+    <div class="sig-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- KRIS'S STORY -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">WHY I CREATED THIS</div>
+    <p>I've become fascinated by what happens in the space between making a decision and renegotiating it. I've experienced it myself.</p>
+
+    <div class="story-box">
+      <span class="story-box-label">MY EXPERIENCE</span>
+      <p>During one personal challenge, I'd made a clear decision about what I was going to do. Then discomfort arrived. And suddenly my own thoughts became an incredibly persuasive lawyer:</p>
+      <p>"You've done enough. Try again another time. You deserve something. You've already proved yourself."</p>
+      <p>What struck me wasn't that these thoughts were ridiculous. They sounded reasonable. That was the disturbing part: the voice trying to change my decision sounded exactly like me.</p>
+    </div>
+
+    <p>That experience left me with an idea I haven't been able to ignore since:</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SIGNATURE: Not every thought deserves to become a decision -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="full-sig">
+    <div class="sig-text">Not every thought deserves<br>to become a <em>decision.</em></div>
+    <div class="sig-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- THE GOAL -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <p>The goal isn't to eliminate those thoughts. It's to become better at noticing them, checking them, and deciding consciously which ones actually get your vote.</p>
+    <p>That's what we're going to practise together.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SPEND 7 DAYS WITH ME -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">SPEND 7 DAYS WITH ME</div>
+    <p>Not seven days reading another self-improvement ebook. Not another giant habit system you'll abandon next Monday. And not seven days trying to become perfect.</p>
+    <p>For one week, I'll give you a guided experiment that helps you study your own negotiation pattern in your actual life.</p>
+    <p>Here's the journey:</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- 3 PHASES -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section wide">
+    <div class="phase-grid">
+
+      <div class="phase-card">
+        <div class="phase-num">PHASE 1</div>
+        <h3>Catch the <em>Voice</em></h3>
+        <p>Start noticing the moment your original decision becomes negotiable. You'll identify when it tends to happen, what triggers it and the arguments it repeatedly uses.</p>
+        <div class="phase-breakthrough">The first breakthrough is surprisingly simple: "Wait... I do this all the time."</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">PHASE 2</div>
+        <h3>Stop Reopening the <em>Decision</em></h3>
+        <p>Once you can hear it, we'll start getting ahead of it. You'll practise deciding while you're clear, predicting the arguments likely to appear later, and checking whether circumstances genuinely changed.</p>
+        <p>You'll work with ideas including: Decide Before You Negotiate. State Before Story. And: Is There New Evidence or Just a New Argument?</p>
+        <div class="phase-breakthrough">The goal isn't rigid discipline. It's making better decisions about your decisions.</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-num">PHASE 3</div>
+        <h3>Build Your <em>Playbook</em></h3>
+        <p>Then we take it out of theory. You'll test one meaningful decision you've repeatedly negotiated away and see what actually happens when you respond differently.</p>
+        <p>By the end of the seven days, you'll turn what you've discovered into your own:</p>
+        <div class="phase-breakthrough">NEGOTIATION PLAYBOOK. Not my rules. Yours.</div>
+      </div>
+
+    </div>
+
+    <!-- Roadmap visual -->
+    <img src="https://base44.app/api/apps/6a35178fbcf93aec46a697fa/files/mp/public/6a35178fbcf93aec46a697fa/e4a6e0480_roadmap.png" alt="7-Day Roadmap" class="roadmap-img" loading="lazy" />
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BY DAY 7 MAPPED -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">BY DAY 7, YOU'LL HAVE MAPPED:</div>
+    <div class="mapped-grid">
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR #1 TRIGGER</div>
+        <p>When you're most likely to start negotiating.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR #1 NEGOTIATION</div>
+        <p>The argument that repeatedly gets you.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR CLEAR-HEADED DECISION</div>
+        <p>What you actually wanted before the negotiation arrived.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR EVIDENCE CRITERIA</div>
+        <p>What would genuinely justify changing the decision.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR MOST COMMON ARGUMENTS</div>
+        <p>So they become easier to recognise next time.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR PRE-DECISIONS</div>
+        <p>What you want to remember when the predictable moment arrives.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR WARNING SIGNS</div>
+        <p>The clues that tell you you're beginning to drift.</p>
+      </div>
+      <div class="mapped-item">
+        <div class="mapped-label">YOUR RETURN RULE</div>
+        <p>So one imperfect decision doesn't automatically become another abandoned attempt.</p>
+      </div>
+    </div>
+    <div class="mapped-item" style="margin-top:1rem;background:rgba(198,158,72,0.08);border:1px solid rgba(198,158,72,0.2);">
+      <div class="mapped-label">YOUR NEXT MOVE</div>
+      <p>The smallest action that puts you back in the decision.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- NOT ABOUT PERFECTION -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section dark">
+    <div class="inner">
+      <div class="section-eyebrow">THIS ISN'T ABOUT A PERFECT 7-DAY STREAK</div>
+      <p>Actually, if you mess up during the week... good. Now we have something real to look at.</p>
+      <p>The experiment isn't ruined because you ate the snack, skipped the walk, stayed up late, procrastinated or ignored something you'd planned. That's exactly where the interesting part begins: What happened between the decision and the behaviour?</p>
+      <p>You don't restart. You don't punish yourself. You collect the evidence.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SIGNATURE: Progress is not only the streak -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="full-sig" style="padding-top:0;">
+    <div class="sig-text">Progress is not only the <em>streak.</em><br>It's also how quickly you <em>notice and return.</em></div>
+    <div class="sig-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- WHAT IF THIS ISN'T JUST WHO YOU ARE? -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section">
+    <div class="section-eyebrow">WHAT IF THIS ISN'T JUST WHO YOU ARE?</div>
+    <p>Maybe you've said some version of these things enough times that you've started believing them:</p>
+
+    <div class="quote-block">"I never stick to anything."<br>"I have no discipline."<br>"I always fall back into the same patterns."<br>"This is just what I'm like."</div>
+
+    <p>I'm not going to spend seven days telling you that's false. I'd rather help you test it.</p>
+    <p>Catch the negotiation. Protect one decision. Choose differently once. See what happens.</p>
+    <p>Because confidence without evidence is just another nice idea.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- SIGNATURE: Capability needs evidence -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="full-sig">
+    <div class="sig-text"><em>Capability</em> needs <em>evidence.</em></div>
+    <div class="sig-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- CAPABILITY CONTINUED -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="section" style="padding-top:2rem;">
+    <p>And seven days is enough time to start collecting some.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PRODUCT SHOWCASE -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="showcase">
+    <div class="showcase-inner">
+      <div class="section-eyebrow">THE VOICE YOU FEED</div>
+      <h3 style="font-family:var(--font-heading);font-size:1.6rem;font-weight:500;margin-bottom:0.5rem;">A 7-Day Experiment to Stop Negotiating With Yourself</h3>
+      <p>You'll get immediate access to the complete guided digital workbook and your standalone Negotiation Playbook. You can complete it digitally or print it and write by hand.</p>
+
+      <!-- Interior pages preview -->
+      <div class="interior-preview">
+        <img src="https://base44.app/api/apps/6a35178fbcf93aec46a697fa/files/mp/public/6a35178fbcf93aec46a697fa/facea8c74_day1.png" alt="Day 1 worksheet page" loading="lazy" />
+        <img src="https://base44.app/api/apps/6a35178fbcf93aec46a697fa/files/mp/public/6a35178fbcf93aec46a697fa/8381a08ac_day3.png" alt="Day 3 worksheet page" loading="lazy" />
+        <img src="https://base44.app/api/apps/6a35178fbcf93aec46a697fa/files/mp/public/6a35178fbcf93aec46a697fa/294f05930_sig3.png" alt="Signature statement page" loading="lazy" />
+      </div>
+
+      <p>This isn't asking you to rebuild your entire life next Monday. It's asking you to spend seven days becoming much more interested in what happens after you make yourself a promise.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PRICE + CTA -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="mid-cta" id="start">
+    <div style="font-family:var(--font-heading);font-size:3rem;font-weight:600;color:var(--deep-forest);margin-bottom:0.5rem;">€17</div>
+    <a href="#" class="cta-btn" id="mid-cta" style="background:var(--deep-forest);color:var(--parchment);box-shadow:0 8px 30px rgba(28,40,35,0.2);">
+      START MY 7-DAY EXPERIMENT
+      <span style="font-size:1.15rem;font-weight:700;color:var(--warm-gold);">€17</span>
+      <span class="cta-sub">Instant access &middot; Start whenever you're ready</span>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PLAYBOOK SHOWCASE -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="showcase" style="background:var(--deep-forest);">
+    <div class="showcase-inner">
+      <div class="section-eyebrow" style="color:var(--warm-gold);">THE TANGIBLE DELIVERABLE</div>
+      <h3 style="font-family:var(--font-heading);font-size:1.8rem;font-weight:500;color:var(--parchment);margin-bottom:1rem;">Your <em style="color:var(--warm-gold);font-style:italic;">Negotiation Playbook</em></h3>
+      <p style="color:rgba(245,241,234,0.7);">By the end of the seven days, everything you've discovered becomes a single page you can return to. Not my rules. Yours.</p>
+
+      <img src="https://base44.app/api/apps/6a35178fbcf93aec46a697fa/files/mp/public/6a35178fbcf93aec46a697fa/6b8c2a2a5_playbook.png" alt="The Negotiation Playbook worksheet" style="max-width:380px;border:none;box-shadow:0 16px 60px rgba(0,0,0,0.4);background:var(--deep-forest);" loading="lazy" />
+
+      <p style="color:rgba(245,241,234,0.55);font-size:0.85rem;">Keep this. Print this. Screenshot this. Return to it.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FAQ -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="faq-section">
+    <div class="section-eyebrow" style="text-align:center;">COMMON QUESTIONS</div>
+    <h2 style="font-family:var(--font-heading);font-size:1.8rem;font-weight:500;text-align:center;margin-bottom:2rem;">Before You Start</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        "But I already know what I should be doing."
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        <p>Perfect. That's exactly why this exists. We're not spending seven days giving you another list of things you "should" do. We're studying why the things you already decided to do become negotiable later.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        "Is this another habit program?"
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        <p>No. You can use what you learn around food, movement, sleep, work, phone use, procrastination or another decision you repeatedly reopen. We're not installing an enormous new routine. We're studying the space between: "I'm going to do this." and "Actually... maybe tomorrow."</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        "What if I fail during the seven days?"
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        <p>Don't restart. A difficult day is data. The objective isn't perfection. It's becoming better at noticing what happened and returning sooner.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        "Will this make me disciplined in seven days?"
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-a">
+        <p>No. And I wouldn't trust someone who promised you that.</p>
+        <p>The goal is smaller, and much more useful. By the end of the experiment, I want you to recognise your recurring negotiation much earlier, understand the arguments it uses, know what genuinely counts as new evidence, and have a personal playbook for responding when it appears.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FINAL CTA -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <div class="section-eyebrow" style="color:var(--warm-gold);">YOU CAN START TOMORROW</div>
+      <h2>Seriously.<br>But this time, don't make tomorrow another <em>promise.</em></h2>
+      <p>Prepare for the negotiation that's coming with it. Spend seven days with me. Listen closely. Catch yourself doing it. Test what happens when you choose differently. Then decide what you're actually capable of from the evidence.</p>
+
+      <a href="#" class="cta-btn" id="final-cta">
+        START MY 7-DAY EXPERIMENT
+        <span style="font-size:1.15rem;font-weight:700;">€17</span>
+        <span class="cta-sub">Instant access &middot; Start whenever you're ready</span>
+      </a>
+      <p class="hero-microcopy">THE VOICE YOU FEED</p>
+      <p class="final-tagline">Seven days. One playbook. No perfection required.</p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand-name">Kristian Sokol</p>
+        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
+        <div class="footer-accred-row">
+          <img src="accreditations/cpd.png" alt="CPD Excellence Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
+          <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/iphm.png" alt="IPHM Accredited" loading="lazy" width="165" height="70" style="width:auto;height:56px;" />
+          <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#story">About</a></li>
+          <li><a href="index.html#pillars">How I Help</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Find Me</h4>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;color:var(--slate-mist);font-size:0.875rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          NI, UK, ES
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;color:var(--slate-mist);font-size:0.875rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Available worldwide online
+        </p>
+        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;color:var(--slate-mist);font-size:0.875rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+          <a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Kristian Sokol. All rights reserved.</p>
+      <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      navbar.classList.add('scrolled');
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('navLinks').classList.remove('open');
+    }
+
+    // FAQ accordions
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const wasOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+      // Open this one if it was closed
+      if (!wasOpen) item.classList.add('open');
+    }
+
+    // CTA placeholder: Replace '#' with actual Stripe/payment URL when configured
+    document.querySelectorAll('.cta-btn').forEach(btn => {
+      if (btn.getAttribute('href') === '#' || btn.getAttribute('href') === '#start') {
+        btn.addEventListener('click', function(e) {
+          // For now, scroll to the price section or show a message
+          // When payment is configured, replace with actual checkout URL
+          e.preventDefault();
+          document.getElementById('start').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
