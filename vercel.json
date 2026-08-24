@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/thevoiceyoufeed.html",
+      "destination": "/thevoice.html",
+      "permanent": true
+    },
+    {
+      "source": "/thevoiceyoufeed",
+      "destination": "/thevoice.html",
+      "permanent": true
+    }
+  ]
+}
