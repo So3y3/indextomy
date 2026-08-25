@@ -139,7 +139,7 @@
     }
 
     /* Hero mockup (stacked workbook) */
-    .hero-mockup { position: relative; perspective: 1200px; }
+    .hero-visual { position: relative; perspective: 1200px; }
     .mockup-stack { position: relative; width: 100%; max-width: 380px; margin: 0 auto; }
     .mockup-page { position: absolute; top: 0; left: 0; width: 100%; border-radius: 6px; overflow: hidden; }
     .mockup-page.back  { transform: translate(24px, 36px) rotate(4deg); opacity: 0.35; z-index: 1; }
@@ -526,10 +526,10 @@
       .nav-links.open { display: flex; }
       .nav-links.open a { color: var(--parchment); }
       .nav-hamburger { display: flex; }
-      .hero { padding: 80px 1.25rem 3rem; min-height: auto; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-      .hero-sub, .hero-desc { margin-left: auto; margin-right: auto; }
-      .hero-mockup { max-width: 280px; }
+      .hero { padding: 90px 1.25rem 2.5rem; min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
+      .hero-sub, .hero-desc { margin-left: 0; margin-right: 0; }
+      .hero-visual { max-width: 280px; }
       .mockup-stack { max-width: 280px; }
       .phase-journey { grid-template-columns: 1fr; gap: 2rem; }
       .phase-card { padding: 2rem 1.25rem; }
@@ -585,7 +585,7 @@
         <a href="#start" class="cta-btn">START MY 7-DAY JOURNEY — $17</a>
         <p class="cta-meta">7 days &middot; 22-page guided workbook &middot; Instant access</p>
       </div>
-      <div class="hero-mockup reveal reveal-delay-1">
+      <div class="hero-visual reveal reveal-delay-1">
         <div class="mockup-stack">
           <div class="mockup-page back"><img src="vyf/day3.png" alt="Workbook interior page" loading="lazy" /></div>
           <div class="mockup-page mid"><img src="vyf/day1.png" alt="Day 1 worksheet preview" loading="lazy" /></div>

@@ -70,19 +70,30 @@
   .funnel-bar .fb-seg { flex: 1; background: rgba(198,158,72,0.15); }
   .funnel-bar .fb-seg.done { background: var(--warm-gold); }
 
-  /* ─── HERO (dark, bold, offer-forward) ─── */
-  .hero { padding: 130px 1.5rem 3rem; text-align: center; position: relative; }
-  .hero-intro { max-width: 620px; margin: 0 auto; }
-  .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1rem; }
-  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.14; margin-bottom: 1.3rem; }
+  /* ─── HERO (dark, bold, offer-forward - shared grid w/ VYF & Alignment) ─── */
+  .hero { background: var(--deep-forest); color: var(--parchment); min-height: 100vh; display: flex; align-items: center; padding: 90px 3rem 3rem; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; max-width: 1200px; margin: 0 auto; width: 100%; align-items: center; }
+  .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.2rem; }
+  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2.2rem, 5.5vw, 3.6rem); line-height: 1.12; margin-bottom: 1.5rem; }
   .hero h1 em { color: var(--warm-gold); font-style: italic; font-weight: 500; }
-  .hero-sub { font-size: clamp(0.95rem, 2.2vw, 1.1rem); color: rgba(245,241,234,0.7); line-height: 1.6; max-width: 500px; margin: 0 auto 0.4rem; }
-  .hero-stat-row { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(198,158,72,0.12); }
-  .hero-stat { text-align: center; }
+  .hero-sub { font-size: clamp(0.95rem, 2.2vw, 1.1rem); color: rgba(245,241,234,0.7); line-height: 1.6; max-width: 460px; margin-bottom: 2rem; }
+  .hero-stat-row { display: flex; justify-content: flex-start; gap: 2.5rem; padding-top: 1.75rem; border-top: 1px solid rgba(198,158,72,0.12); }
+  .hero-stat { text-align: left; }
   .hero-stat-num { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--warm-gold); line-height: 1; }
   .hero-stat-label { font-size: 0.7rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; line-height: 1.4; }
+  /* Hero visual - 3-step roadmap (mirrors VYF's workbook mockup / Alignment's compass) */
+  .hero-visual { display: flex; align-items: center; justify-content: center; }
+  .mini-roadmap { position: relative; display: flex; flex-direction: column; gap: 2.75rem; padding: 1rem 0; }
+  .mini-roadmap::before { content: ''; position: absolute; left: 21px; top: 28px; bottom: 28px; width: 2px; background: rgba(198,158,72,0.25); }
+  .roadmap-step { display: flex; align-items: center; gap: 1.1rem; position: relative; z-index: 1; }
+  .roadmap-num { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--warm-gold); background: var(--deep-forest); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--warm-gold); }
+  .roadmap-label { font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; color: var(--parchment); }
+  @media (max-width: 768px) {
+    .hero { padding: 90px 1.25rem 2.5rem; min-height: auto; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: left; }
+    .hero-visual { justify-content: flex-start; }
+  }
   @media (max-width: 600px) {
-    .hero { padding: 100px 1.3rem 2rem; }
     .hero-stat-row { gap: 1.2rem; }
     .hero-stat-num { font-size: 1.5rem; }
   }
@@ -162,22 +173,31 @@
 <!-- HERO - bold, direct, offer-forward -->
 <!-- ═══════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-intro">
-    <p class="hero-kicker reveal">ONE LAST DECISION</p>
-    <h1 class="reveal reveal-delay-1">You've chosen the work.<br>Now let me make sure it <em>actually happens.</em></h1>
-    <p class="hero-sub reveal reveal-delay-2">73% of self-guided workbooks never get finished. Day 3 is where most people quietly stop. Three sessions with me makes sure that's not you.</p>
-    <div class="hero-stat-row reveal reveal-delay-3">
-      <div class="hero-stat">
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">one-on-one<br>sessions with Kris</div>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="hero-kicker reveal">ONE LAST DECISION</p>
+      <h1 class="reveal reveal-delay-1">You've chosen the work.<br>Now let me make sure it <em>actually happens.</em></h1>
+      <p class="hero-sub reveal reveal-delay-2">73% of self-guided workbooks never get finished. Day 3 is where most people quietly stop. Three sessions with me makes sure that's not you.</p>
+      <div class="hero-stat-row reveal reveal-delay-3">
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">one-on-one<br>sessions with Kris</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$99</div>
+          <div class="hero-stat-label">total incl. both<br>workbooks</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">$252</div>
+          <div class="hero-stat-label">saved vs.<br>booking separately</div>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">$99</div>
-        <div class="hero-stat-label">total incl. both<br>workbooks</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">$252</div>
-        <div class="hero-stat-label">saved vs.<br>booking separately</div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="mini-roadmap">
+        <div class="roadmap-step"><span class="roadmap-num">1</span><span class="roadmap-label">See the pattern</span></div>
+        <div class="roadmap-step"><span class="roadmap-num">2</span><span class="roadmap-label">Build the conditions</span></div>
+        <div class="roadmap-step"><span class="roadmap-num">3</span><span class="roadmap-label">Make it stick</span></div>
       </div>
     </div>
   </div>
