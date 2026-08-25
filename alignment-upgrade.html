@@ -210,6 +210,13 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
+  /* Continuous-funnel feel: fade page in, thin step-progress bar */
+  body { animation: fadeInPage 0.45s ease; }
+  @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+  .funnel-bar { position: fixed; top: 70px; left: 0; right: 0; height: 3px; z-index: 999; display: flex; gap: 3px; }
+  .funnel-bar .fb-seg { flex: 1; background: rgba(198,158,72,0.15); }
+  .funnel-bar .fb-seg.done { background: var(--warm-gold); }
+
   @media (max-width: 640px) {
     .quiet, .thought-section, .outcomes-section { padding: 4rem 1.3rem; }
     .statement { padding: 4rem 1.3rem; }
@@ -224,14 +231,13 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="https://www.coachkris.co.uk" class="nav-brand">COACH KRIS</a>
+  <span class="nav-brand">COACH KRIS</span>
   <ul class="nav-links" id="navLinks">
-    <li><a href="https://www.coachkris.co.uk">Home</a></li>
-    <li><a href="#phases">The Journey</a></li>
     <li><a href="#" class="nav-cta" id="navCta" onclick="closeMenu()">Add Alignment</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="funnel-bar" aria-hidden="true"><span class="fb-seg done"></span><span class="fb-seg done"></span><span class="fb-seg"></span></div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- HERO (split layout, dark, like VYF) -->
@@ -471,7 +477,12 @@
   // Funnel: YES goes to coaching upsell (no payment yet), NO goes to VYF Stripe checkout
   var VYF_STRIPE_LINK = 'https://buy.stripe.com/14A7sKcfH9Qk9CRge928802';
 
-  function goCoaching(e) { if (e) e.preventDefault(); window.location.href = 'coaching-upsell.html'; }
+  function goCoaching(e) {
+    if (e) e.preventDefault();
+    document.body.style.transition = 'opacity 0.25s ease';
+    document.body.style.opacity = '0';
+    setTimeout(function() { window.location.href = 'coaching-upsell.html'; }, 220);
+  }
   function goVYFCheckout(e) { e.preventDefault(); window.open(VYF_STRIPE_LINK, '_blank'); }
 
   document.getElementById('heroDecline').addEventListener('click', goVYFCheckout);

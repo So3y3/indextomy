@@ -512,6 +512,13 @@
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
 
+    /* Continuous-funnel feel: fade page in, thin step-progress bar */
+    body { animation: fadeInPage 0.45s ease; }
+    @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+    .funnel-bar { position: fixed; top: 70px; left: 0; right: 0; height: 3px; z-index: 999; display: flex; gap: 3px; }
+    .funnel-bar .fb-seg { flex: 1; background: rgba(198,158,72,0.15); }
+    .funnel-bar .fb-seg.done { background: var(--warm-gold); }
+
     /* ─── ACCESSIBILITY ─── */
     .cta-btn:focus-visible, .faq-q:focus-visible, .nav-hamburger:focus-visible {
       outline: 2px solid var(--warm-gold);
@@ -583,6 +590,7 @@
       <li><a href="index.html#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
     </ul>
   </nav>
+  <div class="funnel-bar" aria-hidden="true"><span class="fb-seg done"></span><span class="fb-seg"></span><span class="fb-seg"></span></div>
 
   <!-- ═══════════════════════════════════════ -->
   <!-- HERO — split layout with workbook mockup -->
@@ -1005,7 +1013,9 @@
       if (href === '#' || href === '#start') {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
-          window.location.href = 'alignment-upgrade.html';
+          document.body.style.transition = 'opacity 0.25s ease';
+          document.body.style.opacity = '0';
+          setTimeout(function() { window.location.href = 'alignment-upgrade.html'; }, 220);
         });
       }
     });

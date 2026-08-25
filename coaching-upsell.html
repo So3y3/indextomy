@@ -60,6 +60,13 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
+  /* Continuous-funnel feel: fade page in, thin step-progress bar */
+  body { animation: fadeInPage 0.45s ease; }
+  @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+  .funnel-bar { position: fixed; top: 70px; left: 0; right: 0; height: 3px; z-index: 999; display: flex; gap: 3px; }
+  .funnel-bar .fb-seg { flex: 1; background: rgba(198,158,72,0.15); }
+  .funnel-bar .fb-seg.done { background: var(--warm-gold); }
+
   /* ─── HERO (light, transitional - the final offer reveal) ─── */
   .hero { background: var(--parchment); color: var(--deep-forest); text-align: center; padding: 120px 1.5rem 3.5rem; position: relative; overflow: hidden; }
   .hero-intro { max-width: 640px; margin: 0 auto; }
@@ -99,34 +106,6 @@
   .skip-link { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.5); text-decoration: none; margin-top: 1rem; padding: 0.4rem; transition: color 0.2s; }
   .skip-link:hover { color: var(--warm-gold); }
 
-  /* ─── SECONDARY OPTIONS ─── */
-  .secondary-options { text-align: center; max-width: 520px; margin: 0 auto; }
-  .secondary-divider { text-align: center; margin: 2.5rem 0 1.5rem; }
-  .secondary-divider span { display: inline-block; font-family: var(--font-brand); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--slate-mist); position: relative; padding: 0 1rem; }
-  .secondary-divider::before, .secondary-divider::after { content: ''; position: absolute; top: 50%; width: 80px; height: 1px; background: rgba(198,158,72,0.2); }
-  .secondary-divider::before { left: 50%; transform: translateX(calc(-50% - 80px)); }
-  .secondary-divider::after { right: 50%; transform: translateX(calc(50% + 80px)); }
-
-  .alt-option { text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(198,158,72,0.15); border-radius: 14px; padding: 1.5rem 1.3rem; margin-bottom: 1rem; transition: border-color 0.3s; }
-  .alt-option:hover { border-color: rgba(198,158,72,0.4); }
-  .alt-option .alt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
-  .alt-option h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--parchment); }
-  .alt-option h3 em { color: var(--warm-gold); }
-  .alt-option .alt-price { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--warm-gold); }
-  .alt-option .alt-desc { font-size: 0.82rem; color: rgba(245,241,234,0.55); margin-bottom: 0.8rem; line-height: 1.5; }
-
-  /* Session selector */
-  .session-selector { background: rgba(198,158,72,0.06); border-radius: 12px; padding: 1.2rem; margin: 0.8rem 0; }
-  .session-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem; }
-  .ss-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--warm-gold); background: transparent; color: var(--parchment); font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-  .ss-btn:hover { background: var(--warm-gold); color: var(--deep-forest); }
-  .ss-count { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--parchment); min-width: 36px; text-align: center; }
-  .ss-info { text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.6); }
-  .ss-info strong { color: var(--warm-gold); }
-
-  .alt-btn { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--warm-gold); text-decoration: none; border: 1px solid rgba(198,158,72,0.3); padding: 0.6rem 1.5rem; border-radius: 9999px; transition: all 0.2s; cursor: pointer; background: transparent; }
-  .alt-btn:hover { background: rgba(198,158,72,0.1); border-color: var(--warm-gold); }
-
   /* ─── WHY IT MATTERS (story) ─── */
   .story { padding: 4rem 1.5rem; max-width: 600px; margin: 0 auto; text-align: center; }
   .story .eyebrow { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.2rem; }
@@ -161,13 +140,13 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="https://www.coachkris.co.uk" class="nav-brand">COACH KRIS</a>
+  <span class="nav-brand">COACH KRIS</span>
   <ul class="nav-links" id="navLinks">
-    <li><a href="https://www.coachkris.co.uk">Home</a></li>
     <li><a href="#offer">Choose Your Bundle</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="funnel-bar" aria-hidden="true"><span class="fb-seg done"></span><span class="fb-seg done"></span><span class="fb-seg done"></span></div>
 
 <!-- ═══════════════════════════════════════ -->
 <!-- HERO — leads with the best offer -->
@@ -177,9 +156,9 @@
     <div class="hero-check reveal">
       <svg viewBox="0 0 24 24"><polyline points="5 13 10 18 19 7"/></svg>
     </div>
-    <p class="hero-kicker reveal reveal-delay-1">YOUR VERY LAST OFFER</p>
-    <h1 class="reveal reveal-delay-1">You've locked in <em>The Voice You Feed</em> and <em>Alignment.</em> That's absolutely amazing.</h1>
-    <p class="hero-sub reveal reveal-delay-2">Here's my very last and best offer: add 3 one-on-one coaching sessions with me, so it doesn't just stay a plan - it actually happens.</p>
+    <p class="hero-kicker reveal reveal-delay-1">ONE HONEST QUESTION</p>
+    <h1 class="reveal reveal-delay-1">Can you actually do this <em>on your own?</em></h1>
+    <p class="hero-sub reveal reveal-delay-2">If yes - go for it. I'd genuinely love to hear how you get on. But if you'd like some extra support to keep you on track, here's my very last and best offer.</p>
   </div>
 </section>
 
@@ -207,30 +186,6 @@
     <a href="#" class="skip-link" id="skipCoaching">No thanks, purchase VYF and Alignment now</a>
   </div>
 
-  <!-- ═══ SECONDARY OPTIONS ═══ -->
-  <div class="secondary-options reveal reveal-delay-3">
-    <div class="secondary-divider"><span>OR CHOOSE DIFFERENTLY</span></div>
-
-    <!-- Custom sessions -->
-    <div class="alt-option">
-      <div class="alt-header">
-        <h3>Pick your <em>own</em> number of sessions</h3>
-        <span class="alt-price">$30 each</span>
-      </div>
-      <p class="alt-desc">Prefer 1 or 2 sessions instead of 3? $30 per session instead of the usual $85.</p>
-      <div class="session-selector">
-        <div class="session-controls">
-          <button class="ss-btn" id="ssMinus">-</button>
-          <span class="ss-count" id="ssCount">1</span>
-          <button class="ss-btn" id="ssPlus">+</button>
-        </div>
-        <p class="ss-info" id="ssPriceDisplay">1 session at <strong>$30</strong> each (save $55)</p>
-        <p class="ss-info" style="margin-top:0.4rem;" id="ssTotalDisplay">Total: VYF + Alignment + 1 session = <strong>$84</strong></p>
-      </div>
-      <button class="alt-btn" id="checkoutSessions">Check out - $84</button>
-      <a href="#" class="skip-link" id="skipSessions" style="margin-top:0.8rem;">No thanks, continue with VYF + Alignment only</a>
-    </div>
-  </div>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
@@ -285,43 +240,12 @@
   // ─── Stripe Payment Links ───
   var STRIPE_VYF_ALI = 'https://buy.stripe.com/6oU28q2F70fKdT72nj28804';
   var STRIPE_VYF_ALI_3X = 'https://buy.stripe.com/eVqeVcdjLd2wcP34vr28805';
-  var STRIPE_SESSIONS = 'https://buy.stripe.com/5kQ00igvX2nSaGV5zv28806';
-
-  // ─── Session selector ───
-  var sessionCount = 1;
-  var ssCount = document.getElementById('ssCount');
-  var ssPriceDisplay = document.getElementById('ssPriceDisplay');
-  var ssTotalDisplay = document.getElementById('ssTotalDisplay');
-  var sessionsBtn = document.getElementById('checkoutSessions');
-
-  function updateSessionDisplay() {
-    var savings = (85 - 30) * sessionCount;
-    ssCount.textContent = sessionCount;
-    ssPriceDisplay.innerHTML = sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' at <strong>$30</strong> each (save $' + savings + ')';
-    var total = 54 + (30 * sessionCount);
-    ssTotalDisplay.innerHTML = 'Total: VYF + Alignment + ' + sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' = <strong>$' + total + '</strong>';
-    sessionsBtn.textContent = 'Check out - $' + total;
-  }
-
-  document.getElementById('ssMinus').addEventListener('click', function() {
-    if (sessionCount > 1) { sessionCount--; updateSessionDisplay(); }
-  });
-  document.getElementById('ssPlus').addEventListener('click', function() {
-    if (sessionCount < 10) { sessionCount++; updateSessionDisplay(); }
-  });
 
   // ─── Checkout buttons ───
   document.getElementById('checkoutBundle').addEventListener('click', function() {
     window.open(STRIPE_VYF_ALI_3X, '_blank');
   });
-  document.getElementById('checkoutSessions').addEventListener('click', function() {
-    window.open(STRIPE_SESSIONS, '_blank');
-  });
   document.getElementById('skipCoaching').addEventListener('click', function(e) {
-    e.preventDefault();
-    window.open(STRIPE_VYF_ALI, '_blank');
-  });
-  document.getElementById('skipSessions').addEventListener('click', function(e) {
     e.preventDefault();
     window.open(STRIPE_VYF_ALI, '_blank');
   });
