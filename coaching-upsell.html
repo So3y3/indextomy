@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Here's My Best Offer — Both Courses + 3 Sessions | Coach Kris</title>
+<title>3 Sessions - Make the Work Actually Happen | Coach Kris</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+<link rel="apple-touch-icon" sizes="180x" href="favicon-180.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
@@ -60,35 +60,33 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* Continuous-funnel feel: fade page in, thin step-progress bar */
+  /* Continuous-funnel feel */
   body { animation: fadeInPage 0.45s ease; }
   @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
   .funnel-bar { position: fixed; top: 70px; left: 0; right: 0; height: 3px; z-index: 999; display: flex; gap: 3px; }
   .funnel-bar .fb-seg { flex: 1; background: rgba(198,158,72,0.15); }
   .funnel-bar .fb-seg.done { background: var(--warm-gold); }
 
-  /* ─── HERO (light, transitional - the final offer reveal) ─── */
-  .hero { background: var(--parchment); color: var(--deep-forest); text-align: center; padding: 120px 1.5rem 3.5rem; position: relative; overflow: hidden; }
-  .hero-intro { max-width: 640px; margin: 0 auto; }
-
-  .hero-check { width: 48px; height: 48px; border-radius: 50%; background: rgba(198,158,72,0.15); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
-  .hero-check svg { width: 20px; height: 20px; stroke: var(--warm-gold); stroke-width: 3; fill: none; }
-
-  .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.8rem; }
-  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5.5vw, 3rem); line-height: 1.16; margin-bottom: 1.2rem; color: var(--deep-forest); }
+  /* ─── HERO (dark, bold, offer-forward) ─── */
+  .hero { padding: 130px 1.5rem 3rem; text-align: center; position: relative; }
+  .hero-intro { max-width: 620px; margin: 0 auto; }
+  .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1rem; }
+  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.14; margin-bottom: 1.3rem; }
   .hero h1 em { color: var(--warm-gold); font-style: italic; font-weight: 500; }
-  .hero-sub { font-family: var(--font-heading); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--teal); line-height: 1.45; margin: 0 auto; max-width: 500px; }
-
-  /* Section that holds the offer cards - reverts to the dark page body */
-  .offer-section { padding-top: 3rem; }
-
-  @media (max-width: 640px) {
-    .hero { padding: 100px 1.3rem 2.5rem; }
-    .offer-section { padding-top: 2rem; }
+  .hero-sub { font-size: clamp(0.95rem, 2.2vw, 1.1rem); color: rgba(245,241,234,0.7); line-height: 1.6; max-width: 500px; margin: 0 auto 0.4rem; }
+  .hero-stat-row { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(198,158,72,0.12); }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--warm-gold); line-height: 1; }
+  .hero-stat-label { font-size: 0.7rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; line-height: 1.4; }
+  @media (max-width: 600px) {
+    .hero { padding: 100px 1.3rem 2rem; }
+    .hero-stat-row { gap: 1.2rem; }
+    .hero-stat-num { font-size: 1.5rem; }
   }
 
-  /* ─── MAIN OFFER CARD ─── */
-  .main-offer { text-align: center; max-width: 520px; margin: 0 auto 1rem; background: linear-gradient(135deg, rgba(198,158,72,0.12), rgba(198,158,72,0.04)); border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 1.8rem; position: relative; }
+  /* ─── OFFER CARD ─── */
+  .offer-section { padding: 1rem 1.5rem 2rem; }
+  .main-offer { text-align: center; max-width: 520px; margin: 0 auto; background: linear-gradient(135deg, rgba(198,158,72,0.12), rgba(198,158,72,0.04)); border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 1.8rem 2rem; position: relative; }
   .main-offer::before { content: 'BEST OFFER'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--warm-gold); color: var(--deep-forest); font-family: var(--font-brand); font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.35rem 1.2rem; border-radius: 999px; }
   .main-offer h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem; }
   .main-offer h2 em { color: var(--warm-gold); }
@@ -106,30 +104,39 @@
   .skip-link { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.5); text-decoration: none; margin-top: 1rem; padding: 0.4rem; transition: color 0.2s; }
   .skip-link:hover { color: var(--warm-gold); }
 
-  /* ─── WHY IT MATTERS (story) ─── */
-  .story { padding: 4rem 1.5rem; max-width: 600px; margin: 0 auto; text-align: center; }
+  /* ─── WHAT THE SESSIONS LOOK LIKE ─── */
+  .sessions { padding: 4rem 1.5rem; max-width: 640px; margin: 0 auto; }
+  .sessions .eyebrow { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.8rem; text-align: center; }
+  .sessions h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; line-height: 1.2; text-align: center; margin-bottom: 2.5rem; }
+  .sessions h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
+  .session-card { display: flex; gap: 1.2rem; margin-bottom: 1.8rem; align-items: flex-start; }
+  .session-num { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--warm-gold); }
+  .session-body h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; color: var(--parchment); margin-bottom: 0.3rem; }
+  .session-body h3 em { color: var(--warm-gold); font-style: italic; }
+  .session-body p { font-size: 0.88rem; color: rgba(245,241,234,0.65); line-height: 1.65; }
+  @media (max-width: 600px) {
+    .sessions { padding: 3rem 1.3rem; }
+    .session-card { gap: 0.9rem; }
+    .session-num { width: 38px; height: 38px; font-size: 1rem; }
+  }
+
+  /* ─── STORY (why coaching) ─── */
+  .story { padding: 4rem 1.5rem; max-width: 600px; margin: 0 auto; text-align: center; border-top: 1px solid rgba(198,158,72,0.1); }
   .story .eyebrow { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.2rem; }
-  .story h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.2rem; }
+  .story h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; line-height: 1.25; margin-bottom: 1.2rem; }
   .story h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
   .story p { font-size: 0.95rem; line-height: 1.75; color: rgba(245,241,234,0.7); margin-bottom: 1rem; }
   .story-quote { font-family: var(--font-heading); font-style: italic; font-size: 1.1rem; color: var(--warm-gold); padding: 0.5rem 1rem; border-left: 2px solid rgba(198,158,72,0.4); margin: 1.5rem auto; text-align: left; max-width: 440px; }
 
-  /* ─── STAT ROW ─── */
-  .stats { padding: 2rem 1.5rem; max-width: 600px; margin: 0 auto; }
-  .stat-row { display: flex; justify-content: center; gap: 2.5rem; }
-  .stat { text-align: center; }
-  .stat-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--warm-gold); line-height: 1; }
-  .stat-label { font-size: 0.75rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; line-height: 1.4; }
-  @media (max-width: 600px) { .stat-row { gap: 1.5rem; } .stat-num { font-size: 1.7rem; } }
-
-  /* ─── BIG STATEMENT ─── */
-  .statement { background: var(--deep-forest-2); text-align: center; padding: 3rem 1.5rem; }
-  .statement-inner { font-family: var(--font-heading); font-style: italic; font-weight: 400; font-size: clamp(1.3rem, 3.5vw, 2rem); line-height: 1.3; color: var(--parchment); max-width: 560px; margin: 0 auto; }
-  .statement-inner em { color: var(--warm-gold); }
-
-  /* ─── REASSURANCE ─── */
-  .reassure { padding: 2.5rem 1.5rem; text-align: center; max-width: 500px; margin: 0 auto; }
-  .reassure p { font-size: 0.82rem; color: rgba(245,241,234,0.45); line-height: 1.7; margin-bottom: 0.6rem; }
+  /* ─── FINAL CTA ─── */
+  .final-cta { padding: 3.5rem 1.5rem 4rem; text-align: center; max-width: 520px; margin: 0 auto; }
+  .final-cta h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
+  .final-cta h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
+  .final-cta-btn { display: inline-block; padding: 1.1rem 2.5rem; border-radius: 9999px; font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; text-decoration: none; cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s; background: var(--warm-gold); color: var(--deep-forest); }
+  .final-cta-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .final-cta-meta { font-size: 0.78rem; color: rgba(245,241,234,0.45); margin-top: 0.8rem; }
+  .final-skip { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.5); text-decoration: none; margin-top: 1.5rem; padding: 0.4rem; transition: color 0.2s; }
+  .final-skip:hover { color: var(--warm-gold); }
 
   /* ─── FOOTER ─── */
   footer { color: rgba(245,241,234,0.4); text-align: center; padding: 2rem; font-size: 0.78rem; border-top: 1px solid rgba(198,158,72,0.1); }
@@ -142,28 +149,41 @@
 <nav id="nav">
   <span class="nav-brand">COACH KRIS</span>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#offer">Choose Your Bundle</a></li>
+    <li><a href="#offer">See the Offer</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="funnel-bar" aria-hidden="true"><span class="fb-seg done"></span><span class="fb-seg done"></span><span class="fb-seg done"></span></div>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- HERO — leads with the best offer -->
+<!-- HERO - bold, direct, offer-forward -->
 <!-- ═══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-intro">
-    <div class="hero-check reveal">
-      <svg viewBox="0 0 24 24"><polyline points="5 13 10 18 19 7"/></svg>
+    <p class="hero-kicker reveal">ONE LAST DECISION</p>
+    <h1 class="reveal reveal-delay-1">You've chosen the work.<br>Now let me make sure it <em>actually happens.</em></h1>
+    <p class="hero-sub reveal reveal-delay-2">73% of self-guided workbooks never get finished. Day 3 is where most people quietly stop. Three sessions with me makes sure that's not you.</p>
+    <div class="hero-stat-row reveal reveal-delay-3">
+      <div class="hero-stat">
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">one-on-one<br>sessions with Kris</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$99</div>
+        <div class="hero-stat-label">total incl. both<br>workbooks</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$252</div>
+        <div class="hero-stat-label">saved vs.<br>booking separately</div>
+      </div>
     </div>
-    <p class="hero-kicker reveal reveal-delay-1">ONE HONEST QUESTION</p>
-    <h1 class="reveal reveal-delay-1">Can you actually do this <em>on your own?</em></h1>
-    <p class="hero-sub reveal reveal-delay-2">If yes - go for it. I'd genuinely love to hear how you get on. But if you'd like some extra support to keep you on track, here's my very last and best offer.</p>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════ -->
+<!-- OFFER CARD -->
+<!-- ═══════════════════════════════════════ -->
 <section class="offer-section">
-  <!-- ═══ MAIN OFFER CARD ═══ -->
   <div class="main-offer reveal reveal-delay-2" id="offer">
     <h2>The Complete <em>Package</em></h2>
     <p class="offer-desc">VYF + Alignment + 3 one-on-one sessions. Schedule calls whenever suits you. I'll be in your corner while you do the work.</p>
@@ -171,7 +191,7 @@
       <span class="price-old">$351</span>
       <span class="price-new">$99</span>
     </div>
-    <p class="price-note">VYF ($17) + Alignment ($37) + 3 sessions ($90) - saves you $252</p>
+    <p class="price-note">VYF ($17) + Alignment ($37) + 3 sessions ($45) - saves you $252</p>
     <div style="text-align:center;"><span class="savings-badge">SAVE $252</span></div>
     <ul class="feature-list">
       <li>The Voice You Feed (7-day workbook)</li>
@@ -183,53 +203,62 @@
       <li>Email + WhatsApp support between calls</li>
     </ul>
     <button class="checkout-btn" id="checkoutBundle">YES - Give me the full package for $99</button>
-    <a href="#" class="skip-link" id="skipCoaching">No thanks, purchase VYF and Alignment now</a>
+    <a href="#" class="skip-link" id="skipCoaching">No thanks, just VYF + Alignment for $54</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- WHAT THE SESSIONS LOOK LIKE -->
+<!-- ═══════════════════════════════════════ -->
+<section class="sessions">
+  <p class="eyebrow reveal">WHAT YOU'RE ACTUALLY GETTING</p>
+  <h2 class="reveal reveal-delay-1">Three sessions. Each one has a <em>job.</em></h2>
+
+  <div class="session-card reveal reveal-delay-1">
+    <div class="session-num">1</div>
+    <div class="session-body">
+      <h3>See the <em>pattern</em></h3>
+      <p>We map your personal loop - the specific negotiation that keeps pulling you back. You'll leave this call knowing exactly what your version of "I deserve something" sounds like, and where it comes from.</p>
+    </div>
   </div>
 
+  <div class="session-card reveal reveal-delay-2">
+    <div class="session-num">2</div>
+    <div class="session-body">
+      <h3>Build the <em>conditions</em></h3>
+      <p>We take the Alignment framework and adapt it to your actual life - your schedule, your environment, your relationships. Not a generic plan. A system that works for the person you are on your worst day, not just your best.</p>
+    </div>
+  </div>
+
+  <div class="session-card reveal reveal-delay-3">
+    <div class="session-num">3</div>
+    <div class="session-body">
+      <h3>Make it <em>stick</em></h3>
+      <p>We troubleshoot what happens when motivation drops and the old pattern shows up. You leave with a protocol for the moments that matter - the ones where you used to negotiate yourself out of the thing you actually wanted.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- WHY IT MATTERS -->
+<!-- WHY COACHING (story) -->
 <!-- ═══════════════════════════════════════ -->
-<section class="statement">
-  <div class="statement-inner reveal">Workbooks tell you <em>what</em> to do.<br>Coaching helps you <em>actually do it.</em></div>
-</section>
-
 <section class="story reveal">
   <p class="eyebrow">HERE'S THE TRUTH</p>
   <h2>The blind spots you're trying to see are, by definition, the ones you <em>can't see</em> on your own.</h2>
   <p>You can read about the negotiation. You can map the conditions. But when the moment comes - when you're tired, when the old pattern shows up - having someone who's been in your corner changes everything.</p>
   <div class="story-quote">"You've done enough. Try again another time. You deserve something."</div>
-  <p>That's what the negotiation sounds like. It sounds reasonable. That's the problem. And when you're inside it, you need someone who can see it from the outside.</p>
+  <p>That's what the negotiation sounds like. It sounds reasonable. That's the problem.</p>
   <p>Not therapy. Not accountability checking. Just someone who knows the pattern, knows the work, and can help you navigate it in real time.</p>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- STATS -->
+<!-- FINAL CTA -->
 <!-- ═══════════════════════════════════════ -->
-<section class="stats reveal">
-  <div class="stat-row">
-    <div class="stat">
-      <div class="stat-num">73%</div>
-      <div class="stat-label">never finish<br>self-guided workbooks</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Day 3</div>
-      <div class="stat-label">average drop-off<br>point for self-study</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">6x</div>
-      <div class="stat-label">higher completion with<br>coaching accountability</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- REASSURANCE -->
-<!-- ═══════════════════════════════════════ -->
-<section class="reassure reveal">
-  <p>Whatever you choose, you can always add coaching later - but this price is only available on this page.</p>
-  <p>After you check out, the workbooks are yours immediately. Coaching sessions are scheduled by email.</p>
+<section class="final-cta reveal">
+  <h2>This price is only available <em>on this page.</em><br>After you leave, it's gone.</h2>
+  <button class="final-cta-btn" id="finalCtaBtn">Add 3 sessions - just $45 more</button>
+  <p class="final-cta-meta">Total $99 (includes both workbooks) &middot; Sessions scheduled by email &middot; Workbooks yours immediately</p>
+  <a href="#" class="final-skip" id="finalSkip">No thanks, just VYF + Alignment for $54</a>
 </section>
 
 <footer>
@@ -241,11 +270,18 @@
   var STRIPE_VYF_ALI = 'https://buy.stripe.com/6oU28q2F70fKdT72nj28804';
   var STRIPE_VYF_ALI_3X = 'https://buy.stripe.com/eVqeVcdjLd2wcP34vr28805';
 
-  // ─── Checkout buttons ───
+  // ─── Checkout buttons (all CTAs point to same two links) ───
   document.getElementById('checkoutBundle').addEventListener('click', function() {
     window.open(STRIPE_VYF_ALI_3X, '_blank');
   });
+  document.getElementById('finalCtaBtn').addEventListener('click', function() {
+    window.open(STRIPE_VYF_ALI_3X, '_blank');
+  });
   document.getElementById('skipCoaching').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(STRIPE_VYF_ALI, '_blank');
+  });
+  document.getElementById('finalSkip').addEventListener('click', function(e) {
     e.preventDefault();
     window.open(STRIPE_VYF_ALI, '_blank');
   });
