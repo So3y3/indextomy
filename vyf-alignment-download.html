@@ -279,7 +279,7 @@
       var data = new FormData(form);
       fetch(FORMSPREE, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
         .then(function() { form.style.display = 'none'; msg.style.display = 'block'; })
-        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email me directly at hello@coachkris.co.uk'; });
+        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email me directly at kristian.sokol@icloud.com'; });
     });
   }
   setupClaim('claim3Sessions', 'form3Sessions');
