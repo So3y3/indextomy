@@ -506,7 +506,13 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(function(el) { io.observe(el); });
-</script>
+
+    // Fix: restore opacity when browser restores page from back-forward cache
+    window.addEventListener('pageshow', function() {
+      document.body.style.opacity = '1';
+      document.body.style.transition = '';
+    });
+  </script>
 
 </body>
 </html>
