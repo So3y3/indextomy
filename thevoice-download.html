@@ -195,7 +195,7 @@
         <input type="email" name="email" placeholder="Your email" required />
         <button type="submit">Send to Kris</button>
       </form>
-      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+      <p class="form-msg" style="display:none;">Thanks. I'll send your private payment link within 24 hours.</p>
     </div>
   </div>
 
@@ -223,7 +223,7 @@
         <input type="email" name="email" placeholder="Your email" required />
         <button type="submit">Send to Kris</button>
       </form>
-      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+      <p class="form-msg" style="display:none;">Thanks. I'll send your private payment link within 24 hours.</p>
     </div>
   </div>
 
@@ -256,7 +256,7 @@
       var data = new FormData(form);
       fetch(FORMSPREE, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
         .then(function() { form.style.display = 'none'; msg.style.display = 'block'; })
-        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email Kris directly at hello@coachkris.co.uk'; });
+        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email me directly at hello@coachkris.co.uk'; });
     });
   }
   setupClaim('claimFull', 'formFull');
