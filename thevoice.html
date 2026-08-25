@@ -999,24 +999,13 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => observer.observe(el));
 
-    // Stripe Payment Link for The Voice You Feed ($17)
-    // Product: prod_V8IieEA71tjcAc
-    // After payment, Stripe redirects to: /thevoice-download.html
-    var STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/14A7sKcfH9Qk9CRge928802';
-
+    // Funnel: VYF buy buttons go to Alignment upsell page (no payment yet)
     document.querySelectorAll('.cta-btn').forEach(btn => {
       const href = btn.getAttribute('href');
       if (href === '#' || href === '#start') {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
-          // If Stripe link is configured, open checkout
-          if (STRIPE_PAYMENT_LINK) {
-            window.open(STRIPE_PAYMENT_LINK, '_blank');
-          } else {
-            // Fallback: scroll to CTA section
-            const start = document.getElementById('start');
-            if (start) start.scrollIntoView({ behavior: 'smooth' });
-          }
+          window.location.href = 'alignment-upgrade.html';
         });
       }
     });

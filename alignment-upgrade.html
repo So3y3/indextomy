@@ -222,7 +222,7 @@
       <p class="ob-label">Add Alignment today only</p>
       <button class="btn-yes" id="ctaYes">YES - ADD ALIGNMENT FOR $37</button>
       <p class="btn-yes-sub">Add the complete Alignment Journey to my purchase.</p>
-      <a href="thevoice-download.html" class="btn-decline">No thanks - continue with The Voice You Feed</a>
+      <a href="#" class="btn-decline" id="declineLink">No thanks - continue with The Voice You Feed</a>
     </div>
   </div>
   <p class="hero-scroll">Scroll to explore</p>
@@ -451,7 +451,7 @@
     <button class="btn-yes reveal" id="ctaYes2">YES - ADD ALIGNMENT FOR $37</button>
   </div>
   <p class="btn-yes-sub reveal" style="margin-top:0.6rem;">Add the complete Alignment Journey to my purchase.</p>
-  <a href="thevoice-download.html" class="btn-decline reveal">No thanks - continue with The Voice You Feed</a>
+  <a href="#" class="btn-decline reveal" id="declineLink2">No thanks - continue with The Voice You Feed</a>
 </section>
 
 <footer>
@@ -459,13 +459,12 @@
 </footer>
 
 <script>
-  var ALIGNMENT_STRIPE_LINK = 'https://buy.stripe.com/eVqcN4djL8MgbKZ2nj28803';
+  // Funnel: YES goes to coaching upsell page (no payment yet), NO goes to VYF checkout
+  var VYF_STRIPE_LINK = 'https://buy.stripe.com/14A7sKcfH9Qk9CRge928802';
 
   function handleYes(e) {
     e.preventDefault();
-    if (ALIGNMENT_STRIPE_LINK) {
-      window.open(ALIGNMENT_STRIPE_LINK, '_blank');
-    }
+    window.location.href = 'coaching-upsell.html';
   }
   document.getElementById('ctaYes').addEventListener('click', handleYes);
   document.getElementById('ctaYes2').addEventListener('click', handleYes);
@@ -477,6 +476,15 @@
     if (window.scrollY > 40) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   });
+  document.getElementById('declineLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(VYF_STRIPE_LINK, '_blank');
+  });
+  document.getElementById('declineLink2').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(VYF_STRIPE_LINK, '_blank');
+  });
+
   hamburger.addEventListener('click', function() {
     navLinks.classList.toggle('open');
   });
