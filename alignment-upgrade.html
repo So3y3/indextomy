@@ -368,11 +368,11 @@
   // Stripe Payment Link for Alignment $37 VYF-customer upgrade
   // Set this once the $37 post-purchase Payment Link exists in Stripe (Product: Alignment, price $37,
   // after-payment redirect should go to the Alignment access/download page).
-  var ALIGNMENT_STRIPE_LINK = 'STRIPE_LINK_PLACEHOLDER';
+  var ALIGNMENT_STRIPE_LINK = 'https://buy.stripe.com/eVqcN4djL8MgbKZ2nj28803';
 
   document.getElementById('ctaYes').addEventListener('click', function(e){
     e.preventDefault();
-    if (ALIGNMENT_STRIPE_LINK && ALIGNMENT_STRIPE_LINK !== 'STRIPE_LINK_PLACEHOLDER') {
+    if (ALIGNMENT_STRIPE_LINK) {
       window.open(ALIGNMENT_STRIPE_LINK, '_blank');
     } else {
       var offer = document.getElementById('offer');
