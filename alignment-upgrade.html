@@ -32,8 +32,8 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--parchment); color: var(--deep-forest); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--sand); }
-  ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: var(--deep-forest); }
+  ::-webkit-scrollbar-thumb { background: var(--warm-gold); border-radius: 3px; }
   em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
   img { max-width: 100%; display: block; }
   a { color: inherit; }
@@ -48,11 +48,7 @@
   .nav-cta:hover { opacity: 0.85 !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--parchment); border-radius: 2px; transition: all 0.4s; }
-  nav.scrolled { background: rgba(245,241,234,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(28,40,35,0.08); }
-  nav.scrolled .nav-brand { color: var(--deep-forest); }
-  nav.scrolled .nav-links a { color: var(--slate-mist); }
-  nav.scrolled .nav-links a:hover { color: var(--deep-forest); }
-  nav.scrolled .nav-hamburger span { background: var(--deep-forest); }
+  nav.scrolled { background: rgba(28,40,35,0.92); backdrop-filter: blur(12px); box-shadow: 0 1px 12px rgba(0,0,0,0.2); }
   @media (max-width: 768px) {
     .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--deep-forest); flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem; }
     .nav-links.open { display: flex; }
@@ -233,7 +229,7 @@
 <nav id="nav">
   <span class="nav-brand">COACH KRIS</span>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#" class="nav-cta" id="navCta" onclick="closeMenu()">Add Alignment</a></li>
+    <li><a href="#" class="nav-cta" id="navCta">Add Alignment</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>

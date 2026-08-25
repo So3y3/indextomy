@@ -27,6 +27,7 @@
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
     --font-brand: 'Bebas Neue', sans-serif;
+    --maxw: 620px;
   }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--deep-forest); color: var(--parchment); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -44,8 +45,10 @@
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.875rem; font-weight: 500; color: rgba(245,241,234,0.6); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--warm-gold); }
+  .nav-cta { background: var(--warm-gold) !important; color: white !important; padding: 0.5rem 1.25rem; border-radius: 9999px; font-weight: 600 !important; font-size: 0.875rem !important; transition: opacity 0.2s !important; }
+  .nav-cta:hover { opacity: 0.85 !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--parchment); border-radius: 2px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--parchment); border-radius: 2px; transition: all 0.4s; }
   @media (max-width: 768px) {
     .nav-links { display: none; position: fixed; top: 70px; left: 0; right: 0; background: var(--deep-forest); flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem; }
     .nav-links.open { display: flex; }
@@ -149,7 +152,7 @@
 <nav id="nav">
   <span class="nav-brand">COACH KRIS</span>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#offer">See the Offer</a></li>
+    <li><a href="#offer" class="nav-cta">See the Offer</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
