@@ -2,12 +2,17 @@
   "redirects": [
     {
       "source": "/thevoiceyoufeed.html",
-      "destination": "/thevoice.html",
+      "destination": "/VYF.html",
       "permanent": true
     },
     {
       "source": "/thevoiceyoufeed",
-      "destination": "/thevoice.html",
+      "destination": "/VYF.html",
+      "permanent": true
+    },
+    {
+      "source": "/thevoice.html",
+      "destination": "/VYF.html",
       "permanent": true
     }
   ]
