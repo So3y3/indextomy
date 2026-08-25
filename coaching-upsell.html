@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Do It Alone, or Work With Me — 1-on-1 Coaching | Coach Kris</title>
+<title>Here's My Best Offer — Both Courses + 3 Sessions | Coach Kris</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
@@ -61,129 +61,94 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
 
   /* ─── HERO ─── */
-  .hero { min-height: 90vh; display: flex; align-items: center; padding: 90px 3rem 3rem; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; max-width: 1100px; margin: 0 auto; width: 100%; align-items: center; }
-  .hero-check { width: 56px; height: 56px; border-radius: 50%; background: rgba(198,158,72,0.15); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-  .hero-check svg { width: 24px; height: 24px; stroke: var(--warm-gold); stroke-width: 3; fill: none; }
-  .hero-kicker { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.2rem; }
-  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.12; margin-bottom: 1.5rem; }
+  .hero { text-align: center; padding: 100px 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+
+  /* Small circle photo - matches index.html hero */
+  .hero-photo-wrap { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; border: 3px solid var(--sea-glass); box-shadow: 0 8px 40px rgba(0,0,0,0.3); margin: 0 auto 1.5rem; position: relative; }
+  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 5%; }
+
+  .hero-check { width: 48px; height: 48px; border-radius: 50%; background: rgba(198,158,72,0.15); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+  .hero-check svg { width: 20px; height: 20px; stroke: var(--warm-gold); stroke-width: 3; fill: none; }
+
+  .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.8rem; }
+  .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5.5vw, 3.2rem); line-height: 1.12; margin-bottom: 1.2rem; }
   .hero h1 em { color: var(--warm-gold); font-style: italic; font-weight: 500; }
-  .hero-sub { font-family: var(--font-heading); font-style: italic; font-size: clamp(1.05rem, 2.5vw, 1.25rem); color: var(--sea-glass); line-height: 1.45; margin-bottom: 1.25rem; max-width: 460px; }
-  .hero-desc { font-size: 0.92rem; color: rgba(245,241,234,0.65); line-height: 1.6; max-width: 440px; margin-bottom: 2rem; }
-  .hero-line { width: 60px; height: 2px; background: var(--warm-gold); margin: 1.5rem 0; }
+  .hero-sub { font-family: var(--font-heading); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--sea-glass); line-height: 1.45; margin-bottom: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .hero-desc { font-size: 0.9rem; color: rgba(245,241,234,0.65); line-height: 1.6; max-width: 480px; margin: 0 auto 2rem; }
 
-  /* Basket summary */
-  .basket { background: rgba(198,158,72,0.08); border: 1px solid rgba(198,158,72,0.2); border-radius: 14px; padding: 1.2rem 1.5rem; max-width: 380px; margin-bottom: 2rem; }
-  .basket-label { font-family: var(--font-brand); font-size: 0.7rem; letter-spacing: 0.15em; color: var(--warm-gold); margin-bottom: 0.4rem; }
-  .basket-items { font-size: 0.9rem; color: rgba(245,241,234,0.8); line-height: 1.5; }
-  .basket-total { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; color: var(--parchment); margin-top: 0.3rem; }
+  /* ─── MAIN OFFER CARD ─── */
+  .main-offer { max-width: 520px; margin: 0 auto 1rem; background: linear-gradient(135deg, rgba(198,158,72,0.12), rgba(198,158,72,0.04)); border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 1.8rem; position: relative; }
+  .main-offer::before { content: 'BEST OFFER'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--warm-gold); color: var(--deep-forest); font-family: var(--font-brand); font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.35rem 1.2rem; border-radius: 999px; }
+  .main-offer h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem; }
+  .main-offer h2 em { color: var(--warm-gold); }
+  .main-offer .offer-desc { font-size: 0.88rem; color: rgba(245,241,234,0.65); margin-bottom: 1.2rem; line-height: 1.6; }
+  .main-offer .price-row { display: flex; align-items: baseline; justify-content: center; gap: 0.8rem; margin-bottom: 0.3rem; }
+  .main-offer .price-old { font-family: var(--font-heading); font-size: 1.4rem; color: var(--slate-mist); text-decoration: line-through; }
+  .main-offer .price-new { font-family: var(--font-heading); font-size: 3rem; font-weight: 700; color: var(--parchment); }
+  .main-offer .price-note { font-size: 0.78rem; color: var(--slate-mist); margin-bottom: 1rem; }
+  .main-offer .savings-badge { display: inline-block; background: var(--warm-gold); color: var(--deep-forest); font-size: 0.72rem; font-weight: 700; padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 1.2rem; }
+  .main-offer .feature-list { list-style: none; max-width: 360px; margin: 0 auto 1.5rem; text-align: left; }
+  .main-offer .feature-list li { font-size: 0.86rem; padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem; color: rgba(245,241,234,0.85); }
+  .main-offer .feature-list li::before { content: '\2713'; color: var(--warm-gold); font-weight: 700; flex-shrink: 0; }
+  .main-offer .checkout-btn { display: block; width: 100%; padding: 1.1rem 2rem; border-radius: 9999px; font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; text-align: center; cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s; background: var(--warm-gold); color: var(--deep-forest); }
+  .main-offer .checkout-btn:hover { transform: translateY(-2px); opacity: 0.9; }
 
-  /* Hero photo */
-  .hero-photo { position: relative; }
-  .hero-photo img { width: 100%; max-width: 380px; border-radius: 12px; box-shadow: 0 25px 80px rgba(0,0,0,0.5); margin: 0 auto; }
-  .hero-photo .photo-caption { text-align: center; margin-top: 1.5rem; font-family: var(--font-heading); font-style: italic; font-size: 1rem; color: var(--warm-gold); }
-  .hero-photo .photo-sub { text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; }
+  /* ─── SECONDARY OPTIONS ─── */
+  .secondary-options { max-width: 520px; margin: 0 auto; }
+  .secondary-divider { text-align: center; margin: 2.5rem 0 1.5rem; }
+  .secondary-divider span { display: inline-block; font-family: var(--font-brand); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--slate-mist); position: relative; padding: 0 1rem; }
+  .secondary-divider::before, .secondary-divider::after { content: ''; position: absolute; top: 50%; width: 80px; height: 1px; background: rgba(198,158,72,0.2); }
+  .secondary-divider::before { left: 50%; transform: translateX(calc(-50% - 80px)); }
+  .secondary-divider::after { right: 50%; transform: translateX(calc(50% + 80px)); }
 
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
-    .hero-photo { order: -1; }
-    .hero-sub, .hero-desc, .basket { margin-left: auto; margin-right: auto; }
-  }
-
-  /* ─── BIG STATEMENT ─── */
-  .statement { background: var(--deep-forest-2); text-align: center; padding: 4rem 2rem; }
-  .statement-inner { font-family: var(--font-heading); font-style: italic; font-weight: 400; font-size: clamp(1.5rem, 4vw, 2.4rem); line-height: 1.25; color: var(--parchment); max-width: 640px; margin: 0 auto; }
-  .statement-inner em { color: var(--warm-gold); }
-  .statement-bar { width: 48px; height: 2px; background: var(--warm-gold); margin: 1.5rem auto 0; }
-
-  /* ─── STORY SECTION (with photo) ─── */
-  .story { padding: 6rem 2rem; max-width: 680px; margin: 0 auto; }
-  .story .eyebrow { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.5rem; }
-  .story p { font-size: 1rem; line-height: 1.75; color: rgba(245,241,234,0.82); margin-bottom: 1.1rem; }
-  .story-quote { font-family: var(--font-heading); font-style: italic; font-size: 1.15rem; color: var(--warm-gold); padding-left: 1rem; border-left: 2px solid rgba(198,158,72,0.4); margin: 1.5rem 0; }
-
-  /* ─── STAT ROW ─── */
-  .stats { padding: 3rem 2rem; max-width: 600px; margin: 0 auto; }
-  .stat-row { display: flex; justify-content: center; gap: 2.5rem; }
-  .stat { text-align: center; }
-  .stat-num { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--warm-gold); line-height: 1; }
-  .stat-label { font-size: 0.78rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; line-height: 1.4; }
-  @media (max-width: 600px) { .stat-row { gap: 1.5rem; } .stat-num { font-size: 1.8rem; } }
-
-  /* ─── OFFER SECTION (light) ─── */
-  .offer-section { background: var(--parchment); color: var(--deep-forest); padding: 6rem 2rem; }
-  .offer-inner { max-width: 680px; margin: 0 auto; }
-  .offer-eyebrow { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); text-align: center; margin-bottom: 1rem; }
-  .offer-section h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 400; text-align: center; line-height: 1.2; margin-bottom: 1rem; }
-  .offer-section h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
-  .offer-sub { text-align: center; font-size: 0.95rem; color: var(--slate-mist); max-width: 480px; margin: 0 auto 3rem; line-height: 1.7; }
-
-  /* OFFER CARDS */
-  .offer-cards { display: flex; flex-direction: column; gap: 1.5rem; }
-  .offer-card { background: white; border: 2px solid var(--sea-glass); border-radius: 16px; padding: 2.5rem 2rem; transition: all 0.3s; position: relative; }
-  .offer-card:hover { border-color: var(--warm-gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,40,35,0.06); }
-  .offer-card.featured { border-color: var(--warm-gold); background: linear-gradient(135deg, #FAF7F0, #F5F1EA); box-shadow: 0 8px 32px rgba(198,158,72,0.12); }
-  .offer-card.featured::before { content: 'BEST VALUE'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--warm-gold); color: white; font-family: var(--font-brand); font-size: 0.7rem; letter-spacing: 0.15em; padding: 0.3rem 1rem; border-radius: 999px; }
-  .offer-card h3 { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.3rem; text-align: center; }
-  .offer-card h3 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
-  .offer-card .desc { font-size: 0.9rem; color: var(--slate-mist); text-align: center; margin-bottom: 1rem; line-height: 1.6; }
-  .price-row { display: flex; align-items: baseline; justify-content: center; gap: 0.8rem; margin-bottom: 0.3rem; }
-  .price-old { font-family: var(--font-heading); font-size: 1.2rem; color: var(--slate-mist); text-decoration: line-through; }
-  .price-new { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; color: var(--deep-forest); }
-  .price-note { font-size: 0.8rem; color: var(--slate-mist); text-align: center; margin-bottom: 0.8rem; }
-  .savings-badge { display: inline-block; background: var(--warm-gold); color: white; font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.7rem; border-radius: 999px; margin: 0 auto 0.8rem; }
-  .feature-list { list-style: none; max-width: 380px; margin: 1rem auto; }
-  .feature-list li { font-size: 0.88rem; padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.5rem; color: var(--deep-forest); }
-  .feature-list li::before { content: '\2713'; color: var(--warm-gold); font-weight: 700; flex-shrink: 0; }
-
-  /* Checkout buttons */
-  .checkout-btn { display: block; width: 100%; max-width: 320px; margin: 1.2rem auto 0; padding: 1rem 2rem; border-radius: 9999px; font-family: var(--font-body); font-weight: 700; font-size: 0.95rem; text-align: center; cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s; text-decoration: none; }
-  .checkout-btn:hover { transform: translateY(-2px); opacity: 0.9; }
-  .checkout-btn.gold { background: var(--warm-gold); color: var(--deep-forest); }
-  .checkout-btn.dark { background: var(--deep-forest); color: var(--parchment); }
-  .checkout-btn.outline { background: transparent; border: 2px solid var(--deep-forest); color: var(--deep-forest); }
+  .alt-option { background: rgba(255,255,255,0.03); border: 1px solid rgba(198,158,72,0.15); border-radius: 14px; padding: 1.5rem 1.3rem; margin-bottom: 1rem; transition: border-color 0.3s; }
+  .alt-option:hover { border-color: rgba(198,158,72,0.4); }
+  .alt-option .alt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+  .alt-option h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--parchment); }
+  .alt-option h3 em { color: var(--warm-gold); }
+  .alt-option .alt-price { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--warm-gold); }
+  .alt-option .alt-desc { font-size: 0.82rem; color: rgba(245,241,234,0.55); margin-bottom: 0.8rem; line-height: 1.5; }
 
   /* Session selector */
-  .session-selector { max-width: 480px; margin: 1.5rem auto 0; background: var(--sand); border-radius: 14px; padding: 1.5rem; }
-  .session-selector h4 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.8rem; color: var(--deep-forest); text-align: center; }
-  .session-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.8rem; }
-  .ss-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--warm-gold); background: white; color: var(--deep-forest); font-size: 1.2rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-  .ss-btn:hover { background: var(--warm-gold); color: white; }
-  .ss-count { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--deep-forest); min-width: 40px; text-align: center; }
-  .ss-price-display { text-align: center; font-size: 0.88rem; color: var(--slate-mist); }
-  .ss-price-display strong { color: var(--deep-forest); }
-  .ss-total-display { text-align: center; margin-top: 0.8rem; font-size: 0.9rem; color: var(--slate-mist); }
-  .ss-total-display strong { color: var(--deep-forest); }
+  .session-selector { background: rgba(198,158,72,0.06); border-radius: 12px; padding: 1.2rem; margin: 0.8rem 0; }
+  .session-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 0.5rem; }
+  .ss-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--warm-gold); background: transparent; color: var(--parchment); font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .ss-btn:hover { background: var(--warm-gold); color: var(--deep-forest); }
+  .ss-count { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--parchment); min-width: 36px; text-align: center; }
+  .ss-info { text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.6); }
+  .ss-info strong { color: var(--warm-gold); }
 
-  /* Skip link */
-  .skip-link { display: block; text-align: center; margin-top: 2.5rem; font-size: 0.88rem; color: var(--slate-mist); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
-  .skip-link:hover { color: var(--deep-forest); }
+  .alt-btn { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--warm-gold); text-decoration: none; border: 1px solid rgba(198,158,72,0.3); padding: 0.6rem 1.5rem; border-radius: 9999px; transition: all 0.2s; cursor: pointer; background: transparent; }
+  .alt-btn:hover { background: rgba(198,158,72,0.1); border-color: var(--warm-gold); }
 
-  /* ─── PERSONAL PITCH (dark) ─── */
-  .pitch { background: var(--deep-forest); padding: 6rem 2rem; }
-  .pitch-inner { max-width: 620px; margin: 0 auto; text-align: center; }
-  .pitch .eyebrow { font-family: var(--font-body); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.5rem; }
-  .pitch h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; }
-  .pitch h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
-  .pitch p { font-size: 1rem; line-height: 1.75; color: rgba(245,241,234,0.82); margin-bottom: 1.1rem; }
-  .pitch-sign { font-family: var(--font-heading); font-style: italic; font-size: 1.1rem; color: var(--warm-gold); margin-top: 1.5rem; }
+  /* ─── WHY IT MATTERS (story) ─── */
+  .story { padding: 4rem 1.5rem; max-width: 600px; margin: 0 auto; text-align: center; }
+  .story .eyebrow { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.2rem; }
+  .story h2 { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.2rem; }
+  .story h2 em { color: var(--warm-gold); font-style: italic; font-weight: 600; }
+  .story p { font-size: 0.95rem; line-height: 1.75; color: rgba(245,241,234,0.7); margin-bottom: 1rem; }
+  .story-quote { font-family: var(--font-heading); font-style: italic; font-size: 1.1rem; color: var(--warm-gold); padding: 0.5rem 1rem; border-left: 2px solid rgba(198,158,72,0.4); margin: 1.5rem auto; text-align: left; max-width: 440px; }
+
+  /* ─── STAT ROW ─── */
+  .stats { padding: 2rem 1.5rem; max-width: 600px; margin: 0 auto; }
+  .stat-row { display: flex; justify-content: center; gap: 2.5rem; }
+  .stat { text-align: center; }
+  .stat-num { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: var(--warm-gold); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: rgba(245,241,234,0.5); margin-top: 0.3rem; line-height: 1.4; }
+  @media (max-width: 600px) { .stat-row { gap: 1.5rem; } .stat-num { font-size: 1.7rem; } }
+
+  /* ─── BIG STATEMENT ─── */
+  .statement { background: var(--deep-forest-2); text-align: center; padding: 3rem 1.5rem; }
+  .statement-inner { font-family: var(--font-heading); font-style: italic; font-weight: 400; font-size: clamp(1.3rem, 3.5vw, 2rem); line-height: 1.3; color: var(--parchment); max-width: 560px; margin: 0 auto; }
+  .statement-inner em { color: var(--warm-gold); }
 
   /* ─── REASSURANCE ─── */
-  .reassure { padding: 3rem 2rem; text-align: center; max-width: 540px; margin: 0 auto; }
-  .reassure p { font-size: 0.85rem; color: rgba(245,241,234,0.5); line-height: 1.7; margin-bottom: 0.8rem; }
+  .reassure { padding: 2.5rem 1.5rem; text-align: center; max-width: 500px; margin: 0 auto; }
+  .reassure p { font-size: 0.82rem; color: rgba(245,241,234,0.45); line-height: 1.7; margin-bottom: 0.6rem; }
 
   /* ─── FOOTER ─── */
-  footer { background: var(--deep-forest); color: rgba(245,241,234,0.4); text-align: center; padding: 2rem; font-size: 0.78rem; border-top: 1px solid rgba(198,158,72,0.1); }
+  footer { color: rgba(245,241,234,0.4); text-align: center; padding: 2rem; font-size: 0.78rem; border-top: 1px solid rgba(198,158,72,0.1); }
   footer a { color: var(--warm-gold); text-decoration: none; }
-
-  @media (max-width: 640px) {
-    .hero { padding: 90px 1.3rem 2rem; }
-    .story { padding: 4rem 1.3rem; }
-    .stats { padding: 2rem 1.3rem; }
-    .offer-section { padding: 4rem 1.3rem; }
-    .pitch { padding: 4rem 1.3rem; }
-    .statement { padding: 3rem 1.3rem; }
-  }
 </style>
 </head>
 <body>
@@ -199,51 +164,90 @@
 </nav>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- HERO (split with photo) -->
+<!-- HERO — leads with the best offer -->
 <!-- ═══════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-grid">
-    <div class="hero-text">
-      <div class="hero-check reveal">
-        <svg viewBox="0 0 24 24"><polyline points="5 13 10 18 19 7"/></svg>
-      </div>
-      <p class="hero-kicker reveal">YOU'RE ADDING ALIGNMENT</p>
-      <h1 class="reveal reveal-delay-1">One more thing.<br>Then we <em>finalise.</em></h1>
-      <p class="hero-sub reveal reveal-delay-2">You've got The Voice You Feed and the Alignment Journey in your basket. Before you check out, there's one decision left:</p>
-      <p class="hero-desc reveal reveal-delay-3">Do you want to do this with me, or on your own?</p>
-      <div class="basket reveal reveal-delay-3">
-        <p class="basket-label">YOUR BASKET SO FAR</p>
-        <p class="basket-items">The Voice You Feed ($17) + Alignment ($37)</p>
-        <p class="basket-total">$54</p>
-      </div>
-      <a href="#offer" class="checkout-btn gold reveal reveal-delay-3" style="display:inline-block; max-width:320px;">SEE YOUR OPTIONS</a>
+  <div class="hero-photo-wrap reveal">
+    <img src="kristian.jpg" alt="Coach Kris" loading="eager" width="558" height="600" />
+  </div>
+  <p class="hero-kicker reveal reveal-delay-1">HERE'S MY BEST OFFER</p>
+  <h1 class="reveal reveal-delay-1">Both courses plus 3 sessions with me.<br>Everything you need to <em>actually change the pattern.</em></h1>
+  <p class="hero-sub reveal reveal-delay-2">You've got The Voice You Feed and Alignment in your basket. Here's why I think you should add coaching — and why I've made it impossible to say no.</p>
+
+  <!-- ═══ MAIN OFFER CARD ═══ -->
+  <div class="main-offer reveal reveal-delay-2" id="offer">
+    <h2>The Complete <em>Package</em></h2>
+    <p class="offer-desc">VYF + Alignment + 3 one-on-one sessions. One call a week for three weeks. I'll be in your corner while you do the work.</p>
+    <div class="price-row">
+      <span class="price-old">$351</span>
+      <span class="price-new">$99</span>
     </div>
-    <div class="hero-photo reveal reveal-delay-2">
-      <img src="kristian.jpg" alt="Coach Kris" loading="lazy" width="558" height="600" />
-      <p class="photo-caption">Kris</p>
-      <p class="photo-sub">Your coach, if you'll have me.</p>
+    <p class="price-note">VYF ($17) + Alignment ($37) + 3 sessions ($90) - saves you $252</p>
+    <div style="text-align:center;"><span class="savings-badge">SAVE $252</span></div>
+    <ul class="feature-list">
+      <li>The Voice You Feed (7-day workbook)</li>
+      <li>Alignment Journey (7-stage course)</li>
+      <li>3 x 60-minute 1-on-1 video calls</li>
+      <li>One call per week for 3 weeks</li>
+      <li>Personal loop + alignment mapping</li>
+      <li>Custom system built around your life</li>
+      <li>Recording of every session</li>
+      <li>Email + WhatsApp support between calls</li>
+    </ul>
+    <button class="checkout-btn" id="checkoutBundle">YES - Give me the full package for $99</button>
+  </div>
+
+  <!-- ═══ SECONDARY OPTIONS ═══ -->
+  <div class="secondary-options reveal reveal-delay-3">
+    <div class="secondary-divider"><span>OR CHOOSE DIFFERENTLY</span></div>
+
+    <!-- Custom sessions -->
+    <div class="alt-option">
+      <div class="alt-header">
+        <h3>Pick your <em>own</em> number of sessions</h3>
+        <span class="alt-price">$30 each</span>
+      </div>
+      <p class="alt-desc">Prefer 1 or 2 sessions instead of 3? $30 per session instead of the usual $85.</p>
+      <div class="session-selector">
+        <div class="session-controls">
+          <button class="ss-btn" id="ssMinus">-</button>
+          <span class="ss-count" id="ssCount">1</span>
+          <button class="ss-btn" id="ssPlus">+</button>
+        </div>
+        <p class="ss-info" id="ssPriceDisplay">1 session at <strong>$30</strong> each (save $55)</p>
+        <p class="ss-info" style="margin-top:0.4rem;" id="ssTotalDisplay">Total: VYF + Alignment + 1 session = <strong>$84</strong></p>
+      </div>
+      <button class="alt-btn" id="checkoutSessions">Check out - $84</button>
+    </div>
+
+    <!-- Go it alone -->
+    <div class="alt-option">
+      <div class="alt-header">
+        <h3>Just the <em>workbooks</em></h3>
+        <span class="alt-price">$54</span>
+      </div>
+      <p class="alt-desc">VYF + Alignment, no coaching. Go it alone. Come back if you need me later.</p>
+      <button class="alt-btn" id="checkoutNoCoaching">Check out - $54</button>
     </div>
   </div>
+
+  <a href="#" class="alt-btn reveal reveal-delay-3" id="skipCoaching" style="margin-top:1.5rem;">No thanks, just VYF + Alignment for $54. I'll go it alone.</a>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- BIG STATEMENT -->
+<!-- WHY IT MATTERS -->
 <!-- ═══════════════════════════════════════ -->
 <section class="statement">
   <div class="statement-inner reveal">Workbooks tell you <em>what</em> to do.<br>Coaching helps you <em>actually do it.</em></div>
-  <div class="statement-bar"></div>
 </section>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- STORY: Why coaching matters -->
-<!-- ═══════════════════════════════════════ -->
 <section class="story reveal">
-  <p class="eyebrow">Here's the truth</p>
-  <p>You can read about the negotiation. You can map the conditions. You can build your Alignment Compass on paper. But when the moment comes - when you're tired, when the old pattern shows up, when the negotiation starts - having someone who's been in your corner changes everything.</p>
-  <p>Not because you need supervision. Because the blind spots you're trying to see are, by definition, the ones you can't see on your own.</p>
+  <p class="eyebrow">HERE'S THE TRUTH</p>
+  <h2>The blind spots you're trying to see are, by definition, the ones you <em>can't see</em> on your own.</h2>
+  <p>You can read about the negotiation. You can map the conditions. But when the moment comes - when you're tired, when the old pattern shows up - having someone who's been in your corner changes everything.</p>
   <div class="story-quote">"You've done enough. Try again another time. You deserve something."</div>
   <p>That's what the negotiation sounds like. It sounds reasonable. That's the problem. And when you're inside it, you need someone who can see it from the outside.</p>
-  <p>That's what these sessions are for. Not therapy. Not accountability checking. Just someone who knows the pattern, knows the work, and can help you navigate it in real time.</p>
+  <p>Not therapy. Not accountability checking. Just someone who knows the pattern, knows the work, and can help you navigate it in real time.</p>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
@@ -267,111 +271,6 @@
 </section>
 
 <!-- ═══════════════════════════════════════ -->
-<!-- BIG STATEMENT -->
-<!-- ═══════════════════════════════════════ -->
-<section class="statement">
-  <div class="statement-inner reveal">The blind spots you're trying to see<br>are, by definition, the ones you <em>can't see</em> on your own.</div>
-  <div class="statement-bar"></div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- OFFER CARDS -->
-<!-- ═══════════════════════════════════════ -->
-<section class="offer-section" id="offer">
-  <div class="offer-inner">
-    <div class="offer-eyebrow reveal">CHOOSE YOUR BUNDLE</div>
-    <h2 class="reveal">Do it alone, or <em>work with me.</em></h2>
-    <p class="offer-sub reveal">You've already got VYF + Alignment ($54). These are your three options. One last decision, then we finalise.</p>
-
-    <div class="offer-cards">
-      <!-- OPTION 1: Go it alone -->
-      <div class="offer-card reveal">
-        <h3>VYF + Alignment <em>only</em></h3>
-        <p class="desc">The two workbooks. Go it alone. Come back if you need me later.</p>
-        <div class="price-row">
-          <span class="price-new">$54</span>
-        </div>
-        <p class="price-note">$17 VYF + $37 Alignment</p>
-        <ul class="feature-list">
-          <li>The Voice You Feed (7-day workbook)</li>
-          <li>Alignment Journey (7-stage course)</li>
-          <li>Both notebooks, self-guided</li>
-          <li>Lifetime access to both</li>
-        </ul>
-        <button class="checkout-btn dark" id="checkoutNoCoaching">Check out - $54</button>
-      </div>
-
-      <!-- OPTION 2: Add sessions (custom quantity) -->
-      <div class="offer-card reveal">
-        <h3>Add <em>sessions</em> - your choice</h3>
-        <p class="desc">Add 1-on-1 coaching sessions. $30 each instead of $85. Choose how many.</p>
-        <div class="price-row">
-          <span class="price-old">$85</span>
-          <span class="price-new">$30</span>
-        </div>
-        <p class="price-note">per session (normally $85)</p>
-        <div class="session-selector">
-          <h4>How many sessions would you like?</h4>
-          <div class="session-controls">
-            <button class="ss-btn" id="ssMinus">-</button>
-            <span class="ss-count" id="ssCount">1</span>
-            <button class="ss-btn" id="ssPlus">+</button>
-          </div>
-          <p class="ss-price-display" id="ssPriceDisplay">1 session at <strong>$30</strong> each (save $55 vs. normal price)</p>
-          <p class="ss-total-display" id="ssTotalDisplay">Your total: VYF ($17) + Alignment ($37) + 1 session ($30) = <strong>$84</strong></p>
-        </div>
-        <ul class="feature-list" style="margin-top:1rem;">
-          <li>Everything in both workbooks</li>
-          <li>60-minute 1-on-1 video calls</li>
-          <li>Personal pattern mapping</li>
-          <li>Custom action plan</li>
-          <li>Recording of every session</li>
-        </ul>
-        <button class="checkout-btn dark" id="checkoutSessions">Check out - $84</button>
-      </div>
-
-      <!-- OPTION 3: The complete package (BEST VALUE) -->
-      <div class="offer-card featured reveal">
-        <h3>The complete <em>package</em></h3>
-        <p class="desc">VYF + Alignment + 3 sessions. Everything you need to actually change the pattern.</p>
-        <div class="price-row">
-          <span class="price-old">$351</span>
-          <span class="price-new">$99</span>
-        </div>
-        <p class="price-note">VYF ($17) + Alignment ($37) + 3 sessions ($90) - saves you $252</p>
-        <div style="text-align:center;"><span class="savings-badge">SAVE $252</span></div>
-        <ul class="feature-list">
-          <li>Everything in both workbooks</li>
-          <li>3 x 60-minute 1-on-1 video calls</li>
-          <li>One call per week for 3 weeks</li>
-          <li>Personal loop + alignment mapping</li>
-          <li>Custom system built around your life</li>
-          <li>Recording of every session</li>
-          <li>Email + WhatsApp support between calls</li>
-        </ul>
-        <button class="checkout-btn gold" id="checkoutBundle">Check out - $99 (Best Value)</button>
-      </div>
-    </div>
-
-    <a href="#" class="skip-link" id="skipCoaching">No thanks, just VYF + Alignment for $54. I'll go it alone.</a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- PERSONAL PITCH (dark) -->
-<!-- ═══════════════════════════════════════ -->
-<section class="pitch">
-  <div class="pitch-inner">
-    <p class="eyebrow reveal">A QUICK WORD FROM ME</p>
-    <h2 class="reveal">I'm not going to pretend this is about <em>information.</em></h2>
-    <p class="reveal">You already have the workbooks. You have the framework. You have the tools. What coaching adds isn't more knowledge. It's a person who can see what you can't see, ask the question you're avoiding, and help you navigate the moment when the old pattern shows up.</p>
-    <p class="reveal">I've been in your corner before. On the superyachts. In the businesses. In my own life, breaking the same loops I'll help you break. I'm not interested in being your accountability check-in. I'm interested in helping you actually change the pattern.</p>
-    <p class="reveal">If that's what you want, I'm here. If you'd rather go it alone first, that's completely fine. The workbooks are designed to work on their own. You can always come back.</p>
-    <p class="pitch-sign reveal">- Kris</p>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════ -->
 <!-- REASSURANCE -->
 <!-- ═══════════════════════════════════════ -->
 <section class="reassure reveal">
@@ -385,11 +284,8 @@
 
 <script>
   // ─── Stripe Payment Links ───
-  var STRIPE_VYF = 'https://buy.stripe.com/14A7sKcfH9Qk9CRge928802';
   var STRIPE_VYF_ALI = 'https://buy.stripe.com/6oU28q2F70fKdT72nj28804';
-  // VYF + Alignment + 3x 1-on-1 ($99 bundle) - Kris needs to create this Payment Link
   var STRIPE_VYF_ALI_3X = 'https://buy.stripe.com/eVqeVcdjLd2wcP34vr28805';
-  // Individual 1-on-1 sessions ($30 each) - Kris needs to create this Payment Link (quantity adjustable)
   var STRIPE_SESSIONS = 'https://buy.stripe.com/5kQ00igvX2nSaGV5zv28806';
 
   // ─── Session selector ───
@@ -397,16 +293,15 @@
   var ssCount = document.getElementById('ssCount');
   var ssPriceDisplay = document.getElementById('ssPriceDisplay');
   var ssTotalDisplay = document.getElementById('ssTotalDisplay');
+  var sessionsBtn = document.getElementById('checkoutSessions');
 
   function updateSessionDisplay() {
     var savings = (85 - 30) * sessionCount;
     ssCount.textContent = sessionCount;
-    ssPriceDisplay.innerHTML = sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' at <strong>$30</strong> each (save $' + savings + ' vs. normal price)';
+    ssPriceDisplay.innerHTML = sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' at <strong>$30</strong> each (save $' + savings + ')';
     var total = 54 + (30 * sessionCount);
-    ssTotalDisplay.innerHTML = 'Your total: VYF ($17) + Alignment ($37) + ' + sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' ($' + (30 * sessionCount) + ') = <strong>$' + total + '</strong>';
-    // Update the checkout button text
-    var btn = document.getElementById('checkoutSessions');
-    if (btn) btn.textContent = 'Check out - $' + total;
+    ssTotalDisplay.innerHTML = 'Total: VYF + Alignment + ' + sessionCount + ' session' + (sessionCount > 1 ? 's' : '') + ' = <strong>$' + total + '</strong>';
+    sessionsBtn.textContent = 'Check out - $' + total;
   }
 
   document.getElementById('ssMinus').addEventListener('click', function() {
@@ -417,18 +312,15 @@
   });
 
   // ─── Checkout buttons ───
-  document.getElementById('checkoutNoCoaching').addEventListener('click', function() {
-    window.open(STRIPE_VYF_ALI, '_blank');
-  });
-
-  document.getElementById('checkoutSessions').addEventListener('click', function() {
-    window.open(STRIPE_SESSIONS, '_blank');
-  });
-
   document.getElementById('checkoutBundle').addEventListener('click', function() {
     window.open(STRIPE_VYF_ALI_3X, '_blank');
   });
-
+  document.getElementById('checkoutSessions').addEventListener('click', function() {
+    window.open(STRIPE_SESSIONS, '_blank');
+  });
+  document.getElementById('checkoutNoCoaching').addEventListener('click', function() {
+    window.open(STRIPE_VYF_ALI, '_blank');
+  });
   document.getElementById('skipCoaching').addEventListener('click', function(e) {
     e.preventDefault();
     window.open(STRIPE_VYF_ALI, '_blank');
