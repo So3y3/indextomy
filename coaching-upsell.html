@@ -60,24 +60,51 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
 
-  /* ─── HERO ─── */
-  .hero { text-align: center; padding: 100px 1.5rem 3rem; max-width: 720px; margin: 0 auto; }
+  /* ─── HERO (split layout, dark, like VYF and Alignment) ─── */
+  .hero { background: var(--deep-forest); color: var(--parchment); padding: 110px 3rem 2.5rem; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; max-width: 1100px; margin: 0 auto 3rem; align-items: center; text-align: left; }
+  .hero-text { text-align: left; }
 
-  /* Small circle photo - matches index.html hero */
-  .hero-photo-wrap { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; border: 3px solid var(--sea-glass); box-shadow: 0 8px 40px rgba(0,0,0,0.3); margin: 0 auto 1.5rem; position: relative; }
-  .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 5%; }
-
-  .hero-check { width: 48px; height: 48px; border-radius: 50%; background: rgba(198,158,72,0.15); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+  .hero-check { width: 48px; height: 48px; border-radius: 50%; background: rgba(198,158,72,0.15); border: 2px solid var(--warm-gold); display: flex; align-items: center; justify-content: center; margin: 0 0 1.2rem; }
   .hero-check svg { width: 20px; height: 20px; stroke: var(--warm-gold); stroke-width: 3; fill: none; }
 
   .hero-kicker { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.8rem; }
   .hero h1 { font-family: var(--font-heading); font-weight: 400; font-size: clamp(2rem, 5.5vw, 3.2rem); line-height: 1.12; margin-bottom: 1.2rem; }
   .hero h1 em { color: var(--warm-gold); font-style: italic; font-weight: 500; }
-  .hero-sub { font-family: var(--font-heading); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--sea-glass); line-height: 1.45; margin-bottom: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; }
-  .hero-desc { font-size: 0.9rem; color: rgba(245,241,234,0.65); line-height: 1.6; max-width: 480px; margin: 0 auto 2rem; }
+  .hero-sub { font-family: var(--font-heading); font-style: italic; font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--sea-glass); line-height: 1.45; margin-bottom: 0; max-width: 480px; }
+
+  /* Hero visual side - bundle compass */
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .compass-ring { width: 300px; height: 300px; border-radius: 50%; border: 2px solid rgba(198,158,72,0.25); position: relative; display: flex; align-items: center; justify-content: center; }
+  .compass-ring::before { content: ''; position: absolute; width: 210px; height: 210px; border-radius: 50%; border: 1px solid rgba(198,158,72,0.15); }
+  .compass-ring::after { content: ''; position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 1px solid rgba(198,158,72,0.1); }
+  .compass-center { text-align: center; z-index: 2; }
+  .compass-center .cc-label { font-family: var(--font-brand); font-size: 0.68rem; letter-spacing: 0.25em; color: var(--warm-gold); margin-bottom: 0.3rem; }
+  .compass-center .cc-word { font-family: var(--font-heading); font-style: italic; font-size: 1.5rem; color: var(--parchment); line-height: 1.15; }
+  .compass-point { position: absolute; font-family: var(--font-body); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gold); opacity: 0.7; }
+  .cp-n { top: 8px; left: 50%; transform: translateX(-50%); }
+  .cp-e { right: 8px; top: 50%; transform: translateY(-50%); }
+  .cp-s { bottom: 8px; left: 50%; transform: translateX(-50%); }
+  .cp-w { left: 8px; top: 50%; transform: translateY(-50%); }
+  .compass-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--warm-gold); }
+  .cd-1 { top: 20%; right: 20%; }
+  .cd-2 { bottom: 25%; right: 15%; }
+  .cd-3 { bottom: 15%; left: 25%; }
+  .cd-4 { top: 25%; left: 20%; }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; margin-bottom: 2rem; }
+    .hero-text { text-align: center; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-check { margin: 0 auto 1.2rem; }
+    .hero-visual { order: -1; }
+    .compass-ring { width: 240px; height: 240px; }
+    .compass-ring::before { width: 168px; height: 168px; }
+    .compass-ring::after { width: 96px; height: 96px; }
+  }
 
   /* ─── MAIN OFFER CARD ─── */
-  .main-offer { max-width: 520px; margin: 0 auto 1rem; background: linear-gradient(135deg, rgba(198,158,72,0.12), rgba(198,158,72,0.04)); border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 1.8rem; position: relative; }
+  .main-offer { text-align: center; max-width: 520px; margin: 0 auto 1rem; background: linear-gradient(135deg, rgba(198,158,72,0.12), rgba(198,158,72,0.04)); border: 2px solid var(--warm-gold); border-radius: 20px; padding: 2.5rem 1.8rem; position: relative; }
   .main-offer::before { content: 'BEST OFFER'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--warm-gold); color: var(--deep-forest); font-family: var(--font-brand); font-size: 0.72rem; letter-spacing: 0.18em; padding: 0.35rem 1.2rem; border-radius: 999px; }
   .main-offer h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 400; margin-bottom: 0.5rem; }
   .main-offer h2 em { color: var(--warm-gold); }
@@ -96,14 +123,14 @@
   .skip-link:hover { color: var(--warm-gold); }
 
   /* ─── SECONDARY OPTIONS ─── */
-  .secondary-options { max-width: 520px; margin: 0 auto; }
+  .secondary-options { text-align: center; max-width: 520px; margin: 0 auto; }
   .secondary-divider { text-align: center; margin: 2.5rem 0 1.5rem; }
   .secondary-divider span { display: inline-block; font-family: var(--font-brand); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--slate-mist); position: relative; padding: 0 1rem; }
   .secondary-divider::before, .secondary-divider::after { content: ''; position: absolute; top: 50%; width: 80px; height: 1px; background: rgba(198,158,72,0.2); }
   .secondary-divider::before { left: 50%; transform: translateX(calc(-50% - 80px)); }
   .secondary-divider::after { right: 50%; transform: translateX(calc(50% + 80px)); }
 
-  .alt-option { background: rgba(255,255,255,0.03); border: 1px solid rgba(198,158,72,0.15); border-radius: 14px; padding: 1.5rem 1.3rem; margin-bottom: 1rem; transition: border-color 0.3s; }
+  .alt-option { text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(198,158,72,0.15); border-radius: 14px; padding: 1.5rem 1.3rem; margin-bottom: 1rem; transition: border-color 0.3s; }
   .alt-option:hover { border-color: rgba(198,158,72,0.4); }
   .alt-option .alt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
   .alt-option h3 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; color: var(--parchment); }
@@ -169,12 +196,32 @@
 <!-- HERO — leads with the best offer -->
 <!-- ═══════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-photo-wrap reveal">
-    <img src="kristian.jpg" alt="Coach Kris" loading="eager" width="558" height="600" />
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-check reveal">
+        <svg viewBox="0 0 24 24"><polyline points="5 13 10 18 19 7"/></svg>
+      </div>
+      <p class="hero-kicker reveal reveal-delay-1">HERE'S MY BEST OFFER</p>
+      <h1 class="reveal reveal-delay-1">The Voice You Feed + Alignment<br>PLUS 3 one-on-one coaching sessions with me.<br>Everything you need to <em>actually change the pattern.</em></h1>
+      <p class="hero-sub reveal reveal-delay-2">You've got The Voice You Feed and Alignment in your basket. Here's why I think you should add coaching - and why I've made it impossible to say no.</p>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="compass-ring">
+        <div class="compass-point cp-n">VOICE</div>
+        <div class="compass-point cp-e">ALIGNMENT</div>
+        <div class="compass-point cp-s">COACHING</div>
+        <div class="compass-point cp-w">CHANGE</div>
+        <div class="compass-dot cd-1"></div>
+        <div class="compass-dot cd-2"></div>
+        <div class="compass-dot cd-3"></div>
+        <div class="compass-dot cd-4"></div>
+        <div class="compass-center">
+          <p class="cc-label">THE</p>
+          <p class="cc-word">Complete<br>Package</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="hero-kicker reveal reveal-delay-1">HERE'S MY BEST OFFER</p>
-  <h1 class="reveal reveal-delay-1">The Voice You Feed + Alignment<br>PLUS 3 one-on-one coaching sessions with me.<br>Everything you need to <em>actually change the pattern.</em></h1>
-  <p class="hero-sub reveal reveal-delay-2">You've got The Voice You Feed and Alignment in your basket. Here's why I think you should add coaching — and why I've made it impossible to say no.</p>
 
   <!-- ═══ MAIN OFFER CARD ═══ -->
   <div class="main-offer reveal reveal-delay-2" id="offer">
