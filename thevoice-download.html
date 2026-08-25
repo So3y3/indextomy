@@ -152,8 +152,8 @@
 
 <section class="upsell">
   <div class="upsell-intro reveal">
-    <h2>You started with the <em>voice.</em><br>Now change the <em>alignment.</em></h2>
-    <p>You've spotted the pattern. Alignment shows you how to fix it. Add it now at a price only available on this page.</p>
+    <h2>You already paid $17.<br>Here's that <em>$17 back.</em></h2>
+    <p>Since you trusted me with the first step, I'm crediting your $17 toward whatever you choose next. That means The Voice You Feed was free. You're just paying the difference.</p>
   </div>
 
   <!-- Best offer: Alignment + 3 sessions -->
@@ -162,10 +162,10 @@
     <h3>Alignment + 3 sessions with me</h3>
     <p class="offer-desc">The complete upgrade. You get the Alignment course plus 3 one-on-one coaching calls. I'll help you apply everything to your actual life.</p>
     <div class="price-row">
-      <span class="price-old">$182</span>
-      <span class="price-new">$82</span>
+      <span class="price-old">$82</span>
+      <span class="price-new">$65</span>
     </div>
-    <p class="price-note">Your $17 already paid is credited. You pay $82 for the rest.</p>
+    <p class="price-note">Your $17 credited. You save $17. VYF was free.</p>
     <ul>
       <li>Alignment Journey (7-stage course)</li>
       <li>3 x 60-minute 1-on-1 video calls</li>
@@ -173,7 +173,7 @@
       <li>Personal loop + alignment mapping</li>
       <li>Email + WhatsApp support between calls</li>
     </ul>
-    <button class="offer-btn" id="upgradeFull">YES - Give me Alignment + 3 sessions for $82</button>
+    <button class="offer-btn" id="upgradeFull">YES - Give me Alignment + 3 sessions for $65</button>
   </div>
 
   <!-- Just Alignment -->
@@ -181,17 +181,17 @@
     <h3>Just add <em>Alignment</em></h3>
     <p class="offer-desc">Not ready for coaching? Get the Alignment Journey course on its own. Go at your own pace.</p>
     <div class="price-row">
-      <span class="price-old">$97</span>
-      <span class="price-new">$47</span>
+      <span class="price-old">$47</span>
+      <span class="price-new">$30</span>
     </div>
-    <p class="price-note">Discounted from $97. Only available on this page.</p>
+    <p class="price-note">Your $17 credited. You save $17. VYF was free.</p>
     <ul>
       <li>Alignment Journey (7-stage course)</li>
       <li>Work through it at your own pace</li>
       <li>Pairs directly with The Voice You Feed</li>
       <li>Add coaching anytime later</li>
     </ul>
-    <button class="offer-btn" id="upgradeAlignment">Add Alignment for $47</button>
+    <button class="offer-btn" id="upgradeAlignment">Add Alignment for $30</button>
   </div>
 
   <a href="https://www.coachkris.co.uk" class="skip-link">No thanks, I'm good with just VYF for now</a>
@@ -208,14 +208,14 @@
 <script>
   // ─── Stripe Payment Links ───
   // TODO: Replace these with actual Stripe payment links once Kris creates the products
-  var STRIPE_ALIGNMENT_47 = 'https://buy.stripe.com/PLACEHOLDER_ALIGNMENT_47';
-  var STRIPE_FULL_82 = 'https://buy.stripe.com/PLACEHOLDER_FULL_82';
+  var STRIPE_ALIGNMENT_30 = 'https://buy.stripe.com/PLACEHOLDER_ALIGNMENT_30';
+  var STRIPE_FULL_65 = 'https://buy.stripe.com/PLACEHOLDER_FULL_65';
 
   document.getElementById('upgradeFull').addEventListener('click', function() {
-    window.open(STRIPE_FULL_82, '_blank');
+    window.open(STRIPE_FULL_65, '_blank');
   });
   document.getElementById('upgradeAlignment').addEventListener('click', function() {
-    window.open(STRIPE_ALIGNMENT_47, '_blank');
+    window.open(STRIPE_ALIGNMENT_30, '_blank');
   });
 
   // ─── Reveal ───
