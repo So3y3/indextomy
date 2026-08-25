@@ -92,6 +92,8 @@
   .main-offer .feature-list li::before { content: '\2713'; color: var(--warm-gold); font-weight: 700; flex-shrink: 0; }
   .main-offer .checkout-btn { display: block; width: 100%; padding: 1.1rem 2rem; border-radius: 9999px; font-family: var(--font-body); font-weight: 700; font-size: 1.05rem; text-align: center; cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s; background: var(--warm-gold); color: var(--deep-forest); }
   .main-offer .checkout-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+  .skip-link { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.5); text-decoration: none; margin-top: 1rem; padding: 0.4rem; transition: color 0.2s; }
+  .skip-link:hover { color: var(--warm-gold); }
 
   /* ─── SECONDARY OPTIONS ─── */
   .secondary-options { max-width: 520px; margin: 0 auto; }
@@ -171,13 +173,13 @@
     <img src="kristian.jpg" alt="Coach Kris" loading="eager" width="558" height="600" />
   </div>
   <p class="hero-kicker reveal reveal-delay-1">HERE'S MY BEST OFFER</p>
-  <h1 class="reveal reveal-delay-1">Both courses plus 3 sessions with me.<br>Everything you need to <em>actually change the pattern.</em></h1>
+  <h1 class="reveal reveal-delay-1">The Voice You Feed + Alignment<br>PLUS 3 one-on-one coaching sessions with me.<br>Everything you need to <em>actually change the pattern.</em></h1>
   <p class="hero-sub reveal reveal-delay-2">You've got The Voice You Feed and Alignment in your basket. Here's why I think you should add coaching — and why I've made it impossible to say no.</p>
 
   <!-- ═══ MAIN OFFER CARD ═══ -->
   <div class="main-offer reveal reveal-delay-2" id="offer">
     <h2>The Complete <em>Package</em></h2>
-    <p class="offer-desc">VYF + Alignment + 3 one-on-one sessions. One call a week for three weeks. I'll be in your corner while you do the work.</p>
+    <p class="offer-desc">VYF + Alignment + 3 one-on-one sessions. Schedule calls whenever suits you. I'll be in your corner while you do the work.</p>
     <div class="price-row">
       <span class="price-old">$351</span>
       <span class="price-new">$99</span>
@@ -188,13 +190,13 @@
       <li>The Voice You Feed (7-day workbook)</li>
       <li>Alignment Journey (7-stage course)</li>
       <li>3 x 60-minute 1-on-1 video calls</li>
-      <li>One call per week for 3 weeks</li>
+      <li>Schedule calls whenever suits you</li>
       <li>Personal loop + alignment mapping</li>
       <li>Custom system built around your life</li>
-      <li>Recording of every session</li>
       <li>Email + WhatsApp support between calls</li>
     </ul>
     <button class="checkout-btn" id="checkoutBundle">YES - Give me the full package for $99</button>
+    <a href="#" class="skip-link" id="skipCoaching">No thanks, purchase VYF and Alignment now</a>
   </div>
 
   <!-- ═══ SECONDARY OPTIONS ═══ -->
@@ -219,19 +221,7 @@
       </div>
       <button class="alt-btn" id="checkoutSessions">Check out - $84</button>
     </div>
-
-    <!-- Go it alone -->
-    <div class="alt-option">
-      <div class="alt-header">
-        <h3>Just the <em>workbooks</em></h3>
-        <span class="alt-price">$54</span>
-      </div>
-      <p class="alt-desc">VYF + Alignment, no coaching. Go it alone. Come back if you need me later.</p>
-      <button class="alt-btn" id="checkoutNoCoaching">Check out - $54</button>
-    </div>
   </div>
-
-  <a href="#" class="alt-btn reveal reveal-delay-3" id="skipCoaching" style="margin-top:1.5rem;">No thanks, just VYF + Alignment for $54. I'll go it alone.</a>
 </section>
 
 <!-- ═══════════════════════════════════════ -->
@@ -317,9 +307,6 @@
   });
   document.getElementById('checkoutSessions').addEventListener('click', function() {
     window.open(STRIPE_SESSIONS, '_blank');
-  });
-  document.getElementById('checkoutNoCoaching').addEventListener('click', function() {
-    window.open(STRIPE_VYF_ALI, '_blank');
   });
   document.getElementById('skipCoaching').addEventListener('click', function(e) {
     e.preventDefault();
