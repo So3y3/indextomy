@@ -105,6 +105,19 @@
     .skip-link { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.45); text-decoration: none; margin-top: 1.5rem; padding: 0.4rem; transition: color 0.2s; }
     .skip-link:hover { color: var(--warm-gold); }
 
+
+    /* CLAIM FORM */
+    .claim-form { display: none; margin-top: 1rem; }
+    .claim-form.active { display: block; }
+    .claim-form form { display: flex; flex-direction: column; gap: 0.6rem; max-width: 320px; margin: 0 auto; }
+    .claim-form input { width: 100%; padding: 0.7rem 1rem; border-radius: 999px; border: 1px solid rgba(198,158,72,0.3); background: rgba(245,241,234,0.05); color: var(--parchment); font-family: var(--font-body); font-size: 0.85rem; }
+    .claim-form input::placeholder { color: rgba(245,241,234,0.35); }
+    .claim-form input:focus { outline: none; border-color: var(--warm-gold); }
+    .claim-form button { width: 100%; padding: 0.7rem 1.5rem; border-radius: 999px; font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none; background: var(--warm-gold); color: var(--deep-forest); transition: transform 0.2s, opacity 0.2s; }
+    .claim-form button:hover { transform: translateY(-1px); opacity: 0.9; }
+    .claim-form .form-msg { font-size: 0.8rem; color: var(--sea-glass); text-align: center; font-family: var(--font-heading); font-style: italic; padding: 0.5rem; line-height: 1.5; }
+    .offer-card.secondary .claim-form button { background: transparent; color: var(--warm-gold); border: 1.5px solid var(--warm-gold); }
+
     /* FOOTER */
     .footer { text-align: center; padding: 2rem 1.5rem 3rem; }
     .footer a { color: var(--warm-gold); text-decoration: none; font-size: 0.82rem; }
@@ -173,7 +186,17 @@
       <li>Personal loop + alignment mapping</li>
       <li>Email + WhatsApp support between calls</li>
     </ul>
-    <button class="offer-btn" id="upgradeFull">YES - Give me Alignment + 3 sessions for $65</button>
+    <button class="offer-btn" id="claimFull">Claim This Offer</button>
+    <div class="claim-form" id="formFull">
+      <form>
+        <input type="hidden" name="_subject" value="Offer Claim - Alignment + 3 sessions for $65" />
+        <input type="hidden" name="offer" value="Alignment + 3 sessions ($65)" />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Send to Kris</button>
+      </form>
+      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+    </div>
   </div>
 
   <!-- Just Alignment -->
@@ -191,7 +214,17 @@
       <li>Pairs directly with The Voice You Feed</li>
       <li>Add coaching anytime later</li>
     </ul>
-    <button class="offer-btn" id="upgradeAlignment">Add Alignment for $30</button>
+    <button class="offer-btn" id="claimAlignment">Claim This Offer</button>
+    <div class="claim-form" id="formAlignment">
+      <form>
+        <input type="hidden" name="_subject" value="Offer Claim - Alignment only for $30" />
+        <input type="hidden" name="offer" value="Alignment only ($30)" />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Send to Kris</button>
+      </form>
+      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+    </div>
   </div>
 
 </section>
@@ -205,17 +238,29 @@
 </footer>
 
 <script>
-  // ─── Stripe Payment Links ───
-  // TODO: Replace these with actual Stripe payment links once Kris creates the products
-  var STRIPE_ALIGNMENT_30 = 'https://buy.stripe.com/cNi00i7ZrgeI8yNd1X28808';
-  var STRIPE_FULL_65 = 'https://buy.stripe.com/fZuaEWfrT0fK8yNge928807';
+  // ─── Claim This Offer (form-gate) ───
+  var FORMSPREE = 'https://formspree.io/f/xwvdvbon';
 
-  document.getElementById('upgradeFull').addEventListener('click', function() {
-    window.open(STRIPE_FULL_65, '_blank');
-  });
-  document.getElementById('upgradeAlignment').addEventListener('click', function() {
-    window.open(STRIPE_ALIGNMENT_30, '_blank');
-  });
+  function setupClaim(btnId, formId) {
+    var btn = document.getElementById(btnId);
+    var formWrap = document.getElementById(formId);
+    if (!btn || !formWrap) return;
+    var form = formWrap.querySelector('form');
+    var msg = formWrap.querySelector('.form-msg');
+    btn.addEventListener('click', function() {
+      btn.style.display = 'none';
+      formWrap.classList.add('active');
+    });
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(FORMSPREE, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function() { form.style.display = 'none'; msg.style.display = 'block'; })
+        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email Kris directly at hello@coachkris.co.uk'; });
+    });
+  }
+  setupClaim('claimFull', 'formFull');
+  setupClaim('claimAlignment', 'formAlignment');
 
   // ─── Reveal ───
   var reveals = document.querySelectorAll('.reveal');

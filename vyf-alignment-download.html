@@ -117,6 +117,19 @@
     .offer-card.secondary .offer-btn { background: transparent; color: var(--warm-gold); border: 1.5px solid var(--warm-gold); }
     .offer-card.secondary .offer-btn:hover { background: rgba(198,158,72,0.1); }
 
+
+    /* CLAIM FORM */
+    .claim-form { display: none; margin-top: 1rem; }
+    .claim-form.active { display: block; }
+    .claim-form form { display: flex; flex-direction: column; gap: 0.6rem; max-width: 320px; margin: 0 auto; }
+    .claim-form input { width: 100%; padding: 0.7rem 1rem; border-radius: 999px; border: 1px solid rgba(198,158,72,0.3); background: rgba(245,241,234,0.05); color: var(--parchment); font-family: var(--font-body); font-size: 0.85rem; }
+    .claim-form input::placeholder { color: rgba(245,241,234,0.35); }
+    .claim-form input:focus { outline: none; border-color: var(--warm-gold); }
+    .claim-form button { width: 100%; padding: 0.7rem 1.5rem; border-radius: 999px; font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; cursor: pointer; border: none; background: var(--warm-gold); color: var(--deep-forest); transition: transform 0.2s, opacity 0.2s; }
+    .claim-form button:hover { transform: translateY(-1px); opacity: 0.9; }
+    .claim-form .form-msg { font-size: 0.8rem; color: var(--sea-glass); text-align: center; font-family: var(--font-heading); font-style: italic; padding: 0.5rem; line-height: 1.5; }
+    .offer-card.secondary .claim-form button { background: transparent; color: var(--warm-gold); border: 1.5px solid var(--warm-gold); }
+
     /* FOOTER */
     .footer { text-align: center; padding: 2rem 1.5rem 3rem; }
     .footer a { color: var(--warm-gold); text-decoration: none; font-size: 0.82rem; }
@@ -195,7 +208,17 @@
       <li>Custom system built around your life</li>
       <li>Email + WhatsApp support between calls</li>
     </ul>
-    <button class="offer-btn" id="upgradeSessions3">YES - Give me 3 sessions for $66</button>
+    <button class="offer-btn" id="claim3Sessions">Claim This Offer</button>
+    <div class="claim-form" id="form3Sessions">
+      <form>
+        <input type="hidden" name="_subject" value="Offer Claim - 3 sessions for $66" />
+        <input type="hidden" name="offer" value="3 sessions ($66)" />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Send to Kris</button>
+      </form>
+      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+    </div>
     <p class="schedule-note">I'll be in touch personally to schedule your sessions.</p>
   </div>
 
@@ -214,7 +237,17 @@
       <li>Clear next steps from both courses</li>
       <li>Add more sessions anytime</li>
     </ul>
-    <button class="offer-btn" id="upgradeSessions1">Start with 1 session for $23</button>
+    <button class="offer-btn" id="claim1Session">Claim This Offer</button>
+    <div class="claim-form" id="form1Session">
+      <form>
+        <input type="hidden" name="_subject" value="Offer Claim - 1 session for $23" />
+        <input type="hidden" name="offer" value="1 session ($23)" />
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <button type="submit">Send to Kris</button>
+      </form>
+      <p class="form-msg" style="display:none;">Thanks. Kris will send your private payment link shortly.</p>
+    </div>
   </div>
 
 </section>
@@ -228,17 +261,29 @@
 </footer>
 
 <script>
-  // ─── Stripe Payment Links ───
-  // TODO: Replace with actual Stripe payment links
-  var STRIPE_SESSIONS_3 = 'https://buy.stripe.com/4gM8wO2F7e6A16l3rn28809';
-  var STRIPE_SESSIONS_1 = 'https://buy.stripe.com/fZudR8bbD8Mg02hbXT2880a';
+  // ─── Claim This Offer (form-gate) ───
+  var FORMSPREE = 'https://formspree.io/f/xwvdvbon';
 
-  document.getElementById('upgradeSessions3').addEventListener('click', function() {
-    window.open(STRIPE_SESSIONS_3, '_blank');
-  });
-  document.getElementById('upgradeSessions1').addEventListener('click', function() {
-    window.open(STRIPE_SESSIONS_1, '_blank');
-  });
+  function setupClaim(btnId, formId) {
+    var btn = document.getElementById(btnId);
+    var formWrap = document.getElementById(formId);
+    if (!btn || !formWrap) return;
+    var form = formWrap.querySelector('form');
+    var msg = formWrap.querySelector('.form-msg');
+    btn.addEventListener('click', function() {
+      btn.style.display = 'none';
+      formWrap.classList.add('active');
+    });
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(FORMSPREE, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+        .then(function() { form.style.display = 'none'; msg.style.display = 'block'; })
+        .catch(function() { form.style.display = 'none'; msg.style.display = 'block'; msg.textContent = 'Something went wrong. Email Kris directly at hello@coachkris.co.uk'; });
+    });
+  }
+  setupClaim('claim3Sessions', 'form3Sessions');
+  setupClaim('claim1Session', 'form1Session');
 
   // ─── Reveal ───
   var reveals = document.querySelectorAll('.reveal');
