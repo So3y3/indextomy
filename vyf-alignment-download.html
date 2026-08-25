@@ -112,8 +112,10 @@
 
     .schedule-note { font-size: 0.82rem; color: var(--sea-glass); text-align: center; margin-top: 1rem; font-style: italic; font-family: var(--font-heading); }
 
-    .skip-link { display: block; text-align: center; font-size: 0.8rem; color: rgba(245,241,234,0.45); text-decoration: none; margin-top: 1.5rem; padding: 0.4rem; transition: color 0.2s; }
-    .skip-link:hover { color: var(--warm-gold); }
+
+    .offer-card.secondary { background: rgba(255,255,255,0.03); border: 1px solid rgba(198,158,72,0.2); }
+    .offer-card.secondary .offer-btn { background: transparent; color: var(--warm-gold); border: 1.5px solid var(--warm-gold); }
+    .offer-card.secondary .offer-btn:hover { background: rgba(198,158,72,0.1); }
 
     /* FOOTER */
     .footer { text-align: center; padding: 2rem 1.5rem 3rem; }
@@ -172,19 +174,20 @@
 
 <section class="upsell">
   <div class="upsell-intro reveal">
-    <h2>You've got the courses.<br>Now add <em>the coach.</em></h2>
-    <p>3 sessions normally cost $255. You didn't grab the bundle discount, but you're not paying full price either. Here's my offer.</p>
+    <h2>You already paid $54.<br>Here's that <em>$54 back.</em></h2>
+    <p>Since you trusted me with both courses, I'm crediting your full $54 toward coaching. That means The Voice You Feed and Alignment were free. You're just paying for the sessions.</p>
   </div>
 
+  <!-- Best offer: 3 sessions -->
   <div class="offer-card reveal reveal-delay-1">
-    <span class="badge">ONLY ON THIS PAGE</span>
+    <span class="badge">BEST OFFER</span>
     <h3>3 sessions with me</h3>
     <p class="offer-desc">Three 60-minute 1-on-1 video calls. I'll help you apply everything from both courses to your actual life. Schedule whenever suits you.</p>
     <div class="price-row">
-      <span class="price-old">$255</span>
-      <span class="price-new">$59</span>
+      <span class="price-old">$120</span>
+      <span class="price-new">$66</span>
     </div>
-    <p class="price-note">3 sessions at $85 each, discounted to $59 total. Only available here.</p>
+    <p class="price-note">Your $54 credited. You save $54. Both courses were free.</p>
     <ul>
       <li>3 x 60-minute 1-on-1 video calls</li>
       <li>Schedule calls whenever suits you</li>
@@ -192,8 +195,26 @@
       <li>Custom system built around your life</li>
       <li>Email + WhatsApp support between calls</li>
     </ul>
-    <button class="offer-btn" id="upgradeSessions">YES - Add 3 sessions for $59</button>
+    <button class="offer-btn" id="upgradeSessions3">YES - Give me 3 sessions for $66</button>
     <p class="schedule-note">I'll be in touch personally to schedule your sessions.</p>
+  </div>
+
+  <!-- Single session -->
+  <div class="offer-card secondary reveal reveal-delay-2">
+    <h3>Just 1 session</h3>
+    <p class="offer-desc">Not ready for 3? Start with one. A single 60-minute call to get you moving in the right direction.</p>
+    <div class="price-row">
+      <span class="price-old">$85</span>
+      <span class="price-new">$31</span>
+    </div>
+    <p class="price-note">Your $54 credited. You save $54. Both courses were free.</p>
+    <ul>
+      <li>1 x 60-minute 1-on-1 video call</li>
+      <li>Personal loop mapping</li>
+      <li>Clear next steps from both courses</li>
+      <li>Add more sessions anytime</li>
+    </ul>
+    <button class="offer-btn" id="upgradeSessions1">Start with 1 session for $31</button>
   </div>
 
 </section>
@@ -207,12 +228,16 @@
 </footer>
 
 <script>
-  // ─── Stripe Payment Link ───
-  // TODO: Replace with actual Stripe payment link for 3 sessions at $59
-  var STRIPE_SESSIONS_59 = 'https://buy.stripe.com/PLACEHOLDER_SESSIONS_59';
+  // ─── Stripe Payment Links ───
+  // TODO: Replace with actual Stripe payment links
+  var STRIPE_SESSIONS_3 = 'https://buy.stripe.com/PLACEHOLDER_SESSIONS_3_66';
+  var STRIPE_SESSIONS_1 = 'https://buy.stripe.com/PLACEHOLDER_SESSION_1_31';
 
-  document.getElementById('upgradeSessions').addEventListener('click', function() {
-    window.open(STRIPE_SESSIONS_59, '_blank');
+  document.getElementById('upgradeSessions3').addEventListener('click', function() {
+    window.open(STRIPE_SESSIONS_3, '_blank');
+  });
+  document.getElementById('upgradeSessions1').addEventListener('click', function() {
+    window.open(STRIPE_SESSIONS_1, '_blank');
   });
 
   // ─── Reveal ───
