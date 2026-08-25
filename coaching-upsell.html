@@ -388,9 +388,9 @@
   var STRIPE_VYF = 'https://buy.stripe.com/14A7sKcfH9Qk9CRge928802';
   var STRIPE_VYF_ALI = 'https://buy.stripe.com/6oU28q2F70fKdT72nj28804';
   // VYF + Alignment + 3x 1-on-1 ($99 bundle) - Kris needs to create this Payment Link
-  var STRIPE_VYF_ALI_3X = 'STRIPE_VYF_ALI_3X_PLACEHOLDER';
+  var STRIPE_VYF_ALI_3X = 'https://buy.stripe.com/eVqeVcdjLd2wcP34vr28805';
   // Individual 1-on-1 sessions ($30 each) - Kris needs to create this Payment Link (quantity adjustable)
-  var STRIPE_SESSIONS = 'STRIPE_SESSIONS_PLACEHOLDER';
+  var STRIPE_SESSIONS = 'https://buy.stripe.com/5kQ00igvX2nSaGV5zv28806';
 
   // ─── Session selector ───
   var sessionCount = 1;
@@ -422,19 +422,11 @@
   });
 
   document.getElementById('checkoutSessions').addEventListener('click', function() {
-    if (STRIPE_SESSIONS && STRIPE_SESSIONS !== 'STRIPE_SESSIONS_PLACEHOLDER') {
-      window.open(STRIPE_SESSIONS, '_blank');
-    } else {
-      alert('Checkout for VYF + Alignment + ' + sessionCount + ' session(s) ($' + (54 + 30 * sessionCount) + ') is being finalised. Kris needs to create a Stripe Payment Link for 1-on-1 sessions.');
-    }
+    window.open(STRIPE_SESSIONS, '_blank');
   });
 
   document.getElementById('checkoutBundle').addEventListener('click', function() {
-    if (STRIPE_VYF_ALI_3X && STRIPE_VYF_ALI_3X !== 'STRIPE_VYF_ALI_3X_PLACEHOLDER') {
-      window.open(STRIPE_VYF_ALI_3X, '_blank');
-    } else {
-      alert('Checkout for the $99 bundle (VYF + Alignment + 3x 1-on-1) is being finalised. Kris needs to create this Stripe Payment Link.');
-    }
+    window.open(STRIPE_VYF_ALI_3X, '_blank');
   });
 
   document.getElementById('skipCoaching').addEventListener('click', function(e) {
