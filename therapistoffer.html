@@ -88,7 +88,6 @@
     .hero-section { background: var(--deep-forest); color: var(--parchment); padding: 140px 1.5rem 4rem; text-align: center; }
     .hero-inner { max-width: 640px; margin: 0 auto; }
     .hero-eyebrow { font-family: var(--font-brand); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-gold); margin-bottom: 1.5rem; }
-    .hero-price-badge { display: inline-block; background: var(--warm-gold); color: var(--deep-forest); font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; padding: 0.5rem 2rem; border-radius: 9999px; margin-bottom: 1.5rem; box-shadow: 0 8px 30px rgba(198,158,72,0.3); }
     .hero-h1 { font-family: var(--font-heading); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; margin-bottom: 1.25rem; font-weight: 400; }
     .hero-h1 em { color: var(--warm-gold); font-style: italic; }
     .hero-sub { font-size: 1rem; color: rgba(245,241,234,0.7); line-height: 1.75; max-width: 500px; margin: 0 auto 1.25rem; }
@@ -238,7 +237,6 @@
 <section class="hero-section">
   <div class="hero-inner">
     <div class="hero-eyebrow">LIMITED FOUNDING OFFER FOR COUNSELLORS &amp; THERAPISTS</div>
-    <div class="hero-price-badge">&pound;99</div>
     <h1 class="hero-h1">Your completely custom therapist website for <em>&pound;99.</em></h1>
     <p class="hero-sub">I'll design, code and launch a professional website built specifically around your counselling practice - including up to five pages, three private calls and three rounds of revisions.</p>
     <p class="hero-benefit">No templates &middot; No monthly website subscription &middot; You own it</p>
@@ -530,16 +528,6 @@
         </div>
         <div class="qf-two-col">
           <div class="qf-field">
-            <label for="app-title">Professional Title</label>
-            <input type="text" id="app-title" name="title" placeholder="e.g. Counsellor, Psychotherapist" />
-          </div>
-          <div class="qf-field">
-            <label for="app-practice">Practice Name</label>
-            <input type="text" id="app-practice" name="practice" placeholder="Your practice name" />
-          </div>
-        </div>
-        <div class="qf-two-col">
-          <div class="qf-field">
             <label for="app-location">Practice Location</label>
             <input type="text" id="app-location" name="location" placeholder="City or region" />
           </div>
@@ -558,14 +546,6 @@
             <label class="qf-radio-label"><input type="radio" name="payments" value="Yes"> Yes</label>
             <label class="qf-radio-label"><input type="radio" name="payments" value="No"> No</label>
             <label class="qf-radio-label"><input type="radio" name="payments" value="Not sure"> Not sure</label>
-          </div>
-        </div>
-        <div class="qf-field">
-          <label>Would you like a booking calendar connected?</label>
-          <div class="qf-radio-row">
-            <label class="qf-radio-label"><input type="radio" name="booking" value="Yes"> Yes</label>
-            <label class="qf-radio-label"><input type="radio" name="booking" value="No"> No</label>
-            <label class="qf-radio-label"><input type="radio" name="booking" value="Not sure"> Not sure</label>
           </div>
         </div>
         <div class="qf-field">
@@ -662,12 +642,9 @@ window.handleApplication = function() {
   var name = document.getElementById('app-name').value;
   var email = document.getElementById('app-email').value;
   var message = document.getElementById('app-message').value;
-  var title = document.getElementById('app-title').value || 'Not provided';
-  var practice = document.getElementById('app-practice').value || 'Not provided';
   var location = document.getElementById('app-location').value || 'Not provided';
   var website = document.getElementById('app-website').value || 'None';
   var payments = document.querySelector('input[name="payments"]:checked');
-  var booking = document.querySelector('input[name="booking"]:checked');
   var contact = document.getElementById('app-contact').value;
 
   if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
@@ -679,13 +656,10 @@ window.handleApplication = function() {
   var formData = {
     name: name,
     email: email,
-    title: title,
-    practice: practice,
     location: location,
     website: website,
     message: message,
     payments: payments ? payments.value : 'Not specified',
-    booking: booking ? booking.value : 'Not specified',
     contact_method: contact,
     _subject: 'Therapist Website Application - £99 Founding Offer'
   };
