@@ -65,7 +65,8 @@
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 2rem; height: 70px; display: flex; align-items: center; justify-content: space-between; transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease; }
     nav.scrolled { background: rgba(245,241,234,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(28,40,35,0.08); }
-    .nav-brand { font-family: var(--font-brand); font-size: 1.5rem; letter-spacing: 0.05em; color: var(--deep-forest); text-decoration: none; }
+    .nav-brand { font-family: var(--font-brand); font-size: 1.5rem; letter-spacing: 0.05em; color: var(--parchment); text-decoration: none; transition: color 0.4s ease; }
+    nav.scrolled .nav-brand { color: var(--deep-forest); }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links a { font-family: var(--font-body); font-size: 0.875rem; font-weight: 500; color: var(--slate-mist); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--deep-forest); }
