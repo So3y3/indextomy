@@ -126,6 +126,11 @@
     @media (max-width: 480px) {
       .offer-card .price-new { font-size: 2rem; }
     }
+  
+    /* Reusable legal micro-line beneath purchase buttons */
+    .legal-line { font-size: 0.7rem; color: rgba(245,241,234,0.35); margin-top: 0.6rem; text-align: center; line-height: 1.4; font-family: var(--font-body); }
+    .legal-line a { color: rgba(198,158,72,0.6); text-decoration: underline; transition: color 0.2s; }
+    .legal-line a:hover { color: var(--warm-gold); }
   </style>
 </head>
 <body>
@@ -187,6 +192,7 @@
       <li>Email + WhatsApp support between calls</li>
     </ul>
     <button class="offer-btn" id="claimFull">Claim This Offer</button>
+    <p class="legal-line">By purchasing, you agree to the <a href="https://www.coachkris.co.uk/legal.html">Coach Kris Terms &amp; Conditions and Privacy Policy</a>.</p>
     <div class="claim-form" id="formFull">
       <form>
         <input type="hidden" name="_subject" value="Offer Claim - Alignment + 3 sessions for $103" />
@@ -215,6 +221,7 @@
       <li>Add coaching anytime later</li>
     </ul>
     <button class="offer-btn" id="claimAlignment">Claim This Offer</button>
+    <p class="legal-line">By purchasing, you agree to the <a href="https://www.coachkris.co.uk/legal.html">Coach Kris Terms &amp; Conditions and Privacy Policy</a>.</p>
     <div class="claim-form" id="formAlignment">
       <form>
         <input type="hidden" name="_subject" value="Offer Claim - Alignment only for $47" />

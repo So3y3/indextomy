@@ -155,7 +155,12 @@
   /* ─── FOOTER ─── */
   footer { color: rgba(245,241,234,0.4); text-align: center; padding: 2rem; font-size: 0.78rem; border-top: 1px solid rgba(198,158,72,0.1); }
   footer a { color: var(--warm-gold); text-decoration: none; }
-</style>
+
+    /* Reusable legal micro-line beneath purchase buttons */
+    .legal-line { font-size: 0.7rem; color: rgba(245,241,234,0.35); margin-top: 0.6rem; text-align: center; line-height: 1.4; font-family: var(--font-body); }
+    .legal-line a { color: rgba(198,158,72,0.6); text-decoration: underline; transition: color 0.2s; }
+    .legal-line a:hover { color: var(--warm-gold); }
+  </style>
 </head>
 <body>
 
@@ -227,6 +232,7 @@
     </ul>
     <button class="checkout-btn" id="checkoutBundle">YES - Give me the full package for $99</button>
     <a href="#" class="skip-link" id="skipCoaching">No thanks, just VYF + Alignment for $54</a>
+    <p class="legal-line">By purchasing, you agree to the <a href="https://www.coachkris.co.uk/legal.html">Coach Kris Terms &amp; Conditions and Privacy Policy</a>.</p>
   </div>
 </section>
 
@@ -281,6 +287,7 @@
   <h2>This price is only available <em>on this page.</em><br>After you leave, it's gone.</h2>
   <button class="final-cta-btn" id="finalCtaBtn">Add 3 sessions - just $45 more</button>
   <p class="final-cta-meta">Total $99 (includes both workbooks) &middot; Sessions scheduled by email &middot; Workbooks yours immediately</p>
+        <p class="legal-line">By purchasing, you agree to the <a href="https://www.coachkris.co.uk/legal.html">Coach Kris Terms &amp; Conditions and Privacy Policy</a>.</p>
   <a href="#" class="final-skip" id="finalSkip">No thanks, just VYF + Alignment for $54</a>
 </section>
 
