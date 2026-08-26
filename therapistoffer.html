@@ -143,6 +143,15 @@
     .affordable-box p { margin-bottom: 0.75rem; }
     .affordable-box p:last-child { margin-bottom: 0; }
 
+    /* WHY-99 TWO COLUMN WITH PHOTO */
+    .why-grid { display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem; align-items: center; max-width: 780px; margin: 0 auto; }
+    @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+    .why-photo-col { display: flex; flex-direction: column; align-items: center; }
+    .why-photo-col img { width: 100%; max-width: 220px; border-radius: 20px; box-shadow: 0 8px 30px rgba(28,40,35,0.12); object-fit: cover; aspect-ratio: 4/5; }
+    .why-photo-caption { font-family: var(--font-heading); font-style: italic; font-size: 0.9rem; color: var(--warm-gold); margin-top: 0.9rem; text-align: center; }
+    .why-text-col .affordable-box { margin: 0; max-width: none; text-align: left; }
+    .why-intro { font-size: 0.95rem; color: var(--deep-forest); line-height: 1.75; margin-bottom: 1.25rem; }
+
     /* PROCESS */
     .process-list { max-width: 600px; margin: 0 auto; }
     .process-step { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--sea-glass); }
@@ -434,10 +443,19 @@
   <div class="wrap-wide">
     <p class="section-eyebrow">THE HONEST ANSWER</p>
     <h2 class="section-title">Why does a custom website cost only <em>&pound;99?</em></h2>
-    <div class="affordable-box">
-      <p>I recently created a complete custom website for my partner Peter, who is a counsellor. After seeing how much functionality could be provided without an expensive monthly website platform, I decided to expand my specialist portfolio of websites for counsellors and therapists.</p>
-      <p>I'm offering five custom projects at a heavily reduced founding-client price of &pound;99. In exchange, I ask for honest feedback and permission to feature the completed website in my portfolio. A testimonial may also be requested, but it is not mandatory.</p>
-      <p>These are genuine custom websites. The reduced price reflects this limited portfolio-building offer, not the future value of the service. Future projects will be priced considerably higher.</p>
+    <div class="why-grid">
+      <div class="why-photo-col">
+        <img src="kris-founder-photo.jpg" alt="Kris, website designer and coach" loading="lazy" width="640" height="800" />
+        <p class="why-photo-caption">Kris - your website designer and coach</p>
+      </div>
+      <div class="why-text-col">
+        <p class="why-intro">I'm Kris. I'll personally plan, design and code your website, guide you through the three revision rounds and help you prepare it for launch. You won't be passed between salespeople, designers or support teams - you'll work directly with me from beginning to end.</p>
+        <div class="affordable-box">
+          <p>I recently created a complete custom website for my partner Peter, who is a counsellor. After seeing how much functionality could be provided without an expensive monthly website platform, I decided to expand my specialist portfolio of websites for counsellors and therapists.</p>
+          <p>I'm offering five custom projects at a heavily reduced founding-client price of &pound;99. In exchange, I ask for honest feedback and permission to feature the completed website in my portfolio. A testimonial may also be requested, but it is not mandatory.</p>
+          <p>These are genuine custom websites. The reduced price reflects this limited portfolio-building offer, not the future value of the service. Future projects will be priced considerably higher.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
