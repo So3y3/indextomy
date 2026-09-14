@@ -455,6 +455,126 @@
       color: var(--slate-mist);
     }
 
+    #focus .focus-blocks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    #focus .focus-block {
+      background: white;
+      border: 1px solid var(--sea-glass);
+      border-radius: 6px;
+      padding: 1.5rem 1.25rem;
+    }
+    #focus .focus-block h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--deep-forest);
+      margin-bottom: 0.5rem;
+    }
+    #focus .focus-block p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--slate-mist);
+      max-width: none;
+      margin: 0;
+    }
+
+    /* ─── COACHING & PRICING ─── */
+    #pricing { text-align: center; }
+    .pricing-lede {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--slate-mist);
+      max-width: 680px;
+      margin: 0 auto 1.25rem;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+      text-align: left;
+    }
+    .pricing-card {
+      background: white;
+      border: 1px solid var(--sea-glass);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .pricing-card--featured { border-top: 3px solid var(--warm-gold); }
+    .pricing-tier {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--deep-forest);
+      margin: 0;
+    }
+    .pricing-meta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gold);
+      margin: 0;
+    }
+    .pricing-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--deep-forest);
+      margin: 0;
+    }
+    .pricing-note {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--slate-mist);
+      margin: 0;
+    }
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary { text-align: center; margin-top: auto; }
+
+    /* ─── PRACTICE FEEDBACK ─── */
+    #feedback {
+      background: var(--sand);
+      text-align: center;
+    }
+    #feedback blockquote {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--deep-forest);
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+    }
+    .feedback-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-mist);
+      margin: 0;
+    }
+
+    /* ─── CONTACT INTRO ─── */
+    .contact-intro {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--slate-mist);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      #focus .focus-blocks { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
     #pillars {
       background: var(--sand);
     }
@@ -1115,9 +1235,9 @@
     </p>
 
     <div class="hero-buttons reveal reveal-delay-4">
-      <a href="#story" class="btn-secondary">My Story</a>
+      <a href="#contact" class="btn-primary">Free Focus Session</a>
+      <a href="#focus" class="btn-secondary">How I Coach</a>
       <a href="thevoice.html" class="btn-secondary">The Voice You Feed</a>
-      <a href="#contact" class="btn-primary">Book a Free Session</a>
     </div>
 
     <div class="hero-badges reveal reveal-delay-4">
@@ -1135,9 +1255,24 @@
     <div class="section-inner">
       <p class="eyebrow reveal">The Way I Work</p>
       <h2 class="section-heading reveal reveal-delay-1">One conversation. <em>One real focus.</em></h2>
-      <p class="reveal reveal-delay-2">I don't believe in rushing through a checklist of problems or giving you advice you could find online. We slow down, identify the one thing that matters most and explore what is really happening underneath it.</p>
-      <p class="reveal reveal-delay-2">Through focused questions, honest reflection and carefully chosen exercises, I help you recognise the beliefs and patterns shaping your decisions, and see possibilities that may be difficult to access from inside the situation.</p>
-      <p class="reveal reveal-delay-3">Then we turn that realisation into a practical next step. Because insight matters, but the evidence you create afterwards is what begins rebuilding trust in yourself.</p>
+      <p class="reveal reveal-delay-2">I don't believe in rushing through a checklist of problems or giving you advice you could find online. We begin by identifying the one thing that matters most and exploring what is really happening underneath it.</p>
+      <p class="reveal reveal-delay-2">Through focused questions, honest reflection and carefully chosen exercises, I help you notice the beliefs and patterns influencing your decisions - and see possibilities that can be difficult to access while you are inside the situation.</p>
+      <p class="reveal reveal-delay-3">Then we turn that understanding into a practical next step. Because a realisation can open the door, but the evidence you create afterwards is what begins rebuilding trust in yourself.</p>
+
+      <div class="focus-blocks">
+        <div class="focus-block reveal reveal-delay-3">
+          <h3>Go deeper</h3>
+          <p>We stay with the important question instead of automatically accepting the first explanation.</p>
+        </div>
+        <div class="focus-block reveal reveal-delay-3">
+          <h3>See what is possible</h3>
+          <p>You are not given somebody else's answer. You are supported to recognise your own abilities, direction and possibilities more clearly.</p>
+        </div>
+        <div class="focus-block reveal reveal-delay-4">
+          <h3>Create movement</h3>
+          <p>We turn meaningful insight into an action, decision or experiment you can carry into your real life.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1265,6 +1400,45 @@
     </div>
   </section>
 
+  <!-- ─── COACHING & PRICING ─── -->
+  <section id="pricing">
+    <div class="section-inner-wide">
+      <p class="eyebrow reveal">Coaching &amp; Pricing</p>
+      <h2 class="section-heading reveal reveal-delay-1">Begin with one focused conversation</h2>
+      <p class="pricing-lede reveal reveal-delay-1">Bring one decision, pattern or possibility you keep circling.</p>
+      <p class="pricing-lede reveal reveal-delay-2">Your free 30-minute Focus Session is a genuine coaching conversation - not a sales pitch. We will choose one meaningful issue, explore what may be happening underneath it and work towards a new realisation, clearer direction or practical next step.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+          <p class="pricing-tier">Free Focus Session</p>
+          <p class="pricing-meta">30 minutes &middot; Free</p>
+          <p class="pricing-desc">One meaningful focus, explored through honest conversation and deeper questions.</p>
+          <p class="pricing-note">No commitment &middot; Online or phone</p>
+          <a href="#contact" class="btn-primary">Book Your Free Focus Session</a>
+        </div>
+        <div class="pricing-card reveal reveal-delay-3">
+          <p class="pricing-tier">Continued Coaching</p>
+          <p class="pricing-meta">60 minutes &middot; &pound;45 per session</p>
+          <p class="pricing-desc">If we decide to continue, our sessions give us the time to explore the deeper pattern, apply what you discover and work with what emerges as you begin making changes.</p>
+          <p class="pricing-note">I normally recommend one session per week, particularly at the beginning, to help maintain focus and momentum.</p>
+          <p class="pricing-note">No compulsory package or long-term commitment.</p>
+          <a href="#contact" class="btn-secondary">Start With a Free Focus Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PRACTICE FEEDBACK ─── -->
+  <section id="feedback">
+    <div class="section-inner">
+      <h2 class="section-heading reveal reveal-delay-1">What can change when we<br /><em>look beneath the first answer</em></h2>
+      <blockquote class="reveal reveal-delay-2">
+        &ldquo;I believed I needed more qualifications before I could begin coaching. Through our work, I clarified who I wanted to help, recognised what was really keeping me from starting and began building my own practice step by step.&rdquo;
+      </blockquote>
+      <p class="feedback-label reveal reveal-delay-3">Practice-coaching feedback</p>
+    </div>
+  </section>
+
   <!-- ─── MY STORY ─── -->
   <section id="story">
     <div class="story-inner">
@@ -1315,29 +1489,30 @@
 
       <div class="contact-left">
         <p class="eyebrow reveal">Let's Connect</p>
-        <h2 class="section-heading reveal reveal-delay-1">Ready to break<br />the loop?</h2>
+        <h2 class="section-heading reveal reveal-delay-1">What is the one thing<br /><em>you keep circling?</em></h2>
+        <p class="contact-intro reveal reveal-delay-1">You don't need to arrive with a perfect goal or know exactly what needs to change. Bring the decision, pattern or possibility that keeps returning. We'll start there.</p>
         <p class="contact-subtext reveal reveal-delay-2">Free 30-minute call · No commitment · Phone or video</p>
 
         <div class="contact-steps">
           <div class="contact-step reveal reveal-delay-2">
             <div class="step-number">1</div>
             <div class="step-text">
-              <strong>Fill in the form</strong>
-              <span>Takes 2 minutes. Tell me a bit about where you're at.</span>
+              <strong>Tell me where you feel stuck</strong>
+              <span>A few sentences are enough. You do not need to understand the entire problem yet.</span>
             </div>
           </div>
           <div class="contact-step reveal reveal-delay-3">
             <div class="step-number">2</div>
             <div class="step-text">
-              <strong>I'll reach out within 24h</strong>
-              <span>We'll find a time that works. Phone or video, your choice.</span>
+              <strong>I'll contact you within 24 hours</strong>
+              <span>We'll arrange a time that works for a phone or video session.</span>
             </div>
           </div>
           <div class="contact-step reveal reveal-delay-4">
             <div class="step-number">3</div>
             <div class="step-text">
-              <strong>Free 30-minute session</strong>
-              <span>No sales pitch. Just an honest conversation about what's possible.</span>
+              <strong>Bring one meaningful focus</strong>
+              <span>We'll use the 30 minutes to explore it properly. Afterwards, you can continue with weekly 60-minute sessions for &pound;45 if the fit feels right.</span>
             </div>
           </div>
         </div>
@@ -1354,8 +1529,8 @@
             <input type="email" id="email" name="email" placeholder="you@example.com" required />
           </div>
           <div class="form-group">
-            <label for="message">What's going on? (brief is fine)</label>
-            <textarea id="message" name="message" placeholder="I've been feeling stuck with..." required></textarea>
+            <label for="message">What would you most like us to focus on?</label>
+            <textarea id="message" name="message" placeholder="The one thing I keep coming back to is..." required></textarea>
           </div>
 
           <div class="form-group">
@@ -1373,7 +1548,7 @@
           </div>
 
           <button class="form-submit" id="submitBtn" onclick="submitForm(event)">
-            REQUEST INITIAL SESSION
+            REQUEST MY FREE FOCUS SESSION
           </button>
 
           <p style="font-size:0.72rem;color:var(--slate-mist);text-align:center;margin-top:0.75rem;">
@@ -1528,7 +1703,7 @@
           throw new Error('Server error');
         }
       } catch (err) {
-        btn.textContent = 'REQUEST INITIAL SESSION';
+        btn.textContent = 'REQUEST MY FREE FOCUS SESSION';
         btn.disabled = false;
         alert('Something went wrong. Please email Kristian directly at Kristian.sokol@icloud.com');
       }
