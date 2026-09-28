@@ -280,15 +280,15 @@
     .wrap section.card{margin-top:28px; margin-bottom:28px;}
     .steps-3{
       max-width:1080px;
-      padding:28px 24px;
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; padding:28px 24px;
     }
     .steps-3 section.card{margin:0; max-width:none;}
     .steps-3 .step-row{
-      grid-template-columns:64px 200px 1fr; align-items:baseline; gap:8px 28px; padding:0;
+      grid-template-columns:52px 1fr; align-items:baseline; gap:6px 14px; padding:0;
     }
-    .steps-3 .step-n{grid-row:auto; grid-column:1;}
+    .steps-3 .step-n{grid-row:1; grid-column:1;}
     .steps-3 .step-h{grid-row:1; grid-column:2;}
-    .steps-3 .step-p{grid-row:1; grid-column:3; font-size:1.02rem; color:#6B665B; max-width:60ch;}
+    .steps-3 .step-p{grid-row:2; grid-column:1 / -1; font-size:.98rem; color:#6E6A63;}
     .split{
       max-width:1080px; margin:0 auto; padding:28px 24px;
       display:grid; grid-template-columns:1fr 1fr; gap:28px;
