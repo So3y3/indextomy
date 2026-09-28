@@ -211,11 +211,11 @@
   .steps-next{max-width:1080px; margin:0 auto; padding:0 18px;}
 
   /* orange statement */
-  .statement{
+.statement{
     background:var(--pop); color:#fff; border-radius:28px; margin:18px auto;
-    padding:44px 24px; max-width:640px;
+    padding:30px 22px; max-width:640px;
   }
-  .statement p{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.45rem,7vw,2rem); line-height:1.32;}
+  .statement p{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.45rem,7vw,2rem); line-height:1.32; display:grid; gap:.45em;}
   .statement span{background:#fff; color:var(--pop-deep); padding:.02em .18em .08em; border-radius:.3em .22em .3em .22em;}
 
   /* bubble moment */
@@ -478,7 +478,7 @@
 
 <div class="wrap">
   <section class="statement">
-    <p>When fear gets loud and comfort gets persuasive,<br><span>I'll make sure your goals get louder.</span></p>
+    <p><span class="st-line">When fear gets loud and comfort gets persuasive,</span><span>I'll make sure your goals get louder.</span></p>
   </section>
 </div>
 
@@ -521,9 +521,9 @@
     <p class="price-note">No packages, no lock-in. Book a session and see how it lands. Book a run of them if you want momentum.</p>
     <div class="lead-form" id="book-form">
       <form id="newLeadForm" novalidate>
-        <input type="text" id="leadName" name="name" placeholder="Full name" autocomplete="name" required>
-        <input type="email" id="leadEmail" name="email" placeholder="Email" autocomplete="email" required>
-        <textarea id="leadMsg" name="message" rows="3" placeholder="Short message. What are you stuck on?" required></textarea>
+        <input type="text" id="leadName" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="leadEmail" name="email" placeholder="Your email" autocomplete="email" required>
+        <textarea id="leadMsg" name="message" rows="3" placeholder="Tell me what's up" required></textarea>
         <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn btn-primary" id="leadBtn">Book a session <span class="dot">&rarr;</span></button>
       </form>
