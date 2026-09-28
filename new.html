@@ -234,33 +234,74 @@
   .book-bar:hover{transform:translateY(-2px);}
   .book-bar span{font-weight:500; font-size:.85rem; opacity:.9;}
 
-  /* desktop */
+  /* tablet and up: two-column hero, mobile rhythm kept */
   @media(min-width:760px){
     body{padding-bottom:0;}
-    .hero-grid{
-      display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;
-      padding:64px 24px 12px;
-    }
-    .photo-side .photo-card img{height:480px;}
     .book-bar{display:none;}
-    .steps-3{
-      display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; padding:0 24px;
+    .hero-grid{
+      display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center;
+      padding:56px 24px 28px;
     }
-    .steps-3 section.card{margin:0 10px;}
+    h1{font-size:3.3rem;}
+    .photo-side .photo-card img{height:440px;}
+    .hero-sub{font-size:1.05rem;}
+    section.card{padding:36px 32px;}
+    .wrap{max-width:760px;}
+    .wrap section.card{max-width:none;}
+    .steps-3{max-width:760px; padding:0 24px;}
+    .steps-3 section.card{margin-left:0; margin-right:0;}
+    .split{max-width:760px; padding:0 24px;}
+    .split section.card{margin-left:0; margin-right:0;}
+    .statement{max-width:760px; padding:56px 40px;}
+    .statement p{font-size:2.1rem;}
+    .foot-cta{max-width:760px; padding:56px 32px;}
+    .foot-cta h2{font-size:2.4rem;}
+    .belief{font-size:1.6rem;}
+    footer{max-width:1080px;}
+  }
+
+  /* real desktop: air, bigger type, wider columns */
+  @media(min-width:1024px){
+    .hero-grid{
+      grid-template-columns:1.12fr .88fr; gap:64px;
+      padding:96px 24px 56px;
+    }
+    h1{font-size:4.3rem; line-height:1.04;}
+    .kicker{margin-bottom:24px;}
+    .hero-sub{font-size:1.12rem; margin:24px 0 30px;}
+    .chips{margin:22px 0 34px; gap:10px;}
+    .chip{font-size:.85rem; padding:10px 18px;}
+    .btn{font-size:1.05rem; padding:18px 28px;}
+    .btn-ghost{margin-top:14px;}
+    .photo-side .photo-card img{height:560px;}
+    section.card{padding:48px 40px; border-radius:32px;}
+    .wrap{max-width:1080px;}
+    .wrap section.card{margin-top:28px; margin-bottom:28px;}
+    .steps-3{
+      max-width:1080px;
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; padding:28px 24px;
+    }
+    .steps-3 section.card{margin:0;}
     .split{
-      max-width:1080px; margin:0 auto; padding:0 24px;
-      display:grid; grid-template-columns:1fr 1fr; gap:20px;
+      max-width:1080px; margin:0 auto; padding:28px 24px;
+      display:grid; grid-template-columns:1fr 1fr; gap:28px;
     }
     .split section.card{margin:0;}
-    .statement{max-width:1080px; padding:64px 56px;}
-    .statement p{font-size:2.6rem;}
-    .foot-cta{max-width:1080px; padding:64px 24px;}
-    .foot-cta h2{font-size:3rem;}
-    section.card{padding:36px 30px;}
-    .wrap{max-width:1080px;}
-    .wrap section.card{max-width:none;}
-    .hero-sub{font-size:1.05rem;}
-    h1{font-size:4rem;}
+    .statement{max-width:1080px; margin-top:28px; margin-bottom:28px; padding:88px 72px;}
+    .statement p{font-size:2.8rem;}
+    .belief{font-size:2rem;}
+    .dark-sub{font-size:1rem;}
+    .dark-quote{font-size:1.05rem;}
+    .step-row{padding:26px 0;}
+    .step-n{font-size:1.8rem;}
+    .step-p{font-size:.98rem;}
+    .story-desc{font-size:.95rem;}
+    .price-note{font-size:1rem;}
+    .testi-q{font-size:1.15rem;}
+    .foot-cta{max-width:1080px; padding:96px 24px;}
+    .foot-cta h2{font-size:3.2rem;}
+    .foot-cta .btn{font-size:1.1rem; padding:18px 30px;}
+    footer{padding-top:40px;}
   }
 </style>
 </head>
