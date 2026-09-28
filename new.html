@@ -195,13 +195,6 @@
   .step-h{font-weight:600; letter-spacing:.06em; font-size:.9rem;}
   .step-p{color:var(--soft); font-size:.92rem; grid-column:2;}
   .step-lead{display:block; color:var(--ink); font-weight:600; margin-bottom:5px;}
-  .next-title{
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
-    font-size:clamp(1.7rem,7vw,2.3rem); line-height:1.15;
-    max-width:1080px; margin:44px auto 18px; padding:0 18px;
-  }
-  .steps-next{max-width:1080px; margin:0 auto; padding:0 18px;}
-
   /* orange statement */
 .statement{
     background:var(--pop); color:#fff; border-radius:28px; margin:18px auto;
@@ -314,8 +307,6 @@
     .wrap section.card{max-width:none;}
     .steps-3{max-width:760px; padding:0 24px;}
     .steps-3 section.card{margin-left:0; margin-right:0;}
-    .next-title{max-width:760px; padding:0 24px;}
-    .steps-next{max-width:760px; padding:0 24px;}
     .split{max-width:760px; padding:0 24px;}
     .split section.card{margin-left:0; margin-right:0;}
     .statement{max-width:760px; padding:56px 40px;}
@@ -351,17 +342,6 @@
     .steps-3 .step-row{
       grid-template-columns:52px 1fr; align-items:baseline; gap:6px 14px; padding:0;
     }
-    .next-title{max-width:1080px; padding:0 24px;}
-    .steps-next{
-      display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:0 24px;
-    }
-    .steps-next section.card{margin:0; max-width:none;}
-    .steps-next .step-row{
-      grid-template-columns:52px 1fr; align-items:baseline; gap:6px 14px; padding:0;
-    }
-    .steps-next .step-n{grid-row:1; grid-column:1;}
-    .steps-next .step-h{grid-row:1; grid-column:2;}
-    .steps-next .step-p{grid-row:2; grid-column:1 / -1; font-size:.98rem; color:#6E6A63;}
     .steps-3 .step-n{grid-row:1; grid-column:1;}
     .steps-3 .step-h{grid-row:1; grid-column:2;}
     .steps-3 .step-p{grid-row:2; grid-column:1 / -1; font-size:.98rem; color:#6E6A63;}
@@ -369,7 +349,6 @@
       max-width:1080px; margin:0 auto; padding:28px 24px;
       display:grid; grid-template-columns:1fr 1fr; gap:28px;
     }
-    .split-one{grid-template-columns:1fr;}
     .split section.card{margin:0;}
     .split .price-card{order:2;}
     .statement{max-width:1080px; margin-top:28px; margin-bottom:28px; padding:88px 72px;}
@@ -475,7 +454,7 @@
   </section>
 </div>
 
-<div class="split split-one">
+<div class="split">
   <section class="card">
     <span class="sec-tag">Proudest moments</span>
     <div class="story-row">
@@ -499,6 +478,29 @@
     <a href="/blog.html" class="link-arrow">There is more to my story &rarr;</a>
   </section>
 
+  <section class="card">
+    <span class="sec-tag">What happens next</span>
+    <div class="step-row">
+      <div class="step-n">1</div>
+      <div class="step-h">Get in touch</div>
+      <p class="step-p">Easy. Send me a message. I'll send you a short onboarding form so I can get a feel for what's going on, what you want to change, and where you want to get to.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">2</div>
+      <div class="step-h">Let's talk</div>
+      <p class="step-p">We'll arrange a free discovery session. No performance, no perfect explanation needed. We'll talk about what's going on, what you want, and whether we're a good fit.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">3</div>
+      <div class="step-h">This is where it gets interesting</div>
+      <p class="step-p">If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what's getting in the way, and turning it into movement.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">4</div>
+      <div class="step-h">We adapt as we go</div>
+      <p class="step-p">No rigid script. If something isn't working, we change it. I'll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p>
+    </div>
+  </section>
 </div>
 
 <div class="split">
@@ -535,42 +537,6 @@
         <span class="tq">&ldquo;</span>
         <p class="testi-q">I'm really excited, and all sessions have been really insightful. I feel <b>more confident</b>, my goals are more accessible, and my long term goals feel closer and more real than ever.</p>
       </div>
-    </div>
-  </section>
-</div>
-
-<h2 class="next-title">What happens next</h2>
-<div class="steps-next" id="next">
-  <section class="card">
-    <span class="sec-tag">Step 01</span>
-    <div class="step-row">
-      <div class="step-n">1</div>
-      <div class="step-h">Get in touch</div>
-      <p class="step-p">Easy. Send me a message. I&rsquo;ll send you a short onboarding form so I can get a feel for what&rsquo;s going on, what you want to change, and where you want to get to.</p>
-    </div>
-  </section>
-  <section class="card">
-    <span class="sec-tag">Step 02</span>
-    <div class="step-row">
-      <div class="step-n">2</div>
-      <div class="step-h">Let&rsquo;s talk</div>
-      <p class="step-p">We&rsquo;ll arrange a free discovery session. No performance, no perfect explanation needed. We&rsquo;ll talk about what&rsquo;s going on, what you want, and whether we&rsquo;re a good fit.</p>
-    </div>
-  </section>
-  <section class="card">
-    <span class="sec-tag">Step 03</span>
-    <div class="step-row">
-      <div class="step-n">3</div>
-      <div class="step-h">This is where it gets interesting</div>
-      <p class="step-p">If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what&rsquo;s getting in the way, and turning it into movement.</p>
-    </div>
-  </section>
-  <section class="card">
-    <span class="sec-tag">Step 04</span>
-    <div class="step-row">
-      <div class="step-n">4</div>
-      <div class="step-h">We adapt as we go</div>
-      <p class="step-p">No rigid script. If something isn&rsquo;t working, we change it. I&rsquo;ll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p>
     </div>
   </section>
 </div>
