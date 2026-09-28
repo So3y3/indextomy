@@ -56,7 +56,7 @@
   body{
     font-family:'Instrument Sans',sans-serif; background:var(--paper); color:var(--ink);
     font-size:16px; line-height:1.65; overflow-x:hidden;
-    padding-bottom:96px;
+    padding-bottom:0;
   }
   img{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
@@ -95,6 +95,18 @@
   /* hero */
 .hero-grid{
     max-width:1080px; margin:0 auto; padding:76px 18px 12px;
+  }
+  @media(max-width:759px){
+    .hero-grid{display:flex; flex-direction:column;}
+    .hero-grid > div:first-child{display:contents;}
+    .hero-grid .kicker{order:1; margin-bottom:14px;}
+    .hero-grid h1{order:2;}
+    .hero-grid .photo-side{order:3;}
+    .hero-grid .photo-card{margin:18px 0 0;}
+    .hero-grid .hero-sub{order:4; margin:16px 0 0;}
+    .hero-grid .chips{display:none;}
+    .hero-grid .btn-primary{order:5; margin-top:22px;}
+    .hero-grid .btn-ghost{order:6;}
   }
   .kicker{
     display:inline-flex; align-items:center; gap:.5rem;
@@ -296,22 +308,8 @@
   .free-line{margin-top:14px; font-weight:600; color:var(--pop-deep); text-align:center;}
   html{scroll-behavior:smooth;}
 
-  /* sticky mobile book bar */
-  .book-bar{
-    position:fixed; left:14px; right:14px; bottom:14px; z-index:50;
-    background:var(--pop); color:#fff; border-radius:999px;
-    padding:16px 22px; font-weight:600; font-size:1rem;
-    display:flex; justify-content:space-between; align-items:center;
-    box-shadow:0 14px 34px rgba(255,77,0,.45);
-    transition:transform .25s ease;
-  }
-  .book-bar:hover{transform:translateY(-2px);}
-  .book-bar span{font-weight:500; font-size:.85rem; opacity:.9;}
-
   /* tablet and up: two-column hero, mobile rhythm kept */
   @media(min-width:760px){
-    body{padding-bottom:0;}
-    .book-bar{display:none;}
     .hero-grid{
       display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center;
       padding:84px 24px 16px;
@@ -603,7 +601,6 @@
   <div><a href="https://www.instagram.com/kristian.sokol/" rel="noopener">Instagram</a> · <a href="https://coachcompare.com/coach/16039-kristian-sokol" rel="noopener">CoachCompare</a> · <a href="https://app.coach.me/CoachKris" rel="noopener">Coach.me</a></div>
 </footer>
 
-<a href="#book-form" class="book-bar">Book a session <span>&pound;45/hr &rarr;</span></a>
 
 <script>
 (function(){
