@@ -72,10 +72,6 @@
   .btn-blue{background:var(--blue);color:#fff;}
   .btn-blue .dot{background:rgba(255,255,255,.22);}
   .btn-blue:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(37,69,244,.3);}
-  .toolkit-card{background:var(--blue-soft);border:1.5px solid rgba(37,69,244,0.18);border-radius:var(--r-card);padding:3.2rem 3rem;display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;}
-  .toolkit-card .tk-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;}
-  .toolkit-card h3{font-family:var(--disp);font-weight:800;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.02em;line-height:1.1;}
-  .toolkit-card p{margin-top:.7rem;font-size:.95rem;color:var(--soft);max-width:44ch;}
   .hero-photo{position:relative;}
   .photo-slot{border-radius:var(--r-card);aspect-ratio:4/5;width:100%;background:var(--pop-soft);border:1.5px solid rgba(20,20,20,0.1);position:relative;overflow:hidden;}
   .photo-slot .slot-label{position:absolute;top:1.2rem;left:1.4rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(20,20,20,0.35);}
@@ -108,6 +104,75 @@
   .statement .more a{color:var(--ink);font-weight:600;border-bottom:2px solid var(--pop);}
   .statement.alt{text-align:right;display:flex;flex-direction:column;align-items:flex-end;}
   .statement.alt .more{text-align:right;}
+
+  /* interrupt */
+  .interrupt{padding:6.5rem 0 5.5rem;}
+  .interrupt .shout{font-family:var(--disp);font-weight:800;font-size:clamp(2.7rem,8.5vw,6.2rem);line-height:.98;letter-spacing:-.03em;transform:rotate(-1.2deg);transform-origin:left;}
+  .interrupt .rejoin{font-family:var(--disp);font-weight:500;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.4rem);margin:1.8rem 0 0 clamp(1rem,12vw,10rem);}
+  .interrupt .rejoin u{text-decoration-color:var(--pop);text-decoration-thickness:3px;text-underline-offset:.3em;}
+  .interrupt .belief-sub{margin-top:3rem;font-size:1.05rem;color:var(--soft);max-width:38ch;}
+  .interrupt .belief-sub i{color:var(--ink);font-style:normal;font-weight:600;}
+  .interrupt .philosophy{margin-top:2.2rem;font-family:var(--disp);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:-.01em;}
+  .interrupt .philosophy span{color:var(--pop);}
+  .interrupt .more{margin-top:1.6rem;font-size:.95rem;color:var(--soft);}
+  .interrupt .more a{color:var(--ink);font-weight:600;border-bottom:2px solid var(--pop);}
+
+  /* discomfort (dark full-bleed) */
+  .discom{background:var(--ink);color:var(--paper);padding:6.5rem 0;}
+  .discom .d-shout{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,8vw,6rem);line-height:1;letter-spacing:-.03em;}
+  .discom .d-shout.orange{color:var(--pop);}
+  .discom .d-body{margin-left:auto;margin-top:3rem;max-width:46ch;}
+  .discom .d-body p{color:rgba(247,246,242,.68);font-size:1rem;}
+  .discom .d-body p + p{margin-top:1rem;}
+  .discom .d-creed{font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);color:var(--pop);letter-spacing:-.01em;margin:1.4rem 0;}
+
+  /* adaptive */
+  .adaptive{padding:6.5rem 0;}
+  .adaptive .a-head{font-family:var(--disp);font-weight:800;font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.02;letter-spacing:-.03em;max-width:20ch;}
+  .adaptive .a-head span{color:var(--pop);}
+  .adaptive .a-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;margin-top:3.4rem;align-items:start;}
+  .a-days p{font-family:var(--disp);font-weight:700;font-size:clamp(1.05rem,2vw,1.3rem);letter-spacing:-.01em;margin-bottom:1.05rem;}
+  .a-days p:nth-child(2){margin-left:2.2rem;}
+  .a-days p:nth-child(3){margin-left:.8rem;}
+  .a-days p:nth-child(4){margin-left:3.2rem;}
+  .a-days p:nth-child(5){margin-left:1.4rem;}
+  .a-days p:nth-child(6){margin-left:2.6rem;}
+  .a-side .bubble{background:#fff;border:1.5px solid var(--hair);border-radius:18px;border-bottom-left-radius:3px;padding:1.15rem 1.35rem;font-style:italic;font-size:1rem;box-shadow:0 14px 34px rgba(20,20,20,.08);}
+  .a-side > p{margin-top:1.3rem;font-size:.98rem;color:var(--soft);}
+  .a-side .loyal{font-family:var(--disp);font-weight:800;font-size:clamp(1.35rem,2.8vw,1.8rem);color:var(--ink);letter-spacing:-.01em;margin-top:1.8rem;}
+  .a-side .loyal span{color:var(--pop);}
+  .a-side .small{font-size:.9rem;font-style:italic;}
+
+  /* toolkit full-bleed band */
+  .toolkit-band{background:var(--blue-soft);border-top:1.5px solid rgba(37,69,244,.14);border-bottom:1.5px solid rgba(37,69,244,.14);padding:5rem 0;}
+  .tk-grid{display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;}
+  .toolkit-band .tk-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;}
+  .toolkit-band h3{font-family:var(--disp);font-weight:800;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.02em;line-height:1.1;}
+  .toolkit-band p{margin-top:.7rem;font-size:.95rem;color:var(--soft);max-width:44ch;}
+
+  /* conversational interrupt */
+  .convo{padding:6rem 0;text-align:center;}
+  .convo p{font-family:var(--disp);font-weight:700;font-size:clamp(1.25rem,2.6vw,1.7rem);letter-spacing:-.01em;}
+  .convo .c-punch{font-weight:800;font-size:clamp(2.4rem,6vw,4.2rem);color:var(--pop);margin:1.2rem 0;letter-spacing:-.03em;}
+  .convo .c-light{font-size:1rem;color:var(--soft);font-weight:500;font-style:italic;font-family:var(--sans);margin-top:1.4rem;}
+
+  /* offer mess line */
+  .offer-card .mess{font-family:var(--disp);font-weight:700;font-size:clamp(1.25rem,2.6vw,1.6rem);margin-top:1rem;letter-spacing:-.01em;}
+
+  /* scroll reveals (once, reduced-motion safe) */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  .steps .step.reveal{transition:opacity .7s var(--ease), transform .7s var(--ease), padding .3s var(--ease);}
+  .steps .step:nth-child(2).reveal{transition-delay:.08s;}
+  .steps .step:nth-child(3).reveal{transition-delay:.16s;}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* wordmark hover delight */
+  .wordmark i{display:inline-block;transition:transform .3s var(--ease);}
+  .wordmark:hover i{transform:translateY(-3px);}
+
+  /* step question lines */
+  .step .qs{margin-top:.55rem;font-size:.85rem;font-style:italic;color:var(--soft);opacity:.85;max-width:52ch;}
 
   /* process rows */
   .process{padding:5.5rem 0;}
@@ -160,11 +225,20 @@
     .float-note{left:12px;bottom:-14px;}
     .split-grid{grid-template-columns:1fr;}
     .step{grid-template-columns:48px 1fr;gap:.8rem;}
+    .step h3{font-size:1.25rem;}
+    .step .qs{grid-column:2;}
     .step p{grid-column:2;}
     .step .arr{display:none;}
     .offer-card{grid-template-columns:1fr;padding:2.6rem 1.8rem;text-align:left;}
-    .toolkit-card{grid-template-columns:1fr;padding:2.4rem 1.8rem;}
-    .flex-card{padding:2rem 1.6rem;}
+    .tk-grid{grid-template-columns:1fr;gap:1.8rem;}
+    .interrupt{padding:4rem 0 3.5rem;}
+    .interrupt .rejoin{margin-left:1.5rem;}
+    .discom{padding:4.5rem 0;}
+    .discom .d-body{margin-top:2.2rem;}
+    .adaptive{padding:4.5rem 0;}
+    .adaptive .a-grid{grid-template-columns:1fr;gap:2.6rem;margin-top:2.4rem;}
+    .a-days p:nth-child(n){margin-left:0;}
+    .convo{padding:4rem 0;}
     .foot-grid{grid-template-columns:1fr;gap:2rem;}
   }
 </style>
@@ -198,7 +272,7 @@
       <div class="photo-slot">
         <span class="slot-label">Portrait</span>
         <div class="slot-mark"><span>&#9678;</span></div>
-        <span class="slot-corner">photo goes here</span>
+        <span class="slot-corner">your face here</span>
       </div>
       <div class="float-note"><span>Top 17</span>global longevity ranking</div>
     </div>
@@ -209,40 +283,75 @@
   <p><b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot;</p>
 </div>
 
-<section class="wrap statement">
-  <p>A belief repeated long enough stops sounding like a belief. <i>It starts sounding like identity.</i> I challenge that.</p>
-  <p style="margin-top:2.2rem;font-family:var(--disp);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:-.01em">We are all, <span style="color:var(--pop)">and all is us.</span></p>
-  <p class="more">The full story lives on the blog. <a href="/blog.html">Read the long version.</a></p>
+<section class="wrap interrupt">
+  <p class="shout reveal">"THAT'S JUST WHO I AM."</p>
+  <p class="rejoin reveal">&hellip;is it <u>though?</u></p>
+  <p class="belief-sub reveal">A belief repeated long enough stops sounding like a belief. <i>It starts sounding like identity.</i> I challenge that.</p>
+  <p class="philosophy reveal">We are all, <span>and all is us.</span></p>
+  <p class="more reveal">The full story lives on the blog. <a href="/blog.html">Read the long version.</a></p>
 </section>
 
 <section class="wrap process" id="how">
   <div class="sec-title">
     <h2>How I Coach</h2>
-    <span>Three words I use a lot. Because they're how it actually works.</span>
+    <span>Not a rigid programme. The rhythm underneath everything I do.</span>
   </div>
   <div class="steps">
-    <div class="step">
+    <div class="step reveal">
       <span class="n">01</span>
       <h3>NOTICE</h3>
-      <p>The reaction. The language. The flinch. Discomfort isn't a problem, it's information. I'm paying attention, even when you're not.</p>
+      <p>The reaction. The language. The flinch. I'm paying attention, even when you're not.</p>
+      <p class="qs">What happened? What did you feel? Where did the resistance show up? What pattern is repeating?</p>
       <span class="arr">&rarr;</span>
     </div>
-    <div class="step">
+    <div class="step reveal">
       <span class="n">02</span>
       <h3>CHALLENGE</h3>
-      <p>"That's just who I am" is usually a belief on repeat since before you can remember. Identity, or an old conclusion wearing your name? We check.</p>
+      <p>"That's just who I am" is usually an old conclusion wearing your name. Identity or belief? We check.</p>
+      <p class="qs">Is that actually true? Is that who you are, or something you learned? What happens if we look at it differently?</p>
       <span class="arr">&rarr;</span>
     </div>
-    <div class="step">
+    <div class="step reveal">
       <span class="n">03</span>
       <h3>MOVE</h3>
       <p>A decision, an experiment, a boundary, a new direction. Momentum first, perfection later. The aim isn't self-awareness. The aim is change.</p>
+      <p class="qs">What changes? What gets tested? What happens next?</p>
       <span class="arr">&rarr;</span>
     </div>
   </div>
-  <div class="flex-card">
-    <p class="fx">I don't just coach the person. I coach <span>the person who turns up that day.</span></p>
-    <p class="sub">Challenge, energy, space, structure, jokes, directness. Whatever moves you, that session. And the ADHD is a feature: <b>fast connections, lateral routes, unusual questions.</b> Especially when you're sure you've thought of everything.</p>
+</section>
+
+<section class="discom">
+  <div class="wrap">
+    <p class="d-shout reveal">GOT DEFENSIVE?</p>
+    <p class="d-shout orange reveal">GOOD. TELL ME.</p>
+    <div class="d-body">
+      <p class="reveal">Defensiveness. Resistance. Irritation. The sudden urge to explain yourself. The urge to reject a question before it even lands.</p>
+      <p class="reveal">Something happened. That's useful. Not because discomfort means something is true, but because reactions are information.</p>
+      <p class="d-creed reveal">We can only work with what we notice.</p>
+      <p class="reveal">The goal isn't provocation. It's awareness. Once something is visible, we can work with it.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap adaptive" id="adaptive">
+  <h2 class="a-head reveal">I coach <span>the person who turns up that day.</span></h2>
+  <div class="a-grid">
+    <div class="a-days">
+      <p class="reveal">Some days you need challenge.</p>
+      <p class="reveal">Some days you need energy.</p>
+      <p class="reveal">Some days you need space.</p>
+      <p class="reveal">Some days you need structure.</p>
+      <p class="reveal">Some days you need someone to interrupt the loop.</p>
+      <p class="reveal">Some days you need me to slow down.</p>
+    </div>
+    <div class="a-side">
+      <div class="bubble reveal">"Hang on. You just reacted to that. Let's look at it."</div>
+      <p class="reveal">I think quickly. I make connections. I notice patterns. I usually see several routes through a problem, and I'll happily change route mid-session when one isn't working.</p>
+      <p class="reveal">That's the ADHD doing what it does best: lateral, fast, spotting routes other people walk straight past.</p>
+      <p class="loyal reveal">I'm loyal to the client, <span>not the framework.</span></p>
+      <p class="small reveal">And I live for the "ohhh shit, that makes sense" moment. We'll get there.</p>
+    </div>
   </div>
 </section>
 
@@ -251,8 +360,8 @@
   <p class="more">Not because I own it. Because you told me it mattered, and I was listening before fear turned up.</p>
 </section>
 
-<section class="wrap" id="toolkit">
-  <div class="toolkit-card">
+<section class="toolkit-band" id="toolkit">
+  <div class="wrap tk-grid">
     <div>
       <p class="tk-eyebrow">Toolkit &middot; for coaches</p>
       <h3>Material for the ones doing the work.</h3>
@@ -262,10 +371,18 @@
   </div>
 </section>
 
+<section class="wrap convo">
+  <p class="reveal">Sometimes you need a good question.</p>
+  <p class="reveal">Sometimes you need someone to tell you something you don't know yet.</p>
+  <p class="c-punch reveal">I bring both.</p>
+  <p class="c-light reveal">Serious about change. Not particularly interested in making the process miserable.</p>
+</section>
+
 <section class="wrap offer">
   <div class="offer-card">
     <div>
       <h3>Four weeks. &pound;99.</h3>
+      <p class="mess reveal">Bring me the mess. We'll work with it.</p>
       <p>Four 1-on-1 sessions, full toolkit, support between sessions. Founding price, limited slots, and yes, it goes up when the testimonials do.</p>
     </div>
     <a href="/offer.html" class="btn">Let's go<span class="dot">&rarr;</span></a>
@@ -310,5 +427,18 @@
   </div>
 </footer>
 
+<noscript><style>.reveal{opacity:1;transform:none;}</style></noscript>
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in');}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, {threshold: 0.12});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
