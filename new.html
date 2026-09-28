@@ -108,13 +108,18 @@
     font-weight:700; font-size:.78rem; padding:9px 14px; border-radius:999px;
     transform:rotate(3deg); box-shadow:0 8px 20px rgba(255,77,0,.35);
   }
-  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 18px;}
   .chip{
-    font-size:.78rem; font-weight:600; background:var(--pop-soft); border:1.5px solid rgba(255,77,0,.25);
-    padding:8px 14px; border-radius:999px;
+    font-size:.78rem; font-weight:600; background:var(--ink); color:#fff;
+    padding:9px 16px; border-radius:999px; letter-spacing:.01em;
+    transform:rotate(-1.5deg); transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1), background .3s;
   }
-  .chip b{color:var(--pop-deep); font-weight:600;}
-
+  .chip:nth-child(2){transform:rotate(1.2deg);}
+  .chip:nth-child(3){transform:rotate(-.8deg);}
+  .chip b{color:var(--pop); font-weight:600;}
+  .chip:hover{transform:rotate(0) translateY(-3px); box-shadow:0 10px 22px rgba(20,20,20,.18); background:var(--pop);}
+  .chip:hover b{color:#fff;}
+  
   /* buttons */
   .btn{
     display:flex; align-items:center; justify-content:center; gap:.6rem;
@@ -270,7 +275,7 @@
     h1{font-size:3.8rem; line-height:1.16; letter-spacing:-.005em;}
     .kicker{margin-bottom:24px;}
     .hero-sub{font-size:1.12rem; margin:24px 0 30px;}
-    .chips{margin:22px 0 34px; gap:10px;}
+    .chips{margin:20px 0 22px; gap:10px;}
     .chip{font-size:.85rem; padding:10px 18px;}
     .btn{font-size:1.05rem; padding:18px 28px;}
     .btn-ghost{margin-top:14px;}
@@ -329,14 +334,13 @@
 <header class="hero-grid" id="top">
   <div>
     <p class="kicker">Life · Longevity · Business</p>
-    <h1 class="disp">You know what you want. <span class="hl">Let's go get it.</span></h1>
+    <h1 class="disp">You know what you want.<br><span class="hl">Let's go get it.</span></h1>
     <p class="hero-sub">Coaching for people who keep circling the same problem. I bring challenge, curiosity and honest information. You keep the decisions.</p>
     <div class="chips">
       <span class="chip"><b>✓</b> certified coach</span>
       <span class="chip"><b>✓</b> longevity top 17</span>
       <span class="chip">adhd-aware</span>
-      <span class="chip">lgbtq+ friendly</span>
-    </div>
+          </div>
     <a href="/#contact" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a>
     <a href="#how" class="btn btn-ghost">How I coach</a>
   </div>
@@ -351,9 +355,9 @@
 <div class="wrap">
   <section class="card dark">
     <span class="sec-tag">The thing I hear most</span>
-    <p class="belief">"That's just who I am" is <span class="hl">an old conclusion</span> wearing your name.</p>
-    <p class="dark-sub">A belief repeated long enough stops sounding like a belief. It starts sounding like identity.</p>
-    <p class="dark-quote">You've told me three times now that that's just who you are. I'm probably going to challenge that.</p>
+    <p class="belief">"That's just who I am" might be <span class="hl">an old conclusion</span> wearing your name.</p>
+    <p class="dark-sub">A belief repeated long enough stops sounding like a belief. It starts sounding like identity. But familiar doesn't mean true.</p>
+    <p class="dark-quote">When I hear "that's just who I am," I want to know: is it? Is it carved into your bones, or is it a belief you've repeated so often it started to feel like identity?</p>
   </section>
 </div>
 
@@ -386,35 +390,32 @@
 
 <div class="wrap">
   <section class="statement">
-    <p>When fear gets loud and comfort gets persuasive, <span>I remember what you told me you wanted.</span></p>
+    <p>When fear gets loud and comfort gets persuasive,<br><span>I remember what you told me you wanted.</span></p>
   </section>
 </div>
 
 <div class="split">
   <section class="card">
-    <span class="sec-tag">My story</span>
+    <span class="sec-tag">Proudest moments</span>
     <div class="story-row">
       <div>
-        <div class="story-role">Life &amp; business coach</div>
-        <div class="story-yr">2023, present</div>
+        <div class="story-role">Following my own path</div>
       </div>
-      <p class="story-desc">Founder of the Break the Loop method. Clients across the UK and Ireland.</p>
+      <p class="story-desc">Changing careers, building something new and choosing a direction that feels genuinely mine.</p>
     </div>
     <div class="story-row">
       <div>
-        <div class="story-role">Superyacht industry</div>
-        <div class="story-yr">Several years</div>
+        <div class="story-role">Learning how I work</div>
       </div>
-      <p class="story-desc">Operations on vessels worth up to $300M, with high performing crews under real pressure.</p>
+      <p class="story-desc">Understanding my ADHD brain, turning creativity and hyperfocus into strengths, and finding ways of working that fit me rather than fighting against me.</p>
     </div>
     <div class="story-row">
       <div>
-        <div class="story-role">3 businesses built</div>
-        <div class="story-yr">From scratch</div>
+        <div class="story-role">Choosing challenge</div>
       </div>
-      <p class="story-desc">Business immersion since childhood, around a family building company and hotels.</p>
+      <p class="story-desc">Climbing mountains barefoot, testing my limits and deliberately stepping into discomfort to learn more about fear, resistance and what I'm capable of.</p>
     </div>
-    <a href="/blog.html" class="link-arrow">Read the long version</a>
+    <a href="/blog.html" class="link-arrow">There is more to my story &rarr;</a>
   </section>
 
   <section class="card" id="book">
@@ -447,7 +448,7 @@
 
 <div class="wrap">
   <section class="foot-cta">
-    <h2 class="disp">Bring me the mess. <span class="hl">We'll work with it.</span></h2>
+    <h2 class="disp">Stuck doesn't scare me. <span class="hl">It just gives us somewhere to start.</span></h2>
     <a href="/#contact" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a>
   </section>
 </div>
