@@ -85,24 +85,29 @@
   .float-note{position:absolute;bottom:-18px;left:-22px;background:#fff;border:1px solid var(--hair);border-radius:18px;padding:.8rem 1.15rem;font-size:.8rem;font-weight:600;box-shadow:0 18px 44px rgba(20,20,20,0.12);transform:rotate(-2deg);z-index:3;}
   .float-note span{color:var(--pop);font-family:var(--disp);font-weight:800;font-size:1.1rem;display:block;line-height:1.1;}
 
-  /* split */
-  .split{padding:3rem 0 5rem;}
-  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
-  .door{border-radius:28px;padding:2.6rem 2.3rem;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s ease;}
-  .door:hover{transform:translateY(-6px);}
-  .door.dark{background:var(--ink);color:var(--paper);}
-  .door.lite{background:#fff;border:1px solid var(--hair);}
-  .door .num{font-family:var(--disp);font-weight:800;font-size:.85rem;letter-spacing:.1em;color:var(--pop);}
-  .door h2{font-family:var(--disp);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.5rem);letter-spacing:-.02em;line-height:1.05;margin:.8rem 0 .7rem;}
-  .door p{font-size:.95rem;max-width:34ch;opacity:.75;}
-  .door .go{font-weight:600;font-size:.9rem;color:var(--pop);display:inline-flex;gap:.4rem;margin-top:1.8rem;}
+  /* energy strip */
+  .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:1.3rem 0;overflow:hidden;white-space:nowrap;}
+  .strip p{font-family:var(--disp);font-weight:800;font-size:clamp(1.8rem,4.5vw,2.9rem);letter-spacing:-.02em;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(20,20,20,.28);}
+  .strip p b{color:var(--pop);-webkit-text-stroke:0;}
+  .hero-quip{margin-top:1.3rem;font-size:.85rem;color:var(--soft);font-style:italic;}
+  .hero-quip b{color:var(--pop);font-style:normal;}
+
+  /* dark callout */
+  .flex-card{background:var(--ink);color:var(--paper);border-radius:var(--r-card);padding:2.8rem 3rem;margin-top:2.4rem;}
+  .flex-card .fx{font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.2vw,2.2rem);letter-spacing:-.02em;line-height:1.15;max-width:30ch;}
+  .flex-card .fx span{color:var(--pop);}
+  .flex-card .sub{margin-top:1rem;color:rgba(247,246,242,.65);font-size:.95rem;max-width:58ch;}
+  .flex-card .sub b{color:var(--paper);font-weight:600;}
 
   /* statement */
+
   .statement{padding:5.5rem 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
   .statement p{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.15;letter-spacing:-.02em;max-width:26ch;}
   .statement p i{font-style:normal;color:var(--pop);}
   .statement .more{margin-top:1.6rem;font-size:.95rem;color:var(--soft);}
   .statement .more a{color:var(--ink);font-weight:600;border-bottom:2px solid var(--pop);}
+  .statement.alt{text-align:right;display:flex;flex-direction:column;align-items:flex-end;}
+  .statement.alt .more{text-align:right;}
 
   /* process rows */
   .process{padding:5.5rem 0;}
@@ -114,7 +119,7 @@
   .step:last-child{border-bottom:1px solid var(--hair);}
   .step:hover{padding-left:.9rem;}
   .step .n{font-family:var(--disp);font-weight:800;color:var(--pop);font-size:1rem;letter-spacing:.02em;}
-  .step h3{font-family:var(--disp);font-weight:700;font-size:1.3rem;letter-spacing:-.01em;}
+  .step h3{font-family:var(--disp);font-weight:800;font-size:1.45rem;letter-spacing:.01em;}
   .step p{color:var(--soft);font-size:.95rem;max-width:52ch;}
   .step .arr{color:var(--pop);font-weight:700;}
 
@@ -148,8 +153,6 @@
   .foot-note{font-size:.78rem;margin-top:1.2rem;max-width:36ch;}
   .foot-bottom{max-width:1200px;margin:2.4rem auto 0;padding-top:1.5rem;border-top:1px solid var(--hair-l);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-size:.75rem;}
 
-  .banner{position:fixed;bottom:0;left:0;right:0;z-index:99;background:var(--pop);color:#fff;font-weight:600;font-size:.78rem;text-align:center;padding:.5rem;}
-
   @media (max-width:900px){
     .nav-links{display:none;}
     .hero-grid{grid-template-columns:1fr;gap:2.5rem;}
@@ -161,6 +164,7 @@
     .step .arr{display:none;}
     .offer-card{grid-template-columns:1fr;padding:2.6rem 1.8rem;text-align:left;}
     .toolkit-card{grid-template-columns:1fr;padding:2.4rem 1.8rem;}
+    .flex-card{padding:2rem 1.6rem;}
     .foot-grid{grid-template-columns:1fr;gap:2rem;}
   }
 </style>
@@ -181,13 +185,14 @@
 <header class="hero wrap" id="book">
   <div class="hero-grid">
     <div>
-      <p class="eyebrow">Life &middot; Longevity &middot; Business &middot; <b>one method</b></p>
+      <p class="eyebrow">Life &middot; Longevity &middot; Business &middot; <b>high energy, zero incense</b></p>
       <h1>You know what you want. <span class="serif-i">Let's go</span> <span class="accent">get it.</span></h1>
-      <p class="hero-sub">Direct, energetic, psychologically aware. I challenge the beliefs that act like identity, and I bring more than questions. You stay in charge.</p>
+      <p class="hero-sub">I'm Kris. I notice what you don't say, question what you call "just who I am", and bring more than questions to the table. You'll laugh. You might push back. Things will move.</p>
       <div class="cta-row">
         <a href="/offer.html" class="btn btn-pop">Session this way<span class="dot">&rarr;</span></a>
         <a href="/blog.html" class="btn btn-quiet">Read the blog <span class="dot">&rarr;</span></a>
       </div>
+      <p class="hero-quip">You can disagree with me. That's allowed. <b>It's data.</b></p>
     </div>
     <div class="hero-photo">
       <div class="photo-slot">
@@ -200,6 +205,10 @@
   </div>
 </header>
 
+<div class="strip" aria-hidden="true">
+  <p><b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot; CHALLENGE &middot; MOVE &middot; <b>NOTICE</b> &middot;</p>
+</div>
+
 <section class="wrap statement">
   <p>A belief repeated long enough stops sounding like a belief. <i>It starts sounding like identity.</i> I challenge that.</p>
   <p style="margin-top:2.2rem;font-family:var(--disp);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.7rem);letter-spacing:-.01em">We are all, <span style="color:var(--pop)">and all is us.</span></p>
@@ -209,34 +218,37 @@
 <section class="wrap process" id="how">
   <div class="sec-title">
     <h2>How I Coach</h2>
-    <span>You bring your life and ambitions. I bring challenge, tools and leadership.</span>
+    <span>Three words I use a lot. Because they're how it actually works.</span>
   </div>
   <div class="steps">
     <div class="step">
       <span class="n">01</span>
-      <h3>Test the identity</h3>
-      <p>"That's just who I am" is usually a belief, repeated until it felt permanent. We check.</p>
+      <h3>NOTICE</h3>
+      <p>The reaction. The language. The flinch. Discomfort isn't a problem, it's information. I'm paying attention, even when you're not.</p>
       <span class="arr">&rarr;</span>
     </div>
     <div class="step">
       <span class="n">02</span>
-      <h3>Bring more than questions</h3>
-      <p>Information, reframes, observation, honest challenge. I offer it. You decide what to do with it.</p>
+      <h3>CHALLENGE</h3>
+      <p>"That's just who I am" is usually a belief on repeat since before you can remember. Identity, or an old conclusion wearing your name? We check.</p>
       <span class="arr">&rarr;</span>
     </div>
     <div class="step">
       <span class="n">03</span>
-      <h3>Hold the goal</h3>
-      <p>When fear gets loud and comfort gets persuasive, I remember what you told me you wanted.</p>
-      <span class="arr">&rarr;</span>
-    </div>
-    <div class="step">
-      <span class="n">04</span>
-      <h3>Make the change</h3>
-      <p>The aim is not self-awareness. The aim is change. For coaches: the same challenge, aimed at your practice.</p>
+      <h3>MOVE</h3>
+      <p>A decision, an experiment, a boundary, a new direction. Momentum first, perfection later. The aim isn't self-awareness. The aim is change.</p>
       <span class="arr">&rarr;</span>
     </div>
   </div>
+  <div class="flex-card">
+    <p class="fx">I don't just coach the person. I coach <span>the person who turns up that day.</span></p>
+    <p class="sub">Challenge, energy, space, structure, jokes, directness. Whatever moves you, that session. And the ADHD is a feature: <b>fast connections, lateral routes, unusual questions.</b> Especially when you're sure you've thought of everything.</p>
+  </div>
+</section>
+
+<section class="wrap statement alt">
+  <p>I may respect your goal <i>more than you do right now.</i></p>
+  <p class="more">Not because I own it. Because you told me it mattered, and I was listening before fear turned up.</p>
 </section>
 
 <section class="wrap" id="toolkit">
@@ -244,7 +256,7 @@
     <div>
       <p class="tk-eyebrow">Toolkit &middot; for coaches</p>
       <h3>Material for the ones doing the work.</h3>
-      <p>The wheels, worksheets and tools I use every day with clients. Take them, use them, make them yours.</p>
+      <p>Wheels, worksheets and tools I use with clients every week. Take them. Bend them. Make them yours.</p>
     </div>
     <a href="/toolkit.html" class="btn btn-blue">Open the toolkit<span class="dot">&rarr;</span></a>
   </div>
@@ -254,9 +266,9 @@
   <div class="offer-card">
     <div>
       <h3>Four weeks. &pound;99.</h3>
-      <p>The founding offer: four 1-on-1 sessions, full toolkit, support between sessions. Limited slots before it returns to &pound;449.</p>
+      <p>Four 1-on-1 sessions, full toolkit, support between sessions. Founding price, limited slots, and yes, it goes up when the testimonials do.</p>
     </div>
-    <a href="/offer.html" class="btn">See the offer<span class="dot">&rarr;</span></a>
+    <a href="/offer.html" class="btn">Let's go<span class="dot">&rarr;</span></a>
   </div>
 </section>
 
@@ -264,7 +276,7 @@
   <div class="wrap">
     <p class="eyebrow" style="justify-content:center">The blog</p>
     <h2>Read the <span class="outline">long version.</span></h2>
-    <p>The whole manifesto lives here. Why I coach the way I coach, and what that means for you.</p>
+    <p>The whole manifesto: why I coach the way I coach, what I refuse to do, and what that means for you. Long reads, no fluff.</p>
     <a href="/blog.html" class="btn btn-pop">Go to the blog<span class="dot">&rarr;</span></a>
   </div>
 </section>
@@ -273,7 +285,7 @@
   <div class="foot-grid">
     <div>
       <span class="wordmark">coach kris<i>.</i></span>
-      <p class="foot-note">Certified life, longevity and business coach. Working online across the UK and Ireland.</p>
+      <p class="foot-note">Certified life, longevity and business coach. Working online across the UK and Ireland. Laughs included.</p>
     </div>
     <div>
       <h4>Explore</h4>
@@ -294,7 +306,7 @@
   </div>
   <div class="foot-bottom">
     <span>&copy; 2026 Kristian Sokol</span>
-    <span>ADHD-aware &middot; LGBTQ+ friendly</span>
+    <span>ADHD-powered &middot; LGBTQ+ friendly</span>
   </div>
 </footer>
 
