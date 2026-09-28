@@ -25,5 +25,11 @@
       "destination": "/vyf.html",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/new",
+      "destination": "/new.html"
+    }
   ]
 }
