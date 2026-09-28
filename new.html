@@ -144,6 +144,7 @@
 
   /* section cards */
   section.card{
+    position:relative;
     background:var(--card); border:1.5px solid var(--line); border-radius:28px;
     padding:30px 22px; margin:18px auto; max-width:640px;
   }
@@ -180,6 +181,14 @@
   .step-n{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.5rem; color:var(--pop); grid-row:span 2;}
   .step-h{font-weight:600; letter-spacing:.06em; font-size:.9rem;}
   .step-p{color:var(--soft); font-size:.92rem; grid-column:2;}
+  .step-lead{display:block; color:var(--ink); font-weight:600; margin-bottom:5px;}
+  .step-art{grid-column:1 / -1; grid-row:3; width:122px; margin-top:12px; justify-self:start;}
+  .step-art svg{display:block; width:100%; height:auto; overflow:visible;}
+  .fall{transition:transform .45s cubic-bezier(.2,.8,.2,1);}
+  .pop-card{transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+  section.card:hover .fall-a{transform:translate(7px,15px) rotate(20deg);}
+  section.card:hover .fall-b{transform:translate(-9px,11px) rotate(-16deg);}
+  section.card:hover .pop-card{transform:translateY(-7px);}
 
   /* orange statement */
   .statement{
@@ -343,8 +352,10 @@
     .belief{font-size:1.9rem; line-height:1.4;}
     .dark-sub{font-size:1rem;}
     .dark-quote{font-size:1.05rem;}
-    .step-row{padding:26px 0;}
+    .step-row{padding:26px 0; grid-template-columns:64px 1fr;}
     .step-n{font-size:1.8rem;}
+    .step-p{max-width:640px;}
+    .step-art{position:absolute; top:32px; right:40px; width:130px; margin:0; grid-row:auto; grid-column:auto;}
     .step-p{font-size:.98rem;}
     .story-desc{font-size:.95rem;}
     .price-note{font-size:1rem;}
@@ -410,7 +421,8 @@
     <div class="step-row">
       <div class="step-n">N</div>
       <div class="step-h">NOTICE</div>
-      <p class="step-p">Okay, hang on. Something just happened there. Now we're somewhere interesting. What did you feel? Where did the resistance show up?</p>
+      <p class="step-p"><span class="step-lead">Okay, hang on. Something just happened there.</span>What did you feel? What changed? Where did the resistance show up? We notice it before we explain it away.</p>
+      <div class="step-art"><svg viewBox="0 0 140 110" aria-hidden="true"><g transform="rotate(7 70 55)"><rect x="8" y="10" width="30" height="20" rx="3" fill="#0038FF"/><rect x="40" y="10" width="30" height="20" rx="3" fill="#0038FF"/><rect x="72" y="10" width="30" height="20" rx="3" fill="#0038FF"/><rect x="104" y="10" width="30" height="20" rx="3" fill="#0038FF"/><rect x="24" y="34" width="30" height="20" rx="3" fill="#0038FF" opacity=".92"/><rect x="56" y="34" width="30" height="20" rx="3" fill="#0038FF" opacity=".92"/><rect x="88" y="34" width="30" height="20" rx="3" fill="#0038FF" opacity=".92"/><rect x="40" y="58" width="30" height="20" rx="3" fill="#0038FF" opacity=".84"/><rect x="72" y="58" width="30" height="20" rx="3" fill="#0038FF" opacity=".84"/><rect x="56" y="82" width="30" height="20" rx="3" fill="#0038FF" opacity=".72"/></g><rect class="fall fall-a" x="112" y="66" width="30" height="20" rx="3" fill="#0038FF" opacity=".55" transform="rotate(18 127 76)"/><rect class="fall fall-b" x="-2" y="70" width="30" height="20" rx="3" fill="#0038FF" opacity=".45" transform="rotate(-14 13 80)"/></svg></div>
     </div>
   </section>
   <section class="card">
@@ -418,7 +430,8 @@
     <div class="step-row">
       <div class="step-n">C</div>
       <div class="step-h">CHALLENGE</div>
-      <p class="step-p">Is that actually true, or something you learned? Is that who you are, or just repeated a lot? We check before we build on it.</p>
+      <p class="step-p"><span class="step-lead">Let's change the angle.</span>What else could this mean? What are you assuming? What happens if we look at it differently? Sometimes one shift in perspective changes everything.</p>
+      <div class="step-art"><svg viewBox="0 0 140 110" aria-hidden="true"><rect x="6" y="8" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="39" y="8" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="72" y="8" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="105" y="8" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="6" y="41" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="39" y="41" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="72" y="41" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="105" y="41" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="6" y="74" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="39" y="74" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="72" y="74" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/><rect x="105" y="74" width="28" height="20" rx="3" fill="#fff" stroke="#141414" stroke-width="2.5"/></svg></div>
     </div>
   </section>
   <section class="card">
@@ -426,7 +439,8 @@
     <div class="step-row">
       <div class="step-n">M</div>
       <div class="step-h">MOVE</div>
-      <p class="step-p">We're not here to go round in circles. A decision, an experiment, a boundary. Momentum first, perfection later.</p>
+      <p class="step-p"><span class="step-lead">Now let's do something with it.</span>A decision. An experiment. A boundary. A different response. We turn what we've noticed into movement towards what you actually want.</p>
+      <div class="step-art"><svg viewBox="0 0 140 110" aria-hidden="true"><rect x="8" y="86" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="40" y="86" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="72" y="86" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="104" y="86" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="24" y="62" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="56" y="62" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="88" y="62" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="40" y="38" width="30" height="20" rx="3" fill="#FF4D00"/><rect x="72" y="38" width="30" height="20" rx="3" fill="#FF4D00"/><rect class="pop-card" x="56" y="14" width="30" height="20" rx="3" fill="#FF4D00"/></svg></div>
     </div>
   </section>
 </div>
