@@ -105,10 +105,10 @@
   }
   .stickers{
     display:flex; flex-wrap:wrap; justify-content:center;
-    gap:10px 12px; margin:30px auto 4px; padding:0 24px; max-width:920px;
+    gap:10px; margin:30px auto 4px; padding:0 24px; max-width:1080px;
   }
   .stk{
-    font-weight:600; font-size:.8rem; padding:9px 16px; border-radius:999px;
+    font-weight:600; font-size:.75rem; padding:8px 13px; border-radius:999px;
     white-space:nowrap; transition:transform .3s cubic-bezier(.2,.8,.2,1);
   }
   .stk:nth-child(odd){transform:rotate(1.2deg);}
@@ -231,11 +231,8 @@
   .quote-mark{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:3rem; color:var(--pop); line-height:1;}
   .testi-q{font-size:1.05rem; font-weight:500; margin-top:8px;}
   .testi-q b{color:var(--pop-deep);}
+  .testi-q + .testi-q{margin-top:16px;}
 .who{display:flex; align-items:center; gap:12px; margin-top:20px;}
-  section.card.real-band{grid-column:1 / -1; max-width:none;}
-  .real-band .testi-q{font-size:clamp(1.15rem,3.2vw,1.45rem); max-width:720px; line-height:1.5;}
-  .testi-sub{color:var(--soft); font-size:.95rem; line-height:1.55; border-left:3px solid var(--pop-soft); padding-left:14px; margin-top:18px;}
-  .real-duo{display:grid; gap:0 32px; margin-top:6px;}
   .who img{width:44px; height:44px; border-radius:50%; object-fit:cover;}
   .who b{display:block; font-size:.9rem;}
   .who span{font-size:.78rem; color:var(--soft);}
@@ -349,7 +346,6 @@
       max-width:1080px; margin:0 auto; padding:28px 24px;
       display:grid; grid-template-columns:1fr 1fr; gap:28px;
     }
-    .real-duo{grid-template-columns:1fr 1fr;}
     .split section.card{margin:0;}
     .split .price-card{order:2;}
     .statement{max-width:1080px; margin-top:28px; margin-bottom:28px; padding:88px 72px;}
@@ -513,21 +509,9 @@
   <section class="card">
     <span class="sec-tag">Clients say</span>
     <div class="quote-mark">&ldquo;</div>
-    <p class="testi-q">He asked <b>one question</b> that undid three years of therapy. Then he told me exactly what to do about it. Genuinely uncomfortable. Genuinely worked.</p>
-    <div class="who">
-      <img src="/kristian.jpg" alt="" width="44" height="44" loading="lazy" decoding="async">
-      <div><b>M. Turner</b><span>Founder, client since 2025</span></div>
-    </div>
-  </section>
-
-  <section class="card real-band">
-    <span class="sec-tag">From a real client</span>
-    <div class="quote-mark">&ldquo;</div>
+    <p class="testi-q">Kris, just wanted to say that you are such an <b>awesome coach</b>. So attentive and genuine.</p>
     <p class="testi-q">There are times when I'm doing stuff I feel like I'm <b>channelling your energy</b>. Sometimes I hear your voice in my head and it <b>gives me confidence</b>.</p>
-    <div class="real-duo">
-      <p class="testi-sub">"Kris, just wanted to say that you are such an awesome coach. So attentive and genuine."</p>
-      <p class="testi-sub">"I'm really excited, and all sessions have been really insightful. I feel more confident, my goals are more accessible, and my long term goals feel closer and more real than ever."</p>
-    </div>
+    <p class="testi-q">I'm really excited, and all sessions have been really insightful. I feel <b>more confident</b>, my goals are more accessible, and my long term goals feel closer and more real than ever.</p>
   </section>
 </div>
 
