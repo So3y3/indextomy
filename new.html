@@ -118,25 +118,21 @@
   .interrupt .more a{color:var(--ink);font-weight:600;border-bottom:2px solid var(--pop);}
 
   /* discomfort (dark full-bleed) */
-  .discom{background:var(--ink);color:var(--paper);padding:6.5rem 0;}
-  .discom .d-shout{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,8vw,6rem);line-height:1;letter-spacing:-.03em;}
+  .discom{background:var(--ink);color:var(--paper);padding:3.25rem 0;}
+  .discom .d-shout{font-family:var(--disp);font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.05;letter-spacing:-.02em;}
   .discom .d-shout.orange{color:var(--pop);}
-  .discom .d-body{margin-left:auto;margin-top:3rem;max-width:46ch;}
-  .discom .d-body p{color:rgba(247,246,242,.68);font-size:1rem;}
+  .discom .d-body{margin-left:auto;margin-top:1.8rem;max-width:46ch;}
+  .discom .d-body p{color:rgba(247,246,242,.68);font-size:.95rem;}
   .discom .d-body p + p{margin-top:1rem;}
-  .discom .d-body p.d-creed{font-family:var(--disp);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);color:var(--pop);letter-spacing:-.01em;margin:1.4rem 0;}
+  .discom .d-body p.d-creed{font-family:var(--disp);font-weight:800;font-size:clamp(1.2rem,2.6vw,1.6rem);color:var(--pop);letter-spacing:-.01em;margin:1rem 0;}
 
   /* adaptive */
-  .adaptive{padding:6.5rem 0;}
-  .adaptive .a-head{font-family:var(--disp);font-weight:800;font-size:clamp(2.1rem,5.4vw,3.9rem);line-height:1.02;letter-spacing:-.03em;max-width:20ch;}
+  .adaptive{padding:4.5rem 0;}
+  .adaptive .a-head{font-family:var(--disp);font-weight:800;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.05;letter-spacing:-.02em;max-width:22ch;}
   .adaptive .a-head span{color:var(--pop);}
-  .adaptive .a-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;margin-top:3.4rem;align-items:start;}
-  .a-days p{font-family:var(--disp);font-weight:700;font-size:clamp(1.05rem,2vw,1.3rem);letter-spacing:-.01em;margin-bottom:1.05rem;}
-  .a-days p:nth-child(2){margin-left:2.2rem;}
-  .a-days p:nth-child(3){margin-left:.8rem;}
-  .a-days p:nth-child(4){margin-left:3.2rem;}
-  .a-days p:nth-child(5){margin-left:1.4rem;}
-  .a-days p:nth-child(6){margin-left:2.6rem;}
+  .adaptive .a-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;margin-top:2.2rem;align-items:start;}
+  .a-days p{font-size:1.02rem;line-height:1.75;color:var(--ink);max-width:42ch;}
+            .a-days .flow2{margin-top:1rem;font-size:.95rem;color:var(--soft);font-style:italic;}
   .a-side .bubble{background:#fff;border:1.5px solid rgba(37,69,244,.28);border-radius:18px;border-bottom-left-radius:3px;padding:1.15rem 1.35rem;font-style:italic;font-size:1rem;color:var(--blue);box-shadow:0 14px 34px rgba(37,69,244,.12);}
   .a-side > p{margin-top:1.3rem;font-size:.98rem;color:var(--soft);}
   .a-side .loyal{font-family:var(--disp);font-weight:800;font-size:clamp(1.35rem,2.8vw,1.8rem);color:var(--ink);letter-spacing:-.01em;margin-top:1.8rem;}
@@ -218,20 +214,18 @@
     .float-note{left:12px;bottom:-14px;}
     .split-grid{grid-template-columns:1fr;}
     .step{grid-template-columns:48px 1fr;gap:.8rem;}
-    .step h3{font-size:1.25rem;}
-    .step .qs{grid-column:2;}
-    .step p{grid-column:2;}
+    .step h3{font-size:1.25rem;grid-column:2;}
+    .step .sd{grid-column:2;}
     .step .arr{display:none;}
     .offer-card{grid-template-columns:1fr;padding:2.6rem 1.8rem;text-align:left;}
     .tk-grid{grid-template-columns:1fr;gap:1.8rem;}
     .interrupt{padding:4rem 0 3.5rem;}
     .interrupt .rejoin{margin-left:1.5rem;}
-    .discom{padding:4.5rem 0;}
-    .discom .d-body{margin-top:2.2rem;}
-    .adaptive{padding:4.5rem 0;}
-    .adaptive .a-grid{grid-template-columns:1fr;gap:2.6rem;margin-top:2.4rem;}
-    .a-days p:nth-child(n){margin-left:0;}
-    .convo{padding:4rem 0;}
+    .discom{padding:2.4rem 0;}
+    .discom .d-body{margin-top:1.4rem;}
+    .adaptive{padding:3rem 0;}
+    .adaptive .a-grid{grid-template-columns:1fr;gap:1.8rem;margin-top:1.6rem;}
+      .convo{padding:4rem 0;}
     .foot-grid{grid-template-columns:1fr;gap:2rem;}
   }
 </style>
@@ -293,23 +287,20 @@
     <div class="step">
       <span class="n">01</span>
       <h3>NOTICE</h3>
-      <p>Okay&hellip; hang on. Something just happened there. Now we're somewhere interesting.</p>
-      <p class="qs">What happened? What did you feel? Where did the resistance show up? What keeps repeating?</p>
-      <span class="arr">&rarr;</span>
+      <div class="sd"><p>Okay&hellip; hang on. Something just happened there. Now we're somewhere interesting.</p>
+      <p class="qs">What happened? What did you feel? Where did the resistance show up? What keeps repeating?</p></div><span class="arr">&rarr;</span>
     </div>
     <div class="step">
       <span class="n">02</span>
       <h3>CHALLENGE</h3>
-      <p>"That's just who I am" is usually an old conclusion wearing your name. Genuinely part of you, or just repeated a lot? We check.</p>
-      <p class="qs">Is that actually true? Is that who you are, or something you learned? What happens if we look at it differently?</p>
-      <span class="arr">&rarr;</span>
+      <div class="sd"><p>"That's just who I am" is usually an old conclusion wearing your name. Genuinely part of you, or just repeated a lot? We check.</p>
+      <p class="qs">Is that actually true? Is that who you are, or something you learned? What happens if we look at it differently?</p></div><span class="arr">&rarr;</span>
     </div>
     <div class="step">
       <span class="n">03</span>
       <h3>MOVE</h3>
-      <p>We're not here to go round in circles. A decision, an experiment, a boundary, a change of direction. Momentum first, perfection later.</p>
-      <p class="qs">What changes? What gets tested? What happens next?</p>
-      <span class="arr">&rarr;</span>
+      <div class="sd"><p>We're not here to go round in circles. A decision, an experiment, a boundary, a change of direction. Momentum first, perfection later.</p>
+      <p class="qs">What changes? What gets tested? What happens next?</p></div><span class="arr">&rarr;</span>
     </div>
   </div>
 </section>
@@ -331,12 +322,8 @@
   <h2 class="a-head">I coach <span>the person who turns up that day.</span></h2>
   <div class="a-grid">
     <div class="a-days">
-      <p class="">Some days you need challenge.</p>
-      <p class="">Some days you need energy.</p>
-      <p class="">Some days you need space.</p>
-      <p class="">Some days you need structure.</p>
-      <p class="">Some days you need someone to interrupt the loop.</p>
-      <p class="">Some days you need me to slow down.</p>
+      <p>Some days you need challenge. Some days you need structure. Some days you need energy. Some days you need breathing room. Some days you need someone to interrupt the loop. Some days you need me to slow down.</p>
+      <p class="flow2">Sometimes the most useful thing I can do is ask a question. Sometimes it's offering an idea nobody's tried yet.</p>
     </div>
     <div class="a-side">
       <div class="bubble">"Hang on. Listen to what you just said."</div>
@@ -374,9 +361,9 @@
 <section class="wrap offer">
   <div class="offer-card">
     <div>
-      <h3>Four weeks. &pound;99.</h3>
+      <h3>&pound;45 an hour.</h3>
       <p class="mess">Bring me the mess. We'll work with it.</p>
-      <p>Four 1-on-1 sessions, full toolkit, support between sessions. Founding price, limited slots, and yes, it goes up when the testimonials do.</p>
+      <p>No packages, no lock-in. Book a session and see how it lands. Book a run of them if you want momentum.</p>
     </div>
     <a href="/offer.html" class="btn">Let's go<span class="dot">&rarr;</span></a>
   </div>
