@@ -104,19 +104,21 @@
     border-radius:26px; border:1.5px solid var(--line);
   }
   .stickers{
-    position:absolute; top:-16px; right:-8px; z-index:2;
-    display:flex; flex-direction:column; align-items:flex-end; gap:7px;
+    position:absolute; bottom:14px; right:14px; z-index:2;
+    display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:flex-end;
+    gap:6px; width:min(240px, 62%);
   }
   .stk{
-    font-weight:700; font-size:.78rem; padding:8px 14px; border-radius:999px;
-    box-shadow:0 6px 16px rgba(20,20,20,.16); white-space:nowrap;
+    font-weight:600; font-size:.72rem; padding:6px 12px; border-radius:999px;
+    white-space:nowrap; background:rgba(255,255,255,.78); color:var(--ink);
+    border:1.5px solid var(--ink); backdrop-filter:blur(3px);
     transition:transform .3s cubic-bezier(.2,.8,.2,1);
   }
-  .stk:hover{transform:rotate(0deg) scale(1.06) !important;}
-  .stk-ink{background:var(--ink); color:#fff; transform:rotate(3deg); margin-right:6px;}
-  .stk-pop{background:var(--pop); color:#fff; transform:rotate(-2deg); box-shadow:0 8px 20px rgba(255,77,0,.35);}
-  .stk-paper{background:var(--card); color:var(--ink); border:1.5px solid var(--ink); transform:rotate(2deg); margin-right:10px;}
-  .stk-deep{background:var(--pop-soft); color:var(--pop-deep); transform:rotate(-3deg); margin-right:2px;}
+  .stk:nth-child(odd){transform:rotate(1.5deg);}
+  .stk:nth-child(even){transform:rotate(-1.5deg); margin-bottom:2px;}
+  .stk:hover{transform:rotate(0deg) scale(1.07) !important;}
+  .stk-blue{background:rgba(232,237,254,.82); color:var(--blue); border-color:var(--blue);}
+  .stk-pop{background:rgba(255,237,227,.85); color:var(--pop-deep); border-color:var(--pop-deep);}
   .chips{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 18px;}
   .chip{
     font-size:.78rem; font-weight:600; background:var(--ink); color:#fff;
@@ -397,10 +399,12 @@
     <div class="photo-card">
       <img src="/kristian.jpg" alt="Kris, certified life, longevity and business coach" width="558" height="600" fetchpriority="high" decoding="async">
       <div class="stickers">
-        <span class="stk stk-ink">Certified</span>
-        <span class="stk stk-pop">60h+ coaching</span>
-        <span class="stk stk-paper">longevity top 17</span>
-        <span class="stk stk-deep">NLP</span>
+        <span class="stk">Adaptive coaching</span>
+        <span class="stk stk-blue">NLP-informed</span>
+        <span class="stk">Perspective shifter</span>
+        <span class="stk">Challenge with purpose</span>
+        <span class="stk stk-pop">Action focused</span>
+        <span class="stk">Creative problem-solver</span>
       </div>
     </div>
   </div>
