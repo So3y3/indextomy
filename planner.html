@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>coach kris. | Weekly planner</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="/favicon-32.png" />
+<script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
+<style>
+:root{
+  --ink:#182234; --muted:#6b7581; --line:#c7d0d8; --lineDark:#aeb9c4;
+  --soft:#f6f8f8; --green:#dcecdf; --greenText:#2a4634; --paper:#fff;
+  --font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#edf1f4;color:var(--ink);font-family:var(--font)}
+.app{display:grid;grid-template-columns:360px minmax(0,1fr);min-height:100vh}
+.sidebar{background:#fff;border-right:1px solid #dfe5ea;padding:18px 16px;overflow:auto;max-height:100vh;position:sticky;top:0}
+.sidebar h1{font-size:20px;margin:0 0 4px}.sidebar .sub{font-size:12px;color:var(--muted);line-height:1.4;margin:0 0 14px}
+.panel{border:1px solid #e1e6ea;border-radius:10px;padding:12px;margin:0 0 10px;background:#fff}
+.panel h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 9px;color:#485461}
+label{display:block;font-size:11px;color:#55606d;margin:7px 0 4px}
+input,select,button{font:inherit}
+input[type=text],input[type=date],select{width:100%;padding:7px 8px;border:1px solid #cfd7de;border-radius:7px;background:#fff;color:var(--ink)}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.buttons{display:flex;gap:7px;flex-wrap:wrap}.btn{border:1px solid #cbd3da;background:#fff;border-radius:7px;padding:7px 9px;cursor:pointer;color:#24303d}.btn.primary{background:#1b2634;color:#fff;border-color:#1b2634}.btn:hover{background:#f5f7f9}.btn.primary:hover{background:#263445}.btn.small{padding:4px 6px;font-size:11px}
+.item{display:grid;grid-template-columns:1fr auto auto auto;gap:4px;align-items:center;margin:5px 0}.item input{min-width:0}.activity-item{grid-template-columns:minmax(0,1fr) auto auto auto auto}.newToggle{display:flex;align-items:center;gap:4px;padding:4px 6px;border:1px solid #d7dee4;border-radius:999px;font-size:9.5px;color:#53606c;white-space:nowrap;cursor:pointer;user-select:none}.newToggle input{width:auto;margin:0}.newToggle.on{background:var(--green);border-color:#c9dfcf;color:var(--greenText);font-weight:700}.list-note{font-size:10.5px;color:#7a8590;line-height:1.35;margin-top:5px}
+.preview{padding:18px;overflow:auto}
+.paper{width:297mm;height:210mm;margin:0 auto;background:#fff;box-shadow:0 10px 30px rgba(16,28,42,.10);padding:7mm 8mm 7mm;overflow:hidden}
+.header{text-align:center;height:24mm}.header h1{font-size:19pt;letter-spacing:.045em;margin:0 0 3.2mm;font-weight:700}.header .range{font-size:10.5pt;letter-spacing:.015em}
+.planner{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:7.7pt;border:1px solid var(--lineDark);border-radius:5px;overflow:hidden}
+.planner col.label{width:37mm}.planner th,.planner td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:0 3.2mm;vertical-align:middle;background:#fff}.planner tr>*:last-child{border-right:0}.planner tbody tr:last-child>*{border-bottom:0}
+.planner thead th{font-weight:700;text-align:center;background:#fff;height:7.1mm}.planner thead th:first-child{text-align:left}
+.row-line{height:7.4mm}.row-check{height:6.9mm}.row-sep{height:2.5mm}.row-sep td{background:var(--soft);padding:0}.row-activity{height:7.2mm}.row-end{height:12mm}.row-q{height:7.8mm}.row-q.tall{height:9mm}.row-notes{height:14mm}
+.line{height:1px;background:var(--lineDark);display:block;width:100%}.centerline{width:80%;margin:auto}.check{width:7.6pt;height:7.6pt;border:1px solid #334050;display:inline-block;flex:0 0 auto}.center{display:flex;align-items:center;justify-content:center}.activity{display:flex;align-items:center;gap:3mm}.activity .line{flex:1}.badge{display:inline-block;margin-left:4mm;background:var(--green);color:var(--greenText);font-size:5.4pt;font-weight:700;border-radius:999px;padding:1.3mm 3.2mm;vertical-align:middle}.metric{display:grid;grid-template-columns:auto 1fr;gap:2mm;align-items:center;margin:1.3mm 0}.yn{text-align:center;letter-spacing:.15em}.notes{display:flex;flex-direction:column;gap:2.5mm}.peopleCell{display:grid;height:100%}.peopleCell.two{grid-template-columns:1fr 1fr;padding:0!important}.peopleCell.two>.personPart{border-right:1px solid var(--line);padding:0 2mm;display:flex;align-items:center;justify-content:center}.peopleCell.two>.personPart:last-child{border-right:0}.peopleCell.two>.personPart.activity{justify-content:flex-start}.peopleCell.two>.personPart.metricwrap{display:block;padding-top:1.4mm}.personTag{font-size:5.8pt;color:#66717d;margin-bottom:1mm}.peopleHead{padding:0!important}.peopleHeadGrid{display:grid;grid-template-columns:1fr 1fr;height:100%}.peopleHeadGrid span{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);font-size:6.1pt;font-weight:500}.peopleHeadGrid span:last-child{border-right:0}
+.reflection{margin-top:4mm;border:1px solid var(--lineDark);border-radius:5px;overflow:hidden;height:43mm}.reflectionTitle{height:11mm;background:var(--soft);font-size:12pt;font-weight:700;letter-spacing:.035em;padding:3.1mm 3.5mm}.reflectionGrid{display:grid;grid-template-columns:repeat(4,1fr);height:32mm}.reflectionBox{border-right:1px solid var(--line);padding:2.7mm 3.5mm}.reflectionBox:last-child{border-right:0}.reflectionBox .prompt{font-size:7.1pt;margin-bottom:4mm}.reflectionBox .line{margin:3.5mm 0}
+.inline-edit{outline:none;border-radius:2px}.inline-edit:focus{background:#fff8cf;box-shadow:0 0 0 1px #e0c85f inset}
+.tip{font-size:10.5px;line-height:1.4;color:#6d7884;margin:7px 0 0}.print-note{font-size:10px;line-height:1.35;color:#66717d;margin-top:8px;padding:7px 8px;background:#f6f8f8;border-radius:7px}
+@media(max-width:1050px){.app{grid-template-columns:1fr}.sidebar{position:relative;max-height:none;border-right:0;border-bottom:1px solid #dfe5ea}.preview{padding:8px}.paper{transform-origin:top left}}
+@media print{
+ @page{size:A4 landscape;margin:0}
+ body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sidebar{display:none!important}.app{display:block}.preview{padding:0;overflow:visible}.paper{width:297mm;height:210mm;margin:0;padding:7mm 8mm 7mm;box-shadow:none;transform:none!important}
+ .planner,.reflection,.check,.line{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .inline-edit:focus{background:transparent;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <h1>Fridge Planner Generator</h1>
+  <p class="sub">Starts from your current planner. Edit anything, then print or save as PDF.</p>
+
+  <section class="panel"><h2>Week & people</h2>
+    <label>Week starts</label><input id="weekStart" type="date" value="2026-09-28">
+    <div class="twocol">
+      <div><label>People</label><select id="peopleCount"><option value="1">1 person</option><option value="2">2 people</option></select></div>
+      <div><label>Title</label><input id="title" type="text" value="WEEKLY FRIDGE PLANNER"></div>
+    </div>
+    <div id="peopleNames"></div>
+  </section>
+
+  <section class="panel"><h2>Everyday rows</h2><div id="dailyList"></div><button class="btn small" id="addDaily">+ Add row</button></section>
+  <section class="panel"><h2>Activities</h2><div id="activityList"></div><button class="btn small" id="addActivity">+ Add activity</button><div class="list-note">Turn <b>NEW</b> on only for the activities you want tagged. Activity cells keep the checkbox on the left and a line for minutes/time.</div></section>
+  <section class="panel"><h2>End of day</h2><div id="metricList"></div><button class="btn small" id="addMetric">+ Add metric</button><div style="height:6px"></div><div id="questionList"></div><button class="btn small" id="addQuestion">+ Add Y/N row</button><label>Notes row</label><input id="notesLabel" value="Important / Do not forget"></section>
+  <section class="panel"><h2>Reflection</h2><div id="reflectionList"></div></section>
+
+  <section class="panel"><h2>Actions</h2>
+    <div class="buttons"><button class="btn primary" id="printBtn">Export / Print PDF</button><button class="btn" id="saveBtn">Save template</button><button class="btn" id="resetBtn">Restore current planner</button></div>
+    <p class="tip">You can also click most labels directly on the planner preview and type over them.</p>
+    <div class="print-note"><b>Best PDF quality:</b> choose <b>Save as PDF</b> in the print window, A4 Landscape, scale 100%, and turn browser headers/footers off. The planner itself is HTML/CSS text, borders and shapes, so supported browsers export it as crisp vector content rather than a screenshot.</div>
+  </section>
+</aside>
+<main class="preview"><section id="paper" class="paper"></section></main>
+</div>
+<script>
+const ORIGINAL = {
+ weekStart:'2026-09-28', title:'WEEKLY FRIDGE PLANNER', peopleCount:1, people:['Kris','Peter'],
+ daily:[
+  {label:'Sleep score & time',kind:'line'}, {label:'VO2',kind:'line'},
+  {label:'Breakfast',kind:'check'}, {label:'Morning vitamins',kind:'check'}, {label:'Lunch',kind:'check'},
+  {label:'Work finished',kind:'check'}, {label:'Evening vitamins',kind:'check'}, {label:'Pre-sleep routine',kind:'check'},
+  {label:'Bed time',kind:'line'}
+ ],
+ activities:[{label:'Gym',badge:'NEW'},{label:'Sauna',badge:'NEW'},{label:'Run',badge:'NEW'},{label:'Walk',badge:''}],
+ metrics:['Steps','Calories'],
+ questions:['Was it a good day?','Something exciting happened?','Did I make time for good change?'],
+ notesLabel:'Important / Do not forget',
+ reflection:['What went well this week?','What could be better next week?','One thing I am proud of:','Focus for next week:']
+};
+let state=structuredClone(ORIGINAL);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function monday(dateStr){let d=new Date(dateStr+'T12:00:00');let day=d.getDay();d.setDate(d.getDate()+(day===0?-6:1-day));return d}
+function weekDates(){let m=monday(state.weekStart);return Array.from({length:7},(_,i)=>{let d=new Date(m);d.setDate(m.getDate()+i);return d})}
+function dayLabel(d){return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'}).replace(',','')}
+function rangeLabel(ds){let a=ds[0],b=ds[6];return `${a.getDate()} ${a.toLocaleDateString('en-GB',{month:'long'})} - ${b.getDate()} ${b.toLocaleDateString('en-GB',{month:'long'})} ${b.getFullYear()}`}
+function itemEditor(container,arr,isObject=false){let root=$(container);root.innerHTML='';arr.forEach((v,i)=>{let row=document.createElement('div');row.className='item';let inp=document.createElement('input');inp.type='text';inp.value=isObject?v.label:v;inp.oninput=()=>{if(isObject)v.label=inp.value;else arr[i]=inp.value;render()};row.appendChild(inp);for(const [txt,delta] of [['↑',-1],['↓',1]]){let b=document.createElement('button');b.className='btn small';b.textContent=txt;b.onclick=()=>{let j=i+delta;if(j>=0&&j<arr.length){[arr[i],arr[j]]=[arr[j],arr[i]];sync()}};row.appendChild(b)}let del=document.createElement('button');del.className='btn small';del.textContent='×';del.onclick=()=>{arr.splice(i,1);sync()};row.appendChild(del);root.appendChild(row)})}
+function activityEditor(){let root=$('activityList');root.innerHTML='';state.activities.forEach((v,i)=>{let row=document.createElement('div');row.className='item activity-item';let inp=document.createElement('input');inp.type='text';inp.value=v.label;inp.oninput=()=>{v.label=inp.value;render()};row.appendChild(inp);let toggle=document.createElement('label');toggle.className='newToggle'+(v.badge?' on':'');let cb=document.createElement('input');cb.type='checkbox';cb.checked=!!v.badge;cb.onchange=()=>{v.badge=cb.checked?'NEW':'';sync()};let tx=document.createElement('span');tx.textContent='NEW';toggle.append(cb,tx);row.appendChild(toggle);for(const [txt,delta] of [['↑',-1],['↓',1]]){let b=document.createElement('button');b.className='btn small';b.textContent=txt;b.onclick=()=>{let j=i+delta;if(j>=0&&j<state.activities.length){[state.activities[i],state.activities[j]]=[state.activities[j],state.activities[i]];sync()}};row.appendChild(b)}let del=document.createElement('button');del.className='btn small';del.textContent='×';del.onclick=()=>{state.activities.splice(i,1);sync()};row.appendChild(del);root.appendChild(row)})}
+function renderControls(){
+ $('weekStart').value=state.weekStart;$('peopleCount').value=String(state.peopleCount);$('title').value=state.title;$('notesLabel').value=state.notesLabel;
+ let pn=$('peopleNames');pn.innerHTML='';for(let i=0;i<state.peopleCount;i++){let lab=document.createElement('label');lab.textContent=`Person ${i+1} name`;let inp=document.createElement('input');inp.type='text';inp.value=state.people[i]||'';inp.oninput=()=>{state.people[i]=inp.value;render()};pn.append(lab,inp)}
+ itemEditor('dailyList',state.daily,true);activityEditor();itemEditor('metricList',state.metrics);itemEditor('questionList',state.questions);itemEditor('reflectionList',state.reflection)
+}
+function editable(text,kind,index){return `<span class="inline-edit" contenteditable="true" spellcheck="false" data-kind="${kind}" data-index="${index??''}">${esc(text)}</span>`}
+function personWrap(htmlFn,cls=''){
+ if(state.peopleCount===1)return htmlFn(0);
+ return `<div class="peopleCell two">${[0,1].map(i=>`<div class="personPart ${cls}">${htmlFn(i)}</div>`).join('')}</div>`
+}
+function cell(content,cls=''){return `<td class="${cls}">${content}</td>`}
+function render(){
+ let ds=weekDates(),paper=$('paper');
+ let peopleHeader=state.peopleCount===2?`<tr><th></th>${ds.map(()=>`<th class="peopleHead"><div class="peopleHeadGrid"><span>${esc(state.people[0]||'Person 1')}</span><span>${esc(state.people[1]||'Person 2')}</span></div></th>`).join('')}</tr>`:'';
+ let rows='';
+ state.daily.forEach((r,i)=>{let cls=r.kind==='line'?'row-line':'row-check';let cells=ds.map(()=>cell(personWrap(()=>r.kind==='line'?'<span class="line centerline"></span>':'<span class="check"></span>'))).join('');rows+=`<tr class="${cls}"><td>${editable(r.label,'daily',i)}</td>${cells}</tr>`});
+ rows+=`<tr class="row-sep"><td colspan="8"></td></tr>`;
+ state.activities.forEach((r,i)=>{let cells=ds.map(()=>cell(personWrap(()=>'<span class="check"></span><span class="line"></span>','activity'))).join('');rows+=`<tr class="row-activity"><td>${editable(r.label,'activity',i)}${r.badge?`<span class="badge">${esc(r.badge)}</span>`:''}</td>${cells}</tr>`});
+ let metricCells=ds.map(()=>cell(personWrap(pi=>`<div class="${state.peopleCount===2?'metricwrap':''}">${state.peopleCount===2?`<div class="personTag">${esc(state.people[pi]||'')}</div>`:''}${state.metrics.map((m,mi)=>`<div class="metric"><span>${editable(m,'metric',mi)}</span><span class="line"></span></div>`).join('')}</div>`))).join('');
+ rows+=`<tr class="row-end"><td>End of the day</td>${metricCells}</tr>`;
+ state.questions.forEach((q,i)=>{let tall=q.length>22?' tall':'';let cells=ds.map(()=>cell(personWrap(()=>'<span class="yn">Y / N</span>'))).join('');rows+=`<tr class="row-q${tall}"><td>${editable(q,'question',i)}</td>${cells}</tr>`});
+ let notes=ds.map(()=>cell(personWrap(()=>'<div class="notes"><span class="line"></span><span class="line"></span><span class="line"></span></div>'))).join('');
+ rows+=`<tr class="row-notes"><td><strong>${editable(state.notesLabel,'notes')}</strong></td>${notes}</tr>`;
+ paper.innerHTML=`<div class="header"><h1>${editable(state.title,'title')}</h1><div class="range">${rangeLabel(ds)}</div></div><table class="planner"><colgroup><col class="label">${'<col>'.repeat(7)}</colgroup><thead><tr><th>Habit / Activity</th>${ds.map(d=>`<th>${dayLabel(d)}</th>`).join('')}</tr>${peopleHeader}</thead><tbody>${rows}</tbody></table><section class="reflection"><div class="reflectionTitle">REFLECTION</div><div class="reflectionGrid">${state.reflection.map((r,i)=>`<div class="reflectionBox"><div class="prompt">${editable(r,'reflection',i)}</div><span class="line"></span><span class="line"></span><span class="line"></span></div>`).join('')}</div></section>`;
+ bindInline();
+}
+function bindInline(){document.querySelectorAll('.inline-edit').forEach(el=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();el.blur()}};el.onblur=()=>{let k=el.dataset.kind,i=Number(el.dataset.index),v=el.textContent.trim();if(k==='title')state.title=v;else if(k==='notes')state.notesLabel=v;else if(k==='daily')state.daily[i].label=v;else if(k==='activity')state.activities[i].label=v;else if(k==='metric')state.metrics[i]=v;else if(k==='question')state.questions[i]=v;else if(k==='reflection')state.reflection[i]=v;renderControls();render()}})}
+function sync(){renderControls();render()}
+$('weekStart').onchange=e=>{state.weekStart=e.target.value;render()};$('peopleCount').onchange=e=>{state.peopleCount=+e.target.value;sync()};$('title').oninput=e=>{state.title=e.target.value;render()};$('notesLabel').oninput=e=>{state.notesLabel=e.target.value;render()};
+$('addDaily').onclick=()=>{state.daily.push({label:'New routine',kind:'check'});sync()};$('addActivity').onclick=()=>{state.activities.push({label:'New activity',badge:''});sync()};$('addMetric').onclick=()=>{state.metrics.push('New metric');sync()};$('addQuestion').onclick=()=>{state.questions.push('New question?');sync()};
+$('printBtn').onclick=()=>{document.activeElement?.blur();setTimeout(()=>window.print(),60)};$('saveBtn').onclick=()=>{localStorage.setItem('fridgePlannerV2',JSON.stringify(state));alert('Saved in this browser.')};$('resetBtn').onclick=()=>{state=structuredClone(ORIGINAL);localStorage.removeItem('fridgePlannerV2');sync()};
+try{let saved=localStorage.getItem('fridgePlannerV2');if(saved)state=JSON.parse(saved)}catch(e){}
+sync();
+</script>
+</body></html>

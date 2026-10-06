@@ -116,18 +116,28 @@
   /* pillar side word-blocks */
   .pillar-side{
     display:flex; flex-direction:column; align-items:flex-start; justify-content:center;
-    gap:11px; border-radius:24px; padding:22px 18px; border:1.5px solid var(--line);
+    gap:12px; border-radius:24px; padding:20px 16px; border:1.5px solid var(--line);
   }
   .side-word{
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.92rem;
-    letter-spacing:.01em; line-height:1.1; white-space:nowrap;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; line-height:1.1;
+    letter-spacing:.01em; white-space:nowrap; cursor:default;
+    background:#fff; border:1.5px solid rgba(20,20,20,.08); border-radius:999px;
+    padding:7px 14px; box-shadow:0 3px 0 rgba(20,20,20,.14);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, background .25s ease;
   }
+  .side-word:nth-child(odd){transform:rotate(-2.5deg);}
+  .side-word:nth-child(even){transform:rotate(2deg) translateX(7px);}
+  .side-word:nth-child(3n){font-size:1.06rem;}
+  .side-word:nth-child(3n+1){font-size:.84rem;}
+  .side-word:nth-child(3n+2){font-size:.95rem;}
+  .side-word:hover{transform:rotate(0) scale(1.1); box-shadow:0 7px 16px rgba(20,20,20,.2);}
   .c-life-side{background:var(--pop-soft);}
   .c-life-side .side-word{color:var(--pop-deep);}
   .c-long-side{background:#E8EDFE;}
-  .c-long-side .side-word{color:#0038FF;}
+  .c-long-side .side-word{color:#0038FF; border-color:rgba(0,56,255,.28);}
   .c-biz-side{background:#141414; border-color:#141414;}
-  .c-biz-side .side-word{color:#F7F6F2;}
+  .c-biz-side .side-word{color:var(--ink); border-color:rgba(20,20,20,.1);}
+  .c-biz-side .side-word:hover{background:var(--pop-soft); color:var(--pop-deep);}
   @media(max-width:759px){.bar-links{display:none;}}
   .bar-dots{
     display:none; width:38px; height:38px; flex:none; cursor:pointer;
@@ -479,8 +489,12 @@
     .pillars{padding:14px 18px 4px; gap:18px;}
     .pillar-row{grid-template-columns:1fr; gap:12px;}
     .pillar-sec{padding:28px 22px 26px;}
-    .pillar-side{flex-direction:row; flex-wrap:wrap; justify-content:flex-start; gap:8px 10px; padding:16px 18px; border-radius:18px;}
-    .side-word{font-size:.82rem;}
+    .pillar-side{flex-direction:row; flex-wrap:wrap; align-items:center; justify-content:flex-start; gap:10px 10px; padding:16px 18px; border-radius:18px;}
+    .side-word{padding:6px 12px;}
+    .side-word:nth-child(3n){font-size:.92rem;}
+    .side-word:nth-child(3n+1){font-size:.76rem;}
+    .side-word:nth-child(3n+2){font-size:.84rem;}
+    .side-word:nth-child(even){transform:rotate(2deg) translateX(0);}
   }
 </style>
 </head>
@@ -537,6 +551,9 @@
         <span class="side-word">Habits</span>
         <span class="side-word">Patterns</span>
         <span class="side-word">Routines</span>
+        <span class="side-word">Beliefs</span>
+        <span class="side-word">Mindset</span>
+        <span class="side-word">Momentum</span>
       </aside>
     </div>
 
@@ -558,6 +575,8 @@
         <span class="side-word">Nutrition</span>
         <span class="side-word">Energy</span>
         <span class="side-word">Biomarkers</span>
+        <span class="side-word">Recovery</span>
+        <span class="side-word">Strength</span>
       </aside>
     </div>
 
@@ -579,6 +598,9 @@
         <span class="side-word">Brainstorm</span>
         <span class="side-word">Exposure</span>
         <span class="side-word">Funnels</span>
+        <span class="side-word">Positioning</span>
+        <span class="side-word">Systems</span>
+        <span class="side-word">Visibility</span>
       </aside>
     </div>
   </div>
