@@ -30,6 +30,26 @@
     {
       "source": "/new",
       "destination": "/new.html"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "adam.coachkris.co.uk"
+        }
+      ],
+      "destination": "/adam/index.html"
+    },
+    {
+      "source": "/privacy",
+      "has": [
+        {
+          "type": "host",
+          "value": "adam.coachkris.co.uk"
+        }
+      ],
+      "destination": "/adam/privacy.html"
     }
   ]
 }
