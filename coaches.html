@@ -463,6 +463,30 @@
     .foot-cred img{height:40px;}
   }
   .hero-grid.solo{grid-template-columns:1fr !important; max-width:760px;}
+
+  /* toolkit grid (coaches) */
+  .tk-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px;}
+  .tk-card{
+    display:flex; flex-direction:column; background:#fff; border:1.5px solid rgba(0,56,255,.22);
+    border-radius:20px; padding:20px 18px 18px; transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
+  }
+  .tk-card:hover{transform:translateY(-4px) rotate(-.4deg); box-shadow:0 12px 26px rgba(20,20,20,.12);}
+  .tk-card h3{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.1rem; margin:8px 0 6px;}
+  .tk-card p{font-size:.9rem; line-height:1.55; color:var(--soft); margin:0 0 14px;}
+  .tk-chip{
+    align-self:flex-start; background:#E8EDFE; color:#0038FF; font-size:.62rem; font-weight:700;
+    letter-spacing:.12em; padding:4px 10px; border-radius:999px;
+  }
+  .tk-open{margin-top:auto; font-weight:600; color:#0038FF;}
+  .tk-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+  .tk-actions .btn{margin-top:0; font-size:.9rem; padding:12px 18px;}
+  .deep-p{font-size:1rem; line-height:1.6; margin:0 0 14px; max-width:56ch;}
+  .deep-cta{margin:6px 0 22px;}
+  .deep-price{font-size:.85rem; color:var(--soft); font-weight:500;}
+  .wee-line{margin-top:4px;}
+  @media(max-width:759px){
+    .tk-grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
@@ -493,56 +517,70 @@
 <header class="hero-grid solo" id="top">
   <div>
     <p class="kicker">For coaches</p>
-    <h1 class="disp">You coach.<br><span class="hl">Who's building your corner?</span></h1>
-    <p class="hero-sub">Websites, visibility and momentum for fellow coaches. Hand-coded by someone who has sat in your chair.</p>
-    <a href="/new#book-form" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a>
+    <h1 class="disp">My toolkit.<br><span class="hl">Now yours.</span></h1>
+    <p class="hero-sub">The exercises, calculators and planners I've collected and built for real sessions with my own clients. Take them. Use them with yours. Free, no strings, no email required.</p>
   </div>
 </header>
 
 <div class="wrap">
   <section class="card">
-    <span class="sec-tag">The short version</span>
-    <div class="step-row">
-      <div class="step-n">1</div>
-      <div class="step-h">I built my own corner first</div>
-      <p class="step-p">I was a web designer before I was a coach. This site, my booking flow, my visibility on Google: all hand-coded, all fast, all mine.</p>
+    <span class="sec-tag">The toolkit</span>
+    <h2 class="tool-h">Take them. <span class="hl">They're yours.</span></h2>
+    <div class="tk-grid">
+      <div class="tk-card tk-lead">
+        <span class="tk-chip">FREE</span>
+        <h3>Weekly planner</h3>
+        <p>Routines, activities, daily metrics and a weekly reflection on one editable A4 sheet. Structure that survives the week between sessions.</p>
+        <div class="tk-actions">
+          <a class="btn btn-primary" href="/planner.html">Open the planner <span class="dot">&rarr;</span></a>
+          <a class="btn btn-ghost" href="/planner.html" download="weekly-planner-generator.html">Download the generator</a>
+        </div>
+      </div>
+      <a class="tk-card" href="/toolkit.html#card-wheel-life">
+        <span class="tk-chip">FREE</span>
+        <h3>Wheel of Life</h3>
+        <p>The classic. Eight areas, one honest snapshot. My go-to first-session move: see the whole picture before touching any of it.</p>
+        <span class="tk-open">Open &rarr;</span>
+      </a>
+      <a class="tk-card" href="/toolkit.html#card-belief">
+        <span class="tk-chip">FREE</span>
+        <h3>Limiting Belief Rewrite</h3>
+        <p>Catch the story, test it, rewrite it. Built on the idea I use most: a belief repeated long enough starts calling itself your identity.</p>
+        <span class="tk-open">Open &rarr;</span>
+      </a>
+      <a class="tk-card" href="/toolkit.html#card-bmi">
+        <span class="tk-chip">FREE</span>
+        <h3>BMI calculator</h3>
+        <p>Quick health snapshot, metric or imperial. Numbers a client understands without the lecture that usually comes with them.</p>
+        <span class="tk-open">Open &rarr;</span>
+      </a>
+      <a class="tk-card" href="/toolkit.html#card-sleep">
+        <span class="tk-chip">FREE</span>
+        <h3>Sleep &amp; Recovery Score</h3>
+        <p>Score sleep, recovery and habits honestly. Longevity coaching starts here more often than anywhere else.</p>
+        <span class="tk-open">Open &rarr;</span>
+      </a>
+      <a class="tk-card" href="/toolkit.html#card-wheel-business">
+        <span class="tk-chip">FREE</span>
+        <h3>Wheel of Business</h3>
+        <p>Same honest wheel, pointed at the business. Find the weak spoke, start there, stop guessing.</p>
+        <span class="tk-open">Open &rarr;</span>
+      </a>
     </div>
-    <div class="step-row">
-      <div class="step-n">2</div>
-      <div class="step-h">Now I do it for people who change lives</div>
-      <p class="step-p">Websites, SEO and visibility for coaches, therapists and small businesses. Found on Google, booked without friction, priced fairly at &pound;99 flat.</p>
-    </div>
-    <a href="https://www.weesites.co.uk" class="link-arrow" rel="noopener">See the work at Wee Sites &rarr;</a>
   </section>
 </div>
 
 <div class="wrap">
   <section class="card">
-    <span class="sec-tag">Toolkit</span>
-    <h2 class="tool-h">Tools I actually use. <span class="hl">Now yours.</span></h2>
-    <div class="tool-box">
-      <div class="tool-mock" aria-hidden="true">
-        <div class="mock-title"></div>
-        <div class="mock-grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      </div>
-      <div class="tool-info">
-        <span class="tool-chip">FREE</span>
-        <h3>Weekly planner</h3>
-        <p>The fridge planner I built for myself: everyday routines, activities, end-of-day metrics and a weekly reflection, all editable. Fill it in online and print it to PDF, or download the generator and keep it forever.</p>
-        <div class="tool-actions">
-          <a class="btn btn-primary" href="/planner.html">Open the planner <span class="dot">&rarr;</span></a>
-          <a class="btn btn-ghost" href="/planner.html" download="weekly-planner-generator.html">Download the generator</a>
-        </div>
-      </div>
+    <span class="sec-tag">The deeper bit</span>
+    <h2 class="tool-h">A tool is not <span class="hl">a transformation.</span></h2>
+    <p class="deep-p">Downloading a wheel takes ten seconds. Knowing what to do when a client scores two in career, nine in family, and starts defending the gap: that's the job.</p>
+    <p class="deep-p">If you want to get more out of these tools, I coach coaches on exactly this. When to use which, how to read the answers, and how to turn a one-off exercise into momentum your clients actually keep.</p>
+    <div class="tk-actions deep-cta">
+      <a class="btn btn-primary" href="/new#book-form">Book a session <span class="dot">&rarr;</span></a>
+      <span class="deep-price">&pound;45 an hour. No packages, no lock-in.</span>
     </div>
-  </section>
-</div>
-
-<div class="wrap">
-  <section class="card dark">
-    <span class="sec-tag">Full design coming soon</span>
-    <p class="belief">This corner gets its own proper build,<span class="hl"> designed together</span>.</p>
-    <p class="dark-sub">Meanwhile, the coaching itself works the same for you as for anyone else.</p>
+    <a href="https://www.weesites.co.uk" class="link-arrow wee-line" rel="noopener">Also: I hand-code websites for coaches and therapists. See the work at Wee Sites &rarr;</a>
   </section>
 </div>
 
