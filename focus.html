@@ -438,17 +438,16 @@
   .hero-grid.solo{grid-template-columns:1fr !important; max-width:760px;}
 
   /* pillar rail */
-  .rails{max-width:1080px; margin:0 auto; padding:16px 18px 8px; display:grid; grid-template-columns:88px 1fr; gap:34px;}
+  .rails{max-width:1080px; margin:0 auto; padding:16px 18px 8px; display:grid; grid-template-columns:112px 1fr; gap:30px;}
   .rail-col{position:sticky; top:110px; align-self:start;}
-  .rail-dots{position:relative; display:flex; flex-direction:column; justify-content:space-between; align-items:center; height:320px; padding:6px 0;}
-  .rail-track{position:absolute; left:50%; top:32px; bottom:32px; width:4px; transform:translateX(-50%); background:var(--line); border-radius:99px; overflow:hidden;}
+  .rail-dots{position:relative; display:flex; flex-direction:column; justify-content:space-between; align-items:center; height:340px; padding:6px 0;}
+  .rail-track{position:absolute; left:50%; top:26px; bottom:26px; width:4px; transform:translateX(-50%); background:var(--line); border-radius:99px; overflow:hidden;}
   .rail-fill{display:block; width:100%; height:0; border-radius:99px; background:linear-gradient(180deg, var(--pop) 0%, #0038FF 55%, #141414 100%); transition:height .3s ease;}
-  .rdot{position:relative; z-index:1; display:grid; place-items:center; width:52px; height:52px; background:var(--card); border:2px solid var(--line); border-radius:50%; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.2rem; color:var(--soft); transition:transform .3s ease, background-color .3s ease, color .3s ease, border-color .3s ease;}
-  .rdot i{position:absolute; top:calc(100% + 7px); font-style:normal; font-family:'Instrument Sans',sans-serif; font-weight:600; font-size:.6rem; letter-spacing:.09em; text-transform:uppercase; color:var(--soft); white-space:nowrap;}
-  .rdot.on{transform:scale(1.12) rotate(-6deg); color:#fff; border-color:transparent;}
-  .rdot.on[data-sec="life"]{background:var(--pop);}
-  .rdot.on[data-sec="longevity"]{background:#0038FF;}
-  .rdot.on[data-sec="business"]{background:#141414;}
+  .rdot{position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; padding:11px 18px; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:#fff; transition:transform .3s ease, box-shadow .3s ease;}
+  .rdot[data-sec="life"]{background:var(--pop);}
+  .rdot[data-sec="longevity"]{background:#0038FF;}
+  .rdot[data-sec="business"]{background:#141414;}
+  .rdot.on{transform:scale(1.12); box-shadow:0 8px 22px rgba(20,20,20,.28);}
   .rail-content{display:grid; gap:20px; align-content:start;}
   .rail-sec{position:relative; background:var(--card); border:1.5px solid var(--line); border-radius:28px; padding:32px 26px 28px; margin:0;}
   .rail-sec .rs-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.7rem,6vw,2.3rem); line-height:1.12; margin:8px 0 14px;}
@@ -472,12 +471,11 @@
   .center-cta{text-align:center; margin-top:20px;}
   .center-cta .btn{display:inline-flex;}
   @media(max-width:759px){
-    .rails{grid-template-columns:46px 1fr; gap:16px; padding:12px 18px 4px;}
+    .rails{grid-template-columns:98px 1fr; gap:16px; padding:12px 18px 4px;}
     .rail-col{top:84px;}
-    .rail-dots{height:216px;}
-    .rail-track{top:25px; bottom:25px; width:3px;}
-    .rdot{width:38px; height:38px; font-size:.95rem; border-width:2px;}
-    .rdot i{display:none;}
+    .rail-dots{height:250px;}
+    .rail-track{top:20px; bottom:20px; width:3px;}
+    .rdot{font-size:.52rem; letter-spacing:.04em; padding:8px 11px;}
     .rail-sec{padding:26px 20px 24px;}
   }
 </style>
@@ -512,7 +510,6 @@
     <p class="kicker">My focus</p>
     <h1 class="disp">Three lanes.<br><span class="hl">One direction: yours.</span></h1>
     <p class="hero-sub">We work on whatever matters most right now, one session at a time. &pound;45 an hour, no packages, no lock-in.</p>
-    <a href="/new#book-form" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a>
   </div>
 </header>
 
@@ -521,9 +518,9 @@
     <div class="rail-col">
       <div class="rail-dots">
         <span class="rail-track"><span class="rail-fill" id="railFill"></span></span>
-        <div class="rdot" data-sec="life"><b>L</b><i>Life</i></div>
-        <div class="rdot" data-sec="longevity"><b>L</b><i>Longevity</i></div>
-        <div class="rdot" data-sec="business"><b>B</b><i>Business</i></div>
+        <div class="rdot" data-sec="life">Life</div>
+        <div class="rdot" data-sec="longevity">Longevity</div>
+        <div class="rdot" data-sec="business">Business</div>
       </div>
     </div>
     <div class="rail-content">
@@ -564,14 +561,6 @@
       </section>
     </div>
   </div>
-</div>
-
-<div class="wrap">
-  <section class="statement">
-    <span class="statement-tag">Not sure which lane?</span>
-    <p><span class="st-line">The first session is free.</span><span class="st-punch">We'll find the lane <span>together</span>.</span></p>
-  </section>
-  <p class="center-cta"><a href="/new#book-form" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a></p>
 </div>
 
 <div class="wrap">
