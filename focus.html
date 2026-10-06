@@ -440,14 +440,15 @@
   /* pillar rail */
   .rails{max-width:1080px; margin:0 auto; padding:16px 18px 8px; display:grid; grid-template-columns:112px 1fr; gap:30px;}
   .rail-col{position:sticky; top:110px; align-self:start;}
-  .rail-dots{position:relative; display:flex; flex-direction:column; justify-content:space-between; align-items:center; height:340px; padding:6px 0;}
-  .rail-track{position:absolute; left:50%; top:26px; bottom:26px; width:4px; transform:translateX(-50%); background:var(--line); border-radius:99px; overflow:hidden;}
+  .rail-dots{position:relative; height:clamp(340px, calc(100vh - 190px), 640px);}
+  .rail-track{position:absolute; left:50%; top:12px; bottom:12px; width:4px; transform:translateX(-50%); background:var(--line); border-radius:99px; overflow:hidden;}
   .rail-fill{display:block; width:100%; height:0; border-radius:99px; background:linear-gradient(180deg, var(--pop) 0%, #0038FF 55%, #141414 100%); transition:height .3s ease;}
-  .rdot{position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; padding:11px 18px; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:#fff; transition:transform .3s ease, box-shadow .3s ease;}
+  .rdots-stack{position:absolute; left:0; right:0; top:0; display:grid; justify-items:center; gap:16px; transition:transform .5s cubic-bezier(.25,.9,.3,1);}
+  .rdot{display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; padding:11px 18px; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:#fff; opacity:.45; transform:scale(.92); transition:transform .3s ease, opacity .3s ease, box-shadow .3s ease;}
   .rdot[data-sec="life"]{background:var(--pop);}
   .rdot[data-sec="longevity"]{background:#0038FF;}
   .rdot[data-sec="business"]{background:#141414;}
-  .rdot.on{transform:scale(1.12); box-shadow:0 8px 22px rgba(20,20,20,.28);}
+  .rdot.on{opacity:1; transform:scale(1.08); box-shadow:0 8px 22px rgba(20,20,20,.28); position:relative; z-index:1;}
   .rail-content{display:grid; gap:20px; align-content:start;}
   .rail-sec{position:relative; background:var(--card); border:1.5px solid var(--line); border-radius:28px; padding:32px 26px 28px; margin:0;}
   .rail-sec .rs-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.7rem,6vw,2.3rem); line-height:1.12; margin:8px 0 14px;}
@@ -473,8 +474,8 @@
   @media(max-width:759px){
     .rails{grid-template-columns:98px 1fr; gap:16px; padding:12px 18px 4px;}
     .rail-col{top:84px;}
-    .rail-dots{height:250px;}
-    .rail-track{top:20px; bottom:20px; width:3px;}
+    .rail-track{width:3px;}
+    .rdots-stack{gap:12px;}
     .rdot{font-size:.52rem; letter-spacing:.04em; padding:8px 11px;}
     .rail-sec{padding:26px 20px 24px;}
   }
@@ -518,9 +519,11 @@
     <div class="rail-col">
       <div class="rail-dots">
         <span class="rail-track"><span class="rail-fill" id="railFill"></span></span>
-        <div class="rdot" data-sec="life">Life</div>
-        <div class="rdot" data-sec="longevity">Longevity</div>
-        <div class="rdot" data-sec="business">Business</div>
+        <div class="rdots-stack" id="rdotsStack">
+          <div class="rdot" data-sec="life">Life</div>
+          <div class="rdot" data-sec="longevity">Longevity</div>
+          <div class="rdot" data-sec="business">Business</div>
+        </div>
       </div>
     </div>
     <div class="rail-content">
@@ -628,20 +631,27 @@
 (function(){
   var fill = document.getElementById('railFill');
   var track = document.querySelector('.rail-track');
+  var stack = document.getElementById('rdotsStack');
   var dots = document.querySelectorAll('.rdot');
   var secs = document.querySelectorAll('.rail-sec');
   var content = document.querySelector('.rail-content');
-  if(!fill || !track || !dots.length || !secs.length || !content) return;
+  if(!fill || !track || !stack || !dots.length || !secs.length || !content) return;
   function tick(){
     var mid = window.scrollY + window.innerHeight * 0.45;
     var cTop = content.getBoundingClientRect().top + window.scrollY;
     var cH = Math.max(1, content.offsetHeight);
     var p = Math.min(1, Math.max(0, (mid - cTop) / cH));
     fill.style.height = (p * track.offsetHeight) + 'px';
-    var active = -1;
+    var active = 0;
     for(var i = 0; i < secs.length; i++){
       if(mid >= secs[i].getBoundingClientRect().top + window.scrollY) active = i;
     }
+    var container = stack.parentElement;
+    var anchor = window.innerHeight * 0.5 - container.getBoundingClientRect().top;
+    anchor = Math.min(container.offsetHeight - 34, Math.max(34, anchor));
+    var d = dots[active];
+    var target = anchor - (d.offsetTop + d.offsetHeight / 2);
+    stack.style.transform = 'translateY(' + target + 'px)';
     for(var j = 0; j < dots.length; j++){
       dots[j].classList.toggle('on', j === active);
     }
