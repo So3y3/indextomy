@@ -636,7 +636,9 @@
   var secs = document.querySelectorAll('.rail-sec');
   var content = document.querySelector('.rail-content');
   if(!fill || !track || !stack || !dots.length || !secs.length || !content) return;
-  function tick(){
+  var lastActive = -1;
+  var raf = false;
+  function render(){
     var mid = window.scrollY + window.innerHeight * 0.45;
     var cTop = content.getBoundingClientRect().top + window.scrollY;
     var cH = Math.max(1, content.offsetHeight);
@@ -647,16 +649,25 @@
       if(mid >= secs[i].getBoundingClientRect().top + window.scrollY) active = i;
     }
     var container = stack.parentElement;
-    var anchor = window.innerHeight * 0.5 - container.getBoundingClientRect().top;
-    anchor = Math.min(container.offsetHeight - 34, Math.max(34, anchor));
+    var cRect = container.getBoundingClientRect();
+    var s = secs[active].getBoundingClientRect();
+    var center = s.top + s.height / 2 - cRect.top;
+    center = Math.min(cRect.height - 34, Math.max(34, center));
     var d = dots[active];
-    var target = anchor - (d.offsetTop + d.offsetHeight / 2);
-    stack.style.transform = 'translateY(' + target + 'px)';
+    var pillCenter = d.offsetTop + d.offsetHeight / 2;
+    stack.style.transition = (active !== lastActive) ? 'transform .5s cubic-bezier(.3,.8,.3,1)' : 'none';
+    stack.style.transform = 'translateY(' + (center - pillCenter) + 'px)';
+    lastActive = active;
     for(var j = 0; j < dots.length; j++){
       dots[j].classList.toggle('on', j === active);
     }
   }
-  tick();
+  function tick(){
+    if(raf) return;
+    raf = true;
+    requestAnimationFrame(function(){ raf = false; render(); });
+  }
+  render();
   window.addEventListener('scroll', tick, {passive:true});
   window.addEventListener('resize', tick);
 })();
