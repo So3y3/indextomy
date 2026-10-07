@@ -566,6 +566,87 @@
     .field-row, .belief-row{grid-template-columns:1fr;}
     .scale-label{max-width:none;}
   }
+
+  /* ===== weekly planner v4 (embedded, namespaced #fp) ===== */
+  #fp{--fink:#182234;--fmuted:#6b7581;--fline:#c7d0d8;--flineDark:#aeb9c4;--fsoft:#f6f8f8;--fgreen:#dcecdf;--fgreenText:#2a4634;}
+  #fp{font-family:'Instrument Sans',sans-serif; color:#182234;}
+  .fp-app{display:grid; grid-template-columns:340px minmax(0,1fr); gap:18px; align-items:start;}
+  .fp-side .panel{background:#fff; border:1.5px solid #EFECE5; border-radius:16px; padding:14px; margin:0 0 10px; box-shadow:0 2px 8px rgba(20,20,20,.05);}
+  .fp-side .panel h2{font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; margin:0 0 10px; color:#CC5500; font-weight:700; font-family:'Instrument Sans',sans-serif;}
+  #fp label{display:block; font-size:.74rem; color:#6E6A63; margin:8px 0 4px; font-weight:600;}
+  #fp input[type=text],#fp input[type=date],#fp select{width:100%; padding:8px 9px; border:1.5px solid #EFECE5; border-radius:10px; background:#fff; color:#182234; font:inherit; font-size:.85rem;}
+  #fp input:focus,#fp select:focus{outline:2px solid rgba(255,107,0,.35); outline-offset:0; border-color:#FF6B00;}
+  #fp .twocol{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  #fp .buttons{display:flex; gap:7px; flex-wrap:wrap;}
+  #fp .btn{border:1.5px solid #EFECE5; background:#fff; border-radius:10px; padding:8px 12px; cursor:pointer; color:#141414; font:inherit; font-size:.85rem; font-weight:600; transition:transform .2s ease;}
+  #fp .btn:hover{background:#F7F6F2; transform:translateY(-1px);}
+  #fp .btn.primary{background:#0038FF; color:#fff; border-color:#0038FF;}
+  #fp .btn.primary:hover{background:#002ecc;}
+  #fp .btn.small{padding:4px 7px; font-size:.72rem;}
+  #fp .item{display:grid; grid-template-columns:1fr auto auto auto; gap:4px; align-items:center; margin:5px 0;}
+  #fp .item input{min-width:0;}
+  #fp .activity-item{grid-template-columns:minmax(0,1fr) auto auto auto auto;}
+  #fp .newToggle{display:flex; align-items:center; gap:4px; padding:4px 7px; border:1.5px solid #EFECE5; border-radius:999px; font-size:.62rem; color:#6E6A63; white-space:nowrap; cursor:pointer; user-select:none; font-weight:600;}
+  #fp .newToggle input{width:auto; margin:0;}
+  #fp .newToggle.on{background:#dcecdf; border-color:#c9dfcf; color:#2a4634;}
+  #fp .list-note{font-size:.72rem; color:#6E6A63; line-height:1.4; margin-top:6px;}
+  #fp .tip{font-size:.74rem; line-height:1.45; color:#6E6A63; margin:8px 0 0;}
+  #fp .print-note{font-size:.72rem; line-height:1.45; color:#6E6A63; margin-top:10px; padding:9px 10px; background:#F7F6F2; border:1.5px solid #EFECE5; border-radius:10px;}
+  .fp-stage-wrap{overflow:hidden; border:1.5px solid #EFECE5; border-radius:16px; background:#F7F6F2; padding:10px;}
+  .fp-stage{width:100%; overflow:hidden;}
+  /* --- the A4 sheet: Kris's v4 layout, untouched --- */
+  #fp .paper{width:297mm; height:210mm; margin:0 auto; background:#fff; box-shadow:0 10px 30px rgba(16,28,42,.10); padding:4.5mm 7mm 4.5mm; overflow:hidden; transform-origin:top left;}
+  #fp .header{text-align:center; height:18mm;}
+  #fp .header h1{font-size:18pt; letter-spacing:.045em; margin:0 0 2.2mm; font-weight:700;}
+  #fp .header .range{font-size:10pt; letter-spacing:.015em;}
+  #fp .planner{width:100%; border-collapse:separate; border-spacing:0; table-layout:fixed; font-size:7.7pt; border:1px solid var(--flineDark); border-radius:5px; overflow:hidden;}
+  #fp .planner col.label{width:37mm;}
+  #fp .planner th,#fp .planner td{border-right:1px solid var(--fline); border-bottom:1px solid var(--fline); padding:0 3.2mm; vertical-align:middle; background:#fff;}
+  #fp .planner tr>*:last-child{border-right:0;}
+  #fp .planner tbody tr:last-child>*{border-bottom:0;}
+  #fp .planner thead th{font-weight:700; text-align:center; background:#fff; height:6.4mm;}
+  #fp .planner thead th:first-child{text-align:left;}
+  #fp .planner thead tr:nth-child(2) th{height:4.8mm; padding:0 2mm;}
+  #fp .row-line{height:6.8mm;} #fp .row-check{height:6.3mm;} #fp .row-sep{height:2mm;} #fp .row-sep td{background:var(--fsoft); padding:0;}
+  #fp .row-activity{height:6.7mm;} #fp .row-end{height:10.5mm;} #fp .row-q{height:7mm;} #fp .row-q.tall{height:8.2mm;} #fp .row-notes{height:11.5mm;}
+  #fp .line{height:1px; background:var(--flineDark); display:block; width:100%;}
+  #fp .centerline{width:80%; margin:auto;}
+  #fp .check{width:7.6pt; height:7.6pt; border:1px solid #334050; display:inline-block; flex:0 0 auto;}
+  #fp .center{display:flex; align-items:center; justify-content:center;}
+  #fp .activity{display:flex; align-items:center; gap:3mm;} #fp .activity .line{flex:1;}
+  #fp .badge{display:inline-block; margin-left:4mm; background:var(--fgreen); color:var(--fgreenText); font-size:5.4pt; font-weight:700; border-radius:999px; padding:1.3mm 3.2mm; vertical-align:middle;}
+  #fp .metric{display:grid; grid-template-columns:auto 1fr; gap:2mm; align-items:center; margin:1.3mm 0;}
+  #fp .yn{text-align:center; letter-spacing:.15em;}
+  #fp .notes{display:flex; flex-direction:column; gap:2.5mm;}
+  #fp .peopleCell{display:grid; height:100%;}
+  #fp .peopleCell.two{grid-template-columns:1fr 1fr; padding:0!important;}
+  #fp .peopleCell.two>.personPart{border-right:1px solid var(--fline); padding:0 2mm; display:flex; align-items:center; justify-content:center;}
+  #fp .peopleCell.two>.personPart:last-child{border-right:0;}
+  #fp .peopleCell.two>.personPart.activity{justify-content:flex-start;}
+  #fp .peopleCell.two>.personPart.metricwrap{display:block; padding-top:1.4mm;}
+  #fp .personTag{font-size:5.8pt; color:#66717d; margin-bottom:1mm;}
+  #fp .peopleHead{padding:0!important;}
+  #fp .peopleHeadGrid{display:grid; grid-template-columns:1fr 1fr; height:100%;}
+  #fp .peopleHeadGrid span{display:flex; align-items:center; justify-content:center; border-right:1px solid var(--fline); font-size:6.1pt; font-weight:500;}
+  #fp .peopleHeadGrid span:last-child{border-right:0;}
+  #fp .reflection{margin-top:3mm; border:1px solid var(--flineDark); border-radius:5px; overflow:hidden; height:38mm;}
+  #fp .reflectionTitle{height:9mm; background:var(--fsoft); font-size:11pt; font-weight:700; letter-spacing:.035em; padding:2.3mm 3.2mm;}
+  #fp .reflectionGrid{display:grid; grid-template-columns:repeat(4,1fr); height:29mm;}
+  #fp .reflectionBox{border-right:1px solid var(--fline); padding:2.2mm 3.2mm;}
+  #fp .reflectionBox:last-child{border-right:0;}
+  #fp .reflectionBox .prompt{font-size:6.8pt; margin-bottom:3mm;}
+  #fp .reflectionBox .line{margin:2.8mm 0;}
+  #fp .inline-edit{outline:none; border-radius:2px;}
+  #fp .inline-edit:focus{background:#fff8cf; box-shadow:0 0 0 1px #e0c85f inset;}
+  @media(max-width:900px){ .fp-app{grid-template-columns:1fr;} }
+  /* print: only the sheet, exact A4 landscape */
+  @media print{
+    body.fp-printing *{visibility:hidden!important;}
+    body.fp-printing #fp .paper, body.fp-printing #fp .paper *{visibility:visible!important;}
+    body.fp-printing #fp .paper{position:fixed; left:0; top:0; margin:0; transform:none!important; box-shadow:none; background:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    body.fp-printing .planner, body.fp-printing .reflection, body.fp-printing .check, body.fp-printing .line{print-color-adjust:exact; -webkit-print-color-adjust:exact;}
+    body.fp-printing #fp .inline-edit:focus{background:transparent; box-shadow:none;}
+  }
 </style>
 </head>
 <body>
@@ -606,16 +687,44 @@
     <span class="sec-tag">The toolkit</span>
     <h2 class="tool-h">Take them. <span class="hl">They're yours.</span></h2>
     <div class="tk-grid">
-      <div class="tk-card tk-lead">
-        <span class="tk-chip">FREE</span>
-        <h3>Weekly planner</h3>
-        <p>Routines, activities, daily metrics and a weekly reflection on one editable A4 sheet. Structure that survives the week between sessions.</p>
-        <div class="tk-actions">
-          <a class="btn btn-primary" href="/planner.html">Open the planner <span class="dot">&rarr;</span></a>
-          <a class="btn btn-ghost" href="/planner.html" download="weekly-planner-generator.html">Download the generator</a>
-        </div>
-      </div>
-      <div class="tk-card tk-tool" id="tk-wheel-life">
+      <div class="tk-card tk-tool" id="tk-planner">
+        <button class="tk-face" onclick="tkToggle('tk-planner')" aria-expanded="false">
+          <span class="tk-chip">FREE</span>
+          <h3>Weekly planner</h3>
+          <p>Routines, activities, daily metrics and a weekly reflection on one editable A4 sheet. Structure that survives the week between sessions.</p>
+          <span class="tk-open">Open the tool <span class="tk-chev">&darr;</span></span>
+        </button>
+        <div class="tk-panel"><div><div class="tk-panel-in">
+          <p class="t-desc">Starts from my own weekly fridge planner. Set the week and the people, tweak every row, then print it as a single A4 landscape sheet for your fridge door. You can also click most labels right on the sheet and type over them.</p>
+          <div id="fp">
+            <div class="fp-app">
+              <div class="fp-side">
+                <section class="panel"><h2>Week &amp; people</h2>
+                  <label>Week starts</label><input id="fp_weekStart" type="date">
+                  <div class="twocol">
+                    <div><label>People</label><select id="fp_peopleCount"><option value="1">1 person</option><option value="2">2 people</option></select></div>
+                    <div><label>Title</label><input id="fp_title" type="text" value="WEEKLY FRIDGE PLANNER"></div>
+                  </div>
+                  <div id="fp_peopleNames"></div>
+                </section>
+                <section class="panel"><h2>Everyday rows</h2><div id="fp_dailyList"></div><button class="btn small" id="fp_addDaily">+ Add row</button></section>
+                <section class="panel"><h2>Activities</h2><div id="fp_activityList"></div><button class="btn small" id="fp_addActivity">+ Add activity</button><div class="list-note">Turn <b>NEW</b> on only for the activities you want tagged. Activity cells keep the checkbox on the left and a line for minutes/time.</div></section>
+                <section class="panel"><h2>End of day</h2><div id="fp_metricList"></div><button class="btn small" id="fp_addMetric">+ Add metric</button><div style="height:6px"></div><div id="fp_questionList"></div><button class="btn small" id="fp_addQuestion">+ Add Y/N row</button><label>Notes row</label><input id="fp_notesLabel" value="Important / Do not forget"></section>
+                <section class="panel"><h2>Reflection</h2><div id="fp_reflectionList"></div></section>
+                <section class="panel"><h2>Actions</h2>
+                  <div class="buttons"><button class="btn primary" id="fp_printBtn">Export / Print PDF</button><button class="btn" id="fp_saveBtn">Save template</button><button class="btn" id="fp_resetBtn">Restore my planner</button></div>
+                  <p class="tip">The layout always stays within one A4 landscape page, including the Reflection strip.</p>
+                  <div class="print-note"><b>Best PDF quality:</b> choose <b>Save as PDF</b> in the print window, A4 landscape, scale 100%, headers/footers off. The sheet is real text, borders and shapes, so it exports crisp, not as a screenshot.</div>
+                </section>
+              </div>
+              <div class="fp-stage-wrap">
+                <div class="fp-stage" id="fp_stage"><section id="fp_paper" class="paper"></section></div>
+              </div>
+            </div>
+          </div>
+          <p class="t-fine">Your edits reset when you leave or refresh this page, unless you save the template. Want the standalone version? <a href="/planner.html" download="weekly-planner-generator.html">Download the generator</a>.</p>
+        </div></div></div>
+      </div>      <div class="tk-card tk-tool" id="tk-wheel-life">
         <button class="tk-face" onclick="tkToggle('tk-wheel-life')" aria-expanded="false">
           <span class="tk-chip">FREE</span>
           <h3>Wheel of Life</h3>
@@ -822,6 +931,7 @@ function tkToggle(id) {
   if (!wasOpen) {
     card.classList.add('open');
     card.querySelector('.tk-face').setAttribute('aria-expanded', 'true');
+    if (window.__fpScale) setTimeout(window.__fpScale, 60);
   }
 }
 </script>
@@ -1340,6 +1450,81 @@ function calculateSleep() {
 }
 
 
+</script>
+<script>
+/* weekly planner v4 (embedded) */
+(function(){
+  const __sd=new Date();__sd.setDate(__sd.getDate()-((__sd.getDay()+6)%7));
+  const __fpSeed=__sd.toISOString().slice(0,10);
+const ORIGINAL = {
+ weekStart:__fpSeed, title:'WEEKLY FRIDGE PLANNER', peopleCount:1, people:['Kris','Peter'],
+ daily:[
+  {label:'Sleep score & time',kind:'line'}, {label:'VO2',kind:'line'},
+  {label:'Breakfast',kind:'check'}, {label:'Morning vitamins',kind:'check'}, {label:'Lunch',kind:'check'},
+  {label:'Work finished',kind:'check'}, {label:'Evening vitamins',kind:'check'}, {label:'Pre-sleep routine',kind:'check'},
+  {label:'Bed time',kind:'line'}
+ ],
+ activities:[{label:'Gym',badge:'NEW'},{label:'Sauna',badge:'NEW'},{label:'Run',badge:'NEW'},{label:'Walk',badge:''}],
+ metrics:['Steps','Calories'],
+ questions:['Was it a good day?','Something exciting happened?','Did I make time for good change?'],
+ notesLabel:'Important / Do not forget',
+ reflection:['What went well this week?','What could be better next week?','One thing I am proud of:','Focus for next week:']
+};
+let state=structuredClone(ORIGINAL);
+const $=id=>document.getElementById(id);
+  function __fpScale(){const stage=$('fp_stage');const paper=$('fp_paper');
+    if(!stage||!paper)return;const w=stage.clientWidth;if(!w)return;
+    const s=w/1123;paper.style.transform='scale('+s+')';stage.style.height=(794*s)+'px';}
+  window.__fpScale=__fpScale;window.addEventListener('resize',__fpScale);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function monday(dateStr){let d=new Date(dateStr+'T12:00:00');let day=d.getDay();d.setDate(d.getDate()+(day===0?-6:1-day));return d}
+function weekDates(){let m=monday(state.weekStart);return Array.from({length:7},(_,i)=>{let d=new Date(m);d.setDate(m.getDate()+i);return d})}
+function dayLabel(d){return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'short'}).replace(',','')}
+function rangeLabel(ds){let a=ds[0],b=ds[6];return `${a.getDate()} ${a.toLocaleDateString('en-GB',{month:'long'})} - ${b.getDate()} ${b.toLocaleDateString('en-GB',{month:'long'})} ${b.getFullYear()}`}
+function itemEditor(container,arr,isObject=false){let root=$(container);root.innerHTML='';arr.forEach((v,i)=>{let row=document.createElement('div');row.className='item';let inp=document.createElement('input');inp.type='text';inp.value=isObject?v.label:v;inp.oninput=()=>{if(isObject)v.label=inp.value;else arr[i]=inp.value;render()};row.appendChild(inp);for(const [txt,delta] of [['↑',-1],['↓',1]]){let b=document.createElement('button');b.className='btn small';b.textContent=txt;b.onclick=()=>{let j=i+delta;if(j>=0&&j<arr.length){[arr[i],arr[j]]=[arr[j],arr[i]];sync()}};row.appendChild(b)}let del=document.createElement('button');del.className='btn small';del.textContent='×';del.onclick=()=>{arr.splice(i,1);sync()};row.appendChild(del);root.appendChild(row)})}
+function activityEditor(){let root=$('fp_activityList');root.innerHTML='';state.activities.forEach((v,i)=>{let row=document.createElement('div');row.className='item activity-item';let inp=document.createElement('input');inp.type='text';inp.value=v.label;inp.oninput=()=>{v.label=inp.value;render()};row.appendChild(inp);let toggle=document.createElement('label');toggle.className='newToggle'+(v.badge?' on':'');let cb=document.createElement('input');cb.type='checkbox';cb.checked=!!v.badge;cb.onchange=()=>{v.badge=cb.checked?'NEW':'';sync()};let tx=document.createElement('span');tx.textContent='NEW';toggle.append(cb,tx);row.appendChild(toggle);for(const [txt,delta] of [['↑',-1],['↓',1]]){let b=document.createElement('button');b.className='btn small';b.textContent=txt;b.onclick=()=>{let j=i+delta;if(j>=0&&j<state.activities.length){[state.activities[i],state.activities[j]]=[state.activities[j],state.activities[i]];sync()}};row.appendChild(b)}let del=document.createElement('button');del.className='btn small';del.textContent='×';del.onclick=()=>{state.activities.splice(i,1);sync()};row.appendChild(del);root.appendChild(row)})}
+function renderControls(){
+ $('fp_weekStart').value=state.weekStart;$('fp_peopleCount').value=String(state.peopleCount);$('fp_title').value=state.title;$('fp_notesLabel').value=state.notesLabel;
+ let pn=$('fp_peopleNames');pn.innerHTML='';for(let i=0;i<state.peopleCount;i++){let lab=document.createElement('label');lab.textContent=`Person ${i+1} name`;let inp=document.createElement('input');inp.type='text';inp.value=state.people[i]||'';inp.oninput=()=>{state.people[i]=inp.value;render()};pn.append(lab,inp)}
+ itemEditor('fp_dailyList',state.daily,true);activityEditor();itemEditor('fp_metricList',state.metrics);itemEditor('fp_questionList',state.questions);itemEditor('fp_reflectionList',state.reflection)
+}
+function editable(text,kind,index){return `<span class="inline-edit" contenteditable="true" spellcheck="false" data-kind="${kind}" data-index="${index??''}">${esc(text)}</span>`}
+function personWrap(htmlFn,cls=''){
+ if(state.peopleCount===1)return htmlFn(0);
+ return `<div class="peopleCell two">${[0,1].map(i=>`<div class="personPart ${cls}">${htmlFn(i)}</div>`).join('')}</div>`
+}
+function cell(content,cls=''){return `<td class="${cls}">${content}</td>`}
+function render(){
+ let ds=weekDates(),paper=$('fp_paper');
+ let peopleHeader=state.peopleCount===2?`<tr><th></th>${ds.map(()=>`<th class="peopleHead"><div class="peopleHeadGrid"><span>${esc(state.people[0]||'Person 1')}</span><span>${esc(state.people[1]||'Person 2')}</span></div></th>`).join('')}</tr>`:'';
+ let rows='';
+ state.daily.forEach((r,i)=>{let cls=r.kind==='line'?'row-line':'row-check';let cells=ds.map(()=>cell(personWrap(()=>r.kind==='line'?'<span class="line centerline"></span>':'<span class="check"></span>'))).join('');rows+=`<tr class="${cls}"><td>${editable(r.label,'daily',i)}</td>${cells}</tr>`});
+ rows+=`<tr class="row-sep"><td colspan="8"></td></tr>`;
+ state.activities.forEach((r,i)=>{let cells=ds.map(()=>cell(personWrap(()=>'<span class="check"></span><span class="line"></span>','activity'))).join('');rows+=`<tr class="row-activity"><td>${editable(r.label,'activity',i)}${r.badge?`<span class="badge">${esc(r.badge)}</span>`:''}</td>${cells}</tr>`});
+ let metricCells=ds.map(()=>cell(personWrap(pi=>`<div class="${state.peopleCount===2?'metricwrap':''}">${state.peopleCount===2?`<div class="personTag">${esc(state.people[pi]||'')}</div>`:''}${state.metrics.map((m,mi)=>`<div class="metric"><span>${editable(m,'metric',mi)}</span><span class="line"></span></div>`).join('')}</div>`))).join('');
+ rows+=`<tr class="row-end"><td>End of the day</td>${metricCells}</tr>`;
+ state.questions.forEach((q,i)=>{let tall=q.length>22?' tall':'';let cells=ds.map(()=>cell(personWrap(()=>'<span class="yn">Y / N</span>'))).join('');rows+=`<tr class="row-q${tall}"><td>${editable(q,'question',i)}</td>${cells}</tr>`});
+ let notes=ds.map(()=>cell(personWrap(()=>'<div class="notes"><span class="line"></span><span class="line"></span><span class="line"></span></div>'))).join('');
+ rows+=`<tr class="row-notes"><td><strong>${editable(state.notesLabel,'notes')}</strong></td>${notes}</tr>`;
+ paper.innerHTML=`<div class="header"><h1>${editable(state.title,'title')}</h1><div class="range">${rangeLabel(ds)}</div></div><table class="planner"><colgroup><col class="label">${'<col>'.repeat(7)}</colgroup><thead><tr><th>Habit / Activity</th>${ds.map(d=>`<th>${dayLabel(d)}</th>`).join('')}</tr>${peopleHeader}</thead><tbody>${rows}</tbody></table><section class="reflection"><div class="reflectionTitle">REFLECTION</div><div class="reflectionGrid">${state.reflection.map((r,i)=>`<div class="reflectionBox"><div class="prompt">${editable(r,'reflection',i)}</div><span class="line"></span><span class="line"></span><span class="line"></span></div>`).join('')}</div></section>`;
+ bindInline();
+}
+function bindInline(){document.querySelectorAll('#fp .inline-edit').forEach(el=>{el.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();el.blur()}};el.onblur=()=>{let k=el.dataset.kind,i=Number(el.dataset.index),v=el.textContent.trim();if(k==='title')state.title=v;else if(k==='notes')state.notesLabel=v;else if(k==='daily')state.daily[i].label=v;else if(k==='activity')state.activities[i].label=v;else if(k==='metric')state.metrics[i]=v;else if(k==='question')state.questions[i]=v;else if(k==='reflection')state.reflection[i]=v;renderControls();render()}})}
+function sync(){renderControls();render()}
+$('fp_weekStart').onchange=e=>{state.weekStart=e.target.value;render()};$('fp_peopleCount').onchange=e=>{state.peopleCount=+e.target.value;sync()};$('fp_title').oninput=e=>{state.title=e.target.value;render()};$('fp_notesLabel').oninput=e=>{state.notesLabel=e.target.value;render()};
+$('fp_addDaily').onclick=()=>{state.daily.push({label:'New routine',kind:'check'});sync()};$('fp_addActivity').onclick=()=>{state.activities.push({label:'New activity',badge:''});sync()};$('fp_addMetric').onclick=()=>{state.metrics.push('New metric');sync()};$('fp_addQuestion').onclick=()=>{state.questions.push('New question?');sync()};
+$('fp_printBtn').onclick=()=>{document.activeElement&&document.activeElement.blur();
+  document.body.classList.add('fp-printing');
+  const st=document.createElement('style');st.id='fp_pg';
+  st.textContent='@media print{@page{size:A4 landscape;margin:0}}';
+  document.head.appendChild(st);
+  setTimeout(()=>window.print(),80);};
+window.addEventListener('afterprint',()=>{document.body.classList.remove('fp-printing');const st=document.getElementById('fp_pg');if(st)st.remove();});$('fp_saveBtn').onclick=()=>{localStorage.setItem('fridgePlannerV2',JSON.stringify(state));alert('Saved in this browser.')};$('fp_resetBtn').onclick=()=>{state=structuredClone(ORIGINAL);localStorage.removeItem('fridgePlannerV2');sync()};
+try{let saved=localStorage.getItem('fridgePlannerV2');if(saved)state=JSON.parse(saved)}catch(e){}
+sync();
+
+__fpScale();
+})();
 </script>
 </body>
 </html>
