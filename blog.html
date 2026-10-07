@@ -3,39 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Articles | Kristian Sokol — Life & Longevity Coach</title>
-  <meta name="description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
-  <meta name="author" content="Kristian Sokol" />
+  <title>coach kris. | Blog</title>
+  <meta name="description" content="Evidence-based articles on life coaching, longevity and breaking the restart loop. By certified coach kris." />
   <link rel="canonical" href="https://www.coachkris.co.uk/blog.html" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
+  <link rel="icon" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
   <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Articles | Kristian Sokol — Life &amp; Longevity Coach" />
-  <meta property="og:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop. By certified coach Kristian Sokol." />
-  <meta property="og:url" content="https://www.coachkris.co.uk/blog.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="coach kris. | Blog" />
+  <meta property="og:description" content="Evidence-based articles on life coaching, longevity and breaking the restart loop." />
+  <meta property="og:url" content="https://www.coachkris.co.uk/blog.html" />
   <meta property="og:image" content="https://www.coachkris.co.uk/og/og_hero.jpg" />
-  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
-  <meta name="author" content="Kristian Sokol" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Articles | Kristian Sokol — Life &amp; Longevity Coach" />
-  <meta name="twitter:description" content="Evidence-based articles on life coaching, longevity, and breaking the restart loop." />
-  <meta name="twitter:image" content="https://www.coachkris.co.uk/assets/kris-og.jpg" />
-  <meta name="twitter:creator" content="@coachkris" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
-  <script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-  function closeMenu() {
-    document.getElementById('navLinks').classList.remove('open');
-  }
-  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -795,6 +779,9 @@
   .blog-main{max-width:1080px; margin:0 auto; padding:2rem 18px 4rem;}
   .posts-grid{gap:16px;}
   @media(min-width:1025px){ .posts-grid{grid-template-columns:repeat(3,1fr);} }
+  .post-card.post-card-full{grid-column:1/-1; display:flex; flex-direction:column; align-items:flex-start;}
+  .post-card.post-card-full h2{max-width:640px;}
+  .post-card.post-card-full .card-excerpt{max-width:640px;}
   .subscribe-strip{max-width:1080px; margin:0 auto; padding:1rem 18px 2.5rem;}
   .subscribe-inner{max-width:680px;}
 </style>
@@ -805,7 +792,7 @@
       {
         "@type": "Blog",
         "@id": "https://www.coachkris.co.uk/blog.html#blog",
-        "name": "Articles | Kristian Sokol",
+        "name": "coach kris. | Blog",
         "description": "Evidence-based articles on life coaching, longevity, and breaking the restart loop.",
         "url": "https://www.coachkris.co.uk/blog.html",
         "author": {
@@ -815,8 +802,8 @@
         },
         "inLanguage": "en-GB",
         "publisher": {
-          "@type": "Person",
-          "name": "Kristian Sokol"
+          "@type": "Organization",
+          "name": "coach kris."
         }
       },
       {
@@ -867,7 +854,7 @@
 
 <!-- ── HERO ── -->
 <div class="blog-hero">
-  <p class="kicker">The blog</p>
+  <p class="kicker">Blog</p>
   <h1 class="disp">Articles on Life, Longevity<br>&amp; <span class="hl">breaking the loop.</span></h1>
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
@@ -1751,6 +1738,21 @@ function shareArticle(e, postId) {
 
 let activeFilter = 'all';
 
+function fixOrphanRow() {
+  const grid = document.getElementById('postsGrid');
+  if (!grid) return;
+  const cards = [...grid.children].filter(c => c.classList.contains('post-card'));
+  cards.forEach(c => c.classList.remove('post-card-full'));
+  if (cards.length < 2) return;
+  const last = cards[cards.length - 1];
+  const prev = cards[cards.length - 2];
+  if (last.classList.contains('featured')) return;
+  if (Math.round(last.getBoundingClientRect().top) > Math.round(prev.getBoundingClientRect().top)) {
+    last.classList.add('post-card-full');
+  }
+}
+window.addEventListener('resize', () => requestAnimationFrame(fixOrphanRow));
+
 function renderGrid() {
   const grid = document.getElementById('postsGrid');
   const all  = getAllPosts();
@@ -1794,6 +1796,8 @@ function renderGrid() {
         <span class="card-arrow">→</span>
       </div>`;
   }).join('');
+
+  requestAnimationFrame(fixOrphanRow);
 }
 
 function slugify(str) {
@@ -2197,21 +2201,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Admin tabs
   document.querySelectorAll('.admin-tab').forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.tab));
-  });
-
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
-  });
-
-  // Hamburger
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navMobile').classList.toggle('open');
-  });
-
-  // Close mobile nav on link click
-  document.querySelectorAll('.nav-mobile a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navMobile').classList.remove('open'));
   });
 
   // Escape key
