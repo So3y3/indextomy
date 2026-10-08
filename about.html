@@ -285,7 +285,7 @@
   .tl-item.open .tl-body{grid-template-rows:1fr;}
   .tl-body-in{overflow:hidden; display:block; min-height:0;}
   .tl-body-in p{color:var(--soft); font-size:.9rem; line-height:1.55; margin:0; padding-top:10px;}
-  .tl-more{text-align:center; margin:10px 0 22px;}
+  .tl-more{text-align:center; margin:34px 0 22px; position:relative;}
   /* orange statement */
 .statement{
     position:relative; overflow:hidden; isolation:isolate;
@@ -433,16 +433,15 @@
     .tl-head h1{font-size:3.4rem;}
     .tl{max-width:940px;}
     .tl::before{left:50%; margin-left:-1.5px; top:18px; bottom:20px;}
-    .tl-item{display:block; position:relative; margin-bottom:10px;}
-    .tl-item.open{margin-bottom:30px;}
+    .tl-item{display:block; position:relative; margin-bottom:-34px;}
+    .tl-item:last-of-type{margin-bottom:10px;}
+    .tl-item.open{margin-bottom:-8px;}
+    .tl-item.open + .tl-item{margin-top:0;}
     .tl-dot{position:absolute; left:50%; top:38px; transform:translateX(-50%); margin-top:0;}
     .tl-item:first-child .tl-dot{margin-top:0;}
-    .tl-box{display:block; max-width:min(430px, 44%); margin:0 auto; text-align:center; transition:transform .55s cubic-bezier(.2,.8,.2,1);}
+    .tl-box{display:block; max-width:min(430px, 44%); margin:0 auto; text-align:center;}
     .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(-50% - 38px));}
     .tl-item:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
-    .tl-js .tl-item:not(.open) .tl-box{transform:translateX(0);}
-    .tl-js .tl-item.open .tl-box{transform:translateX(calc(-50% - 38px));}
-    .tl-js .tl-item.open:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
     .tl-card{text-align:left;}
     .steps-3 section.card{margin-left:0; margin-right:0;}
     .split{max-width:760px; padding:0 24px;}
@@ -504,8 +503,9 @@
     .tl-section{padding:128px 24px 16px;}
     .tl-head{margin-bottom:56px;}
     .tl-head h1{font-size:3.8rem;}
-    .tl-item{margin-bottom:12px;}
-    .tl-item.open{margin-bottom:36px;}
+    .tl-item{margin-bottom:-34px;}
+    .tl-item:last-of-type{margin-bottom:12px;}
+    .tl-item.open{margin-bottom:-8px;}
     .tl-box{max-width:430px;}
     .tl-card{padding:20px 26px;}
     .tl-title{font-size:1.22rem;}
