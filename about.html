@@ -431,14 +431,18 @@
     .tl-section{padding:118px 24px 12px;}
     .tl-head{margin-bottom:40px;}
     .tl-head h1{font-size:3.4rem;}
-    .tl{max-width:920px;}
+    .tl{max-width:940px;}
     .tl::before{left:50%; margin-left:-1.5px; top:18px; bottom:20px;}
-    .tl-item{grid-template-columns:1fr 60px 1fr; margin-bottom:10px;}
+    .tl-item{display:block; position:relative; margin-bottom:10px;}
     .tl-item.open{margin-bottom:30px;}
-    .tl-dot{grid-column:2; margin-top:21px;}
-    .tl-item:first-child .tl-dot{margin-top:18px;}
-    .tl-box{grid-column:1; grid-row:1; justify-self:end; text-align:right; max-width:400px;}
-    .tl-item:nth-child(even) .tl-box{grid-column:3; justify-self:start; text-align:left;}
+    .tl-dot{position:absolute; left:50%; top:38px; transform:translateX(-50%); margin-top:0;}
+    .tl-item:first-child .tl-dot{margin-top:0;}
+    .tl-box{display:block; max-width:min(430px, 44%); margin:0 auto; text-align:center; transition:transform .55s cubic-bezier(.2,.8,.2,1);}
+    .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(-50% - 38px));}
+    .tl-item:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
+    .tl-js .tl-item:not(.open) .tl-box{transform:translateX(0);}
+    .tl-js .tl-item.open .tl-box{transform:translateX(calc(-50% - 38px));}
+    .tl-js .tl-item.open:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
     .tl-card{text-align:left;}
     .steps-3 section.card{margin-left:0; margin-right:0;}
     .split{max-width:760px; padding:0 24px;}
@@ -501,7 +505,7 @@
     .tl-head{margin-bottom:56px;}
     .tl-head h1{font-size:3.8rem;}
     .tl-item{margin-bottom:12px;}
-    .tl-item.open{margin-bottom:34px;}
+    .tl-item.open{margin-bottom:36px;}
     .tl-box{max-width:430px;}
     .tl-card{padding:20px 26px;}
     .tl-title{font-size:1.22rem;}
