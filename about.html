@@ -82,6 +82,7 @@
     padding:10px 22px 10px 26px;
     display:flex; justify-content:space-between; align-items:center;
   }
+   .wordmark b{color:var(--pop); font-weight:inherit;}
   .wordmark{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.15rem;}
   .bar-links{display:flex; gap:18px; font-size:.85rem; font-weight:600; align-items:center;}
   .bar-links a:hover{color:var(--pop-deep);}
@@ -231,7 +232,7 @@
 
   /* story timeline */
   .tl-section{max-width:1080px; margin:0 auto; padding:96px 18px 8px;}
-  .tl-head{text-align:center; max-width:640px; margin:0 auto 30px;}
+  .tl-head{text-align:left; max-width:640px; margin:0 0 30px;}
   .tl-head h1{font-size:clamp(2.5rem, 9vw, 3.2rem); line-height:1.06; margin:0 0 14px;}
   .tl-sub{color:var(--soft); font-size:.95rem; margin:0;}
   .tl{position:relative; max-width:880px; margin:0 auto; padding:2px 0;}
@@ -447,8 +448,8 @@
     .tl-dot{position:absolute; left:50%; top:38px; transform:translateX(-50%); margin-top:0;}
     .tl-item:first-child .tl-dot{margin-top:0;}
     .tl-box{display:block; max-width:min(430px, 44%); margin:0 auto; text-align:center;}
-    .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(-50% - 38px));}
-    .tl-item:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
+    .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(50% + 38px));}
+    .tl-item:nth-child(even) .tl-box{transform:translateX(calc(-50% - 38px));}
     .tl-card{text-align:left;}
     .steps-3 section.card{margin-left:0; margin-right:0;}
     .split{max-width:760px; padding:0 24px;}
@@ -532,7 +533,7 @@
 
 <div class="bar">
   <div class="bar-in">
-    <a href="/" class="wordmark">coach kris.</a>
+    <a href="/" class="wordmark">coach kris<b>.</b></a>
     <div class="bar-links">
       <a href="/about.html">About me</a>
       <a href="/focus.html">My focus</a>
@@ -557,13 +558,26 @@
   <div class="tl-head">
     <p class="kicker">About me</p>
     <h1 class="disp">The story <span class="hl">so far.</span></h1>
-    <p class="tl-sub">Coaching right now at the top. The plot thickens as you go down.</p>
+    <p class="tl-sub">The future sits at the top. The plot thickens as you go down.</p>
   </div>
   <div class="tl">
     <div class="tl-item">
       <span class="tl-dot" aria-hidden="true"></span>
       <div class="tl-box">
-        <span class="tl-chip">Right now</span>
+        <span class="tl-chip">Future goals</span>
+        <button class="tl-card" type="button" aria-expanded="false">
+          <span class="tl-head-row">
+            <span class="tl-title">Where this is all heading</span>
+            <span class="tl-plus" aria-hidden="true"></span>
+          </span>
+          <span class="tl-body"><span class="tl-body-in"><p>More tools in the hands of more coaches, a blog that keeps getting more honest, and a practice that grows the same way I coach: one real change at a time. Big picture: coach kris. becomes the place people land when they're done circling the same problem.</p></span></span>
+        </button>
+      </div>
+    </div>
+    <div class="tl-item">
+      <span class="tl-dot" aria-hidden="true"></span>
+      <div class="tl-box">
+        <span class="tl-chip">Where are we at</span>
         <button class="tl-card" type="button" aria-expanded="false">
           <span class="tl-head-row">
             <span class="tl-title">Certified coach, founder of coach kris.</span>
@@ -648,7 +662,7 @@
   <div class="foot-panel">
     <div class="foot-top">
       <div>
-        <div class="wordmark">coach kris.</div>
+        <div class="wordmark">coach kris<b>.</b></div>
         <p class="foot-line">Life · Longevity · Business coaching, online by video, worldwide.</p>
       </div>
       <div class="foot-links">

@@ -82,6 +82,7 @@
     padding:10px 22px 10px 26px;
     display:flex; justify-content:space-between; align-items:center;
   }
+   .wordmark b{color:var(--pop); font-weight:inherit;}
   .wordmark{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.15rem;}
   .bar-links{display:flex; gap:18px; font-size:.85rem; font-weight:600; align-items:center;}
   .bar-links a:hover{color:var(--pop-deep);}
@@ -851,7 +852,7 @@
 
 <div class="bar">
   <div class="bar-in">
-    <a href="/" class="wordmark">coach kris.</a>
+    <a href="/" class="wordmark">coach kris<b>.</b></a>
     <div class="bar-links">
       <a href="/about.html">About me</a>
       <a href="/focus.html">My focus</a>
@@ -1219,7 +1220,7 @@
   <div class="foot-panel">
     <div class="foot-top">
       <div>
-        <div class="wordmark">coach kris.</div>
+        <div class="wordmark">coach kris<b>.</b></div>
         <p class="foot-line">Life · Longevity · Business coaching, online by video, worldwide.</p>
       </div>
       <div class="foot-links">
@@ -1960,7 +1961,7 @@ __fpScale();
       + '.sk-print{display:block; margin:16px auto 0; background:#0038FF; color:#fff; border:none; font:inherit; font-weight:700; padding:11px 20px; border-radius:999px; cursor:pointer;}'
       + '@media print{.sk-print{display:none;} body{padding:0;}}'
       + '</style></head><body>'
-      + '<div class="sk-head"><span class="sk-mark">coach kris.</span><span class="sk-title">' + esc(title) + '</span></div>'
+      + '<div class="sk-head"><span class="sk-mark">coach kris<b>.</b></span><span class="sk-title">' + esc(title) + '</span></div>'
       + '<h2>' + esc(title) + '</h2><p class="sk-tag">' + esc(tagline) + '</p>'
       + bodyHtml
       + '<div class="sk-foot">A free coaching tool from <b>coachkris.co.uk</b>. For coaches and their clients. More free tools on the For coaches page.</div>'
