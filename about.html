@@ -593,16 +593,19 @@
   /* PHONE: view toggle shrinks to thumb size, top right */
   @media(max-width:759px){
     .tl-hero{position:relative;}
-    .tl-toggle{position:absolute; top:6px; right:0; margin:0; padding:0; gap:6px; z-index:3;}
-    .tg-btn{width:52px; padding:5px 5px 5px; gap:2px; border-radius:11px; box-shadow:0 5px 12px rgba(20,20,20,.12);}
-    .tg-btn::after{border-radius:9px;}
-    .tg-tag{font-size:.36rem; letter-spacing:.06em;}
-    .tg-btn .tg-name{font-size:.44rem; line-height:1;}
-    .tg-thumb{border-radius:5px;}
-    #tgText{margin-top:5px;}
+    /* same footprint as the decks on focus and coaches: 124 x 116, cascaded */
+    .tl-toggle{position:absolute; top:34px; right:-6px; width:124px; height:116px; display:block; margin:0; padding:0; z-index:3;}
+    .tg-btn{position:absolute; width:78px; padding:7px 7px 7px; gap:3px; border-radius:12px; box-shadow:0 7px 16px rgba(20,20,20,.15);}
+    .tg-btn::after{border-radius:10px;}
+    #tgFun{left:0; top:0; transform:rotate(-4deg);}
+    #tgText{right:0; top:34px; margin:0; transform:rotate(3deg);}
+    .tg-tag{font-size:.42rem; letter-spacing:.07em;}
+    .tg-btn .tg-name{font-size:.6rem; line-height:1.05;}
+    .tg-thumb{border-radius:6px;}
     .tg-pill{display:none;}
-    .tl-head h1{padding-right:118px; font-size:2rem;}
-    .tl-head .tl-sub{padding-right:20px;}
+    .tl-head h1{padding-right:116px; font-size:2rem;}
+    .tl-head .tl-sub{padding-right:122px;}
+    .tl-hero{min-height:168px;}
   }
 </style>
 <script>document.documentElement.classList.add('tl-js');</script>

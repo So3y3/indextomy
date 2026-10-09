@@ -453,7 +453,24 @@
     footer{padding-top:40px;}
     .foot-cred img{height:40px;}
   }
+
+  /* PHONE hero: "You know / what you want. / Let's go get it." and Kris's photo top right (square or circle preview) */
+  @media(max-width:759px){
+    .hero-grid{position:relative;}
+    .hero-grid h1 .h-what{display:block;}
+    .hero-grid h1 .h-go{display:inline-block; margin-top:8px;}
+    .hero-grid h1 .br-d{display:none;}
+    .hero-grid h1{font-size:2.45rem; line-height:1.08;}
+    .hero-grid .photo-side{position:absolute; top:88px; right:18px; width:84px; z-index:2;}
+    .hero-grid .photo-card{margin:0;}
+    .hero-grid .photo-card img{width:84px; height:84px; border-radius:20px; object-position:center 12%; box-shadow:0 10px 22px rgba(20,20,20,.16); border:2px solid #fff;}
+    html.photo-circle .hero-grid .photo-card img{border-radius:50%;}
+    .hero-grid .kicker{max-width:calc(100% - 130px);}
+  }
 </style>
+<script>
+(function(){ try{ var q=new URLSearchParams(location.search).get('photo'); if(q==='circle'){ document.documentElement.classList.add('photo-circle'); } }catch(e){} })();
+</script>
 </head>
 <body>
 
@@ -483,7 +500,7 @@
 <header class="hero-grid" id="top">
   <div>
     <p class="kicker">Life · Longevity · Business coach</p>
-    <h1 class="disp">You know what you want.<br><span class="hl">Let's go get it.</span></h1>
+    <h1 class="disp">You know <span class="h-what">what you want.</span> <br class="br-d"><span class="hl h-go">Let's go get it.</span></h1>
     <p class="hero-sub">I'm not here to help you avoid <span class="hl-blue">discomfort</span>. I'm here to get curious about it, expose what's driving it, and use what we find to move you towards where you want to go.</p>
     <div class="chips">
       <span class="chip"><b>✓</b> certified coach</span>

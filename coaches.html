@@ -865,17 +865,19 @@
   /* PHONE: the fun deck shrinks to a thumb-size cluster, top right beside the headline */
   @media(max-width:759px){
     .hero-grid{position:relative;}
-    .hero-grid .hero-sub{margin-top:14px;}
-    .hero-grid h1{padding-right:92px;}
-    .hero-deck{position:absolute; top:88px; right:14px; width:84px; height:90px; max-width:none; margin:0; z-index:2;}
-    .deck-card{padding:5px 5px 4px; border-radius:9px; box-shadow:0 5px 12px rgba(20,20,20,.14); gap:3px;}
-    .deck-card .d-tag{font-size:.34rem; letter-spacing:.06em;}
-    .deck-card .d-h{font-size:.46rem; line-height:1.05;}
+    .hero-grid .hero-sub{margin-top:14px; max-width:none;}
+    .hero-grid .hero-sub{padding-right:0; margin-top:14px;}
+    .hero-grid .hero-sub::before{content:""; float:right; width:124px; height:46px; shape-outside:inset(0);}
+    .hero-grid h1{padding-right:112px; font-size:clamp(1.95rem, 8.4vw, 2.3rem);}
+    .hero-deck{position:absolute; top:112px; right:12px; width:124px; height:116px; max-width:none; margin:0; z-index:2;}
+    .deck-card{padding:7px 7px 6px; border-radius:12px; box-shadow:0 7px 16px rgba(20,20,20,.15); gap:3px;}
+    .deck-card .d-tag{font-size:.42rem; letter-spacing:.07em;}
+    .deck-card .d-h{font-size:.6rem; line-height:1.05;}
     .deck-card .d-chips{display:none;}
-    .deck-card .d-wheel{max-width:28px;}
-    .d-a{width:56px; left:0; top:0;}
-    .d-b{width:56px; right:0; top:24px;}
-    .d-c{width:56px; left:10px; top:52px;}
+    .deck-card .d-wheel{max-width:34px;}
+    .d-a{width:78px; left:0; top:0;}
+    .d-b{width:78px; right:0; top:32px;}
+    .d-c{width:78px; left:14px; top:66px;}
     .d-c .d-h{display:none;}
     .d-float{display:none;}
   }
