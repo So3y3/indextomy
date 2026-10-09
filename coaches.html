@@ -160,6 +160,53 @@
     .hero-grid .chips{flex-wrap:nowrap; gap:6px;}
     .hero-grid .chip{font-size:.7rem; padding:8px 11px; letter-spacing:0;}
   }
+
+  /* hero collage (floating tool cards) */
+  .hero-deck{position:relative; width:100%; height:370px; max-width:330px; margin:30px auto 8px;}
+  .deck-card{
+    position:absolute; border-radius:22px; border:1.5px solid var(--line); padding:15px 14px 13px;
+    box-shadow:0 14px 30px rgba(20,20,20,.10); display:grid; gap:10px; justify-items:start;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+  }
+  .deck-card:hover{transform:rotate(0) translateY(-6px); box-shadow:0 20px 40px rgba(20,20,20,.16); z-index:9;}
+  .d-tag{font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;}
+  .d-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.05rem; line-height:1.1;}
+  .d-chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .d-chip{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.64rem; background:#fff;
+    border:1.5px solid rgba(20,20,20,.1); border-radius:999px; padding:3px 9px; box-shadow:0 2px 0 rgba(20,20,20,.14); white-space:nowrap;
+  }
+  .d-chip:nth-child(odd){transform:rotate(-2deg);}
+  .d-chip:nth-child(even){transform:rotate(1.6deg);}
+  .d-wheel{display:block; width:100%; max-width:120px; margin:0 auto;}
+  .d-a{background:#fff; border-color:rgba(255,107,0,.4); transform:rotate(-4deg); left:0; top:0; z-index:2; width:176px;}
+  .d-a .d-tag, .d-a .d-chip{color:var(--pop-deep);}
+  .d-b{background:#F2F5FF; border-color:rgba(0,56,255,.3); transform:rotate(3deg); right:0; top:104px; z-index:3; width:176px;}
+  .d-b .d-tag, .d-b .d-chip{color:#0038FF;}
+  .d-b .d-chip{border-color:rgba(0,56,255,.28);}
+  .d-c{background:var(--ink); border-color:var(--ink); color:#F7F6F2; transform:rotate(-2deg); left:46px; top:246px; z-index:1; width:206px;}
+  .d-c .d-tag{color:var(--pop);}
+  .d-c .d-chip{color:var(--ink);}
+  .d-float{
+    position:absolute; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.68rem; color:#fff;
+    padding:6px 11px; border-radius:999px; box-shadow:0 3px 0 rgba(20,20,20,.18); z-index:4;
+  }
+  .f1{background:var(--pop); transform:rotate(-7deg); left:-4px; top:244px;}
+  .f2{background:#0038FF; transform:rotate(5deg); right:0; top:10px;}
+  @media(min-width:760px){
+    .hero-deck{height:430px; max-width:430px; margin:14px auto 0;}
+    .deck-card{padding:20px 18px 18px;}
+    .d-h{font-size:1.3rem;}
+    .d-chip{font-size:.7rem; padding:4px 11px;}
+    .d-wheel{max-width:170px;}
+    .d-a{width:228px; left:0; top:2px;}
+    .d-b{width:224px; right:-6px; top:150px;}
+    .d-c{width:252px; left:40px; top:292px;}
+    .d-float{font-size:.78rem; padding:8px 14px;}
+    .f1{left:-18px; top:272px;}
+    .f2{right:8px; top:14px;}
+  }
+
   .kicker{
     display:inline-flex; align-items:center; gap:.5rem;
     font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
@@ -674,11 +721,30 @@
   </div>
 </div>
 
-<header class="hero-grid solo" id="top">
+<header class="hero-grid" id="top">
   <div>
     <p class="kicker">For coaches</p>
     <h1 class="disp">My toolkit.<br><span class="hl">Now yours.</span></h1>
     <p class="hero-sub">The exercises, calculators and planners I've collected and built for real sessions with my own clients. Take them. Use them with yours. Free, no strings, no email required.</p>
+  </div>
+  <div class="hero-deck" aria-hidden="true">
+    <div class="deck-card d-a">
+      <span class="d-tag">01 &middot; Wheels</span>
+      <svg class="d-wheel" viewBox="0 0 140 140" role="img" aria-label="Sample wheel"><path d="M70 70 L65.41 58.91 A12.00 12.00 0 0 1 74.59 58.91 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M65.41 58.91 L60.82 47.83 A24.00 24.00 0 0 1 79.18 47.83 L74.59 58.91 A12.00 12.00 0 0 0 65.41 58.91 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M60.82 47.83 L56.22 36.74 A36.00 36.00 0 0 1 83.78 36.74 L79.18 47.83 A24.00 24.00 0 0 0 60.82 47.83 Z" fill="#FF6B00" fill-opacity="0.78" stroke="#fff" stroke-width="1.2"/><path d="M56.22 36.74 L51.63 25.65 A48.00 48.00 0 0 1 88.37 25.65 L83.78 36.74 A36.00 36.00 0 0 0 56.22 36.74 Z" fill="#FF6B00" fill-opacity="0.89" stroke="#fff" stroke-width="1.2"/><path d="M51.63 25.65 L47.04 14.57 A60.00 60.00 0 0 1 92.96 14.57 L88.37 25.65 A48.00 48.00 0 0 0 51.63 25.65 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L74.59 58.91 A12.00 12.00 0 0 1 81.09 65.41 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M74.59 58.91 L79.18 47.83 A24.00 24.00 0 0 1 92.17 60.82 L81.09 65.41 A12.00 12.00 0 0 0 74.59 58.91 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M79.18 47.83 L83.78 36.74 A36.00 36.00 0 0 1 103.26 56.22 L92.17 60.82 A24.00 24.00 0 0 0 79.18 47.83 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M83.78 36.74 L88.37 25.65 A48.00 48.00 0 0 1 114.35 51.63 L103.26 56.22 A36.00 36.00 0 0 0 83.78 36.74 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M88.37 25.65 L92.96 14.57 A60.00 60.00 0 0 1 125.43 47.04 L114.35 51.63 A48.00 48.00 0 0 0 88.37 25.65 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L81.09 65.41 A12.00 12.00 0 0 1 81.09 74.59 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M81.09 65.41 L92.17 60.82 A24.00 24.00 0 0 1 92.17 79.18 L81.09 74.59 A12.00 12.00 0 0 0 81.09 65.41 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M92.17 60.82 L103.26 56.22 A36.00 36.00 0 0 1 103.26 83.78 L92.17 79.18 A24.00 24.00 0 0 0 92.17 60.82 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M103.26 56.22 L114.35 51.63 A48.00 48.00 0 0 1 114.35 88.37 L103.26 83.78 A36.00 36.00 0 0 0 103.26 56.22 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M114.35 51.63 L125.43 47.04 A60.00 60.00 0 0 1 125.43 92.96 L114.35 88.37 A48.00 48.00 0 0 0 114.35 51.63 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L81.09 74.59 A12.00 12.00 0 0 1 74.59 81.09 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M81.09 74.59 L92.17 79.18 A24.00 24.00 0 0 1 79.18 92.17 L74.59 81.09 A12.00 12.00 0 0 0 81.09 74.59 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M92.17 79.18 L103.26 83.78 A36.00 36.00 0 0 1 83.78 103.26 L79.18 92.17 A24.00 24.00 0 0 0 92.17 79.18 Z" fill="#FF6B00" fill-opacity="0.78" stroke="#fff" stroke-width="1.2"/><path d="M103.26 83.78 L114.35 88.37 A48.00 48.00 0 0 1 88.37 114.35 L83.78 103.26 A36.00 36.00 0 0 0 103.26 83.78 Z" fill="#FF6B00" fill-opacity="0.89" stroke="#fff" stroke-width="1.2"/><path d="M114.35 88.37 L125.43 92.96 A60.00 60.00 0 0 1 92.96 125.43 L88.37 114.35 A48.00 48.00 0 0 0 114.35 88.37 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L74.59 81.09 A12.00 12.00 0 0 1 65.41 81.09 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M74.59 81.09 L79.18 92.17 A24.00 24.00 0 0 1 60.82 92.17 L65.41 81.09 A12.00 12.00 0 0 0 74.59 81.09 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M79.18 92.17 L83.78 103.26 A36.00 36.00 0 0 1 56.22 103.26 L60.82 92.17 A24.00 24.00 0 0 0 79.18 92.17 Z" fill="#FF6B00" fill-opacity="0.78" stroke="#fff" stroke-width="1.2"/><path d="M83.78 103.26 L88.37 114.35 A48.00 48.00 0 0 1 51.63 114.35 L56.22 103.26 A36.00 36.00 0 0 0 83.78 103.26 Z" fill="#FF6B00" fill-opacity="0.89" stroke="#fff" stroke-width="1.2"/><path d="M88.37 114.35 L92.96 125.43 A60.00 60.00 0 0 1 47.04 125.43 L51.63 114.35 A48.00 48.00 0 0 0 88.37 114.35 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L65.41 81.09 A12.00 12.00 0 0 1 58.91 74.59 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M65.41 81.09 L60.82 92.17 A24.00 24.00 0 0 1 47.83 79.18 L58.91 74.59 A12.00 12.00 0 0 0 65.41 81.09 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M60.82 92.17 L56.22 103.26 A36.00 36.00 0 0 1 36.74 83.78 L47.83 79.18 A24.00 24.00 0 0 0 60.82 92.17 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M56.22 103.26 L51.63 114.35 A48.00 48.00 0 0 1 25.65 88.37 L36.74 83.78 A36.00 36.00 0 0 0 56.22 103.26 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M51.63 114.35 L47.04 125.43 A60.00 60.00 0 0 1 14.57 92.96 L25.65 88.37 A48.00 48.00 0 0 0 51.63 114.35 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L58.91 74.59 A12.00 12.00 0 0 1 58.91 65.41 Z" fill="#FF6B00" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M58.91 74.59 L47.83 79.18 A24.00 24.00 0 0 1 47.83 60.82 L58.91 65.41 A12.00 12.00 0 0 0 58.91 74.59 Z" fill="#FF6B00" fill-opacity="0.67" stroke="#fff" stroke-width="1.2"/><path d="M47.83 79.18 L36.74 83.78 A36.00 36.00 0 0 1 36.74 56.22 L47.83 60.82 A24.00 24.00 0 0 0 47.83 79.18 Z" fill="#FF6B00" fill-opacity="0.78" stroke="#fff" stroke-width="1.2"/><path d="M36.74 83.78 L25.65 88.37 A48.00 48.00 0 0 1 25.65 51.63 L36.74 56.22 A36.00 36.00 0 0 0 36.74 83.78 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M25.65 88.37 L14.57 92.96 A60.00 60.00 0 0 1 14.57 47.04 L25.65 51.63 A48.00 48.00 0 0 0 25.65 88.37 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M70 70 L58.91 65.41 A12.00 12.00 0 0 1 65.41 58.91 Z" fill="#0038FF" fill-opacity="0.56" stroke="#fff" stroke-width="1.2"/><path d="M58.91 65.41 L47.83 60.82 A24.00 24.00 0 0 1 60.82 47.83 L65.41 58.91 A12.00 12.00 0 0 0 58.91 65.41 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M47.83 60.82 L36.74 56.22 A36.00 36.00 0 0 1 56.22 36.74 L60.82 47.83 A24.00 24.00 0 0 0 47.83 60.82 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M36.74 56.22 L25.65 51.63 A48.00 48.00 0 0 1 51.63 25.65 L56.22 36.74 A36.00 36.00 0 0 0 36.74 56.22 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><path d="M25.65 51.63 L14.57 47.04 A60.00 60.00 0 0 1 47.04 14.57 L51.63 25.65 A48.00 48.00 0 0 0 25.65 51.63 Z" fill="#EFECE5" fill-opacity="1.00" stroke="#fff" stroke-width="1.2"/><circle cx="70" cy="70" r="60" fill="none" stroke="#141414" stroke-width="2.4"/><circle cx="70" cy="70" r="3.2" fill="#141414"/></svg>
+      <span class="d-chips"><span class="d-chip">Life</span><span class="d-chip">Business</span></span>
+    </div>
+    <div class="deck-card d-b">
+      <span class="d-tag">02 &middot; Scores</span>
+      <span class="d-h">Honest numbers.</span>
+      <span class="d-chips"><span class="d-chip">BMI</span><span class="d-chip">Sleep</span><span class="d-chip">Beliefs</span></span>
+    </div>
+    <div class="deck-card d-c">
+      <span class="d-tag">03 &middot; Planner</span>
+      <span class="d-h">One A4 sheet.</span>
+      <span class="d-chips"><span class="d-chip">Print</span><span class="d-chip">PDF</span></span>
+    </div>
+    <span class="d-float f1">free, no email</span>
+    <span class="d-float f2">yours now</span>
   </div>
 </header>
 
