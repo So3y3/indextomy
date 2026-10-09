@@ -162,6 +162,47 @@
   }
 
 
+  /* worksheet widgets (idea blitz, goal interrogation, action sheet) */
+  .ws{margin:6px 0 4px;}
+  .ws-note{background:var(--pop-soft); border:1.5px solid rgba(255,107,0,.3); border-radius:14px; padding:12px 14px; font-size:.88rem; line-height:1.5; margin:0 0 14px; color:var(--ink);}
+  .ws-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;}
+  .ws-goal{margin-bottom:14px;}
+  .ws-field label{display:block; font-size:.78rem; font-weight:600; color:var(--soft); margin-bottom:5px;}
+  .ws-field input, .ws-field textarea{
+    width:100%; padding:11px 13px; border:1.5px solid var(--line); border-radius:12px;
+    font-family:inherit; font-size:.95rem; background:var(--paper); color:var(--ink);
+  }
+  .ws-field textarea{resize:vertical; min-height:56px;}
+  .ws-field input:focus, .ws-field textarea:focus{outline:none; border-color:#0038FF;}
+  .ws-row{border:1.5px solid var(--line); border-radius:14px; background:#fff; padding:12px 13px; margin-bottom:10px; display:grid; gap:8px;}
+  .ws-row .ws-prompt{font-size:.8rem; font-weight:700; color:var(--pop-deep);}
+  .ws-row.extra .ws-prompt{color:#0038FF;}
+  .ws-row input.ws-idea{width:100%; padding:10px 12px; border:1.5px dashed var(--line); border-radius:10px; font-family:inherit; font-size:.92rem; background:var(--paper); color:var(--ink);}
+  .ws-row input.ws-idea:focus{outline:none; border-color:#0038FF;}
+  .ws-pick{display:inline-flex; align-items:center; gap:7px; font-size:.78rem; font-weight:600; color:var(--soft); cursor:pointer;}
+  .ws-pick input{width:16px; height:16px; accent-color:#0038FF; cursor:pointer;}
+  .ws-add{
+    background:#fff; border:1.5px dashed rgba(0,56,255,.45); color:#0038FF; font-family:inherit;
+    font-weight:600; font-size:.8rem; padding:9px 15px; border-radius:999px; cursor:pointer; margin:2px 0 8px;
+  }
+  .ws-add:hover{background:#E8EDFE;}
+  .ws-count{font-size:.8rem; font-weight:600; color:var(--soft); margin:0 0 8px;}
+  .ws-group{margin-bottom:6px;}
+  .ws-group h4{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1rem; margin:12px 0 8px;}
+  .ws-q{display:grid; grid-template-columns:26px 1fr; gap:10px; margin-bottom:8px;}
+  .ws-qnum{
+    width:24px; height:24px; border-radius:999px; background:var(--pop); color:#fff;
+    display:inline-flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; margin-top:4px;
+  }
+  .ws-ar{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .ws-ar2{display:grid; grid-template-columns:1fr 1fr auto; gap:10px; align-items:end;}
+  .ws-pick-act{padding-bottom:11px;}
+  @media(max-width:759px){
+    .ws-grid, .ws-ar{grid-template-columns:1fr;}
+    .ws-ar2{grid-template-columns:1fr;}
+    .ws-pick-act{padding-bottom:0;}
+  }
+
   /* toolkit signup gate */
   .tk-gate{display:none;}
   .tk-gate.on{display:block;}
@@ -821,6 +862,9 @@
           <div class="tk-peek-card"><span class="tk-peek-name">Belief rewrite</span><span class="tk-peek-desc">Old story out, new truth in.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
           <div class="tk-peek-card"><span class="tk-peek-name">BMI calculator</span><span class="tk-peek-desc">A fast, honest starting point.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
           <div class="tk-peek-card"><span class="tk-peek-name">Sleep &amp; recovery score</span><span class="tk-peek-desc">Five questions, one next lever.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Idea Blitz</span><span class="tk-peek-desc">Storm five moves, keep the honest ones.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Goal Interrogation</span><span class="tk-peek-desc">21 questions your goal must survive.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Action Sheet</span><span class="tk-peek-desc">From session to dated, doable steps.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
         </div>
       </div>
     </div>
@@ -986,6 +1030,48 @@
           
             <a class="btn-line" href="/tools/wheel-of-business.html" download="wheel-of-business-tool.html">Download this tool (HTML)</a>
             <p class="t-fine">This is a reflection tool, not a diagnostic. Your results reset once you leave or refresh this page.</p>
+        </div></div></div>
+      </div>
+      <div class="tk-card tk-tool" id="tk-blitz">
+        <button class="tk-face" onclick="tkToggle('tk-blitz')" aria-expanded="false">
+          <span class="tk-chip">FREE</span>
+          <h3>Idea Blitz</h3>
+          <p>Stuck between two options? Storm five moves for one goal, then keep the honest ones. Nothing you write is a promise.</p>
+          <span class="tk-open">Open the tool <span class="tk-chev">&darr;</span></span>
+        </button>
+        <div class="tk-panel"><div><div class="tk-panel-in">
+          <p class="t-desc">Stuck usually means you are weighing the same two options you already had. Write down anything that could move you toward the goal, especially the ideas that make you wince. Then pick the ones you will actually do and let the rest go, guilt free.</p>
+          <div class="ws" data-tool="blitz"></div>
+          <a class="btn-line" href="/tools/idea-blitz.html" download="idea-blitz-tool.html">Download this tool (HTML)</a>
+          <p class="t-fine">This is a reflection tool, not a diagnostic. Your entries reset once you leave or refresh this page.</p>
+        </div></div></div>
+      </div>
+      <div class="tk-card tk-tool" id="tk-goal">
+        <button class="tk-face" onclick="tkToggle('tk-goal')" aria-expanded="false">
+          <span class="tk-chip">FREE</span>
+          <h3>Goal Interrogation</h3>
+          <p>21 questions your goal has to survive before you commit a minute to it. Bring a goal you keep dodging.</p>
+          <span class="tk-open">Open the tool <span class="tk-chev">&darr;</span></span>
+        </button>
+        <div class="tk-panel"><div><div class="tk-panel-in">
+          <p class="t-desc">Most goals die quietly because they were never interrogated. They were wishes with a deadline. Work through all 21 questions honestly rather than quickly. If the goal survives, download the sheet and keep it where you will see it. If it does not, good: you just saved yourself a wasted quarter.</p>
+          <div class="ws" data-tool="goal"></div>
+          <a class="btn-line" href="/tools/goal-interrogation.html" download="goal-interrogation-tool.html">Download this tool (HTML)</a>
+          <p class="t-fine">This is a reflection tool, not a diagnostic. Your entries reset once you leave or refresh this page.</p>
+        </div></div></div>
+      </div>
+      <div class="tk-card tk-tool" id="tk-action">
+        <button class="tk-face" onclick="tkToggle('tk-action')" aria-expanded="false">
+          <span class="tk-chip">FREE</span>
+          <h3>Action Sheet</h3>
+          <p>Turn a good session into dated, doable steps. If it needs more than three hours, it is a project: write the first step.</p>
+          <span class="tk-open">Open the tool <span class="tk-chev">&darr;</span></span>
+        </button>
+        <div class="tk-panel"><div><div class="tk-panel-in">
+          <p class="t-desc">The gap between a great session and nothing changing is usually this: no specific action, no date, no first step. Fill one row per action you genuinely intend to do, download the sheet, print it, tick things off.</p>
+          <div class="ws" data-tool="action"></div>
+          <a class="btn-line" href="/tools/action-sheet.html" download="action-sheet-tool.html">Download this tool (HTML)</a>
+          <p class="t-fine">This is a reflection tool, not a diagnostic. Your entries reset once you leave or refresh this page.</p>
         </div></div></div>
       </div>
     </div>
@@ -1719,6 +1805,239 @@ __fpScale();
       .catch(function(){ err.textContent = "That didn't go through. Try again in a moment.";
         err.classList.add('show'); });
   });
+})();
+</script>
+<script>
+/* Worksheet tools: Idea Blitz, Goal Interrogation, Action Sheet. Self-contained, no storage. */
+(function(){
+  function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function val(sel, root){ var el = root.querySelector(sel); return el ? el.value.trim() : ""; }
+  function checked(sel, root){ var el = root.querySelector(sel); return !!(el && el.checked); }
+  function el(html){ var d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+  function downloadSheet(filename, doc){
+    var blob = new Blob([doc], {type:"text/html"});
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1200);
+  }
+  function sheetDoc(title, tagline, bodyHtml){
+    return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<title>' + esc(title) + ' | coach kris.</title>'
+      + '<style>'
+      + '@page{size:A4; margin:12mm;}'
+      + 'body{font-family:"Instrument Sans",ui-sans-serif,system-ui,sans-serif; color:#141414; margin:0; padding:22px; background:#fff;}'
+      + '.sk-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:3px solid #141414; padding-bottom:10px; margin-bottom:18px;}'
+      + '.sk-mark{font-family:"Bricolage Grotesque",ui-sans-serif,sans-serif; font-weight:800; font-size:1.3rem;}'
+      + '.sk-title{font-family:"Bricolage Grotesque",ui-sans-serif,sans-serif; font-weight:800; font-size:1.05rem; color:#CC5500;}'
+      + 'h2{font-family:"Bricolage Grotesque",ui-sans-serif,sans-serif; font-size:1.35rem; margin:0 0 4px;}'
+      + '.sk-tag{color:#6E6A63; font-size:.9rem; margin:0 0 16px;}'
+      + '.sk-label{font-weight:700; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:#CC5500; margin:14px 0 4px;}'
+      + '.sk-line{border:1.5px dashed #C9C4BA; border-radius:10px; padding:9px 12px; min-height:44px; font-size:.95rem; white-space:pre-wrap;}'
+      + '.sk-line.empty{color:#A9A49A;}'
+      + '.sk-pick{display:inline-block; margin-top:8px; font-size:.78rem; font-weight:700; color:' + "'#141414'" + '; border:1.5px solid #141414; border-radius:999px; padding:3px 10px;}'
+      + '.sk-foot{border-top:1.5px solid #EAE7E0; margin-top:22px; padding-top:10px; color:#6E6A63; font-size:.78rem;}'
+      + '.sk-foot b{color:#141414;}'
+      + '.sk-print{display:block; margin:16px auto 0; background:#0038FF; color:#fff; border:none; font:inherit; font-weight:700; padding:11px 20px; border-radius:999px; cursor:pointer;}'
+      + '@media print{.sk-print{display:none;} body{padding:0;}}'
+      + '</style></head><body>'
+      + '<div class="sk-head"><span class="sk-mark">coach kris.</span><span class="sk-title">' + esc(title) + '</span></div>'
+      + '<h2>' + esc(title) + '</h2><p class="sk-tag">' + esc(tagline) + '</p>'
+      + bodyHtml
+      + '<div class="sk-foot">A free coaching tool from <b>coachkris.co.uk</b>. For coaches and their clients. More free tools on the For coaches page.</div>'
+      + '<button class="sk-print" onclick="window.print()">Print this sheet</button>'
+      + '</body></html>';
+  }
+  function nd(root){ var n = val(".ws-name", root), d = val(".ws-date", root); var p = []; if(n) p.push(n); if(d) p.push(d); return p.join(" / "); }
+  function blank(v, ph){ return v ? '<div class="sk-line">' + esc(v) + '</div>' : '<div class="sk-line empty">' + esc(ph) + '</div>'; }
+
+  var BLITZ_PROMPTS = [
+    "The obvious one you keep not doing.",
+    "The tiny one you could start tomorrow.",
+    "The one you would tell a friend to try.",
+    "The uncomfortable one that would actually work.",
+    "The bold one you nearly did not write down."
+  ];
+
+  function blitzRender(root){
+    var rows = BLITZ_PROMPTS.map(function(p, i){
+      return '<div class="ws-row" data-kind="idea">'
+        + '<span class="ws-prompt">' + (i+1) + '. ' + esc(p) + '</span>'
+        + '<input class="ws-idea" type="text" placeholder="Your idea, half-formed is fine">'
+        + '<label class="ws-pick"><input type="checkbox" class="ws-do">This one, I will do it</label>'
+        + '</div>';
+    }).join("");
+    root.innerHTML =
+        '<div class="ws-grid"><div class="ws-field"><label>Your name (optional)</label><input class="ws-name" type="text" autocomplete="name"></div>'
+      + '<div class="ws-field"><label>Date</label><input class="ws-date" type="date"></div></div>'
+      + '<div class="ws-field ws-goal"><label>The goal or change. Finish it: I want to...</label><input class="ws-goal-in" type="text" placeholder="I want to..."></div>'
+      + '<div class="ws-rows">' + rows + '</div>'
+      + '<button class="ws-add" type="button">+ Add another idea</button>'
+      + '<p class="ws-count"></p>'
+      + '<button class="btn-tool ws-go" type="button">Download my sheet (HTML)</button>'
+      + '<p class="t-fine">Brainstorming, not commitment. Your entries reset when you leave or refresh this page.</p>';
+    var rowsBox = root.querySelector(".ws-rows");
+    root.querySelector(".ws-add").addEventListener("click", function(){
+      if(root.querySelectorAll(".ws-row").length >= 10) return;
+      rowsBox.appendChild(el('<div class="ws-row extra" data-kind="idea">'
+        + '<span class="ws-prompt ws-free">Another one, whatever it is.</span>'
+        + '<input class="ws-idea" type="text" placeholder="Your idea">'
+        + '<label class="ws-pick"><input type="checkbox" class="ws-do">This one, I will do it</label></div>'));
+      updateCount();
+    });
+    function updateCount(){
+      var picked = root.querySelectorAll(".ws-do:checked").length;
+      var total = root.querySelectorAll(".ws-row").length;
+      root.querySelector(".ws-count").textContent = total + " ideas, " + picked + " picked to actually do.";
+    }
+    root.addEventListener("change", function(ev){ if(ev.target.classList.contains("ws-do")) updateCount(); });
+    root.addEventListener("input", function(ev){ if(ev.target.classList.contains("ws-idea")) updateCount(); });
+    root.querySelector(".ws-go").addEventListener("click", function(){
+      var ideas = [];
+      root.querySelectorAll(".ws-row").forEach(function(r, i){
+        var t = r.querySelector(".ws-idea").value.trim();
+        var p = r.querySelector(".ws-prompt").textContent.replace(/^\d+\.\s*/, "");
+        if(t || r.querySelector(".ws-do").checked) ideas.push({prompt: p, text: t, do: r.querySelector(".ws-do").checked});
+      });
+      var body = '<div class="sk-label">Name and date</div>' + blank(nd(root), "Your name / the date")
+        + '<div class="sk-label">I want to...</div>' + blank(val(".ws-goal-in", root), "Write the goal here")
+        + '<div class="sk-label">Ideas</div>';
+      ideas.forEach(function(x){
+        body += '<p style="margin:10px 0 2px; font-weight:600;">' + esc(x.prompt) + '</p>' + blank(x.text, " ");
+        if(x.do) body += '<span class="sk-pick">I WILL DO THIS ONE</span>';
+      });
+      body += '<div class="sk-label">Now circle, or tick, the keepers</div><div class="sk-line empty">Which of these are you actually doing? Write them below.</div>';
+      downloadSheet("my-idea-blitz.html", sheetDoc("Idea Blitz", "Five honest moves for one goal. Nothing you wrote was a promise.", body));
+    });
+  }
+
+  var GOAL_GROUPS = [
+    { name: "The outcome", qs: [
+      "What do you actually want? Not what sounds nice. What you want.",
+      "What does done look like, exactly?",
+      "If nothing changes, what does that cost you? Honestly.",
+      "Why now, and not last year or next year?",
+      "When you get there, who benefits, and who is surprised?"
+    ]},
+    { name: "The why", qs: [
+      "Why this goal, deep down? What is it standing on?",
+      "Does it fit the life you are actually building, or the one you think you should want?",
+      "Say the goal out loud. What does your gut do?",
+      "Whose voice is in your head when you doubt it?"
+    ]},
+    { name: "Say it right", qs: [
+      "Say it in the positive. What are you moving toward, not away from?",
+      "Say it in one sentence a stranger would understand.",
+      "What version of this goal is for you, and not for your audience?",
+      "What would make this goal ten percent braver?"
+    ]},
+    { name: "Make it survive contact", qs: [
+      "Specific: what exactly will you do, or achieve?",
+      "Measurable: what number, event or evidence settles it?",
+      "Actionable: which parts depend only on you?",
+      "Realistic: is this doable in the time you have, with the life you have?",
+      "Time-bound: when is the deadline, and what makes it real?"
+    ]},
+    { name: "Commitment", qs: [
+      "What is the first step, small enough to be almost embarrassing?",
+      "What will you drop, or say no to, to make room?",
+      "Who holds you to this, and what happens if you slip?"
+    ]}
+  ];
+
+  function goalRender(root){
+    var n = 0;
+    var html = '<div class="ws-grid"><div class="ws-field"><label>Your name (optional)</label><input class="ws-name" type="text" autocomplete="name"></div>'
+      + '<div class="ws-field"><label>Date</label><input class="ws-date" type="date"></div></div>'
+      + '<div class="ws-field ws-goal"><label>The goal, in one sentence</label><input class="ws-goal-in" type="text" placeholder="I want to..."></div>';
+    GOAL_GROUPS.forEach(function(g){
+      html += '<div class="ws-group"><h4>' + esc(g.name) + '</h4>';
+      g.qs.forEach(function(q){ n++;
+        html += '<div class="ws-q"><span class="ws-qnum">' + n + '</span><div class="ws-field"><label>' + esc(q) + '</label>'
+          + '<textarea class="ws-a" rows="2" placeholder="Your honest answer"></textarea></div></div>';
+      });
+      html += '</div>';
+    });
+    html += '<p class="ws-count"></p><button class="btn-tool ws-go" type="button">Download my sheet (HTML)</button>'
+      + '<p class="t-fine">A goal that survives all 21 has earned your time. Your entries reset when you leave or refresh this page.</p>';
+    root.innerHTML = html;
+    function updateCount(){
+      var done = root.querySelectorAll(".ws-a").length ? Array.prototype.filter.call(root.querySelectorAll(".ws-a"), function(t){ return t.value.trim(); }).length : 0;
+      root.querySelector(".ws-count").textContent = done + " of 21 answered.";
+    }
+    root.addEventListener("input", function(ev){ if(ev.target.classList.contains("ws-a")) updateCount(); });
+    root.querySelector(".ws-go").addEventListener("click", function(){
+      var body = '<div class="sk-label">Name and date</div>' + blank(nd(root), "Your name / the date")
+        + '<div class="sk-label">The goal, in one sentence</div>' + blank(val(".ws-goal-in", root), "Write the goal here");
+      var i = 0;
+      GOAL_GROUPS.forEach(function(g){
+        body += '<div class="sk-label">' + esc(g.name) + '</div>';
+        g.qs.forEach(function(q){ i++;
+          var a = root.querySelectorAll(".ws-a")[i-1].value.trim();
+          body += '<p style="margin:10px 0 2px; font-weight:600;">' + i + '. ' + esc(q) + '</p>' + blank(a, " ");
+        });
+      });
+      downloadSheet("my-goal-interrogation.html", sheetDoc("Goal Interrogation", "21 questions your goal has to survive before you commit to it.", body));
+    });
+  }
+
+  function actionRender(root){
+    function rowHtml(){
+      return '<div class="ws-row" data-kind="action">'
+        + '<div class="ws-ar"><div class="ws-field"><label>The action</label><input class="ws-act" type="text" placeholder="What will you do?"></div>'
+        + '<div class="ws-field"><label>First step, if it is a big one</label><input class="ws-step" type="text" placeholder="What comes first?"></div></div>'
+        + '<div class="ws-ar2"><div class="ws-field"><label>By when</label><input class="ws-when" type="date"></div>'
+        + '<div class="ws-field"><label>Time it needs</label><input class="ws-time" type="text" placeholder="30 min, 1 hour..."></div>'
+        + '<label class="ws-pick ws-pick-act"><input type="checkbox" class="ws-do">I will actually do this</label></div>'
+        + '</div>';
+    }
+    root.innerHTML =
+        '<div class="ws-grid"><div class="ws-field"><label>Your name (optional)</label><input class="ws-name" type="text" autocomplete="name"></div>'
+      + '<div class="ws-field"><label>Date</label><input class="ws-date" type="date"></div></div>'
+      + '<p class="ws-note">Two rules. One: only actions you genuinely intend to do. Two: if it needs more than about three hours, it is not an action, it is a project. Ask "what is the first step?" and write that, or time-box it: thirty focused minutes and see how far you get.</p>'
+      + '<div class="ws-rows">' + rowHtml() + rowHtml() + rowHtml() + '</div>'
+      + '<button class="ws-add" type="button">+ Add another action</button>'
+      + '<p class="ws-count"></p>'
+      + '<button class="btn-tool ws-go" type="button">Download my sheet (HTML)</button>'
+      + '<p class="t-fine">Print it, stick it somewhere you will see it, tick things off. Your entries reset when you leave or refresh this page.</p>';
+    var rowsBox = root.querySelector(".ws-rows");
+    root.querySelector(".ws-add").addEventListener("click", function(){
+      if(root.querySelectorAll(".ws-row").length >= 8) return;
+      rowsBox.appendChild(el(rowHtml()));
+      updateCount();
+    });
+    function updateCount(){
+      var picked = root.querySelectorAll(".ws-do:checked").length;
+      var total = root.querySelectorAll(".ws-row").length;
+      root.querySelector(".ws-count").textContent = total + " actions, " + picked + " promised.";
+    }
+    root.addEventListener("change", function(ev){ if(ev.target.classList.contains("ws-do")) updateCount(); });
+    root.querySelector(".ws-go").addEventListener("click", function(){
+      var rows = [];
+      root.querySelectorAll(".ws-row").forEach(function(r){
+        var act = r.querySelector(".ws-act").value.trim();
+        var step = r.querySelector(".ws-step").value.trim();
+        var when = r.querySelector(".ws-when").value;
+        var time = r.querySelector(".ws-time").value.trim();
+        var doIt = r.querySelector(".ws-do").checked;
+        if(act || step || when || time || doIt) rows.push({act: act, step: step, when: when, time: time, do: doIt});
+      });
+      var body = '<div class="sk-label">Name and date</div>' + blank(nd(root), "Your name / the date");
+      if(!rows.length){ body += '<div class="sk-label">Actions</div>' + blank("", "Your actions go here"); }
+      rows.forEach(function(x, i){
+        body += '<p style="margin:14px 0 2px; font-weight:700;">Action ' + (i+1) + (x.do ? ' <span class="sk-pick">COMMITTED</span>' : '') + '</p>'
+          + blank(x.act, "The action")
+          + (x.step ? '<div class="sk-label" style="margin-top:8px;">First step</div>' + blank(x.step, " ") : '')
+          + '<p style="margin:8px 0 0; font-size:.85rem; color:#6E6A63;">By when: <b>' + esc(x.when || "no date yet") + '</b> &middot; Time it needs: <b>' + esc(x.time || "not set") + '</b></p>';
+      });
+      body += '<div class="sk-label">Done?</div><div class="sk-line empty">Tick them off as you go. Then enjoy being someone who does what they said.</div>';
+      downloadSheet("my-action-sheet.html", sheetDoc("Action Sheet", "From a good conversation to dated, doable steps.", body));
+    });
+  }
+
+  var RENDERERS = { blitz: blitzRender, goal: goalRender, action: actionRender };
+  document.querySelectorAll(".ws[data-tool]").forEach(function(w){ var r = RENDERERS[w.getAttribute("data-tool")]; if(r) r(w); });
 })();
 </script>
 </body>
