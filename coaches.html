@@ -274,9 +274,9 @@
   /* desktop: the tools ring the frosted signup square, edges tucked under the glass */
   @media(min-width:940px){
     .tk-ring{grid-template-columns:1fr minmax(380px, 470px) 1fr; grid-template-rows:auto auto auto auto; gap:14px;}
-    .tk-ring .tk-gate-card{grid-column:2; grid-row:2 / 5; max-width:none; margin:0; align-self:stretch;}
+    .tk-ring .tk-gate-card{grid-column:2; grid-row:1 / 4; max-width:none; margin:0; align-self:stretch;}
     .tk-ring > .tk-peek-card:nth-child(2){grid-row:1; grid-column:1;}
-    .tk-ring > .tk-peek-card:nth-child(3){grid-row:1; grid-column:2;}
+    .tk-ring > .tk-peek-card:nth-child(3){grid-row:4; grid-column:2;}
     .tk-ring > .tk-peek-card:nth-child(4){grid-row:1; grid-column:3;}
     .tk-ring > .tk-peek-card:nth-child(5){grid-row:2; grid-column:1;}
     .tk-ring > .tk-peek-card:nth-child(6){grid-row:2; grid-column:3;}
@@ -659,9 +659,13 @@
   .wee-line{margin-top:4px;}
   .deep-split{display:grid; gap:16px; margin-top:4px;}
   .deep-box{
-    border:1.5px solid var(--line); border-radius:22px; padding:26px 24px 22px;
-    background:#fff; display:grid; gap:12px; align-content:start;
+    border:1.5px solid var(--line); border-radius:22px; padding:26px 24px 24px;
+    background:#fff; display:flex; flex-direction:column; gap:12px;
   }
+  .deep-box > .btn{margin-top:auto;}
+  .deep-box .btn{align-self:flex-start;}
+  .deep-box .btn .dot{transition:transform .2s ease;}
+  .deep-box .btn:hover .dot{transform:translateX(3px);}
   .db-tag{display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pop-deep);}
   .deep-box h3{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.45rem; line-height:1.12; margin:0;}
   .deep-box p{font-size:.95rem; line-height:1.55; margin:0; color:#3d3a35;}
@@ -675,8 +679,6 @@
     font-family:'Bricolage Grotesque',sans-serif; font-weight:700; color:#fff;
     background:var(--pop); padding:2px 9px; border-radius:7px; white-space:nowrap;
   }
-  .btn-web{background:#fff; color:var(--ink); border:1.5px solid #fff; justify-content:center; display:inline-flex;}
-  .btn-web:hover{background:var(--pop); border-color:var(--pop); color:#fff;}
   @media(min-width:760px){ .deep-split{grid-template-columns:1fr 1fr; gap:18px;} }
   @media(max-width:759px){
     .tk-grid{grid-template-columns:1fr;}
@@ -1184,10 +1186,8 @@
           <li>Coaching strategies if you're brand new</li>
           <li>Finding your first clients and building from zero</li>
         </ul>
-        <div class="tk-actions deep-cta">
-          <a class="btn btn-primary" href="/new#book-form">Book a session <span class="dot">&rarr;</span></a>
-        </div>
         <p class="deep-price">&pound;45 a session. No packages, no lock-in.</p>
+        <a class="btn btn-primary" href="/new#book-form">Book a session <span class="dot">&rarr;</span></a>
       </div>
       <div class="deep-box db-web">
         <span class="db-tag">My other business: Wee Sites</span>
@@ -1195,7 +1195,7 @@
         <p>I also hand-code websites for coaches, therapists and small businesses. Honest numbers: &pound;99 flat, and no monthly fees, ever.</p>
         <p>Stuck on a paying platform? I'll move your site off it, free of drama.</p>
         <p>Say <span class="coach-code">coach101</span> with your new website and you get 2 free coaching sessions on top.</p>
-        <a class="btn btn-web" href="https://www.weesites.co.uk" rel="noopener">See the work at Wee Sites <span class="dot">&rarr;</span></a>
+        <a class="btn btn-primary" href="https://www.weesites.co.uk" rel="noopener">See the work at Wee Sites <span class="dot">&rarr;</span></a>
       </div>
     </div>
   </section>
