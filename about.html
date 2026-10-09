@@ -291,18 +291,37 @@
   .tl-body-in{overflow:hidden; display:block; min-height:0;}
   .tl-body-in p{color:var(--soft); font-size:.9rem; line-height:1.55; margin:0; padding-top:10px;}
   .tl-more{text-align:center; margin:34px 0 22px; position:relative;}
-  /* fun way / text only toggle: view boxes with a little picture of each view */
-  .tl-toggle{display:flex; gap:10px; margin:24px 0 30px;}
+  /* fun way / text only toggle: sticker view cards, same language as the toolkit deck */
+  .tl-toggle{display:flex; gap:16px; margin:26px 0 30px; position:relative; padding-top:6px;}
   .tg-btn{
-    display:grid; justify-items:center; gap:8px; width:136px;
-    padding:9px 9px 10px; border-radius:16px; border:1.5px solid var(--line);
-    background:var(--card); cursor:pointer; transition:border-color .15s, transform .2s, box-shadow .2s;
+    position:relative; isolation:isolate; display:grid; justify-items:start; gap:8px; width:152px; text-align:left;
+    padding:12px 12px 12px; border-radius:20px; border:1.5px solid var(--line); background:transparent; cursor:pointer;
+    box-shadow:0 12px 26px rgba(20,20,20,.09);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .2s;
   }
-  .tg-thumb{display:block; width:100%; height:auto; border-radius:9px; background:#FBF9F4; border:1px solid rgba(20,20,20,.05);}
-  .tg-btn span{font-family:'Instrument Sans',system-ui,sans-serif; font-size:.72rem; font-weight:700; color:var(--soft); letter-spacing:.01em;}
-  .tg-btn:hover{border-color:var(--pop); transform:translateY(-2px);}
-  .tg-btn.active{border-color:var(--ink); background:#fff; box-shadow:0 8px 20px rgba(20,20,20,.10);}
-  .tg-btn.active span{color:var(--ink);}
+  .tg-btn::after{content:""; position:absolute; inset:0; z-index:-1; border-radius:18px; background:#fff; pointer-events:none;}
+  .tg-btn::before{
+    content:""; position:absolute; inset:-4px -8px -14px; z-index:-2; border-radius:36px; filter:blur(24px); opacity:0;
+    background:var(--glow); pointer-events:none; transition:opacity .35s ease;
+  }
+  #tgFun{--glow:rgba(255,107,0,.5); border-color:rgba(255,107,0,.4); transform:rotate(-3deg);}
+  #tgText{--glow:rgba(0,56,255,.42); border-color:rgba(0,56,255,.3); transform:rotate(2.4deg); margin-top:10px;}
+  .tg-btn:hover{transform:rotate(0) translateY(-5px); box-shadow:0 18px 36px rgba(20,20,20,.14);}
+  .tg-btn:hover::before, .tg-btn.active::before{opacity:.8;}
+  .tg-btn.active{box-shadow:0 16px 34px rgba(20,20,20,.14);}
+  .tg-tag{font-size:.6rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-family:'Instrument Sans',system-ui,sans-serif;}
+  #tgFun .tg-tag{color:var(--pop-deep);}
+  #tgText .tg-tag{color:#0038FF;}
+  .tg-thumb{display:block; width:100%; height:auto; border-radius:10px; background:#FBF9F4; border:1px solid rgba(20,20,20,.05);}
+  .tg-btn .tg-name{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1rem; line-height:1.05; color:var(--ink);}
+  .tg-pill{
+    position:absolute; top:-12px; right:-8px; z-index:3; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.64rem;
+    color:#fff; padding:5px 10px; border-radius:999px; box-shadow:0 3px 0 rgba(20,20,20,.18); opacity:0; transform:rotate(6deg) scale(.8);
+    transition:opacity .25s ease, transform .3s cubic-bezier(.2,.8,.2,1); pointer-events:none;
+  }
+  #tgFun .tg-pill{background:var(--pop);}
+  #tgText .tg-pill{background:#0038FF;}
+  .tg-btn.active .tg-pill{opacity:1; transform:rotate(6deg) scale(1);}
   /* text-only story view */
   .tl-story{display:none; max-width:640px; padding-bottom:6px;}
   .tl-story.show{display:block;}
@@ -591,6 +610,7 @@
     </div>
       <div class="tl-toggle" role="group" aria-label="How to read the story">
         <button class="tg-btn active" id="tgFun" type="button" aria-pressed="true">
+          <span class="tg-tag">View 01</span>
           <svg class="tg-thumb" viewBox="0 0 96 60" aria-hidden="true" focusable="false">
             <line x1="48" y1="3" x2="48" y2="57" stroke="#E7DFCC" stroke-width="2" stroke-dasharray="3 4"/>
             <rect x="8" y="5" width="30" height="13" rx="3.5" fill="#fff" stroke="#DCD4C2" stroke-width="1.5" transform="rotate(-3 23 11)"/>
@@ -600,9 +620,11 @@
             <rect x="8" y="43" width="30" height="13" rx="3.5" fill="#fff" stroke="#DCD4C2" stroke-width="1.5" transform="rotate(-2 23 49)"/>
             <circle cx="48" cy="48" r="4.5" fill="#FF6B00"/>
           </svg>
-          <span>The fun way</span>
+          <span class="tg-name">The fun way</span>
+          <span class="tg-pill" aria-hidden="true">you're here</span>
         </button>
         <button class="tg-btn" id="tgText" type="button" aria-pressed="false">
+          <span class="tg-tag">View 02</span>
           <svg class="tg-thumb" viewBox="0 0 96 60" aria-hidden="true" focusable="false">
             <rect x="9" y="7" width="20" height="7" rx="3.5" fill="#FF6B00"/>
             <rect x="9" y="19" width="78" height="4" rx="2" fill="#D9D2C2"/>
@@ -610,7 +632,8 @@
             <rect x="9" y="36" width="20" height="7" rx="3.5" fill="#FF6B00"/>
             <rect x="9" y="48" width="78" height="4" rx="2" fill="#D9D2C2"/>
           </svg>
-          <span>Text only</span>
+          <span class="tg-name">Text only</span>
+          <span class="tg-pill" aria-hidden="true">you're here</span>
         </button>
       </div>
   </div>
