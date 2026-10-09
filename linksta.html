@@ -168,30 +168,26 @@
   .post:hover .go{background:var(--pop); color:#fff;}
   .post .go svg{width:14px; height:14px;}
 
-  /* Wee Sites box: its own look (cream, periwinkle, navy, lemon, coral, Fredoka) with Kris tilted chips */
+  /* Wee Sites: orange box (For coaches style) with the wee sites look inside */
   .ws{
-    --w-peri:#7289DA; --w-navy:#18214A; --w-lemon:#F7FF72; --w-coral:#FF9D7E; --w-cream:#FFF9EC; --w-mint:#B9F2D9;
-    display:block; position:relative; overflow:hidden; margin-top:10px; background:var(--w-cream); color:var(--w-navy);
-    border-radius:26px; padding:18px 18px 16px; font-family:'Fredoka','Instrument Sans',sans-serif;
-    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+    display:flex; flex-direction:column; gap:10px; margin-top:10px; padding:12px;
+    background:var(--pop); border-radius:22px; color:#fff;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
   }
-  .ws:hover{transform:translateY(-3px) rotate(-.5deg); box-shadow:0 14px 30px rgba(0,0,0,.4);}
-  .ws::before{content:""; position:absolute; width:150px; height:150px; border-radius:50%; background:var(--w-peri); opacity:.9; right:-44px; top:-52px;}
-  .ws::after{content:""; position:absolute; width:74px; height:74px; border-radius:50%; background:var(--w-lemon); right:70px; top:56px; opacity:.95;}
-  .ws > *{position:relative; z-index:1;}
-  .ws-logo{display:flex; align-items:center; gap:8px; font-weight:700; font-size:1.3rem; color:var(--w-navy);}
-  .ws-logo i{width:.78em; height:.78em; background:var(--w-coral); border-radius:50%; display:inline-block;}
-  .ws-k{display:block; margin-top:12px; font-size:.64rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--w-peri);}
-  .ws-h{font-weight:700; font-size:1.4rem; line-height:1.08; margin:4px 0 7px; max-width:12ch; text-wrap:balance;}
-  .ws-p{font-family:'Instrument Sans',sans-serif; font-size:.82rem; line-height:1.5; max-width:31ch; color:#3b4366;}
-  .ws-p b{background:var(--w-lemon); padding:0 5px; border-radius:6px; color:var(--w-navy);}
-  .ws-chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
-  .ws-chip{font-weight:600; font-size:.7rem; background:#fff; color:var(--w-navy); border:1.5px solid rgba(24,33,74,.14); border-radius:999px; padding:4px 11px; box-shadow:0 2px 0 rgba(24,33,74,.2);}
-  .ws-chip:nth-child(odd){transform:rotate(-2deg);}
-  .ws-chip:nth-child(even){transform:rotate(1.6deg);}
-  .ws-chip.hi{background:var(--w-navy); color:#fff; border-color:var(--w-navy);}
-  .ws-go{display:inline-flex; align-items:center; gap:7px; margin-top:14px; background:var(--w-coral); color:var(--w-navy); font-weight:700; font-size:.82rem; border-radius:999px; padding:9px 16px; transition:background .2s;}
-  .ws:hover .ws-go{background:var(--w-lemon);}
+  .ws:hover{transform:translateY(-4px) rotate(-.6deg); box-shadow:0 14px 30px rgba(0,0,0,.4);}
+  .ws-shot{
+    background:#FFF9EC; color:#18214A; border-radius:12px; padding:14px 14px 13px;
+    transform:rotate(-1.6deg); box-shadow:0 8px 18px rgba(0,0,0,.22); flex:1;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .ws-k{font-size:.56rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pop-deep);}
+  .ws-logo{display:flex; align-items:center; gap:8px; font-family:'Fredoka','Instrument Sans',sans-serif; font-weight:700; font-size:1.25rem; color:#18214A;}
+  .ws-logo i{width:.78em; height:.78em; background:#FF9D7E; border-radius:50%; display:inline-block; flex:none;}
+  .ws-h{font-family:'Fredoka','Instrument Sans',sans-serif; font-weight:700; font-size:1.05rem; line-height:1.15; color:#18214A;}
+  .ws-p{font-family:'Instrument Sans',sans-serif; font-size:.8rem; line-height:1.5; color:#3b4366;}
+  .ws-p b{background:#F7FF72; color:#18214A; padding:0 5px; border-radius:6px; white-space:nowrap;}
+  .ws-cap{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.98rem; line-height:1.15; padding:2px 4px 0;}
+  .ws-cap small{display:block; font-family:'Instrument Sans',sans-serif; font-weight:500; font-size:.7rem; opacity:.85; margin-top:2px;}
 
   /* socials */
   .socials{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
@@ -293,12 +289,13 @@
   </div>
 
   <a class="ws" href="https://www.weesites.co.uk" rel="noopener">
-    <span class="ws-logo"><i aria-hidden="true"></i>wee sites</span>
-    <span class="ws-k">My other thing</span>
-    <p class="ws-h">Need a web that works?</p>
-    <p class="ws-p">Hand-coded sites for £99, no monthly fees. Say <b>coach101</b> for 2 free coaching sessions.</p>
-    <span class="ws-chips"><span class="ws-chip hi">weesites.co.uk</span><span class="ws-chip">£99 flat</span><span class="ws-chip">Hand-coded</span></span>
-    <span class="ws-go">See the sites <span aria-hidden="true">&rarr;</span></span>
+    <div class="ws-shot">
+      <span class="ws-k">My other thing</span>
+      <span class="ws-logo"><i aria-hidden="true"></i>wee sites</span>
+      <p class="ws-h">Need a web that works?</p>
+      <p class="ws-p">Hand-coded sites for &pound;99, no monthly fees. Say <b>coach101</b> for 2 free coaching sessions.</p>
+    </div>
+    <div class="ws-cap">Wee Sites<small>weesites.co.uk</small></div>
   </a>
 
   <h2 class="sec">Find me</h2>
