@@ -228,6 +228,47 @@
   .step-n{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.5rem; color:var(--pop); grid-row:span 2;}
   .step-h{font-weight:600; letter-spacing:.06em; font-size:.9rem;}
   .step-p{color:var(--soft); font-size:.92rem; grid-column:2;}
+  /* winding road: what happens next */
+  .roadwrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .roadwrap section.card{max-width:none; margin:28px auto; padding:34px 26px 30px;}
+  .road{position:relative; width:100%; aspect-ratio:1040/920; margin-top:6px;}
+  .road-svg{position:absolute; inset:0; width:100%; height:100%;}
+  .road-body{fill:none; stroke:var(--pop); stroke-width:16; stroke-linecap:round;}
+  .road-line{fill:none; stroke:#FFF9EC; stroke-width:3; stroke-linecap:round; stroke-dasharray:14 16;}
+  .road-tip{fill:var(--pop);}
+  .stop{position:absolute; transform:translate(-50%,-50%); z-index:2;}
+  .s1{left:25%; top:12%;} .s2{left:75%; top:41.3%;} .s3{left:25%; top:66.3%;} .s4{left:75%; top:91.8%;}
+  .stop-dot{
+    display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%;
+    background:#fff; border:3px solid var(--pop); color:var(--pop);
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.05rem;
+    box-shadow:0 6px 14px rgba(196,61,0,.25); transform:rotate(-2deg);
+    transition:transform .25s cubic-bezier(.2,.8,.2,1);
+  }
+  .stop-card{
+    position:absolute; width:30%; background:#fff; border:1px solid rgba(20,20,20,.08); border-radius:14px;
+    padding:13px 15px 12px; box-shadow:0 8px 20px rgba(20,20,20,.07); z-index:2;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+  }
+  .stop-card p{font-size:.84rem; line-height:1.5; color:var(--soft); margin:0;}
+  .stop-card .stop-h{font-weight:600; letter-spacing:.05em; font-size:.92rem; color:var(--ink); margin:0 0 5px;}
+  .c1{left:10%; top:calc(12% + 36px); transform:rotate(-1deg);}
+  .c2{left:60%; top:calc(41.3% - 36px); transform:translateY(-100%) rotate(1deg);}
+  .c3{left:10%; top:calc(66.3% + 36px); transform:rotate(1deg);}
+  .c4{left:60%; top:calc(91.8% - 36px); transform:translateY(-100%) rotate(-1deg);}
+  .stop-card:hover{transform:rotate(0) translateY(-2px); box-shadow:0 14px 28px rgba(20,20,20,.12);}
+  .c2:hover,.c4:hover{transform:translateY(-100%) rotate(0);}
+  .road-mob{display:none;}
+  @media(max-width:899px){
+    .road{display:none;}
+    .road-mob{display:block; position:relative; margin-top:10px; padding-left:34px;}
+    .road-mob::before{content:''; position:absolute; left:19px; top:6px; bottom:6px; width:12px; border-radius:8px; background:var(--pop);}
+    .road-mob::after{content:''; position:absolute; left:23px; top:12px; bottom:12px; width:2px; border-left:2px dashed #FFF9EC;}
+    .mrow{position:relative; display:flex; gap:14px; align-items:flex-start; padding:10px 0;}
+    .mrow .stop-dot{position:relative; left:-9px; flex:none; width:38px; height:38px; font-size:.95rem; margin-top:2px;}
+    .road-mob .stop-card{position:static; width:auto; transform:none; flex:1; padding:11px 13px 10px;}
+    .road-mob .stop-card:hover{transform:none;}
+  }
   .step-lead{display:block; color:var(--ink); font-weight:600; margin-bottom:5px;}
   /* orange statement */
 .statement{
@@ -558,28 +599,31 @@
     </div>
     <a href="/about.html" class="link-arrow">There is more to my story &rarr;</a>
   </section>
+</div>
 
+<div class="roadwrap">
   <section class="card" id="next">
     <span class="sec-tag">What happens next</span>
-    <div class="step-row">
-      <div class="step-n">1</div>
-      <div class="step-h">Get in touch</div>
-      <p class="step-p">Easy. Send me a message. I'll send you a short onboarding form so I can get a feel for what's going on, what you want to change, and where you want to get to.</p>
+    <div class="road">
+      <svg class="road-svg" viewBox="0 0 1040 920" preserveAspectRatio="none" aria-hidden="true">
+        <path class="road-body" d="M-30 110 H930 C1005 110 1035 160 1035 220 C1035 300 1000 380 920 380 H120 C35 380 8 430 8 500 C8 580 45 610 120 610 H930 C1010 610 1040 660 1040 720 C1040 800 1005 845 925 845 H1015"/>
+        <path class="road-line" d="M-30 110 H930 C1005 110 1035 160 1035 220 C1035 300 1000 380 920 380 H120 C35 380 8 430 8 500 C8 580 45 610 120 610 H930 C1010 610 1040 660 1040 720 C1040 800 1005 845 925 845 H1015"/>
+        <path class="road-tip" d="M1000 830 L1036 845 L1000 860 Z"/>
+      </svg>
+      <div class="stop s1"><span class="stop-dot">1</span></div>
+      <div class="stop s2"><span class="stop-dot">2</span></div>
+      <div class="stop s3"><span class="stop-dot">3</span></div>
+      <div class="stop s4"><span class="stop-dot">4</span></div>
+      <div class="stop-card c1"><p class="stop-h">Get in touch</p><p>Easy. Send me a message. I'll send you a short onboarding form so I can get a feel for what's going on, what you want to change, and where you want to get to.</p></div>
+      <div class="stop-card c2"><p class="stop-h">Let's talk</p><p>We'll arrange a free discovery session. No performance, no perfect explanation needed. We'll talk about what's going on, what you want, and whether we're a good fit.</p></div>
+      <div class="stop-card c3"><p class="stop-h">This is where it gets interesting</p><p>If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what's getting in the way, and turning it into movement.</p></div>
+      <div class="stop-card c4"><p class="stop-h">We adapt as we go</p><p>No rigid script. If something isn't working, we change it. I'll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p></div>
     </div>
-    <div class="step-row">
-      <div class="step-n">2</div>
-      <div class="step-h">Let's talk</div>
-      <p class="step-p">We'll arrange a free discovery session. No performance, no perfect explanation needed. We'll talk about what's going on, what you want, and whether we're a good fit.</p>
-    </div>
-    <div class="step-row">
-      <div class="step-n">3</div>
-      <div class="step-h">This is where it gets interesting</div>
-      <p class="step-p">If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what's getting in the way, and turning it into movement.</p>
-    </div>
-    <div class="step-row">
-      <div class="step-n">4</div>
-      <div class="step-h">We adapt as we go</div>
-      <p class="step-p">No rigid script. If something isn't working, we change it. I'll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p>
+    <div class="road-mob" aria-hidden="false">
+      <div class="mrow"><span class="stop-dot">1</span><div class="stop-card c1"><p class="stop-h">Get in touch</p><p>Easy. Send me a message. I'll send you a short onboarding form so I can get a feel for what's going on, what you want to change, and where you want to get to.</p></div></div>
+      <div class="mrow"><span class="stop-dot">2</span><div class="stop-card c2"><p class="stop-h">Let's talk</p><p>We'll arrange a free discovery session. No performance, no perfect explanation needed. We'll talk about what's going on, what you want, and whether we're a good fit.</p></div></div>
+      <div class="mrow"><span class="stop-dot">3</span><div class="stop-card c3"><p class="stop-h">This is where it gets interesting</p><p>If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what's getting in the way, and turning it into movement.</p></div></div>
+      <div class="mrow"><span class="stop-dot">4</span><div class="stop-card c4"><p class="stop-h">We adapt as we go</p><p>No rigid script. If something isn't working, we change it. I'll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p></div></div>
     </div>
   </section>
 </div>
