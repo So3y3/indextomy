@@ -465,11 +465,19 @@
     .hero-grid .photo-card{margin:0;}
     .hero-grid .photo-card img{width:84px; height:84px; border-radius:20px; object-position:center 12%; box-shadow:0 10px 22px rgba(20,20,20,.16); border:2px solid #fff;}
     html.photo-circle .hero-grid .photo-card img{border-radius:50%;}
+    /* sticker: tilted white-bordered print, like the deck cards */
+    html.photo-sticker .hero-grid .photo-card{margin:0; top:-7px; position:relative; transform:rotate(4deg);}
+    html.photo-sticker .hero-grid .photo-card img{border-radius:12px; border:3px solid #fff; box-shadow:0 8px 18px rgba(20,20,20,.22);}
+    /* ring: circle with an orange ring */
+    html.photo-ring .hero-grid .photo-card img{border-radius:50%; border:3px solid var(--pop); box-shadow:0 8px 18px rgba(255,107,0,.35);}
+    /* pop: square floating over an orange offset block */
+    html.photo-pop .hero-grid .photo-card::before{content:""; position:absolute; inset:0; transform:translate(7px, 7px); background:var(--pop); border-radius:20px;}
+    html.photo-pop .hero-grid .photo-card img{border-radius:20px; position:relative; box-shadow:0 10px 20px rgba(20,20,20,.18);}
     .hero-grid .kicker{max-width:calc(100% - 130px);}
   }
 </style>
 <script>
-(function(){ try{ var q=new URLSearchParams(location.search).get('photo'); if(q==='circle'){ document.documentElement.classList.add('photo-circle'); } }catch(e){} })();
+(function(){ try{ var q=new URLSearchParams(location.search).get('photo'); if(['circle','sticker','ring','pop'].indexOf(q)>-1){ document.documentElement.classList.add('photo-'+q); } }catch(e){} })();
 </script>
 </head>
 <body>
