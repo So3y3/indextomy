@@ -655,14 +655,14 @@
   .tk-actions .btn{margin-top:0; font-size:.9rem; padding:12px 18px;}
   .deep-p{font-size:1rem; line-height:1.6; margin:0 0 14px; max-width:56ch;}
   .deep-cta{margin:6px 0 22px;}
-  .deep-price{font-size:.85rem; color:var(--soft); font-weight:500;}
+  .deep-price{font-size:.95rem; color:var(--ink); font-weight:700;}
   .wee-line{margin-top:4px;}
   .deep-split{display:grid; gap:16px; margin-top:4px;}
   .deep-box{
     border:1.5px solid var(--line); border-radius:22px; padding:26px 24px 24px;
     background:#fff; display:flex; flex-direction:column; gap:12px;
   }
-  .deep-box > .btn{margin-top:auto;}
+  .deep-box .deep-price{margin-top:auto;}
   .deep-box .btn{align-self:flex-start;}
   .deep-box .btn .dot{transition:transform .2s ease;}
   .deep-box .btn:hover .dot{transform:translateX(3px);}
@@ -675,6 +675,8 @@
   .db-web{background:var(--ink); border-color:var(--ink); color:#F4F1E8;}
   .db-web h3{color:#fff;}
   .db-web p{color:#C9C4BA;}
+  .db-web .deep-price{color:#fff;}
+  .db-web .db-list li{color:#EAE6DC;}
   .coach-code{
     font-family:'Bricolage Grotesque',sans-serif; font-weight:700; color:#fff;
     background:var(--pop); padding:2px 9px; border-radius:7px; white-space:nowrap;
@@ -1192,9 +1194,14 @@
       <div class="deep-box db-web">
         <span class="db-tag">My other business: Wee Sites</span>
         <h3>Need a web<br>that works?</h3>
-        <p>I also hand-code websites for coaches, therapists and small businesses. Honest numbers: &pound;99 flat, and no monthly fees, ever.</p>
-        <p>Stuck on a paying platform? I'll move your site off it, free of drama.</p>
-        <p>Say <span class="coach-code">coach101</span> with your new website and you get 2 free coaching sessions on top.</p>
+        <p>I also hand-code websites for coaches, therapists and small businesses.</p>
+        <ul class="db-list">
+          <li>A hand-coded site, yours outright</li>
+          <li>No page builders, no platform rent</li>
+          <li>Stuck on a paying platform? I'll move you off it, free of drama</li>
+          <li>Say <span class="coach-code">coach101</span> and get 2 free coaching sessions on top</li>
+        </ul>
+        <p class="deep-price">&pound;99 flat. No monthly fees, ever.</p>
         <a class="btn btn-primary" href="https://www.weesites.co.uk" rel="noopener">See the work at Wee Sites <span class="dot">&rarr;</span></a>
       </div>
     </div>
