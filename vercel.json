@@ -32,6 +32,10 @@
       "destination": "/new.html"
     },
     {
+      "source": "/linksta",
+      "destination": "/linksta.html"
+    },
+    {
       "source": "/",
       "has": [
         {
