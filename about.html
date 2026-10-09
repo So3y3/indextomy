@@ -291,15 +291,18 @@
   .tl-body-in{overflow:hidden; display:block; min-height:0;}
   .tl-body-in p{color:var(--soft); font-size:.9rem; line-height:1.55; margin:0; padding-top:10px;}
   .tl-more{text-align:center; margin:34px 0 22px; position:relative;}
-  /* fun way / text only toggle */
-  .tl-toggle{display:flex; gap:8px; margin:20px 0 34px;}
+  /* fun way / text only toggle: view boxes with a little picture of each view */
+  .tl-toggle{display:flex; gap:10px; margin:24px 0 30px;}
   .tg-btn{
-    font-family:'Instrument Sans',system-ui,sans-serif; font-size:.82rem; font-weight:600;
-    padding:9px 16px; border-radius:999px; border:1.5px solid var(--line);
-    background:var(--card); color:var(--soft); cursor:pointer; transition:all .15s;
+    display:grid; justify-items:center; gap:8px; width:136px;
+    padding:9px 9px 10px; border-radius:16px; border:1.5px solid var(--line);
+    background:var(--card); cursor:pointer; transition:border-color .15s, transform .2s, box-shadow .2s;
   }
-  .tg-btn:hover{border-color:var(--pop); color:var(--pop-deep);}
-  .tg-btn.active{background:var(--ink); border-color:var(--ink); color:#fff;}
+  .tg-thumb{display:block; width:100%; height:auto; border-radius:9px; background:#FBF9F4; border:1px solid rgba(20,20,20,.05);}
+  .tg-btn span{font-family:'Instrument Sans',system-ui,sans-serif; font-size:.72rem; font-weight:700; color:var(--soft); letter-spacing:.01em;}
+  .tg-btn:hover{border-color:var(--pop); transform:translateY(-2px);}
+  .tg-btn.active{border-color:var(--ink); background:#fff; box-shadow:0 8px 20px rgba(20,20,20,.10);}
+  .tg-btn.active span{color:var(--ink);}
   /* text-only story view */
   .tl-story{display:none; max-width:640px; padding-bottom:6px;}
   .tl-story.show{display:block;}
@@ -463,7 +466,8 @@
     .tl-head h1{font-size:3.4rem;}
     .tl{max-width:940px;}
     .tl::before{left:50%; margin-left:-1.5px; top:0; bottom:20px;}
-    .tl-hero{display:block; position:relative;}
+    .tl-hero{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; position:relative;}
+    .tl-toggle{margin:6px 0 0; flex:none;}
     .tl-hero .tl-head{margin-bottom:0; position:relative; z-index:3;}
       .tl-item{display:block; position:relative; margin-bottom:-54px;}
     .tl-item:last-of-type{margin-bottom:10px;}
@@ -584,11 +588,31 @@
       <p class="kicker">About me</p>
       <h1 class="disp">The story <span class="hl">so far.</span></h1>
       <p class="tl-sub">The future sits at the top. The plot thickens as you go down.</p>
-      <div class="tl-toggle" role="group" aria-label="How to read the story">
-        <button class="tg-btn active" id="tgFun" type="button" aria-pressed="true">The fun way</button>
-        <button class="tg-btn" id="tgText" type="button" aria-pressed="false">Text only</button>
-      </div>
     </div>
+      <div class="tl-toggle" role="group" aria-label="How to read the story">
+        <button class="tg-btn active" id="tgFun" type="button" aria-pressed="true">
+          <svg class="tg-thumb" viewBox="0 0 96 60" aria-hidden="true" focusable="false">
+            <line x1="48" y1="3" x2="48" y2="57" stroke="#E7DFCC" stroke-width="2" stroke-dasharray="3 4"/>
+            <rect x="8" y="5" width="30" height="13" rx="3.5" fill="#fff" stroke="#DCD4C2" stroke-width="1.5" transform="rotate(-3 23 11)"/>
+            <circle cx="48" cy="12" r="4.5" fill="#FF6B00"/>
+            <rect x="58" y="24" width="30" height="13" rx="3.5" fill="#fff" stroke="#DCD4C2" stroke-width="1.5" transform="rotate(3 73 30)"/>
+            <circle cx="48" cy="30" r="4.5" fill="#FF6B00"/>
+            <rect x="8" y="43" width="30" height="13" rx="3.5" fill="#fff" stroke="#DCD4C2" stroke-width="1.5" transform="rotate(-2 23 49)"/>
+            <circle cx="48" cy="48" r="4.5" fill="#FF6B00"/>
+          </svg>
+          <span>The fun way</span>
+        </button>
+        <button class="tg-btn" id="tgText" type="button" aria-pressed="false">
+          <svg class="tg-thumb" viewBox="0 0 96 60" aria-hidden="true" focusable="false">
+            <rect x="9" y="7" width="20" height="7" rx="3.5" fill="#FF6B00"/>
+            <rect x="9" y="19" width="78" height="4" rx="2" fill="#D9D2C2"/>
+            <rect x="9" y="27" width="54" height="4" rx="2" fill="#D9D2C2"/>
+            <rect x="9" y="36" width="20" height="7" rx="3.5" fill="#FF6B00"/>
+            <rect x="9" y="48" width="78" height="4" rx="2" fill="#D9D2C2"/>
+          </svg>
+          <span>Text only</span>
+        </button>
+      </div>
   </div>
   <div class="tl">
     <div class="tl-item">
