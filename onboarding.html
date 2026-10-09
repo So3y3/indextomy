@@ -72,18 +72,18 @@
   .bar-menu .bm-cta{ background:var(--ink); color:#fff; }
   .bar-menu .bm-cta:hover{ background:var(--pop-deep); color:#fff; }
 
-  .ob-meter{ margin-top:10px; display:flex; flex-direction:column; align-items:center; }
+  .ob-meter{ position:absolute; top:122px; right:24px; width:190px; display:flex; flex-direction:column; align-items:stretch; gap:8px; z-index:5; }
   .progress-track{ width:100%; height:4px; background:rgba(20,20,20,.08); border-radius:999px; overflow:hidden; }
   .progress-fill{ height:100%; width:25%; background:var(--pop); border-radius:999px; transition:width .45s cubic-bezier(.4,0,.2,1); }
-  .step-dots{ display:inline-flex; gap:7px; align-items:center; padding:7px 14px; margin-top:8px; background:rgba(255,255,255,.85); border:1.5px solid rgba(20,20,20,.07); border-radius:999px; box-shadow:0 6px 18px rgba(20,20,20,.08); white-space:nowrap; }
-  .ob-priv{ font-size:.62rem; font-weight:600; color:var(--soft); letter-spacing:.04em; margin:6px 0 0; }
+  .step-dots{ display:flex; justify-content:center; gap:7px; align-items:center; padding:7px 14px; background:rgba(255,255,255,.85); border:1.5px solid rgba(20,20,20,.07); border-radius:999px; box-shadow:0 6px 18px rgba(20,20,20,.08); white-space:nowrap; }
+  .ob-priv{ font-size:.66rem; font-weight:600; color:var(--soft); letter-spacing:.04em; margin:10px 0 0; text-align:right; width:100%; }
   .step-dot{ width:7px; height:7px; border-radius:50%; background:var(--line); transition:background .25s, transform .25s; }
   .step-dot.active{ background:var(--pop); transform:scale(1.4); }
   .step-dot.done{ background:var(--ink); }
   .step-label{ font-size:.68rem; font-weight:600; color:var(--soft); margin-left:5px; }
 
   /* MAIN + STEPS */
-  .ob-main{ min-height:100vh; width:100%; max-width:1080px; margin:0 auto; display:flex; flex-direction:column; align-items:flex-start; padding:196px 24px 60px; }
+  .ob-main{ position:relative; min-height:100vh; width:100%; max-width:1080px; margin:0 auto; display:flex; flex-direction:column; align-items:flex-start; padding:196px 24px 60px; }
   .step{ display:none; width:100%; animation:fadeUp .35s ease both; }
   .step.active{ display:block; }
   @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
@@ -190,6 +190,10 @@
     .scale-pills{ width:100%; justify-content:space-between; }
     .scale-pill{ width:44px; height:38px; }
   }
+  @media(max-width:759px){
+    .ob-meter{ position:static; width:100%; max-width:260px; margin:0 0 18px; align-items:stretch; }
+    .ob-main{ padding-top:104px; }
+  }
 </style>
 </head>
 <body>
@@ -217,8 +221,11 @@
       <a href="/new#book-form" class="bm-cta">Book a session</a>
     </div>
   </nav>
-  <div class="ob-meter">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<main class="ob-main">
+
+<div class="ob-meter">
     <div class="step-dots">
       <div class="step-dot active" id="dot-1"></div>
       <div class="step-dot" id="dot-2"></div>
@@ -226,11 +233,8 @@
       <div class="step-dot" id="dot-4"></div>
       <span class="step-label" id="dot-label">Step 1 of 4</span>
     </div>
-    <p class="ob-priv">Private &amp; confidential</p>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   </div>
-</div>
-
-<main class="ob-main">
 
 <!-- honeypot: real people never see this -->
 <div class="hp-field" aria-hidden="true">
@@ -329,6 +333,7 @@
     <span></span>
     <button class="btn-next" onclick="goNext(1)">Next <span class="dot">&rarr;</span></button>
   </div>
+  <p class="ob-priv">Private &amp; confidential</p>
 </div>
 
 
@@ -450,6 +455,7 @@
     <button class="btn-back" onclick="goBack(2)">&larr; Back</button>
     <button class="btn-next" onclick="goNext(2)">Next <span class="dot">&rarr;</span></button>
   </div>
+  <p class="ob-priv">Private &amp; confidential</p>
 </div>
 
 
@@ -591,6 +597,7 @@
     <button class="btn-back" onclick="goBack(3)">&larr; Back</button>
     <button class="btn-next" onclick="goNext(3)">Next <span class="dot">&rarr;</span></button>
   </div>
+  <p class="ob-priv">Private &amp; confidential</p>
 </div>
 
 
@@ -669,6 +676,7 @@
     <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
     <button class="btn-submit" id="submit-btn" onclick="submitForm()">Send it off</button>
   </div>
+  <p class="ob-priv">Private &amp; confidential</p>
 </div>
 
 <!-- SUCCESS -->

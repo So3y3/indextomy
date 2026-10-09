@@ -310,29 +310,47 @@
   }
   .tl-story .story-year:first-child{margin-top:0;}
   body.tl-textview .tl{display:none;}
-  body.tl-textview .tl-intro, body.tl-textview .fut-deck{display:none;}
-  body.tl-textview .tl-hero{display:block;}
-  /* future deck: goals / plan / vision cards (same family as the For coaches deck) */
+  body.tl-textview .fut-deck{display:none;}
+  body.tl-textview .tl-hero{min-height:0;}
+  /* future deck: goals / plan / vision cards (For coaches family, soft glow instead of fill) */
   .tl-hero{display:block;}
-  .fut-deck{position:relative; display:flex; flex-direction:column; gap:12px; margin:8px 0 26px 44px; max-width:420px;}
+  .fut-deck{position:relative; display:flex; flex-direction:column; gap:16px; margin:10px 0 34px 44px; max-width:440px; z-index:2;}
   .fut-card{
-    border:1.5px solid var(--line); border-radius:22px; padding:16px 18px 15px; background:var(--card);
-    box-shadow:0 10px 26px rgba(20,20,20,.08);
-    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease;
+    position:relative; border:1.5px solid var(--line); border-radius:24px; padding:20px 20px 18px; background:transparent; isolation:isolate;
+    display:grid; gap:10px; justify-items:start;
+    box-shadow:0 14px 30px rgba(20,20,20,.08);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
   }
-  .fut-card:hover{transform:rotate(0) translateY(-5px); box-shadow:0 18px 38px rgba(20,20,20,.15);}
-  .f-tag{display:block; font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;}
-  .f-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.08rem; line-height:1.12; margin:0 0 6px;}
-  .f-p{font-size:.82rem; line-height:1.5; margin:0; color:var(--soft);}
-  .f-a{background:#fff; border-color:rgba(255,107,0,.4); transform:rotate(-2.2deg);}
-  .f-a .f-tag{color:var(--pop-deep);}
-  .f-b{background:#F2F5FF; border-color:rgba(0,56,255,.3); transform:rotate(1.8deg);}
-  .f-b .f-tag{color:#0038FF;}
-  .f-c{background:var(--ink); border-color:var(--ink); color:#F7F6F2; transform:rotate(-1.4deg);}
-  .f-c .f-tag{color:var(--pop);}
-  .f-c .f-p{color:rgba(247,246,242,.78);}
-  .tl-intro{position:relative;}
-  .tl-bend{display:none;}
+  .f-glow{
+    position:absolute; inset:-4px -10px -18px; z-index:-1; border-radius:44px; filter:blur(28px); opacity:.75;
+    background:var(--glow, rgba(255,107,0,.4)); pointer-events:none; transition:opacity .35s ease;
+  }
+  .fut-deck{z-index:2;}
+  .fut-card::after{
+    content:""; position:absolute; inset:0; z-index:-1; border-radius:22px; background:#fff; pointer-events:none;
+  }
+  .f-b::after{background:#FBFCFF;}
+  .f-glow{z-index:-2 !important;}
+  .fut-card:hover{transform:rotate(0) translateY(-6px); box-shadow:0 20px 40px rgba(20,20,20,.14); z-index:9;}
+  .fut-card:hover .f-glow{opacity:1;}
+  .f-tag{font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;}
+  .f-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.3rem; line-height:1.1; margin:0;}
+  .f-p{font-size:.86rem; line-height:1.5; margin:0; color:var(--soft);}
+  .f-chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .f-chip{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.7rem; background:#fff;
+    border:1.5px solid rgba(20,20,20,.1); border-radius:999px; padding:4px 11px; box-shadow:0 2px 0 rgba(20,20,20,.14);
+  }
+  .f-chip:nth-child(odd){transform:rotate(-2deg);}
+  .f-chip:nth-child(even){transform:rotate(1.6deg);}
+  .f-a{--glow:rgba(255,107,0,.5); border-color:rgba(255,107,0,.4); transform:rotate(-2.4deg);}
+  .f-a .f-tag, .f-a .f-chip{color:var(--pop-deep);}
+  .f-b{--glow:rgba(0,56,255,.42); border-color:rgba(0,56,255,.3); transform:rotate(2deg);}
+  .f-b .f-tag, .f-b .f-chip{color:#0038FF;}
+  .f-b .f-chip{border-color:rgba(0,56,255,.28);}
+  .f-c{--glow:rgba(20,20,20,.3); border-color:rgba(20,20,20,.55); transform:rotate(-1.4deg);}
+  .f-c .f-tag{color:var(--pop-deep);}
+  .tl-intro, .tl-bend{display:none;}
   @media (prefers-reduced-motion: reduce){
     .tl-item, .tl-body, .tl-plus, .tl-dot, .tl-card{transition:none !important;}
   }
@@ -483,15 +501,14 @@
     .tl-head h1{font-size:3.4rem;}
     .tl{max-width:940px;}
     .tl::before{left:50%; margin-left:-1.5px; top:0; bottom:20px;}
-    .tl-hero{display:grid; grid-template-columns:1fr 340px; gap:28px; align-items:start;}
-    .tl-hero .tl-head{margin-bottom:0;}
-    .fut-deck{margin:6px 0 0; max-width:none; gap:0; height:468px;}
-    .fut-card{position:absolute; width:246px;}
-    .f-a{left:0; top:0; z-index:2;}
-    .f-b{right:0; top:158px; z-index:3;}
-    .f-c{left:18px; top:318px; z-index:1;}
-    .tl-intro{height:70px; margin-bottom:-2px;}
-    .tl-bend{display:block; position:absolute; left:0; top:0; width:100%; height:100%; overflow:visible; pointer-events:none;}
+    .tl-hero{display:block; position:relative; min-height:500px;}
+    .tl-hero .tl-head{margin-bottom:0; position:relative; z-index:3;}
+    .fut-deck{position:absolute; inset:0; margin:0; max-width:none; display:block; pointer-events:none;}
+    .fut-card{position:absolute; width:300px; pointer-events:auto;}
+    /* the first dot sits at the page center, 40px under the hero: cards frame it left and right */
+    .f-a{right:calc(50% + 40px); bottom:36px; z-index:3;}
+    .f-b{left:calc(50% + 40px); bottom:92px; z-index:2;}
+    .f-c{right:0; top:6px; z-index:1; width:290px;}
     .tl-item{display:block; position:relative; margin-bottom:-54px;}
     .tl-item:last-of-type{margin-bottom:10px;}
     .tl-item.open{margin-bottom:-8px;}
@@ -499,8 +516,8 @@
     .tl-dot{position:absolute; left:50%; top:38px; transform:translateX(-50%); margin-top:0;}
     .tl-item:first-child .tl-dot{margin-top:0;}
     .tl-box{display:block; max-width:min(430px, 44%); margin:0 auto; text-align:center;}
-    .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(50% + 38px));}
-    .tl-item:nth-child(even) .tl-box{transform:translateX(calc(-50% - 38px));}
+    .tl-item:nth-child(odd) .tl-box{transform:translateX(calc(-50% - 38px));}
+    .tl-item:nth-child(even) .tl-box{transform:translateX(calc(50% + 38px));}
     .tl-card{text-align:left;}
     .steps-3 section.card{margin-left:0; margin-right:0;}
     .split{max-width:760px; padding:0 24px;}
@@ -607,37 +624,38 @@
 
 <div class="tl-section" id="story">
   <div class="tl-hero">
-  <div class="tl-head">
-    <p class="kicker">About me</p>
-    <h1 class="disp">The story <span class="hl">so far.</span></h1>
-    <p class="tl-sub">The future sits at the top. The plot thickens as you go down.</p>
-    <div class="tl-toggle" role="group" aria-label="How to read the story">
-      <button class="tg-btn active" id="tgFun" type="button" aria-pressed="true">The fun way</button>
-      <button class="tg-btn" id="tgText" type="button" aria-pressed="false">Text only</button>
+    <div class="tl-head">
+      <p class="kicker">About me</p>
+      <h1 class="disp">The story <span class="hl">so far.</span></h1>
+      <p class="tl-sub">The future sits at the top. The plot thickens as you go down.</p>
+      <div class="tl-toggle" role="group" aria-label="How to read the story">
+        <button class="tg-btn active" id="tgFun" type="button" aria-pressed="true">The fun way</button>
+        <button class="tg-btn" id="tgText" type="button" aria-pressed="false">Text only</button>
+      </div>
     </div>
-  </div>
-  <div class="fut-deck" id="futDeck">
-    <div class="fut-card f-a">
-      <span class="f-tag">01 &middot; Goals</span>
-      <p class="f-h">More tools in more hands</p>
-      <p class="f-p">Free tools, worksheets and planners for coaches, and a blog that keeps getting more honest.</p>
+    <div class="fut-deck" id="futDeck">
+      <div class="fut-card f-a">
+        <span class="f-glow" aria-hidden="true"></span>
+        <span class="f-tag">01 &middot; Goals</span>
+        <p class="f-h">More tools in more hands.</p>
+        <p class="f-p">Free tools, worksheets and planners for coaches, and a blog that keeps getting more honest.</p>
+        <span class="f-chips"><span class="f-chip">Tools</span><span class="f-chip">Blog</span><span class="f-chip">Free</span></span>
+      </div>
+      <div class="fut-card f-b">
+        <span class="f-glow" aria-hidden="true"></span>
+        <span class="f-tag">02 &middot; Plan</span>
+        <p class="f-h">One real change at a time.</p>
+        <p class="f-p">A practice that grows the way I coach: small honest steps, tested in real sessions.</p>
+        <span class="f-chips"><span class="f-chip">Small</span><span class="f-chip">Honest</span><span class="f-chip">Tested</span></span>
+      </div>
+      <div class="fut-card f-c">
+        <span class="f-glow" aria-hidden="true"></span>
+        <span class="f-tag">03 &middot; Vision</span>
+        <p class="f-h">The place people land.</p>
+        <p class="f-p">coach kris. is where you go when you're done circling the same problem.</p>
+        <span class="f-chips"><span class="f-chip">Clarity</span><span class="f-chip">Action</span></span>
+      </div>
     </div>
-    <div class="fut-card f-b">
-      <span class="f-tag">02 &middot; Plan</span>
-      <p class="f-h">One real change at a time</p>
-      <p class="f-p">A practice that grows the way I coach: small honest steps, tested in real sessions.</p>
-    </div>
-    <div class="fut-card f-c">
-      <span class="f-tag">03 &middot; Vision</span>
-      <p class="f-h">The place people land</p>
-      <p class="f-p">coach kris. is where you go when you're done circling the same problem.</p>
-    </div>
-  </div>
-  </div>
-  <div class="tl-intro">
-    <svg class="tl-bend" id="tlBend" aria-hidden="true" preserveAspectRatio="none">
-      <path id="tlBendPath" fill="none" stroke="rgba(255,107,0,.55)" stroke-width="3" stroke-dasharray="10 7"/>
-    </svg>
   </div>
   <div class="tl">
     <div class="tl-item">
@@ -854,21 +872,6 @@
     tgFun.addEventListener('click', function(){ setStoryView(true); });
     tgText.addEventListener('click', function(){ setStoryView(false); });
   }
-  function drawBend(){
-    var intro=document.querySelector('.tl-intro'), svg=document.getElementById('tlBend'), path=document.getElementById('tlBendPath'), card=document.querySelector('.f-b');
-    if(!intro||!svg||!path||!card) return;
-    if(window.innerWidth<760){ svg.style.display='none'; return; }
-    svg.style.display='block';
-    var ir=intro.getBoundingClientRect(), cr=card.getBoundingClientRect();
-    var w=ir.width, h=ir.height, cx=w/2;
-    var sx=Math.min(Math.max(cr.left-ir.left+cr.width*0.5, 40), w-20);
-    svg.setAttribute('viewBox','0 0 '+w+' '+h);
-    var mid=h*0.52;
-    path.setAttribute('d','M'+sx+' 0 C'+sx+' '+mid+' '+cx+' '+(h-mid)+' '+cx+' '+h);
-  }
-  window.addEventListener('resize', drawBend);
-  window.addEventListener('load', drawBend);
-  drawBend();
   var dots = document.getElementById('barDots');
   var menu = document.getElementById('barMenu');
   if(dots && menu){
