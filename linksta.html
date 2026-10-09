@@ -19,8 +19,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Fredoka:wght@600;700&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Fredoka:wght@600;700&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
 
   <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
 
@@ -61,13 +61,18 @@
     .phone{border-radius:0 0 30px 30px; box-shadow:none; padding-top:max(16px, env(safe-area-inset-top));}
   }
 
-  /* hero: clear space, no bubble */
-  .hero{padding:14px 10px 10px; color:#F7F6F2;}
-  .mark{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.98rem; color:#F7F6F2;}
+  /* hero block (as the reference: name + title left, photo right) */
+  .hero{
+    background:var(--hero-bg); color:var(--ink); border-radius:24px; padding:14px 14px 16px 18px;
+    display:grid; grid-template-columns:1fr 112px; grid-template-areas:"mark photo" "name photo" "role photo"; column-gap:14px; align-items:end;
+    position:relative; overflow:hidden;
+  }
+  :root{--hero-bg:#E8EDFF;}
+  .mark{grid-area:mark; align-self:start; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.8rem; color:var(--ink); opacity:.85; margin-bottom:22px;}
   .mark b{color:var(--pop);}
-  .hero .photo{display:block; width:128px; height:142px; margin:18px auto 14px; border-radius:26px; object-fit:cover; object-position:50% 18%; transform:rotate(2.4deg); box-shadow:0 14px 34px rgba(0,0,0,.45);}
-  .hero h1{font-size:1.95rem; line-height:1.05; text-align:center;}
-  .hero .role{text-align:center; font-size:.86rem; color:#B5B1A8; margin-top:7px;}
+  .hero h1{grid-area:name; font-size:1.55rem; line-height:1.05; margin-bottom:7px; align-self:end;}
+  .hero .role{grid-area:role; font-size:.8rem; line-height:1.4; color:#4a4a58; max-width:24ch; align-self:start;}
+  .hero .photo{grid-area:photo; align-self:stretch; width:112px; height:100%; min-height:128px; border-radius:18px; object-fit:cover; object-position:50% 18%; display:block; box-shadow:0 8px 20px rgba(20,20,20,.16);}
 
   /* wide pill rows */
   .row{
@@ -163,17 +168,30 @@
   .post:hover .go{background:var(--pop); color:#fff;}
   .post .go svg{width:14px; height:14px;}
 
-  /* websites band */
-  .web{
-    margin-top:10px; background:var(--pop); color:#fff; border-radius:22px; padding:16px 16px 15px; display:block; position:relative; overflow:hidden;
+  /* Wee Sites box: its own look (cream, periwinkle, navy, lemon, coral, Fredoka) with Kris tilted chips */
+  .ws{
+    --w-peri:#7289DA; --w-navy:#18214A; --w-lemon:#F7FF72; --w-coral:#FF9D7E; --w-cream:#FFF9EC; --w-mint:#B9F2D9;
+    display:block; position:relative; overflow:hidden; margin-top:10px; background:var(--w-cream); color:var(--w-navy);
+    border-radius:26px; padding:18px 18px 16px; font-family:'Fredoka','Instrument Sans',sans-serif;
     transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
   }
-  .web:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,.4);}
-  .web .wk{font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; opacity:.9;}
-  .web .wh{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.3rem; line-height:1.08; margin:5px 0 6px;}
-  .web .wp{font-size:.8rem; line-height:1.45; max-width:30ch; opacity:.95;}
-  .web .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;}
-  .web .chip{color:var(--ink);}
+  .ws:hover{transform:translateY(-3px) rotate(-.5deg); box-shadow:0 14px 30px rgba(0,0,0,.4);}
+  .ws::before{content:""; position:absolute; width:150px; height:150px; border-radius:50%; background:var(--w-peri); opacity:.9; right:-44px; top:-52px;}
+  .ws::after{content:""; position:absolute; width:74px; height:74px; border-radius:50%; background:var(--w-lemon); right:70px; top:56px; opacity:.95;}
+  .ws > *{position:relative; z-index:1;}
+  .ws-logo{display:flex; align-items:center; gap:8px; font-weight:700; font-size:1.3rem; color:var(--w-navy);}
+  .ws-logo i{width:.78em; height:.78em; background:var(--w-coral); border-radius:50%; display:inline-block;}
+  .ws-k{display:block; margin-top:12px; font-size:.64rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--w-peri);}
+  .ws-h{font-weight:700; font-size:1.4rem; line-height:1.08; margin:4px 0 7px; max-width:12ch; text-wrap:balance;}
+  .ws-p{font-family:'Instrument Sans',sans-serif; font-size:.82rem; line-height:1.5; max-width:31ch; color:#3b4366;}
+  .ws-p b{background:var(--w-lemon); padding:0 5px; border-radius:6px; color:var(--w-navy);}
+  .ws-chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
+  .ws-chip{font-weight:600; font-size:.7rem; background:#fff; color:var(--w-navy); border:1.5px solid rgba(24,33,74,.14); border-radius:999px; padding:4px 11px; box-shadow:0 2px 0 rgba(24,33,74,.2);}
+  .ws-chip:nth-child(odd){transform:rotate(-2deg);}
+  .ws-chip:nth-child(even){transform:rotate(1.6deg);}
+  .ws-chip.hi{background:var(--w-navy); color:#fff; border-color:var(--w-navy);}
+  .ws-go{display:inline-flex; align-items:center; gap:7px; margin-top:14px; background:var(--w-coral); color:var(--w-navy); font-weight:700; font-size:.82rem; border-radius:999px; padding:9px 16px; transition:background .2s;}
+  .ws:hover .ws-go{background:var(--w-lemon);}
 
   /* socials */
   .socials{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;}
@@ -201,12 +219,12 @@
 
   <header class="hero">
     <div class="mark">coach kris<b>.</b></div>
-    <img class="photo" src="/kristian.jpg" alt="Kristian Sokol, certified coach" width="128" height="142">
+    <img class="photo" src="/kristian.jpg" alt="Kristian Sokol, certified coach" width="112" height="128">
     <h1 class="disp">Kristian Sokol</h1>
     <p class="role">Certified life, longevity and business coach.</p>
   </header>
 
-  <a class="row" href="/new#book-form">
+  <a class="row" href="/new#book">
     <span class="t">Book a session<span class="s">Your first discovery call is free</span></span>
     <span class="pill">Schedule
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
@@ -274,11 +292,13 @@
     </a>
   </div>
 
-  <a class="web" href="https://www.weesites.co.uk" rel="noopener">
-    <span class="wk">My other thing</span>
-    <p class="wh">Need a web that works?</p>
-    <p class="wp">Hand-coded sites for £99, no monthly fees. Mention <b>coach101</b> for 2 free coaching sessions.</p>
-    <span class="chips"><span class="chip">weesites.co.uk</span><span class="chip">£99 flat</span><span class="chip">No monthly fees</span><span class="chip">Hand-coded</span></span>
+  <a class="ws" href="https://www.weesites.co.uk" rel="noopener">
+    <span class="ws-logo"><i aria-hidden="true"></i>wee sites</span>
+    <span class="ws-k">My other thing</span>
+    <p class="ws-h">Need a web that works?</p>
+    <p class="ws-p">Hand-coded sites for £99, no monthly fees. Say <b>coach101</b> for 2 free coaching sessions.</p>
+    <span class="ws-chips"><span class="ws-chip hi">weesites.co.uk</span><span class="ws-chip">£99 flat</span><span class="ws-chip">Hand-coded</span></span>
+    <span class="ws-go">See the sites <span aria-hidden="true">&rarr;</span></span>
   </a>
 
   <h2 class="sec">Find me</h2>
