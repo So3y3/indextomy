@@ -286,6 +286,9 @@
   .tl-body-in{overflow:hidden; display:block; min-height:0;}
   .tl-body-in p{color:var(--soft); font-size:.9rem; line-height:1.55; margin:0; padding-top:10px;}
   .tl-more{text-align:center; margin:34px 0 22px; position:relative;}
+  @media (prefers-reduced-motion: reduce){
+    .tl-item, .tl-body, .tl-plus, .tl-dot, .tl-card{transition:none !important;}
+  }
   /* orange statement */
 .statement{
     position:relative; overflow:hidden; isolation:isolate;
@@ -677,12 +680,8 @@
     if(card) card.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 
-  if(reduce){
-    items.forEach(function(it){ setOpen(it, true); });
-  } else {
-    items.forEach(function(it){ setOpen(it, false); });
-    if(items.length){ setOpen(items[0], true); }
-  }
+  items.forEach(function(it){ setOpen(it, false); });
+  if(items.length){ setOpen(items[0], true); }
 
   items.forEach(function(item){
     var card = item.querySelector('.tl-card');
