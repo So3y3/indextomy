@@ -61,28 +61,13 @@
     .phone{border-radius:0 0 30px 30px; box-shadow:none; padding-top:max(16px, env(safe-area-inset-top));}
   }
 
-  /* top mini links */
-  .top{display:flex; justify-content:space-between; align-items:center; padding:2px 8px 14px; font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;}
-  .top a{color:#F7F6F2; opacity:.85; transition:opacity .2s, color .2s;}
-  .top a:hover{opacity:1; color:var(--pop);}
-  .top .left{display:flex; gap:14px;}
-
-  /* profile tile */
-  .profile{
-    background:var(--pop-soft); color:var(--ink); border-radius:24px; padding:18px 16px 18px 20px;
-    display:grid; grid-template-columns:1fr 112px; gap:14px; align-items:center; position:relative; overflow:hidden;
-  }
-  .profile h1{font-size:1.7rem; line-height:1.05; margin-bottom:8px;}
-  .profile h1 b{color:var(--pop);}
-  .profile .role{font-size:.84rem; line-height:1.45; color:#4a463f; max-width:22ch;}
-  .profile .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px;}
-  .chip{
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.66rem; background:#fff;
-    border:1.5px solid rgba(20,20,20,.1); border-radius:999px; padding:3px 10px; box-shadow:0 2px 0 rgba(20,20,20,.14);
-  }
-  .chip:nth-child(odd){transform:rotate(-2deg);}
-  .chip:nth-child(even){transform:rotate(1.6deg);}
-  .avatar{width:112px; height:128px; border-radius:20px; object-fit:cover; object-position:50% 20%; display:block; transform:rotate(2.4deg); box-shadow:0 10px 24px rgba(20,20,20,.2); border:3px solid #fff;}
+  /* hero: clear space, no bubble */
+  .hero{padding:14px 10px 10px; color:#F7F6F2;}
+  .mark{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:.98rem; color:#F7F6F2;}
+  .mark b{color:var(--pop);}
+  .hero .photo{display:block; width:128px; height:142px; margin:18px auto 14px; border-radius:26px; object-fit:cover; object-position:50% 18%; transform:rotate(2.4deg); box-shadow:0 14px 34px rgba(0,0,0,.45);}
+  .hero h1{font-size:1.95rem; line-height:1.05; text-align:center;}
+  .hero .role{text-align:center; font-size:.86rem; color:#B5B1A8; margin-top:7px;}
 
   /* wide pill rows */
   .row{
@@ -149,7 +134,7 @@
   .ok{display:none; text-align:left; padding:6px 2px 4px;}
   .ok b{font-family:'Bricolage Grotesque',sans-serif; font-size:1.2rem; display:block; margin-bottom:4px;}
   .ok span{font-size:.86rem; color:var(--soft);}
-  .mini .fine{font-size:.7rem; color:var(--soft); margin-top:10px;}
+  .mini .fine{font-size:.7rem; color:var(--soft); margin-top:10px; text-align:right;}
   .mini .fine a{color:var(--pop-deep); font-weight:600;}
 
   /* tools list: compact 2-col pills */
@@ -214,27 +199,24 @@
 
 <main class="phone">
 
-  <div class="top">
-    <div class="left">
-      <a href="https://www.instagram.com/kristian.sokol/" rel="noopener">IG</a>
-      <a href="https://app.coach.me/CoachKris" rel="noopener">Coach.me</a>
-    </div>
-    <a href="#msg">Message</a>
-  </div>
-
-  <section class="profile">
-    <div>
-      <h1 class="disp">Kris<b>.</b></h1>
-      <p class="role">Life, longevity and business coach. Online, worldwide.</p>
-      <div class="chips"><span class="chip">£45 a session</span><span class="chip">No packages</span><span class="chip">First chat free</span></div>
-    </div>
-    <img class="avatar" src="/kristian.jpg" alt="Kris, certified coach" width="112" height="128">
-  </section>
+  <header class="hero">
+    <div class="mark">coach kris<b>.</b></div>
+    <img class="photo" src="/kristian.jpg" alt="Kristian Sokol, certified coach" width="128" height="142">
+    <h1 class="disp">Kristian Sokol</h1>
+    <p class="role">Certified life, longevity and business coach.</p>
+  </header>
 
   <a class="row" href="/new#book-form">
-    <span class="t">Book a session<span class="s">Your first discovery chat is free</span></span>
+    <span class="t">Book a session<span class="s">Your first discovery call is free</span></span>
     <span class="pill">Schedule
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+    </span>
+  </a>
+
+  <a class="row" href="https://www.coachkris.co.uk" rel="noopener">
+    <span class="t">The main website<span class="s">Everything, one place</span></span>
+    <span class="pill">Visit
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
     </span>
   </a>
 
@@ -296,7 +278,7 @@
     <span class="wk">My other thing</span>
     <p class="wh">Need a web that works?</p>
     <p class="wp">Hand-coded sites for £99, no monthly fees. Mention <b>coach101</b> for 2 free coaching sessions.</p>
-    <span class="chips"><span class="chip">£99 flat</span><span class="chip">No monthly fees</span><span class="chip">Hand-coded</span></span>
+    <span class="chips"><span class="chip">weesites.co.uk</span><span class="chip">£99 flat</span><span class="chip">No monthly fees</span><span class="chip">Hand-coded</span></span>
   </a>
 
   <h2 class="sec">Find me</h2>
