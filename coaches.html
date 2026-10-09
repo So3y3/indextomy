@@ -173,7 +173,8 @@
   .tk-gate-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.5rem,5vw,2rem); line-height:1.15; margin:0 0 10px;}
   .tk-gate-sub{color:var(--soft); font-size:.95rem; margin:0 0 20px;}
   #tkForm{display:grid; gap:10px; text-align:left;}
-  .tk-fields{display:grid; grid-template-columns:1fr 1.4fr; gap:10px;}
+  .tk-fields{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .tk-fields input[type=email]{grid-column:1 / -1;}
   .tk-fields input{
     width:100%; padding:13px 15px; border:1.5px solid var(--line); border-radius:14px;
     background:var(--paper); font:inherit; font-size:.95rem; color:var(--ink);
@@ -189,7 +190,17 @@
   }
   .tk-gate-done.show{display:block;}
   .tk-gate-fine{color:var(--soft); font-size:.78rem; margin:16px 0 0;}
-  @media(max-width:600px){ .tk-fields{grid-template-columns:1fr;} }
+  .tk-peek{max-width:720px; margin:14px auto 0; text-align:center;}
+  .tk-peek-tag{display:block; font-size:.66rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--pop-deep); margin-bottom:10px;}
+  .tk-peek-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
+  .tk-peek-card{
+    position:relative; background:rgba(255,255,255,.55); border:1.5px dashed var(--line);
+    border-radius:16px; padding:13px 13px 12px; text-align:left; display:grid; gap:4px;
+  }
+  .tk-peek-name{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.86rem; color:var(--ink);}
+  .tk-peek-desc{color:var(--soft); font-size:.76rem; line-height:1.4;}
+  .tk-peek-card svg{position:absolute; top:10px; right:10px; opacity:.5;}
+  @media(max-width:600px){ .tk-fields{grid-template-columns:1fr;} .tk-peek-grid{grid-template-columns:1fr 1fr;} }
 
   /* hero collage (floating tool cards) */
   .hero-deck{position:relative; width:100%; height:370px; max-width:330px; margin:30px auto 8px;}
@@ -769,9 +780,9 @@
       <span class="d-chips"><span class="d-chip">BMI</span><span class="d-chip">Sleep</span><span class="d-chip">Beliefs</span></span>
     </div>
     <div class="deck-card d-c">
-      <span class="d-tag">03 &middot; Planner</span>
-      <span class="d-h">One A4 sheet.</span>
-      <span class="d-chips"><span class="d-chip">Print</span><span class="d-chip">PDF</span></span>
+      <span class="d-tag">03 &middot; Websites</span>
+      <span class="d-h">I hand-code those too.</span>
+      <span class="d-chips"><span class="d-chip">Design</span><span class="d-chip">SEO</span></span>
     </div>
     <span class="d-float f1">one quick signup</span>
     <span class="d-float f2">yours now</span>
@@ -789,7 +800,8 @@
         <p class="tk-gate-sub">Every tool on this page, plus the downloadable versions for your own sessions. Free, no strings.</p>
         <form id="tkForm" novalidate>
           <div class="tk-fields">
-            <input type="text" id="tkName" name="name" placeholder="First name" autocomplete="given-name" required>
+            <input type="text" id="tkFirst" name="first_name" placeholder="First name" autocomplete="given-name" required>
+            <input type="text" id="tkLast" name="surname" placeholder="Surname" autocomplete="family-name" required>
             <input type="email" id="tkEmail" name="email" placeholder="Email address" autocomplete="email" required>
           </div>
           <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -799,6 +811,17 @@
         </form>
         <div class="tk-gate-done" id="tkDone"><strong>Unlocked.</strong> The whole toolkit is yours, below.</div>
         <p class="tk-gate-fine">Free forever. No spam, ever. You only ever hear from me about coaching.</p>
+      </div>
+      <div class="tk-peek" aria-hidden="true">
+        <span class="tk-peek-tag">What's waiting for you</span>
+        <div class="tk-peek-grid">
+          <div class="tk-peek-card"><span class="tk-peek-name">Weekly planner</span><span class="tk-peek-desc">Routines and reflection on one A4 sheet.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Wheel of Life</span><span class="tk-peek-desc">Eight areas, one honest snapshot.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Wheel of Business</span><span class="tk-peek-desc">See where the business quietly stalls.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Belief rewrite</span><span class="tk-peek-desc">Old story out, new truth in.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">BMI calculator</span><span class="tk-peek-desc">A fast, honest starting point.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+          <div class="tk-peek-card"><span class="tk-peek-name">Sleep &amp; recovery score</span><span class="tk-peek-desc">Five questions, one next lever.</span><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M3 6V4.2a3 3 0 016 0V6" stroke="#6E6A63" stroke-width="1.4" stroke-linecap="round"/><rect x="1.6" y="6" width="8.8" height="6.2" rx="1.6" fill="#6E6A63"/></svg></div>
+        </div>
       </div>
     </div>
     <div class="tk-grid">
@@ -1676,15 +1699,16 @@ __fpScale();
 
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
-    var name = document.getElementById('tkName').value.trim();
+    var first = document.getElementById('tkFirst').value.trim();
+    var last = document.getElementById('tkLast').value.trim();
     var email = document.getElementById('tkEmail').value.trim();
     var gotcha = form.querySelector('.hp').value;
     var err = document.getElementById('tkErr');
     err.classList.remove('show');
     if(gotcha){ fakeSuccess(); return; }                       /* honeypot */
     if(Date.now() - loadedAt < 6000){ fakeSuccess(); return; } /* time trap */
-    if(!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
-      err.textContent = 'Pop in your name and a real email address, then try again.';
+    if(!first || !last || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      err.textContent = 'Pop in your first name, surname and a real email address, then try again.';
       err.classList.add('show');
       return;
     }
