@@ -159,6 +159,7 @@
   h1{font-size:clamp(2.35rem, 11.5vw, 4rem);}
   .hero-sub{color:var(--soft); font-size:1rem; margin:18px 0 26px; max-width:46ch;}
   .photo-card{position:relative; border-radius:26px; overflow:visible; margin:4px 0 10px;}
+  .photo-stack{display:none;}
   .photo-card img{
     width:100%; height:340px; object-fit:cover; object-position:top;
     border-radius:26px; border:1.5px solid var(--line);
@@ -461,17 +462,45 @@
     .hero-grid h1 .h-what{display:block;}
     .hero-grid h1 .h-go{display:inline-block; margin-top:8px;}
     .hero-grid h1 .br-d{display:none;}
-    .hero-grid h1{font-size:2.45rem; line-height:1.08; position:relative; z-index:2;}
-    .hero-grid .photo-side{position:absolute; top:64px; right:14px; width:122px; z-index:1; display:block; padding:0;}
+    .hero-grid h1{font-size:2.45rem; line-height:1.08; position:relative; z-index:2; pointer-events:none;}
+    .hero-grid .photo-side{position:absolute; top:64px; right:14px; width:auto; z-index:1; display:block; padding:0;}
     .hero-grid .photo-side .photo-card{max-width:none;}
     .hero-grid .photo-card{margin:0;}
     .hero-grid .photo-card::before{content:""; position:absolute; inset:0; transform:translate(9px, 9px); background:var(--pop); border-radius:50%;}
     .hero-grid .photo-card img{width:122px; height:122px; border-radius:50%; object-position:center 15%; border:2.5px solid #fff; box-shadow:0 12px 26px rgba(20,20,20,.2); position:relative;}
     .hero-grid .kicker{max-width:calc(100% - 140px);}
+    .hero-grid .photo-side .photo-card{display:none;}
+    .photo-stack{display:block; position:relative; width:196px; height:164px;}
+    .ph{position:absolute; border:none; padding:0; margin:0; background:#fff; border-radius:50%; overflow:hidden; cursor:pointer;
+        box-shadow:0 10px 22px rgba(20,20,20,.18); transition:transform .22s ease; -webkit-tap-highlight-color:transparent;}
+    .ph img{display:block; width:100%; height:100%; object-fit:cover; border-radius:50%; pointer-events:none;}
+    .ph-a{width:112px; height:112px; left:36px; top:52px; z-index:3;}
+    .ph-a img{object-position:center 15%;}
+    .ph-b{width:92px; height:92px; left:104px; top:0; z-index:2;}
+    .ph-c{width:92px; height:92px; left:-6px; top:0; z-index:1;}
+    .ph.top{transform:scale(1.14); z-index:9;}
+    .ph.top:active{transform:scale(1.2);}
+    .photo-stack::after{content:""; position:absolute; left:45px; top:61px; width:112px; height:112px; transform:translate(9px,9px);
+        background:var(--pop); border-radius:50%; z-index:0;}
   }
 </style>
 <script>
 (function(){ try{ var q=new URLSearchParams(location.search).get('photo'); if(['circle','sticker','ring','pop'].indexOf(q)>-1){ document.documentElement.classList.add('photo-'+q); } }catch(e){} })();
+</script>
+<script>
+(function(){
+  function init(){
+    var st=document.getElementById('photoStack'); if(!st) return;
+    var phs=[].slice.call(st.querySelectorAll('.ph'));
+    phs.forEach(function(p){
+      p.addEventListener('click',function(){
+        phs.forEach(function(o){ o.classList.remove('top'); });
+        p.classList.add('top');
+      });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
 </script>
 </head>
 <body>
@@ -514,6 +543,11 @@
   <div class="photo-side">
     <div class="photo-card">
       <img src="/kristian.jpg" alt="Kris, certified life, longevity and business coach" width="558" height="600" fetchpriority="high" decoding="async">
+    </div>
+    <div class="photo-stack" id="photoStack">
+      <button class="ph ph-c" type="button" aria-label="Kris in front of a clear blue sky"><img src="/kris-face-b.jpg" alt="Kris in front of a clear blue sky" width="480" height="480" decoding="async"></button>
+      <button class="ph ph-b" type="button" aria-label="Muscle shadow on a path"><img src="/kris-muscle.jpg" alt="Muscle shadow on a path" width="480" height="480" decoding="async"></button>
+      <button class="ph ph-a top" type="button" aria-label="Kris, certified coach"><img src="/kristian.jpg" alt="Kris, certified life, longevity and business coach" width="480" height="480" decoding="async"></button>
     </div>
   </div>
 </header>
