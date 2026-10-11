@@ -213,22 +213,24 @@
   .sw-dot{ fill:var(--pop); opacity:.55; }
   .sw-dot.d2{ opacity:.35; }
   #success-screen h2{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(2.3rem,7vw,3.6rem); line-height:1.12; letter-spacing:-.005em; margin-bottom:16px; }
-  .success-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px 14px; margin-top:34px; max-width:560px; }
-  .sl-box{ display:inline-flex; align-items:center; gap:9px; background:var(--card); border:2px solid var(--line); border-radius:14px; padding:11px 16px;
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.95rem; color:var(--ink); text-decoration:none;
-    transform:rotate(-2deg); transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
-  .sl-box:nth-child(2){ transform:rotate(1.5deg); }
-  .sl-box:nth-child(3){ transform:rotate(-1deg); }
-  .sl-box:nth-child(4){ transform:rotate(2deg); }
-  .sl-box:hover{ transform:rotate(0) translateY(-3px); border-color:var(--pop); box-shadow:0 10px 20px rgba(20,20,20,.10); }
-  .sl-n{ font-size:.62rem; font-weight:800; color:var(--pop-deep); letter-spacing:.06em; }
-  .sl-ig{ display:inline-flex; align-items:center; gap:7px; background:var(--pop); color:#fff; border:2px solid var(--pop); border-radius:999px;
-    padding:11px 18px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:.95rem; text-decoration:none;
-    transform:rotate(-1.5deg); transition:transform .2s ease, background .2s ease; }
-  .sl-ig:hover{ transform:rotate(0) translateY(-3px); background:var(--pop-deep); border-color:var(--pop-deep); }
   #success-screen p{ font-size:.92rem; color:var(--soft); line-height:1.75; max-width:52ch; margin:0 0 8px; }
   .success-sign{ margin-top:28px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.25rem; color:var(--pop-deep); }
 
+  /* FOOTER (same as the site) */
+  footer{ max-width:1080px; margin:0 auto; padding:0 24px 26px; width:100%; }
+  .foot-panel{ background:var(--card); border:1.5px solid var(--line); border-radius:28px; padding:26px 22px 20px; box-shadow:0 14px 36px rgba(20,20,20,.08); }
+  .foot-top{ display:flex; flex-direction:column; gap:18px; }
+  .foot-line{ font-size:.82rem; color:var(--soft); margin-top:6px; font-weight:600; }
+  .foot-links{ display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.85rem; font-weight:600; }
+  .foot-links a{ color:var(--ink); padding:4px 0; }
+  .foot-cred{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px; margin-top:22px; padding-top:18px; border-top:1.5px solid var(--line); }
+  .foot-cred img{ height:36px; width:auto; opacity:.9; filter:grayscale(1); }
+  .foot-cred img:hover{ opacity:1; filter:none; }
+  .foot-fine{ margin-top:18px; font-size:.78rem; color:var(--soft); font-weight:600; }
+  @media(min-width:900px){
+    .foot-top{ flex-direction:row; justify-content:space-between; align-items:flex-start; }
+    .foot-links{ max-width:420px; justify-content:flex-end; text-align:right; }
+  }
   @media(max-width:640px){
     .coaching-grid{ grid-template-columns:1fr; }
     .field-row{ grid-template-columns:1fr; }
@@ -744,16 +746,37 @@
   <p style="margin-bottom:14px;">Your answers are already with me. I'll read every word to make sure I create a coaching plan that really suits your needs. And I recommend bringing a notepad and pen, for taking some notes or for what comes up in the session.</p>
   <p>I'll be in touch shortly to confirm our time, and then we get going.</p>
   <p class="success-sign">- Kris</p>
-  <div class="success-links">
-    <a class="sl-box" href="/about.html"><span class="sl-n">01</span>About me</a>
-    <a class="sl-box" href="/focus.html"><span class="sl-n">02</span>My focus</a>
-    <a class="sl-box" href="/coaches.html"><span class="sl-n">03</span>For coaches</a>
-    <a class="sl-box" href="/blog.html"><span class="sl-n">04</span>Blog</a>
-    <a class="sl-ig" href="https://www.instagram.com/kristian.sokol" target="_blank" rel="noopener">Instagram</a>
-  </div>
 </div>
 
 </main>
+
+<footer>
+  <div class="foot-panel">
+    <div class="foot-top">
+      <div>
+        <a href="/new" class="wordmark">coach kris<b>.</b></a>
+        <p class="foot-line">Life · Longevity · Business coaching, online by video, worldwide.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About me</a>
+        <a href="/focus.html">My focus</a>
+        <a href="/coaches.html">For coaches</a>
+        <a href="/blog.html">Blog</a>
+        <a href="https://www.instagram.com/kristian.sokol/" rel="noopener">Instagram</a>
+        <a href="https://coachcompare.com/coach/16039-kristian-sokol" rel="noopener">CoachCompare</a>
+        <a href="https://app.coach.me/CoachKris" rel="noopener">Coach.me</a>
+      </div>
+    </div>
+    <div class="foot-cred">
+      <img src="/accreditations/cpd.png" alt="CPD accredited" width="50" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/nccap.png" alt="NCCAP accredited" width="49" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/cma.png" alt="CMA accredited" width="110" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/iphm.png" alt="IPHM accredited" width="91" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/icahp.png" alt="ICAHP accredited" width="70" height="47" loading="lazy" decoding="async">
+    </div>
+    <div class="foot-fine">&copy; coach kris. 2026 · Sessions online, by video, worldwide. Usually 60 minutes.</div>
+  </div>
+</footer>
 
 <script>
   (function(){
