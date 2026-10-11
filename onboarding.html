@@ -103,10 +103,8 @@
   .bar-menu .bm-cta:hover, .bar-menu .bm-cta:active{background:#FF8330; color:#fff; transform:translateY(-2px);}
   @media (prefers-reduced-motion: reduce){ .bar-menu.open, .bar-menu.open a{animation:none;} .bar-dots span{transition:none;} }
 
-  .ob-meter{ width:190px; display:flex; flex-direction:column; align-items:stretch; gap:8px; margin:0 0 14px auto; }
+  .ob-meter{ width:auto; display:flex; flex-direction:column; align-items:flex-end; margin:34px 0 12px auto; }
   .meter-slot{ display:flex; justify-content:flex-end; width:100%; }
-  .progress-track{ width:100%; height:4px; background:rgba(20,20,20,.08); border-radius:999px; overflow:hidden; }
-  .progress-fill{ height:100%; width:25%; background:var(--pop); border-radius:999px; transition:width .45s cubic-bezier(.4,0,.2,1); }
   .step-dots{ display:flex; justify-content:center; gap:7px; align-items:center; padding:7px 14px; background:rgba(255,255,255,.85); border:1.5px solid rgba(20,20,20,.07); border-radius:999px; box-shadow:0 6px 18px rgba(20,20,20,.08); white-space:nowrap; margin-right:auto; }
   .ob-priv{ font-size:.58rem; font-weight:600; color:var(--soft); letter-spacing:.04em; line-height:1.2; text-align:left; white-space:nowrap; }
   .step-dot{ width:7px; height:7px; border-radius:50%; background:var(--line); transition:background .25s, transform .25s; }
@@ -223,7 +221,7 @@
     .scale-pill{ width:44px; height:38px; }
   }
   @media(max-width:759px){
-    .ob-meter{ position:static; width:100%; max-width:260px; margin:0 0 18px; align-items:stretch; }
+    .ob-meter{ position:static; width:auto; margin:22px 0 12px auto; align-items:flex-end; }
     .ob-main{ padding-top:104px; }
   }
 </style>
@@ -278,7 +276,6 @@
       <div class="step-dot" id="dot-4"></div>
       <span class="step-label" id="dot-label">Step 1 of 4</span>
     </div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   </div>
 </div>
 
@@ -817,7 +814,6 @@
   }
 
   function updateProgress(n) {
-    document.getElementById('progressFill').style.width = ((n / TOTAL) * 100) + '%';
     document.getElementById('dot-label').textContent = 'Step ' + n + ' of ' + TOTAL;
     for (var i = 1; i <= TOTAL; i++) {
       var d = document.getElementById('dot-' + i);
@@ -1021,7 +1017,6 @@
     var s = document.getElementById('success-screen');
     s.style.display = 'flex';
     document.getElementById('success-name') && (document.getElementById('success-name').textContent = name);
-    document.getElementById('progressFill').style.width = '100%';
     for (var i = 1; i <= TOTAL; i++) {
       var dot = document.getElementById('dot-' + i);
       dot.classList.remove('active'); dot.classList.add('done');
