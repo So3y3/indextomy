@@ -52,8 +52,8 @@
   .bar-links{ display:flex; gap:18px; font-size:.85rem; font-weight:600; align-items:center; }
   .bar-links a{ color:var(--ink); text-decoration:none; }
   .bar-links a:hover{ color:var(--pop-deep); }
-  .bar-cta{ background:var(--ink); color:#fff; font-weight:600; font-size:.85rem; padding:10px 18px; border-radius:999px; text-decoration:none; transition:transform .25s ease; }
-  .bar-cta:hover{ transform:translateY(-2px); }
+  .bar-links a.bar-cta{ background:var(--ink); color:#fff; font-weight:600; font-size:.85rem; padding:10px 18px; border-radius:999px; text-decoration:none; transition:transform .25s ease; }
+  .bar-links a.bar-cta:hover{ transform:translateY(-2px); color:#fff; }
   @media(max-width:759px){ .bar-links{ display:none; } }
   /* MOBILE MENU v2: triangle dots, no circle; dark numbered sheet */
   .bar-dots{
@@ -202,6 +202,8 @@
   .consent-line a{ color:var(--pop-deep); font-weight:600; }
 
   /* HONEYPOT */
+  .submit-msg{ display:none; flex-basis:100%; width:100%; margin-top:12px; padding:12px 14px; border-radius:12px; background:#FFF1E8; border:1.5px solid var(--pop); color:var(--pop-deep); font-size:.85rem; font-weight:600; line-height:1.5; }
+  .submit-msg.show{ display:block; }
   .hp-field{ position:absolute; left:-9999px; top:-9999px; opacity:0; height:0; overflow:hidden; }
 
   /* SUCCESS */
@@ -729,6 +731,7 @@
     <button class="btn-back" onclick="goBack(4)">&larr; Back</button>
     <span class="ob-priv">Private &amp; confidential</span>
     <button class="btn-submit" id="submit-btn" onclick="submitForm()">Send it off</button>
+    <div class="submit-msg" id="submit-msg" role="alert" aria-live="polite"></div>
   </div>
 </div>
 
@@ -1013,8 +1016,22 @@
     return lines.join('\n');
   }
 
+  function submitNote(msg){
+    var m=document.getElementById('submit-msg'); if(!m) return;
+    if(msg){ m.textContent=msg; m.classList.add('show'); } else { m.textContent=''; m.classList.remove('show'); }
+  }
+
   async function submitForm() {
-    if (!validateStep(4)) return;
+    submitNote('');
+    if (!validateStep(4)) {
+      var missing = [];
+      document.querySelectorAll('#step-4 .invalid').forEach(function(el){
+        var l = el.id ? document.querySelector('label[for="'+el.id+'"]') : null;
+        missing.push(l ? l.textContent.replace('*','').trim() : (el.id||'a field'));
+      });
+      submitNote('Nearly there. A few things still need filling in above' + (missing.length ? ': ' + missing.slice(0,4).join(', ') + (missing.length>4 ? ' and more' : '') : '') + '.');
+      return;
+    }
 
     // honeypot: bots fill it, people never see it
     if (v('hp-website')) { showSuccess('friend'); return; }
@@ -1059,11 +1076,16 @@
       });
       if (res.ok) {
         showSuccess(d.firstName);
-      } else { throw new Error('fail'); }
+      } else {
+        var why = '';
+        try { var j = await res.json(); why = (j && j.errors && j.errors[0] && j.errors[0].message) || j.error || ''; } catch(e2) {}
+        throw new Error('HTTP ' + res.status + (why ? ': ' + why : ''));
+      }
     } catch(err) {
       btn.textContent = 'Send it off';
       btn.disabled = false;
-      alert('Something went wrong. Please try again or email me directly.');
+      var offline = (typeof navigator !== 'undefined' && navigator.onLine === false);
+      submitNote((offline ? 'You look to be offline. ' : 'That did not go through (' + (err && err.message ? err.message : 'network') + '). ') + 'Nothing was lost, your answers are still here. Try Send it off again, or email me at kristian.sokol@icloud.com.');
     }
   }
 
