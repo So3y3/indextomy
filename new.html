@@ -144,11 +144,26 @@
 .hero-grid{
     max-width:1080px; margin:0 auto; padding:76px 18px 12px;
   }
+  /* PHONE: exact scaled-down copy of the web hero - text column left, tall photo right */
   @media(max-width:759px){
-    .hero-grid .photo-card{margin:22px 0 10px;}
-    .hero-grid .photo-card img{height:300px;}
-    .hero-grid .chips{flex-wrap:nowrap; gap:6px;}
-    .hero-grid .chip{font-size:.7rem; padding:8px 11px; letter-spacing:0;}
+    .hero-grid{
+      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:center;
+      margin:0; padding:64px 16px 12px;
+    }
+    .hero-grid > div:first-child{display:contents;}
+    .hero-grid .kicker{grid-column:1; font-size:.58rem; letter-spacing:.06em; white-space:nowrap; margin-bottom:10px;}
+    .hero-grid h1{grid-column:1; font-size:clamp(1.3rem, 6.8vw, 1.7rem); line-height:1.12; letter-spacing:-.005em; margin-bottom:12px;}
+    .hero-grid .hero-sub{grid-column:1; font-size:.85rem; line-height:1.5; margin:0 0 14px; max-width:none;}
+    .hero-grid .chips{grid-column:1; flex-wrap:wrap; gap:6px; justify-content:flex-start; margin:0 0 16px;}
+    .hero-grid .chip{font-size:.66rem; padding:7px 10px; letter-spacing:0;}
+    .hero-grid .btn{grid-column:1; justify-self:start; font-size:.9rem; padding:14px 20px;}
+    .hero-grid .photo-side{grid-column:2; grid-row:1 / span 5; position:static; width:auto; padding:0; margin:0; align-self:center;}
+    .hero-grid .photo-side .photo-card{max-width:none; margin:0;}
+    .hero-grid .photo-card img{
+      width:clamp(96px, 30vw, 132px); height:clamp(150px, 47vw, 200px);
+      border-radius:18px; object-fit:cover; object-position:top 12%;
+      border:1.5px solid var(--line);
+    }
   }
   .kicker{
     display:inline-flex; align-items:center; gap:.5rem;
@@ -477,35 +492,7 @@
     .foot-cred img{height:40px;}
   }
 
-  /* PHONE: stacked headline left, soft-edged rectangle photo top right (like the web version) */
   @media(max-width:759px){
-    .hero-grid{position:relative;}
-    .hero-grid .kicker{font-size:.6rem; letter-spacing:.06em; white-space:nowrap; max-width:none;}
-    .hero-grid h1 .h-want{display:block;}
-    .hero-grid h1 .h-go{display:block;}
-    .hero-grid h1 .br-d{display:none;}
-    .hero-grid h1{font-size:clamp(1.62rem, 8.6vw, 2.3rem); line-height:1.08; letter-spacing:-.01em; position:relative; z-index:2; pointer-events:none;}
-    /* hero as a soft light card: photo tilted bottom-right beside chips + book button */
-    .hero-grid{
-      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:start;
-      margin:12px; padding:0; background:#fff; border:1.5px solid #EFECE5; border-radius:32px;
-      box-shadow:0 18px 40px rgba(20,20,20,.08); overflow:hidden;
-    }
-    .hero-grid::before{content:""; position:absolute; right:-70px; top:-70px; width:210px; height:210px; border-radius:50%;
-      background:radial-gradient(circle, rgba(255,107,0,.15), rgba(255,107,0,0) 68%); pointer-events:none;}
-    .hero-grid > div:first-child{display:contents;}
-    .hero-grid .kicker{grid-column:1 / -1; margin:0; padding:24px 20px 0;}
-    .hero-grid h1{grid-column:1 / -1; margin:0; padding:16px 20px 0;}
-    .hero-grid .hero-sub{grid-column:1 / -1; margin:0; padding:16px 20px 0;}
-    .hero-grid .chips{grid-column:1 / -1; margin:0; padding:16px 20px 0;}
-    .hero-grid .btn{grid-column:1; margin:14px 20px 22px; padding:15px 20px; align-self:start; justify-self:start;}
-    .hero-grid .chip{background:#F7F6F2;}
-    .hero-grid .photo-side{grid-column:2; grid-row:4 / span 2; justify-self:end; position:static; width:auto; margin:0; padding:16px 20px 22px 0; align-self:start;}
-    .hero-grid .photo-side .photo-card{max-width:none; margin:0;}
-    .hero-grid .photo-card img{width:clamp(96px, 30vw, 128px); height:clamp(112px, 35vw, 150px); border-radius:18px; object-fit:cover; object-position:top 12%;
-        border:1.5px solid var(--line); box-shadow:0 12px 26px rgba(20,20,20,.18); position:relative; transform:rotate(2deg);}
-    .hero-grid h1 .h-go{margin-top:8px;}
-    .hero-grid .chips{flex-wrap:wrap; justify-content:flex-start;}
     .split{max-width:640px; margin:0 auto; padding:0 18px;}
     .stk{font-size:.7rem;}
   }
