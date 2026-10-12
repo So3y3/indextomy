@@ -144,26 +144,26 @@
 .hero-grid{
     max-width:1080px; margin:0 auto; padding:76px 18px 12px;
   }
-  /* PHONE: exact scaled-down copy of the web hero - text column left, tall photo right */
+  /* PHONE: scaled-down copy of the web hero, tidied: photo top-right, chips one line, full-width Book button */
   @media(max-width:759px){
     .hero-grid{
-      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:center;
-      margin:0; padding:64px 16px 12px;
+      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:start;
+      margin:0; padding:46px 16px 12px;
     }
     .hero-grid > div:first-child{display:contents;}
     .hero-grid .kicker{grid-column:1; font-size:.58rem; letter-spacing:.06em; white-space:nowrap; margin-bottom:10px;}
     .hero-grid h1{grid-column:1; font-size:clamp(1.3rem, 6.8vw, 1.7rem); line-height:1.12; letter-spacing:-.005em; margin-bottom:12px;}
     .hero-grid .hero-sub{grid-column:1; font-size:.85rem; line-height:1.5; margin:0 0 14px; max-width:none;}
-    .hero-grid .chips{grid-column:1; flex-wrap:wrap; gap:6px; justify-content:flex-start; margin:0 0 16px;}
-    .hero-grid .chip{font-size:.66rem; padding:7px 10px; letter-spacing:0;}
-    .hero-grid .btn{grid-column:1; justify-self:start; font-size:.9rem; padding:14px 20px;}
-    .hero-grid .photo-side{grid-column:2; grid-row:1 / span 5; position:static; width:auto; padding:0; margin:0; align-self:center;}
+    .hero-grid .photo-side{grid-column:2; grid-row:1 / span 3; position:static; width:auto; padding:0; margin:0; align-self:start;}
     .hero-grid .photo-side .photo-card{max-width:none; margin:0;}
     .hero-grid .photo-card img{
-      width:clamp(96px, 30vw, 132px); height:clamp(150px, 47vw, 200px);
+      width:clamp(96px, 30vw, 132px); height:clamp(140px, 44vw, 190px);
       border-radius:18px; object-fit:cover; object-position:top 12%;
       border:1.5px solid var(--line);
     }
+    .hero-grid .chips{grid-column:1 / -1; flex-wrap:nowrap; gap:4px; justify-content:flex-start; margin:0 0 12px; white-space:nowrap;}
+    .hero-grid .chip{font-size:.58rem; padding:5px 8px; letter-spacing:0;}
+    .hero-grid .btn{grid-column:1 / -1; justify-self:stretch; width:100%; text-align:center; font-size:.95rem; padding:16px 20px;}
   }
   .kicker{
     display:inline-flex; align-items:center; gap:.5rem;
