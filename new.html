@@ -164,24 +164,35 @@
     width:100%; height:340px; object-fit:cover; object-position:top;
     border-radius:26px; border:1.5px solid var(--line);
   }
+  /* desktop/tablet: static sticker row, exactly as before (duplicates hidden) */
   .stickers{
-    overflow:hidden; margin:14px auto 6px; padding:4px 0; max-width:1080px; position:relative;
-    -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-    mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:10px; margin:12px auto 4px; padding:0 24px; max-width:1080px;
   }
-  .stk-track{
-    display:flex; width:max-content; padding:6px 0;
-    animation:stk-move 26s linear infinite;
+  .stk-track{display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
+  .stk-track .stk[aria-hidden="true"]{display:none;}
+  /* phone only: the fun moving strip */
+  @media(max-width:759px){
+    .stickers{
+      overflow:hidden; margin:14px auto 6px; padding:4px 0; max-width:100%; position:relative;
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+    .stk-track{
+      flex-wrap:nowrap; width:max-content; padding:6px 0;
+      animation:stk-move 26s linear infinite;
+    }
+    .stk-track:hover, .stk-track:active{animation-play-state:paused;}
   }
-  .stk-track:hover, .stk-track:active{animation-play-state:paused;}
   @keyframes stk-move{from{transform:translateX(0);} to{transform:translateX(-50%);}}
   @media (prefers-reduced-motion: reduce){
     .stk-track{animation:none; flex-wrap:wrap; justify-content:center; width:auto;}
   }
   .stk{
     font-weight:600; font-size:.75rem; padding:8px 13px; border-radius:999px;
-    white-space:nowrap; margin-right:10px; transition:transform .3s cubic-bezier(.2,.8,.2,1);
+    white-space:nowrap; transition:transform .3s cubic-bezier(.2,.8,.2,1);
   }
+  @media(max-width:759px){ .stk{margin-right:10px;} }
   .stk:nth-child(odd){transform:rotate(1.2deg);}
   .stk:nth-child(even){transform:rotate(-1.2deg);}
   .stk:hover{transform:rotate(0deg) scale(1.07) !important;}
