@@ -107,12 +107,7 @@
     },
     {
       "source": "/agreement",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/agreement.html",
-      "destination": "/",
+      "destination": "/agreement.html",
       "permanent": true
     },
     {
