@@ -200,6 +200,7 @@
       animation:stk-move 26s linear infinite;
     }
     .stk-track:hover, .stk-track:active{animation-play-state:paused;}
+    .stk-track .stk[aria-hidden="true"]{display:inline-flex;}
   }
   @keyframes stk-move{from{transform:translateX(0);} to{transform:translateX(-50%);}}
   @media (prefers-reduced-motion: reduce){
@@ -551,13 +552,11 @@
     <span class="stk stk-blue">NLP-informed</span>
     <span class="stk stk-cream">Perspective shifter</span>
     <span class="stk stk-pop">Challenge with purpose</span>
-    <span class="stk stk-blue">3x founder</span>
     <span class="stk stk-cream">Creative problem-solver</span>
     <span class="stk stk-pop" aria-hidden="true">Adaptive coaching</span>
     <span class="stk stk-blue" aria-hidden="true">NLP-informed</span>
     <span class="stk stk-cream" aria-hidden="true">Perspective shifter</span>
     <span class="stk stk-pop" aria-hidden="true">Challenge with purpose</span>
-    <span class="stk stk-blue" aria-hidden="true">3x founder</span>
     <span class="stk stk-cream" aria-hidden="true">Creative problem-solver</span>
   </div>
 </div>
