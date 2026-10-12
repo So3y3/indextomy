@@ -383,6 +383,13 @@
                 break-inside: avoid !important;
             }
             .contract-body li, .contract-body p { orphans: 3; widows: 3; }
+            /* print-only breathing trim: keeps type sizes identical, buys ~80px so the
+               contract stays exactly 2 pages even with long custom package text */
+            .print-sheet { padding: 36px 40px !important; }
+            .contract-body h3 { margin-top: 12px !important; margin-bottom: 6px !important; }
+            .contract-body p { margin-bottom: 8px !important; }
+            .contract-body ol, .contract-body ul { margin-bottom: 8px !important; }
+            .financial-box, .bank-box { margin-top: 8px !important; margin-bottom: 8px !important; }
         }
 
         </style>
