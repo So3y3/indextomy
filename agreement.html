@@ -355,6 +355,11 @@
             margin: 12mm 14mm;
         }
 
+        @media screen and (max-width: 759px) {
+            .header-actions { flex-wrap: wrap; }
+            .preview-canvas { padding: 12px; overflow-x: auto; }
+        }
+
         @media print {
             body { background: white; color: black; }
             .no-print { display: none !important; }
