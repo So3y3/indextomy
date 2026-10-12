@@ -88,6 +88,13 @@
     font-size:.78rem; font-weight:600; padding:8px 14px; white-space:nowrap; transition:background .2s;
   }
   .row:hover .pill{background:var(--pop);}
+  .row.free{position:relative; overflow:visible;}
+  .free-stk{
+    position:absolute; right:-8px; top:-10px; z-index:2;
+    background:var(--pop); color:#fff; font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+    font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:8px;
+    transform:rotate(6deg); box-shadow:0 5px 12px rgba(0,0,0,.3);
+  }
   .pill svg{width:14px; height:14px;}
 
   .sec{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.05rem; margin:22px 4px 10px; display:flex; align-items:center; gap:9px;}
@@ -232,10 +239,11 @@
     </span>
   </a>
 
-  <a class="row" href="https://www.coachkris.co.uk" rel="noopener">
-    <span class="t">The main website<span class="s">Everything, one place</span></span>
-    <span class="pill">Visit
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+  <a class="row free" href="https://www.coachkris.co.uk/#workbook" rel="noopener">
+    <span class="free-stk">Free</span>
+    <span class="t">Free workbook<span class="s">The Voice You Feed, 22 pages</span></span>
+    <span class="pill">Grab it
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5"/><path d="M4 19h16"/></svg>
     </span>
   </a>
 
