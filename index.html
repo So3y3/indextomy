@@ -1,2082 +1,884 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kristian Sokol | Life, Longevity &amp; Business Coach</title>
-  <meta name="description" content="Break the loop before it breaks you. Certified Life, Longevity and Business Coach helping clients across Northern Ireland and the UK build lasting change." />
-  <meta name="keywords" content="life coach, longevity coach, ADHD coach, life coaching, Kristian Sokol, break the loop, life transitions, sustainable longevity, habit building, business coaching" />
-  <meta name="author" content="Kristian Sokol" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>coach kris. | Life, Longevity &amp; Business Coach</title>
+  <meta name="description" content="Coaching for people who keep circling the same problem. Life, longevity and business coaching across the UK and Ireland. £45 an hour, no packages." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.coachkris.co.uk/" />
-  <meta property="og:title" content="Kristian Sokol | Life, Longevity & Business Coach" />
-  <meta property="og:image" content="https://www.coachkris.co.uk/og/og_hero.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:image" content="https://www.coachkris.co.uk/og_index.jpg" />
-  <meta property="og:description" content="Certified Life, Longevity and Business Coach helping clients in Northern Ireland, the UK and worldwide build lasting habits, health and growth." />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="coach kris. | Life, Longevity &amp; Business Coach" />
+  <meta property="og:description" content="Coaching for people who keep circling the same problem. £45 an hour, no packages." />
   <meta property="og:url" content="https://www.coachkris.co.uk/" />
-  <meta property="og:site_name" content="Kristian Sokol | Life &amp; Longevity Coach" />
+  <meta property="og:image" content="https://www.coachkris.co.uk/og/og_hero.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kristian Sokol | Life & Longevity Coach" />
-  <meta name="twitter:description" content="Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol." />
-  <meta name="twitter:creator" content="@coachkris" />
+  <link rel="icon" href="/favicon-32.png" />
 
-  <!-- Google Fonts -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"></noscript>
 
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
- 
-  <style>
-    /* ─── RESET & BASE ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --parchment: #F5F1EA;
-      --deep-forest: #1C2823;
-      --warm-gold: #C69E48;
-      --slate-mist: #7A8A85;
-      --sand: #EBE6DA;
-      --sea-glass: #C1CEC9;
-      --font-heading: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Inter', system-ui, sans-serif;
-      --font-brand: 'Bebas Neue', sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background-color: var(--parchment);
-      color: var(--deep-forest);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--sand); }
-    ::-webkit-scrollbar-thumb { background: var(--sea-glass); border-radius: 3px; }
-
-    /* ─── NAVIGATION ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 0 2rem;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    nav.scrolled {
-      background: rgba(245, 241, 234, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(28,40,35,0.08);
-    }
-
-    .nav-brand {
-      font-family: var(--font-brand);
-      font-size: 1.5rem;
-      letter-spacing: 0.05em;
-      color: var(--deep-forest);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--slate-mist);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--deep-forest); }
-
-    .nav-cta {
-      background: var(--warm-gold) !important;
-      color: white !important;
-      padding: 0.5rem 1.25rem;
-      border-radius: 9999px;
-      font-weight: 600 !important;
-      font-size: 0.875rem !important;
-      transition: opacity 0.2s !important;
-    }
-    .nav-cta:hover { opacity: 0.85 !important; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--deep-forest);
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 2rem 80px;
-      background: linear-gradient(180deg, var(--sand) 0%, var(--parchment) 60%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Thin vertical accent line */
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(180deg, transparent, var(--warm-gold));
-      transform: translateX(-50%);
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--warm-gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-photo-wrap {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--sea-glass);
-      box-shadow: 0 8px 40px rgba(28,40,35,0.12);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .hero-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 5%;
-    }
-
-
-    .hero-headline {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--deep-forest);
-      max-width: 700px;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--warm-gold);
-    }
-
-    .hero-motto {
-      font-family: var(--font-heading);
-      font-style: italic;
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 500;
-      color: var(--warm-gold);
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.01em;
-    }
-
-    .hero-subheadline {
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--slate-mist);
-      max-width: 500px;
-      margin-bottom: 2.5rem;
-      line-height: 1.7;
-    }
-
-    .hero-founding-banner {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      background: var(--warm-gold);
-      border: 2px solid var(--parchment);
-      border-radius: 9999px;
-      padding: 0.95rem 2.5rem 0.9rem;
-      text-decoration: none;
-      line-height: 1.35;
-      box-shadow: 0 8px 26px rgba(28,40,35,0.18);
-      margin-bottom: 1.5rem;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .hero-founding-banner:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-    .hero-founding-banner .fb-kicker {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--deep-forest);
-    }
-    .hero-founding-banner .fb-cta {
-      font-family: var(--font-body);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--deep-forest);
-    }
-
-
-    .hero-offer-pair {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .hero-founding-banner--teal {
-      background: var(--deep-forest);
-      border-color: var(--warm-gold);
-    }
-    .hero-founding-banner--teal .fb-kicker,
-    .hero-founding-banner--teal .fb-cta {
-      color: var(--warm-gold);
-    }
-    @media (max-width: 480px) {
-      .hero-offer-pair { flex-direction: row; gap: 0.5rem; align-items: stretch; justify-content: center; }
-      .hero-founding-banner { flex: 1; min-width: 0; max-width: 48%; padding: 0.6rem 0.5rem; }
-      .hero-founding-banner .fb-kicker { font-size: 0.55rem; letter-spacing: 0.06em; }
-      .hero-founding-banner .fb-cta { font-size: 0.85rem; }
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 3rem;
-    }
-    .hero-btn-row { display: contents; }
-
-    .btn-primary {
-      background: var(--deep-forest);
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 9999px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--deep-forest);
-      padding: 0.8rem 2rem;
-      border-radius: 9999px;
-      border: 1.5px solid var(--deep-forest);
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      display: inline-block;
-    }
-    .btn-secondary:hover { background: var(--deep-forest); color: white; transform: translateY(-1px); }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-    }
-
-    .badge {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--slate-mist);
-      background: white;
-      border: 1px solid var(--sea-glass);
-      padding: 0.35rem 0.85rem;
-      border-radius: 9999px;
-    }
-
-    .hero-scroll-arrow {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: bounce 2s ease-in-out infinite;
-      color: var(--sea-glass);
-      font-size: 1.5rem;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
-    }
-
-    /* ─── SECTIONS COMMON ─── */
-    section { padding: 6rem 2rem; }
-
-    #focus { padding-top: 3rem; }
-
-    .section-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .section-inner-wide {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--warm-gold);
-      margin-bottom: 1rem;
-    }
-
-    .section-heading {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      line-height: 1.25;
-      color: var(--deep-forest);
-      margin-bottom: 2rem;
-    }
-
-    /* ─── MY STORY ─── */
-    #story {
-      position: relative;
-      overflow: hidden;
-    }
-
-    #story::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=30');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.04;
-      pointer-events: none;
-    }
-
-    .story-inner {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--warm-gold);
-    }
-
-    .story-inner p {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--slate-mist);
-      margin-bottom: 1.5rem;
-    }
-
-    .story-inner p strong {
-      color: var(--warm-gold);
-      font-weight: 600;
-    }
-
-    .story-blockquote {
-      margin-top: 2.5rem;
-      padding: 1.5rem 2rem;
-      border-left: 3px solid var(--warm-gold);
-      background: rgba(198,158,72,0.06);
-      border-radius: 0 8px 8px 0;
-    }
-
-    .story-blockquote p {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--deep-forest);
-      line-height: 1.6;
-      margin: 0 !important;
-    }
-
-    /* ─── TWO PILLARS ─── */
-    /* ─── ONE CONVERSATION ─── */
-    #focus { text-align: center; }
-    #focus .section-heading em { font-style: italic; color: var(--warm-gold); }
-    #focus p:not(.eyebrow) {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--slate-mist);
-      max-width: 640px;
-      margin: 0 auto 1.25rem;
-    }
-    .pillars-intro {
-      text-align: center;
-      max-width: 720px;
-      margin: -1rem auto 0;
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--slate-mist);
-    }
-
-    #focus .focus-blocks {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    #focus .pillar-icon { margin: 0 auto 1.25rem; }
-    #focus .focus-block {
-      background: white;
-      border: 1px solid var(--sea-glass);
-      border-radius: 10px;
-      padding: 2rem 1.5rem 1.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    #focus .focus-block::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--warm-gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-    #focus .focus-block:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(28, 40, 35, 0.12);
-    }
-    #focus .focus-block:hover::before { transform: scaleX(1); }
-    #focus .focus-block h3 {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--deep-forest);
-      margin-bottom: 0.5rem;
-    }
-    #focus .focus-block p {
-      font-size: 0.875rem;
-      line-height: 1.7;
-      color: var(--slate-mist);
-      max-width: none;
-      margin: 0;
-    }
-
-    /* ─── COACHING & PRICING ─── */
-    #pricing { text-align: center; }
-    .pricing-lede {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--slate-mist);
-      max-width: 680px;
-      margin: 0 auto 1.25rem;
-    }
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 3rem auto 0;
-      text-align: left;
-    }
-    .pricing-card {
-      background: white;
-      border: 1px solid var(--sea-glass);
-      border-radius: 6px;
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-    .pricing-card--featured { border-top: 3px solid var(--warm-gold); }
-    .pricing-tier {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--deep-forest);
-      margin: 0;
-    }
-    .pricing-meta {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--warm-gold);
-      margin: 0;
-    }
-    .pricing-desc {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--deep-forest);
-      margin: 0;
-    }
-    .pricing-note {
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--slate-mist);
-      margin: 0;
-    }
-    .pricing-card .btn-primary,
-    .pricing-card .btn-secondary { text-align: center; margin-top: auto; border-radius: 999px; }
-    .pricing-card .btn-primary { padding: 0.85rem 2rem; box-shadow: 0 6px 18px rgba(28,40,35,0.18); }
-    .pricing-card .btn-secondary { padding: 0.85rem 2rem; }
-
-    /* ─── PRACTICE FEEDBACK ─── */
-    #feedback {
-      background: var(--sand);
-      text-align: center;
-    }
-    #feedback blockquote {
-      font-family: var(--font-heading);
-      font-size: 1.4rem;
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--deep-forest);
-      max-width: 720px;
-      margin: 0 auto 1.5rem;
-    }
-    .feedback-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--slate-mist);
-      margin: 0;
-    }
-
-    /* ─── CONTACT INTRO ─── */
-    .contact-intro {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--slate-mist);
-      margin-bottom: 1.5rem;
-    }
-
-    @media (max-width: 900px) {
-      #focus .focus-blocks { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 600px) {
-      .pricing-grid { text-align: center; }
-      .pricing-card--featured { order: -1; }
-    }
-
-    #pillars {
-      background: var(--sand);
-    }
-
-    #pillars .eyebrow { text-align: center; }
-    #pillars .section-heading { text-align: center; }
-
-    /* ─── PILLARS ─── */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .pillar-card {
-      background: rgba(245,241,234,0.7);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--sea-glass);
-      border-radius: 16px;
-      padding: 2.5rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .pillar-card.full-width {
-      grid-column: 1 / -1;
-    }
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(28,40,35,0.1);
-    }
-
-    /* Whole card clickable */
-    .pillar-card {
-      cursor: pointer;
-    }
-    /* Bottom-right "Read more" tag */
-    .pillar-more {
-      position: absolute;
-      bottom: 1.25rem; right: 1.25rem;
-      background: transparent;
-      color: var(--warm-gold);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid var(--warm-gold);
-      padding: 0.3rem 0.7rem;
-      border-radius: 20px;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s;
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      pointer-events: none;
-    }
-    .pillar-card:hover .pillar-more {
-      background: var(--warm-gold);
-      color: white;
-    }
-
-    .pillar-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; margin-bottom: 1.25rem;
-    }
-    .pillar-icon.dark   { background: var(--deep-forest); }
-    .pillar-icon.gold   { background: var(--warm-gold); }
-    .pillar-icon.teal   { background: #4A7C6F; }
-
-    .pillar-label {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.4rem;
-    }
-    .pillar-name {
-      font-family: var(--font-heading); font-size: 2rem;
-      font-weight: 300; color: var(--deep-forest); margin-bottom: 0.3rem;
-    }
-    .pillar-subtitle {
-      font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 1.75rem;
-    }
-    .pillar-features { display: flex; flex-direction: column; gap: 1rem; }
-
-    /* Pillar 3 features go 3-col on desktop */
-    .pillar-card.full-width .pillar-features {
-      flex-direction: row; flex-wrap: wrap; gap: 1.25rem;
-    }
-    .pillar-card.full-width .feature-row {
-      flex: 1 1 calc(33% - 1rem); min-width: 200px;
-    }
-
-    .feature-row {
-      display: flex; align-items: flex-start; gap: 0.85rem;
-    }
-    .feature-icon {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(198,158,72,0.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;
-    }
-    .feature-text strong {
-      display: block; font-size: 0.875rem; font-weight: 600;
-      color: var(--deep-forest); margin-bottom: 0.1rem;
-    }
-    .feature-text span { font-size: 0.8rem; color: var(--slate-mist); }
-
-    @media (max-width: 768px) {
-      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      .pillar-card.full-width { grid-column: 1 / -1; }
-      .pillar-card { padding: 1.25rem 1rem 2.5rem; }
-      .pillar-card.full-width .pillar-features { flex-direction: column; }
-      .pillar-card.full-width .feature-row { flex: unset; }
-      .pillar-name { font-size: 1.6rem; font-weight: 400; }
-      .pillar-subtitle { margin-bottom: 1rem; }
-      .pillar-more { bottom: 0.75rem; right: 0.75rem; font-size: 0.6rem; padding: 0.25rem 0.55rem; }
-    }
-    @media (max-width: 480px) {
-      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-      .pillar-card.full-width { grid-column: 1 / -1; }
-      .pillar-card { padding: 1rem 0.85rem 2.5rem; }
-      .pillar-name { font-size: 1.45rem; font-weight: 400; }
-      .pillar-icon { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 0.85rem; }
-    }
-
-    .story-inner h3 {
-      font-family: var(--font-heading);
-      font-size: 1.35rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--warm-gold);
-      margin: 2.25rem 0 1rem;
-    }
-    .story-gold { color: var(--warm-gold); }
-    .story-cta {
-      display: inline-block;
-      margin-top: 2rem;
-    }
-
-    /* ─── CONTACT ─── */
-    #contact {
-      background: var(--parchment);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 4rem;
-      align-items: start;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .contact-left .eyebrow { margin-bottom: 0.5rem; }
-    .contact-left .section-heading { margin-bottom: 0.75rem; }
-
-    .contact-subtext {
-      font-size: 0.875rem;
-      color: var(--warm-gold);
-      font-weight: 500;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .contact-steps { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.25rem; }
-
-    .contact-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .step-number {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--warm-gold);
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step-text strong {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--deep-forest);
-      margin-bottom: 0.2rem;
-    }
-    .step-text span {
-      font-size: 0.8rem;
-      color: var(--slate-mist);
-    }
-
-    .contact-form-card {
-      background: var(--sand);
-      border: 1px solid var(--sea-glass);
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 4px 24px rgba(28,40,35,0.06);
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .form-group label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--deep-forest);
-      letter-spacing: 0.05em;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--deep-forest);
-      background: white;
-      border: 1px solid var(--sea-glass);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      width: 100%;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      border-color: var(--warm-gold);
-      box-shadow: 0 0 0 3px rgba(198,158,72,0.12);
-    }
-
-    .form-group textarea { resize: vertical; min-height: 110px; }
-
-    .form-toggle {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .toggle-btn {
-      flex: 1;
-      padding: 0.6rem;
-      border-radius: 9999px;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      border: 1.5px solid var(--sea-glass);
-      background: white;
-      color: var(--slate-mist);
-      transition: all 0.2s;
-    }
-    .toggle-btn.active {
-      background: var(--deep-forest);
-      border-color: var(--deep-forest);
-      color: white;
-    }
-
-    .form-submit {
-      width: 100%;
-      padding: 0.9rem;
-      background: var(--deep-forest);
-      color: white;
-      border: none;
-      border-radius: 9999px;
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.2s;
-      letter-spacing: 0.02em;
-    }
-    .form-submit:hover { opacity: 0.85; transform: translateY(-1px); }
-    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 2rem;
-    }
-    .form-success.show { display: block; }
-    .form-success .success-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-    .form-success h3 {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-    .form-success p { font-size: 0.875rem; color: var(--slate-mist); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: rgba(235,230,218,0.5);
-      border-top: 1px solid var(--sea-glass);
-      padding: 4rem 2rem 2rem;
-    }
-
-    .footer-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
-
-    .footer-brand-name {
-      font-family: var(--font-brand);
-      font-size: 1.4rem;
-      letter-spacing: 0.05em;
-      color: var(--deep-forest);
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-tagline {
-      font-size: 0.825rem;
-      color: var(--slate-mist);
-      line-height: 1.6;
-    }
-
-    .footer-col h4 {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--deep-forest);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-
-    .footer-col ul a {
-      font-size: 0.875rem;
-      color: var(--slate-mist);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-col ul a:hover { color: var(--deep-forest); }
-
-    .footer-col p {
-      font-size: 0.875rem;
-      color: var(--slate-mist);
-      line-height: 1.7;
-    }
-
-    .footer-col .footer-icon { color: var(--warm-gold); margin-right: 0.4rem; }
-    .footer-social-link { color: var(--slate-mist); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
-    .footer-social-link:hover { color: var(--deep-forest); }
-
-    .footer-bottom {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--sea-glass);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-
-    .footer-accred-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.1rem;
-    }
-    .footer-accred-row img {
-      height: 26px;
-      width: auto;
-      object-fit: contain;
-      opacity: 0.85;
-    }
-    .footer-bottom p {
-      font-size: 0.775rem;
-      color: var(--slate-mist);
-    }
-
-    /* ─── SCROLL REVEAL ANIMATIONS ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ─── MOBILE ─── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; right: 0; background: rgba(245,241,234,0.97); backdrop-filter: blur(12px); padding: 1.5rem 2rem; border-bottom: 1px solid var(--sea-glass); gap: 1.25rem; }
-      .nav-links.open { display: flex; }
-      .nav-hamburger { display: flex; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      nav { padding: 0 1.25rem; }
-      section { padding: 4rem 1.25rem; }
-      .hero-photo-wrap { width: 160px; height: 160px; }
-      .hero-buttons { flex-direction: column; align-items: center; gap: 0.85rem; width: 100%; }
-      .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; margin-left: auto; margin-right: auto; }
-      .hero-btn-row { display: flex; gap: 0.6rem; width: 100%; max-width: 300px; }
-      .hero-btn-row .btn-secondary {
-        flex: 1;
-        min-width: 0;
-        width: auto;
-        max-width: none;
-        padding: 0.7rem 0.5rem;
-        font-size: 0.74rem;
-        line-height: 1.25;
-        letter-spacing: 0.01em;
-        border-radius: 999px;
-        border-width: 1.25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .hero-buttons .btn-primary {
-        max-width: 380px;
-        border-radius: 999px;
-        padding: 1rem 1.5rem;
-        font-size: 0.88rem;
-        letter-spacing: 0.02em;
-        box-shadow: 0 6px 18px rgba(28,40,35,0.22);
-      }
-      .btn-primary:active, .btn-secondary:active { transform: scale(0.97); }
-    }
-
-
-
-    /* ── SUBSCRIBE STRIP ── */
-    .subscribe-strip {
-      background: var(--parchment);
-      border-top: 1px solid rgba(198,158,72,0.25);
-      border-bottom: 1px solid rgba(198,158,72,0.25);
-      padding: 1.75rem 2rem;
-      text-align: center;
-    }
-    .subscribe-inner {
-      display: flex; align-items: center; justify-content: center;
-      gap: 1.75rem; flex-wrap: wrap;
-      max-width: 680px; margin: 0 auto;
-    }
-    .subscribe-strip h3 {
-      font-family: var(--font-heading);
-      font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-      font-weight: 300;
-      color: var(--deep-forest);
-      margin: 0; white-space: nowrap; line-height: 1.2;
-    }
-    .subscribe-strip h3 em {
-      font-style: italic; font-weight: 700;
-      color: var(--warm-gold);
-    }
-    .subscribe-form {
-      display: flex; gap: 0;
-      border: 1.5px solid var(--sea-glass);
-      border-radius: 9999px; overflow: hidden;
-      background: var(--parchment); flex-shrink: 0;
-      box-shadow: 0 2px 10px rgba(28,40,35,0.07);
-    }
-    .subscribe-form input[type="email"] {
-      background: transparent; border: none; outline: none;
-      padding: 0.6rem 1.2rem; width: 195px;
-      font-family: var(--font-body); font-size: 0.85rem;
-      color: var(--deep-forest); background: var(--parchment);
-    }
-    .subscribe-form input[type="email"]::placeholder { color: var(--slate-mist); }
-    .subscribe-form button {
-      background: var(--warm-gold); color: white; border: none; cursor: pointer;
-      padding: 0.6rem 1.25rem; font-family: var(--font-body);
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em;
-      text-transform: uppercase; transition: background 0.2s; white-space: nowrap;
-      border-radius: 0 9999px 9999px 0;
-    }
-    .subscribe-form button:hover { background: #b8913f; }
-    .subscribe-msg {
-      margin-top: 0.6rem; font-size: 0.82rem;
-      color: var(--warm-gold); display: none; width: 100%; text-align: center;
-    }
-    .subscribe-msg.show { display: block; }
-    @media (max-width: 600px) {
-      .subscribe-inner { flex-direction: column; gap: 1rem; }
-      .subscribe-strip h3 { white-space: normal; font-size: 1.25rem; }
-      .subscribe-form { width: 100%; max-width: 320px; }
-      .subscribe-form input[type="email"] { width: 100%; }
-    }
-  
-    /* ─── PILLAR OVERLAY ─── */
-    .pillar-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(28,40,35,0.55);
-      backdrop-filter: blur(6px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .pillar-overlay.open {
-      opacity: 1; pointer-events: all;
-    }
-    .pillar-overlay-inner {
-      background: white;
-      border-radius: 20px;
-      max-width: 680px; width: 100%;
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 3rem;
-      position: relative;
-      transform: translateY(24px);
-      transition: transform 0.35s ease;
-    }
-    .pillar-overlay.open .pillar-overlay-inner {
-      transform: translateY(0);
-    }
-    .pillar-overlay-close {
-      position: absolute; top: 1.25rem; right: 1.25rem;
-      background: none; border: none; cursor: pointer;
-      font-size: 1.3rem; color: var(--slate-mist); line-height: 1;
-      width: 32px; height: 32px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s, color 0.2s;
-    }
-    .pillar-overlay-close:hover { background: var(--sand); color: var(--deep-forest); }
-    .pillar-overlay-label {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--warm-gold); margin-bottom: 0.4rem;
-    }
-    .pillar-overlay-title {
-      font-family: var(--font-heading); font-size: 2.2rem; font-weight: 300;
-      color: var(--deep-forest); margin-bottom: 0.3rem; line-height: 1.2;
-    }
-    .pillar-overlay-subtitle {
-      font-size: 0.875rem; color: var(--slate-mist); margin-bottom: 2rem;
-      padding-bottom: 1.5rem; border-bottom: 1px solid var(--sea-glass);
-    }
-    .pillar-overlay-body {
-      font-size: 0.92rem; line-height: 1.85; color: var(--deep-forest);
-    }
-    .pillar-overlay-body p { margin-bottom: 1.25rem; }
-    .pillar-overlay-body h3 {
-      font-family: var(--font-heading); font-size: 1.4rem; font-weight: 300;
-      color: var(--deep-forest); margin: 2rem 0 0.75rem;
-    }
-    .pillar-overlay-body em { font-style: italic; color: var(--warm-gold); }
-    .pillar-overlay-body strong { font-weight: 600; }
-    .pillar-overlay-cta {
-      margin-top: 2rem; padding-top: 1.5rem;
-      border-top: 1px solid var(--sea-glass);
-      display: flex; gap: 1rem; flex-wrap: wrap;
-    }
-    .pillar-overlay-cta a {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.85rem; font-weight: 600; text-decoration: none;
-      padding: 0.65rem 1.4rem; border-radius: 8px; transition: all 0.2s;
-    }
-    .btn-primary-cta { background: var(--deep-forest); color: white; }
-    .btn-primary-cta:hover { background: var(--warm-gold); }
-    .btn-secondary-cta { border: 1px solid var(--sea-glass); color: var(--deep-forest); }
-    .btn-secondary-cta:hover { border-color: var(--warm-gold); color: var(--warm-gold); }
-    @media (max-width: 600px) {
-      .pillar-overlay-inner { padding: 2rem 1.5rem; }
-      .pillar-overlay-title { font-size: 1.7rem; }
-    }
-
-    
-
-    </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://www.coachkris.co.uk/#person",
-        "name": "Kristian Sokol",
-        "jobTitle": "Certified Life & Longevity Coach",
-        "description": "Certified Life & Longevity Coach helping people break the restart loop, build lasting habits, improve their health and longevity, and grow their business ideas.",
-        "url": "https://www.coachkris.co.uk",
-        "sameAs": [
-          "https://www.instagram.com/kristian.sokol/"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "Galicia",
-          "addressCountry": "ES"
-        },
-        "knowsAbout": ["Life Coaching", "Longevity Coaching", "Habit Building", "ADHD Coaching", "Business Coaching", "Health & Wellness"],
-        "areaServed": ["Northern Ireland", "United Kingdom", "Worldwide (Online)"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.coachkris.co.uk/#website",
-        "url": "https://www.coachkris.co.uk",
-        "name": "Kristian Sokol | Life & Longevity Coach",
-        "description": "Break the loop before it breaks you. Certified Life & Longevity Coaching with Kristian Sokol.",
-        "author": {"@id": "https://www.coachkris.co.uk/#person"},
-        "inLanguage": "en-GB"
-      },
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://www.coachkris.co.uk/#business",
-        "name": "Kristian Sokol Coaching",
-        "description": "Certified Life, Longevity & Business Coach. You keep choosing comfort over the person you know you could be. I help you break the pattern before it breaks you.",
-        "url": "https://www.coachkris.co.uk",
-        "serviceType": ["Life Coaching", "Longevity Coaching", "Business Coaching", "Habit Coaching"],
-        "areaServed": ["Northern Ireland", "United Kingdom", "Worldwide (Online)"],
-        "availableLanguage": "English",
-        "priceRange": "££",
-        "makesOffer": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Life Coaching",
-              "description": "1-on-1 life coaching to break repeating patterns and build lasting habits, for clients in Northern Ireland, the UK and worldwide."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Longevity Coaching",
-              "description": "Longevity coaching covering body, brain and energy, built on a top-17 globally ranked personal methodology."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Business Coaching",
-              "description": "Business coaching for solopreneurs and small teams stuck between ideas, strategy and execution."
-            }
-          }
-        ]
-      }
-    ]
+    "@type": "ProfessionalService",
+    "name": "coach kris.",
+    "description": "Certified life, longevity and business coaching by phone or video across the UK and Ireland.",
+    "url": "https://www.coachkris.co.uk",
+    "image": "https://www.coachkris.co.uk/kristian.jpg",
+    "priceRange": "£45",
+    "founder": {
+      "@type": "Person",
+      "name": "Kristian Sokol",
+      "jobTitle": "Certified Life, Longevity & Business Coach",
+      "sameAs": ["https://www.instagram.com/kristian.sokol/"]
+    }
   }
   </script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="e3a3b8f7-3dc7-42db-86e7-c93776b620da"></script>
 
-    
+<style>
+  :root{
+    --paper:#F7F6F2;
+    --card:#FFFFFF;
+    --ink:#141414;
+    --pop:#FF6B00;
+    --pop-soft:#FFEBD6;
+    --pop-deep:#CC5500;
+  --blue:#0038FF;
+    --soft:#6E6A63;
+    --line:#EAE7E0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Instrument Sans',sans-serif; background:var(--paper); color:var(--ink);
+    font-size:16px; line-height:1.65; overflow-x:hidden;
+    padding-bottom:0;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .disp{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; letter-spacing:-.005em; line-height:1.15;}
+
+  .hl{
+    background:linear-gradient(100deg, rgba(255,77,0,0) 1.5%, var(--pop) 3%, var(--pop) 97%, rgba(255,77,0,0) 98.5%);
+    color:#fff; padding:.02em .16em .06em; border-radius:.3em .22em .3em .22em;
+    box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+
+  /* floating pill nav */
+  .bar{
+    position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:50;
+    width:calc(100% - 28px); max-width:1040px;
+    background:rgba(255,255,255,.62);
+    backdrop-filter:blur(14px) saturate(1.3); -webkit-backdrop-filter:blur(14px) saturate(1.3);
+    border:1.5px solid rgba(20,20,20,.08);
+    border-radius:999px;
+    box-shadow:0 10px 30px rgba(20,20,20,.10);
+  }
+  .bar-in{
+    padding:10px 22px 10px 26px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+   .wordmark b{color:var(--pop); font-weight:inherit;}
+  .wordmark{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.15rem;}
+  .bar-links{display:flex; gap:18px; font-size:.85rem; font-weight:600; align-items:center;}
+  .bar-links a:hover{color:var(--pop-deep);}
+  .bar-cta{
+    background:var(--ink); color:#fff; font-weight:600; font-size:.85rem;
+    padding:10px 18px; border-radius:999px; transition:transform .25s ease;
+  }
+  .bar-cta:hover{transform:translateY(-2px);}
+  @media(max-width:759px){.bar-links{display:none;}}
+  /* MOBILE MENU v2: triangle dots, no circle; dark numbered sheet */
+  .bar-dots{
+    display:none; position:relative; width:34px; height:34px; flex:none; cursor:pointer;
+    background:transparent; border:none; border-radius:10px; padding:0;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .bar-dots span{position:absolute; width:6px; height:6px; border-radius:50%; background:#141414; display:block; transition:transform .35s cubic-bezier(.2,.8,.2,1), width .3s ease, height .3s ease, border-radius .3s ease;}
+  .bar-dots span:nth-child(1){left:14px; top:6px;}
+  .bar-dots span:nth-child(2){left:6px; top:20px;}
+  .bar-dots span:nth-child(3){left:22px; top:20px;}
+  .bar-dots[aria-expanded="true"] span:nth-child(1){width:20px; height:3px; border-radius:2px; left:7px; top:15px; transform:rotate(45deg);}
+  .bar-dots[aria-expanded="true"] span:nth-child(3){width:20px; height:3px; border-radius:2px; left:7px; top:15px; transform:rotate(-45deg);}
+  .bar-dots[aria-expanded="true"] span:nth-child(2){transform:scale(0);}
+  .bar-dots:active{transform:scale(.9);}
+  @media(max-width:759px){.bar-dots{display:block;}}
+  .bar-menu{
+    position:absolute; top:calc(100% + 10px); right:0; width:min(290px, calc(100vw - 28px));
+    background:#141414; color:#F7F6F2;
+    border-radius:26px; padding:14px 12px 12px;
+    box-shadow:0 22px 50px rgba(20,20,20,.35);
+    display:none; flex-direction:column; gap:2px; overflow:hidden;
+  }
+  .bar-menu::before{content:""; position:absolute; right:-60px; top:-60px; width:150px; height:150px; border-radius:50%; background:radial-gradient(circle, rgba(255,107,0,.28), rgba(255,107,0,0) 68%); pointer-events:none;}
+  .bar-menu.open{display:flex; animation:barMenuIn .28s cubic-bezier(.2,.8,.2,1);}
+  @keyframes barMenuIn{from{opacity:0; transform:translateY(-8px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);}}
+  @keyframes barItemIn{from{opacity:0; transform:translateX(14px);} to{opacity:1; transform:translateX(0);}}
+  .bar-menu a{
+    position:relative; display:flex; align-items:baseline; gap:12px;
+    padding:11px 12px; border-radius:14px; color:#F7F6F2;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.35rem; line-height:1.1; letter-spacing:-.005em;
+    transition:background .2s ease, transform .25s cubic-bezier(.2,.8,.2,1);
+  }
+  .bar-menu a::before{content:attr(data-n); font-family:'Instrument Sans',system-ui,sans-serif; font-weight:700; font-size:.62rem; letter-spacing:.12em; color:#FF6B00; min-width:18px;}
+  .bar-menu.open a{animation:barItemIn .35s cubic-bezier(.2,.8,.2,1) both;}
+  .bar-menu.open a:nth-child(1){animation-delay:.04s;}
+  .bar-menu.open a:nth-child(2){animation-delay:.09s;}
+  .bar-menu.open a:nth-child(3){animation-delay:.14s;}
+  .bar-menu.open a:nth-child(4){animation-delay:.19s;}
+  .bar-menu.open a:nth-child(5){animation-delay:.25s;}
+  .bar-menu a:hover, .bar-menu a:active{background:rgba(255,255,255,.08); color:#fff; transform:translateX(4px);}
+  .bar-menu .bm-cta{
+    margin-top:8px; justify-content:center; background:#FF6B00; color:#fff; font-size:1rem; padding:14px 16px; border-radius:999px;
+    box-shadow:0 4px 0 rgba(0,0,0,.3);
+  }
+  .bar-menu .bm-cta::before{display:none;}
+  .bar-menu .bm-cta:hover, .bar-menu .bm-cta:active{background:#FF8330; color:#fff; transform:translateY(-2px);}
+  @media (prefers-reduced-motion: reduce){ .bar-menu.open, .bar-menu.open a{animation:none;} .bar-dots span{transition:none;} }
+
+  /* hero */
+.hero-grid{
+    max-width:1080px; margin:0 auto; padding:76px 18px 12px;
+  }
+  /* PHONE: scaled-down copy of the web hero, tidied: photo top-right, chips one line, full-width Book button */
+  @media(max-width:759px){
+    .hero-grid{
+      display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:14px; align-items:start;
+      margin:0; padding:92px 16px 12px;
+    }
+    .hero-grid > div:first-child{display:contents;}
+    .hero-grid .kicker{grid-column:1; font-size:.58rem; letter-spacing:.06em; white-space:nowrap; margin-bottom:10px;}
+    .hero-grid h1{grid-column:1; font-size:clamp(1.4rem, 7.3vw, 1.85rem); line-height:1.12; letter-spacing:-.005em; margin-bottom:12px;}
+    .hero-grid .hero-sub{grid-column:1; font-size:.85rem; line-height:1.5; margin:0 0 14px; max-width:none;}
+    .hero-grid .photo-side{grid-column:2; grid-row:1 / span 3; position:static; width:auto; padding:0; margin:0 0 0 0; align-self:start; margin-top:26px;}
+    .hero-grid .photo-side .photo-card{max-width:none; margin:0;}
+    .hero-grid .photo-card img{
+      width:clamp(96px, 30vw, 132px); height:clamp(140px, 44vw, 190px);
+      border-radius:18px; object-fit:cover; object-position:top 12%;
+      border:1.5px solid var(--line);
+    }
+    .hero-grid .chips{grid-column:1 / -1; grid-row:4; flex-wrap:nowrap; gap:clamp(3px, 1.6vw, 12px); justify-content:center; margin:0 0 12px; white-space:nowrap;}
+    .hero-grid .chip{font-size:clamp(.46rem, 2.2vw, .64rem); padding:6px clamp(4px, 1.5vw, 9px); letter-spacing:0; text-align:center;}
+    .hero-grid .btn{grid-column:1 / -1; grid-row:5; justify-self:stretch; width:100%; text-align:center; font-size:.95rem; padding:16px 20px;}
+  }
+  .chip-m{display:none;}
+  @media(max-width:759px){ .chip-m{display:inline-flex;} }
+  .kicker{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--pop-deep); margin-bottom:18px;
+  }
+  .kicker::before{content:""; width:22px; height:3px; background:var(--pop); border-radius:2px;}
+  h1{font-size:clamp(2.35rem, 11.5vw, 4rem);}
+  .hero-sub{color:var(--soft); font-size:1rem; margin:18px 0 26px; max-width:46ch;}
+  .photo-card{position:relative; border-radius:26px; overflow:visible; margin:4px 0 10px;}
+  .photo-stack{display:none;}
+  .photo-card img{
+    width:100%; height:340px; object-fit:cover; object-position:top;
+    border-radius:26px; border:1.5px solid var(--line);
+  }
+  /* desktop/tablet: static sticker row, exactly as before (duplicates hidden) */
+  .stickers{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:10px; margin:12px auto 4px; padding:0 24px; max-width:1080px;
+  }
+  .stk-track{display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
+  .stk-track .stk[aria-hidden="true"]{display:none;}
+  /* phone only: the fun moving strip */
+  @media(max-width:759px){
+    .stickers{
+      overflow:hidden; margin:14px auto 6px; padding:4px 0; max-width:100%; position:relative;
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+    .stk-track{
+      flex-wrap:nowrap; width:max-content; padding:6px 0;
+      animation:stk-move 26s linear infinite;
+    }
+    .stk-track:hover, .stk-track:active{animation-play-state:paused;}
+    .stk-track .stk[aria-hidden="true"]{display:inline-flex;}
+  }
+  @keyframes stk-move{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){
+    .stk-track{animation:none; flex-wrap:wrap; justify-content:center; width:auto;}
+  }
+  .stk{
+    font-weight:600; font-size:.75rem; padding:8px 13px; border-radius:999px;
+    white-space:nowrap; transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  @media(max-width:759px){ .stk{margin-right:10px;} }
+  .stk:nth-child(odd){transform:rotate(1.2deg);}
+  .stk:nth-child(even){transform:rotate(-1.2deg);}
+  .stk:hover{transform:rotate(0deg) scale(1.07) !important;}
+  .stk-pop{background:#FFEBD6; color:var(--pop-deep);}
+  .stk-blue{background:#E8EDFE; color:#2545F4;}
+  .stk-cream{background:#F4F0E4; color:var(--ink);}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 18px;}
+  .chip{
+    font-size:.78rem; font-weight:600; background:var(--ink); color:#fff;
+    padding:9px 16px; border-radius:999px; letter-spacing:.01em;
+    transform:rotate(-1.5deg); transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1), background .3s;
+  }
+  .chip:nth-child(2){transform:rotate(1.2deg);}
+  .chip:nth-child(3){transform:rotate(-.8deg);}
+  .chip b{color:var(--pop); font-weight:600;}
+  .chip:hover{transform:rotate(0) translateY(-3px); box-shadow:0 10px 22px rgba(20,20,20,.18); background:var(--pop);}
+  .chip:hover b{color:#fff;}
+  
+  /* buttons */
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:.6rem;
+    font-weight:600; font-size:1rem; padding:16px 24px; border-radius:999px;
+    transition:transform .25s ease, box-shadow .25s ease; cursor:pointer; border:none;
+  }
+  .btn-primary{background:var(--pop); color:#fff; box-shadow:0 10px 26px rgba(255,77,0,.3);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 32px rgba(255,77,0,.4);}
+  .btn-ghost{background:transparent; color:var(--ink); border:1.5px solid var(--ink); margin-top:10px;}
+  .btn-ghost:hover{transform:translateY(-2px);}
+  .btn .dot{transition:transform .25s ease;}
+  .btn:hover .dot{transform:translateX(4px);}
+
+  /* section cards */
+  section.card{
+    position:relative;
+    background:var(--card); border:1.5px solid var(--line); border-radius:28px;
+    padding:30px 22px; margin:18px auto; max-width:640px;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 18px;}
+  .wrap .card{margin-left:0; margin-right:0;}
+  .sec-tag{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--pop-deep); margin-bottom:14px;
+  }
+
+  /* about: dark card */
+  section.dark{background:var(--ink); color:#F4F1E8; border-color:var(--ink);}
+  section.dark .sec-tag{color:var(--pop);}
+  .belief{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:clamp(1.3rem,6vw,1.7rem); line-height:1.38;}
+  .hl-blue{
+    color:var(--blue);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M3 12 C 40 7 80 15 120 10 S 170 13 197 8' fill='none' stroke='%230038FF' stroke-width='7' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-size:100% .3em;
+    background-position:0 96%;
+    padding-bottom:.16em;
+  }
+  .belief .hl{color:var(--ink);}
+  .dark-sub{color:#B9B3A4; font-size:.95rem; margin-top:16px;}
+  .dark-quote{
+    border-left:4px solid var(--pop); padding-left:14px; margin-top:20px;
+    font-weight:600; font-size:.98rem; color:#F4F1E8;
+  }
+
+  /* how i coach rows */
+.steps-3{max-width:1080px; margin:0 auto; padding:0 18px;}
+  .step-row{
+    display:grid; grid-template-columns:52px 1fr; gap:6px 14px; padding:20px 0;
+    border-top:1.5px solid var(--line);
+  }
+  .step-row:first-of-type{border-top:none; padding-top:0;}
+  .step-n{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.5rem; color:var(--pop); grid-row:span 2;}
+  .step-h{font-weight:600; letter-spacing:.06em; font-size:.9rem;}
+  .step-p{color:var(--soft); font-size:.92rem; grid-column:2;}
+  .step-lead{display:block; color:var(--ink); font-weight:600; margin-bottom:5px;}
+  /* orange statement */
+.statement{
+    position:relative; overflow:hidden; isolation:isolate;
+    background:linear-gradient(155deg, #FF8C38 0%, var(--pop) 55%, #E86000 100%);
+    color:#fff; border-radius:28px; margin:18px auto; transform:rotate(-.6deg);
+    padding:40px 26px 36px; max-width:640px; box-shadow:0 20px 44px rgba(196,61,0,.28);
+  }
+  .statement::before{
+    content:"\201C"; position:absolute; top:-.32em; left:14px; z-index:0;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:7rem;
+    color:rgba(255,255,255,.14); line-height:1;
+  }
+  .statement-tag{
+    position:relative; display:inline-block; font-size:.72rem; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.78);
+    margin-bottom:14px;
+  }
+  .statement p{
+    position:relative; font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+    font-size:clamp(1.3rem,6.4vw,1.85rem); line-height:1.34; display:grid; gap:.35em;
+  }
+  .statement .st-line{font-weight:600; color:rgba(255,255,255,.86);}
+  .statement .st-punch{font-weight:800; font-size:1.08em;}
+  .statement .st-punch span{
+    background:#fff; color:var(--pop-deep); padding:.02em .2em .08em;
+    border-radius:.3em .22em .3em .22em;
+  }
+
+  /* bubble moment */
+  .bubble{
+    align-self:flex-start; background:var(--pop-soft); border:1.5px solid rgba(255,77,0,.3);
+    border-radius:22px 22px 22px 6px; padding:14px 18px; font-weight:600;
+    font-size:1rem; margin-bottom:22px; box-shadow:0 8px 22px rgba(29,27,23,.06);
+  }
+  .after{color:var(--soft); font-size:.95rem;}
+  .after b{color:var(--ink);}
+  .loyal{font-weight:600; margin-top:18px; font-size:1rem;}
+  .loyal i{color:var(--pop-deep); font-style:normal;}
+
+  /* story rows */
+  .story-row{display:grid; gap:2px; padding:16px 0; border-top:1.5px solid var(--line);}
+  .story-row:first-of-type{border-top:none; padding-top:0;}
+  .story-role{font-weight:600; font-size:.95rem;}
+  .story-yr{font-size:.75rem; font-weight:600; color:var(--soft);}
+  .story-desc{font-size:.9rem; color:var(--soft); margin-top:4px;}
+  .link-arrow{
+    display:inline-flex; align-items:center; gap:.4rem; margin-top:20px;
+    font-weight:700; font-size:.95rem; color:var(--pop-deep);
+    border-bottom:2.5px solid var(--pop); padding-bottom:2px;
+  }
+  .link-arrow:hover{color:var(--pop);}
+
+  /* pricing */
+  .price-tag{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(2.8rem,14vw,4rem); line-height:1; color:var(--pop);}
+  .price-note{color:var(--soft); font-size:.95rem; margin:10px 0 24px;}
+  .fine{font-size:.78rem; color:var(--soft); margin-top:14px; text-align:center;}
+
+  /* testimonial */
+  .quote-mark{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:3rem; color:var(--pop); line-height:1;}
+  .testi-q{font-size:1.05rem; font-weight:500; margin-top:8px;}
+  .testi-q b{color:var(--pop-deep);}
+  .testi-wrap{display:flex; flex-direction:column; gap:14px; margin-top:10px;}
+  .testi-card{
+    position:relative; background:#EEF2FE; border-radius:18px;
+    padding:18px 18px 16px 42px; transform:rotate(1deg);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .testi-card:nth-child(even){transform:rotate(-1deg);}
+  .testi-card:hover{transform:rotate(0deg) scale(1.02);}
+  .testi-card .tq{
+    position:absolute; left:14px; top:6px; line-height:1;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:2rem; color:#2545F4;
+  }
+  .testi-card .testi-q{margin-top:0;}
+.who{display:flex; align-items:center; gap:12px; margin-top:20px;}
+  .who img{width:44px; height:44px; border-radius:50%; object-fit:cover;}
+  .who b{display:block; font-size:.9rem;}
+  .who span{font-size:.78rem; color:var(--soft);}
+
+  /* footer */
+  .foot-cta{
+    background:var(--ink); color:#F4F1E8; border-radius:28px; margin:18px auto;
+    padding:40px 24px; max-width:640px; text-align:center;
+  }
+  .foot-cta h2{font-size:clamp(1.7rem,8.6vw,2.4rem);}
+  .foot-cta h2 .hl{color:var(--ink);}
+  .foot-cta .foot-sub{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+    font-size:clamp(1.1rem,4.5vw,1.6rem); color:var(--pop); margin-top:12px;
+  }
+  footer{max-width:1080px; margin:0 auto; padding:18px 18px 26px;}
+  .foot-panel{
+    background:var(--card); border:1.5px solid var(--line); border-radius:28px;
+    padding:26px 22px 20px; box-shadow:0 14px 36px rgba(20,20,20,.08);
+  }
+  .foot-top{display:flex; flex-direction:column; gap:18px;}
+  .foot-line{font-size:.82rem; color:var(--soft); margin-top:6px; font-weight:600;}
+  .foot-links{display:flex; flex-wrap:wrap; gap:6px 18px; font-size:.85rem; font-weight:600;}
+  .foot-links a{color:var(--ink); padding:4px 0;}
+  .foot-cred{
+    display:flex; flex-wrap:wrap; align-items:center; gap:8px 18px;
+    margin-top:22px; padding-top:18px; border-top:1.5px solid var(--line);
+  }
+  .foot-cred img{height:36px; width:auto; opacity:.9; filter:grayscale(1);}
+  .foot-cred img:hover{opacity:1; filter:none;}
+  .foot-fine{margin-top:18px; font-size:.78rem; color:var(--soft); font-weight:600;}
+  footer a:hover{color:var(--pop-deep);}
+
+  /* inline lead form */
+  .lead-form{margin-top:22px; scroll-margin-top:96px;}
+  .price-card{scroll-margin-top:110px;}
+  .lead-form form{display:grid; gap:10px;}
+  .lead-form input, .lead-form textarea{
+    width:100%; font:inherit; font-size:.92rem; color:var(--ink);
+    background:var(--paper); border:1.5px solid var(--line); border-radius:999px;
+    padding:12px 18px; outline:none; transition:border-color .2s, box-shadow .2s;
+  }
+  .lead-form textarea{border-radius:18px; resize:vertical; min-height:76px;}
+  .lead-form input:focus, .lead-form textarea:focus{border-color:var(--pop); box-shadow:0 0 0 3px rgba(255,77,0,.15);}
+  .lead-form input::placeholder, .lead-form textarea::placeholder{color:#B4AFA4;}
+  .lead-form .hp{position:absolute; left:-4000px; width:1px; height:1px; opacity:0;}
+  .lead-form .btn{justify-content:center; display:flex; font-weight:600;}
+  .lead-success{
+    display:none; background:var(--pop-soft); border:1.5px solid rgba(255,77,0,.3);
+    border-radius:18px; padding:16px 18px; font-size:.95rem; margin-top:4px;
+  }
+  .lead-success.show{display:block;}
+  .free-line{margin-top:14px; font-weight:600; color:var(--pop-deep); text-align:center;}
+  html{scroll-behavior:smooth;}
+
+  /* tablet and up: two-column hero, mobile rhythm kept */
+  @media(min-width:760px){
+    .hero-grid{
+      display:grid; grid-template-columns:1.08fr .92fr; gap:48px; align-items:center;
+      padding:84px 24px 16px;
+    }
+    h1{font-size:3rem; line-height:1.16;}
+    .photo-side .photo-card img{height:440px;}
+
+    .hero-sub{font-size:1.05rem;}
+    section.card{padding:36px 32px;}
+    .wrap{max-width:760px;}
+    .wrap section.card{max-width:none;}
+    .steps-3{max-width:760px; padding:0 24px;}
+    .steps-3 section.card{margin-left:0; margin-right:0;}
+    .split{max-width:760px; padding:0 24px;}
+    .split section.card{margin-left:0; margin-right:0;}
+    .statement{max-width:760px; padding:56px 40px;}
+    .statement p{font-size:2.1rem;}
+    .foot-cta{max-width:760px; padding:56px 32px;}
+    .foot-cta h2{font-size:2.4rem;}
+    .belief{font-size:1.6rem;}
+    footer{max-width:1080px;}
+    .foot-top{flex-direction:row; justify-content:space-between; align-items:flex-start;}
+    .foot-links{max-width:420px; justify-content:flex-end; text-align:right;}
+  }
+
+  /* real desktop: air, bigger type, wider columns */
+  @media(min-width:1024px){
+    .hero-grid{
+      grid-template-columns:1.18fr .82fr; gap:80px;
+      padding:84px 24px 20px;
+    }
+    h1{font-size:3.8rem; line-height:1.16; letter-spacing:-.005em;}
+    .kicker{margin-bottom:24px;}
+    .hero-sub{font-size:1.12rem; margin:24px 0 30px;}
+    .chips{margin:20px 0 22px; gap:10px;}
+    .chip{font-size:.85rem; padding:10px 18px;}
+    .btn{font-size:1.05rem; padding:18px 28px;}
+    .btn-ghost{margin-top:14px;}
+    .photo-side .photo-card img{height:560px;}
+    section.card{padding:48px 40px; border-radius:32px;}
+    .wrap{max-width:1080px;}
+    .wrap section.card{margin-top:28px; margin-bottom:28px;}
+    .steps-3{
+      max-width:1080px;
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; padding:28px 24px;
+    }
+    .steps-3 section.card{margin:0; max-width:none;}
+    .steps-3 .step-row{
+      grid-template-columns:52px 1fr; align-items:baseline; gap:6px 14px; padding:0;
+    }
+    .steps-3 .step-n{grid-row:1; grid-column:1;}
+    .steps-3 .step-h{grid-row:1; grid-column:2;}
+    .steps-3 .step-p{grid-row:2; grid-column:1 / -1; font-size:.98rem; color:#6E6A63;}
+    .split{
+      max-width:1080px; margin:0 auto; padding:28px 24px;
+      display:grid; grid-template-columns:1fr 1fr; gap:28px;
+    }
+    .split section.card{margin:0;}
+    .split .price-card{order:2;}
+    .statement{max-width:1080px; margin-top:28px; margin-bottom:28px; padding:88px 72px;}
+    .statement p{font-size:2.5rem; line-height:1.3;}
+    .belief{font-size:1.9rem; line-height:1.4;}
+    .dark-sub{font-size:1rem;}
+    .dark-quote{font-size:1.05rem;}
+    .step-row{padding:26px 0; grid-template-columns:64px 1fr;}
+    .step-n{font-size:1.8rem;}
+    .step-p{max-width:640px;}
+    .step-p{font-size:.98rem;}
+    .story-desc{font-size:.95rem;}
+    .price-note{font-size:1rem;}
+    .testi-q{font-size:1.15rem;}
+    .foot-cta{max-width:1080px; padding:96px 24px;}
+    .foot-cta h2{font-size:3rem; line-height:1.2;}
+    .foot-cta .btn{font-size:1.1rem; padding:18px 30px;}
+    footer{padding-top:40px;}
+    .foot-cred img{height:40px;}
+  }
+
+  @media(max-width:759px){
+    .split{max-width:640px; margin:0 auto; padding:0 18px;}
+    .stk{font-size:.7rem;}
+  }
+
+  /* home: free workbook sign-up gate (sits under Proudest moments) */
+  .split-col{display:flex; flex-direction:column; gap:18px; min-width:0;}
+  .split-col section.card{margin:0;}
+  .vyf-top{display:grid; grid-template-columns:104px 1fr; gap:18px; align-items:center; margin-bottom:18px;}
+  .vyf-cover{width:104px; height:auto; border-radius:10px; box-shadow:0 10px 26px rgba(20,20,20,.22); transform:rotate(-2.5deg); border:1.5px solid rgba(20,20,20,.08);}
+  .vyf-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.35rem,5.4vw,1.75rem); line-height:1.12; margin:0 0 8px;}
+  .vyf-sub{color:var(--soft); font-size:.9rem; line-height:1.5; margin:0;}
+  .vyf-copy .sec-tag{margin-bottom:8px;}
+  #vyfForm{display:grid; gap:10px;}
+  .vyf-fields{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .vyf-fields input{
+    width:100%; padding:13px 15px; border:1.5px solid var(--line); border-radius:14px;
+    background:var(--paper); font:inherit; font-size:.95rem; color:var(--ink);
+  }
+  .vyf-fields input:focus{outline:none; border-color:var(--pop); box-shadow:0 0 0 3px rgba(255,77,0,.15);}
+  .vyf-gate .hp{position:absolute; left:-4000px; width:1px; height:1px; opacity:0;}
+  .vyf-err{display:none; color:#B3261E; font-size:.85rem; font-weight:600; margin:0;}
+  .vyf-err.show{display:block;}
+  .vyf-fine{color:var(--soft); font-size:.78rem; margin:12px 0 0;}
+  .vyf-done{display:none; background:var(--pop-soft); border:1.5px solid rgba(255,77,0,.3); border-radius:18px; padding:16px 18px; font-size:.95rem;}
+  .vyf-done.show{display:grid; gap:12px;}
+  .vyf-gate.hide{display:none;}
+  @media(max-width:480px){
+    .vyf-fields{grid-template-columns:1fr;}
+    .vyf-top{grid-template-columns:88px 1fr; gap:14px;}
+    .vyf-cover{width:88px;}
+  }
+</style>
 </head>
 <body>
-  <!-- ─── NAVIGATION ─── -->
-  <nav id="navbar">
-    <a href="#hero" class="nav-brand">Coach Kris</a>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+
+<div class="bar">
+  <div class="bar-in">
+    <a href="/" class="wordmark">coach kris<b>.</b></a>
+    <div class="bar-links">
+      <a href="/about.html">About me</a>
+      <a href="/focus.html">My focus</a>
+      <a href="/coaches.html">For coaches</a>
+      <a href="/blog.html">Blog</a>
+      <a href="#book-form" class="bar-cta">Book a session</a>
+    </div>
+    <button class="bar-dots" id="barDots" aria-label="Open options" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#story" onclick="closeMenu()">About</a></li>
-      <li><a href="#pillars" onclick="closeMenu()">How I Help</a></li>
-      <li><a href="thevoice.html" onclick="closeMenu()">WorkBook</a></li>
-      <li><a href="#pricing" onclick="closeMenu()">Fee</a></li>
-      <li><a href="blog.html" onclick="closeMenu()">Blog</a></li>
-
-      <li><a href="#contact" class="nav-cta" onclick="closeMenu()">Get in Touch</a></li>
-    </ul>
-  </nav>
-
-  <!-- ─── HERO ─── -->
-  <section id="hero">
-    <p class="hero-eyebrow reveal">Life, Longevity &amp; Business Coaching</p>
-
-    <div class="hero-photo-wrap reveal reveal-delay-1">
-      <img
-        src="kristian.jpg" width="558" height="600" loading="eager"
-        alt="Kristian Sokol - Life & Longevity Coach"
-      />
-    </div>
-
-    <h1 class="hero-headline reveal reveal-delay-2">
-      Break the Loop<br /><em>Before It Breaks You.</em>
-    </h1>
-
-
-    <p class="hero-subheadline reveal reveal-delay-3">
-      You may already know what you want, but something keeps getting between knowing and doing. I help you uncover the belief, pattern or internal negotiation beneath it, stay with the right question long enough to create a real shift, and turn that realisation into practical movement.
-    </p>
-
-    <div class="hero-buttons reveal reveal-delay-4">
-      <div class="hero-btn-row">
-        <a href="#focus" class="btn-secondary">How I Coach</a>
-        <a href="thevoice.html" class="btn-secondary">The Voice You Feed</a>
-      </div>
-      <a href="#contact" class="btn-primary">Book a Free Focus Session</a>
-    </div>
-
-    <div class="hero-badges reveal reveal-delay-4">
-      <span class="badge">Certified Life Coach</span>
-      <span class="badge">Certified Longevity Coach</span>
-      <span class="badge">ADHD-Aware</span>
-      <span class="badge">LGBTQ+ Friendly</span>
-    </div>
-
-    <div class="hero-scroll-arrow">↓</div>
-  </section>
-
-  <!-- ─── ONE CONVERSATION ─── -->
-  <section id="focus">
-    <div class="section-inner">
-      <p class="eyebrow reveal">The Way I Work</p>
-      <h2 class="section-heading reveal reveal-delay-1">One conversation. <em>One real focus.</em></h2>
-      <p class="reveal reveal-delay-2">I don't believe in rushing through a checklist of problems or giving you advice you could find online. We begin by identifying <strong class="story-gold">the one thing that matters most</strong> and exploring what is really happening underneath it.</p>
-      <p class="reveal reveal-delay-2">Through focused questions, honest reflection and carefully chosen exercises, I help you notice the beliefs and patterns influencing your decisions - and <strong class="story-gold">see possibilities</strong> that can be difficult to access while you are inside the situation.</p>
-      <p class="reveal reveal-delay-3">Then we turn that understanding into <strong class="story-gold">a practical next step.</strong> Because a realisation can open the door, but the evidence you create afterwards is what begins <strong class="story-gold">rebuilding trust in yourself.</strong></p>
-
-      <div class="focus-blocks">
-        <div class="focus-block reveal reveal-delay-3">
-          <div class="pillar-icon dark">&#127754;</div>
-          <h3>Go deeper</h3>
-          <p>We stay with the important question instead of automatically accepting the first explanation.</p>
-        </div>
-        <div class="focus-block reveal reveal-delay-3">
-          <div class="pillar-icon gold">&#128301;</div>
-          <h3>See what is possible</h3>
-          <p>You are not given somebody else's answer. You are supported to recognise your own abilities, direction and possibilities more clearly.</p>
-        </div>
-        <div class="focus-block reveal reveal-delay-4">
-          <div class="pillar-icon teal">&#129517;</div>
-          <h3>Create movement</h3>
-          <p>We turn meaningful insight into an action, decision or experiment you can carry into your real life.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TWO PILLARS ─── -->
-  <section id="pillars">
-    <div class="section-inner-wide">
-      <p class="eyebrow reveal">How I Can Help</p>
-      <h2 class="section-heading reveal reveal-delay-1">Three pillars. One whole you.</h2>
-
-      <p class="pillars-intro reveal reveal-delay-2">We begin with whatever is most present for you - your life, health, direction or work - but we are never coaching only one isolated part. The same beliefs and patterns often travel through all three. These are not separate versions of you. They are different places where your relationship with yourself becomes visible.</p>
-
-      <div class="pillars-grid">
-
-        <!-- Pillar 1: Life Coaching -->
-        <div class="pillar-card reveal reveal-delay-2" data-pillar="life" onclick="openPillar('life')">
-          <span class="pillar-more">Read more ↗</span>
-          <div class="pillar-icon dark">🤍</div>
-          <p class="pillar-label">Pillar One</p>
-          <h3 class="pillar-name">Life Coaching</h3>
-          <p class="pillar-subtitle">The Self</p>
-          <div class="pillar-features">
-            <div class="feature-row">
-              <div class="feature-icon">🧭</div>
-              <div class="feature-text">
-                <strong>Direction & Clarity</strong>
-                <span>Cut through noise and find what actually matters to you.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🔄</div>
-              <div class="feature-text">
-                <strong>Break the Restart Loop</strong>
-                <span>Identify the patterns that keep pulling you back to zero.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🌱</div>
-              <div class="feature-text">
-                <strong>Life Transitions</strong>
-                <span>Navigate change with confidence, not just survival mode.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🔁</div>
-              <div class="feature-text">
-                <strong>Habit Building That Supports You</strong>
-                <span>Build routines that fit your real life - not the life you think you should have.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pillar 2: Longevity Coaching -->
-        <div class="pillar-card reveal reveal-delay-3" data-pillar="longevity" onclick="openPillar('longevity')">
-          <span class="pillar-more">Read more ↗</span>
-          <div class="pillar-icon gold">🧬</div>
-          <p class="pillar-label">Pillar Two</p>
-          <h3 class="pillar-name">Longevity Coaching</h3>
-          <p class="pillar-subtitle">The System</p>
-          <div class="pillar-features">
-            <div class="feature-row">
-              <div class="feature-icon">🫀</div>
-              <div class="feature-text">
-                <strong>Body</strong>
-                <span>Biometrics, nutrition, and movement to keep you youthful from the inside out.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🧠</div>
-              <div class="feature-text">
-                <strong>Brain</strong>
-                <span>Rewire the patterns and addictions quietly holding you back.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">✨</div>
-              <div class="feature-text">
-                <strong>Core</strong>
-                <span>Your spirit and deeper purpose, the pull you feel but rarely follow.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🏆</div>
-              <div class="feature-text">
-                <strong>Lived, Not Theoretical</strong>
-                <span>Top 17 worldwide in longevity, achieved firsthand.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pillar 3: Project Coaching - full width -->
-        <div class="pillar-card full-width reveal reveal-delay-4" data-pillar="project" onclick="openPillar('project')">
-          <span class="pillar-more">Read more ↗</span>
-          <div class="pillar-icon teal">🧩</div>
-          <p class="pillar-label">Pillar Three</p>
-          <h3 class="pillar-name">Business Coaching</h3>
-          <p class="pillar-subtitle">The Direction</p>
-          <div class="pillar-features">
-            <div class="feature-row">
-              <div class="feature-icon">🗺️</div>
-              <div class="feature-text">
-                <strong>The "What & How"</strong>
-                <span>Whether you're a solopreneur or a small business - map out the exact steps to build your momentum from idea to execution.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🧱</div>
-              <div class="feature-text">
-                <strong>Hit a Wall?</strong>
-                <span>Deconstruct the blocks, find what motivates you, and figure out why things aren't moving forward - then fix it.</span>
-              </div>
-            </div>
-            <div class="feature-row">
-              <div class="feature-icon">🌐</div>
-              <div class="feature-text">
-                <strong>Your Blueprint to Being Found</strong>
-                <span>From idea and identity to website and SEO - one clear path to being seen.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── COACHING & PRICING ─── -->
-  <section id="pricing">
-    <div class="section-inner-wide">
-      <p class="eyebrow reveal">Coaching &amp; Pricing</p>
-      <h2 class="section-heading reveal reveal-delay-1">Begin with one focused conversation</h2>
-      <p class="pricing-lede reveal reveal-delay-1">Bring one decision, pattern or possibility you keep circling.</p>
-      <p class="pricing-lede reveal reveal-delay-2">Your free 30-minute Focus Session is a genuine coaching conversation - not a sales pitch. We will choose one meaningful issue, explore what may be happening underneath it and work towards a new realisation, clearer direction or practical next step.</p>
-
-      <div class="pricing-grid">
-        <div class="pricing-card reveal reveal-delay-2">
-          <p class="pricing-tier">Continued Coaching</p>
-          <p class="pricing-meta">60 minutes &middot; &pound;45 per session</p>
-          <p class="pricing-desc">If we decide to continue, our sessions give us the time to explore the deeper pattern, apply what you discover and work with what emerges as you begin making changes.</p>
-          <p class="pricing-note">I normally recommend one session per week, particularly at the beginning, to help maintain focus and momentum.</p>
-          <p class="pricing-note">No compulsory package or long-term commitment.</p>
-          <a href="#contact" class="btn-secondary">Start With a Free Focus Session</a>
-        </div><div class="pricing-card pricing-card--featured reveal reveal-delay-3">
-          <p class="pricing-tier">Free Focus Session</p>
-          <p class="pricing-meta">30 minutes &middot; Free</p>
-          <p class="pricing-desc">One meaningful focus, explored through honest conversation and deeper questions.</p>
-          <p class="pricing-note">No commitment &middot; Online or phone</p>
-          <a href="#contact" class="btn-primary">Book Your Free Focus Session</a>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── PRACTICE FEEDBACK ─── -->
-  <section id="feedback">
-    <div class="section-inner">
-      <h2 class="section-heading reveal reveal-delay-1">What can change when we<br /><em>look beneath the first answer</em></h2>
-      <blockquote class="reveal reveal-delay-2">
-        &ldquo;I believed I needed more qualifications before I could begin coaching. Through our work, I clarified who I wanted to help, recognised what was really keeping me from starting and began building my own practice step by step.&rdquo;
-      </blockquote>
-      <p class="feedback-label reveal reveal-delay-3">Practice-coaching feedback</p>
-    </div>
-  </section>
-
-  <!-- ─── MY STORY ─── -->
-  <section id="story">
-    <div class="story-inner">
-      <p class="eyebrow reveal">My Story</p>
-      <h2 class="section-heading reveal reveal-delay-1">From restart loops<br />to a life that moved forward.</h2>
-
-      <p class="reveal reveal-delay-2">
-        Ever feel as though you are one decision away from everything changing - but you still cannot seem to make it? If so, you are <strong class="story-gold">exactly the kind of person I became a coach for.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I'm Kris, and my life has rarely followed a predictable route. I lost my sister when I was eight, broke my back in two places at 15, and at 20 lost both of my parents within a year and unexpectedly became guardian to my 13-year-old brother. There was no preparation, no instruction manual and very little time to work out who I was supposed to become.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Those experiences forced me to grow up quickly - but <strong class="story-gold">being able to survive difficult things did not mean I always knew how to move forward.</strong>
-      </p>
-
-      <h3 class="reveal reveal-delay-2">The years of starting again</h3>
-
-      <p class="reveal reveal-delay-2">
-        For a long time, I lived in <strong class="story-gold">restart mode.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Tomorrow. Monday. Next month. One final indulgence, one better plan, one new version of Day One. I tried diets, gym routines, productivity systems and the familiar promise that this time everything would be different.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Sometimes it worked - for a while. Then something interrupted the plan and I treated that interruption as proof that I had failed. Back to zero. Back to another beginning.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Eventually, I began noticing that the real struggle wasn't a lack of information. I usually knew what I wanted to do. The struggle happened in <strong class="story-gold">the conversation between intention and action.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        There was always a persuasive reason to wait, avoid, overprepare or choose what felt familiar. The voice sounded completely reasonable because it sounded exactly like me.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Today, I call that voice <strong class="story-gold">the Negotiator.</strong>
-      </p>
-
-      <h3 class="reveal reveal-delay-2">What changed</h3>
-
-      <p class="reveal reveal-delay-2">
-        The turning point wasn't discovering more motivation or finally creating the perfect routine.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I stopped treating every difficult moment as a reason to begin again. I started paying attention to my state, my environment, the stories I was telling myself and the conditions surrounding my choices.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Most importantly, <strong class="story-gold">I learned to return.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        One decision became evidence. Evidence slowly became trust. And that trust changed what I believed I could do.
-      </p>
-
-      <h3 class="reveal reveal-delay-2">A life I could not have predicted</h3>
-
-      <p class="reveal reveal-delay-2">
-        My life since then has remained colourful, unconventional and occasionally difficult to explain.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I went from working as a pizza chef while barely speaking English to working aboard &euro;300 million superyachts for some of the wealthiest people in the world. I have won gold in sailboat racing, climbed a mountain barefoot, trained in freediving and held my breath for three minutes, explored kitesurfing and reached <strong>16th place worldwide in longevity rankings</strong>.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        These experiences weren't part of one perfect master plan. Each began with curiosity, discomfort and <strong class="story-gold">the willingness to take the next step before I could see the entire staircase.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        They taught me that we are often capable of far more than our current identity allows us to imagine. But possibility alone is not enough. We need the conditions, direction and evidence that allow us to believe it - and eventually live it.
-      </p>
-
-      <h3 class="reveal reveal-delay-2">Why I coach</h3>
-
-      <p class="reveal reveal-delay-2">
-        That is what led me to become a certified Life and Longevity Coach.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I don't coach because I believe everyone should copy my routines, pursue extreme experiences or build the kind of life I have built. <strong class="story-gold">Your version of a meaningful life may look completely different from mine.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I coach because I know what it feels like to remain caught between the person you have been and <strong class="story-gold">the person you sense you could become.</strong>
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        My strength is slowing that moment down. We identify the one thing that matters, look beneath the first explanation and stay with the right questions until something new becomes visible. Then we turn that realisation into a direction, a practical step and evidence you can build upon.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        You may discover that you do not need another certificate before beginning. You may realise that the problem is not laziness but the conditions surrounding your life. You may recognise that the goal you have been pursuing was never genuinely yours.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        Whatever emerges, <strong class="story-gold">we begin with where you really are - not where you think you should be.</strong>
-      </p>
-
-      <h3 class="reveal reveal-delay-2">Where I am now</h3>
-
-      <p class="reveal reveal-delay-2">
-        I work primarily online with people around the world, offering focused coaching shaped around the person rather than a predetermined script. I am also available in person in Galicia, northern Spain - usually somewhere between coaching, hiking, kitesurfing and researching the next subject that captures my curiosity.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        I am ADHD-aware, proudly LGBTQ+ friendly and committed to creating a space where you can be honest without judgment or performance.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        You don't need to have everything worked out before we speak.
-      </p>
-
-      <p class="reveal reveal-delay-2">
-        <strong class="story-gold">Bring the one thing you keep circling. We'll start there.</strong>
-      </p>
-
-      <a href="#contact" class="btn-primary story-cta reveal reveal-delay-3">Book Your Free Focus Session</a>
-    </div>
-  </section>
-
-  <!-- ─── CONTACT ─── -->
-  <section id="contact">
-    <div class="contact-grid">
-
-      <div class="contact-left">
-        <p class="eyebrow reveal">Let's Connect</p>
-        <h2 class="section-heading reveal reveal-delay-1">What is the one<br />thing that keeps<br /><em>coming back?</em></h2>
-        <p class="contact-intro reveal reveal-delay-1">You don't need to arrive with a perfect goal or know exactly what needs to change. Bring the decision, pattern or possibility that keeps returning. We'll start there.</p>
-        <div class="contact-steps">
-          <div class="contact-step reveal reveal-delay-2">
-            <div class="step-number">1</div>
-            <div class="step-text">
-              <strong>Tell me where you feel stuck</strong>
-              <span>A few sentences are enough. You do not need to understand the entire problem yet.</span>
-            </div>
-          </div>
-          <div class="contact-step reveal reveal-delay-3">
-            <div class="step-number">2</div>
-            <div class="step-text">
-              <strong>I'll contact you within 24 hours</strong>
-              <span>We'll arrange a time that works for a phone or video session.</span>
-            </div>
-          </div>
-          <div class="contact-step reveal reveal-delay-4">
-            <div class="step-number">3</div>
-            <div class="step-text">
-              <strong>Bring one meaningful focus</strong>
-              <span>We'll use the 30 minutes to explore it properly. Afterwards, you can continue with weekly 60-minute sessions for &pound;45 if the fit feels right.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="contact-form-card reveal reveal-delay-2">
-        <div id="formContent">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Your full name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="message">What would you most like us to focus on?</label>
-            <textarea id="message" name="message" placeholder="The one thing I keep coming back to is..." required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>PREFERRED FORMAT</label>
-            <div class="form-toggle">
-              <button type="button" class="toggle-btn active" id="phoneBtn" onclick="selectFormat('phone')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                Phone
-              </button>
-              <button type="button" class="toggle-btn" id="videoBtn" onclick="selectFormat('video')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:6px"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                Video
-              </button>
-            </div>
-          </div>
-
-          <button class="form-submit" id="submitBtn" onclick="submitForm(event)">
-            REQUEST MY FREE FOCUS SESSION
-          </button>
-
-          <p style="font-size:0.72rem;color:var(--slate-mist);text-align:center;margin-top:0.75rem;">
-            Free 30-minute call · No commitment · Phone or video
-          </p>
-        </div>
-
-        <div class="form-success" id="formSuccess">
-          <div class="success-icon">✅</div>
-          <h3>Message received!</h3>
-          <p>Thanks for reaching out - I'll get to you within 24 hours.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ─── -->
-
-  <!-- ── SUBSCRIBE STRIP ── -->
-<section class="subscribe-strip">
-  <div class="subscribe-inner">
-    <h3><em>Be the first</em> to know</h3>
-    <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-      <input type="email" id="subEmail" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
   </div>
-  <p class="subscribe-msg" id="subMsg">✓ You're in - talk soon.</p>
-</section>
+  <div class="bar-menu" id="barMenu">
+    <a href="/about.html" data-n="01">About me</a>
+    <a href="/focus.html" data-n="02">My focus</a>
+    <a href="/coaches.html" data-n="03">For coaches</a>
+    <a href="/blog.html" data-n="04">Blog</a>
+    <a href="#book-form" class="bm-cta">Book a session</a>
+  </div>
+</div>
 
-  <footer>
-    <div class="footer-grid">
+<header class="hero-grid" id="top">
+  <div>
+    <p class="kicker">Life · Longevity · Business coach</p>
+    <h1 class="disp">You know <span class="h-what">what <span class="h-want">you want.</span></span> <br class="br-d"><span class="hl h-go">Let's go get it.</span></h1>
+    <p class="hero-sub">I'm not here to help you avoid <span class="hl-blue">discomfort</span>. I'm here to get curious about it, expose what's driving it, and use what we find to move you towards where you want to go.</p>
+    <div class="chips">
+      <span class="chip"><b>✓</b> certified coach</span>
+      <span class="chip"><b>✓</b> longevity top 17</span>
+      <span class="chip"><b>&#10003;</b> adhd-aware</span>
+      <span class="chip chip-m"><b>&#10003;</b> action focused</span>
+          </div>
+    <a href="#book-form" class="btn btn-primary">Book a session <span class="dot">&rarr;</span></a>
+  </div>
+  <div class="photo-side">
+    <div class="photo-card">
+      <img src="/kristian.jpg" alt="Kris, certified life, longevity and business coach" width="558" height="600" fetchpriority="high" decoding="async">
+    </div>
+  </div>
+</header>
+
+<div class="stickers">
+  <div class="stk-track">
+    <span class="stk stk-pop">Adaptive coaching</span>
+    <span class="stk stk-blue">NLP-informed</span>
+    <span class="stk stk-cream">Perspective shifter</span>
+    <span class="stk stk-pop">Challenge with purpose</span>
+    <span class="stk stk-cream">Creative problem-solver</span>
+    <span class="stk stk-pop" aria-hidden="true">Adaptive coaching</span>
+    <span class="stk stk-blue" aria-hidden="true">NLP-informed</span>
+    <span class="stk stk-cream" aria-hidden="true">Perspective shifter</span>
+    <span class="stk stk-pop" aria-hidden="true">Challenge with purpose</span>
+    <span class="stk stk-cream" aria-hidden="true">Creative problem-solver</span>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="card dark">
+    <span class="sec-tag">The thing I hear most</span>
+    <p class="belief">"That's just who I am" might be <span class="hl">an old conclusion</span> wearing your name.</p>
+    <p class="dark-sub">A belief repeated long enough stops sounding like a belief. It starts sounding like identity. But familiar doesn't mean true.</p>
+    <p class="dark-quote">When I hear "that's just who I am," I want to know: is it? Is it carved into your bones, or is it a belief you've repeated so often it started to feel like identity?</p>
+  </section>
+</div>
+
+<div class="steps-3" id="how">
+  <section class="card">
+    <span class="sec-tag">Step 01</span>
+    <div class="step-row">
+      <div class="step-n">N</div>
+      <div class="step-h">NOTICE</div>
+      <p class="step-p"><span class="step-lead">Okay, hang on. Something just happened there.</span>What did you feel? What changed? Where did the resistance show up? We notice it before we explain it away.</p>
+    </div>
+  </section>
+  <section class="card">
+    <span class="sec-tag">Step 02</span>
+    <div class="step-row">
+      <div class="step-n">C</div>
+      <div class="step-h">CHALLENGE</div>
+      <p class="step-p"><span class="step-lead">Let's change the angle.</span>What else could this mean? What are you assuming? What happens if we look at it differently? Sometimes one shift in perspective changes everything.</p>
+    </div>
+  </section>
+  <section class="card">
+    <span class="sec-tag">Step 03</span>
+    <div class="step-row">
+      <div class="step-n">M</div>
+      <div class="step-h">MOVE</div>
+      <p class="step-p"><span class="step-lead">Now let's do something with it.</span>A decision. An experiment. A boundary. A different response. We turn what we've noticed into movement towards what you actually want.</p>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="statement">
+    <span class="statement-tag">My promise</span>
+    <p><span class="st-line">When fear gets loud and comfort gets persuasive,</span><span class="st-punch">I'll make sure your goals get <span>louder</span>.</span></p>
+  </section>
+</div>
+
+<div class="split">
+  <div class="split-col">
+  <section class="card">
+    <span class="sec-tag">Proudest moments</span>
+    <div class="story-row">
       <div>
-        <p class="footer-brand-name">Kristian Sokol</p>
-        <p class="footer-tagline">Certified Life &amp; Longevity Coach.<br />Break the loop before it breaks you.</p>
-        <div class="footer-accred-row">
-          <img src="accreditations/cpd.png" alt="CPD Accredited" loading="lazy" />
-          <img src="accreditations/nccap.png" alt="NCCAP Accredited" loading="lazy" />
-          <img src="accreditations/cma.png" alt="CMA Accredited" loading="lazy" />
-          <img src="accreditations/iphm.png" alt="IPHM Accreditation" loading="lazy" />
-          <img src="accreditations/icahp.png" alt="ICAHP Accredited" loading="lazy" />
+        <div class="story-role">Following my own path</div>
+      </div>
+      <p class="story-desc">Changing careers, building something new and choosing a direction that feels genuinely mine.</p>
+    </div>
+    <div class="story-row">
+      <div>
+        <div class="story-role">Learning how I work</div>
+      </div>
+      <p class="story-desc">Understanding my ADHD brain, turning creativity and hyperfocus into strengths, and finding ways of working that fit me rather than fighting against me.</p>
+    </div>
+    <div class="story-row">
+      <div>
+        <div class="story-role">Choosing challenge</div>
+      </div>
+      <p class="story-desc">Climbing mountains barefoot, testing my limits and deliberately stepping into discomfort to learn more about fear, resistance and what I'm capable of.</p>
+    </div>
+    <a href="/about.html" class="link-arrow">There is more to my story &rarr;</a>
+  </section>
+
+  <section class="card vyf-card" id="workbook">
+    <div class="vyf-top">
+      <img class="vyf-cover" src="/vyf/vyf-cover-new.jpg" alt="The Voice You Feed workbook cover" width="360" height="509" loading="lazy" decoding="async">
+      <div class="vyf-copy">
+        <span class="sec-tag">Free workbook</span>
+        <h2 class="vyf-h">The Voice <span class="hl">You Feed.</span></h2>
+        <p class="vyf-sub">A 7-day self-experiment on the voice in your head and which one you keep feeding. 22 pages, yours free for now.</p>
+      </div>
+    </div>
+    <div class="vyf-gate" id="vyfGate">
+      <form id="vyfForm" novalidate>
+        <div class="vyf-fields">
+          <input type="text" id="vyfFirst" name="first_name" placeholder="First name" autocomplete="given-name" required>
+          <input type="email" id="vyfEmail" name="email" placeholder="Email address" autocomplete="email" required>
         </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#story">About</a></li>
-          <li><a href="#pillars">How I Help</a></li>
-          <li><a href="thevoice.html">WorkBook</a></li>
-          <li><a href="blog.html">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Find Me</h4>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          NI, UK, ES
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" style="flex-shrink:0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          Available worldwide online
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
-          <a href="https://www.instagram.com/kristian.sokol?utm_source=qr" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
-          <a href="https://coachcompare.com/coach/16039-kristian-sokol" target="_blank" rel="noopener" class="footer-social-link">CoachCompare Profile</a>
-        </p>
-        <p style="display:flex;align-items:center;gap:0.6rem;margin-top:0.6rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warm-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <a href="https://app.coach.me/CoachKris" target="_blank" rel="noopener" class="footer-social-link">Coach.me Profile</a>
-        </p>
-      </div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="Voice You Feed workbook signup (home page)">
+        <p class="vyf-err" id="vyfErr"></p>
+        <button class="btn btn-primary" type="submit" id="vyfBtn">Send me the workbook <span class="dot">&rarr;</span></button>
+      </form>
+      <p class="vyf-fine">Free for now. No spam, ever. By requesting the workbook you agree to the <a href="/legal.html">terms and conditions</a>.</p>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Coach Kris - Kristian Sokol &middot; Certified Life &amp; Longevity Coach. All rights reserved.</p>
-      <p>ADHD-aware &middot; LGBTQ+ friendly &middot; Zero judgment, always</p>
+    <div class="vyf-done" id="vyfDone">
+      <strong>It's yours.</strong> Grab the workbook below.
+      <a class="btn btn-primary" href="/vyf/downloads/VYF-Workbook.pdf" download="The-Voice-You-Feed-Workbook.pdf">Download the workbook (PDF)</a>
     </div>
-  </footer>
+  </section>
+  </div>
 
-  <!-- ─── SCRIPTS ─── -->
-  <script>
-    // Sticky nav
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
+  <section class="card" id="next">
+    <span class="sec-tag">What happens next</span>
+    <div class="step-row">
+      <div class="step-n">1</div>
+      <div class="step-h">Get in touch</div>
+      <p class="step-p">Easy. Send me a message. I'll send you a short onboarding form so I can get a feel for what's going on, what you want to change, and where you want to get to.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">2</div>
+      <div class="step-h">Let's talk</div>
+      <p class="step-p">We'll arrange a free discovery session. No performance, no perfect explanation needed. We'll talk about what's going on, what you want, and whether we're a good fit.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">3</div>
+      <div class="step-h">This is where it gets interesting</div>
+      <p class="step-p">If we decide to work together, this is where we start noticing patterns, shifting perspective, challenging what's getting in the way, and turning it into movement.</p>
+    </div>
+    <div class="step-row">
+      <div class="step-n">4</div>
+      <div class="step-h">We adapt as we go</div>
+      <p class="step-p">No rigid script. If something isn't working, we change it. I'll bring ideas, challenge, perspective and direction and we keep working towards what actually matters to you.</p>
+    </div>
+  </section>
+</div>
+
+<span id="book" style="display:block;height:0;scroll-margin-top:82px;"></span>
+<div class="split">
+  <section class="card price-card" id="book-form">
+    <span class="sec-tag">Simple pricing</span>
+    <div class="price-tag">&pound;45<span style="font-size:.4em; letter-spacing:0;">/hour</span></div>
+    <p class="price-note">No packages, no lock-in. Book a session and see how it lands. Book a run of them if you want momentum.</p>
+    <div class="lead-form">
+      <form id="newLeadForm" novalidate>
+        <input type="text" id="leadName" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="leadEmail" name="email" placeholder="Your email" autocomplete="email" required>
+        <textarea id="leadMsg" name="message" rows="3" placeholder="Tell me what's up" required></textarea>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-primary" id="leadBtn">Book a session <span class="dot">&rarr;</span></button>
+      </form>
+      <div id="leadSuccess" class="lead-success">Got it. I'll come back to you within a day.</div>
+      <p class="free-line">Your first discovery session is free.</p>
+    </div>
+    <p class="fine">Sessions are online, by video, worldwide. Usually 60 minutes.</p>
+  </section>
+
+  <section class="card">
+    <span class="sec-tag">Clients say</span>
+    <div class="testi-wrap">
+      <div class="testi-card">
+        <span class="tq">&ldquo;</span>
+        <p class="testi-q">Kris, just wanted to say that you are such an <b>awesome coach</b>. So attentive and genuine.</p>
+      </div>
+      <div class="testi-card">
+        <span class="tq">&ldquo;</span>
+        <p class="testi-q">There are times when I'm doing stuff I feel like I'm <b>channelling your energy</b>. Sometimes I hear your voice in my head and it <b>gives me confidence</b>.</p>
+      </div>
+      <div class="testi-card">
+        <span class="tq">&ldquo;</span>
+        <p class="testi-q">I'm really excited, and all sessions have been really insightful. I feel <b>more confident</b>, my goals are more accessible, and my long term goals feel closer and more real than ever.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="foot-cta">
+    <h2 class="disp">Stuck doesn't scare me.</h2>
+    <p class="foot-sub">It just gives us somewhere to start.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="foot-panel">
+    <div class="foot-top">
+      <div>
+        <div class="wordmark">coach kris<b>.</b></div>
+        <p class="foot-line">Life · Longevity · Business coaching, online by video, worldwide.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About me</a>
+        <a href="/focus.html">My focus</a>
+        <a href="/coaches.html">For coaches</a>
+        <a href="/blog.html">Blog</a>
+        <a href="https://www.instagram.com/kristian.sokol/" rel="noopener">Instagram</a>
+        <a href="https://coachcompare.com/coach/16039-kristian-sokol" rel="noopener">CoachCompare</a>
+        <a href="https://app.coach.me/CoachKris" rel="noopener">Coach.me</a>
+      </div>
+    </div>
+    <div class="foot-cred">
+      <img src="/accreditations/cpd.png" alt="CPD accredited" width="50" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/nccap.png" alt="NCCAP accredited" width="49" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/cma.png" alt="CMA accredited" width="110" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/iphm.png" alt="IPHM accredited" width="91" height="47" loading="lazy" decoding="async">
+      <img src="/accreditations/icahp.png" alt="ICAHP accredited" width="70" height="47" loading="lazy" decoding="async">
+    </div>
+    <div class="foot-fine">&copy; coach kris. 2026 · Sessions online, by video, worldwide. Usually 60 minutes.</div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var dots = document.getElementById('barDots');
+  var menu = document.getElementById('barMenu');
+  if(dots && menu){
+    dots.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      dots.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-
-    // Mobile menu
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('open');
-    }
-    function closeMenu() {
-      document.getElementById('navLinks').classList.remove('open');
-    }
-
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
-
-    // Hero elements visible immediately
-    document.querySelectorAll('#hero .reveal').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 100);
+    document.addEventListener('click', function(e){
+      if(!menu.contains(e.target) && e.target !== dots){
+        menu.classList.remove('open');
+        dots.setAttribute('aria-expanded', 'false');
+      }
     });
-
-    // Session format toggle
-    let selectedFormat = 'phone';
-    function selectFormat(format) {
-      selectedFormat = format;
-      document.getElementById('phoneBtn').classList.toggle('active', format === 'phone');
-      document.getElementById('videoBtn').classList.toggle('active', format === 'video');
-    }
-
-    // Form submission via Formspree (free, no account needed for basic use)
-    async function submitForm(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
+    menu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        menu.classList.remove('open');
+        dots.setAttribute('aria-expanded', 'false');
       }
-
-      const btn = document.getElementById('submitBtn');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-
-      try {
-        const response = await fetch('https://formspree.io/f/xwvdvbon', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            name,
-            email,
-            message,
-            format: selectedFormat,
-            _subject: `New coaching enquiry from ${name}`,
-            _replyto: email
-          })
-        });
-
-        if (response.ok) {
-          document.getElementById('formContent').style.display = 'none';
-          document.getElementById('formSuccess').classList.add('show');
-        } else {
-          throw new Error('Server error');
-        }
-      } catch (err) {
-        btn.textContent = 'REQUEST MY FREE FOCUS SESSION';
-        btn.disabled = false;
-        alert('Something went wrong. Please email Kristian directly at Kristian.sokol@icloud.com');
-      }
-    }
-  </script>
-
-
-  <script>
-    async function handleSubscribe(e) {
-      e.preventDefault();
-      const email = document.getElementById('subEmail').value.trim();
-      const btn   = e.target.querySelector('button');
-      const msg   = document.getElementById('subMsg');
-      if (!email) return;
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      try {
-        const res = await fetch('https://formspree.io/f/xkolgold', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email, _subject: 'New subscriber: ' + email })
-        });
-        if (res.ok) {
-          msg.classList.add('show');
-          document.getElementById('subEmail').value = '';
-          btn.textContent = 'Subscribe';
-          btn.disabled = false;
-        } else { throw new Error(); }
-      } catch {
-        btn.textContent = 'Subscribe';
-        btn.disabled = false;
-        alert('Something went wrong - please try again.');
-      }
-    }
-  </script>
-
-  <!-- ─── PILLAR OVERLAY ─── -->
-  <div class="pillar-overlay" id="pillarOverlay" onclick="closePillarIfBg(event)">
-    <div class="pillar-overlay-inner" id="pillarOverlayInner">
-      <button class="pillar-overlay-close" onclick="closePillar()" aria-label="Close">✕</button>
-      <p class="pillar-overlay-label" id="povLabel"></p>
-      <h2 class="pillar-overlay-title" id="povTitle"></h2>
-      <p class="pillar-overlay-subtitle" id="povSubtitle"></p>
-      <div class="pillar-overlay-body" id="povBody"></div>
-      <div class="pillar-overlay-cta">
-        <a href="#contact" class="btn-primary-cta" onclick="closePillar()">Book a Free Session →</a>
-        <a href="blog.html" class="btn-secondary-cta">Read Articles</a>
-      </div>
-    </div>
-  </div>
-
-  <script>
-  const PILLAR_CONTENT = {
-    life: {
-      label: 'Pillar One',
-      title: 'Life Coaching',
-      subtitle: 'The Self',
-      body: `
-<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
-  We are all somewhere different. And that is exactly where we begin.
-</p>
-
-<p>No two people arrive at the same crossroads. No two struggles look the same from the inside. What I have learned, through my own loops, my own restarts, and the journeys of every person I have worked with, is that real change only happens when someone finally meets you <em>exactly where you are</em>. Not where you think you should be. Not where the world expects you to be. Where you actually are, right now.</p>
-
-<p>That is the skill I have spent years building: the ability to truly listen, to adapt, and to be fully present, so that in every session, you feel it. No script. No clipboard. Just someone in your corner who actually gets it.</p>
-
-<p>And it does not have to be a monumental life overhaul to bring you here. Some people come carrying years of weight. Others arrive with one specific thing, a habit they cannot shake, a relationship that is not working, a decision they have been circling for months, and that is just as valid a place to start. Whatever brought you here, we work with that.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Going beneath the surface</h3>
-
-<p>Most coaching stays at the level of goals and to-do lists. We go deeper. Together we will dive into the <em>core mechanics</em>, the beliefs, the patterns, the quiet stories you tell yourself every single day. The ones that say <em>"this is just who I am"</em> or <em>"why do I always do this?"</em></p>
-
-<p>We face those parts. We name them. And then, gently but firmly, we rebuild the ones that are no longer serving you and reinforce the ones that are. This is not about fixing you. You are not broken. It is about <strong>understanding the architecture of yourself</strong> so you can finally build on solid ground.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Building a life that actually holds</h3>
-
-<p>Think of it like constructing a staircase together. Each session we lay another step, habits, routines, and safety nets that are built <em>around your life</em>, not borrowed from someone else's. Your surroundings. Your rhythm. Your version of sustainable.</p>
-
-<p>And along the way, we design what I call the <strong>handrails</strong>, the kind of support structures that catch you when the next hard step comes. Because it will. That is not failure, that is life. The difference is that this time, you will not be facing it alone, and you will not be starting from zero.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">A space that is entirely yours</h3>
-
-<p>What we build together is more than a plan. It is a space, one that feels free. Free to be honest, free to be messy, free to be whoever is emerging through all of this. A space where the version of you that has been waiting to exist can finally step forward, block by block, without judgment and without rush.</p>
-
-<p>I will be there for every step of this journey. Not ahead of you, not behind you, <em>right beside you</em>, guiding you to meet yourself and to meet whoever this path leads us to.</p>
-
-<div style="margin-top:2.5rem;padding:1.5rem 1.75rem;background:var(--sand);border-left:3px solid var(--warm-gold);border-radius:0 12px 12px 0;">
-  <p style="margin:0;font-family:var(--font-heading);font-size:1.15rem;font-weight:300;font-style:italic;color:var(--deep-forest);">"Together we will create something that doesn't just look like progress. It <em>feels</em> like freedom."</p>
-</div>
-
-<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to take the first step? The initial call is free, informal, and entirely about you.</p>
-`
-    },
-    longevity: {
-      label: 'Pillar Two',
-      title: 'Longevity Coaching',
-      subtitle: 'The System',
-      body: `
-<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
-  A lot of people call themselves longevity experts. I am not one of them. I am one of the results.
-</p>
-
-<p>Top 17th in longevity rankings worldwide. Most of my organs biologically testing at around 18 years old. 30kg of body fat lost and significant lean muscle gained along the way. These are not numbers I throw around lightly. They are the outcome of years of genuine work, obsessive curiosity, and an unwillingness to settle for what the mainstream tells you is "normal" ageing.</p>
-
-<p>When you work with me, you are not getting someone who read the books and built a following. You are getting someone who actually did the work, connected the dots, and applied it to a real human system, with results that are measurable, visible, and lasting.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The three pillars of a long, vibrant life</h3>
-
-<p>Real longevity is not just about what you eat or how often you move. It is about understanding the three core parts of what makes you <em>you</em>, and creating the conditions for all three to thrive together.</p>
-
-<div style="display:flex;flex-direction:column;gap:1.25rem;margin:1.75rem 0;">
-  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
-    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Body</p>
-    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Biometrics, nutrition, daily movement, and understanding the individual needs of every system within you. We build a backbone structure so your body carries you through life proudly, healthily, and for as long as possible.</p>
-  </div>
-  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
-    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Brain</p>
-    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Patterns, behaviours, and the quiet addictions your mind has built over years. I will show you what to listen to, when to listen, and how to gently reprogram the beliefs that are occupying valuable space and holding you back. Your brain is your greatest tool and your biggest saboteur. We learn to work with both.</p>
-  </div>
-  <div style="padding:1.25rem 1.5rem;background:var(--sand);border-radius:12px;">
-    <p style="margin:0 0 0.4rem;font-weight:600;color:var(--deep-forest);font-size:0.9rem;">The Core</p>
-    <p style="margin:0;font-size:0.875rem;color:var(--slate-mist);line-height:1.7;">Your spirit, your deeper purpose, whatever name resonates with you. The pull you feel but rarely follow. Together we clear the fog around your true beliefs so you can move in the right direction, even if that means building an entirely new foundation from scratch.</p>
-  </div>
-</div>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">When one falls, everything compensates</h3>
-
-<p>Body, brain, and core are deeply connected. When one goes out of balance, the others overwork to cover it. That is where emotional eating, chronic fatigue, low energy, restlessness, and accelerated ageing come from. Not weakness. Imbalance.</p>
-
-<p>With the right guidance you will start noticing the shifts quickly. Not because I hand you a plan, but because together we build something that actually fits your life, your biology, and your version of what it means to feel good.</p>
-
-<div style="margin-top:2.5rem;padding:1.5rem 1.75rem;background:var(--sand);border-left:3px solid var(--warm-gold);border-radius:0 12px 12px 0;">
-  <p style="margin:0 0 0.5rem;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gold);">The philosophy</p>
-  <p style="margin:0;font-family:var(--font-heading);font-size:1.15rem;font-weight:300;font-style:italic;color:var(--deep-forest);">"Seek discomfort to find comfort. From biometrics to spiritual beliefs, everything is connected."</p>
-</div>
-
-<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to find out what your body, brain and core are really capable of? The first call is free and there is no pressure, just an honest conversation.</p>
-`
-    },
-    project: {
-      label: 'Pillar Three',
-      title: 'Business Coaching',
-      subtitle: 'The Direction',
-      body: `
-<p style="font-family:var(--font-heading);font-size:1.55rem;font-weight:300;line-height:1.4;color:var(--deep-forest);margin-bottom:1.75rem;font-style:italic;">
-  Sometimes the business problem isn't really a business problem.
-</p>
-
-<p>You may believe you need another certificate, a perfect niche, more confidence or a complete plan before you can begin. Together, we look beneath that explanation. We clarify who you want to help, what you already bring, what is genuinely missing and what may simply be protecting you from the discomfort of becoming visible.</p>
-
-<p>I did not learn business from a course. I grew up in it. My mother went from owning a small shop to running a building company with around twenty men on the books, to eventually owning multiple successful hotels. She never wasted a second, and it was down to her sharp instincts and the way she noticed things nobody else did. I was around it all before I could even talk. As I grew, she often asked for my input, encouraging my creativity and the different way I looked at things rather than shutting it down. That is where I absorbed patterns most people never learn to see.</p>
-
-<p>Later I struck out on my own, studied more, gathered more, and started spotting patterns in a way that felt almost unfair. That path eventually led me to work as a deckhand on a &euro;300 million superyacht, surrounded by some of the wealthiest people on the planet. Different world, same patterns. Those experiences taught me to notice many of the patterns that help a business move - or quietly keep it standing still.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Who this is for</h3>
-
-<p>This is not for huge corporations. If that is you, this probably is not the right fit, and that is fine. This is for the creative individuals. The brave ones. Solopreneurs and small businesses, online or in person, trying to reach their full potential. It does not matter if it is just an idea, if you have already started, if you need a push, or simply want help with the next step.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The start line</h3>
-
-<p>If you are just beginning, well done, that is a great place to be, and also the hardest, because turning an idea into something real takes time, strategy, and direction. From first draft to a website with strong SEO to landing your first client, this is my favourite part of the work. Watching someone get their first win is exactly why I do this.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">Stuck in the middle</h3>
-
-<p>Not sure what to do next, or why your current setup is not working? I have a sharp eye for business and for what success actually requires. We will brainstorm, adjust, rethink, edit, and rebuild whatever needs it, until you feel confident enough to put it out into the world and move to the next stage.</p>
-
-<h3 style="font-family:var(--font-heading);font-size:1.3rem;font-weight:400;color:var(--warm-gold);font-style:italic;margin:2rem 0 0.75rem;">The dip nobody talks about</h3>
-
-<p>Then there is the moment when everything was working and suddenly is not, and you cannot quite put your finger on why. We examine the moving parts, identify what may have changed and decide what is worth adjusting, rebuilding or leaving alone. Then we bring the life back into your business or practice.</p>
-
-<p>Success means different things to different people and different businesses. It does not always mean money, but we all know that feeling when we get there. And if you do not know it yet, buckle in. We will find it together.</p>
-
-<p style="margin-top:2rem;font-size:0.875rem;color:var(--slate-mist);">Ready to find your next step? The first call is free, no pressure, just a real conversation about where you are and where you want to be.</p>
-`
-    }
-  };
-
-  function openPillar(key) {
-    const d = PILLAR_CONTENT[key];
-    if (!d) return;
-    document.getElementById('povLabel').textContent    = d.label;
-    document.getElementById('povTitle').textContent    = d.title;
-    document.getElementById('povSubtitle').textContent = d.subtitle;
-    document.getElementById('povBody').innerHTML       = d.body;
-    document.getElementById('pillarOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-    // Scroll overlay to top
-    document.getElementById('pillarOverlayInner').scrollTop = 0;
+    });
   }
-
-  function closePillar() {
-    document.getElementById('pillarOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closePillarIfBg(e) {
-    if (e.target === document.getElementById('pillarOverlay')) closePillar();
-  }
-
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePillar();
+})();
+</script>
+<script>
+(function(){
+  var form = document.getElementById('newLeadForm');
+  var openedAt = Date.now();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('leadName').value.trim();
+    var email = document.getElementById('leadEmail').value.trim();
+    var message = document.getElementById('leadMsg').value.trim();
+    var honeypot = form.querySelector('[name="_gotcha"]').value;
+    var tooFast = (Date.now() - openedAt) < 6000;
+    if (honeypot || tooFast) { document.getElementById('leadSuccess').classList.add('show'); form.style.display='none'; return; }
+    if (!name || !email || !message) { alert('Please fill in all fields.'); return; }
+    var btn = document.getElementById('leadBtn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    fetch('https://formspree.io/f/xwvdvbon', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({name:name, email:email, message:message,
+        _subject:'New session enquiry from the home page (' + name + ')', _replyto:email})
+    }).then(function(r){
+      if (!r.ok) throw new Error('err');
+      document.getElementById('leadSuccess').classList.add('show');
+      form.style.display='none';
+    }).catch(function(){
+      btn.disabled = false; btn.innerHTML = 'Book a session <span class="dot">&rarr;</span>';
+      alert('Something went wrong. Email me directly at Kristian.sokol@icloud.com');
+    });
   });
-  </script>
+})();
+</script>
 
-
-    <!-- Language Switcher JS -->
+<script>
+/* Free workbook gate: name + email unlocks the PDF. Honeypot + time trap + remembers returning visitors. */
+(function(){
+  var KEY = 'ck_vyf_ok';
+  var loadedAt = Date.now();
+  var gate = document.getElementById('vyfGate');
+  var done = document.getElementById('vyfDone');
+  var form = document.getElementById('vyfForm');
+  if(!gate || !done || !form) return;
+  function unlock(){
+    gate.classList.add('hide');
+    done.classList.add('show');
+    try{ localStorage.setItem(KEY, '1'); }catch(e){}
+  }
+  try{ if(localStorage.getItem(KEY) === '1'){ unlock(); } }catch(e){}
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var first = document.getElementById('vyfFirst').value.trim();
+    var email = document.getElementById('vyfEmail').value.trim();
+    var err = document.getElementById('vyfErr');
+    var btn = document.getElementById('vyfBtn');
+    err.classList.remove('show');
+    if(form.querySelector('.hp').value){ unlock(); return; }          /* honeypot */
+    if(Date.now() - loadedAt < 4000){ unlock(); return; }             /* time trap */
+    if(!first || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      err.textContent = 'Pop in your first name and a real email address, then try again.';
+      err.classList.add('show');
+      return;
+    }
+    btn.disabled = true;
+    fetch('https://formspree.io/f/xkolgold', {
+      method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+    }).then(function(r){ if(r.ok){ unlock(); } else { throw new Error('bad status'); } })
+      .catch(function(){ btn.disabled = false; err.textContent = "That didn't go through. Try again in a moment."; err.classList.add('show'); });
+  });
+})();
+</script>
 </body>
 </html>

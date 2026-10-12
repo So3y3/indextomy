@@ -877,13 +877,13 @@
   <!-- ── NAV ── -->
 <div class="bar">
   <div class="bar-in">
-    <a href="/new" class="wordmark">coach kris<b>.</b></a>
+    <a href="/" class="wordmark">coach kris<b>.</b></a>
     <div class="bar-links">
       <a href="/about.html">About me</a>
       <a href="/focus.html">My focus</a>
       <a href="/coaches.html">For coaches</a>
       <a href="/blog.html">Blog</a>
-      <a href="/new#book-form" class="bar-cta">Book a session</a>
+      <a href="/#book-form" class="bar-cta">Book a session</a>
     </div>
     <button class="bar-dots" id="barDots" aria-label="Open options" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -894,7 +894,7 @@
     <a href="/focus.html" data-n="02">My focus</a>
     <a href="/coaches.html" data-n="03">For coaches</a>
     <a href="/blog.html" data-n="04">Blog</a>
-    <a href="/new#book-form" class="bm-cta">Book a session</a>
+    <a href="/#book-form" class="bm-cta">Book a session</a>
   </div>
 </div>
 
@@ -1356,13 +1356,13 @@ function buildArticleHtml(post) {
   h += '@media(max-width:600px){.article-wrap{padding:5rem 1.25rem 3rem}h1.article-title{font-size:2rem}}\n';
   h += '</style>\n</head>\n<body>\n';
   h += '<nav>\n';
-  h += '  <a class="nav-brand" href="../new.html">coach kris<b>.</b></a>\n';
+  h += '  <a class="nav-brand" href="../">coach kris<b>.</b></a>\n';
   h += '  <div class="nav-links-article">\n';
   h += '    <a href="../about.html">About me</a>\n';
   h += '    <a href="../focus.html">My focus</a>\n';
   h += '    <a href="../coaches.html">For coaches</a>\n';
   h += '    <a href="../blog.html" class="nav-active-link">Blog</a>\n';
-  h += '    <a class="nav-cta" href="../new.html#book-form">Book a session</a>\n';
+  h += '    <a class="nav-cta" href="../#book-form">Book a session</a>\n';
   h += '  </div>\n';
   h += '  <a class="nav-back" href="../blog.html">&#8592; All Articles</a>\n';
   h += '</nav>\n';
@@ -1384,7 +1384,7 @@ function buildArticleHtml(post) {
   h += '    <button class="share-btn" onclick="if(navigator.share){navigator.share({title:\'' + cleanTitle.replace(/\\/g,'\\\\').replace(/'/g,"\\'") + '\',url:location.href})}else{navigator.clipboard.writeText(location.href).then(function(){alert(\'Link copied!\')})}">Share &#8599;</button>\n';
   h += '  </div>\n';
   h += '</main>\n';
-  h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../new.html">Home</a> &middot; <a href="../blog.html">Blog</a></p></footer>\n';
+  h += '<footer><p>&#169; 2026 Kristian Sokol. All rights reserved. &middot; <a href="../">Home</a> &middot; <a href="../blog.html">Blog</a></p></footer>\n';
   h += '</body>\n</html>';
   return h;
 }

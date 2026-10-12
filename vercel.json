@@ -24,13 +24,109 @@
       "source": "/VYF",
       "destination": "/vyf.html",
       "permanent": true
+    },
+    {
+      "source": "/new",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/new.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/offer",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/offer.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/free",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/free.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/therapistoffer",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/therapistoffer.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/upsell1",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/upsell1.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/upsell2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/upsell2.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/coaching-upsell",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/coaching-upsell.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/brainvsbody",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/brainvsbody.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/agreement",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/agreement.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/alignment-upgrade",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/alignment-upgrade.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/new",
-      "destination": "/new.html"
-    },
     {
       "source": "/linksta",
       "destination": "/linksta.html"
