@@ -867,19 +867,46 @@
     .hero-grid{position:relative;}
     .hero-grid .hero-sub{margin-top:14px; max-width:none;}
     .hero-grid .hero-sub{padding-right:0; margin-top:14px;}
-    .hero-grid .hero-sub::before{content:""; float:right; width:124px; height:46px; shape-outside:inset(0);}
-    .hero-grid h1{padding-right:112px; font-size:clamp(1.95rem, 8.4vw, 2.3rem);}
-    .hero-deck{position:absolute; top:112px; right:12px; width:124px; height:116px; max-width:none; margin:0; z-index:2;}
-    .deck-card{padding:7px 7px 6px; border-radius:12px; box-shadow:0 7px 16px rgba(20,20,20,.15); gap:3px;}
-    .deck-card .d-tag{font-size:.42rem; letter-spacing:.07em;}
-    .deck-card .d-h{font-size:.6rem; line-height:1.05;}
+    .hero-grid .hero-sub::before{content:""; float:right; width:152px; height:52px; shape-outside:inset(0);}
+    .hero-grid h1{padding-right:140px; font-size:clamp(1.95rem, 8.4vw, 2.3rem);}
+    .hero-deck{position:absolute; top:104px; right:12px; width:152px; height:146px; max-width:none; margin:0; z-index:2;}
+    .deck-card{padding:9px 9px 8px; border-radius:14px; box-shadow:0 7px 16px rgba(20,20,20,.15); gap:4px;}
+    .deck-card .d-tag{font-size:.5rem; letter-spacing:.08em;}
+    .deck-card .d-h{font-size:.74rem; line-height:1.08;}
     .deck-card .d-chips{display:none;}
-    .deck-card .d-wheel{max-width:34px;}
-    .d-a{width:78px; left:0; top:0;}
-    .d-b{width:78px; right:0; top:32px;}
-    .d-c{width:78px; left:14px; top:66px;}
+    .deck-card .d-wheel{max-width:44px;}
+    .d-a{width:96px; left:0; top:0;}
+    .d-b{width:96px; right:0; top:38px;}
+    .d-c{width:96px; left:22px; top:80px;}
     .d-c .d-h{display:none;}
     .d-float{display:none;}
+    .deep-box .btn{align-self:flex-end;}
+  }
+  /* 360-379 phones get a mid-size deck */
+  @media(min-width:360px) and (max-width:379px){
+    .hero-deck{width:140px; height:132px;}
+    .deck-card{padding:8px 8px 7px; border-radius:13px; gap:3px;}
+    .deck-card .d-tag{font-size:.46rem;}
+    .deck-card .d-h{font-size:.66rem;}
+    .deck-card .d-wheel{max-width:38px;}
+    .d-a,.d-b,.d-c{width:88px;}
+    .d-b{top:36px;}
+    .d-c{left:18px; top:74px;}
+    .hero-grid h1{padding-right:126px;}
+    .hero-grid .hero-sub::before{width:140px; height:50px;}
+  }
+  /* very narrow phones keep the original compact deck so the headline never wraps */
+  @media(max-width:359px){
+    .hero-deck{width:124px; height:116px; top:112px;}
+    .deck-card{padding:7px 7px 6px; border-radius:12px; gap:3px;}
+    .deck-card .d-tag{font-size:.42rem; letter-spacing:.07em;}
+    .deck-card .d-h{font-size:.6rem; line-height:1.05;}
+    .deck-card .d-wheel{max-width:34px;}
+    .d-a,.d-b,.d-c{width:78px;}
+    .d-b{top:32px;}
+    .d-c{left:14px; top:66px;}
+    .hero-grid h1{padding-right:112px;}
+    .hero-grid .hero-sub::before{width:124px; height:46px;}
   }
 </style>
 </head>
