@@ -396,6 +396,7 @@
   /* inline lead form */
   .lead-form{margin-top:22px; scroll-margin-top:96px;}
   .price-card{scroll-margin-top:110px;}
+  #workbook{scroll-margin-top:82px;}
   .lead-form form{display:grid; gap:10px;}
   .lead-form input, .lead-form textarea{
     width:100%; font:inherit; font-size:.92rem; color:var(--ink);
@@ -878,6 +879,28 @@
     }).then(function(r){ if(r.ok){ unlock(); } else { throw new Error('bad status'); } })
       .catch(function(){ btn.disabled = false; err.textContent = "That didn't go through. Try again in a moment."; err.classList.add('show'); });
   });
+})();
+
+/* Arriving from #workbook links (linksta and friends): land the card centred, clear of the floating nav. */
+(function(){
+  function centreWorkbook(){
+    if(location.hash !== '#workbook') return;
+    var el = document.getElementById('workbook');
+    if(!el) return;
+    var r = el.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var bar = document.querySelector('.bar');
+    var header = bar ? (bar.getBoundingClientRect().bottom + 12) : 76;
+    var target;
+    if(r.height + header < vh - 16){
+      target = window.scrollY + r.top - (vh - r.height) / 2;
+    } else {
+      target = window.scrollY + r.top - header;
+    }
+    window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+  }
+  window.addEventListener('load', function(){ setTimeout(centreWorkbook, 80); });
+  window.addEventListener('hashchange', centreWorkbook);
 })();
 </script>
 </body>
