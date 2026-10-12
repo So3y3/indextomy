@@ -165,12 +165,22 @@
     border-radius:26px; border:1.5px solid var(--line);
   }
   .stickers{
-    display:flex; flex-wrap:wrap; justify-content:center;
-    gap:10px; margin:12px auto 4px; padding:0 24px; max-width:1080px;
+    overflow:hidden; margin:14px auto 6px; padding:4px 0; max-width:1080px; position:relative;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+  .stk-track{
+    display:flex; width:max-content; padding:6px 0;
+    animation:stk-move 26s linear infinite;
+  }
+  .stk-track:hover, .stk-track:active{animation-play-state:paused;}
+  @keyframes stk-move{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  @media (prefers-reduced-motion: reduce){
+    .stk-track{animation:none; flex-wrap:wrap; justify-content:center; width:auto;}
   }
   .stk{
     font-weight:600; font-size:.75rem; padding:8px 13px; border-radius:999px;
-    white-space:nowrap; transition:transform .3s cubic-bezier(.2,.8,.2,1);
+    white-space:nowrap; margin-right:10px; transition:transform .3s cubic-bezier(.2,.8,.2,1);
   }
   .stk:nth-child(odd){transform:rotate(1.2deg);}
   .stk:nth-child(even){transform:rotate(-1.2deg);}
@@ -467,13 +477,12 @@
     .hero-grid h1{font-size:2.3rem; line-height:1.08; position:relative; z-index:2; pointer-events:none;}
     .hero-grid .photo-side{position:absolute; top:104px; right:14px; width:auto; z-index:1; display:block; padding:0;}
     .hero-grid .photo-side .photo-card{max-width:none; margin:0; border-radius:16px;}
-    .hero-grid .photo-card img{width:clamp(108px, 33vw, 132px); height:158px; border-radius:16px; object-fit:cover; object-position:top 12%;
+    .hero-grid .photo-card img{width:clamp(108px, 33vw, 132px); height:140px; border-radius:16px; object-fit:cover; object-position:top 12%;
         border:1.5px solid var(--line); box-shadow:0 10px 24px rgba(20,20,20,.16); position:relative;}
-    .hero-grid h1 .h-go{margin-top:48px;}
+    .hero-grid h1 .h-go{margin-top:8px;}
     .hero-grid .chips{flex-wrap:wrap; justify-content:center;}
     .split{max-width:640px; margin:0 auto; padding:0 18px;}
-    .stickers{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; max-width:480px; margin:12px auto 4px; padding:0 18px;}
-    .stk{white-space:normal; text-align:center; font-size:.66rem; padding:9px 6px; border-radius:14px;}
+    .stk{font-size:.7rem;}
   }
 </style>
 </head>
@@ -522,12 +531,20 @@
 </header>
 
 <div class="stickers">
-  <span class="stk stk-pop">Adaptive coaching</span>
-  <span class="stk stk-blue">NLP-informed</span>
-  <span class="stk stk-cream">Perspective shifter</span>
-  <span class="stk stk-pop">Challenge with purpose</span>
-  <span class="stk stk-blue">Action focused</span>
-  <span class="stk stk-cream">Creative problem-solver</span>
+  <div class="stk-track">
+    <span class="stk stk-pop">Adaptive coaching</span>
+    <span class="stk stk-blue">NLP-informed</span>
+    <span class="stk stk-cream">Perspective shifter</span>
+    <span class="stk stk-pop">Challenge with purpose</span>
+    <span class="stk stk-blue">Action focused</span>
+    <span class="stk stk-cream">Creative problem-solver</span>
+    <span class="stk stk-pop" aria-hidden="true">Adaptive coaching</span>
+    <span class="stk stk-blue" aria-hidden="true">NLP-informed</span>
+    <span class="stk stk-cream" aria-hidden="true">Perspective shifter</span>
+    <span class="stk stk-pop" aria-hidden="true">Challenge with purpose</span>
+    <span class="stk stk-blue" aria-hidden="true">Action focused</span>
+    <span class="stk stk-cream" aria-hidden="true">Creative problem-solver</span>
+  </div>
 </div>
 
 <div class="wrap">
