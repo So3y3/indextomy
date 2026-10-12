@@ -499,6 +499,34 @@
     .split{max-width:640px; margin:0 auto; padding:0 18px;}
     .stk{font-size:.7rem;}
   }
+
+  /* home: free workbook sign-up gate (sits under Proudest moments) */
+  .split-col{display:flex; flex-direction:column; gap:18px; min-width:0;}
+  .split-col section.card{margin:0;}
+  .vyf-top{display:grid; grid-template-columns:104px 1fr; gap:18px; align-items:center; margin-bottom:18px;}
+  .vyf-cover{width:104px; height:auto; border-radius:10px; box-shadow:0 10px 26px rgba(20,20,20,.22); transform:rotate(-2.5deg); border:1.5px solid rgba(20,20,20,.08);}
+  .vyf-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(1.35rem,5.4vw,1.75rem); line-height:1.12; margin:0 0 8px;}
+  .vyf-sub{color:var(--soft); font-size:.9rem; line-height:1.5; margin:0;}
+  .vyf-copy .sec-tag{margin-bottom:8px;}
+  #vyfForm{display:grid; gap:10px;}
+  .vyf-fields{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .vyf-fields input{
+    width:100%; padding:13px 15px; border:1.5px solid var(--line); border-radius:14px;
+    background:var(--paper); font:inherit; font-size:.95rem; color:var(--ink);
+  }
+  .vyf-fields input:focus{outline:none; border-color:var(--pop); box-shadow:0 0 0 3px rgba(255,77,0,.15);}
+  .vyf-gate .hp{position:absolute; left:-4000px; width:1px; height:1px; opacity:0;}
+  .vyf-err{display:none; color:#B3261E; font-size:.85rem; font-weight:600; margin:0;}
+  .vyf-err.show{display:block;}
+  .vyf-fine{color:var(--soft); font-size:.78rem; margin:12px 0 0;}
+  .vyf-done{display:none; background:var(--pop-soft); border:1.5px solid rgba(255,77,0,.3); border-radius:18px; padding:16px 18px; font-size:.95rem;}
+  .vyf-done.show{display:grid; gap:12px;}
+  .vyf-gate.hide{display:none;}
+  @media(max-width:480px){
+    .vyf-fields{grid-template-columns:1fr;}
+    .vyf-top{grid-template-columns:88px 1fr; gap:14px;}
+    .vyf-cover{width:88px;}
+  }
 </style>
 </head>
 <body>
@@ -605,6 +633,7 @@
 </div>
 
 <div class="split">
+  <div class="split-col">
   <section class="card">
     <span class="sec-tag">Proudest moments</span>
     <div class="story-row">
@@ -627,6 +656,35 @@
     </div>
     <a href="/about.html" class="link-arrow">There is more to my story &rarr;</a>
   </section>
+
+  <section class="card vyf-card" id="workbook">
+    <div class="vyf-top">
+      <img class="vyf-cover" src="/vyf/vyf-cover-new.jpg" alt="The Voice You Feed workbook cover" width="360" height="509" loading="lazy" decoding="async">
+      <div class="vyf-copy">
+        <span class="sec-tag">Free workbook</span>
+        <h2 class="vyf-h">The Voice <span class="hl">You Feed.</span></h2>
+        <p class="vyf-sub">A 7-day self-experiment on the voice in your head and which one you keep feeding. 22 pages, yours free for now.</p>
+      </div>
+    </div>
+    <div class="vyf-gate" id="vyfGate">
+      <form id="vyfForm" novalidate>
+        <div class="vyf-fields">
+          <input type="text" id="vyfFirst" name="first_name" placeholder="First name" autocomplete="given-name" required>
+          <input type="email" id="vyfEmail" name="email" placeholder="Email address" autocomplete="email" required>
+        </div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="Voice You Feed workbook signup (home page)">
+        <p class="vyf-err" id="vyfErr"></p>
+        <button class="btn btn-primary" type="submit" id="vyfBtn">Send me the workbook <span class="dot">&rarr;</span></button>
+      </form>
+      <p class="vyf-fine">Free for now. No spam, ever. You only hear from me about coaching.</p>
+    </div>
+    <div class="vyf-done" id="vyfDone">
+      <strong>It's yours.</strong> Grab the workbook below.
+      <a class="btn btn-primary" href="/vyf/downloads/VYF-Workbook.pdf" download="The-Voice-You-Feed-Workbook.pdf">Download the workbook (PDF)</a>
+    </div>
+  </section>
+  </div>
 
   <section class="card" id="next">
     <span class="sec-tag">What happens next</span>
@@ -781,6 +839,44 @@
       btn.disabled = false; btn.innerHTML = 'Book a session <span class="dot">&rarr;</span>';
       alert('Something went wrong. Email me directly at Kristian.sokol@icloud.com');
     });
+  });
+})();
+</script>
+
+<script>
+/* Free workbook gate: name + email unlocks the PDF. Honeypot + time trap + remembers returning visitors. */
+(function(){
+  var KEY = 'ck_vyf_ok';
+  var loadedAt = Date.now();
+  var gate = document.getElementById('vyfGate');
+  var done = document.getElementById('vyfDone');
+  var form = document.getElementById('vyfForm');
+  if(!gate || !done || !form) return;
+  function unlock(){
+    gate.classList.add('hide');
+    done.classList.add('show');
+    try{ localStorage.setItem(KEY, '1'); }catch(e){}
+  }
+  try{ if(localStorage.getItem(KEY) === '1'){ unlock(); } }catch(e){}
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var first = document.getElementById('vyfFirst').value.trim();
+    var email = document.getElementById('vyfEmail').value.trim();
+    var err = document.getElementById('vyfErr');
+    var btn = document.getElementById('vyfBtn');
+    err.classList.remove('show');
+    if(form.querySelector('.hp').value){ unlock(); return; }          /* honeypot */
+    if(Date.now() - loadedAt < 4000){ unlock(); return; }             /* time trap */
+    if(!first || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      err.textContent = 'Pop in your first name and a real email address, then try again.';
+      err.classList.add('show');
+      return;
+    }
+    btn.disabled = true;
+    fetch('https://formspree.io/f/xkolgold', {
+      method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+    }).then(function(r){ if(r.ok){ unlock(); } else { throw new Error('bad status'); } })
+      .catch(function(){ btn.disabled = false; err.textContent = "That didn't go through. Try again in a moment."; err.classList.add('show'); });
   });
 })();
 </script>
